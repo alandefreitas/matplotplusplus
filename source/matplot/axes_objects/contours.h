@@ -138,6 +138,7 @@ namespace matplot {
         template <class T>
         class contours& color(T c) {
             line_spec().color(c);
+            return *this;
         }
         inline class contours& color(std::initializer_list<float> c) {
             line_spec().color(c);
