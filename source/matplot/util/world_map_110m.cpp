@@ -12,7 +12,7 @@ namespace matplot {
     // \n\n
     // \nstd::numeric_limits<double>::quiet_NaN(),\n
 	std::pair<std::vector<double>, std::vector<double>> prepare_world_map_110m() {
-        std::vector<double> x = {
+        static constexpr double x[] = {
                         -163.71289567772871,
                         -163.105800951163786,
                         -161.245113491846439,
@@ -5270,7 +5270,7 @@ namespace matplot {
                         178.277211542063895,
                         180.0
                 };
-        std::vector<double> y = {
+        static constexpr double y[] = {
                 -78.595667413241543,
                 -78.223338718578589,
                 -78.380176690584435,
@@ -10528,7 +10528,7 @@ namespace matplot {
                 -84.472517999202552,
                 -84.71338
         };
-        return std::make_pair(x,y);
+        return std::make_pair(std::vector(std::begin(x), std::end(x)), std::vector(std::begin(y), std::end(y)));
 	}
 
     std::pair<std::vector<double>, std::vector<double>>& world_map_110m() {
