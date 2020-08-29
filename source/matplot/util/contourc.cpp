@@ -341,16 +341,16 @@ namespace matplot {
     void QuadContourGenerator::append_contour_line_to_vertices(
             ContourLine &contour_line,
             vertices_list_type& vertices_list) const {
-        double x_diff = abs(_x[0][1] - _x[0][0]);
-        double y_diff = abs(_y[1][0] - _y[0][0]);
+        double x_diff = std::abs(_x[0][1] - _x[0][0]);
+        double y_diff = std::abs(_y[1][0] - _y[0][0]);
         // Convert ContourLine to vertices_list
         size_t i = 0;
         size_t inserted = 0;
         for (ContourLine::const_iterator point = contour_line.begin();
              point != contour_line.end(); ++point, ++i) {
             bool is_origin = point->x == 0. && point->y == 0.;
-            bool is_x_jump_to_origin = is_origin && inserted != 0 && abs(vertices_list.first.back()) > 3 * x_diff;
-            bool is_y_jump_to_origin = is_origin && inserted != 0 && abs(vertices_list.second.back()) > 3 * y_diff;
+            bool is_x_jump_to_origin = is_origin && inserted != 0 && std::abs(vertices_list.first.back()) > 3 * x_diff;
+            bool is_y_jump_to_origin = is_origin && inserted != 0 && std::abs(vertices_list.second.back()) > 3 * y_diff;
             bool is_end_of_segment = is_x_jump_to_origin && is_y_jump_to_origin;
             if (!is_end_of_segment) {
                 vertices_list.first.emplace_back(point->x);

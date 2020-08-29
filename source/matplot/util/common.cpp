@@ -840,7 +840,7 @@ namespace matplot {
         std::vector<std::vector<double>> deltas(niceVec.size(), std::vector<double>(roughInts.size()));
         for (size_t i = 0; i < deltas.size(); ++i) {
             for (size_t j = 0; j < deltas[i].size(); ++j) {
-                deltas[i][j] = abs(normRoughInts[j] - niceVec[i]);
+                deltas[i][j] = std::abs(normRoughInts[j] - niceVec[i]);
             }
         }
 
@@ -889,10 +889,10 @@ namespace matplot {
         // Set values that are almost exactly the original limits to be the original
         // limit value.
         for (size_t idx = 0; idx < lLims.size(); ++idx) {
-            if (abs(lLims[idx] - limits_min) < 10*eps(limits_min)) {
+            if (std::abs(lLims[idx] - limits_min) < 10*eps(limits_min)) {
                 lLims[idx] = limits_min;
             }
-            if (abs(uLims[idx] - limits_max) < 10*eps(limits_max)) {
+            if (std::abs(uLims[idx] - limits_max) < 10*eps(limits_max)) {
                 uLims[idx] = limits_max;
             }
         }
@@ -913,7 +913,7 @@ namespace matplot {
         // Determine label size for each interval
         // Get the decade span of the limits and the decade of the intervals
         std::vector<double> maxAbs = transform(lLims,uLims,[](double x, double y) {
-            return abs(x) > abs(y) ? abs(x) : abs(y);
+            return std::abs(x) > std::abs(y) ? std::abs(x) : std::abs(y);
         });
         std::vector<double> decMax = transform(maxAbs, [](double x) { return floor(log10(x)); });// - nDec;
         std::vector<double> decInts = transform(niceInts, [](double x) { return floor(log10(x)); }); // - nDec;
@@ -1005,12 +1005,12 @@ namespace matplot {
         std::vector<double> rangeTest = transform(niceInts, [&](double x) { return range/x; });
         std::vector<bool> isInt(rangeTest.size());
         for (size_t i = 0; i < rangeTest.size(); ++i) {
-            isInt[i] = abs(rangeTest[i]-round(rangeTest[i])) < 1e-6;
+            isInt[i] = std::abs(rangeTest[i]-round(rangeTest[i])) < 1e-6;
         }
         // Test for intervals that land exactly on the endpoints
         std::vector<bool> hitsEnds(lLims.size());
         for (size_t i = 0; i < hitsEnds.size(); ++i) {
-            hitsEnds[i] = (abs(lLims[i]-limits_min)<100*lEps) && (abs(uLims[i]-limits_max)<100*uEps);
+            hitsEnds[i] = (std::abs(lLims[i]-limits_min)<100*lEps) && (std::abs(uLims[i]-limits_max)<100*uEps);
         }
         // Compute a score using the above tests and the tick score and penalty
         std::vector<double> scores(isInt.size());
@@ -1051,7 +1051,7 @@ namespace matplot {
         ticks.emplace_back(uLim);
         // Handle 0 as a special case
         for (size_t i = 0; i < ticks.size(); ++i) {
-            if (abs(ticks[i]) < 10*minEps) {
+            if (std::abs(ticks[i]) < 10*minEps) {
                 ticks[i] = 0;
             }
         }
@@ -1061,7 +1061,7 @@ namespace matplot {
                                         max(0.,uLim-limits_max+labelSize[bestIdx]/2)};
         // Create tick labels
         // Get the decade span of the limits and the decade of the intervals
-        double maxAbs_d = max(abs(ticks.front()), abs(ticks.back()));
+        double maxAbs_d = max(std::abs(ticks.front()), std::abs(ticks.back()));
         double decMax_d = floor(log10(maxAbs_d));
         double decInt = floor(log10(interval));
 
@@ -1132,7 +1132,7 @@ namespace matplot {
 
             std::string scaleStr = "";
             for (size_t i = 0; i < tickLabels.size(); ++i) {
-                if (abs(ticks[i])<10*minEps) {
+                if (std::abs(ticks[i])<10*minEps) {
                     tickLabels[i] = "0";
                 }
             }

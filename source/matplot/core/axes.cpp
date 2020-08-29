@@ -3555,8 +3555,8 @@ namespace matplot {
         // if we found the map
         if (map) {
             // calculate the perimeter of the new limits
-            double latitude_kms = 111.12 * abs(latitude[1] - latitude[0]);
-            double longitude_kms = 111.12 * abs(longitude[1] - longitude[0]);
+            double latitude_kms = 111.12 * std::abs(latitude[1] - latitude[0]);
+            double longitude_kms = 111.12 * std::abs(longitude[1] - longitude[0]);
             double w_pixels = this->width() * this->parent()->width();
             double h_pixels = this->height() * this->parent()->height();
             double w_km_per_pixel = longitude_kms / w_pixels;

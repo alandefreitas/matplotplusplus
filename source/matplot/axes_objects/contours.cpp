@@ -928,7 +928,7 @@ namespace matplot {
             // We always check if a label is not too close to another label
             constexpr double minimum_distance = 0.8;
             auto too_close = [](double x1, double y1, double x2, double y2) {
-                return abs(x1 - x2) < minimum_distance && abs(y1 - y2) < minimum_distance;
+                return std::abs(x1 - x2) < minimum_distance && std::abs(y1 - y2) < minimum_distance;
             };
 
             // Instead of iterating each line, we iterate

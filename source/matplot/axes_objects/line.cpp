@@ -204,7 +204,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -228,7 +228,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }
@@ -248,7 +248,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -268,7 +268,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }
