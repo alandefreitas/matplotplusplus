@@ -5,6 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_COMMON_H
 #define MATPLOTPLUSPLUS_COMMON_H
 
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <sstream>

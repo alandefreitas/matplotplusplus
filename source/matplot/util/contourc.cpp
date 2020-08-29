@@ -14,6 +14,7 @@
 // #include "mplutils.h"
 // https://github.com/matplotlib/matplotlib/blob/master/src/mplutils.h
 // https://github.com/matplotlib/matplotlib/blob/master/src/mplutils.cpp
+#include <cassert>
 #include <matplot/util/contourc.h>
 #include <matplot/axes_objects/contours.h>
 #include <algorithm>

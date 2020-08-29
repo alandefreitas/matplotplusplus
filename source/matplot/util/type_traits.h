@@ -7,6 +7,7 @@
 
 #include <string>
 #include <type_traits>
+#include <vector>
 
 namespace matplot {
     template<typename C>

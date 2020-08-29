@@ -2,6 +2,7 @@
 // Created by Alan Freitas on 15/07/20.
 //
 
+#include <iomanip>
 #include <sstream>
 #include <regex>
 #include <matplot/util/common.h>

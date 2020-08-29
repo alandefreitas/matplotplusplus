@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_AXES_H
 #define MATPLOTPLUSPLUS_AXES_H
 
+#include <array>
+#include <memory>
 #include <optional>
 
 #include <matplot/util/colors.h>

@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <algorithm>
 #include <vector>
 #include <matplot/util/colors.h>
 

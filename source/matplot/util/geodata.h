@@ -5,7 +5,9 @@
 #ifndef MATPLOTPLUSPLUS_GEODATA_H
 #define MATPLOTPLUSPLUS_GEODATA_H
 
+#include <limits>
 #include <vector>
+#include <string>
 
 namespace matplot {
     std::pair<std::vector<double>, std::vector<double>>& world_map_10m();
