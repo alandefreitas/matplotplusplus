@@ -280,7 +280,7 @@ namespace matplot {
             n_bins_actual = nbins;
         }
 
-        if (!isfinite(bin_width)) {
+        if (!std::isfinite(bin_width)) {
             return linspace(left_edge, right_edge, n_bins_actual + 1);
         } else {
             std::vector<double> edges;
@@ -387,7 +387,7 @@ namespace matplot {
         size_t nbins = std::max(ceil(log2(x.size())+1.),1.);
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
-            if (isfinite(binwidth)) {
+            if (std::isfinite(binwidth)) {
                 return bin_picker(minx, maxx, 0, binwidth);
             } else {
                 return bin_picker(minx, maxx, nbins, binwidth);
@@ -401,7 +401,7 @@ namespace matplot {
         size_t nbins = std::max(ceil(log2(x.size())+1.),1.);
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
-            if (isfinite(binwidth)) {
+            if (std::isfinite(binwidth)) {
                 return bin_picker(minx, maxx, 0, binwidth);
             } else {
                 return bin_picker(minx, maxx, nbins, binwidth);

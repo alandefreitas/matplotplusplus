@@ -74,19 +74,19 @@ namespace matplot {
             auto [xmin, xmax, ymin, ymax] = parent_->child_limits();
             if (parent_->x_axis().limits_mode_manual()) {
                 auto [axmin, axmax] = parent_->x_axis().limits();
-                if (isfinite(axmin)) {
+                if (std::isfinite(axmin)) {
                     xmin = std::min(xmin, axmin);
                 }
-                if (isfinite(axmax)) {
+                if (std::isfinite(axmax)) {
                     xmax = std::max(xmax, axmax);
                 }
             }
             if (parent_->y_axis().limits_mode_manual()) {
                 auto [aymin, aymax] = parent_->y_axis().limits();
-                if (isfinite(aymin)) {
+                if (std::isfinite(aymin)) {
                     ymin = std::min(ymin, aymin);
                 }
-                if (isfinite(aymax)) {
+                if (std::isfinite(aymax)) {
                     ymax = std::max(ymax, aymax);
                 }
             }

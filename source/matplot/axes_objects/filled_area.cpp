@@ -60,7 +60,7 @@ namespace matplot {
         if (!stacked_) {
             // send data for filled curve
             for (size_t i = 0; i < y_data_.size(); ++i) {
-                if (isfinite(y_data_[i])) {
+                if (std::isfinite(y_data_[i])) {
                     double base_value = base_data_.empty() ? 0.0 :
                                         base_data_.size() == 1 ? base_data_[0] : base_data_[i];
                     ss << "    " << x_data_[i] << " " << base_value << " " << y_data_[i] << "\n";
@@ -104,7 +104,7 @@ namespace matplot {
         for (size_t i = 0; i < y_data_.size(); ++i) {
             double base_value = base_data_.empty() ? 0.0 :
                                 base_data_.size() == 1 ? base_data_[0] : base_data_[i];
-            if (isfinite(base_value) && isfinite(x_data_[i])) {
+            if (std::isfinite(base_value) && std::isfinite(x_data_[i])) {
                 ss << "    " << x_data_[i] << " " << base_value << "\n";
             } else {
                 ss << "    \n";

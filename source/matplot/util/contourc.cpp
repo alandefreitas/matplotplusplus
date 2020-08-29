@@ -357,7 +357,7 @@ namespace matplot {
                 vertices_list.second.emplace_back(point->y);
                 ++inserted;
             } else {
-                bool last_segment_is_not_empty = inserted > 0 && isfinite(vertices_list.first.back()) && isfinite(vertices_list.first.back());
+                bool last_segment_is_not_empty = inserted > 0 && std::isfinite(vertices_list.first.back()) && std::isfinite(vertices_list.first.back());
                 if (last_segment_is_not_empty) {
                     vertices_list.first.emplace_back(NaN);
                     vertices_list.second.emplace_back(NaN);
@@ -365,7 +365,7 @@ namespace matplot {
 
             }
         }
-        bool last_segment_is_not_empty = inserted > 0 && isfinite(vertices_list.first.back()) && isfinite(vertices_list.first.back());
+        bool last_segment_is_not_empty = inserted > 0 && std::isfinite(vertices_list.first.back()) && std::isfinite(vertices_list.first.back());
         if (last_segment_is_not_empty) {
             vertices_list.first.emplace_back(NaN);
             vertices_list.second.emplace_back(NaN);
@@ -403,7 +403,7 @@ namespace matplot {
                 }
 
                 auto is_valid_point = [](double x, double y) {
-                    return isfinite(x) && isfinite(y) && x != 0. && y != 0.;
+                    return std::isfinite(x) && std::isfinite(y) && x != 0. && y != 0.;
                 };
 
                 // for each point in this line

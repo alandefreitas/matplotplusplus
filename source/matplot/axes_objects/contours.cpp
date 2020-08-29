@@ -135,7 +135,7 @@ namespace matplot {
             bool z_has_nans = false;
             for (size_t i = 0; !z_has_nans && i < Z_data_.size(); ++i) {
                 for (size_t j = 0; !z_has_nans && j < Z_data_[i].size(); ++j) {
-                    if (!isfinite(Z_data_[i][j])) {
+                    if (!std::isfinite(Z_data_[i][j])) {
                         z_has_nans = true;
                     }
                 }
@@ -801,7 +801,7 @@ namespace matplot {
             bool z_has_nans = false;
             for (size_t i = 0; !z_has_nans && i < Z_data_.size(); ++i) {
                 for (size_t j = 0; !z_has_nans && j < Z_data_[i].size(); ++j) {
-                    if (!isfinite(Z_data_[i][j])) {
+                    if (!std::isfinite(Z_data_[i][j])) {
                         z_has_nans = true;
                     }
                 }
@@ -813,7 +813,7 @@ namespace matplot {
                 for (size_t i = 0; i < Z_data_.size(); ++i) {
                     bool all_nan = true;
                     for (size_t j = 0; j < Z_data_[i].size(); ++j) {
-                        if (isfinite(Z_data_[i][j])) {
+                        if (std::isfinite(Z_data_[i][j])) {
                             all_nan = false;
                             break;
                         }
@@ -826,7 +826,7 @@ namespace matplot {
                 for (size_t i = 0; i < Z_data_[0].size(); ++i) {
                     bool all_nan = true;
                     for (size_t j = 0; j < Z_data_.size(); ++j) {
-                        if (isfinite(Z_data_[j][i])) {
+                        if (std::isfinite(Z_data_[j][i])) {
                             all_nan = false;
                             break;
                         }
@@ -889,7 +889,7 @@ namespace matplot {
         // For the lines, we don't need to plot the segments separately
         // One line is separated from the other with NaNs
         auto is_separator = [](double x, double y) {
-            return !isfinite(x) || !isfinite(y);
+            return !std::isfinite(x) || !std::isfinite(y);
         };
 
         for (size_t i = 0; i < lines_.size(); ++i) {
@@ -988,12 +988,12 @@ namespace matplot {
                         constexpr double moving_average_reduction_factor = 0.1;
                         direction_u *= (1-moving_average_reduction_factor);
                         direction_v *= (1-moving_average_reduction_factor);
-                        bool has_previous = j != 0 && isfinite(lines_[i].first[j-1]);
+                        bool has_previous = j != 0 && std::isfinite(lines_[i].first[j-1]);
                         if (has_previous) {
                             direction_u += lines_[i].first[j] - lines_[i].first[j-1];
                             direction_v += lines_[i].second[j] - lines_[i].second[j-1];
                         } else {
-                            bool has_next = j != lines_[i].first.size() - 1 && isfinite(lines_[i].first[j+1]);
+                            bool has_next = j != lines_[i].first.size() - 1 && std::isfinite(lines_[i].first[j+1]);
                             if (has_next) {
                                 direction_u += lines_[i].first[j + 1] - lines_[i].first[j];
                                 direction_v += lines_[i].second[j + 1] - lines_[i].second[j];
@@ -1479,7 +1479,7 @@ namespace matplot {
                 std::get<1>(cur_parent) = 0;
                 size_t j = 0;
                 while (j < filled_lines_[i].first.size()) {
-                    if (isfinite(filled_lines_[i].first[j])) {
+                    if (std::isfinite(filled_lines_[i].first[j])) {
                         ++j;
                     } else {
                         // Nan indicates and end of segment
@@ -1490,7 +1490,7 @@ namespace matplot {
                             std::get<1>(cur).emplace_back(cur_child);
                         }
                         // Two nans in a row indicate a new parent
-                        bool only_one_nan = isfinite(filled_lines_[i].first[j+1]);
+                        bool only_one_nan = std::isfinite(filled_lines_[i].first[j+1]);
                         if (only_one_nan) {
                             is_parent = false;
                             ++j;
@@ -1503,7 +1503,7 @@ namespace matplot {
                             line_segments_.emplace_back(cur);
                             std::get<1>(cur).clear();
                             ++j;
-                            while (!isfinite(filled_lines_[i].first[j])) {
+                            while (!std::isfinite(filled_lines_[i].first[j])) {
                                 ++j;
                             }
                             // start new parent
