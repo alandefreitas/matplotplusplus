@@ -34,9 +34,6 @@ Data visualization can help programmers and scientists identify trends in their 
      * [Compatibility](#compatibility)
      * [Contributing](#contributing)
   * [References](#references)
-
-<!-- Added by: alanfreitas, at: Fri Aug 28 21:36:48 -03 2020 -->
-
 <!--te-->
 
 
