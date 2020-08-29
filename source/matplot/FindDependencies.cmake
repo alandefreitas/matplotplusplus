@@ -1,6 +1,6 @@
 # Add nodesoup library
-CPMAddPackage(NAME nodesoup VERSION 0.1 GITHUB_REPOSITORY olvb/nodesoup GIT_TAG 4bcd8cd2d6c963ccf053f8c19dbb63c065467527 DOWNLOAD_ONLY TRUE)
-add_library(nodesoup
+set(nodesoup_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd_party/nodesoup)
+add_library(nodesoup STATIC
         ${nodesoup_SOURCE_DIR}/src/algebra.cpp
         ${nodesoup_SOURCE_DIR}/src/algebra.hpp
         ${nodesoup_SOURCE_DIR}/src/fruchterman_reingold.cpp

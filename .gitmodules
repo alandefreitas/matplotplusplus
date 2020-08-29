@@ -1,0 +1,3 @@
+[submodule "nodesoup"]
+	path = source/matplot/3rd_party/nodesoup
+	url = https://github.com/olvb/nodesoup.git
