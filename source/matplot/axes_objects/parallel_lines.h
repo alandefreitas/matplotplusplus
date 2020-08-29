@@ -44,9 +44,9 @@ namespace matplot {
         class parallel_lines &
         data(const std::vector<std::vector<double>> &data);
 
-        const std::vector<struct axis> &axis() const;
-        std::vector<struct axis> &axis();
-        class parallel_lines &axis(const std::vector<struct axis> &axis);
+        const std::vector<class axis> &axis() const;
+        std::vector<class axis> &axis();
+        class parallel_lines &axis(const std::vector<class axis> &axis);
 
         bool visible() const;
         class parallel_lines &visible(bool visible);

@@ -125,9 +125,9 @@ namespace matplot {
         void current_axes(const std::shared_ptr<class axes> &current_axes);
 
         /// \brief Get reference to vector with all child axes
-        const std::vector<std::shared_ptr<struct axes>> &children() const;
+        const std::vector<std::shared_ptr<class axes>> &children() const;
         void
-        children(const std::vector<std::shared_ptr<struct axes>> &children);
+        children(const std::vector<std::shared_ptr<class axes>> &children);
 
       protected:
         static std::array<float, 4>
