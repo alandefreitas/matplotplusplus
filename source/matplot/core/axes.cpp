@@ -764,7 +764,7 @@ namespace matplot {
             run_command("set yrange [0:1]");
         }
         run_command("set key off");
-        if (y_axis().limits_mode_auto() || !isfinite(y_axis().limits()[1])) {
+        if (y_axis().limits_mode_auto() || !std::isfinite(y_axis().limits()[1])) {
             run_command("plot 2 with lines");
         } else {
             run_command("plot " + std::to_string(y_axis().limits_[1] + 1) + " with lines");
@@ -3574,7 +3574,7 @@ namespace matplot {
                 // copy next submap
                 std::vector<double> submap_x;
                 std::vector<double> submap_y;
-                while (i < map_x.size() && isfinite(map_x[i]) && isfinite(map_y[i])) {
+                while (i < map_x.size() && std::isfinite(map_x[i]) && std::isfinite(map_y[i])) {
                     submap_x.emplace_back(map_x[i]);
                     submap_y.emplace_back(map_y[i]);
                     ++i;
@@ -3582,7 +3582,7 @@ namespace matplot {
 
                 // fn to check if a point is inside the limits we want
                 auto inside_the_map = [&](double x, double y) {
-                    return isfinite(x) && isfinite(y) &&
+                    return std::isfinite(x) && std::isfinite(y) &&
                            x <= longitude[1] && x >= longitude[0] &&
                            y <= latitude[1] && y >= latitude[0];
                 };

@@ -307,7 +307,7 @@ namespace matplot {
             ss << "    " << x;
             ss << "  " << y;
             ss << "  " << z;
-            if (isfinite(c)) {
+            if (std::isfinite(c)) {
                 ss << "  " << c;
             }
             ss << "\n";
@@ -319,7 +319,7 @@ namespace matplot {
             ss << "  " << z;
             ss << "  " << zlow;
             ss << "  " << zhigh;
-            if (isfinite(c)) {
+            if (std::isfinite(c)) {
                 ss << "  " << c;
             }
             ss << "\n";
@@ -400,7 +400,7 @@ namespace matplot {
             ss << "    " << x;
             ss << "  " << y;
             ss << "  " << z;
-            if (isfinite(c)) {
+            if (std::isfinite(c)) {
                 ss << "  " << c;
             }
             ss << "\n";
