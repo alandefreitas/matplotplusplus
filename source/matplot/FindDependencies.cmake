@@ -15,7 +15,7 @@ add_library(nodesoup STATIC
 target_include_directories(nodesoup PUBLIC ${nodesoup_SOURCE_DIR}/include/)
 
 # Add CImg library
-CPMAddPackage(NAME cimg GITHUB_REPOSITORY dtschump/CImg VERSION 0.221 GIT_TAG v.221 DOWNLOAD_ONLY TRUE)
+set(cimg_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd_party/cimg)
 find_package(PkgConfig)
 add_library(cimg INTERFACE)
 target_include_directories(cimg INTERFACE ${cimg_SOURCE_DIR})

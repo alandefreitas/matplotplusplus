@@ -1,3 +1,6 @@
 [submodule "nodesoup"]
 	path = source/matplot/3rd_party/nodesoup
 	url = https://github.com/olvb/nodesoup.git
+[submodule "cimg"]
+	path = source/matplot/3rd_party/cimg
+	url = https://github.com/dtschump/CImg.git
