@@ -48,8 +48,8 @@ namespace matplot {
     public /* getters and setters */:
         class network& line_style(const std::string& line_spec);
 
-        const line_spec &line_spec() const;
-        class line_spec &line_spec();
+        const matplot::line_spec &line_spec() const;
+        matplot::line_spec &line_spec();
         class network& line_spec(const class line_spec &line_spec);
 
         const std::vector<double> &y_data() const;

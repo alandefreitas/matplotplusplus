@@ -75,8 +75,8 @@ namespace matplot {
     public /* getters and setters */:
         class contours& line_style(const std::string& line_spec);
 
-        const line_spec &line_spec() const;
-        class line_spec &line_spec();
+        const matplot::line_spec &line_spec() const;
+        matplot::line_spec &line_spec();
         class contours& line_spec(const class line_spec &line_spec);
 
         const vector_2d &Y_data() const;
