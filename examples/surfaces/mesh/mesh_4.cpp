@@ -1,11 +1,12 @@
-#include <cmath>
 #include <matplot/matplot.h>
 
-int main() {
-    using namespace matplot;
-    auto [X,Y,Z] = peaks();
-    mesh(X,Y,Z)->hidden_3d(false);
+#include <cmath>
 
-    wait();
-    return 0;
+int main() {
+  using namespace matplot;
+  auto [X, Y, Z] = peaks();
+  mesh(X, Y, Z)->hidden_3d(false);
+
+  wait();
+  return 0;
 }

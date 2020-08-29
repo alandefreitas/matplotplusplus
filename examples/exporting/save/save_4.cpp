@@ -1,12 +1,12 @@
 #include <matplot/matplot.h>
 
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    auto [x,y,z] = peaks();
-    contourf(x,y,z);
+  auto [x, y, z] = peaks();
+  contourf(x, y, z);
 
-    save("img/contour.gif");
+  save("img/contour.gif");
 
-    return 0;
+  return 0;
 }

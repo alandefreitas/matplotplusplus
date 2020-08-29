@@ -1,13 +1,15 @@
-#include <random>
-#include <cmath>
 #include <matplot/matplot.h>
 
+#include <cmath>
+#include <random>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    std::vector<std::vector<double>> Y = {{2, 2, 2, 2}, {2, 5, 8, 11}, {3, 6, 9, 12}};
-    bar(Y);
+  std::vector<std::vector<double>> Y = {
+      {2, 2, 2, 2}, {2, 5, 8, 11}, {3, 6, 9, 12}};
+  bar(Y);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

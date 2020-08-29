@@ -1,14 +1,15 @@
-#include <cmath>
 #include <matplot/matplot.h>
 
-int main() {
-    using namespace matplot;
-    auto [X,Y] = meshgrid(iota(-3,.125,3));
-    auto Z = peaks(X,Y);
-    auto [FX,FY] = gradient(Z);
-    waterfall(X,Y,Z,FX);
-    colorbar();
+#include <cmath>
 
-    wait();
-    return 0;
+int main() {
+  using namespace matplot;
+  auto [X, Y] = meshgrid(iota(-3, .125, 3));
+  auto Z = peaks(X, Y);
+  auto [FX, FY] = gradient(Z);
+  waterfall(X, Y, Z, FX);
+  colorbar();
+
+  wait();
+  return 0;
 }

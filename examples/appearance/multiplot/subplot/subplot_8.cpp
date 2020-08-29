@@ -1,18 +1,19 @@
-#include <iostream>
-#include <thread>
-#include <vector>
-#include <set>
 #include <matplot/matplot.h>
 
+#include <iostream>
+#include <set>
+#include <thread>
+#include <vector>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    fplot("sin(x)");
-    title("Sine Plot");
+  fplot("sin(x)");
+  title("Sine Plot");
 
-    auto ax = gca();
-    subplot(2,1,1,ax);
+  auto ax = gca();
+  subplot(2, 1, 1, ax);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

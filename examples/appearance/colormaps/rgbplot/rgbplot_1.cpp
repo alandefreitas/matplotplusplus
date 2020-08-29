@@ -1,13 +1,13 @@
 #include <matplot/matplot.h>
 
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    rgbplot(palette::parula());
-    hold(on);
-    colormap(palette::parula());
-    colorbar().tick_values({});
+  rgbplot(palette::parula());
+  hold(on);
+  colormap(palette::parula());
+  colorbar().tick_values({});
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

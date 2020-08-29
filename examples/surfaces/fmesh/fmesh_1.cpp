@@ -1,11 +1,12 @@
-#include <cmath>
 #include <matplot/matplot.h>
 
+#include <cmath>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    fmesh([](double x, double y) { return sin(x) + cos(y); });
+  fmesh([](double x, double y) { return sin(x) + cos(y); });
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

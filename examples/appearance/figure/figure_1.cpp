@@ -1,14 +1,15 @@
-#include <iostream>
-#include <thread>
 #include <matplot/matplot.h>
 
+#include <iostream>
+#include <thread>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    auto h = figure();
-    auto ax = h->current_axes();
-    fplot(ax,"cos(x)");
+  auto h = figure();
+  auto ax = h->current_axes();
+  fplot(ax, "cos(x)");
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

@@ -1,11 +1,12 @@
-#include <cmath>
 #include <matplot/matplot.h>
 
+#include <cmath>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    fmesh([](double x, double y) { return sin(x) + cos(y); })->edge_color("red");
+  fmesh([](double x, double y) { return sin(x) + cos(y); })->edge_color("red");
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

@@ -1,19 +1,20 @@
-#include <iostream>
-#include <thread>
-#include <vector>
-#include <set>
 #include <matplot/matplot.h>
 
+#include <iostream>
+#include <set>
+#include <thread>
+#include <vector>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    auto [X,Y,Z] = peaks();
-    surf(X,Y,Z);
-    box(on);
+  auto [X, Y, Z] = peaks();
+  surf(X, Y, Z);
+  box(on);
 
-    auto ax = gca();
-    ax->box_full(true);
+  auto ax = gca();
+  ax->box_full(true);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

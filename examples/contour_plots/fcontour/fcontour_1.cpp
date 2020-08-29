@@ -1,11 +1,11 @@
 #include <matplot/matplot.h>
 
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    auto f = [](double x, double y) {return sin(x) + cos(y); };
-    fcontour(f);
+  auto f = [](double x, double y) { return sin(x) + cos(y); };
+  fcontour(f);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

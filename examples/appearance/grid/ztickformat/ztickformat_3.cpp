@@ -1,15 +1,15 @@
 #include <matplot/matplot.h>
 
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    auto t = iota(0,pi/10,10*pi);
-    auto st = transform(t, [](double t) { return sin(t); });
-    auto ct = transform(t, [](double t) { return cos(t); });
-    plot3(st,ct,t);
-    grid(on);
-    ztickformat("%g cm");
+  auto t = iota(0, pi / 10, 10 * pi);
+  auto st = transform(t, [](double t) { return sin(t); });
+  auto ct = transform(t, [](double t) { return cos(t); });
+  plot3(st, ct, t);
+  grid(on);
+  ztickformat("%g cm");
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

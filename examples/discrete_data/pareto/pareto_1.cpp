@@ -1,13 +1,14 @@
-#include <random>
-#include <cmath>
 #include <matplot/matplot.h>
 
+#include <cmath>
+#include <random>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    std::vector<double> y = {90,75,30,60,5,40,40,5};
-    pareto(y);
+  std::vector<double> y = {90, 75, 30, 60, 5, 40, 40, 5};
+  pareto(y);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }

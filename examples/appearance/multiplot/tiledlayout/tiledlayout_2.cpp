@@ -1,27 +1,28 @@
-#include <iostream>
-#include <thread>
-#include <vector>
-#include <set>
 #include <matplot/matplot.h>
 
+#include <iostream>
+#include <set>
+#include <thread>
+#include <vector>
+
 int main() {
-    using namespace matplot;
+  using namespace matplot;
 
-    tiledlayout(2,2);
-    auto [x,y,z] = peaks(20);
+  tiledlayout(2, 2);
+  auto [x, y, z] = peaks(20);
 
-    nexttile();
-    surf(x,y,z);
+  nexttile();
+  surf(x, y, z);
 
-    nexttile();
-    contour(x,y,z);
+  nexttile();
+  contour(x, y, z);
 
-    nexttile();
-    imagesc(z);
+  nexttile();
+  imagesc(z);
 
-    nexttile();
-    plot3(x,y,z);
+  nexttile();
+  plot3(x, y, z);
 
-    wait();
-    return 0;
+  wait();
+  return 0;
 }
