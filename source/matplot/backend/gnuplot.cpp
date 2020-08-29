@@ -10,6 +10,23 @@
 #include <matplot/util/popen.h>
 #include <matplot/util/common.h>
 
+#ifdef MATPLOT_HAS_FBUFSIZE
+
+#include <stdio_ext.h>
+
+static size_t gnuplot_pipe_capacity(FILE *f) {
+    size_t sz = __fbufsize(f);
+    return sz != 0 ? sz : matplot::backend::gnuplot::pipe_capacity_worst_case;
+}
+
+#else
+
+static size_t gnuplot_pipe_capacity(FILE *) {
+    return matplot::backend::gnuplot::pipe_capacity_worst_case;
+}
+
+#endif // MATPLOT_HAS_FBUFSIZE
+
 namespace matplot::backend {
     bool gnuplot::consumes_gnuplot_commands() {
         return true;
@@ -66,7 +83,7 @@ namespace matplot::backend {
         // look at the extension
         namespace fs = std::filesystem;
         fs::path p{filename};
-        std::string ext = p.extension();
+        std::string ext = p.extension().string();
 
         // check terminal for that extension
         constexpr auto exts = extension_terminal();
@@ -124,7 +141,7 @@ namespace matplot::backend {
         terminal_ = format;
 
         // Append extension if needed
-        std::string ext = p.extension();
+        std::string ext = p.extension().string();
         if (ext.empty()) {
             output_ += it->first;
         }
@@ -220,7 +237,7 @@ namespace matplot::backend {
         if (!pipe_) {
             return;
         }
-        size_t pipe_capacity = (pipe_->_bf._base != nullptr) ? pipe_->_bf._size : pipe_capacity_worst_case;
+        size_t pipe_capacity = gnuplot_pipe_capacity(pipe_);
         if (command.size() + bytes_in_pipe_ > pipe_capacity) {
             flush_commands();
             bytes_in_pipe_ = 0;

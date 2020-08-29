@@ -148,7 +148,7 @@ namespace matplot {
                     size_t index = only_at_marker_indices ? marker_indices_[i] : i;
 
                     double x_value = x_is_manual ? x_data_[index] : index + 1;
-                    if (!isfinite(x_value) || !isfinite(y_data_[i])) {
+                    if (!std::isfinite(x_value) || !std::isfinite(y_data_[i])) {
                         ss << "    \n";
                         continue;
                     }
@@ -204,7 +204,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -228,7 +228,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }
@@ -248,7 +248,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -268,7 +268,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }

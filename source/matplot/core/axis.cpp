@@ -37,7 +37,7 @@ namespace matplot {
     }
 
     bool axis::limits_mode_auto() const {
-        return limits_mode_auto_ || (!isfinite(limits_[0]) && !isfinite(limits_[0]));
+        return limits_mode_auto_ || (!std::isfinite(limits_[0]) && !std::isfinite(limits_[0]));
     }
 
     bool axis::limits_mode_manual() const {
@@ -59,22 +59,22 @@ namespace matplot {
     std::string axis::range_string() const {
         if (!reverse_) {
             std::string r = "[";
-            if (!limits_mode_auto_ && isfinite(limits_[0])) {
+            if (!limits_mode_auto_ && std::isfinite(limits_[0])) {
                 r += std::to_string(limits_[0]);
             }
             r += ":";
-            if (!limits_mode_auto_ && isfinite(limits_[1])) {
+            if (!limits_mode_auto_ && std::isfinite(limits_[1])) {
                 r += std::to_string(limits_[1]);
             }
             r += "] noreverse";
             return r;
         } else {
             std::string r = "[";
-            if (!limits_mode_auto_ && isfinite(limits_[1])) {
+            if (!limits_mode_auto_ && std::isfinite(limits_[1])) {
                 r += std::to_string(limits_[1]);
             }
             r += ":";
-            if (!limits_mode_auto_ && isfinite(limits_[0])) {
+            if (!limits_mode_auto_ && std::isfinite(limits_[0])) {
                 r += std::to_string(limits_[0]);
             }
             r += "] reverse";

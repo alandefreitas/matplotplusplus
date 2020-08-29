@@ -2,6 +2,7 @@
 // Created by Alan Freitas on 13/08/20.
 //
 
+#include <algorithm>
 #include <matplot/freestanding/histcounts.h>
 
 namespace matplot {

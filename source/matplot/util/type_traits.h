@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_TYPE_TRAITS_H
 
 #include <string>
+#include <vector>
 #include <type_traits>
 
 namespace matplot {

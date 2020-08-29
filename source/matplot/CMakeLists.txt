@@ -1,5 +1,7 @@
 include(FindDependencies.cmake)
 
+find_package(Filesystem REQUIRED)
+
 add_library(matplot
         matplot.h
 
@@ -84,7 +86,26 @@ add_library(matplot
 )
 
 target_include_directories(matplot PUBLIC ${MATPLOT_ROOT_DIR}/source)
-target_link_libraries(matplot PUBLIC nodesoup cimg)
+target_link_libraries(matplot PUBLIC nodesoup cimg std::filesystem)
+
+# https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
+target_compile_features(matplot PUBLIC cxx_std_17)
+
+include(CheckSymbolExists)
+
+# Some hack to not depend on FILE* internals
+# https://github.com/alandefreitas/matplotplusplus/issues/4
+check_symbol_exists(__fbufsize "stdio_ext.h" HAVE_FBUFSIZE)
+if (HAVE_FBUFSIZE)
+    target_compile_definitions(matplot PRIVATE MATPLOT_HAS_FBUFSIZE)
+endif()
+
+# Another hack to check for min in Windows.h
+# http://www.suodenjoki.dk/us/archive/2010/min-max.htm
+check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+if (HAVE_WINDOWS_MINMAX)
+    target_compile_definitions(matplot PUBLIC NOMINMAX)
+endif()
 
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")

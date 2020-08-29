@@ -5,7 +5,6 @@
 #include <matplot/core/legend.h>
 #include <matplot/core/axes.h>
 #include <matplot/util/common.h>
-#include <curses.h>
 
 namespace matplot {
     legend::legend(class axes* parent)

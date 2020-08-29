@@ -14,6 +14,10 @@ add_library(nodesoup
         )
 target_include_directories(nodesoup PUBLIC ${nodesoup_SOURCE_DIR}/include/)
 
+# Hackfix to support MSVC standard library
+# https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
+target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
+
 # Add CImg library
 CPMAddPackage(NAME cimg GITHUB_REPOSITORY dtschump/CImg VERSION 0.221 GIT_TAG v.221 DOWNLOAD_ONLY TRUE)
 find_package(PkgConfig)

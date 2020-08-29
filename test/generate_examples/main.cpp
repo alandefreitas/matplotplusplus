@@ -322,7 +322,7 @@ int main() {
             const auto update_gallery = [&]() {
                 // Append image to the large image gallery
                 // - Append HTML anchor
-                string anchor = p.stem();
+                string anchor = p.stem().string();
                 gallery << "<a name=\"" << anchor << "\"></a>";
                 // - Append name of source file relative to the repository
                 const auto source_file_path = p.lexically_relative(root_path).string();
@@ -361,11 +361,11 @@ int main() {
             bool dont_have_the_large_image_yet = !fs::exists(figure_destination_svg) && !fs::exists(figure_destination_png);
             if (dont_have_the_large_image_yet) {
                 // Go to directory and run the executable
-                string exe_str = executable;
+                string exe_str = executable.string();
                 exe_str = regex_replace(exe_str, regex(" "), "\\ ");
                 exe_str = regex_replace(exe_str, regex("~"), "\\~");
 
-                string dir_str = p.parent_path();
+                string dir_str = p.parent_path().string();
                 dir_str = regex_replace(dir_str, regex(" "), "\\ ");
                 dir_str = regex_replace(dir_str, regex("~"), "\\~");
 

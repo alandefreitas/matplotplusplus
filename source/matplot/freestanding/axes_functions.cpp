@@ -2,6 +2,7 @@
 // Created by Alan Freitas on 10/08/20.
 //
 
+#include <algorithm>
 #include <matplot/freestanding/axes_functions.h>
 
 namespace matplot {
