@@ -98,6 +98,13 @@ if (HAVE_FBUFSIZE)
     target_compile_definitions(matplot PRIVATE MATPLOT_HAS_FBUFSIZE)
 endif()
 
+# Another hack to check for min in Windows.h
+# http://www.suodenjoki.dk/us/archive/2010/min-max.htm
+check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+if (HAVE_WINDOWS_MINMAX)
+    target_compile_definitions(matplot PUBLIC NOMINMAX)
+endif()
+
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
