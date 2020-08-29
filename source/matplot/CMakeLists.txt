@@ -86,6 +86,9 @@ add_library(matplot
 target_include_directories(matplot PUBLIC ${MATPLOT_ROOT_DIR}/source)
 target_link_libraries(matplot PUBLIC nodesoup cimg)
 
+# https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
+target_compile_features(matplot PUBLIC cxx_std_17)
+
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
