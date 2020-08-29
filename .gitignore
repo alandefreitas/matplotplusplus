@@ -4,3 +4,5 @@ cmake-build-*
 codealike.json
 .idea
 gh-md-toc
+build*/
+CMakeLists.txt.user
