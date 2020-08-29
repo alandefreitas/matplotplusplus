@@ -1,0 +1,41 @@
+add_executable(example_histogram_1 histogram_1.cpp)
+target_link_libraries(example_histogram_1 PUBLIC matplot)
+
+add_executable(example_histogram_2 histogram_2.cpp)
+target_link_libraries(example_histogram_2 PUBLIC matplot)
+
+add_executable(example_histogram_3 histogram_3.cpp)
+target_link_libraries(example_histogram_3 PUBLIC matplot)
+
+add_executable(example_histogram_4 histogram_4.cpp)
+target_link_libraries(example_histogram_4 PUBLIC matplot)
+
+add_executable(example_histogram_5 histogram_5.cpp)
+target_link_libraries(example_histogram_5 PUBLIC matplot)
+
+add_executable(example_histogram_6 histogram_6.cpp)
+target_link_libraries(example_histogram_6 PUBLIC matplot)
+
+add_executable(example_histogram_7 histogram_7.cpp)
+target_link_libraries(example_histogram_7 PUBLIC matplot)
+
+add_executable(example_histogram_8 histogram_8.cpp)
+target_link_libraries(example_histogram_8 PUBLIC matplot)
+
+add_executable(example_histogram_9 histogram_9.cpp)
+target_link_libraries(example_histogram_9 PUBLIC matplot)
+
+add_executable(example_histogram_10 histogram_10.cpp)
+target_link_libraries(example_histogram_10 PUBLIC matplot)
+
+add_executable(example_histogram_11 histogram_11.cpp)
+target_link_libraries(example_histogram_11 PUBLIC matplot)
+
+add_executable(example_histogram_12 histogram_12.cpp)
+target_link_libraries(example_histogram_12 PUBLIC matplot)
+
+add_executable(example_histogram_13 histogram_13.cpp)
+target_link_libraries(example_histogram_13 PUBLIC matplot)
+
+add_executable(example_histogram_14 histogram_14.cpp)
+target_link_libraries(example_histogram_14 PUBLIC matplot)

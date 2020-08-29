@@ -1,0 +1,26 @@
+add_executable(example_colormap_1 colormap_1.cpp)
+target_link_libraries(example_colormap_1 PUBLIC matplot)
+
+add_executable(example_colormap_2 colormap_2.cpp)
+target_link_libraries(example_colormap_2 PUBLIC matplot)
+
+add_executable(example_colormap_3 colormap_3.cpp)
+target_link_libraries(example_colormap_3 PUBLIC matplot)
+
+add_executable(example_colormap_4 colormap_4.cpp)
+target_link_libraries(example_colormap_4 PUBLIC matplot)
+
+add_executable(example_colormap_5 colormap_5.cpp)
+target_link_libraries(example_colormap_5 PUBLIC matplot)
+
+add_executable(example_colormap_6 colormap_6.cpp)
+target_link_libraries(example_colormap_6 PUBLIC matplot)
+
+add_executable(example_colormap_7 colormap_7.cpp)
+target_link_libraries(example_colormap_7 PUBLIC matplot)
+
+add_executable(example_colormap_8 colormap_8.cpp)
+target_link_libraries(example_colormap_8 PUBLIC matplot)
+
+add_executable(example_colormap_9 colormap_9.cpp)
+target_link_libraries(example_colormap_9 PUBLIC matplot)

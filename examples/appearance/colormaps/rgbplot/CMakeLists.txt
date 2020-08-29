@@ -1,0 +1,5 @@
+add_executable(example_rgbplot_1 rgbplot_1.cpp)
+target_link_libraries(example_rgbplot_1 PUBLIC matplot)
+
+add_executable(example_rgbplot_2 rgbplot_2.cpp)
+target_link_libraries(example_rgbplot_2 PUBLIC matplot)

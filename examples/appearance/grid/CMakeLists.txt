@@ -1,0 +1,15 @@
+add_subdirectory(grid)
+
+add_subdirectory(xticks)
+add_subdirectory(yticks)
+add_subdirectory(zticks)
+
+add_subdirectory(xticklabels)
+add_subdirectory(yticklabels)
+
+add_subdirectory(xtickformat)
+add_subdirectory(ytickformat)
+add_subdirectory(ztickformat)
+
+add_subdirectory(xtickangle)
+add_subdirectory(ytickangle)

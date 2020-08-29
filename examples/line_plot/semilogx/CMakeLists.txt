@@ -1,0 +1,2 @@
+add_executable(example_semilogx_1 semilogx_1.cpp)
+target_link_libraries(example_semilogx_1 PUBLIC matplot)

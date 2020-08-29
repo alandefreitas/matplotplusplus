@@ -1,0 +1,8 @@
+add_executable(example_boxplot_1 boxplot_1.cpp)
+target_link_libraries(example_boxplot_1 PUBLIC matplot)
+
+add_executable(example_boxplot_2 boxplot_2.cpp)
+target_link_libraries(example_boxplot_2 PUBLIC matplot)
+
+add_executable(example_boxplot_3 boxplot_3.cpp)
+target_link_libraries(example_boxplot_3 PUBLIC matplot)

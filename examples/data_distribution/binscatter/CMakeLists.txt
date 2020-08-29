@@ -1,0 +1,20 @@
+add_executable(example_binscatter_1 binscatter_1.cpp)
+target_link_libraries(example_binscatter_1 PUBLIC matplot)
+
+add_executable(example_binscatter_2 binscatter_2.cpp)
+target_link_libraries(example_binscatter_2 PUBLIC matplot)
+
+add_executable(example_binscatter_3 binscatter_3.cpp)
+target_link_libraries(example_binscatter_3 PUBLIC matplot)
+
+add_executable(example_binscatter_4 binscatter_4.cpp)
+target_link_libraries(example_binscatter_4 PUBLIC matplot)
+
+add_executable(example_binscatter_5 binscatter_5.cpp)
+target_link_libraries(example_binscatter_5 PUBLIC matplot)
+
+add_executable(example_binscatter_6 binscatter_6.cpp)
+target_link_libraries(example_binscatter_6 PUBLIC matplot)
+
+add_executable(example_binscatter_7 binscatter_7.cpp)
+target_link_libraries(example_binscatter_7 PUBLIC matplot)

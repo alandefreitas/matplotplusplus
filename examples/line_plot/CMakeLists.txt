@@ -1,0 +1,12 @@
+# Line plots
+add_subdirectory(plot)
+add_subdirectory(plot3)
+add_subdirectory(stairs)
+add_subdirectory(errorbar)
+add_subdirectory(area)
+add_subdirectory(loglog)
+add_subdirectory(semilogx)
+add_subdirectory(semilogy)
+add_subdirectory(fplot)
+add_subdirectory(fplot3)
+add_subdirectory(fimplicit)

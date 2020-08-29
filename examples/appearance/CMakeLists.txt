@@ -1,0 +1,11 @@
+# Containers for graphics
+add_subdirectory(labels)
+add_subdirectory(axis)
+add_subdirectory(grid)
+add_subdirectory(multiplot)
+add_subdirectory(colormaps)
+add_subdirectory(camera)
+add_subdirectory(figure)
+add_subdirectory(line_spec)
+add_subdirectory(axes)
+add_subdirectory(cla)

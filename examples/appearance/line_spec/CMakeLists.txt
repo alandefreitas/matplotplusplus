@@ -1,0 +1,2 @@
+add_executable(example_line_spec_1 line_spec_1.cpp)
+target_link_libraries(example_line_spec_1 PUBLIC matplot)

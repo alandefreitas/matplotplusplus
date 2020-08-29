@@ -1,0 +1,11 @@
+# Data Distribution
+add_subdirectory(histogram)
+add_subdirectory(boxplot)
+add_subdirectory(scatter)
+add_subdirectory(scatter3)
+add_subdirectory(binscatter)
+add_subdirectory(plotmatrix)
+add_subdirectory(parallelplot)
+add_subdirectory(pie)
+add_subdirectory(heatmap)
+add_subdirectory(wordcloud)

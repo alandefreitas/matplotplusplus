@@ -1,0 +1,17 @@
+add_executable(example_xtickformat_1 xtickformat_1.cpp)
+target_link_libraries(example_xtickformat_1 PUBLIC matplot)
+
+add_executable(example_xtickformat_2 xtickformat_2.cpp)
+target_link_libraries(example_xtickformat_2 PUBLIC matplot)
+
+add_executable(example_xtickformat_3 xtickformat_3.cpp)
+target_link_libraries(example_xtickformat_3 PUBLIC matplot)
+
+add_executable(example_xtickformat_4 xtickformat_4.cpp)
+target_link_libraries(example_xtickformat_4 PUBLIC matplot)
+
+add_executable(example_xtickformat_5 xtickformat_5.cpp)
+target_link_libraries(example_xtickformat_5 PUBLIC matplot)
+
+
+

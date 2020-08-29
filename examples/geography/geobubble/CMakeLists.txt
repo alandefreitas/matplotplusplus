@@ -1,0 +1,5 @@
+add_executable(example_geobubble_1 geobubble_1.cpp)
+target_link_libraries(example_geobubble_1 PUBLIC matplot)
+
+add_executable(example_geobubble_2 geobubble_2.cpp)
+target_link_libraries(example_geobubble_2 PUBLIC matplot)

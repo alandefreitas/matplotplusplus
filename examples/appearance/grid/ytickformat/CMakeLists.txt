@@ -1,0 +1,17 @@
+add_executable(example_ytickformat_1 ytickformat_1.cpp)
+target_link_libraries(example_ytickformat_1 PUBLIC matplot)
+
+add_executable(example_ytickformat_2 ytickformat_2.cpp)
+target_link_libraries(example_ytickformat_2 PUBLIC matplot)
+
+add_executable(example_ytickformat_3 ytickformat_3.cpp)
+target_link_libraries(example_ytickformat_3 PUBLIC matplot)
+
+add_executable(example_ytickformat_4 ytickformat_4.cpp)
+target_link_libraries(example_ytickformat_4 PUBLIC matplot)
+
+add_executable(example_ytickformat_5 ytickformat_5.cpp)
+target_link_libraries(example_ytickformat_5 PUBLIC matplot)
+
+
+

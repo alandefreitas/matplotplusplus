@@ -1,0 +1,17 @@
+add_executable(example_lighting_1 lighting_1.cpp)
+target_link_libraries(example_lighting_1 PUBLIC matplot)
+
+add_executable(example_lighting_2 lighting_2.cpp)
+target_link_libraries(example_lighting_2 PUBLIC matplot)
+
+add_executable(example_lighting_3 lighting_3.cpp)
+target_link_libraries(example_lighting_3 PUBLIC matplot)
+
+add_executable(example_lighting_4 lighting_4.cpp)
+target_link_libraries(example_lighting_4 PUBLIC matplot)
+
+add_executable(example_lighting_5 lighting_5.cpp)
+target_link_libraries(example_lighting_5 PUBLIC matplot)
+
+add_executable(example_lighting_6 lighting_6.cpp)
+target_link_libraries(example_lighting_6 PUBLIC matplot)

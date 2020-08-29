@@ -1,0 +1,11 @@
+add_executable(example_fimplicit_1 fimplicit_1.cpp)
+target_link_libraries(example_fimplicit_1 PUBLIC matplot)
+
+add_executable(example_fimplicit_2 fimplicit_2.cpp)
+target_link_libraries(example_fimplicit_2 PUBLIC matplot)
+
+add_executable(example_fimplicit_3 fimplicit_3.cpp)
+target_link_libraries(example_fimplicit_3 PUBLIC matplot)
+
+add_executable(example_fimplicit_4 fimplicit_4.cpp)
+target_link_libraries(example_fimplicit_4 PUBLIC matplot)

@@ -1,0 +1,14 @@
+add_executable(example_polarhistogram_1 polarhistogram_1.cpp)
+target_link_libraries(example_polarhistogram_1 PUBLIC matplot)
+
+add_executable(example_polarhistogram_2 polarhistogram_2.cpp)
+target_link_libraries(example_polarhistogram_2 PUBLIC matplot)
+
+add_executable(example_polarhistogram_3 polarhistogram_3.cpp)
+target_link_libraries(example_polarhistogram_3 PUBLIC matplot)
+
+add_executable(example_polarhistogram_4 polarhistogram_4.cpp)
+target_link_libraries(example_polarhistogram_4 PUBLIC matplot)
+
+add_executable(example_polarhistogram_5 polarhistogram_5.cpp)
+target_link_libraries(example_polarhistogram_5 PUBLIC matplot)

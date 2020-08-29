@@ -1,0 +1,23 @@
+add_executable(example_colororder_1 colororder_1.cpp)
+target_link_libraries(example_colororder_1 PUBLIC matplot)
+
+add_executable(example_colororder_2 colororder_2.cpp)
+target_link_libraries(example_colororder_2 PUBLIC matplot)
+
+add_executable(example_colororder_3 colororder_3.cpp)
+target_link_libraries(example_colororder_3 PUBLIC matplot)
+
+add_executable(example_colororder_4 colororder_4.cpp)
+target_link_libraries(example_colororder_4 PUBLIC matplot)
+
+add_executable(example_colororder_5 colororder_5.cpp)
+target_link_libraries(example_colororder_5 PUBLIC matplot)
+
+add_executable(example_colororder_6 colororder_6.cpp)
+target_link_libraries(example_colororder_6 PUBLIC matplot)
+
+add_executable(example_colororder_7 colororder_7.cpp)
+target_link_libraries(example_colororder_7 PUBLIC matplot)
+
+
+

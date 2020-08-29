@@ -1,0 +1,14 @@
+add_executable(example_yticklabels_1 yticklabels_1.cpp)
+target_link_libraries(example_yticklabels_1 PUBLIC matplot)
+
+add_executable(example_yticklabels_2 yticklabels_2.cpp)
+target_link_libraries(example_yticklabels_2 PUBLIC matplot)
+
+add_executable(example_yticklabels_3 yticklabels_3.cpp)
+target_link_libraries(example_yticklabels_3 PUBLIC matplot)
+
+add_executable(example_yticklabels_4 yticklabels_4.cpp)
+target_link_libraries(example_yticklabels_4 PUBLIC matplot)
+
+
+

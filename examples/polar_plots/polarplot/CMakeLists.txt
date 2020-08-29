@@ -1,0 +1,23 @@
+add_executable(example_polarplot_1 polarplot_1.cpp)
+target_link_libraries(example_polarplot_1 PUBLIC matplot)
+
+add_executable(example_polarplot_2 polarplot_2.cpp)
+target_link_libraries(example_polarplot_2 PUBLIC matplot)
+
+add_executable(example_polarplot_3 polarplot_3.cpp)
+target_link_libraries(example_polarplot_3 PUBLIC matplot)
+
+add_executable(example_polarplot_4 polarplot_4.cpp)
+target_link_libraries(example_polarplot_4 PUBLIC matplot)
+
+add_executable(example_polarplot_5 polarplot_5.cpp)
+target_link_libraries(example_polarplot_5 PUBLIC matplot)
+
+add_executable(example_polarplot_6 polarplot_6.cpp)
+target_link_libraries(example_polarplot_6 PUBLIC matplot)
+
+add_executable(example_polarplot_7 polarplot_7.cpp)
+target_link_libraries(example_polarplot_7 PUBLIC matplot)
+
+add_executable(example_polarplot_8 polarplot_8.cpp)
+target_link_libraries(example_polarplot_8 PUBLIC matplot)

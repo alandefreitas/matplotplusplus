@@ -1,0 +1,3 @@
+add_subdirectory(colormap)
+add_subdirectory(colorbar)
+add_subdirectory(rgbplot)

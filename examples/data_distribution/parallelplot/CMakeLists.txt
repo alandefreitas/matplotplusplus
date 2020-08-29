@@ -1,0 +1,8 @@
+add_executable(example_parallelplot_1 parallelplot_1.cpp)
+target_link_libraries(example_parallelplot_1 PUBLIC matplot)
+
+add_executable(example_parallelplot_2 parallelplot_2.cpp)
+target_link_libraries(example_parallelplot_2 PUBLIC matplot)
+
+add_executable(example_parallelplot_3 parallelplot_3.cpp)
+target_link_libraries(example_parallelplot_3 PUBLIC matplot)
