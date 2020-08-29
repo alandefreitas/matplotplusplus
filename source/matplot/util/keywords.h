@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_KEYWORDS_H
 #define MATPLOTPLUSPLUS_KEYWORDS_H
 
+#include <limits>
+
 namespace matplot {
     class keyword_automatic_type {};
     constexpr keyword_automatic_type automatic;
