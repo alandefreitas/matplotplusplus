@@ -221,7 +221,7 @@ namespace matplot {
             n_levels_ = 0;
         }
         if (!manual_levels_) {
-            levels_.empty();
+            levels_.clear();
         }
         lines_.clear();
         codes_.clear();

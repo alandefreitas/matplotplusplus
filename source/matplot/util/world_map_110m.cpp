@@ -2,6 +2,7 @@
 // Created by Alan Freitas on 20/07/20.
 //
 
+#include <limits>
 #include <matplot/util/geodata.h>
 // http://www.gnuplotting.org/plotting-the-world-revisited/
 namespace matplot {

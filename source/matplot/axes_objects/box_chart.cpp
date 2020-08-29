@@ -3,6 +3,7 @@
 //
 
 #include <sstream>
+#include <limits>
 #include <matplot/core/axes_object.h>
 #include <matplot/core/axes.h>
 #include <matplot/axes_objects/box_chart.h>
