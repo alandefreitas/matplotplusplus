@@ -35,7 +35,7 @@ namespace matplot {
         enum axes_object::axes_category axes_category() override;
 
     public /* getters and setters */:
-        const line_spec &line_spec() const;
+        const class line_spec &line_spec() const;
         class parallel_lines& line_spec(const class line_spec &line_spec);
 
         const std::vector<std::vector<double>> &data() const;

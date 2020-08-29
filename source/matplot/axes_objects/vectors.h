@@ -51,7 +51,7 @@ namespace matplot {
     public /* getters and setters */:
         class vectors& line_style(const std::string& line_spec);
 
-        const line_spec &line_spec() const;
+        const class line_spec &line_spec() const;
         class line_spec &line_spec();
         class vectors& line_spec(const class line_spec &line_spec);
 
