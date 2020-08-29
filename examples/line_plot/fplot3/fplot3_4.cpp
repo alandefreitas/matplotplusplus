@@ -5,8 +5,8 @@
 int main() {
     using namespace matplot;
 
-    auto xt = [](double t) { return exp(-abs(t)/10) * sin(5*abs(t)); };
-    auto yt = [](double t) { return exp(-abs(t)/10) * cos(5*abs(t)); };
+    auto xt = [](double t) { return exp(-std::abs(t)/10) * sin(5*std::abs(t)); };
+    auto yt = [](double t) { return exp(-std::abs(t)/10) * cos(5*std::abs(t)); };
     auto zt = [](double t) { return t; };
     auto fp = fplot3(xt, yt, zt)->t_range({-10,10}).color("r");
     xlabel("e^{-|z|/10} sin(2|z|)");
