@@ -66,7 +66,7 @@ namespace matplot::backend {
         // look at the extension
         namespace fs = std::filesystem;
         fs::path p{filename};
-        std::string ext = p.extension();
+        std::string ext = p.extension().string();
 
         // check terminal for that extension
         constexpr auto exts = extension_terminal();
@@ -124,7 +124,7 @@ namespace matplot::backend {
         terminal_ = format;
 
         // Append extension if needed
-        std::string ext = p.extension();
+        std::string ext = p.extension().string();
         if (ext.empty()) {
             output_ += it->first;
         }

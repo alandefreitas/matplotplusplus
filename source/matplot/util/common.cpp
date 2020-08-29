@@ -49,7 +49,7 @@ namespace matplot {
     }
 
     std::string run_and_get_output(const std::string &cmd) {
-        std::unique_ptr<FILE, decltype(&pclose)> pipe(POPEN(cmd.c_str(), "r"), PCLOSE);
+        std::unique_ptr<FILE, decltype(&PCLOSE)> pipe(POPEN(cmd.c_str(), "r"), PCLOSE);
         if (!pipe) {
             throw std::runtime_error("popen() failed!");
         }

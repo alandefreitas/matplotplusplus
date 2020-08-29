@@ -1288,7 +1288,7 @@ namespace matplot {
         // The starting point
         // We convert tot int because the square trace algorithm
         // might go outside the image
-        auto start = std::make_pair<int,int>(start_i, start_j);
+        auto start = std::make_pair(static_cast<int>(start_i), static_cast<int>(start_j));
 
         const size_t n_rows = Z.size();
         const size_t n_cols = Z[0].size();
