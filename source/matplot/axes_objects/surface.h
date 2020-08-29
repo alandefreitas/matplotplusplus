@@ -172,7 +172,7 @@ namespace matplot {
 
         const std::array<float, 4> &edge_color() const;
 
-        template <class T> class surface &edge_color(T c) {
+        template <class T> surface &edge_color(T c) {
             line_spec().color(c);
             touch();
             return *this;

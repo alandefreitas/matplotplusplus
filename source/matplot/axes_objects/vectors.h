@@ -107,13 +107,13 @@ namespace matplot {
         class vectors &line_width(float line_width);
 
         enum line_spec::marker_style marker_style() const;
-        template <class T> class vectors &marker_style(T marker_style) {
+        template <class T> vectors &marker_style(T marker_style) {
             line_spec_.marker_style(marker_style);
             return *this;
         }
 
         enum line_spec::marker_style marker() const;
-        template <class T> class vectors &marker(T marker) {
+        template <class T> vectors &marker(T marker) {
             line_spec_.marker(marker);
             return *this;
         }
@@ -127,7 +127,7 @@ namespace matplot {
         class vectors &marker_face(bool size);
 
         const std::array<float, 4> &color() const;
-        template <class T> class vectors &color(T c) {
+        template <class T> vectors &color(T c) {
             line_spec().color(c);
             return *this;
         }
@@ -138,7 +138,7 @@ namespace matplot {
 
         const std::array<float, 4> &marker_color() const;
 
-        template <class T> class vectors &marker_color(T c) {
+        template <class T> vectors &marker_color(T c) {
             line_spec().marker_color(c);
             return *this;
         }
@@ -156,7 +156,7 @@ namespace matplot {
 
         const std::array<float, 4> &marker_face_color() const;
 
-        template <class T> class vectors &marker_face_color(T c) {
+        template <class T> vectors &marker_face_color(T c) {
             line_spec().marker_face_color(c);
             return *this;
         }

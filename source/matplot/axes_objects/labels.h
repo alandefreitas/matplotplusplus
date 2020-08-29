@@ -79,7 +79,7 @@ namespace matplot {
 
         const color_array &color() const;
         class labels &color(const color_array &color);
-        template <class T> class labels &color(T c) {
+        template <class T> labels &color(T c) {
             color(to_array(c));
             return *this;
         }
