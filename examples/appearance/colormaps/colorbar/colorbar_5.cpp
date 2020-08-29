@@ -6,15 +6,12 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
-  contourf(x, y, z);
-  colorbar()
-      .limits({-6, 8})
-      .tick_values({-5, -2, 1, 4, 7})
-      .ticklabels({"Cold", "Cool", "Neutral", "Warm", "Hot"});
+    auto [x, y, z] = peaks();
+    contourf(x, y, z);
+    colorbar().limits({-6, 8}).tick_values({-5, -2, 1, 4, 7}).ticklabels({"Cold", "Cool", "Neutral", "Warm", "Hot"});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

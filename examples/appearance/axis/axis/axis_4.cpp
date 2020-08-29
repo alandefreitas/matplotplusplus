@@ -6,12 +6,12 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [X, Y, Z] = peaks();
-  surf(X, Y, Z);
-  axis(off);
+    auto [X, Y, Z] = peaks();
+    surf(X, Y, Z);
+    axis(off);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

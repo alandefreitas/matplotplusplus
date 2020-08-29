@@ -6,22 +6,22 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto x = linspace(0, 2 * pi);
-  auto y1 = transform(x, [](double x) { return sin(x); });
-  plot(x, y1);
+    auto x = linspace(0, 2 * pi);
+    auto y1 = transform(x, [](double x) { return sin(x); });
+    plot(x, y1);
 
-  hold(on);
-  auto y2 = transform(x, [](double x) { return sin(2 * x); });
-  plot(x, y2);
+    hold(on);
+    auto y2 = transform(x, [](double x) { return sin(2 * x); });
+    plot(x, y2);
 
-  cla();
+    cla();
 
-  auto y3 = transform(x, [](double x) { return sin(3 * x); });
-  plot(x, y3);
-  hold(off);
+    auto y3 = transform(x, [](double x) { return sin(3 * x); });
+    plot(x, y3);
+    hold(off);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

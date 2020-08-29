@@ -6,19 +6,19 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
+    auto [x, y, z] = peaks();
 
-  tiledlayout();
-  auto ax1 = nexttile();
-  surf(x, y, z);
-  colormap(ax1, palette::spring());
+    tiledlayout();
+    auto ax1 = nexttile();
+    surf(x, y, z);
+    colormap(ax1, palette::spring());
 
-  auto ax2 = nexttile();
-  surf(x, y, z);
-  colormap(ax2, palette::winter());
+    auto ax2 = nexttile();
+    surf(x, y, z);
+    colormap(ax2, palette::winter());
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

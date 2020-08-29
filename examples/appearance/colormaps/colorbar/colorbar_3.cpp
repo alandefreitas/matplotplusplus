@@ -1,12 +1,12 @@
 #include <matplot/matplot.h>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
-  surf(x, y, z);
-  colorbar().reverse(true);
+    auto [x, y, z] = peaks();
+    surf(x, y, z);
+    colorbar().reverse(true);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

@@ -6,11 +6,11 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  fplot("sin(4*x)/exp(0.1*x)");
-  axis({-10, +10, 0, inf});
+    fplot("sin(4*x)/exp(0.1*x)");
+    axis({-10, +10, 0, inf});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

@@ -6,12 +6,12 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
-  mesh(x, y, z);
-  colormap(palette::parula(5));
+    auto [x, y, z] = peaks();
+    mesh(x, y, z);
+    colormap(palette::parula(5));
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

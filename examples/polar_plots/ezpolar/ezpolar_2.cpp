@@ -3,10 +3,10 @@
 #include <cmath>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  ezpolar([](double t) { return 1. + cos(t); });
+    ezpolar([](double t) { return 1. + cos(t); });
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

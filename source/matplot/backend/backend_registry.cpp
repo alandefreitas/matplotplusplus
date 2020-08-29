@@ -6,8 +6,8 @@
 
 namespace matplot {
 std::shared_ptr<backend::backend_interface> create_default_backend() {
-  // Maybe this can change in the future depending on what
-  // libraries CMake finds in the system
-  return create_backend<backend::gnuplot>();
+    // Maybe this can change in the future depending on what
+    // libraries CMake finds in the system
+    return create_backend<backend::gnuplot>();
 }
 }  // namespace matplot

@@ -6,13 +6,13 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto x = linspace(0, 10);
-  auto y = transform(x, [](double x) { return sin(x); });
-  plot(x, y);
-  xlim({0, 5});
+    auto x = linspace(0, 10);
+    auto y = transform(x, [](double x) { return sin(x); });
+    plot(x, y);
+    xlim({0, 5});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

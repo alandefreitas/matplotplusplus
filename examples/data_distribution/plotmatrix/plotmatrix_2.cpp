@@ -4,12 +4,11 @@
 #include <tuple>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  std::vector<std::vector<double>> X = {randn(200, 0, 1), randn(200, 0, 1),
-                                        randn(200, 0, 1)};
-  plotmatrix(X);
+    std::vector<std::vector<double>> X = {randn(200, 0, 1), randn(200, 0, 1), randn(200, 0, 1)};
+    plotmatrix(X);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

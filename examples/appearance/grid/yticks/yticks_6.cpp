@@ -1,12 +1,12 @@
 #include <matplot/matplot.h>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  stem(iota(1, 10));
-  yticks({0, 5, 10});
-  yticks(automatic);
+    stem(iota(1, 10));
+    yticks({0, 5, 10});
+    yticks(automatic);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

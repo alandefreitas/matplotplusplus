@@ -3,15 +3,14 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [X, Y] = meshgrid(iota(-5, .5, 5));
-  auto Z =
-      transform(X, Y, [](double X, double Y) { return pow(X, 2) + pow(Y, 2); });
-  surf(X, Y, Z);
-  colorbar();
-  caxis({20, 50});
+    auto [X, Y] = meshgrid(iota(-5, .5, 5));
+    auto Z = transform(X, Y, [](double X, double Y) { return pow(X, 2) + pow(Y, 2); });
+    surf(X, Y, Z);
+    colorbar();
+    caxis({20, 50});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

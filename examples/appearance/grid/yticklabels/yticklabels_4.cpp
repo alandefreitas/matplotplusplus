@@ -1,11 +1,11 @@
 #include <matplot/matplot.h>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  plot(rand(5, 5, 0, 1));
-  yticklabels({});
+    plot(rand(5, 5, 0, 1));
+    yticklabels({});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

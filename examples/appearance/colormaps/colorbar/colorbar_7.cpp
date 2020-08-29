@@ -6,13 +6,13 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
-  surf(x, y, z);
-  colorbar(on);
-  colorbar(off);
+    auto [x, y, z] = peaks();
+    surf(x, y, z);
+    colorbar(on);
+    colorbar(off);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

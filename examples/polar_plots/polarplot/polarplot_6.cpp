@@ -3,12 +3,12 @@
 #include <cmath>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  std::vector<double> theta = linspace(0, 2 * pi, 25);
-  std::vector<double> rho = transform(theta, [](double t) { return 2 * t; });
-  polarplot(theta, rho, "r-o");
+    std::vector<double> theta = linspace(0, 2 * pi, 25);
+    std::vector<double> rho = transform(theta, [](double t) { return 2 * t; });
+    polarplot(theta, rho, "r-o");
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

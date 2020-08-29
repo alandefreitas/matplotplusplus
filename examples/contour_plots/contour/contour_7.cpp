@@ -1,15 +1,15 @@
 #include <matplot/matplot.h>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [X, Y, Z] = peaks();
-  auto c = contour(X, Y, Z);
-  c->contour_text(true);
-  c->font_size(15);
-  c->font_color("blue");
-  c->font_weight("bold");
+    auto [X, Y, Z] = peaks();
+    auto c = contour(X, Y, Z);
+    c->contour_text(true);
+    c->font_size(15);
+    c->font_color("blue");
+    c->font_weight("bold");
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

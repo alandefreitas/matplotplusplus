@@ -3,18 +3,18 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  tiledlayout();
-  auto ax1 = nexttile();
-  auto [x, y, z] = peaks();
-  contourf(x, y, z);
-  colormap(ax1, palette::hot(8));
+    tiledlayout();
+    auto ax1 = nexttile();
+    auto [x, y, z] = peaks();
+    contourf(x, y, z);
+    colormap(ax1, palette::hot(8));
 
-  auto ax2 = nexttile();
-  contourf(x, y, z);
-  colormap(ax2, palette::pink());
+    auto ax2 = nexttile();
+    contourf(x, y, z);
+    colormap(ax2, palette::pink());
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

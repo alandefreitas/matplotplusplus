@@ -3,13 +3,13 @@
 #include <cmath>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto xt = [](double t) { return sin(t); };
-  auto yt = [](double t) { return cos(t); };
-  auto zt = [](double t) { return t; };
-  fplot3(xt, yt, zt);
+    auto xt = [](double t) { return sin(t); };
+    auto yt = [](double t) { return cos(t); };
+    auto zt = [](double t) { return t; };
+    fplot3(xt, yt, zt);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

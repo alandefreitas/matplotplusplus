@@ -6,11 +6,11 @@
 #include <vector>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  fplot("sin(x)", "-o");
-  axis({0, 2 * pi, -1.15, 1.5});
+    fplot("sin(x)", "-o");
+    axis({0, 2 * pi, -1.15, 1.5});
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

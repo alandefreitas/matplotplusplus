@@ -3,14 +3,13 @@
 #include <cmath>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  std::vector<double> theta = linspace(0, 360, 50);
-  std::vector<double> rho =
-      transform(theta, [](double t) { return 0.005 * t / 10.; });
-  std::vector<double> th_radians = deg2rad(theta);
-  auto s = polarscatter(th_radians, rho);
+    std::vector<double> theta = linspace(0, 360, 50);
+    std::vector<double> rho = transform(theta, [](double t) { return 0.005 * t / 10.; });
+    std::vector<double> th_radians = deg2rad(theta);
+    auto s = polarscatter(th_radians, rho);
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

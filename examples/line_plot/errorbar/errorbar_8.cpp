@@ -3,17 +3,14 @@
 #include <cmath>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  std::vector<double> x = linspace(0, 10, 15);
-  std::vector<double> y = transform(x, [](double x) { return sin(x / 2); });
-  std::vector<double> err(y.size(), 0.3);
+    std::vector<double> x = linspace(0, 10, 15);
+    std::vector<double> y = transform(x, [](double x) { return sin(x / 2); });
+    std::vector<double> err(y.size(), 0.3);
 
-  auto e = errorbar(x, y, err, "-s")
-               ->marker_size(10)
-               .marker_color("red")
-               .marker_face_color("red");
+    auto e = errorbar(x, y, err, "-s")->marker_size(10).marker_color("red").marker_face_color("red");
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }

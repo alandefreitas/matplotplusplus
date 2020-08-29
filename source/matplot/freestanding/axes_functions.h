@@ -20,8 +20,7 @@ axes_handle axes(figure_handle parent, bool replace_if_overlap = false);
 axes_handle axes(axes_handle h);
 
 /// \brief Put axes in parent
-axes_handle axes(axes_handle h, figure_handle parent,
-                 bool replace_if_overlap = false);
+axes_handle axes(axes_handle h, figure_handle parent, bool replace_if_overlap = false);
 
 /// \brief Create new axes in a specific position with replace = false
 axes_handle axes(std::array<float, 4> position);
@@ -60,23 +59,18 @@ std::pair<float, float> view(axes_handle ax);
 /// If the axes exist, make it the current axes.
 /// If the axes overlap with existing axes, these are deleted,
 /// unless the position is identical.
-axes_handle subplot(size_t rows, size_t cols, size_t plot_id,
-                    bool replace_if_same_position = false);
-axes_handle subplot(figure_handle, size_t rows, size_t cols, size_t plot_id,
-                    bool replace_if_same_position = false);
+axes_handle subplot(size_t rows, size_t cols, size_t plot_id, bool replace_if_same_position = false);
+axes_handle subplot(figure_handle, size_t rows, size_t cols, size_t plot_id, bool replace_if_same_position = false);
 
 /// \brief Make axes a subplot of its figure
 axes_handle subplot(size_t rows, size_t cols, size_t plot_id, axes_handle axes);
 
 /// \brief Create new axes in a subplot covering all positions in P
-axes_handle subplot(size_t rows, size_t cols, std::initializer_list<size_t> P,
-                    bool replace_if_same_position = false);
+axes_handle subplot(size_t rows, size_t cols, std::initializer_list<size_t> P, bool replace_if_same_position = false);
 
 /// \brief Create new axes in a specific position
-axes_handle subplot(figure_handle f, std::array<float, 4> position,
-                    bool replace_if_same_position = false);
-axes_handle subplot(std::array<float, 4> position,
-                    bool replace_if_same_position = false);
+axes_handle subplot(figure_handle f, std::array<float, 4> position, bool replace_if_same_position = false);
+axes_handle subplot(std::array<float, 4> position, bool replace_if_same_position = false);
 
 /// \brief Make axes the current axes
 /// Another way to axes(h)
@@ -97,7 +91,7 @@ void title(const std::string& str, const color_array& c);
 
 template <class COLOR_TYPE>
 void title(const std::string& str, COLOR_TYPE c) {
-  title(str, to_array(c));
+    title(str, to_array(c));
 }
 
 void title(axes_handle ax, const std::string& str);
@@ -105,7 +99,7 @@ void title(axes_handle ax, const std::string& str, const color_array& c);
 
 template <class COLOR_TYPE>
 void title(axes_handle ax, const std::string& str, COLOR_TYPE c) {
-  title(ax, str, to_array(c));
+    title(ax, str, to_array(c));
 }
 
 void title(legend_handle lgd, const std::string& str);
@@ -115,7 +109,7 @@ void sgtitle(const std::string& str, const color_array& c);
 
 template <class COLOR_TYPE>
 void sgtitle(const std::string& str, COLOR_TYPE c) {
-  sgtitle(str, to_array(c));
+    sgtitle(str, to_array(c));
 }
 
 void sgtitle(axes_handle ax, const std::string& str);
@@ -123,7 +117,7 @@ void sgtitle(axes_handle ax, const std::string& str, const color_array& c);
 
 template <class COLOR_TYPE>
 void sgtitle(axes_handle ax, const std::string& str, COLOR_TYPE c) {
-  sgtitle(ax, str, to_array(c));
+    sgtitle(ax, str, to_array(c));
 }
 
 void xlabel(const std::string& str);
@@ -237,19 +231,17 @@ legend_handle legend(const std::vector<std::string>& names);
 legend_handle legend(axes_handle ax, bool visible = true);
 legend_handle legend(bool visible = true);
 
-legend_handle legend(std::vector<axes_object_handle> objs,
-                     const std::vector<std::string>& names);
+legend_handle legend(std::vector<axes_object_handle> objs, const std::vector<std::string>& names);
 
 template <typename... Args>
-legend_handle legend(axes_handle ax, const std::string& name,
-                     Args const&... next_name) {
-  std::vector<std::string> legends = {name, next_name...};
-  return legend(ax, legends);
+legend_handle legend(axes_handle ax, const std::string& name, Args const&... next_name) {
+    std::vector<std::string> legends = {name, next_name...};
+    return legend(ax, legends);
 }
 
 template <typename... Args>
 legend_handle legend(const std::string& name, Args const&... next_name) {
-  return legend(gca(), name, next_name...);
+    return legend(gca(), name, next_name...);
 }
 
 void colormap(axes_handle ax, const std::vector<std::vector<double>>& map);
@@ -260,17 +252,17 @@ std::vector<std::vector<double>> colormap();
 
 template <class T>
 void colororder(axes_handle ax, const std::vector<T>& order) {
-  ax->colororder(order);
+    ax->colororder(order);
 }
 
 template <class T>
 void colororder(const std::vector<T>& order) {
-  colororder(gca(), order);
+    colororder(gca(), order);
 }
 
 template <class T>
 void colororder(std::initializer_list<T> order) {
-  colororder(gca(), std::vector<T>{order});
+    colororder(gca(), std::vector<T>{order});
 }
 
 /// Set x limits
@@ -290,8 +282,7 @@ class axis& colorbar(axes_handle ah, bool v);
 /// Set limits of x and y axes
 void axis(const std::array<double, 4>& limits_x_y);
 void axis(axes_handle axes_handle, const std::array<double, 4>& limits_x_y);
-void axis(std::initializer_list<axes_handle> axes_handles,
-          const std::array<double, 4>& limits_x_y);
+void axis(std::initializer_list<axes_handle> axes_handles, const std::array<double, 4>& limits_x_y);
 
 /// Make axis visible invisible
 void axis(bool);

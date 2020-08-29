@@ -1,19 +1,19 @@
 #include <matplot/matplot.h>
 
 int main() {
-  using namespace matplot;
+    using namespace matplot;
 
-  auto [x, y, z] = peaks();
-  tiledlayout(2, 1);
+    auto [x, y, z] = peaks();
+    tiledlayout(2, 1);
 
-  nexttile();
-  surf(x, y, z);
-  colorbar();
+    nexttile();
+    surf(x, y, z);
+    colorbar();
 
-  nexttile();
-  mesh(x, y, z);
-  colorbar();
+    nexttile();
+    mesh(x, y, z);
+    colorbar();
 
-  wait();
-  return 0;
+    wait();
+    return 0;
 }
