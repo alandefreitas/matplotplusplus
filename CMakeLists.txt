@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(matplotplusplus)
 
 # https://cliutils.gitlab.io/modern-cmake/chapters/basics/variables.html
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3" CACHE STRING "")
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
