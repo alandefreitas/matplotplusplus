@@ -4,6 +4,7 @@
 
 #include <map>
 #include <sstream>
+#include <algorithm>
 #include <matplot/backend/backend_registry.h>
 #include <matplot/core/figure.h>
 #include <matplot/util/common.h>

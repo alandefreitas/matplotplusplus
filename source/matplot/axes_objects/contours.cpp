@@ -7,6 +7,7 @@
 #include <numeric>
 #include <regex>
 #include <unordered_set>
+#include <algorithm>
 #include <matplot/axes_objects/contours.h>
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/core/axes.h>

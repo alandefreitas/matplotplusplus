@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_HANDLE_TYPES_H
 
 #include <array>
+#include <memory>
 
 namespace matplot {
     using color_array = std::array<float,4>;

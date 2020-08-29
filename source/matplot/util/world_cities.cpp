@@ -3,6 +3,7 @@
 //
 
 #include <string>
+#include <algorithm>
 #include <matplot/util/geodata.h>
 #include <matplot/util/common.h>
 

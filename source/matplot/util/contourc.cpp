@@ -17,6 +17,7 @@
 #include <matplot/util/contourc.h>
 #include <matplot/axes_objects/contours.h>
 #include <algorithm>
+#include <cassert>
 
 namespace matplot {
 

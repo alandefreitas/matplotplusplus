@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <sstream>
+#include <algorithm>
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/util/common.h>
 #include <matplot/core/axes.h>

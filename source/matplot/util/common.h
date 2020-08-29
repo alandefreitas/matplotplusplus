@@ -10,6 +10,8 @@
 #include <sstream>
 #include <complex>
 #include <map>
+#include <functional>
+#include <algorithm>
 #include <matplot/util/concepts.h>
 
 namespace matplot {

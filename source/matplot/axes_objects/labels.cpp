@@ -4,6 +4,7 @@
 
 #include <sstream>
 #include <cmath>
+#include <algorithm>
 #include <matplot/util/common.h>
 #include <matplot/axes_objects/labels.h>
 #include <matplot/core/axes.h>

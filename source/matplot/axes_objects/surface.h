@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_SURFACE_H
 
 #include <array>
+#include <optional>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 #include <matplot/core/figure.h>
