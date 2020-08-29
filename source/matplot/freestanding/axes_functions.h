@@ -242,17 +242,21 @@ namespace matplot {
     legend_handle legend(std::vector<axes_object_handle> objs,
                          const std::vector<std::string> &names);
 
-    template <typename... Args>
-    legend_handle legend(axes_handle ax, const std::string &name,
-                         Args const &... next_name) {
-        std::vector<std::string> legends = {name, next_name...};
-        return legend(ax, legends);
-    }
+    // Hackfix for a compiler bug in MSVC
+    namespace {
+        template <typename... Args>
+        legend_handle legend(axes_handle ax, const std::string &name,
+                             Args const &... next_name) {
+            std::vector<std::string> legends = {name, next_name...};
+            return ::matplot::legend(ax, legends);
+        }
 
-    template <typename... Args>
-    legend_handle legend(const std::string &name, Args const &... next_name) {
-        return legend(gca(), name, next_name...);
-    }
+        template <typename... Args>
+        legend_handle legend(const std::string &name,
+                             Args const &... next_name) {
+            return legend(gca(), name, next_name...);
+        }
+    } // namespace
 
     void colormap(axes_handle ax, const std::vector<std::vector<double>> &map);
     void colormap(const std::vector<std::vector<double>> &map);
