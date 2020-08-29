@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_CHARTOBJECT_H
 
 #include <vector>
+#include <memory>
 
 namespace matplot {
     class axes;

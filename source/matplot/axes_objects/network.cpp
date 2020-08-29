@@ -6,6 +6,7 @@
 #include <sstream>
 #include <regex>
 #include <random>
+#include <iomanip>
 #include <matplot/axes_objects/network.h>
 #include <matplot/core/axes.h>
 #include <matplot/util/common.h>

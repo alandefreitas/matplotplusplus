@@ -77,7 +77,7 @@ namespace matplot::backend {
         static constexpr bool trace_commands = false;
 #endif
 
-        static constexpr size_t pipe_capacity_worst_case = 4096;
+        static constexpr size_t pipe_capacity_worst_case = BUFSIZ;
         /// File formats for figures and properties of terminals
         static constexpr std::array<std::pair<std::string_view,std::string_view>,33> extension_terminal() {
             return std::array<std::pair<std::string_view,std::string_view>,33>

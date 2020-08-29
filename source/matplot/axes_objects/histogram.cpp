@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <sstream>
+#include <algorithm>
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/util/common.h>
 #include <matplot/core/axes.h>
@@ -232,7 +233,7 @@ namespace matplot {
     /// Calculate edges given max values and a target width
     /// This will round the bin edges to values more appropriate for visualization
     std::vector<double> histogram::bin_picker(double xmin, double xmax, size_t nbins, double bin_width) {
-        double xscale = std::max(abs(xmin),abs(xmax));
+        double xscale = std::max(std::abs(xmin),std::abs(xmax));
         double xrange = xmax - xmin;
         bin_width = std::max(bin_width, nextafter(xscale,xscale+1)-xscale);
         double left_edge = 0.;
@@ -280,7 +281,7 @@ namespace matplot {
             n_bins_actual = nbins;
         }
 
-        if (!isfinite(bin_width)) {
+        if (!std::isfinite(bin_width)) {
             return linspace(left_edge, right_edge, n_bins_actual + 1);
         } else {
             std::vector<double> edges;
@@ -293,7 +294,7 @@ namespace matplot {
     }
 
     std::vector<double> bin_pickerbl(double xmin, double xmax, double minlimit, double maxlimit, double bin_width) {
-        double xscale = std::max(abs(xmin),abs(xmax));
+        double xscale = std::max(std::abs(xmin),std::abs(xmax));
         double xrange = xmax - xmin;
         bin_width = std::max(bin_width, nextafter(xscale, xscale+1-xscale));
         bool non_constant_data = xrange > std::max(sqrt(nextafter(xscale, xscale+1-xscale)), std::numeric_limits<double>::min());
@@ -345,7 +346,7 @@ namespace matplot {
         double xrange = maxx - minx;
         double binwidth = 1.0;
         if (!x.empty()) {
-            std::vector abs_x = transform(x, [](double x) { return abs(x); });
+            std::vector abs_x = transform(x, [](double x) { return std::abs(x); });
             double xscale = *std::max_element(abs_x.begin(), abs_x.end());
             xrange = *std::max_element(x.begin(),x.end()) - *std::min_element(x.begin(),x.end());
             if (xrange > max_num_of_bins) {
@@ -387,7 +388,7 @@ namespace matplot {
         size_t nbins = std::max(ceil(log2(x.size())+1.),1.);
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
-            if (isfinite(binwidth)) {
+            if (std::isfinite(binwidth)) {
                 return bin_picker(minx, maxx, 0, binwidth);
             } else {
                 return bin_picker(minx, maxx, nbins, binwidth);
@@ -401,7 +402,7 @@ namespace matplot {
         size_t nbins = std::max(ceil(log2(x.size())+1.),1.);
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
-            if (isfinite(binwidth)) {
+            if (std::isfinite(binwidth)) {
                 return bin_picker(minx, maxx, 0, binwidth);
             } else {
                 return bin_picker(minx, maxx, nbins, binwidth);
@@ -414,7 +415,7 @@ namespace matplot {
     std::vector<double> histogram::automatic_rule(const std::vector<double>& x, double minx, double maxx, bool hard_limits) {
         double xrange = maxx - minx;
         bool is_around_integers = std::all_of(x.begin(), x.end(), [](double x) {
-            return abs(x - round(x)) < 0.01;
+            return std::abs(x - round(x)) < 0.01;
         });
         if (is_around_integers && xrange <= 50) {
             return integers_rule(x,minx,maxx,hard_limits);

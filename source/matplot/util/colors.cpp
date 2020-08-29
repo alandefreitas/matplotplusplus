@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <vector>
+#include <algorithm>
 #include <matplot/util/colors.h>
 
 namespace matplot {

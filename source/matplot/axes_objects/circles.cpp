@@ -3,6 +3,7 @@
 //
 
 #include <sstream>
+#include <algorithm>
 #include <matplot/util/common.h>
 #include <matplot/axes_objects/circles.h>
 #include <matplot/axes_objects/labels.h>

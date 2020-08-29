@@ -51,12 +51,12 @@ namespace matplot {
                 double v_value = v_data_.size() > i ? v_data_[i] : 0;
                 double w_value = w_data_.size() > i ? w_data_[i] : 0;
 
-                bool is_end_of_series = !isfinite(x_value) ||
-                                        !isfinite(y_value) ||
-                                        !isfinite(z_value) ||
-                                        !isfinite(u_value) ||
-                                        !isfinite(v_value) ||
-                                        !isfinite(w_value);
+                bool is_end_of_series = !std::isfinite(x_value) ||
+                                        !std::isfinite(y_value) ||
+                                        !std::isfinite(z_value) ||
+                                        !std::isfinite(u_value) ||
+                                        !std::isfinite(v_value) ||
+                                        !std::isfinite(w_value);
                 if (is_end_of_series) {
                     ss << "    \n";
                     continue;
@@ -122,7 +122,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -146,7 +146,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }
@@ -166,7 +166,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return +round_polar_max(abs(*max_rho));
+                return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
             }
@@ -186,7 +186,7 @@ namespace matplot {
             }
             auto [min_rho, max_rho] = std::minmax_element(y_data_.begin(), y_data_.end());
             if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
-                return -round_polar_max(abs(*max_rho));
+                return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
             }

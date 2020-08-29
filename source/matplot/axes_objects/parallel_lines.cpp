@@ -4,6 +4,7 @@
 
 #include <sstream>
 #include <regex>
+#include <iomanip>
 #include <matplot/util/common.h>
 #include <matplot/axes_objects/parallel_lines.h>
 #include <matplot/core/axes.h>

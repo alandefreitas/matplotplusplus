@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_SURFACE_H
 
 #include <array>
+#include <optional>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 #include <matplot/core/figure.h>
@@ -49,8 +50,8 @@ namespace matplot {
     public /* getters and setters */:
         class surface& line_style(const std::string& line_spec);
 
-        const line_spec &line_spec() const;
-        class line_spec &line_spec();
+        const matplot::line_spec &line_spec() const;
+        matplot::line_spec &line_spec();
         class surface& line_spec(const class line_spec &line_spec);
 
         const vector_2d &Y_data() const;

@@ -2206,7 +2206,7 @@ namespace matplot {
                             const IterableIterables<T3> &Z,
                             const IterableIterables<T4> &C = {}, std::string
                             line_spec = "") {
-            return IterableIterables(to_vector_2d(X),to_vector_2d(Y),to_vector_2d(Z),to_vector_2d(C),line_spec);
+            return IterableIterables<T1>(to_vector_2d(X),to_vector_2d(Y),to_vector_2d(Z),to_vector_2d(C),line_spec);
         }
 
         template <class T1, class T2, class T3, class T4>

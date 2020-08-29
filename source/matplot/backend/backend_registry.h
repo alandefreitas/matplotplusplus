@@ -5,6 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_BACKEND_REGISTRY_H
 #define MATPLOTPLUSPLUS_BACKEND_REGISTRY_H
 
+#include <stdexcept>
 #include <matplot/backend/backend_interface.h>
 #include <matplot/backend/gnuplot.h>
 

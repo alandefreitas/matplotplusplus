@@ -7,6 +7,7 @@
 
 #include <string>
 #include <array>
+#include <vector>
 
 namespace matplot {
     enum class color {
