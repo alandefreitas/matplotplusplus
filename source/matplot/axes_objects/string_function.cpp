@@ -6,17 +6,19 @@
 #include <matplot/core/axes.h>
 
 namespace matplot {
-    string_function::string_function(class axes* parent)
-            : string_function(parent, "x", "") {}
+    string_function::string_function(class axes *parent)
+        : string_function(parent, "x", "") {}
 
-    string_function::string_function(class axes* parent, const std::string& equation, const std::string& line_spec)
+    string_function::string_function(class axes *parent,
+                                     const std::string &equation,
+                                     const std::string &line_spec)
         : line(parent, {}, line_spec), equation_(equation) {}
 
     std::string string_function::plot_string() {
         maybe_update_line_spec();
         std::string res;
         bool first = true;
-        for (const auto& style: styles_to_plot()) {
+        for (const auto &style : styles_to_plot()) {
             if (!first) {
                 res += ",";
             }
@@ -28,9 +30,7 @@ namespace matplot {
         return res;
     }
 
-    std::string string_function::data_string() {
-        return "";
-    }
+    std::string string_function::data_string() { return ""; }
 
     double string_function::xmax() {
         if (is_polar()) {
@@ -68,16 +68,13 @@ namespace matplot {
         }
     }
 
-    const std::string& string_function::equation() const {
-        return equation_;
-    }
+    const std::string &string_function::equation() const { return equation_; }
 
-    class string_function& string_function::equation(const std::string &equation) {
+    class string_function &
+    string_function::equation(const std::string &equation) {
         equation_ = equation;
         parent()->draw();
         return *this;
     }
 
-
-
-}
+} // namespace matplot

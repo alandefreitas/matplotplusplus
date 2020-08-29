@@ -3,7 +3,7 @@
 int main() {
     using namespace matplot;
 
-    auto z = rand(5,5,0,10);
+    auto z = rand(5, 5, 0, 10);
     stem3(z);
     ztickformat("usd");
 

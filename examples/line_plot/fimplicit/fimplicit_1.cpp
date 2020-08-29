@@ -3,7 +3,7 @@
 int main() {
     using namespace matplot;
 
-    fimplicit([](double x, double y) {return pow(x,2) - pow(y,2) - 1; });
+    fimplicit([](double x, double y) { return pow(x, 2) - pow(y, 2) - 1; });
 
     wait();
     return 0;

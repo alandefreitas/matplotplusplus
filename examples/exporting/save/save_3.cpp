@@ -1,5 +1,5 @@
-#include <thread>
 #include <matplot/matplot.h>
+#include <thread>
 
 int main() {
     using namespace matplot;
@@ -10,9 +10,10 @@ int main() {
     std::vector<double> x = {2, 4, 7, 2, 4, 5, 2, 5, 1, 4};
     bar(x);
 
-    const auto& m = backend::gnuplot::extension_terminal();
+    const auto &m = backend::gnuplot::extension_terminal();
     for (const auto &[extension, format] : m) {
-        save(std::string("formats/barchart ") + std::string(format), std::string(format));
+        save(std::string("formats/barchart ") + std::string(format),
+             std::string(format));
     }
 
     return 0;

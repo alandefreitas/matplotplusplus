@@ -1,13 +1,13 @@
-#include <random>
-#include <thread>
 #include <cmath>
 #include <matplot/matplot.h>
+#include <random>
+#include <thread>
 
 int main() {
     using namespace matplot;
 
-    std::vector<double> x = randn(2000,0,1);
-    std::vector<double> y = randn(5000,1,1);
+    std::vector<double> x = randn(2000, 0, 1);
+    std::vector<double> y = randn(5000, 1, 1);
 
     auto h1 = hist(x);
     hold(on);

@@ -7,7 +7,7 @@ int main() {
     for (size_t i = 0; i < Z.size(); ++i) {
         Z[i][25] = NaN;
     }
-    contour(X,Y,Z)->contour_text(true);
+    contour(X, Y, Z)->contour_text(true);
 
     wait();
     return 0;

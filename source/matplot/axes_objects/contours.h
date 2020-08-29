@@ -6,10 +6,10 @@
 #define MATPLOTPLUSPLUS_CONTOURS_H
 
 #include <array>
-#include <matplot/util/concepts.h>
-#include <matplot/util/handle_types.h>
 #include <matplot/util/common.h>
+#include <matplot/util/concepts.h>
 #include <matplot/util/contourc.h>
+#include <matplot/util/handle_types.h>
 
 #include <matplot/core/figure.h>
 
@@ -33,7 +33,7 @@ namespace matplot {
     /// like is to calculate the contour lines outside gnuplot,
     /// even if our algorithm is not perfect.
     class contours : public axes_object {
-    public:
+      public:
         /// X, Y grids and their Z values
         /// Every X column has the same value for all rows.
         ///        This value increases in the next column.
@@ -50,20 +50,22 @@ namespace matplot {
         /// \param Y Y grid
         /// \param Z Z heights
         /// \param line_spec Line properties
-        contours(class axes* parent, const vector_2d& X, const vector_2d& Y, const vector_2d& Z, const std::string& line_spec = "");
+        contours(class axes *parent, const vector_2d &X, const vector_2d &Y,
+                 const vector_2d &Z, const std::string &line_spec = "");
 
-        contours(class axes* parent, const vector_2d& Z, const std::string& line_spec = "");
+        contours(class axes *parent, const vector_2d &Z,
+                 const std::string &line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
-        template <class ...Args>
-        contours(const axes_handle& parent, Args... args)
+        template <class... Args>
+        contours(const axes_handle &parent, Args... args)
             : contours(parent.get(), args...) {}
 
-    public /* mandatory virtual functions */:
+      public /* mandatory virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;
-        std::string legend_string(const std::string& title) override;
+        std::string legend_string(const std::string &title) override;
         std::string data_string() override;
         bool requires_colormap() override;
         double xmax() override;
@@ -72,99 +74,98 @@ namespace matplot {
         double ymin() override;
         enum axes_object::axes_category axes_category() override;
 
-    public /* getters and setters */:
-        class contours& line_style(const std::string& line_spec);
+      public /* getters and setters */:
+        class contours &line_style(const std::string &line_spec);
 
         const matplot::line_spec &line_spec() const;
         matplot::line_spec &line_spec();
-        class contours& line_spec(const class line_spec &line_spec);
+        class contours &line_spec(const class line_spec &line_spec);
 
         const vector_2d &Y_data() const;
-        class contours& Y_data(const vector_2d &Y_data);
+        class contours &Y_data(const vector_2d &Y_data);
 
         const vector_2d &X_data() const;
-        class contours& X_data(const vector_2d &X_data);
+        class contours &X_data(const vector_2d &X_data);
 
         const vector_2d &Z_data() const;
-        class contours& Z_data(const vector_2d &Z_data);
+        class contours &Z_data(const vector_2d &Z_data);
 
         const vector_2d &x_data() const;
-        class contours& x_data(const vector_2d &x_data);
+        class contours &x_data(const vector_2d &x_data);
 
         const vector_2d &y_data() const;
-        class contours& y_data(const vector_2d &y_data);
+        class contours &y_data(const vector_2d &y_data);
 
         const vector_2d &z_data() const;
-        class contours& z_data(const vector_2d &z_data);
+        class contours &z_data(const vector_2d &z_data);
 
         bool contour_text() const;
-        class contours& contour_text(bool contour_text);
+        class contours &contour_text(bool contour_text);
 
         const float font_size() const;
-        class contours& font_size(const float &font_size);
+        class contours &font_size(const float &font_size);
 
         const std::string font() const;
-        class contours& font(const std::string &font);
+        class contours &font(const std::string &font);
 
         const std::string &font_weight() const;
-        class contours& font_weight(const std::string &font_weight);
+        class contours &font_weight(const std::string &font_weight);
 
         const color_array &font_color() const;
-        class contours& font_color(const color_array &font_color);
-        class contours& font_color(const std::string &font_color);
+        class contours &font_color(const color_array &font_color);
+        class contours &font_color(const std::string &font_color);
 
         bool visible() const;
-        class contours& visible(bool visible);
+        class contours &visible(bool visible);
 
         size_t n_levels() const;
-        class contours& n_levels(size_t n_levels);
+        class contours &n_levels(size_t n_levels);
 
         const std::vector<double> &levels() const;
-        class contours& levels(const std::vector<double> &levels);
+        class contours &levels(const std::vector<double> &levels);
 
         bool filled() const;
-        class contours& filled(bool filled);
+        class contours &filled(bool filled);
 
         bool colormap_line_when_filled() const;
 
-        class contours& colormap_line_when_filled(bool colormap_line_when_filled);
+        class contours &
+        colormap_line_when_filled(bool colormap_line_when_filled);
 
-    public /* getters and setters bypassing the line_spec */:
+      public /* getters and setters bypassing the line_spec */:
         float line_width() const;
-        class contours& line_width(float line_width);
+        class contours &line_width(float line_width);
 
-        const std::array<float, 4>& color() const;
+        const std::array<float, 4> &color() const;
 
-        template <class T>
-        class contours& color(T c) {
+        template <class T> class contours &color(T c) {
             line_spec().color(c);
             return *this;
         }
-        inline class contours& color(std::initializer_list<float> c) {
+        inline class contours &color(std::initializer_list<float> c) {
             line_spec().color(c);
             return *this;
         }
 
-    protected:
+      protected:
         void make_sure_data_is_preprocessed();
         void clear_preprocessed_data();
-        bool is_lower_level(size_t line_index, size_t  segment_begin, size_t segment_end);
-        std::pair<vector_1d, vector_1d> fill_border_jump(double start_x, double start_y, double end_x, double end_y, double x_min, double x_max, double y_min, double y_max, bool is_parent);
+        bool is_lower_level(size_t line_index, size_t segment_begin,
+                            size_t segment_end);
+        std::pair<vector_1d, vector_1d>
+        fill_border_jump(double start_x, double start_y, double end_x,
+                         double end_y, double x_min, double x_max, double y_min,
+                         double y_max, bool is_parent);
 
-    public:
-        enum class extend_option {
-            neither,
-            min,
-            max,
-            both
-        };
+      public:
+        enum class extend_option { neither, min, max, both };
 
-        /// Determine some automatic contour levels for data ranging from z_min to z_max
-        /// Each library will use a different algorithm to determine levels.
-        /// In our case, this is similar to the algorithm for automatic histogram edges.
-        /// The difference is that the final histogram edges fall outside the range [z_min,z_max]
-        /// while we want all contour lines to fall inside [z_min,z_max]
-        /// Select contour levels to span the data.
+        /// Determine some automatic contour levels for data ranging from z_min
+        /// to z_max Each library will use a different algorithm to determine
+        /// levels. In our case, this is similar to the algorithm for automatic
+        /// histogram edges. The difference is that the final histogram edges
+        /// fall outside the range [z_min,z_max] while we want all contour lines
+        /// to fall inside [z_min,z_max] Select contour levels to span the data.
         //        The target number of levels, *N*, is used only when the
         //        scale is not log and default locator is used.
         //
@@ -181,8 +182,12 @@ namespace matplot {
         ///        For line contours, layers simply coincide with levels;
         ///        a line is a thin layer.  No extended levels are needed
         ///        with line contours.
-        static std::vector<double> determine_contour_levels(double z_min, double z_max, size_t n_levels_, extend_option ext = extend_option::neither);
-        static std::vector<double> determine_contour_levels(const vector_2d& Z, size_t n_levels_, extend_option ext = extend_option::neither);
+        static std::vector<double>
+        determine_contour_levels(double z_min, double z_max, size_t n_levels_,
+                                 extend_option ext = extend_option::neither);
+        static std::vector<double>
+        determine_contour_levels(const vector_2d &Z, size_t n_levels_,
+                                 extend_option ext = extend_option::neither);
 
         /// Return ``(lowers, uppers)`` levels for filled contours.
         std::pair<vector_1d, vector_1d> get_lowers_and_uppers();
@@ -196,7 +201,8 @@ namespace matplot {
 
         double zmin() override;
         double zmax() override;
-    protected:
+
+      protected:
         /// Pre-processed contour lines
         std::vector<QuadContourGenerator::vertices_list_type> lines_;
 
@@ -220,11 +226,14 @@ namespace matplot {
         using begin_index_type = size_t;
         using end_index_type = size_t;
         using area_type = double;
-        using line_segment_type = std::tuple<level_index_type,begin_index_type,end_index_type>;
-        using parent_and_children_type = std::tuple<line_segment_type, std::vector<line_segment_type>, area_type>;
+        using line_segment_type =
+            std::tuple<level_index_type, begin_index_type, end_index_type>;
+        using parent_and_children_type =
+            std::tuple<line_segment_type, std::vector<line_segment_type>,
+                       area_type>;
         std::vector<parent_and_children_type> line_segments_;
 
-    protected:
+      protected:
         /// Line style
         class line_spec line_spec_;
 
@@ -266,12 +275,12 @@ namespace matplot {
         std::optional<float> font_size_{std::nullopt};
         std::optional<std::string> font_{std::nullopt};
         std::string font_weight_{"normal"};
-        color_array font_color_{0,0,0,0};
+        color_array font_color_{0, 0, 0, 0};
 
         /// True if visible
         bool visible_{true};
     };
 
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_CONTOURS_H
+#endif // MATPLOTPLUSPLUS_CONTOURS_H

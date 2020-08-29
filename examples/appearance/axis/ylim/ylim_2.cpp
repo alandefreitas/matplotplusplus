@@ -1,15 +1,15 @@
 #include <iostream>
+#include <matplot/matplot.h>
+#include <set>
 #include <thread>
 #include <vector>
-#include <set>
-#include <matplot/matplot.h>
 
 int main() {
     using namespace matplot;
 
-    auto [X,Y,Z] = peaks();
-    surf(X,Y,Z);
-    ylim({0,inf});
+    auto [X, Y, Z] = peaks();
+    surf(X, Y, Z);
+    ylim({0, inf});
 
     wait();
     return 0;

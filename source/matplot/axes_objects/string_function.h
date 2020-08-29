@@ -5,23 +5,25 @@
 #ifndef MATPLOTPLUSPLUS_STRING_FUNCTION_H
 #define MATPLOTPLUSPLUS_STRING_FUNCTION_H
 
-#include <string>
 #include <matplot/axes_objects/line.h>
-#include <matplot/util/handle_types.h>
 #include <matplot/core/line_spec.h>
+#include <matplot/util/handle_types.h>
+#include <string>
 
 namespace matplot {
     class string_function : public line {
-    public:
-        explicit string_function(class axes* parent);
-        string_function(class axes* parent, const std::string& equation, const std::string& line_spec = "");
+      public:
+        explicit string_function(class axes *parent);
+        string_function(class axes *parent, const std::string &equation,
+                        const std::string &line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
-        template <class ...Args>
-        string_function(const axes_handle& parent, Args... args) : string_function(parent.get(), args...) {}
+        template <class... Args>
+        string_function(const axes_handle &parent, Args... args)
+            : string_function(parent.get(), args...) {}
 
-    public:
+      public:
         std::string plot_string() override;
         std::string data_string() override;
         double xmax() override;
@@ -30,13 +32,13 @@ namespace matplot {
         double ymin() override;
         enum axes_object::axes_category axes_category() override;
 
-    public:
+      public:
         const std::string &equation() const;
-        class string_function& equation(const std::string &equation);
+        class string_function &equation(const std::string &equation);
 
-    private:
+      private:
         std::string equation_;
     };
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_STRING_FUNCTION_H
+#endif // MATPLOTPLUSPLUS_STRING_FUNCTION_H

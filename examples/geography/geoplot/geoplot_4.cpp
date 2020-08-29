@@ -11,11 +11,13 @@ int main() {
     double lat_pt_barrow = 71.38;
     double lon_pt_barrow = -156.47;
 
-    geoplot(std::vector{lat_seattle,lat_anchorage}, std::vector{lon_seattle,lon_anchorage},"y-");
+    geoplot(std::vector{lat_seattle, lat_anchorage},
+            std::vector{lon_seattle, lon_anchorage}, "y-");
     hold(on);
-    geoplot(std::vector{lat_seattle,lat_pt_barrow}, std::vector{lon_seattle,lon_pt_barrow},"b:");
+    geoplot(std::vector{lat_seattle, lat_pt_barrow},
+            std::vector{lon_seattle, lon_pt_barrow}, "b:");
 
-    geolimits(44,75, -170,-100);
+    geolimits(44, 75, -170, -100);
 
     text(lon_anchorage, lat_anchorage, "Anchorage");
     text(lon_seattle, lat_seattle, "Seattle");

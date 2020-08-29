@@ -3,11 +3,11 @@
 int main() {
     using namespace matplot;
 
-    tiledlayout(2,1);
+    tiledlayout(2, 1);
     nexttile();
-    plot({1.,2.,3.});
+    plot({1., 2., 3.});
     nexttile();
-    plot({3.,2.,1.});
+    plot({3., 2., 1.});
     save("img/layout.eps");
 
     return 0;

@@ -3,7 +3,10 @@
 
 int main() {
     using namespace matplot;
-    std::vector<std::pair<size_t,size_t>> edges = {{0, 1}, {0, 2}, {0, 9}, {1, 3}, {1, 11}, {2, 3}, {2, 4}, {3, 5}, {4, 5}, {4, 6}, {5, 8}, {6, 7}, {6, 9}, {7, 8}, {7, 10}, {8, 11}, {9, 10}, {10, 11}};
+    std::vector<std::pair<size_t, size_t>> edges = {
+        {0, 1}, {0, 2}, {0, 9},  {1, 3},  {1, 11}, {2, 3},
+        {2, 4}, {3, 5}, {4, 5},  {4, 6},  {5, 8},  {6, 7},
+        {6, 9}, {7, 8}, {7, 10}, {8, 11}, {9, 10}, {10, 11}};
     auto g = digraph(edges);
     g->marker("s");
     g->node_color("red");

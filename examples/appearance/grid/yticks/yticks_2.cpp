@@ -3,10 +3,10 @@
 int main() {
     using namespace matplot;
 
-    auto x = linspace(-5,+5);
-    auto y = transform(x, [](double x) { return pow(x,2); });
-    plot(x,y);
-    yticks({0,2,4,6,8,10,15,25});
+    auto x = linspace(-5, +5);
+    auto y = transform(x, [](double x) { return pow(x, 2); });
+    plot(x, y);
+    yticks({0, 2, 4, 6, 8, 10, 15, 25});
 
     wait();
     return 0;

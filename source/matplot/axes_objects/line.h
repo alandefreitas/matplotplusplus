@@ -6,30 +6,36 @@
 #define MATPLOTPLUSPLUS_LINE_H
 
 #include <array>
+#include <matplot/core/axes_object.h>
+#include <matplot/core/figure.h>
+#include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-#include <matplot/core/figure.h>
-#include <matplot/core/axes_object.h>
-#include <matplot/core/line_spec.h>
 
 namespace matplot {
     class axes;
     class line : public axes_object {
-    public:
-        explicit line(class axes* parent);
-        line(class axes* parent, const std::vector<double>& y_data, const std::string& line_spec = "");
-        line(class axes* parent, const std::vector<double>& x_data, const std::vector<double>& y_data, const std::string& line_spec = "");
-        line(class axes* parent, const std::vector<double>& x_data, const std::vector<double>& y_data, const std::vector<double>& z_data, const std::string& line_spec = "");
+      public:
+        explicit line(class axes *parent);
+        line(class axes *parent, const std::vector<double> &y_data,
+             const std::string &line_spec = "");
+        line(class axes *parent, const std::vector<double> &x_data,
+             const std::vector<double> &y_data,
+             const std::string &line_spec = "");
+        line(class axes *parent, const std::vector<double> &x_data,
+             const std::vector<double> &y_data,
+             const std::vector<double> &z_data,
+             const std::string &line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
-        template <class ...Args>
-        line(const axes_handle& parent, Args... args)
+        template <class... Args>
+        line(const axes_handle &parent, Args... args)
             : line(parent.get(), args...) {}
 
-    public /* mandatory virtual functions */:
+      public /* mandatory virtual functions */:
         std::string plot_string() override;
-        std::string legend_string(const std::string& title) override;
+        std::string legend_string(const std::string &title) override;
         std::string data_string() override;
         double xmax() override;
         double xmin() override;
@@ -38,110 +44,104 @@ namespace matplot {
         enum axes_object::axes_category axes_category() override;
         bool requires_colormap() override;
 
-    public /* getters and setters */:
-        class line& line_style(const std::string& line_spec);
+      public /* getters and setters */:
+        class line &line_style(const std::string &line_spec);
 
         const matplot::line_spec &line_spec() const;
         matplot::line_spec &line_spec();
-        class line& line_spec(const class line_spec &line_spec);
+        class line &line_spec(const class line_spec &line_spec);
 
         const std::vector<double> &y_data() const;
-        class line& y_data(const std::vector<double> &y_data);
+        class line &y_data(const std::vector<double> &y_data);
 
         const std::vector<double> &x_data() const;
-        class line& x_data(const std::vector<double> &x_data);
+        class line &x_data(const std::vector<double> &x_data);
 
         const std::vector<double> &z_data() const;
-        class line& z_data(const std::vector<double> &z_data);
+        class line &z_data(const std::vector<double> &z_data);
 
         const std::vector<size_t> &marker_indices() const;
-        class line& marker_indices(const std::vector<size_t> &marker_indices);
+        class line &marker_indices(const std::vector<size_t> &marker_indices);
 
         bool use_y2() const;
-        class line& use_y2(bool use_y_2);
+        class line &use_y2(bool use_y_2);
 
         bool impulse() const;
-        class line& impulse(bool impulse);
+        class line &impulse(bool impulse);
 
         bool fill() const;
-        class line& fill(bool fill);
+        class line &fill(bool fill);
 
         bool use_y_2() const;
-        class line& use_y_2(bool use_y_2);
+        class line &use_y_2(bool use_y_2);
 
         bool polar() const;
-        class line& polar(bool polar);
+        class line &polar(bool polar);
 
         bool visible() const;
-        class line& visible(bool visible);
+        class line &visible(bool visible);
 
-    public /* getters and setters bypassing the line_spec */:
+      public /* getters and setters bypassing the line_spec */:
         float line_width() const;
-        class line& line_width(float line_width);
+        class line &line_width(float line_width);
 
         enum line_spec::marker_style marker_style() const;
-        template <class T>
-        class line& marker_style(T marker_style) {
+        template <class T> class line &marker_style(T marker_style) {
             line_spec_.marker_style(marker_style);
             return *this;
         }
 
         enum line_spec::marker_style marker() const;
-        template <class T>
-        class line& marker(T marker) {
+        template <class T> class line &marker(T marker) {
             line_spec_.marker(marker);
             return *this;
         }
 
         float marker_size() const;
-        class line& marker_size(float size);
-        class line& marker_size(const std::vector<float>& size_vector);
-        class line& marker_size(const std::vector<double>& size_vector);
+        class line &marker_size(float size);
+        class line &marker_size(const std::vector<float> &size_vector);
+        class line &marker_size(const std::vector<double> &size_vector);
 
         bool marker_face() const;
-        class line& marker_face(bool size);
+        class line &marker_face(bool size);
 
-        const std::array<float, 4>& color() const;
-        template <class T>
-        class line& color(T c) {
+        const std::array<float, 4> &color() const;
+        template <class T> class line &color(T c) {
             line_spec().color(c);
             return *this;
         }
 
-        inline class line& color(std::initializer_list<float> c) {
+        inline class line &color(std::initializer_list<float> c) {
             line_spec().color(c);
             return *this;
         }
 
+        const std::array<float, 4> &marker_color() const;
 
-        const std::array<float, 4>& marker_color() const;
-
-        template <class T>
-        class line& marker_color(T c) {
+        template <class T> class line &marker_color(T c) {
             line_spec().marker_color(c);
             return *this;
         }
 
-        inline class line& marker_color(std::initializer_list<float> c) {
+        inline class line &marker_color(std::initializer_list<float> c) {
             line_spec().marker_color(c);
             return *this;
         }
 
-        inline class line& marker_colors(const std::vector<double>& cs) {
+        inline class line &marker_colors(const std::vector<double> &cs) {
             marker_colors_ = cs;
             touch();
             return *this;
         }
 
-        const std::array<float, 4>& marker_face_color() const;
+        const std::array<float, 4> &marker_face_color() const;
 
-        template <class T>
-        class line& marker_face_color(T c) {
+        template <class T> class line &marker_face_color(T c) {
             line_spec().marker_face_color(c);
             return *this;
         }
 
-        inline class line& marker_face_color(std::initializer_list<float> c) {
+        inline class line &marker_face_color(std::initializer_list<float> c) {
             line_spec().marker_face_color(c);
             return *this;
         }
@@ -150,16 +150,16 @@ namespace matplot {
             return line_spec().marker_face_alpha();
         }
 
-        inline class line& marker_face_alpha(float a) {
+        inline class line &marker_face_alpha(float a) {
             line_spec().marker_face_alpha(a);
             return *this;
         }
 
-    protected:
+      protected:
         virtual std::vector<line_spec::style_to_plot> styles_to_plot();
         void maybe_update_line_spec();
 
-    protected:
+      protected:
         /// Line style
         matplot::line_spec line_spec_;
 
@@ -188,6 +188,6 @@ namespace matplot {
         /// True if visible
         bool visible_{true};
     };
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_LINE_H
+#endif // MATPLOTPLUSPLUS_LINE_H

@@ -3,9 +3,9 @@
 int main() {
     using namespace matplot;
 
-    std::vector<double> x = iota(1,3);
+    std::vector<double> x = iota(1, 3);
     std::vector<std::string> labels = {"Taxes", "Expenses", "Profit"};
-    pie(x,labels);
+    pie(x, labels);
 
     wait();
     return 0;

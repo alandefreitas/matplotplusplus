@@ -7,48 +7,54 @@
 
 #include <matplot/core/figure.h>
 
+#include <matplot/core/axes_object.h>
+#include <matplot/core/axis.h>
+#include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-#include <matplot/core/axes_object.h>
-#include <matplot/core/line_spec.h>
-#include <matplot/core/axis.h>
+#include <matplot/util/common.h>
 
 namespace matplot {
     class axes;
 
     class matrix : public axes_object {
-    public:
-        enum class color_normalization {
-            none,
-            rows,
-            columns
-        };
-    public:
-        explicit matrix(class axes* parent);
+      public:
+        enum class color_normalization { none, rows, columns };
+
+      public:
+        explicit matrix(class axes *parent);
 
         /// Heatmap
         /// Matrix of values that can be any double
-        matrix(class axes* parent, const std::vector<std::vector<double>>& matrix);
+        matrix(class axes *parent,
+               const std::vector<std::vector<double>> &matrix);
 
         /// Matrix with an rgb image
-        matrix(class axes* parent, const std::vector<std::vector<double>>& red_channel, const std::vector<std::vector<double>>& green_channel, const std::vector<std::vector<double>>& blue_channel, const std::vector<std::vector<double>>& alpha_channel = {});
+        matrix(class axes *parent,
+               const std::vector<std::vector<double>> &red_channel,
+               const std::vector<std::vector<double>> &green_channel,
+               const std::vector<std::vector<double>> &blue_channel,
+               const std::vector<std::vector<double>> &alpha_channel = {});
 
         /// Matrix with a b&w image
-        matrix(class axes* parent, const image_channel_t& gray_image);
+        matrix(class axes *parent, const image_channel_t &gray_image);
 
         /// Matrix with an rgb image
-        matrix(class axes* parent, const image_channel_t& red_channel, const image_channel_t& green_channel, const image_channel_t& blue_channel, const image_channel_t& alpha_channel= {});
+        matrix(class axes *parent, const image_channel_t &red_channel,
+               const image_channel_t &green_channel,
+               const image_channel_t &blue_channel,
+               const image_channel_t &alpha_channel = {});
 
         /// Matrices with an image
-        matrix(class axes* parent, const image_channels_t& rgb_image);
+        matrix(class axes *parent, const image_channels_t &rgb_image);
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
-        template <class ...Args>
-        matrix(const axes_handle& parent, Args... args)
-                : matrix(parent.get(), args...) {}
+        template <class... Args>
+        matrix(const axes_handle &parent, Args... args)
+            : matrix(parent.get(), args...) {}
 
-    public /* mandatory virtual functions */:
+      public /* mandatory virtual functions */:
         // std::string set_variables_string() override;
         std::string plot_string() override;
         // std::string legend_string(const std::string& title) override;
@@ -60,41 +66,45 @@ namespace matplot {
         double ymin() override;
         enum axes_object::axes_category axes_category() override;
 
-    public /* getters and setters */:
+      public /* getters and setters */:
         color_normalization normalization() const;
-        class matrix& normalization(color_normalization normalization);
+        class matrix &normalization(color_normalization normalization);
 
         const std::vector<std::vector<double>> &matrix_r() const;
-        class matrix& matrix_r(const std::vector<std::vector<double>> &matrix_r);
+        class matrix &
+        matrix_r(const std::vector<std::vector<double>> &matrix_r);
 
         const std::vector<std::vector<double>> &matrix_g() const;
-        class matrix& matrix_g(const std::vector<std::vector<double>> &matrix_g);
+        class matrix &
+        matrix_g(const std::vector<std::vector<double>> &matrix_g);
 
         const std::vector<std::vector<double>> &matrix_b() const;
-        class matrix& matrix_b(const std::vector<std::vector<double>> &matrix_b);
+        class matrix &
+        matrix_b(const std::vector<std::vector<double>> &matrix_b);
 
         const std::vector<std::vector<double>> &matrix_a() const;
-        class matrix& matrix_a(const std::vector<std::vector<double>> &matrix_a);
+        class matrix &
+        matrix_a(const std::vector<std::vector<double>> &matrix_a);
 
         bool always_hide_labels() const;
-        class matrix& always_hide_labels(bool always_hide_labels);
+        class matrix &always_hide_labels(bool always_hide_labels);
 
         double x() const;
-        class matrix& x(double x);
+        class matrix &x(double x);
 
         double y() const;
-        class matrix& y(double y);
+        class matrix &y(double y);
 
         double w() const;
-        class matrix& w(double w);
+        class matrix &w(double w);
 
         double h() const;
-        class matrix& h(double h);
+        class matrix &h(double h);
 
         double alpha() const;
-        class matrix& alpha(double alpha);
+        class matrix &alpha(double alpha);
 
-    public /* functions for matrixes */:
+      public /* functions for matrixes */:
         /// Matrix has three channels
         bool is_rgb() const;
 
@@ -105,7 +115,8 @@ namespace matplot {
         /// alpha channels or because alpha_ != 0.
         /// In both cases we have a rgba matrix
         bool has_alpha() const;
-    private:
+
+      private:
         bool should_plot_labels();
         void setup_axes();
         std::string matrix_data_string();
@@ -116,10 +127,9 @@ namespace matplot {
             return (w_ - 1) / (matrices_[0][0].size() - 1);
         }
 
-        inline double y_width() {
-            return (h_ - 1) / (matrices_[0].size() - 1);
-        }
-    protected:
+        inline double y_width() { return (h_ - 1) / (matrices_[0].size() - 1); }
+
+      protected:
         // Main matrix
         std::vector<std::vector<std::vector<double>>> matrices_{};
 
@@ -139,6 +149,6 @@ namespace matplot {
 
         bool visible_{true};
     };
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_MATRIX_H
+#endif // MATPLOTPLUSPLUS_MATRIX_H

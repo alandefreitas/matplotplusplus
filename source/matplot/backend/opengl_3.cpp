@@ -3,9 +3,9 @@
 //
 
 #include "opengl_3.h"
-#include <thread>
 #include <future>
 #include <matplot/util/common.h>
+#include <thread>
 
 namespace matplot::backend {
 
@@ -25,7 +25,8 @@ namespace matplot::backend {
 #endif
 
         // Create window
-        window_ = glfwCreateWindow(default_screen_width, default_screen_height, "Figure 1", nullptr, nullptr);
+        window_ = glfwCreateWindow(default_screen_width, default_screen_height,
+                                   "Figure 1", nullptr, nullptr);
         if (window_ == nullptr) {
             glfwTerminate();
             throw std::runtime_error("Failed to create GLFW window");
@@ -35,10 +36,11 @@ namespace matplot::backend {
         glfwMakeContextCurrent(window_);
 
         // Set callback when we resize the window
-        glfwSetFramebufferSizeCallback(window_, opengl_3::framebuffer_size_callback);
+        glfwSetFramebufferSizeCallback(window_,
+                                       opengl_3::framebuffer_size_callback);
 
         // Load OpenGL function pointers
-        if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
             throw std::runtime_error("Failed to initialize GLAD");
         }
     }
@@ -48,9 +50,7 @@ namespace matplot::backend {
         glfwTerminate();
     }
 
-    bool opengl_3::is_interactive() {
-        return true;
-    }
+    bool opengl_3::is_interactive() { return true; }
 
     const std::string &opengl_3::output() {
         throw std::logic_error("output not implemented yet");
@@ -64,7 +64,8 @@ namespace matplot::backend {
         throw std::logic_error("output not implemented yet");
     }
 
-    bool opengl_3::output(const std::string &filename, const std::string &file_format) {
+    bool opengl_3::output(const std::string &filename,
+                          const std::string &file_format) {
         throw std::logic_error("output not implemented yet");
     }
 
@@ -117,52 +118,51 @@ namespace matplot::backend {
             // Render the window
             // The drawing commands should go here
             auto bg = background_color();
-            glClearColor(bg[0],bg[1],bg[2], bg[3]);
+            glClearColor(bg[0], bg[1], bg[2], bg[3]);
             glClear(GL_COLOR_BUFFER_BIT);
             // ...
 
-            // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+            // glfw: swap buffers and poll IO events (keys pressed/released,
+            // mouse moved etc.)
             glfwSwapBuffers(window_);
             glfwPollEvents();
         }
         return true;
     }
 
-    void opengl_3::wait() {
-        backend_interface::wait();
-    }
+    void opengl_3::wait() { backend_interface::wait(); }
 
     bool opengl_3::supports_fonts() {
         throw std::logic_error("supports_fonts not implemented yet");
     }
 
     void opengl_3::draw_path(const std::vector<double> &x,
-                   const std::vector<double> &y,
-                   const std::vector<double> &z) {
+                             const std::vector<double> &y,
+                             const std::vector<double> &z) {
         throw std::logic_error("draw_path not implemented yet");
     }
 
     void opengl_3::draw_markers(const std::vector<double> &x,
-                      const std::vector<double> &y,
-                      const std::vector<double> &z) {
+                                const std::vector<double> &y,
+                                const std::vector<double> &z) {
         throw std::logic_error("draw_markers not implemented yet");
     }
 
     void opengl_3::draw_text(const std::vector<double> &x,
-                   const std::vector<double> &y,
-                   const std::vector<double> &z) {
+                             const std::vector<double> &y,
+                             const std::vector<double> &z) {
         throw std::logic_error("draw_text not implemented yet");
     }
 
-    void opengl_3::draw_image(const std::vector <std::vector<double>> &x,
-                    const std::vector <std::vector<double>> &y,
-                    const std::vector <std::vector<double>> &z) {
+    void opengl_3::draw_image(const std::vector<std::vector<double>> &x,
+                              const std::vector<std::vector<double>> &y,
+                              const std::vector<std::vector<double>> &z) {
         throw std::logic_error("draw_image not implemented yet");
     }
 
     void opengl_3::draw_triangle(const std::vector<double> &x,
-                       const std::vector<double> &y,
-                       const std::vector<double> &z) {
+                                 const std::vector<double> &y,
+                                 const std::vector<double> &z) {
         throw std::logic_error("draw_triangle not implemented yet");
     }
 
@@ -172,10 +172,12 @@ namespace matplot::backend {
         }
     }
 
-    void opengl_3::framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    void opengl_3::framebuffer_size_callback(GLFWwindow *window, int width,
+                                             int height) {
         // Make sure the viewport matches the new window dimensions;
-        // Note that width and height will be significantly larger than specified on retina displays.
+        // Note that width and height will be significantly larger than
+        // specified on retina displays.
         glViewport(0, 0, width, height);
     }
 
-}
+} // namespace matplot::backend

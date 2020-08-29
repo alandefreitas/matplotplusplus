@@ -37,6 +37,6 @@ namespace matplot {
 
     constexpr double inf = std::numeric_limits<double>::infinity();
 
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_KEYWORDS_H
+#endif // MATPLOTPLUSPLUS_KEYWORDS_H

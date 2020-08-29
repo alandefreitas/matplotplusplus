@@ -2,68 +2,81 @@
 // Created by Alan Freitas on 17/07/20.
 //
 
-#include <sstream>
 #include <cmath>
-#include <matplot/util/common.h>
 #include <matplot/axes_objects/matrix.h>
 #include <matplot/core/axes.h>
+#include <matplot/util/common.h>
+#include <sstream>
 
 namespace matplot {
-    matrix::matrix(class axes* parent) : axes_object(parent) {}
+    matrix::matrix(class axes *parent) : axes_object(parent) {}
 
-    matrix::matrix(class axes* parent, const std::vector<std::vector<double>>& matrix)
-            : axes_object(parent), matrices_({matrix}) {
+    matrix::matrix(class axes *parent,
+                   const std::vector<std::vector<double>> &matrix)
+        : axes_object(parent), matrices_({matrix}) {
         // Matrix does not seem to be an image.
         // If this will be the first object in the xlim, prepare xlim
         // for a heatmap.
         always_hide_labels_ = false;
         x_ = y_ = 1;
         parent_->y_axis().reverse(true);
-        std::tie(h_,w_) = size(matrices_[0]);
+        std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes* parent, const std::vector<std::vector<double>>& red_channel, const std::vector<std::vector<double>>& green_channel, const std::vector<std::vector<double>>& blue_channel, const std::vector<std::vector<double>>& alpha_channel)
-            : axes_object(parent),
-              matrices_(alpha_channel.empty() ?
-                        std::vector{red_channel,green_channel,blue_channel} :
-                        std::vector{red_channel,green_channel,blue_channel,alpha_channel}) {
+    matrix::matrix(class axes *parent,
+                   const std::vector<std::vector<double>> &red_channel,
+                   const std::vector<std::vector<double>> &green_channel,
+                   const std::vector<std::vector<double>> &blue_channel,
+                   const std::vector<std::vector<double>> &alpha_channel)
+        : axes_object(parent),
+          matrices_(alpha_channel.empty()
+                        ? std::vector{red_channel, green_channel, blue_channel}
+                        : std::vector{red_channel, green_channel, blue_channel,
+                                      alpha_channel}) {
         // Matrix seems to be an image
         // Leave the xlim as it is
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_,w_) = size(matrices_[0]);
+        std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes* parent, const image_channel_t& gray_image)
-            : axes_object(parent), matrices_({to_vector_2d(gray_image)}) {
+    matrix::matrix(class axes *parent, const image_channel_t &gray_image)
+        : axes_object(parent), matrices_({to_vector_2d(gray_image)}) {
         // This seems to be an image because the matrix is unsigned char
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_,w_) = size(matrices_[0]);
+        std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes* parent, const image_channel_t& red_channel, const image_channel_t& green_channel, const image_channel_t& blue_channel, const image_channel_t& alpha_channel)
-    : axes_object(parent),
-    matrices_(alpha_channel.empty() ?
-              std::vector{to_vector_2d(red_channel),to_vector_2d(green_channel),to_vector_2d(blue_channel)} :
-              std::vector{to_vector_2d(red_channel),to_vector_2d(green_channel),to_vector_2d(blue_channel),to_vector_2d(alpha_channel)}) {
+    matrix::matrix(class axes *parent, const image_channel_t &red_channel,
+                   const image_channel_t &green_channel,
+                   const image_channel_t &blue_channel,
+                   const image_channel_t &alpha_channel)
+        : axes_object(parent),
+          matrices_(alpha_channel.empty()
+                        ? std::vector{to_vector_2d(red_channel),
+                                      to_vector_2d(green_channel),
+                                      to_vector_2d(blue_channel)}
+                        : std::vector{to_vector_2d(red_channel),
+                                      to_vector_2d(green_channel),
+                                      to_vector_2d(blue_channel),
+                                      to_vector_2d(alpha_channel)}) {
         // This seems to be an image because the matrices are unsigned char
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_,w_) = size(matrices_[0]);
+        std::tie(h_, w_) = size(matrices_[0]);
     }
 
     /// Constructor for all channels at once
-    matrix::matrix(class axes* parent, const image_channels_t& image)
-            : axes_object(parent),
-              matrices_(to_vector_3d(image)) {
+    matrix::matrix(class axes *parent, const image_channels_t &image)
+        : axes_object(parent), matrices_(to_vector_3d(image)) {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_,w_) = size(matrices_[0]);
+        std::tie(h_, w_) = size(matrices_[0]);
     }
 
     std::string matrix::plot_string() {
@@ -84,9 +97,13 @@ namespace matplot {
 
         if (should_plot_labels()) {
             // low values in black
-            res += ", '-' with labels font \"" + escape(parent_->font()) + "," + num2str(round(parent_->font_size())) + "\" textcolor 'black'";
+            res += ", '-' with labels font \"" + escape(parent_->font()) + "," +
+                   num2str(round(parent_->font_size())) +
+                   "\" textcolor 'black'";
             // high values in white
-            res += ", '-' with labels font \"" + escape(parent_->font()) + "," + num2str(round(parent_->font_size())) + "\" textcolor 'white'";
+            res += ", '-' with labels font \"" + escape(parent_->font()) + "," +
+                   num2str(round(parent_->font_size())) +
+                   "\" textcolor 'white'";
         }
         return res;
     }
@@ -101,7 +118,7 @@ namespace matplot {
 
     std::string matrix::matrix_data_string() {
         // single matrix
-        auto& matrix_ = matrices_[0];
+        auto &matrix_ = matrices_[0];
 
         // calculate min/max row/cols if normalizing
         std::vector<double> value_max;
@@ -142,30 +159,33 @@ namespace matplot {
         std::stringstream ss;
         double x_width_ = x_width();
         double y_width_ = y_width();
-        const auto& [cb_min, cb_max] = parent_->color_box_range();
+        const auto &[cb_min, cb_max] = parent_->color_box_range();
         bool use_cb_range = cb_min != cb_max;
         for (size_t i = 0; i < matrix_.size(); ++i) {
             for (size_t j = 0; j < matrix_[i].size(); ++j) {
                 // z will be normalized
                 double z = matrix_[i][j];
                 switch (normalization_) {
-                    case color_normalization::none:
-                        break;
-                    case color_normalization::columns:
-                        z -= value_min[j];
-                        z /= value_max[j] - value_min[j];
-                        break;
-                    case color_normalization::rows:
-                        z -= value_min[i];
-                        z /= value_max[i] - value_min[i];
-                        break;
+                case color_normalization::none:
+                    break;
+                case color_normalization::columns:
+                    z -= value_min[j];
+                    z /= value_max[j] - value_min[j];
+                    break;
+                case color_normalization::rows:
+                    z -= value_min[i];
+                    z /= value_max[i] - value_min[i];
+                    break;
                 }
                 ss << "    " << x_ + x_width_ * j << "  " << y_ + y_width_ * i;
                 if (alpha_ == 0.) {
                     ss << "  " << z;
                 } else {
-                    color_array c = parent_->colormap_interpolation(z, use_cb_range ? cb_min : 0., use_cb_range ? cb_max : 255);
-                    ss << "  " << c[1] * 255 << "  " << c[2] * 255 << "  " << c[3] * 255 << "  " << (1. - alpha_) * 255;
+                    color_array c = parent_->colormap_interpolation(
+                        z, use_cb_range ? cb_min : 0.,
+                        use_cb_range ? cb_max : 255);
+                    ss << "  " << c[1] * 255 << "  " << c[2] * 255 << "  "
+                       << c[3] * 255 << "  " << (1. - alpha_) * 255;
                 }
                 ss << "\n";
             }
@@ -194,15 +214,19 @@ namespace matplot {
                     double normalized_value = matrix_[i][j];
                     double normalized_threshold = threshold;
                     if (normalization_ == color_normalization::columns) {
-                        normalized_value = (normalized_value - value_min[j]) / (value_max[j] - value_min[j]);
+                        normalized_value = (normalized_value - value_min[j]) /
+                                           (value_max[j] - value_min[j]);
                         normalized_threshold = 0.7;
                     } else if (normalization_ == color_normalization::rows) {
-                        normalized_value = (normalized_value - value_min[i]) / (value_max[i] - value_min[i]);
+                        normalized_value = (normalized_value - value_min[i]) /
+                                           (value_max[i] - value_min[i]);
                         normalized_threshold = 0.7;
                     }
 
                     if (normalized_value <= normalized_threshold) {
-                        ss << "    " << x_ + x_width_ * j << "  " << y_ + y_width_ * i << "  \"" << matrix_[i][j] << "\"\n";
+                        ss << "    " << x_ + x_width_ * j << "  "
+                           << y_ + y_width_ * i << "  \"" << matrix_[i][j]
+                           << "\"\n";
                     }
                 }
                 ss << "\n";
@@ -214,15 +238,19 @@ namespace matplot {
                     double normalized_value = matrix_[i][j];
                     double normalized_threshold = threshold;
                     if (normalization_ == color_normalization::columns) {
-                        normalized_value = (normalized_value - value_min[j]) / (value_max[j] - value_min[j]);
+                        normalized_value = (normalized_value - value_min[j]) /
+                                           (value_max[j] - value_min[j]);
                         normalized_threshold = 0.7;
                     } else if (normalization_ == color_normalization::rows) {
-                        normalized_value = (normalized_value - value_min[i]) / (value_max[i] - value_min[i]);
+                        normalized_value = (normalized_value - value_min[i]) /
+                                           (value_max[i] - value_min[i]);
                         normalized_threshold = 0.7;
                     }
 
                     if (normalized_value > normalized_threshold) {
-                        ss << "    " << x_ + x_width_ * j << "  " << y_ + y_width_ * i << "  \"" << matrix_[i][j] << "\"\n";
+                        ss << "    " << x_ + x_width_ * j << "  "
+                           << y_ + y_width_ * i << "  \"" << matrix_[i][j]
+                           << "\"\n";
                     }
                 }
                 ss << "\n";
@@ -235,7 +263,7 @@ namespace matplot {
 
     std::string matrix::image_data_string() {
         std::stringstream ss;
-        auto [h,w] = size(matrices_[0]);
+        auto [h, w] = size(matrices_[0]);
         double x_width_ = x_width();
         double y_width_ = y_width();
         for (size_t i = 0; i < w; ++i) {
@@ -248,7 +276,10 @@ namespace matplot {
                     ss << "  " << static_cast<int>(matrices_[2][j][i]);
                 }
                 if (has_alpha()) {
-                    ss << "  " << static_cast<int>((1-alpha_) * (is_rgba() ? matrices_[3][j][i] : 255.));
+                    ss << "  "
+                       << static_cast<int>(
+                              (1 - alpha_) *
+                              (is_rgba() ? matrices_[3][j][i] : 255.));
                 }
                 ss << "\n";
             }
@@ -258,24 +289,17 @@ namespace matplot {
     }
 
     std::string matrix::data_string() {
-        return matrices_.size() > 1 ? image_data_string() : matrix_data_string();
+        return matrices_.size() > 1 ? image_data_string()
+                                    : matrix_data_string();
     }
 
-    double matrix::xmax() {
-        return (x_ + w_ - 1) + x_width() / 2;
-    }
+    double matrix::xmax() { return (x_ + w_ - 1) + x_width() / 2; }
 
-    double matrix::xmin() {
-        return x_ - x_width() / 2;
-    }
+    double matrix::xmin() { return x_ - x_width() / 2; }
 
-    double matrix::ymax() {
-        return (y_ + h_ - 1) + y_width() / 2;
-    }
+    double matrix::ymax() { return (y_ + h_ - 1) + y_width() / 2; }
 
-    double matrix::ymin() {
-        return y_ - y_width() / 2;
-    }
+    double matrix::ymin() { return y_ - y_width() / 2; }
 
     enum axes_object::axes_category matrix::axes_category() {
         return axes_object::axes_category::two_dimensional;
@@ -285,19 +309,16 @@ namespace matplot {
         return normalization_;
     }
 
-    class matrix& matrix::normalization(matplot::matrix::color_normalization normalization) {
+    class matrix &
+    matrix::normalization(matplot::matrix::color_normalization normalization) {
         normalization_ = normalization;
         touch();
         return *this;
     }
 
-    bool matrix::is_rgb() const {
-        return matrices_.size() == 3;
-    }
+    bool matrix::is_rgb() const { return matrices_.size() == 3; }
 
-    bool matrix::is_rgba() const {
-        return matrices_.size() == 4;
-    }
+    bool matrix::is_rgba() const { return matrices_.size() == 4; }
 
     bool matrix::has_alpha() const {
         return matrices_.size() == 4 || alpha_ != 0.;
@@ -307,7 +328,8 @@ namespace matplot {
         return matrices_[0];
     }
 
-    class matrix& matrix::matrix_r(const std::vector<std::vector<double>> &matrix_r) {
+    class matrix &
+    matrix::matrix_r(const std::vector<std::vector<double>> &matrix_r) {
         matrices_[0] = matrix_r;
         touch();
         return *this;
@@ -317,7 +339,8 @@ namespace matplot {
         return matrices_[1];
     }
 
-    class matrix& matrix::matrix_g(const std::vector<std::vector<double>> &matrix_g) {
+    class matrix &
+    matrix::matrix_g(const std::vector<std::vector<double>> &matrix_g) {
         if (matrices_.size() < 2) {
             matrices_.resize(2);
         }
@@ -330,7 +353,8 @@ namespace matplot {
         return matrices_[2];
     }
 
-    class matrix& matrix::matrix_b(const std::vector<std::vector<double>> &matrix_b) {
+    class matrix &
+    matrix::matrix_b(const std::vector<std::vector<double>> &matrix_b) {
         if (matrices_.size() < 3) {
             matrices_.resize(3);
         }
@@ -343,7 +367,8 @@ namespace matplot {
         return matrices_[3];
     }
 
-    class matrix& matrix::matrix_a(const std::vector<std::vector<double>> &matrix_a) {
+    class matrix &
+    matrix::matrix_a(const std::vector<std::vector<double>> &matrix_a) {
         if (matrices_.size() < 4) {
             matrices_.resize(4);
         }
@@ -352,63 +377,51 @@ namespace matplot {
         return *this;
     }
 
-    bool matrix::always_hide_labels() const {
-        return always_hide_labels_;
-    }
+    bool matrix::always_hide_labels() const { return always_hide_labels_; }
 
-    class matrix& matrix::always_hide_labels(bool always_hide_labels) {
+    class matrix &matrix::always_hide_labels(bool always_hide_labels) {
         always_hide_labels_ = always_hide_labels;
         touch();
         return *this;
     }
 
-    double matrix::x() const {
-        return x_;
-    }
+    double matrix::x() const { return x_; }
 
-    class matrix& matrix::x(double x) {
+    class matrix &matrix::x(double x) {
         x_ = x;
         touch();
         return *this;
     }
 
-    double matrix::y() const {
-        return y_;
-    }
+    double matrix::y() const { return y_; }
 
-    class matrix& matrix::y(double y) {
+    class matrix &matrix::y(double y) {
         y_ = y;
         touch();
         return *this;
     }
 
-    double matrix::w() const {
-        return w_;
-    }
+    double matrix::w() const { return w_; }
 
-    class matrix& matrix::w(double w) {
+    class matrix &matrix::w(double w) {
         w_ = w;
         touch();
         return *this;
     }
 
-    double matrix::h() const {
-        return h_;
-    }
+    double matrix::h() const { return h_; }
 
-    class matrix& matrix::h(double h) {
+    class matrix &matrix::h(double h) {
         h_ = h;
         touch();
         return *this;
     }
 
-    double matrix::alpha() const {
-        return alpha_;
-    }
+    double matrix::alpha() const { return alpha_; }
 
-    class matrix& matrix::alpha(double alpha) {
+    class matrix &matrix::alpha(double alpha) {
         alpha_ = alpha;
         touch();
         return *this;
     }
-}
+} // namespace matplot

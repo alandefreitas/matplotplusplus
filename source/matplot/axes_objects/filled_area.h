@@ -11,59 +11,58 @@ namespace matplot {
     class axes;
 
     class filled_area : public line {
-    public:
-        enum class type {
-            vertical,
-            horizontal,
-            both
-        };
+      public:
+        enum class type { vertical, horizontal, both };
 
-    public:
-        explicit filled_area(class axes* parent);
+      public:
+        explicit filled_area(class axes *parent);
 
         /// Construct with x and y error
-        filled_area(class axes* parent, const std::vector<double> &x, const std::vector<double> &y, const std::vector<double> &base_values = {0.}, bool stacked = true, const std::string& line_spec = "k-");
+        filled_area(class axes *parent, const std::vector<double> &x,
+                    const std::vector<double> &y,
+                    const std::vector<double> &base_values = {0.},
+                    bool stacked = true, const std::string &line_spec = "k-");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership of the xlim
-        template <class ...Args>
-        filled_area(const axes_handle& parent, Args... args) : filled_area(parent.get(), args...) {}
+        template <class... Args>
+        filled_area(const axes_handle &parent, Args... args)
+            : filled_area(parent.get(), args...) {}
 
-    public /* override the plotting function for filled_area */:
+      public /* override the plotting function for filled_area */:
         std::string plot_string() override;
         std::string data_string() override;
         enum axes_object::axes_category axes_category() override;
 
-    public /* methods for filled_area only */:
+      public /* methods for filled_area only */:
         bool stacked() const;
-        class filled_area& stacked(bool stacked);
+        class filled_area &stacked(bool stacked);
 
         const std::vector<double> &base_data() const;
-        class filled_area& base_data(const std::vector<double> &base_data);
+        class filled_area &base_data(const std::vector<double> &base_data);
 
         bool plot_base_line() const;
-        class filled_area& plot_base_line(bool plot_base_line);
+        class filled_area &plot_base_line(bool plot_base_line);
 
         const color_array &face_color() const;
-        class filled_area& face_color(const color_array &face_color);
+        class filled_area &face_color(const color_array &face_color);
 
         bool fill_user_color() const;
-        class filled_area& fill_user_color(bool fill_user_color);
+        class filled_area &fill_user_color(bool fill_user_color);
 
-    private:
+      private:
         void maybe_update_face_color();
 
-    protected:
+      protected:
         bool stacked_{true};
 
         std::vector<double> base_data_{0.};
         bool plot_base_line_{true};
 
-        color_array face_color_{0,0,0,0};
+        color_array face_color_{0, 0, 0, 0};
         bool fill_user_color_{false};
     };
 
-}
+} // namespace matplot
 
-
-#endif //MATPLOTPLUSPLUS_FILLED_AREA_H
+#endif // MATPLOTPLUSPLUS_FILLED_AREA_H

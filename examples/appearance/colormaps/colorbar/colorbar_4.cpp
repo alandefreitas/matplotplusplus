@@ -3,15 +3,15 @@
 int main() {
     using namespace matplot;
 
-    auto [x,y,z] = peaks();
-    tiledlayout(2,1);
+    auto [x, y, z] = peaks();
+    tiledlayout(2, 1);
 
     nexttile();
-    surf(x,y,z);
+    surf(x, y, z);
     colorbar();
 
     nexttile();
-    mesh(x,y,z);
+    mesh(x, y, z);
     colorbar();
 
     wait();

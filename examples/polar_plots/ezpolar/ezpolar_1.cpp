@@ -1,6 +1,6 @@
 #include <cmath>
-#include <matplot/matplot.h>
 #include <cstdbool>
+#include <matplot/matplot.h>
 
 int main() {
     using namespace matplot;

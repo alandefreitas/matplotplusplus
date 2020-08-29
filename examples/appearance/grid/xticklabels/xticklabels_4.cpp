@@ -3,7 +3,7 @@
 int main() {
     using namespace matplot;
 
-    plot(rand(5,5,0,1));
+    plot(rand(5, 5, 0, 1));
     xticklabels({});
 
     wait();

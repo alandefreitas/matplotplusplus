@@ -3,8 +3,8 @@
 int main() {
     using namespace matplot;
 
-    stem(iota(1,10));
-    yticks({0,5,10});
+    stem(iota(1, 10));
+    yticks({0, 5, 10});
     yticks(automatic);
 
     wait();

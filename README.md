@@ -1420,13 +1420,37 @@ Then add this header to your source files:
 #include <matplot/matplot.h>
 ```   
 
+### Dependencies
+
+This project requires C++17. You can see other dependencies in [FindDependencies.cmake](source/matplot/FindDependencies.cmake). CMake will try to solve everything for you.
+
+* Required 
+    * olvb/nodesoup (CMake will download it for you)
+    * dtschump/CImg (CMake will download it for you)
+    * Gnuplot (for the Gnuplot backend only)
+* Optional (for images)
+    * JPEG
+    * TIFF
+    * ZLIB
+    * PNG
+    * LAPACK
+    * BLAS
+    * FFTW
+    * OpenCV
+    * OPENEXR
+    * MAGICK
+
+There's an extra target `matplot_opengl` that exemplifies how an OpenGL backend **could** be implemented. It's not a complete backend. If you want to test it, only then there are some extra dependencies.
+
+* Dependencies for the OpenGL backend
+    * OpenGL
+    * GLAD
+    * GLFW3
+
 ### Backends
 
 Coming up with new backends is a continuous process. See the complete [article](documentation/README.md) for a description of the backend interface and a discussion of the current backends. See the directory [`source/matplot/backend`](source/matplot/backend) to see some examples. Also, have a look at this example [`test/backends/main.cpp`](test/backends/main.cpp).
 
-### Compatibility
-
-So far, this library has only been tested with Clang. More tests are welcome.
 
 ### Contributing
 

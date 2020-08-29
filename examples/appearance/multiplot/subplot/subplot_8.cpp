@@ -1,8 +1,8 @@
 #include <iostream>
+#include <matplot/matplot.h>
+#include <set>
 #include <thread>
 #include <vector>
-#include <set>
-#include <matplot/matplot.h>
 
 int main() {
     using namespace matplot;
@@ -11,7 +11,7 @@ int main() {
     title("Sine Plot");
 
     auto ax = gca();
-    subplot(2,1,1,ax);
+    subplot(2, 1, 1, ax);
 
     wait();
     return 0;

@@ -1,8 +1,8 @@
 #include <iostream>
+#include <matplot/matplot.h>
+#include <set>
 #include <thread>
 #include <vector>
-#include <set>
-#include <matplot/matplot.h>
 
 int main() {
     using namespace matplot;
@@ -19,10 +19,10 @@ int main() {
 
     auto fnew = figure();
     auto ax1_copy = ax1->copy(fnew);
-    subplot(2,1,0,ax1_copy);
+    subplot(2, 1, 0, ax1_copy);
 
     auto ax2_copy = ax2->copy(fnew);
-    subplot(2,1,1,ax2_copy);
+    subplot(2, 1, 1, ax2_copy);
 
     wait();
     return 0;

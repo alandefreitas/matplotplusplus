@@ -5,8 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_COLORS_H
 #define MATPLOTPLUSPLUS_COLORS_H
 
-#include <string>
 #include <array>
+#include <string>
 #include <vector>
 
 namespace matplot {
@@ -24,17 +24,16 @@ namespace matplot {
 
     std::string to_string(matplot::color c);
 
-    matplot::color string_to_color(const std::string& s);
+    matplot::color string_to_color(const std::string &s);
 
     matplot::color char_to_color(char c);
 
     bool is_valid_color_char(char c);
 
-    std::array<float,4> to_array(matplot::color c);
+    std::array<float, 4> to_array(matplot::color c);
 
-    template <class T>
-    std::array<float,4> to_array(std::vector<T> c) {
-        std::array<float,4> r;
+    template <class T> std::array<float, 4> to_array(std::vector<T> c) {
+        std::array<float, 4> r;
         if (c.size() == 1) {
             r[0] = 0;
             r[1] = c[0];
@@ -54,31 +53,31 @@ namespace matplot {
         return r;
     }
 
-    std::array<float,4> to_array(const std::string& str_color);
+    std::array<float, 4> to_array(const std::string &str_color);
 
-    std::string to_string(const std::array<float,4>& c);
-    std::string to_string(const std::array<float,3>& c);
+    std::string to_string(const std::array<float, 4> &c);
+    std::string to_string(const std::array<float, 3> &c);
 
-    constexpr std::array<float,4> default_color(size_t index) {
+    constexpr std::array<float, 4> default_color(size_t index) {
         constexpr size_t num_default_colors = 7;
         size_t color_index = index % 7;
         switch (color_index) {
-            case 0:
-                return {0, 0, 0.4470, 0.7410};
-            case 1:
-                return {0, 0.8500, 0.3250, 0.0980};
-            case 2:
-                return {0, 0.9290, 0.6940, 0.1250};
-            case 3:
-                return {0, 0.4940, 0.1840, 0.5560};
-            case 4:
-                return {0, 0.4660, 0.6740, 0.1880};
-            case 5:
-                return {0, 0.3010, 0.7450, 0.9330};
-            case 6:
-                return {0, 0.6350, 0.0780, 0.1840};
-            default:
-                return {0, 0.0, 0.0, 0.0};
+        case 0:
+            return {0, 0, 0.4470, 0.7410};
+        case 1:
+            return {0, 0.8500, 0.3250, 0.0980};
+        case 2:
+            return {0, 0.9290, 0.6940, 0.1250};
+        case 3:
+            return {0, 0.4940, 0.1840, 0.5560};
+        case 4:
+            return {0, 0.4660, 0.6740, 0.1880};
+        case 5:
+            return {0, 0.3010, 0.7450, 0.9330};
+        case 6:
+            return {0, 0.6350, 0.0780, 0.1840};
+        default:
+            return {0, 0.0, 0.0, 0.0};
         }
     }
 
@@ -147,10 +146,12 @@ namespace matplot {
         std::vector<std::vector<double>> white(size_t n = 64);
         std::vector<std::vector<double>> default_map(size_t n = 64);
         std::vector<std::vector<double>> default_colors_map(size_t n = 7);
-    }
+    } // namespace palette
 
-    std::array<float,4> colormap_interpolation(double value, double min, double max, const std::vector<std::vector<double>>& cm);
+    std::array<float, 4>
+    colormap_interpolation(double value, double min, double max,
+                           const std::vector<std::vector<double>> &cm);
 
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_COLORS_H
+#endif // MATPLOTPLUSPLUS_COLORS_H

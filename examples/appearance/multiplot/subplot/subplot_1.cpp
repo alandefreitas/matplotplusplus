@@ -3,10 +3,10 @@
 int main() {
     using namespace matplot;
 
-    subplot(2,1,0);
+    subplot(2, 1, 0);
     fplot("sin(x)");
 
-    subplot(2,1,1);
+    subplot(2, 1, 1);
     fplot("sin(5*x)");
 
     wait();

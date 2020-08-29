@@ -4,15 +4,15 @@ int main() {
     using namespace matplot;
     auto image = imread("lena_gray.tiff");
 
-    auto& gray = image[0];
-    auto [h,w] = size(gray);
+    auto &gray = image[0];
+    auto [h, w] = size(gray);
     double mean_intensity = 0;
     for (const auto &row : gray) {
         for (const auto &pixel : row) {
             mean_intensity += pixel;
         }
     }
-    mean_intensity /= (h*w);
+    mean_intensity /= (h * w);
 
     for (auto &row : gray) {
         for (auto &pixel : row) {

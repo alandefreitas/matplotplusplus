@@ -2,26 +2,21 @@
 // Created by Alan Freitas on 16/07/20.
 //
 
-#include <sstream>
-#include <cmath>
 #include <algorithm>
-#include <matplot/util/common.h>
+#include <cmath>
 #include <matplot/axes_objects/labels.h>
 #include <matplot/core/axes.h>
+#include <matplot/util/common.h>
+#include <sstream>
 
 namespace matplot {
-    labels::labels(class axes* parent,
-                     const std::vector<double>& x,
-                     const std::vector<double>& y,
-                     const std::vector<std::string>& labels,
-                     const std::vector<double>& colors,
-                     const std::vector<double>& sizes)
-            : axes_object(parent),
-              x_(x),
-              y_(y),
-              labels_(labels),
-              colors_(colors),
-              sizes_(sizes) {}
+    labels::labels(class axes *parent, const std::vector<double> &x,
+                   const std::vector<double> &y,
+                   const std::vector<std::string> &labels,
+                   const std::vector<double> &colors,
+                   const std::vector<double> &sizes)
+        : axes_object(parent), x_(x), y_(y), labels_(labels), colors_(colors),
+          sizes_(sizes) {}
 
     std::string labels::set_variables_string() {
         std::string res;
@@ -35,7 +30,11 @@ namespace matplot {
             };
             for (size_t i = 0; i < labels_.size(); ++i) {
                 double s = word_size(i);
-                res += "    set object " + num2str(1000 + i) + " rectangle at " + num2str(x_[i]) + ", " + num2str(y_[i]) + " size " + num2str(s * labels_[i].size() * width_factor) + ", " + num2str(s * height_factor) + " fc lt 2 \n";
+                res += "    set object " + num2str(1000 + i) +
+                       " rectangle at " + num2str(x_[i]) + ", " +
+                       num2str(y_[i]) + " size " +
+                       num2str(s * labels_[i].size() * width_factor) + ", " +
+                       num2str(s * height_factor) + " fc lt 2 \n";
             }
         }
         return res;
@@ -44,19 +43,20 @@ namespace matplot {
     std::string labels::plot_string() {
         std::string res = " '-' with labels";
         switch (alignment_) {
-            case alignment::left:
-                res += " left";
-                break;
-            case alignment::right:
-                res += " right";
-                break;
-            case alignment::center:
-                res += " center";
-                break;
-            default:
-                break;
+        case alignment::left:
+            res += " left";
+            break;
+        case alignment::right:
+            res += " right";
+            break;
+        case alignment::center:
+            res += " center";
+            break;
+        default:
+            break;
         }
-        res += " font \"" + escape(font()) + "," + num2str(unsigned(font_size())) + "\"";
+        res += " font \"" + escape(font()) + "," +
+               num2str(unsigned(font_size())) + "\"";
         if (!colors_.empty()) {
             res += " textcolor palette";
         } else {
@@ -169,81 +169,65 @@ namespace matplot {
         return axes_object::axes_category::two_dimensional;
     }
 
-    bool labels::rectangles() const {
-        return rectangles_;
-    }
+    bool labels::rectangles() const { return rectangles_; }
 
-    class labels& labels::rectangles(bool rectangles) {
+    class labels &labels::rectangles(bool rectangles) {
         rectangles_ = rectangles;
         touch();
         return *this;
     }
 
-    bool labels::absolute_size() const {
-        return absolute_size_;
-    }
+    bool labels::absolute_size() const { return absolute_size_; }
 
-    class labels& labels::absolute_size(bool absolute_size) {
+    class labels &labels::absolute_size(bool absolute_size) {
         absolute_size_ = absolute_size;
         touch();
         return *this;
     }
 
-    enum labels::alignment labels::alignment() const {
-        return alignment_;
-    }
+    enum labels::alignment labels::alignment() const { return alignment_; }
 
-    class labels& labels::alignment(enum labels::alignment alignment) {
+    class labels &labels::alignment(enum labels::alignment alignment) {
         alignment_ = alignment;
         touch();
         return *this;
     }
 
-    const color_array &labels::color() const {
-        return color_;
-    }
+    const color_array &labels::color() const { return color_; }
 
-    class labels& labels::color(const color_array &color) {
+    class labels &labels::color(const color_array &color) {
         color_ = color;
         touch();
         return *this;
     }
 
-    const std::string &labels::font() const {
-        return font_;
-    }
+    const std::string &labels::font() const { return font_; }
 
-    class labels& labels::font(const std::string &font) {
+    class labels &labels::font(const std::string &font) {
         font_ = font;
         touch();
         return *this;
     }
 
-    float labels::font_size() const {
-        return font_size_;
-    }
+    float labels::font_size() const { return font_size_; }
 
-    class labels& labels::font_size(float font_size) {
+    class labels &labels::font_size(float font_size) {
         font_size_ = font_size;
         touch();
         return *this;
     }
 
-    const std::vector<double> &labels::x() const {
-        return x_;
-    }
+    const std::vector<double> &labels::x() const { return x_; }
 
-    class labels& labels::x(const std::vector<double> &x) {
+    class labels &labels::x(const std::vector<double> &x) {
         x_ = x;
         touch();
         return *this;
     }
 
-    const std::vector<double> &labels::y() const {
-        return y_;
-    }
+    const std::vector<double> &labels::y() const { return y_; }
 
-    class labels& labels::y(const std::vector<double> &y) {
+    class labels &labels::y(const std::vector<double> &y) {
         y_ = y;
         touch();
         return *this;
@@ -253,40 +237,34 @@ namespace matplot {
         return labels_;
     }
 
-    class labels& labels::label_values(const std::vector<std::string> &labels) {
+    class labels &labels::label_values(const std::vector<std::string> &labels) {
         labels_ = labels;
         touch();
         return *this;
     }
 
-    const std::vector<double> &labels::colors() const {
-        return colors_;
-    }
+    const std::vector<double> &labels::colors() const { return colors_; }
 
-    class labels& labels::colors(const std::vector<double> &colors) {
+    class labels &labels::colors(const std::vector<double> &colors) {
         colors_ = colors;
         touch();
         return *this;
     }
 
-    const std::vector<double> &labels::sizes() const {
-        return sizes_;
-    }
+    const std::vector<double> &labels::sizes() const { return sizes_; }
 
-    class labels& labels::sizes(const std::vector<double> &sizes) {
+    class labels &labels::sizes(const std::vector<double> &sizes) {
         sizes_ = sizes;
         touch();
         return *this;
     }
 
-    bool labels::visible() const {
-        return visible_;
-    }
+    bool labels::visible() const { return visible_; }
 
-    class labels& labels::visible(bool visible) {
+    class labels &labels::visible(bool visible) {
         visible_ = visible;
         touch();
         return *this;
     }
 
-}
+} // namespace matplot

@@ -3,8 +3,8 @@
 int main() {
     using namespace matplot;
 
-    auto [x,y,z] = peaks();
-    mesh(x,y,z);
+    auto [x, y, z] = peaks();
+    mesh(x, y, z);
     zticks({});
     box(off);
 

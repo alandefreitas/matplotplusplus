@@ -5,7 +5,7 @@ int main() {
 
     auto f = figure(true);
 
-    plot(rand(5,5,0,1));
+    plot(rand(5, 5, 0, 1));
     save("img/lineplot.eps");
     save("img/lineplot.jpg");
 

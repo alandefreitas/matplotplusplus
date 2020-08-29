@@ -1,13 +1,13 @@
 #include <iostream>
-#include <thread>
 #include <matplot/matplot.h>
+#include <thread>
 
 int main() {
     using namespace matplot;
 
     auto h = figure();
     auto ax = h->current_axes();
-    fplot(ax,"cos(x)");
+    fplot(ax, "cos(x)");
 
     wait();
     return 0;

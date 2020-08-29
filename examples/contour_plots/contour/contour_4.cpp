@@ -3,8 +3,8 @@
 int main() {
     using namespace matplot;
 
-    auto [X,Y,Z] = peaks();
-    contour(X,Y,Z,"--");
+    auto [X, Y, Z] = peaks();
+    contour(X, Y, Z, "--");
 
     wait();
     return 0;

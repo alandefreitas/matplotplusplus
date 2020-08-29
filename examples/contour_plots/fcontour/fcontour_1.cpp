@@ -3,7 +3,7 @@
 int main() {
     using namespace matplot;
 
-    auto f = [](double x, double y) {return sin(x) + cos(y); };
+    auto f = [](double x, double y) { return sin(x) + cos(y); };
     fcontour(f);
 
     wait();

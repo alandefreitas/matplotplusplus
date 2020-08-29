@@ -1,6 +1,8 @@
 //
-// Adapted from https://github.com/matplotlib/matplotlib/blob/master/src/_contour.h
-//          and https://github.com/matplotlib/matplotlib/blob/master/lib/matplotlib/contour.py
+// Adapted from
+// https://github.com/matplotlib/matplotlib/blob/master/src/_contour.h
+//          and
+//          https://github.com/matplotlib/matplotlib/blob/master/lib/matplotlib/contour.py
 //
 
 #ifndef MATPLOTPLUSPLUS_CONTOURC_H
@@ -150,20 +152,21 @@
 
 // #include "numpy_cpp.h"
 // https://github.com/matplotlib/matplotlib/blob/master/src/numpy_cpp.h
-#include <cmath>
-#include <stdint.h>
-#include <list>
-#include <iostream>
-#include <vector>
 #include <array>
-#include <numeric>
+#include <cmath>
+#include <iostream>
+#include <list>
+#include <matplot/core/axes.h>
 #include <matplot/util/common.h>
 #include <matplot/util/handle_types.h>
-#include <matplot/core/axes.h>
+#include <numeric>
+#include <stdint.h>
+#include <vector>
 
 namespace matplot {
 
-    // Edge of a quad including diagonal edges of masked quads if _corner_mask true.
+    // Edge of a quad including diagonal edges of masked quads if _corner_mask
+    // true.
     typedef enum {
         // Listing values here so easier to check for debug purposes.
         Edge_None = -1,
@@ -223,14 +226,15 @@ namespace matplot {
         double x, y;
     };
 
-    // A single line of a contour, which may be a closed line loop or an open line
-    // strip.  Identical adjacent points are avoided using push_back().
-    // A ContourLine is either a hole (points ordered clockwise) or it is not
-    // (points ordered anticlockwise).  Each hole has a parent ContourLine that is
-    // not a hole; each non-hole contains zero or more child holes.  A non-hole and
-    // its child holes must be rendered together to obtain the correct results.
+    // A single line of a contour, which may be a closed line loop or an open
+    // line strip.  Identical adjacent points are avoided using push_back(). A
+    // ContourLine is either a hole (points ordered clockwise) or it is not
+    // (points ordered anticlockwise).  Each hole has a parent ContourLine that
+    // is not a hole; each non-hole contains zero or more child holes.  A
+    // non-hole and its child holes must be rendered together to obtain the
+    // correct results.
     class ContourLine : public std::vector<XY> {
-    public:
+      public:
         typedef std::list<ContourLine *> Children;
 
         ContourLine(bool is_hole);
@@ -253,16 +257,15 @@ namespace matplot {
 
         void write() const;
 
-    private:
+      private:
         bool _is_hole;
-        ContourLine *_parent;  // Only set if is_hole, not owned.
-        Children _children;    // Only set if !is_hole, not owned.
+        ContourLine *_parent; // Only set if is_hole, not owned.
+        Children _children;   // Only set if !is_hole, not owned.
     };
-
 
     // A Contour is a collection of zero or more ContourLines.
     class Contour : public std::vector<ContourLine *> {
-    public:
+      public:
         Contour();
 
         virtual ~Contour();
@@ -272,15 +275,14 @@ namespace matplot {
         void write() const;
     };
 
-
-    // Single chunk of ContourLine parents, indexed by quad.  As a chunk's filled
-    // contours are created, the ParentCache is updated each time a ContourLine
-    // passes through each quad.  When a new ContourLine is created, if it is a
-    // hole its parent ContourLine is read from the ParentCache by looking at the
-    // start quad, then each quad to the S in turn until a non-zero ContourLine is
-    // found.
+    // Single chunk of ContourLine parents, indexed by quad.  As a chunk's
+    // filled contours are created, the ParentCache is updated each time a
+    // ContourLine passes through each quad.  When a new ContourLine is created,
+    // if it is a hole its parent ContourLine is read from the ParentCache by
+    // looking at the start quad, then each quad to the S in turn until a
+    // non-zero ContourLine is found.
     class ParentCache {
-    public:
+      public:
         ParentCache() = default;
 
         ParentCache(long nx, long x_chunk_points, long y_chunk_points);
@@ -291,19 +293,18 @@ namespace matplot {
 
         void set_parent(long quad, ContourLine &contour_line);
 
-    private:
+      private:
         long quad_to_index(long quad) const;
 
         long _nx;
-        long _x_chunk_points, _y_chunk_points;  // Number of points not quads.
-        std::vector<ContourLine *> _lines;       // Not owned.
+        long _x_chunk_points, _y_chunk_points; // Number of points not quads.
+        std::vector<ContourLine *> _lines;     // Not owned.
         long _istart, _jstart;
     };
 
-
     // See overview of algorithm at top of file.
     class QuadContourGenerator {
-    public:
+      public:
         // using CoordinateArray = numpy::array_view<const double, 2>;
         using CoordinateArray = vector_2d;
         // using MaskArray = numpy::array_view<const bool, 2>;
@@ -317,87 +318,80 @@ namespace matplot {
         //   x, y, z: double arrays of shape (ny,nx).
         //   mask: boolean array, ether empty (if no mask), or of shape (ny,nx).
         //   corner_mask: flag for different masking behaviour.
-        //   chunk_size: 0 for no chunking, or +ve integer for size of chunks that
+        //   chunk_size: 0 for no chunking, or +ve integer for size of chunks
+        //   that
         //     the domain is subdivided into.
         // https://github.com/matplotlib/matplotlib/blob/master/lib/matplotlib/contour.py
-        QuadContourGenerator(const vector_2d &x,
-                             const vector_2d &y,
-                             const vector_2d &z,
-                             bool corner_mask,
+        QuadContourGenerator(const vector_2d &x, const vector_2d &y,
+                             const vector_2d &z, bool corner_mask,
                              long chunk_size);
 
-        // Create and return polygons for a line (i.e. non-filled) contour at the
-        // specified level.
-        using vertices_list_type = std::pair<vector_1d,vector_1d>;
+        // Create and return polygons for a line (i.e. non-filled) contour at
+        // the specified level.
+        using vertices_list_type = std::pair<vector_1d, vector_1d>;
         vertices_list_type create_contour(const double &level);
 
         // Create and return polygons for a filled contour between the two
         // specified levels.
         using codes_list_type = std::vector<unsigned char>;
-        std::pair<vertices_list_type, codes_list_type> create_filled_contour(const double &lower_level,
-                                        const double &upper_level);
+        std::pair<vertices_list_type, codes_list_type>
+        create_filled_contour(const double &lower_level,
+                              const double &upper_level);
 
-    private:
-        // Typedef for following either a boundary of the domain or the interior;
-        // clearer than using a boolean.
-        typedef enum {
-            Boundary,
-            Interior
-        } BoundaryOrInterior;
+      private:
+        // Typedef for following either a boundary of the domain or the
+        // interior; clearer than using a boolean.
+        typedef enum { Boundary, Interior } BoundaryOrInterior;
 
         // Typedef for direction of movement from one quad to the next.
-        typedef enum {
-            Dir_Right = -1,
-            Dir_Straight = 0,
-            Dir_Left = +1
-        } Dir;
+        typedef enum { Dir_Right = -1, Dir_Straight = 0, Dir_Left = +1 } Dir;
 
-        // Typedef for a polygon being a hole or not; clearer than using a boolean.
-        typedef enum {
-            NotHole,
-            Hole
-        } HoleOrNot;
+        // Typedef for a polygon being a hole or not; clearer than using a
+        // boolean.
+        typedef enum { NotHole, Hole } HoleOrNot;
 
         // Append a C++ ContourLine to the end of a python list.  Used for line
-        // contours where each ContourLine is converted to a separate numpy array
-        // of (x,y) points.
-        // Clears the ContourLine too.
-        void append_contour_line_to_vertices(ContourLine &contour_line,
-                                             vertices_list_type& vertices_list) const;
+        // contours where each ContourLine is converted to a separate numpy
+        // array of (x,y) points. Clears the ContourLine too.
+        void append_contour_line_to_vertices(
+            ContourLine &contour_line, vertices_list_type &vertices_list) const;
 
         // Append a C++ Contour to the end of two python lists.  Used for filled
         // contours where each non-hole ContourLine and its child holes are
-        // represented by a numpy array of (x,y) points and a second numpy array of
-        // 'kinds' or 'codes' that indicates where the points array is split into
-        // individual polygons.
-        // Clears the Contour too, freeing each ContourLine as soon as possible
-        // for minimum RAM usage.
-        void append_contour_to_vertices_and_codes(Contour &contour,
-                                                  vertices_list_type& vertices_list,
-                                                  codes_list_type& codes_list) const;
+        // represented by a numpy array of (x,y) points and a second numpy array
+        // of 'kinds' or 'codes' that indicates where the points array is split
+        // into individual polygons. Clears the Contour too, freeing each
+        // ContourLine as soon as possible for minimum RAM usage.
+        void
+        append_contour_to_vertices_and_codes(Contour &contour,
+                                             vertices_list_type &vertices_list,
+                                             codes_list_type &codes_list) const;
 
         // Return number of chunks that fit in the specified point_count.
         long calc_chunk_count(long point_count) const;
 
-        // Return the point on the specified QuadEdge that intersects the specified
-        // level.
+        // Return the point on the specified QuadEdge that intersects the
+        // specified level.
         XY edge_interp(const QuadEdge &quad_edge, const double &level);
 
-        // Follow a contour along a boundary, appending points to the ContourLine
-        // as it progresses.  Only called for filled contours.  Stops when the
-        // contour leaves the boundary to move into the interior of the domain, or
-        // when the start_quad_edge is reached in which case the ContourLine is a
-        // completed closed loop.  Always adds the end point of each boundary edge
-        // to the ContourLine, regardless of whether moving to another boundary
-        // edge or leaving the boundary into the interior.  Never adds the start
-        // point of the first boundary edge to the ContourLine.
+        // Follow a contour along a boundary, appending points to the
+        // ContourLine as it progresses.  Only called for filled contours. Stops
+        // when the contour leaves the boundary to move into the interior of the
+        // domain, or when the start_quad_edge is reached in which case the
+        // ContourLine is a completed closed loop.  Always adds the end point of
+        // each boundary edge to the ContourLine, regardless of whether moving
+        // to another boundary edge or leaving the boundary into the interior.
+        // Never adds the start point of the first boundary edge to the
+        // ContourLine.
         //   contour_line: ContourLine to append points to.
-        //   quad_edge: on entry the QuadEdge to start from, on exit the QuadEdge
+        //   quad_edge: on entry the QuadEdge to start from, on exit the
+        //   QuadEdge
         //     that is stopped on.
         //   lower_level: lower contour z-value.
         //   upper_level: upper contour z-value.
         //   level_index: level index started on (1 = lower, 2 = upper level).
-        //   start_quad_edge: QuadEdge that the ContourLine started from, which is
+        //   start_quad_edge: QuadEdge that the ContourLine started from, which
+        //   is
         //     used to check if the ContourLine is finished.
         // Returns the end level_index.
         unsigned int follow_boundary(ContourLine &contour_line,
@@ -407,41 +401,37 @@ namespace matplot {
                                      unsigned int level_index,
                                      const QuadEdge &start_quad_edge);
 
-        // Follow a contour across the interior of the domain, appending points to
-        // the ContourLine as it progresses.  Called for both line and filled
+        // Follow a contour across the interior of the domain, appending points
+        // to the ContourLine as it progresses.  Called for both line and filled
         // contours.  Stops when the contour reaches a boundary or, if the
         // start_quad_edge is specified, when quad_edge == start_quad_edge and
         // level_index == start_level_index.  Always adds the end point of each
         // quad traversed to the ContourLine; only adds the start point of the
         // first quad if want_initial_point flag is true.
         //   contour_line: ContourLine to append points to.
-        //   quad_edge: on entry the QuadEdge to start from, on exit the QuadEdge
+        //   quad_edge: on entry the QuadEdge to start from, on exit the
+        //   QuadEdge
         //     that is stopped on.
         //   level_index: level index started on (1 = lower, 2 = upper level).
         //   level: contour z-value.
         //   want_initial_point: whether want to append the initial point to the
         //     ContourLine or not.
         //   start_quad_edge: the QuadEdge that the ContourLine started from to
-        //     check if the ContourLine is finished, or 0 if no check should occur.
-        //   start_level_index: the level_index that the ContourLine started from.
-        //   set_parents: whether should set ParentCache as it progresses or not.
+        //     check if the ContourLine is finished, or 0 if no check should
+        //     occur.
+        //   start_level_index: the level_index that the ContourLine started
+        //   from. set_parents: whether should set ParentCache as it progresses
+        //   or not.
         //     This is true for filled contours, false for line contours.
-        void follow_interior(ContourLine &contour_line,
-                             QuadEdge &quad_edge,
-                             unsigned int level_index,
-                             const double &level,
+        void follow_interior(ContourLine &contour_line, QuadEdge &quad_edge,
+                             unsigned int level_index, const double &level,
                              bool want_initial_point,
                              const QuadEdge *start_quad_edge,
-                             unsigned int start_level_index,
-                             bool set_parents);
+                             unsigned int start_level_index, bool set_parents);
 
         // Return the index limits of a particular chunk.
-        void get_chunk_limits(long ijchunk,
-                              long &ichunk,
-                              long &jchunk,
-                              long &istart,
-                              long &iend,
-                              long &jstart,
+        void get_chunk_limits(long ijchunk, long &ichunk, long &jchunk,
+                              long &istart, long &iend, long &jstart,
                               long &jend);
 
         // Check if a contour starts within the specified corner quad on the
@@ -453,8 +443,8 @@ namespace matplot {
         // anticlockwise ordering around non-masked quads.
         long get_edge_point_index(const QuadEdge &quad_edge, bool start) const;
 
-        // Return the edge to exit a quad from, given the specified entry quad_edge
-        // and direction to move in.
+        // Return the edge to exit a quad from, given the specified entry
+        // quad_edge and direction to move in.
         Edge get_exit_edge(const QuadEdge &quad_edge, Dir dir) const;
 
         // Return the (x,y) coordinates of the specified point index.
@@ -474,51 +464,51 @@ namespace matplot {
         Edge get_start_edge(long quad, unsigned int level_index) const;
 
         // Initialise the cache to contain grid information that is constant
-        // across the lifetime of this object, i.e. does not vary between calls to
-        // create_contour() and create_filled_contour().
+        // across the lifetime of this object, i.e. does not vary between calls
+        // to create_contour() and create_filled_contour().
         void init_cache_grid();
 
-        // Initialise the cache with information that is specific to contouring the
-        // specified two levels.  The levels are the same for contour lines,
+        // Initialise the cache with information that is specific to contouring
+        // the specified two levels.  The levels are the same for contour lines,
         // different for filled contours.
         void init_cache_levels(const double &lower_level,
                                const double &upper_level);
 
-        // Return the (x,y) point at which the level intersects the line connecting
-        // the two specified point indices.
+        // Return the (x,y) point at which the level intersects the line
+        // connecting the two specified point indices.
         XY interp(long point1, long point2, const double &level) const;
 
-        // Return true if the specified QuadEdge is a boundary, i.e. is either an
-        // edge between a masked and non-masked quad/corner or is a chunk boundary.
+        // Return true if the specified QuadEdge is a boundary, i.e. is either
+        // an edge between a masked and non-masked quad/corner or is a chunk
+        // boundary.
         bool is_edge_a_boundary(const QuadEdge &quad_edge) const;
 
         // Follow a boundary from one QuadEdge to the next in an anticlockwise
         // manner around the non-masked region.
         void move_to_next_boundary_edge(QuadEdge &quad_edge) const;
 
-        // Move from the quad specified by quad_edge.quad to the neighbouring quad
-        // by crossing the edge specified by quad_edge.edge.
+        // Move from the quad specified by quad_edge.quad to the neighbouring
+        // quad by crossing the edge specified by quad_edge.edge.
         void move_to_next_quad(QuadEdge &quad_edge) const;
 
         // Check for filled contours starting within the specified quad and
         // complete any that are found, appending them to the specified Contour.
-        void single_quad_filled(Contour &contour,
-                                long quad,
+        void single_quad_filled(Contour &contour, long quad,
                                 const double &lower_level,
                                 const double &upper_level);
 
         // Start and complete a filled contour line.
         //   quad: index of quad to start ContourLine in.
         //   edge: edge of quad to start ContourLine from.
-        //   start_level_index: the level_index that the ContourLine starts from.
-        //   hole_or_not: whether the ContourLine is a hole or not.
-        //   boundary_or_interior: whether the ContourLine starts on a boundary or
+        //   start_level_index: the level_index that the ContourLine starts
+        //   from. hole_or_not: whether the ContourLine is a hole or not.
+        //   boundary_or_interior: whether the ContourLine starts on a boundary
+        //   or
         //     the interior.
         //   lower_level: lower contour z-value.
         //   upper_level: upper contour z-value.
         // Returns newly created ContourLine.
-        ContourLine *start_filled(long quad,
-                                  Edge edge,
+        ContourLine *start_filled(long quad, Edge edge,
                                   unsigned int start_level_index,
                                   HoleOrNot hole_or_not,
                                   BoundaryOrInterior boundary_or_interior,
@@ -527,15 +517,12 @@ namespace matplot {
 
         // Start and complete a line contour that both starts and end on a
         // boundary, traversing the interior of the domain.
-        //   vertices_list: Python list that the ContourLine should be appended to.
-        //   quad: index of quad to start ContourLine in.
-        //   edge: boundary edge to start ContourLine from.
-        //   level: contour z-value.
-        // Returns true if the start quad does not need to be visited again, i.e.
-        // VISITED(quad,1).
-        bool start_line(vertices_list_type& vertices_list,
-                        long quad,
-                        Edge edge,
+        //   vertices_list: Python list that the ContourLine should be appended
+        //   to. quad: index of quad to start ContourLine in. edge: boundary
+        //   edge to start ContourLine from. level: contour z-value.
+        // Returns true if the start quad does not need to be visited again,
+        // i.e. VISITED(quad,1).
+        bool start_line(vertices_list_type &vertices_list, long quad, Edge edge,
                         const double &level);
 
         // Debug function that writes the cache status to stdout.
@@ -545,19 +532,19 @@ namespace matplot {
         // stdout.
         void write_cache_quad(long quad, bool grid_only) const;
 
-        // Note that mask is not stored as once it has been used to initialise the
-        // cache it is no longer needed.
+        // Note that mask is not stored as once it has been used to initialise
+        // the cache it is no longer needed.
         CoordinateArray _x, _y, _z;
-        long _nx, _ny;             // Number of points in each direction.
-        long _n;                   // Total number of points (and hence quads).
+        long _nx, _ny; // Number of points in each direction.
+        long _n;       // Total number of points (and hence quads).
 
         bool _corner_mask;
-        long _chunk_size;          // Number of quads per chunk (not points).
+        long _chunk_size; // Number of quads per chunk (not points).
         // Always > 0, unlike python nchunk which is 0
         //     for no chunking.
 
-        long _nxchunk, _nychunk;   // Number of chunks in each direction.
-        long _chunk_count;         // Total number of chunks.
+        long _nxchunk, _nychunk; // Number of chunks in each direction.
+        long _chunk_count;       // Total number of chunks.
 
         typedef uint32_t CacheItem;
         std::vector<CacheItem> _cache;
@@ -566,16 +553,21 @@ namespace matplot {
     };
 
     /// Segments are considered as including their end-points; i.e if the
-    //            closest point on the path is a node in *xys* with index *i*, this
-    //        returns ``(i-1, i)``.  For the special case where *xys* is a single
+    //            closest point on the path is a node in *xys* with index *i*,
+    //            this
+    //        returns ``(i-1, i)``.  For the special case where *xys* is a
+    //        single
     //            point, this returns ``(0, 0)``.
     /// \param xys  Coordinates of vertices
     /// \param p    Coordinates of point
     /// \return     Minimum square distance of *p* to *xys*.
     /// \return     Projection of *p* onto *xys*.
-    /// \return     Consecutive indices of vertices of segment in *xys* where *proj* is.
-    std::tuple<double, std::pair<double,double>, std::pair<size_t,size_t>>
-    find_closest_point_on_path(const std::vector<double>& xs, const std::vector<double>& ys, double px, double py);
+    /// \return     Consecutive indices of vertices of segment in *xys* where
+    /// *proj* is.
+    std::tuple<double, std::pair<double, double>, std::pair<size_t, size_t>>
+    find_closest_point_on_path(const std::vector<double> &xs,
+                               const std::vector<double> &ys, double px,
+                               double py);
 
     /// \brief Compute contour lines
     ///
@@ -589,27 +581,34 @@ namespace matplot {
     /// in 2d plots (with the "plot" command) in gnuplot involves so many
     /// work-arounds that it is just not worth it.
     ///
-    /// \see https://en.wikipedia.org/wiki/Boundary_tracing#Square_tracing_algorithm
-    /// \see http://www.batesville.k12.in.us/physics/CalcNet/grapher/how_it_works.htm
+    /// \see
+    /// https://en.wikipedia.org/wiki/Boundary_tracing#Square_tracing_algorithm
+    /// \see
+    /// http://www.batesville.k12.in.us/physics/CalcNet/grapher/how_it_works.htm
     /// \see http://dx.doi.org/10.1093/comjnl/33.5.402
     /// \see http://dx.doi.org/10.1016/0097-8493%2891%2990002-Y
     /// \see http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=576861
     /// \see https://github.com/matplotlib/matplotlib/blob/master/src/_contour.h
     using contour_line_type = std::pair<vector_1d, vector_1d>;
-    contour_line_type contour_line(const vector_2d& x, const vector_2d& y, const vector_2d& z, double level);
+    contour_line_type contour_line(const vector_2d &x, const vector_2d &y,
+                                   const vector_2d &z, double level);
 
-    std::vector<contour_line_type>
-    contourc(const vector_2d& x, const vector_2d& y, const vector_2d& z, const vector_1d& levels);
+    std::vector<contour_line_type> contourc(const vector_2d &x,
+                                            const vector_2d &y,
+                                            const vector_2d &z,
+                                            const vector_1d &levels);
 
-    std::vector<contour_line_type>
-    contourc(const vector_2d& x, const vector_2d& y, const vector_2d& z, size_t n_levels = 7);
+    std::vector<contour_line_type> contourc(const vector_2d &x,
+                                            const vector_2d &y,
+                                            const vector_2d &z,
+                                            size_t n_levels = 7);
 
-    std::vector<contour_line_type>
-    contourc(const vector_2d& z, const vector_1d& levels);
+    std::vector<contour_line_type> contourc(const vector_2d &z,
+                                            const vector_1d &levels);
 
-    std::vector<contour_line_type>
-    contourc(const vector_2d& z, size_t n_levels = 7);
+    std::vector<contour_line_type> contourc(const vector_2d &z,
+                                            size_t n_levels = 7);
 
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_CONTOURC_H
+#endif // MATPLOTPLUSPLUS_CONTOURC_H

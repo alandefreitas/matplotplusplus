@@ -5,9 +5,9 @@
 #ifndef MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
 #define MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
 
-#include <vector>
-#include <string>
 #include <memory>
+#include <string>
+#include <vector>
 
 namespace matplot {
     namespace backend {
@@ -38,7 +38,7 @@ namespace matplot {
         /// which is fundamental for most plots.
         class backend_interface {
             /// Virtual functions you can override to create any backend
-        public:
+          public:
             /// \brief True if backend is in interactive mode
             /// One backends might support both interactive and
             /// non-interactive mode.
@@ -53,19 +53,23 @@ namespace matplot {
             /// can be used.
             virtual bool is_interactive();
 
-            /// \brief If non-interactive, get the file where we should output our data
-            virtual const std::string& output();
+            /// \brief If non-interactive, get the file where we should output
+            /// our data
+            virtual const std::string &output();
 
-            /// \brief If non-interactive, get the format in which we should output our data
-            virtual const std::string& output_format();
+            /// \brief If non-interactive, get the format in which we should
+            /// output our data
+            virtual const std::string &output_format();
 
-            /// \brief If non-interactive, set the file where we should output our data
-            /// This function can use the file extension to automatically
-            /// set the output format
-            virtual bool output(const std::string& filename);
+            /// \brief If non-interactive, set the file where we should output
+            /// our data This function can use the file extension to
+            /// automatically set the output format
+            virtual bool output(const std::string &filename);
 
-            /// \brief If non-interactive, set the file and the file format for outputting data
-            virtual bool output(const std::string& filename, const std::string& file_format);
+            /// \brief If non-interactive, set the file and the file format for
+            /// outputting data
+            virtual bool output(const std::string &filename,
+                                const std::string &file_format);
 
             /// Get the current width
             /// The user might have changed the image width manually.
@@ -83,8 +87,8 @@ namespace matplot {
             virtual void height(unsigned int new_height);
 
             /// \brief Background color in RGBA
-            virtual const std::array<float,4>& background_color();
-            virtual void background_color(const std::array<float,4>& RGBA);
+            virtual const std::array<float, 4> &background_color();
+            virtual void background_color(const std::array<float, 4> &RGBA);
 
             /// \brief Get the current position_x (for interactive backends)
             /// The user might have changed the image position_x manually.
@@ -123,9 +127,10 @@ namespace matplot {
             /// backend based on vertices, such as OpenGL, Agg, etc...
             /// These functions are likely to change as we come up
             /// with concrete implementations based on vertices.
-            /// \see https://github.com/matplotlib/matplotlib/blob/master/src/_backend_agg.h
+            /// \see
+            /// https://github.com/matplotlib/matplotlib/blob/master/src/_backend_agg.h
             /// \see https://github.com/ocornut/imgui/tree/master/examples
-        public:
+          public:
             /// \brief Draw a path on the image
             /// Many backends will require the path to be floats
             /// but Matplot++ words with doubles, so it's up to
@@ -146,9 +151,10 @@ namespace matplot {
                                    const std::vector<double> &z = {});
 
             /// \brief Draw image matrix on the image
-            virtual void draw_image(const std::vector<std::vector<double>> &x,
-                                    const std::vector<std::vector<double>> &y,
-                                    const std::vector<std::vector<double>> &z = {});
+            virtual void
+            draw_image(const std::vector<std::vector<double>> &x,
+                       const std::vector<std::vector<double>> &y,
+                       const std::vector<std::vector<double>> &z = {});
 
             /// \brief Draw rectangle on the image
             virtual void draw_triangle(const std::vector<double> &x,
@@ -159,19 +165,19 @@ namespace matplot {
             /// draw_mesh, draw_rectangle, etc...
             /// However, these functions should have a default implementation
             /// that would recur to more primitive functions.
-            /// For instance, draw_rectangle should have a default implementation
-            /// to draw a rectangle based on two calls to draw_triangle
-            /// (for filled rectangles) or an implementation based on
-            /// draw_path (for unfilled rectangles).
-            /// Otherwise, it would be very expensive to start a new backend.
-            /// These function should be complementary functions that would
-            /// be used to improve performance on existing backends.
+            /// For instance, draw_rectangle should have a default
+            /// implementation to draw a rectangle based on two calls to
+            /// draw_triangle (for filled rectangles) or an implementation based
+            /// on draw_path (for unfilled rectangles). Otherwise, it would be
+            /// very expensive to start a new backend. These function should be
+            /// complementary functions that would be used to improve
+            /// performance on existing backends.
 
             /// Public functions you need to override only if your backend
             /// is based on gnuplot
             /// If not, just leave it as it is and the default implementations
             /// should do just fine.
-        public:
+          public:
             /// \brief If true, this backend does not work by consuming vertices
             /// Most functions above will be ignored.
             /// The figure object will send gnuplot commands to this backend
@@ -187,11 +193,9 @@ namespace matplot {
             /// This is useful when tracing the gnuplot commands
             /// and when generating a gnuplot file.
             virtual void include_comment(const std::string &text);
-
         };
-    }
+    } // namespace backend
 
-}
+} // namespace matplot
 
-
-#endif //MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
+#endif // MATPLOTPLUSPLUS_BACKEND_INTERFACE_H

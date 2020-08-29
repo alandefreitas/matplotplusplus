@@ -3,7 +3,8 @@
 int main() {
     using namespace matplot;
 
-    std::vector<std::vector<double>> data = {{24,10}, {10,5}, {24,16}, {8,3}};
+    std::vector<std::vector<double>> data = {
+        {24, 10}, {10, 5}, {24, 16}, {8, 3}};
     heatmap(data);
     title("Count of SelfAssessedHealthStatus vs. Smoker");
     auto ax = gca();

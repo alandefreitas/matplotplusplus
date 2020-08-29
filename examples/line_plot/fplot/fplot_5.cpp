@@ -4,7 +4,7 @@
 int main() {
     using namespace matplot;
 
-    auto fp = fplot([](double x){ return sin(x); });
+    auto fp = fplot([](double x) { return sin(x); });
     fp->line_style(":");
     fp->color("r");
     fp->marker("x");

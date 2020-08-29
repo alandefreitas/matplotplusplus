@@ -11,11 +11,11 @@ int main() {
         for (const auto &y_i : grid_ticks) {
             x.emplace_back(x_i);
             y.emplace_back(y_i);
-            z.emplace_back(exp(x_i+y_i));
+            z.emplace_back(exp(x_i + y_i));
         }
     }
 
-    stem3(x,y,z);
+    stem3(x, y, z);
 
     wait();
     return 0;

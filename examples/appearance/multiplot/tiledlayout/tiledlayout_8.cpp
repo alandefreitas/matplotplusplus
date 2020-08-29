@@ -3,23 +3,23 @@
 int main() {
     using namespace matplot;
 
-    tiledlayout(2,2);
-    auto [x,y,z] = peaks(20);
+    tiledlayout(2, 2);
+    auto [x, y, z] = peaks(20);
 
     nexttile();
-    surf(x,y,z);
+    surf(x, y, z);
 
     nexttile();
-    contour(x,y,z);
+    contour(x, y, z);
 
     nexttile();
     imagesc(z);
 
     nexttile();
-    plot3(x,y,z);
+    plot3(x, y, z);
 
     auto ax = nexttile(2);
-    colormap(ax,palette::cool());
+    colormap(ax, palette::cool());
 
     wait();
     return 0;

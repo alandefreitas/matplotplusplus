@@ -5,28 +5,20 @@
 #ifndef MATPLOTPLUSPLUS_LEGEND_H
 #define MATPLOTPLUSPLUS_LEGEND_H
 
-#include <vector>
-#include <string>
 #include <array>
-#include <matplot/util/handle_types.h>
 #include <matplot/core/line_spec.h>
+#include <matplot/util/handle_types.h>
+#include <string>
+#include <vector>
 
 namespace matplot {
     class axes;
 
     class legend {
-    public:
-        enum class horizontal_alignment {
-            left,
-            center,
-            right
-        };
+      public:
+        enum class horizontal_alignment { left, center, right };
 
-        enum class vertical_alignment {
-            top,
-            center,
-            bottom
-        };
+        enum class vertical_alignment { top, center, bottom };
 
         enum class general_alignment {
             topleft,
@@ -40,16 +32,16 @@ namespace matplot {
             bottomright,
         };
 
-    public:
+      public:
         legend() = default;
-        legend(class axes* parent);
-        legend(class axes* parent, std::initializer_list<std::string> names);
-        legend(class axes* parent, const std::vector<std::string>& names);
+        legend(class axes *parent);
+        legend(class axes *parent, std::initializer_list<std::string> names);
+        legend(class axes *parent, const std::vector<std::string> &names);
 
-    public /* useful functions */:
+      public /* useful functions */:
         void touch();
-        const std::string& operator[](size_t index) const;
-        std::string& operator[](size_t index);
+        const std::string &operator[](size_t index) const;
+        std::string &operator[](size_t index);
         bool empty() const;
         size_t size() const;
         std::vector<std::string>::const_iterator begin() const;
@@ -57,7 +49,7 @@ namespace matplot {
         std::vector<std::string>::const_iterator end() const;
         std::vector<std::string>::iterator end();
 
-    public /* getter and setters */ :
+      public /* getter and setters */:
         std::vector<std::string> &strings();
         const std::vector<std::string> &strings() const;
         void strings(const std::vector<std::string> &strings);
@@ -128,12 +120,9 @@ namespace matplot {
 
         const color_array &text_color() const;
         void text_color(const color_array &text_color);
-        template <class T>
-        void text_color(T c) {
-            text_color(to_array(c));
-        }
+        template <class T> void text_color(T c) { text_color(to_array(c)); }
 
-    private:
+      private:
         // The keys
         std::vector<std::string> strings_{};
         std::string title_{""};
@@ -141,7 +130,7 @@ namespace matplot {
         // Positioning
         bool inside_{true};
         bool manual_position_{false};
-        std::array<float,2> position_{0.0,0.0};
+        std::array<float, 2> position_{0.0, 0.0};
         horizontal_alignment horizontal_location_{horizontal_alignment::right};
         vertical_alignment vertical_location_{vertical_alignment::top};
 
@@ -150,12 +139,12 @@ namespace matplot {
         float font_size_{11};
         std::string font_angle_{"normal"};
         std::string font_weight_{"bold"};
-        color_array text_color_{0.,0,0,0};
+        color_array text_color_{0., 0, 0, 0};
 
         // Style
         bool box_{true};
         line_spec box_line_{"k-"};
-        color_array color_{0.,1,1,1};
+        color_array color_{0., 1, 1, 1};
         bool vertical_{true};
         bool label_after_sample_{true};
         bool invert_{false};
@@ -165,9 +154,8 @@ namespace matplot {
         size_t num_rows_{0};
 
         // Parent xlim
-        class axes* parent_{nullptr};
-
+        class axes *parent_{nullptr};
     };
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_LEGEND_H
+#endif // MATPLOTPLUSPLUS_LEGEND_H

@@ -2,9 +2,9 @@
 
 int main() {
     using namespace matplot;
-    subplot(2,1,0);
+    subplot(2, 1, 0);
     title("First Subplot");
-    subplot(2,1,1);
+    subplot(2, 1, 1);
     title("Second Subplot");
 
     sgtitle("Subplot Grid Title", "red");

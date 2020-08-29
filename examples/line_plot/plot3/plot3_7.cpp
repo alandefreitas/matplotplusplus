@@ -3,10 +3,10 @@
 
 int main() {
     using namespace matplot;
-    auto t = linspace(-10,10,1000);
-    auto xt = transform(t,[](auto t){ return exp(-t/10)*sin(5*t); });
-    auto yt = transform(t,[](auto t){ return exp(-t/10)*cos(5*t); });
-    auto p = plot3(xt,yt,t);
+    auto t = linspace(-10, 10, 1000);
+    auto xt = transform(t, [](auto t) { return exp(-t / 10) * sin(5 * t); });
+    auto yt = transform(t, [](auto t) { return exp(-t / 10) * cos(5 * t); });
+    auto p = plot3(xt, yt, t);
     p->line_width(3);
     wait();
     return 0;

@@ -3,13 +3,13 @@
 int main() {
     using namespace matplot;
 
-    tiledlayout(2,1);
+    tiledlayout(2, 1);
     auto ax1 = nexttile();
-    plot(rand(3,3,0,1));
+    plot(rand(3, 3, 0, 1));
     auto ax2 = nexttile();
-    plot(rand(3,3,0,1));
-    xticks({1,2,3});
-    xticklabels({"one","two","three"});
+    plot(rand(3, 3, 0, 1));
+    xticks({1, 2, 3});
+    xticklabels({"one", "two", "three"});
 
     wait();
     return 0;

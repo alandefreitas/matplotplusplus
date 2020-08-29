@@ -6,14 +6,14 @@
 #define MATPLOTPLUSPLUS_POPEN_H
 
 #ifdef _WIN32
-#    include <windows.h>
-#    define PCLOSE _pclose
-#    define POPEN  _popen
-#    define FILENO _fileno
+#include <windows.h>
+#define PCLOSE _pclose
+#define POPEN _popen
+#define FILENO _fileno
 #else
-#    define PCLOSE pclose
-#    define POPEN  popen
-#    define FILENO fileno
+#define PCLOSE pclose
+#define POPEN popen
+#define FILENO fileno
 #endif
 
-#endif //MATPLOTPLUSPLUS_POPEN_H
+#endif // MATPLOTPLUSPLUS_POPEN_H

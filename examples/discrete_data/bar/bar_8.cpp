@@ -1,6 +1,6 @@
-#include <random>
 #include <cmath>
 #include <matplot/matplot.h>
+#include <random>
 
 int main() {
     using namespace matplot;
@@ -14,7 +14,7 @@ int main() {
     std::vector<std::string> labels;
     for (size_t i = 0; i < y.size(); ++i) {
         for (size_t j = 0; j < x.size(); ++j) {
-            label_x.emplace_back(b->x_end_point(i,j));
+            label_x.emplace_back(b->x_end_point(i, j));
             label_y.emplace_back(y[i][j] + 1);
             labels.emplace_back(num2str(y[i][j]));
         }

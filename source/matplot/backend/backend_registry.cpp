@@ -10,4 +10,4 @@ namespace matplot {
         // libraries CMake finds in the system
         return create_backend<backend::gnuplot>();
     }
-}
+} // namespace matplot

@@ -3,18 +3,19 @@
 //
 
 #include <cmath>
-#include <sstream>
-#include <matplot/core/axes.h>
 #include <matplot/axes_objects/filled_area.h>
+#include <matplot/core/axes.h>
+#include <sstream>
 
 namespace matplot {
-    filled_area::filled_area(class axes* parent)
-            : line(parent) {}
+    filled_area::filled_area(class axes *parent) : line(parent) {}
 
-    filled_area::filled_area(class axes* parent, const std::vector<double> &x, const std::vector<double> &y, const std::vector<double> &base_values, bool stacked, const std::string& line_spec)
-            : line(parent, x, y, line_spec),
-              stacked_(stacked),
-              base_data_(base_values) {}
+    filled_area::filled_area(class axes *parent, const std::vector<double> &x,
+                             const std::vector<double> &y,
+                             const std::vector<double> &base_values,
+                             bool stacked, const std::string &line_spec)
+        : line(parent, x, y, line_spec), stacked_(stacked),
+          base_data_(base_values) {}
 
     void filled_area::maybe_update_face_color() {
         // if user has not defined the color yet, get it from the xlim
@@ -37,7 +38,8 @@ namespace matplot {
         maybe_update_face_color();
 
         // plot fill curve
-        std::string res = "'-' with filledcurve linecolor rgb \"" + to_string(face_color_) + "\"";
+        std::string res = "'-' with filledcurve linecolor rgb \"" +
+                          to_string(face_color_) + "\"";
 
         // plot base line
         if (plot_base_line_ && line_spec_.has_line()) {
@@ -61,9 +63,12 @@ namespace matplot {
             // send data for filled curve
             for (size_t i = 0; i < y_data_.size(); ++i) {
                 if (std::isfinite(y_data_[i])) {
-                    double base_value = base_data_.empty() ? 0.0 :
-                                        base_data_.size() == 1 ? base_data_[0] : base_data_[i];
-                    ss << "    " << x_data_[i] << " " << base_value << " " << y_data_[i] << "\n";
+                    double base_value = base_data_.empty() ? 0.0
+                                        : base_data_.size() == 1
+                                            ? base_data_[0]
+                                            : base_data_[i];
+                    ss << "    " << x_data_[i] << " " << base_value << " "
+                       << y_data_[i] << "\n";
                 } else {
                     ss << "    \n";
                 }
@@ -78,11 +83,12 @@ namespace matplot {
             stacked_data = y_data_;
             for (auto children_it = parent_->children().rbegin();
                  children_it != parent_->children().rend(); ++children_it) {
-                const auto& child = *children_it;
-                auto ptr = dynamic_cast<filled_area*>(child.get());
+                const auto &child = *children_it;
+                auto ptr = dynamic_cast<filled_area *>(child.get());
                 if (ptr != nullptr) {
                     if (ptr != this) {
-                        size_t n = std::min(stacked_data.size(), ptr->y_data_.size());
+                        size_t n =
+                            std::min(stacked_data.size(), ptr->y_data_.size());
                         for (size_t i = 0; i < n; ++i) {
                             stacked_data[i] += ptr->y_data_[i];
                         }
@@ -93,17 +99,20 @@ namespace matplot {
             }
             // send data
             for (size_t i = 0; i < stacked_data.size(); ++i) {
-                double base_value = base_data_.empty() ? 0.0 :
-                                    base_data_.size() == 1 ? base_data_[0] : base_data_[i];
-                ss << "    " << x_data_[i] << " " << base_value << " " << stacked_data[i] << "\n";
+                double base_value = base_data_.empty()       ? 0.0
+                                    : base_data_.size() == 1 ? base_data_[0]
+                                                             : base_data_[i];
+                ss << "    " << x_data_[i] << " " << base_value << " "
+                   << stacked_data[i] << "\n";
             }
             ss << "    e\n";
         }
 
         // send data for base line
         for (size_t i = 0; i < y_data_.size(); ++i) {
-            double base_value = base_data_.empty() ? 0.0 :
-                                base_data_.size() == 1 ? base_data_[0] : base_data_[i];
+            double base_value = base_data_.empty()       ? 0.0
+                                : base_data_.size() == 1 ? base_data_[0]
+                                                         : base_data_[i];
             if (std::isfinite(base_value) && std::isfinite(x_data_[i])) {
                 ss << "    " << x_data_[i] << " " << base_value << "\n";
             } else {
@@ -128,11 +137,9 @@ namespace matplot {
         return axes_object::axes_category::two_dimensional;
     }
 
-    bool filled_area::stacked() const {
-        return stacked_;
-    }
+    bool filled_area::stacked() const { return stacked_; }
 
-    class filled_area& filled_area::stacked(bool stacked) {
+    class filled_area &filled_area::stacked(bool stacked) {
         stacked_ = stacked;
         return *this;
     }
@@ -141,37 +148,32 @@ namespace matplot {
         return base_data_;
     }
 
-    class filled_area& filled_area::base_data(const std::vector<double> &base_data) {
+    class filled_area &
+    filled_area::base_data(const std::vector<double> &base_data) {
         base_data_ = base_data;
         return *this;
     }
 
-    bool filled_area::plot_base_line() const {
-        return plot_base_line_;
-    }
+    bool filled_area::plot_base_line() const { return plot_base_line_; }
 
-    class filled_area& filled_area::plot_base_line(bool plot_base_line) {
+    class filled_area &filled_area::plot_base_line(bool plot_base_line) {
         plot_base_line_ = plot_base_line;
         return *this;
     }
 
-    const color_array &filled_area::face_color() const {
-        return face_color_;
-    }
+    const color_array &filled_area::face_color() const { return face_color_; }
 
-    class filled_area& filled_area::face_color(const color_array &face_color) {
+    class filled_area &filled_area::face_color(const color_array &face_color) {
         face_color_ = face_color;
         fill_user_color_ = true;
         return *this;
     }
 
-    bool filled_area::fill_user_color() const {
-        return fill_user_color_;
-    }
+    bool filled_area::fill_user_color() const { return fill_user_color_; }
 
-    class filled_area& filled_area::fill_user_color(bool fill_user_color) {
+    class filled_area &filled_area::fill_user_color(bool fill_user_color) {
         fill_user_color_ = fill_user_color;
         return *this;
     }
 
-}
+} // namespace matplot

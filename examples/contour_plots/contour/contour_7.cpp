@@ -4,7 +4,7 @@ int main() {
     using namespace matplot;
 
     auto [X, Y, Z] = peaks();
-    auto c = contour(X,Y,Z);
+    auto c = contour(X, Y, Z);
     c->contour_text(true);
     c->font_size(15);
     c->font_color("blue");

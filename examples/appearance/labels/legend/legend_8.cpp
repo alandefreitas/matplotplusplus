@@ -4,7 +4,7 @@
 int main() {
     using namespace matplot;
 
-    auto rdm = rand(4,4,0,1);
+    auto rdm = rand(4, 4, 0, 1);
 
     plot(rdm);
 

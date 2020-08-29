@@ -9,7 +9,7 @@
 #include <memory>
 
 namespace matplot {
-    using color_array = std::array<float,4>;
+    using color_array = std::array<float, 4>;
 
     class figure;
     using figure_handle = std::shared_ptr<class figure>;
@@ -77,14 +77,17 @@ namespace matplot {
 
     /// Bin scatter style
     enum class bin_scatter_style {
-        automatic,      // decide automatically depending on the data
-        point_size,     // size proportional to values in the bin
-        point_alpha,    // number of elements in bin represented by colormap where alpha varies with density
-        jitter,         // create a number of points in the bin proportional to the bin value
-        point_colormap, // number of elements in bin represented by default colormap
-        heatmap         // number of elements in each bin represented by a heatmap
+        automatic,   // decide automatically depending on the data
+        point_size,  // size proportional to values in the bin
+        point_alpha, // number of elements in bin represented by colormap where
+                     // alpha varies with density
+        jitter, // create a number of points in the bin proportional to the bin
+                // value
+        point_colormap, // number of elements in bin represented by default
+                        // colormap
+        heatmap // number of elements in each bin represented by a heatmap
     };
 
-}
+} // namespace matplot
 
-#endif //MATPLOTPLUSPLUS_HANDLE_TYPES_H
+#endif // MATPLOTPLUSPLUS_HANDLE_TYPES_H
