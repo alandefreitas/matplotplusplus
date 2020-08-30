@@ -1425,8 +1425,8 @@ Then add this header to your source files:
 This project requires C++17. You can see other dependencies in [FindDependencies.cmake](source/matplot/FindDependencies.cmake). CMake will try to solve everything for you.
 
 * Required 
-    * olvb/nodesoup (CMake will download it for you)
-    * dtschump/CImg (CMake will download it for you)
+    * olvb/nodesoup (bundled; but you can define `WITH_SYSTEM_NODESOUP=ON` in the cmake command line to use a system-provided version of nodesoup)
+    * dtschump/CImg (bundled; but you can define `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of CImg)
     * Gnuplot (for the Gnuplot backend only)
 * Optional (for images)
     * JPEG
