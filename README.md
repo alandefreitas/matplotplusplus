@@ -1412,7 +1412,7 @@ Then add this header to your source files:
 
 ### Other build systems 
 
-If you're not using Cmake, your project needs to include the headers and compile all source files in the [`source`](source) directory. You also need to link with the dependencies described in [`source/matplot/FindDependencies.cmake`](source/matplot/FindDependencies.cmake).
+If you're not using Cmake, your project needs to include the headers and compile all source files in the [`source`](source) directory. You also need to link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
 Then add this header to your source files:
 
@@ -1422,7 +1422,7 @@ Then add this header to your source files:
 
 ### Dependencies
 
-This project requires C++17. You can see other dependencies in [FindDependencies.cmake](source/matplot/FindDependencies.cmake). CMake will try to solve everything for you.
+This project requires C++17. You can see other dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt). CMake will try to solve everything for you.
 
 * Required 
     * olvb/nodesoup (bundled; but you can define `WITH_SYSTEM_NODESOUP=ON` in the cmake command line to use a system-provided version of nodesoup)
