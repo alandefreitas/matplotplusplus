@@ -118,21 +118,22 @@ else()
     message("Not including the high resolution maps for geoplots")
 endif()
 
-find_package(OpenGL)
-if (NOT OPENGL_FOUND)
-    return()
-endif()
-
-if (NOT TARGET glad)
-    CPMAddPackage(NAME glad GIT_REPOSITORY https://github.com/Dav1dde/glad GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9 VERSION 0.1.33)
-endif()
-
-if (NOT TARGET glfw)
-    CPMAddPackage(NAME glfw GIT_REPOSITORY https://github.com/glfw/glfw VERSION 3.3.2 GIT_TAG 3.3.2 OPTIONS "GLFW_BUILD_DOCS OFF" "GLFW_BUILD_EXAMPLES OFF" "GLFW_BUILD_TESTS OFF" "GLFW_INSTALL OFF")
-endif()
-
 # Library for the OpenGL example
-add_library(matplot_opengl
-        backend/opengl_3.h
-        backend/opengl_3.cpp)
-target_link_libraries(matplot_opengl PUBLIC matplot glad glfw)
+# This is an example of what an OpenGL backend *could* look like.
+# We would need to adapt the axes objects to feed this backend
+#     with polygons and colors instead of commands, which is not
+#     a problem at all. The data is all prepared in these objects.
+#     We would not have to convert this data to strings and would
+#     not have to worry about an external syntax.
+# The biggest challenge is to actually create backends that can
+#     draw these polygons we feed them.
+# We discuss some of these difficulties in the documentation
+#     and the backend_interface.h.
+find_package(OpenGL)
+find_package(GLAD)
+find_package(GLFW3)
+if (OPENGL_FOUND AND GLAD_FOUND AND GLFW3_FOUND)
+    add_library(matplot_opengl backend/opengl_3.h backend/opengl_3.cpp)
+    target_include_directories(matplot_opengl PUBLIC matplot ${GLAD_INCLUDE_PATH} ${GLFW3_INCLUDE_DIR})
+    target_link_libraries(matplot_opengl PUBLIC matplot ${GLAD_LIBRARIES} ${GLFW3_LIBRARY})
+endif()
