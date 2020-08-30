@@ -26,8 +26,12 @@ target_include_directories(cimg INTERFACE ${cimg_SOURCE_DIR})
 
 # Add plugins for CImg library
 # Future work: download some of these libraries with CPM instead of trying to find them
+#              OR just move them to a subdirectory.
 # Rationale: Some libraries, such as the JPG library, are very small (cost almost zero) and
 #            too important to not have here by default.
+#            Lots of optional packages are not a good idea in general.
+#            It makes the library much less "packagable" (https://youtu.be/sBP17HQAQjk)
+#            and much more difficult to make sure it works on multiple OSs
 find_package(JPEG)
 if(JPEG_FOUND)
     message("JPEG Found")
@@ -90,14 +94,6 @@ if(OPENEXR_FOUND)
     target_compile_definitions(cimg INTERFACE cimg_use_openexr)
     target_link_libraries(cimg INTERFACE ${OPENEXR_LIBRARIES})
     target_include_directories(cimg INTERFACE ${OPENEXR_INCLUDE_DIRS})
-endif()
-
-pkg_check_modules(MAGICK Magick++)
-if(MAGICK_FOUND)
-    message("MAGICK Found")
-    target_compile_definitions(cimg INTERFACE cimg_use_magick)
-    target_link_libraries(cimg INTERFACE ${MAGICK_LIBRARIES})
-    target_include_directories(cimg INTERFACE ${MAGICK_INCLUDE_DIRS})
 endif()
 
 if (CMAKE_MODULE_PATH)
