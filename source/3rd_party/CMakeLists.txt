@@ -1,0 +1,157 @@
+# Add nodesoup library
+if(WITH_SYSTEM_NODESOUP)
+  find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
+  find_library(NODESOUP_LIB nodesoup REQUIRED)
+
+  add_library(nodesoup INTERFACE)
+  target_include_directories(nodesoup INTERFACE ${NODESOUP_INCLUDE_DIR})
+  target_link_libraries(nodesoup INTERFACE ${NODESOUP_LIB})
+else()
+  add_library(nodesoup STATIC
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/algebra.cpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/algebra.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/fruchterman_reingold.cpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/fruchterman_reingold.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/kamada_kawai.cpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/kamada_kawai.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/layout.cpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/layout.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/nodesoup.cpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
+      )
+  target_include_directories(nodesoup PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include)
+
+  # Hackfix to support MSVC standard library
+  # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
+  target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
+endif()
+
+# Add CImg library
+if(WITH_SYSTEM_CIMG)
+  find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
+else()
+  set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
+endif()
+add_library(cimg INTERFACE)
+target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
+
+
+find_package(PkgConfig)
+
+# Add plugins for CImg library
+# Future work: download some of these libraries with CPM instead of trying to find them
+#              OR just move them to a subdirectory.
+# Rationale: Some libraries, such as the JPG library, are very small (cost almost zero) and
+#            too important to not have here by default.
+#            Lots of optional packages are not a good idea in general.
+#            It makes the library much less "packagable" (https://youtu.be/sBP17HQAQjk)
+#            and much more difficult to make sure it works on multiple OSs
+find_package(JPEG)
+if(JPEG_FOUND)
+  message("JPEG Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_jpeg)
+  target_link_libraries(cimg INTERFACE ${JPEG_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${JPEG_INCLUDE_DIRS})
+endif()
+
+find_package(TIFF)
+if(TIFF_FOUND)
+  message("TIFF Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_tiff)
+  target_link_libraries(cimg INTERFACE ${TIFF_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${TIFF_INCLUDE_DIRS})
+endif()
+
+find_package(ZLIB)
+if(ZLIB_FOUND)
+  message("ZLIB Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_zlib)
+  target_link_libraries(cimg INTERFACE ${ZLIB_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${ZLIB_INCLUDE_DIRS})
+  # PNG requires ZLIB
+  find_package(PNG)
+  if (PNG_FOUND)
+    message("PNG Found")
+    target_compile_definitions(cimg INTERFACE cimg_use_png)
+    target_link_libraries(cimg INTERFACE ${PNG_LIBRARIES})
+    target_include_directories(cimg INTERFACE ${PNG_INCLUDE_DIRS})
+  endif()
+endif()
+
+find_package(LAPACK)
+if(LAPACK_FOUND)
+  message("LAPACK Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_lapack)
+  target_link_libraries(cimg INTERFACE ${LAPACK_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${LAPACK_INCLUDE_DIRS})
+endif()
+
+find_package(BLAS)
+if(BLAS_FOUND)
+  message("BLAS Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_blas)
+  target_link_libraries(cimg INTERFACE ${BLAS_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${BLAS_INCLUDE_DIRS})
+endif()
+
+find_package(FFTW)
+if(FFTW_FOUND)
+  message("FFTW Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_fftw3)
+  target_link_libraries(cimg INTERFACE ${FFTW_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${FFTW_INCLUDE_DIRS})
+endif()
+
+pkg_check_modules(OPENEXR OpenEXR)
+if(OPENEXR_FOUND)
+  message("OPENEXR Found")
+  target_compile_definitions(cimg INTERFACE cimg_use_openexr)
+  target_link_libraries(cimg INTERFACE ${OPENEXR_LIBRARIES})
+  target_include_directories(cimg INTERFACE ${OPENEXR_INCLUDE_DIRS})
+endif()
+
+if (CMAKE_MODULE_PATH)
+  find_package(OpenCV QUIET)
+  if (OpenCV_FOUND)
+    message("OpenCV Found")
+    target_compile_definitions(cimg INTERFACE cimg_use_opencv)
+    target_link_libraries(cimg INTERFACE ${OpenCV_LIBRARIES})
+    target_include_directories(cimg INTERFACE ${OpenCV_INCLUDE_DIRS})
+  endif()
+else()
+  message("No CMAKE_MODULE_PATH path for OpenCV configured")
+endif()
+
+
+if(LIBAVCODEC_FOUND AND LIBAVFORMAT_FOUND AND LIBSWSCALE_FOUND AND LIBAVUTIL_FOUND)
+  target_compile_definitions(cimg INTERFACE cimg_use_ffmpeg)
+  target_include_directories(cimg INTERFACE ${LIBAVFORMAT_INCLUDE_DIRS} ${LIBAVFORMAT_INCLUDE_DIRS}/libavformat)
+  target_include_directories(cimg INTERFACE ${LIBAVCODEC_INCLUDE_DIRS} ${LIBAVCODEC_INCLUDE_DIRS}/libavcodec )
+  target_include_directories(cimg INTERFACE ${LIBSWSCALE_INCLUDE_DIRS} ${LIBSWSCALE_INCLUDE_DIRS}/libswscale)
+  target_include_directories(cimg INTERFACE ${LIBAVUTIL_INCLUDE_DIRS} ${LIBAVUTIL_INCLUDE_DIRS}/libavutil )
+  target_link_libraries(cimg INTERFACE ${LIBAVFORMAT_LIBRARIES} )
+  target_link_libraries(cimg INTERFACE ${LIBAVCODEC_LIBRARIES} )
+  target_link_libraries(cimg INTERFACE ${LIBSWSCALE_LIBRARIES} )
+  target_link_libraries(cimg INTERFACE ${LIBAVUTIL_LIBRARIES} )
+endif()
+
+if(NOT WIN32)
+  if (NOT APPLE)
+    find_package(Threads REQUIRED)
+    target_link_libraries(cimg INTERFACE ${CMAKE_THREAD_LIBS_INIT})
+  endif()
+
+  find_package(X11)
+  if(X11_FOUND)
+    target_compile_definitions(cimg INTERFACE cimg_display=1)
+    target_compile_definitions(cimg INTERFACE cimg_use_xshm cimg_use_xrandr)
+    # https://github.com/alandefreitas/matplotplusplus/issues/6
+    target_link_libraries(cimg INTERFACE ${X11_LIBRARIES} X11::Xrandr)
+    target_include_directories(cimg INTERFACE ${X11_INCLUDE_DIRS})
+  else()
+    target_compile_definitions(cimg INTERFACE cimg_display=0)
+  endif()
+else()
+  target_compile_definitions(cimg INTERFACE cimg_display=2)
+  target_link_libraries(cimg INTERFACE gdi32)
+endif()

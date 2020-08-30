@@ -13,6 +13,8 @@ option(BUILD_TESTS "Build tests" ON)
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass wait() commands and save figures as .svg at destruction" OFF)
 option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
+option(WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OFF)
 
 if (${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     set(MASTER_PROJECT ON)

@@ -1,5 +1,3 @@
-include(FindDependencies.cmake)
-
 find_package(Filesystem REQUIRED)
 
 add_library(matplot
