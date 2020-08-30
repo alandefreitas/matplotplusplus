@@ -138,7 +138,7 @@ namespace matplot {
 
         const std::array<float, 4> &color() const;
 
-        template <class T> class contours &color(T c) {
+        template <class T> contours &color(T c) {
             line_spec().color(c);
             return *this;
         }

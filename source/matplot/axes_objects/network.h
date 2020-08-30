@@ -79,7 +79,7 @@ namespace matplot {
         class network &edge_labels(const std::vector<std::string> &edge_labels);
 
         template <class C>
-        class network &edge_labels(const IterableValues<C> &e_labels) {
+        network &edge_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
             for (const auto &edge_label : e_labels) {
@@ -95,7 +95,7 @@ namespace matplot {
         class network &node_labels(const std::vector<std::string> &node_labels);
 
         template <class C>
-        class network &node_labels(const IterableValues<C> &e_labels) {
+        network &node_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
             for (const auto &edge_label : e_labels) {
@@ -144,13 +144,13 @@ namespace matplot {
         class network &line_width(float line_width);
 
         enum line_spec::marker_style marker_style() const;
-        template <class T> class network &marker_style(T marker_style) {
+        template <class T> network &marker_style(T marker_style) {
             line_spec_.marker_style(marker_style);
             return *this;
         }
 
         enum line_spec::marker_style marker() const;
-        template <class T> class network &marker(T marker) {
+        template <class T> network &marker(T marker) {
             line_spec_.marker(marker);
             return *this;
         }
@@ -164,7 +164,7 @@ namespace matplot {
         class network &marker_face(bool size);
 
         const std::array<float, 4> &color() const;
-        template <class T> class network &color(T c) {
+        template <class T> network &color(T c) {
             line_spec().color(c);
             return *this;
         }
@@ -175,12 +175,12 @@ namespace matplot {
 
         const std::array<float, 4> &marker_color() const;
 
-        template <class T> class network &marker_color(T c) {
+        template <class T> network &marker_color(T c) {
             line_spec().marker_color(c);
             return *this;
         }
 
-        template <class T> class network &node_color(T c) {
+        template <class T> network &node_color(T c) {
             marker_color(c);
             return *this;
         }
@@ -198,7 +198,7 @@ namespace matplot {
 
         const std::array<float, 4> &marker_face_color() const;
 
-        template <class T> class network &marker_face_color(T c) {
+        template <class T> network &marker_face_color(T c) {
             line_spec().marker_face_color(c);
             return *this;
         }

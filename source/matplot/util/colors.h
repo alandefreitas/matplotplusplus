@@ -36,19 +36,19 @@ namespace matplot {
         std::array<float, 4> r;
         if (c.size() == 1) {
             r[0] = 0;
-            r[1] = c[0];
-            r[2] = c[0];
-            r[3] = c[0];
+            r[1] = static_cast<float>(c[0]);
+            r[2] = static_cast<float>(c[0]);
+            r[3] = static_cast<float>(c[0]);
         } else if (c.size() == 3) {
             r[0] = 0;
-            r[1] = c[0];
-            r[2] = c[1];
-            r[3] = c[2];
+            r[1] = static_cast<float>(c[0]);
+            r[2] = static_cast<float>(c[1]);
+            r[3] = static_cast<float>(c[2]);
         } else if (c.size() == 4) {
-            r[0] = c[0];
-            r[1] = c[1];
-            r[2] = c[2];
-            r[3] = c[3];
+            r[0] = static_cast<float>(c[0]);
+            r[1] = static_cast<float>(c[1]);
+            r[2] = static_cast<float>(c[2]);
+            r[3] = static_cast<float>(c[3]);
         }
         return r;
     }

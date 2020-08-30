@@ -102,7 +102,7 @@ namespace matplot {
 
         const color_array &label_color() const;
         class axis &label_color(const color_array &label_color);
-        template <class T> class axis &label_color(T c) {
+        template <class T> axis &label_color(T c) {
             label_color(to_array(c));
             return *this;
         }

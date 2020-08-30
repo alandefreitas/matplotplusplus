@@ -853,13 +853,13 @@ namespace matplot {
         return ax->arrow(args...);
     }
 
-    template <class T1, class... Args>
-    auto line(NotAxesHandle<T1> x, Args... args) {
-        return gca()->line(x, args...);
+    inline auto line(double x1, double y1, double x2, double y2) {
+        return gca()->line(x1, x1, x2, y2);
     }
 
-    template <class... Args> auto line(axes_handle ax, Args... args) {
-        return ax->line(args...);
+    inline auto line(axes_handle ax, double x1, double y1, double x2,
+                     double y2) {
+        return ax->line(x1, x1, x2, y2);
     }
 
     template <class T1, class... Args>
