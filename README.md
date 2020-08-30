@@ -30,8 +30,8 @@ Data visualization can help programmers and scientists identify trends in their 
      * [CMake (manual download)](#cmake-manual-download)
      * [CMake (automatic download)](#cmake-automatic-download)
      * [Other build systems](#other-build-systems)
+     * [Dependencies](#dependencies)
      * [Backends](#backends)
-     * [Compatibility](#compatibility)
      * [Contributing](#contributing)
   * [References](#references)
 <!--te-->
@@ -1458,7 +1458,7 @@ There are many ways in which you can contribute to this library:
 
 * Testing the library in new environments
 * Contributing with interesting examples
-* Designing new backends
+* Designing new backends <sup>see [1](source/matplot/backend/backend_interface.h), [2](#backends), [3](documentation/README.md#backends)</sup>
 * Finding problems in this documentation
 * Writing algorithms for new plot categories
 * Finding bugs in general
