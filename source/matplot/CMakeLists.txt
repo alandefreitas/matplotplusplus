@@ -95,6 +95,7 @@ target_compile_features(matplot PUBLIC cxx_std_17)
 if(MSVC)
     # World maps require this option because there is so much in the file
     target_compile_options(matplot PRIVATE /bigobj)
+    target_compile_options(matplot PUBLIC /wd4305)
 endif()
 
 include(CheckSymbolExists)
