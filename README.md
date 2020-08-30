@@ -1412,7 +1412,7 @@ Then add this header to your source files:
 
 ### Other build systems 
 
-Right now, it really doesn't have support for anything other than CMake. If you really want to use it in another build system you pretty much have to rewrite the entire build system.
+Right now, it really doesn't have support for anything other than CMake. If you really want to use it in another build system you pretty much have to rewrite the entire build script.
 
 If you're not using Cmake, your project needs to include the headers and compile all source files in the [`source`](source) directory. You also need to link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
