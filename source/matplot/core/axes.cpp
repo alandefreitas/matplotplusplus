@@ -155,11 +155,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_position_margin_command() {
-        include_comment("Axes position");
-        run_command("set origin " + std::to_string(x_origin()) + "," +
-                    std::to_string(y_origin()));
-
+    std::tuple<double,double,double,double,double,double> axes::calculate_margins() {
         // There are conditions on which the xlim are smaller than requested
         // to make room for other elements
         double width_multiplier = is_3d() && !is_3d_map() ? 0.72 : 1.;
@@ -183,14 +179,15 @@ namespace matplot {
         double tmargin_multiplier = (1. - height_multiplier) / 2.;
         double bmargin_multiplier = (1. - height_multiplier) / 2.;
 
-        run_command("set size " + num2str(width_multiplier * width()) + "," +
-                    num2str(height_multiplier * height()));
+        const auto bg_width = width_multiplier * width();
+        const auto bg_height = height_multiplier * height();
 
         // We increase the margins for colorbar
         double colorbar_lmargin = 0.;
         double colorbar_rmargin = 0.;
         double colorbar_bmargin = 0.;
         double colorbar_tmargin = 0.;
+
         constexpr double extra_for_ticks = 0.05;
         if (cb_axis_.visible() && !cb_inside_) {
             // identify if colorbar is north/south/east/west
@@ -227,18 +224,34 @@ namespace matplot {
             }
         }
 
-        run_command(
-            "set lmargin at screen " +
-            num2str(x + width() * lmargin_multiplier + colorbar_lmargin));
-        run_command("set rmargin at screen " +
-                    num2str(x + width() - width() * rmargin_multiplier -
-                            colorbar_rmargin));
-        run_command(
-            "set bmargin at screen " +
-            num2str(y + height() * bmargin_multiplier + colorbar_bmargin));
-        run_command("set tmargin at screen " +
-                    num2str(y + height() - height() * tmargin_multiplier -
-                            colorbar_tmargin));
+        const double lmargin =
+            x + width() * lmargin_multiplier + colorbar_lmargin;
+        const double rmargin =
+            x + width() - width() * rmargin_multiplier - colorbar_rmargin;
+        const double bmargin =
+            y + height() * bmargin_multiplier + colorbar_bmargin;
+        const double tmargin =
+            y + height() - height() * tmargin_multiplier - colorbar_tmargin;
+
+        return std::make_tuple(bg_width, bg_height,lmargin,rmargin,bmargin,tmargin);
+    }
+
+    void axes::run_position_margin_command() {
+        include_comment("Axes position");
+        run_command("set origin " + std::to_string(x_origin()) + "," +
+                    std::to_string(y_origin()));
+
+        auto [bg_width, bg_height, lmargin, rmargin, bmargin, tmargin] =
+            calculate_margins();
+
+        run_command("set size " + num2str(bg_width) + "," +
+                    num2str(bg_height));
+
+
+        run_command("set lmargin at screen " + num2str(lmargin));
+        run_command("set rmargin at screen " + num2str(rmargin));
+        run_command("set bmargin at screen " + num2str(bmargin));
+        run_command("set tmargin at screen " + num2str(tmargin));
 
         if (!axes_aspect_ratio_auto_) {
             if (is_3d()) {
@@ -907,6 +920,67 @@ namespace matplot {
         run_legend_command();
         run_background_command();
         run_plot_objects_command();
+    }
+
+    void axes::run_draw_commands() {
+        run_background_draw_commands();
+        run_title_draw_commands();
+        run_grid_draw_commands();
+        run_box_draw_commands();
+        run_axes_draw_commands();
+        run_labels_draw_commands();
+        run_legend_draw_commands();
+        run_plot_objects_draw_commands();
+    }
+
+    void axes::run_background_draw_commands() {
+        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+        double view_width = parent_->backend_->width();
+        double x1 = lm * view_width;
+        double x2 = rm * view_width;
+        double view_height = parent_->backend_->height();
+        double y1 = bm * view_height;
+        double y2 = tm * view_height;
+        parent_->backend_->draw_rectangle(x1,x2,y1,y2,this->color_);
+    }
+
+    void axes::run_title_draw_commands() {
+        // This should draw the title on top of the axes
+    }
+
+    void axes::run_box_draw_commands() {
+        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+        double view_width = parent_->backend_->width();
+        double x1 = lm * view_width;
+        double x2 = rm * view_width;
+        double view_height = parent_->backend_->height();
+        double y1 = bm * view_height;
+        double y2 = tm * view_height;
+        const std::array<float, 4> color = {0.,0.,0.,0.};
+        std::vector<double> box_xs = {x1,x2,x2,x1,x1};
+        std::vector<double> box_ys = {y1,y1,y2,y2,y1};
+        parent_->backend_->draw_path(box_xs, box_ys, color);
+    }
+
+    void axes::run_grid_draw_commands() {
+
+    }
+
+    void axes::run_axes_draw_commands() {
+
+    }
+
+    void axes::run_labels_draw_commands() {
+
+    }
+
+    void axes::run_legend_draw_commands() {
+
+    }
+
+
+    void axes::run_plot_objects_draw_commands() {
+
     }
 
     void axes::run_command(const std::string &command) {

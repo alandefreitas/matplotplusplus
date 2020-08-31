@@ -294,6 +294,7 @@ namespace matplot {
         float title_font_size_multiplier_{1.4};
         size_t number_{1};
         bool number_title_{true};
+        // ARGB
         color_array color_{0., 0.9400, 0.9400, 0.9400};
         bool custom_color_{false}; // was this color defined by the user
         std::string font_{"Helvetica"};

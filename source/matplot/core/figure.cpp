@@ -63,13 +63,20 @@ namespace matplot {
     }
 
     void figure::send_draw_commands() {
-        // This mode is not implemented yet
+        // This mode is not completely implemented yet
+        // We'll get there little by little
 
-        // Send some draw commands to the backend here
-        // ...
+        // Tell the backend we're starting a new frame
+        // Draw background
+        backend_->draw_background(color_);
 
         // Iterate children axes
-        // Ask them to send their draw commands to the backend
+        for (const auto &ax : children_) {
+            ax->run_draw_commands();
+        }
+
+        // Finalize
+        backend_->render_data();
     }
 
     void figure::send_gnuplot_draw_commands() {

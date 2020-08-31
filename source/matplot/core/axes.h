@@ -61,6 +61,7 @@ namespace matplot {
 
         /// Run commands to plot axes on the parent figure
         void run_commands();
+        void run_draw_commands();
 
         /// Run command on the parent figure
         void run_command(const std::string &command);
@@ -2681,28 +2682,28 @@ namespace matplot {
 
       private /* run gnuplot commands */:
         void run_colormap_command();
-
         void run_position_margin_command();
-
+        std::tuple<double,double,double,double,double,double> calculate_margins();
         void run_title_command();
-
         void run_box_command();
-
         void run_grid_command();
-
         void run_axes_command();
-
         void run_labels_command();
-
         void run_legend_command();
-
         void run_background_command();
-
         void run_plot_objects_command();
-
         void run_unset_objects_command();
-
         void run_empty_plot_command();
+
+      private /* run draw commands */:
+        void run_background_draw_commands();
+        void run_title_draw_commands();
+        void run_box_draw_commands();
+        void run_grid_draw_commands();
+        void run_axes_draw_commands();
+        void run_labels_draw_commands();
+        void run_legend_draw_commands();
+        void run_plot_objects_draw_commands();
 
       private /* members */:
         // axes
