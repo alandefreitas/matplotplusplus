@@ -82,7 +82,7 @@ namespace matplot {
         axes_handle copy(figure_handle parent);
 
         /// Child limits (x_min, x_max, y_min, y_max)
-        std::array<double, 4> child_limits();
+        std::array<double, 4> child_limits() const;
 
       public /* axes limits and axis ratios */:
         /// \brief Sets limits on x-axis and y-axis

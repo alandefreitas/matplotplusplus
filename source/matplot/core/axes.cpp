@@ -924,11 +924,11 @@ namespace matplot {
 
     void axes::run_draw_commands() {
         run_background_draw_commands();
-        run_title_draw_commands();
         run_grid_draw_commands();
         run_box_draw_commands();
         run_axes_draw_commands();
         run_labels_draw_commands();
+        run_title_draw_commands();
         run_legend_draw_commands();
         run_plot_objects_draw_commands();
     }
@@ -967,7 +967,73 @@ namespace matplot {
     }
 
     void axes::run_axes_draw_commands() {
+        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+        double view_width = parent_->backend_->width();
+        double view_height = parent_->backend_->height();
+        // to draw the x axis we
+        // - normalize x values
+        // - keep y as absolute values
+        auto xlimits = xlim();
+        auto ylimits = ylim();
+        std::vector<double> cx;
+        if (x_axis_.tick_values_manual()) {
+            cx = x_axis_.tick_values();
+        } else {
+            ticks_results xticks_results = calcticks(xlimits[0], xlimits[1], true, 1.25, true, false);
+            cx = xticks_results.ticks;
+        }
+        // clamp values outside x limits
+        cx = transform(cx, [&](double x) { return std::clamp(x,xlimits[0],xlimits[1]); });
 
+        // convert x values to viewport range
+        double viewport_xmin = lm * view_width;
+        double viewport_xmax = rm * view_width;
+        double viewport_xrange = viewport_xmax - viewport_xmin;
+
+        auto xrange = xlimits[1] - xlimits[0];
+        for (auto &v : cx) {
+            v -= xlimits[0];
+            v /= xrange;
+            v *= viewport_xrange;
+            v += viewport_xmin;
+        }
+
+        // get viewport range for y axis
+        double viewport_ymin = bm * view_height;
+        double viewport_ymax = tm * view_height;
+        double viewport_yrange = viewport_ymax - viewport_ymin;
+
+        // draw a path for each x tick
+        for (auto &v : cx) {
+            parent_->backend_->draw_path({v,v}, {viewport_ymin, viewport_ymin + viewport_yrange * x_axis_.tick_length() * 0.03},x_axis_.color_);
+        }
+
+        // to draw the y axis we
+        // - normalize y values
+        // - keep x as absolute values
+        std::vector<double> cy;
+        if (y_axis_.tick_values_manual()) {
+            cy = y_axis_.tick_values();
+        } else {
+            ticks_results yticks_results = calcticks(ylimits[0], ylimits[1], false, 1.25, true, false);
+            cy = yticks_results.ticks;
+        }
+        // clamp values outside x limits
+        cy = transform(cy, [&](double x) { return std::clamp(x,ylimits[0],ylimits[1]); });
+
+        // convert y values to viewport range
+        auto yrange = ylimits[1] - ylimits[0];
+        for (auto &v : cy) {
+            v -= ylimits[0];
+            v /= yrange;
+            v *= viewport_yrange;
+            v += viewport_ymin;
+        }
+
+        // draw a path for each x tick
+        for (auto &v : cy) {
+            parent_->backend_->draw_path({viewport_xmin, viewport_xmin + viewport_xrange * y_axis_.tick_length() * 0.03}, {v,v}, y_axis_.color_);
+        }
     }
 
     void axes::run_labels_draw_commands() {
@@ -1016,7 +1082,7 @@ namespace matplot {
         return new_axes;
     }
 
-    std::array<double, 4> axes::child_limits() {
+    std::array<double, 4> axes::child_limits() const {
         if (children_.empty()) {
             return {-10, +10, -10, +10};
         }
@@ -1952,7 +2018,12 @@ namespace matplot {
     }
 
     std::array<double, 2> axes::xlim() const {
-        return x_axis().limits();
+        if (x_axis_.limits_mode_auto()) {
+            auto [xmin, xmax, ymin, ymax] = this->child_limits();
+            return std::array<double, 2>{xmin,xmax};
+        } else {
+            return x_axis().limits();
+        }
     }
 
     void axes::xlim(const std::array<double, 2> &lim) {
@@ -1970,7 +2041,12 @@ namespace matplot {
     }
 
     std::array<double, 2> axes::ylim() const {
-        return y_axis().limits();
+        if (x_axis_.limits_mode_auto()) {
+            auto [xmin, xmax, ymin, ymax] = this->child_limits();
+            return std::array<double, 2>{ymin,ymax};
+        } else {
+            return y_axis().limits();
+        }
     }
 
     void axes::ylim(const std::array<double, 2> &lim) {
@@ -5188,32 +5264,32 @@ namespace matplot {
                    const std::array<float, 4> &color) {
         // we still have to make limits calculate and return the
         // automatic limits rather than the default limits
-        auto xlimits = x_axis_.limits();
-        auto ylimits = y_axis_.limits();
+        auto xlimits = xlim();
+        auto ylimits = ylim();
         // clamp
         std::vector<double> cx = transform(x, [&](double x) { return std::clamp(x,xlimits[0],xlimits[1]); });
         std::vector<double> cy = transform(y, [&](double y) { return std::clamp(y,ylimits[0],ylimits[1]); });
         // normalize
         auto [w,h,lm,rm,bm,tm] = calculate_margins();
         double view_width = parent_->backend_->width();
-        double x1 = lm * view_width;
-        double x2 = rm * view_width;
+        double view_xmin = lm * view_width;
+        double view_xmax = rm * view_width;
         double view_height = parent_->backend_->height();
-        double y1 = bm * view_height;
-        double y2 = tm * view_height;
+        double view_ymin = bm * view_height;
+        double view_ymax = tm * view_height;
         auto xrange = xlimits[1] - xlimits[0];
         auto yrange = ylimits[1] - ylimits[0];
         for (auto &v : cx) {
             v -= xlimits[0];
             v /= xrange;
-            v *= x2 - x1;
-            v += x1;
+            v *= view_xmax - view_xmin;
+            v += view_xmin;
         }
         for (auto &v : cy) {
             v -= ylimits[0];
-            v /= xrange;
-            v *= y2 - y1;
-            v += y1;
+            v /= yrange;
+            v *= view_ymax - view_ymin;
+            v += view_ymin;
         }
         // draw the normalized path to the backend
         parent_->backend_->draw_path(cx,cy,color);
