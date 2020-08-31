@@ -21,6 +21,8 @@ else()
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/nodesoup.cpp
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
       )
+  set_target_properties(nodesoup PROPERTIES
+      CXX_VISIBILITY_PRESET     "hidden")
   target_include_directories(nodesoup
       PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>
              $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
