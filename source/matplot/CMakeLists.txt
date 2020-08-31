@@ -83,7 +83,9 @@ add_library(matplot
         freestanding/plot.h
 )
 
-target_include_directories(matplot PUBLIC ${MATPLOT_ROOT_DIR}/source)
+target_include_directories(matplot
+    PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
+           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_link_libraries(matplot PUBLIC nodesoup cimg std::filesystem)
 
 # https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
@@ -157,4 +159,21 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     add_library(matplot_opengl backend/opengl_3.h backend/opengl_3.cpp)
     target_include_directories(matplot_opengl PUBLIC matplot)
     target_link_libraries(matplot_opengl PUBLIC matplot glad glfw)
+endif()
+
+
+# Install
+if(MASTER_PROJECT)
+    install(TARGETS matplot
+        EXPORT Matplot++Targets
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        FILES_MATCHING PATTERN "*.h")
+
+    install(EXPORT Matplot++Targets
+        FILE Matplot++Targets.cmake
+        NAMESPACE Matplot++::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 endif()
