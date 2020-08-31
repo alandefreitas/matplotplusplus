@@ -1003,9 +1003,17 @@ namespace matplot {
         double viewport_ymax = tm * view_height;
         double viewport_yrange = viewport_ymax - viewport_ymin;
 
+        // The meaning of tick length is proportional
+        // to the largest of x and y viewport size.
+        // This unit makes the tick sizes look the same on x and y
+        // while still proportional to the axes object.
+        double tick_length_multiplier = std::max(viewport_xrange, viewport_yrange) * 0.015;
+
         // draw a path for each x tick
+        double xtick_length_multiplier = std::min(tick_length_multiplier, viewport_xrange);
         for (auto &v : cx) {
-            parent_->backend_->draw_path({v,v}, {viewport_ymin, viewport_ymin + viewport_yrange * x_axis_.tick_length() * 0.03},x_axis_.color_);
+            parent_->backend_->draw_path({v,v}, {viewport_ymin, viewport_ymin + x_axis_.tick_length() * xtick_length_multiplier},x_axis_.color_);
+            parent_->backend_->draw_path({v,v}, {viewport_ymax, viewport_ymax - x_axis_.tick_length() * xtick_length_multiplier},x_axis_.color_);
         }
 
         // to draw the y axis we
@@ -1030,9 +1038,11 @@ namespace matplot {
             v += viewport_ymin;
         }
 
-        // draw a path for each x tick
+        // draw a path for each y tick
+        double ytick_length_multiplier = std::min(tick_length_multiplier, viewport_yrange);
         for (auto &v : cy) {
-            parent_->backend_->draw_path({viewport_xmin, viewport_xmin + viewport_xrange * y_axis_.tick_length() * 0.03}, {v,v}, y_axis_.color_);
+            parent_->backend_->draw_path({viewport_xmin, viewport_xmin + y_axis_.tick_length() * ytick_length_multiplier}, {v,v}, y_axis_.color_);
+            parent_->backend_->draw_path({viewport_xmax, viewport_xmax - y_axis_.tick_length() * ytick_length_multiplier}, {v,v}, y_axis_.color_);
         }
     }
 
