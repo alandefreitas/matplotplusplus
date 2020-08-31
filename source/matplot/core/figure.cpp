@@ -576,7 +576,7 @@ namespace matplot {
         auto &terminal = backend_->output_format();
         ss << "set terminal " + terminal;
 
-        if (terminal.empty() &&
+        if (!terminal.empty() &&
             backend::gnuplot::terminal_has_title_option(terminal)) {
             std::string title;
             if (number_title_) {
