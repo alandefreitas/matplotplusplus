@@ -86,10 +86,6 @@ namespace matplot {
             /// \brief Set height
             virtual void height(unsigned int new_height);
 
-            /// \brief Background color in RGBA
-            virtual const std::array<float, 4> &background_color();
-            virtual void background_color(const std::array<float, 4> &RGBA);
-
             /// \brief Get the current position_x (for interactive backends)
             /// The user might have changed the image position_x manually.
             /// Matplot++ needs to be aware of that.
@@ -131,6 +127,14 @@ namespace matplot {
             /// https://github.com/matplotlib/matplotlib/blob/master/src/_backend_agg.h
             /// \see https://github.com/ocornut/imgui/tree/master/examples
           public:
+            /// \brief Draws background on the image
+            virtual void draw_background(const std::array<float, 4> &color);
+
+            /// \brief Draws rectangle on the image
+            virtual void draw_rectangle(const double x1, const double x2,
+                                        const double y1, const double y2,
+                                        const std::array<float, 4> &color);
+
             /// \brief Draw a path on the image
             /// Many backends will require the path to be floats
             /// but Matplot++ words with doubles, so it's up to
@@ -138,7 +142,7 @@ namespace matplot {
             /// it seems more efficient
             virtual void draw_path(const std::vector<double> &x,
                                    const std::vector<double> &y,
-                                   const std::vector<double> &z = {});
+                                   const std::array<float, 4> &color);
 
             /// \brief Draw markers on the image
             virtual void draw_markers(const std::vector<double> &x,

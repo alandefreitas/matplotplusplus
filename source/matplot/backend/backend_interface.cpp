@@ -69,7 +69,7 @@ namespace matplot::backend {
 
     void backend_interface::draw_path(const std::vector<double> &x,
                                       const std::vector<double> &y,
-                                      const std::vector<double> &z) {
+                                      const std::array<float, 4> &color) {
         if (!consumes_gnuplot_commands()) {
             throw std::logic_error(
                 "There is no function to draw_path in this backend yet");
@@ -166,13 +166,18 @@ namespace matplot::backend {
 
     void backend_interface::position_y(unsigned int new_position_y) {}
 
-    const std::array<float, 4> &backend_interface::background_color() {
-        static std::array<float, 4> bg{0.94f, 0.94f, 0.94f, 1.0f};
-        return bg;
-    }
+    void backend_interface::draw_background(const std::array<float, 4> &color) {}
 
-    void backend_interface::background_color(const std::array<float, 4> &RGBA) {
-
+    void backend_interface::draw_rectangle(const double x1, const double x2,
+                                           const double y1, const double y2,
+                                           const std::array<float, 4> &color) {
+        if (!consumes_gnuplot_commands()) {
+            throw std::logic_error(
+                "There is no function to draw_rectangle in this backend yet");
+        } else {
+            throw std::logic_error("This backend has no function draw_triangle "
+                                   "because it is based on gnuplot commands");
+        }
     }
 
 } // namespace matplot::backend
