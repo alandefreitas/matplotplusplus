@@ -43,8 +43,7 @@ if (MASTER_PROJECT)
     set(CONFIG_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
     configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/matplot++-config.cmake.in
         ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
-        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
-        PATH_VARS CONFIG_INSTALL_DIR)
+        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
                   ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFilesystem.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)

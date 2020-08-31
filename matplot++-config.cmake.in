@@ -2,12 +2,10 @@ include(CMakeFindDependencyMacro)
 
 @PACKAGE_INIT@
 
-set(MATPLOT_CONFIG_INSTALL_DIR "@PACKAGE_CONFIG_INSTALL_DIR@")
-
-list(APPEND CMAKE_MODULE_PATH ${MATPLOT_CONFIG_INSTALL_DIR})
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 find_dependency(Filesystem)
 list(POP_BACK CMAKE_MODULE_PATH)
 
-include(Matplot++Targets.cmake)
+include("${CMAKE_CURRENT_LIST_DIR}/Matplot++Targets.cmake")
 
 check_required_components(Matplot++)
