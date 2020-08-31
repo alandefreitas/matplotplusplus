@@ -506,4 +506,10 @@ namespace matplot {
         return *this;
     }
 
+    void line::run_draw_commands() {
+        // ask axes to draw the line
+        maybe_update_line_spec();
+        parent_->draw_path(x_data_,y_data_,line_spec_.color());
+    }
+
 } // namespace matplot

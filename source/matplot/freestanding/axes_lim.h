@@ -8,7 +8,7 @@
 #include <matplot/core/axes.h>
 
 namespace matplot {
-    inline const std::array<double, 2> &xlim() { return gca()->xlim(); }
+    inline std::array<double, 2> xlim() { return gca()->xlim(); }
 
     inline void xlim(const std::array<double, 2> &lim) { gca()->xlim(lim); }
 
@@ -27,7 +27,7 @@ namespace matplot {
         gca()->xlim(x, args...);
     }
 
-    inline const std::array<double, 2> &cblim() { return gca()->cblim(); }
+    inline std::array<double, 2> cblim() { return gca()->cblim(); }
 
     inline void cblim(const std::array<double, 2> &lim) { gca()->cblim(lim); }
 
@@ -46,7 +46,7 @@ namespace matplot {
         gca()->cblim(x, args...);
     }
 
-    inline const std::array<double, 2> &caxis() { return gca()->cblim(); }
+    inline std::array<double, 2> caxis() { return gca()->cblim(); }
 
     inline void caxis(const std::array<double, 2> &lim) { gca()->cblim(lim); }
 
@@ -65,7 +65,7 @@ namespace matplot {
         gca()->cblim(x, args...);
     }
 
-    inline const std::array<double, 2> &x2lim() { return gca()->x2lim(); }
+    inline std::array<double, 2> x2lim() { return gca()->x2lim(); }
 
     inline void x2lim(const std::array<double, 2> &lim) { gca()->x2lim(lim); }
 
@@ -84,7 +84,7 @@ namespace matplot {
         gca()->x2lim(x, args...);
     }
 
-    inline const std::array<double, 2> &ylim() { return gca()->ylim(); }
+    inline std::array<double, 2> ylim() { return gca()->ylim(); }
 
     inline void ylim(const std::array<double, 2> &lim) { gca()->ylim(lim); }
 
@@ -103,7 +103,7 @@ namespace matplot {
         gca()->ylim(x, args...);
     }
 
-    inline const std::array<double, 2> &y2lim() { return gca()->y2lim(); }
+    inline std::array<double, 2> y2lim() { return gca()->y2lim(); }
 
     inline void y2lim(const std::array<double, 2> &lim) { gca()->y2lim(lim); }
 
@@ -122,7 +122,7 @@ namespace matplot {
         gca()->y2lim(x, args...);
     }
 
-    inline const std::array<double, 2> &zlim() { return gca()->zlim(); }
+    inline std::array<double, 2> zlim() { return gca()->zlim(); }
 
     inline void zlim(const std::array<double, 2> &lim) { gca()->zlim(lim); }
 
@@ -141,7 +141,7 @@ namespace matplot {
         gca()->zlim(x, args...);
     }
 
-    inline const std::array<double, 2> &rlim() { return gca()->rlim(); }
+    inline std::array<double, 2> rlim() { return gca()->rlim(); }
 
     inline void rlim(const std::array<double, 2> &lim) { gca()->rlim(lim); }
 
@@ -160,7 +160,7 @@ namespace matplot {
         gca()->rlim(x, args...);
     }
 
-    inline const std::array<double, 2> &tlim() { return gca()->tlim(); }
+    inline std::array<double, 2> tlim() { return gca()->tlim(); }
 
     inline void tlim(const std::array<double, 2> &lim) { gca()->tlim(lim); }
 
@@ -179,7 +179,7 @@ namespace matplot {
         gca()->tlim(x, args...);
     }
 
-    inline const std::array<double, 2> &xlim(axes_handle ax) {
+    inline std::array<double, 2> xlim(axes_handle ax) {
         return ax->xlim();
     }
 
@@ -187,7 +187,7 @@ namespace matplot {
         ax->xlim(lim);
     }
 
-    inline const std::array<double, 2> &x2lim(axes_handle ax) {
+    inline std::array<double, 2> x2lim(axes_handle ax) {
         return ax->x2lim();
     }
 
@@ -195,7 +195,7 @@ namespace matplot {
         ax->x2lim(lim);
     }
 
-    inline const std::array<double, 2> &ylim(axes_handle ax) {
+    inline std::array<double, 2> ylim(axes_handle ax) {
         return ax->ylim();
     }
 
@@ -203,7 +203,7 @@ namespace matplot {
         ax->ylim(lim);
     }
 
-    inline const std::array<double, 2> &y2lim(axes_handle ax) {
+    inline std::array<double, 2> y2lim(axes_handle ax) {
         return ax->y2lim();
     }
 
@@ -211,7 +211,7 @@ namespace matplot {
         ax->y2lim(lim);
     }
 
-    inline const std::array<double, 2> &zlim(axes_handle ax) {
+    inline std::array<double, 2> zlim(axes_handle ax) {
         return ax->zlim();
     }
 
@@ -219,7 +219,7 @@ namespace matplot {
         ax->zlim(lim);
     }
 
-    inline const std::array<double, 2> &rlim(axes_handle ax) {
+    inline std::array<double, 2> rlim(axes_handle ax) {
         return ax->rlim();
     }
 
@@ -227,7 +227,7 @@ namespace matplot {
         ax->rlim(lim);
     }
 
-    inline const std::array<double, 2> &tlim(axes_handle ax) {
+    inline std::array<double, 2> tlim(axes_handle ax) {
         return ax->tlim();
     }
 

@@ -34,6 +34,8 @@ namespace matplot {
             : line(parent.get(), args...) {}
 
       public /* mandatory virtual functions */:
+        void run_draw_commands() override;
+
         std::string plot_string() override;
         std::string legend_string(const std::string &title) override;
         std::string data_string() override;

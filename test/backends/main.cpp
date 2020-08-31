@@ -65,6 +65,8 @@ int main() {
     auto f = figure(true);
     f->backend(opengl3);
     auto ax = f->current_axes();
+    ax->xlim({0.,2. * pi});
+    ax->ylim({-2.,2.});
 
     // Start rendering
     while (!glfwWindowShouldClose(window)) {
@@ -72,9 +74,9 @@ int main() {
         backend::opengl_3::process_input(window);
 
         // Create plots
-        static double start_x = 0.;
-        std::vector<double> x = linspace(start_x, start_x + 2. * pi);
-        std::vector<double> y = transform(x, [](auto x) { return sin(x); });
+        float timeValue = glfwGetTime();
+        std::vector<double> x = linspace(0., 2. * pi);
+        std::vector<double> y = transform(x, [&](auto x) { return sin(x + timeValue); });
         ax->plot(x, y, "-o");
         ax->hold(on);
         ax->plot(x, transform(y, [](auto y) { return -y; }), "--xr");

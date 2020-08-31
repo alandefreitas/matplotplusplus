@@ -100,6 +100,8 @@ namespace matplot::backend {
         GLFWwindow *window_{nullptr};
         unsigned int draw_2d_single_color_shader_program_;
         int n_vertex_attributes_available_;
+        unsigned int height_{default_screen_height};
+        unsigned int width_{default_screen_width};
     };
 } // namespace matplot::backend
 

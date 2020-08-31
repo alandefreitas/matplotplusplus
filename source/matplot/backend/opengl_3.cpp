@@ -15,10 +15,12 @@ namespace matplot::backend {
         const char *draw_2d_single_color_vertex_shader_source =
             "#version 330 core\n"
             "layout (location = 0) in vec2 aPos;\n"
+            "uniform float windowHeight;\n"
+            "uniform float windowWidth;\n"
             //"out vec4 vertexColor;\n"
             "void main()\n"
             "{\n"
-            "   gl_Position = vec4(aPos.x, aPos.y, 0.0, 1.0);"
+            "   gl_Position = vec4((aPos.x/windowWidth)*2-1, (aPos.y/windowHeight)*2-1, 0.0, 1.0);"
             //"   vertexColor = aColor;\n"
             "}\0";
         unsigned int draw_2d_single_color_vertex_shader;
@@ -81,9 +83,6 @@ namespace matplot::backend {
     }
 
     opengl_3::~opengl_3() {
-//        glDeleteVertexArrays(1, &VAO);
-//        glDeleteBuffers(1, &VBO);
-//        glDeleteBuffers(1, &EBO);
         glDeleteProgram(draw_2d_single_color_shader_program_);
     }
 
@@ -156,28 +155,20 @@ namespace matplot::backend {
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);
 
-        // Normalize positions outside shader
-        const auto w = width();
-        const auto h = height();
-        float nx1 = (x1/w)*2-1;
-        float nx2 = (x2/w)*2-1;
-        float ny1 = (y1/h)*2-1;
-        float ny2 = (y2/h)*2-1;
-
         // Copy vertex data into the buffer's memory
         std::vector<float> vertices = {
             // x, y, z, r, g, b
-            nx2,  ny2, // top right
-            nx2, ny1, // bottom right
-            nx1, ny1, // bottom left
-            nx1,  ny2  // top left
+            static_cast<float>(x2), static_cast<float>(y2), // top right
+            static_cast<float>(x2), static_cast<float>(y1), // bottom right
+            static_cast<float>(x1), static_cast<float>(y1), // bottom left
+            static_cast<float>(x1), static_cast<float>(y2)  // top left
         };
 
         // Create and bind vertex buffer object
         unsigned int VBO;
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_DYNAMIC_DRAW);
 
         std::vector<unsigned int> indices = {  // note that we start from 0!
             0, 1, 3,   // first triangle
@@ -188,7 +179,7 @@ namespace matplot::backend {
         unsigned int EBO;
         glGenBuffers(1, &EBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_DYNAMIC_DRAW);
 
         // Set the vertex attributes pointers
         int vertex_attribute_location = 0;
@@ -204,6 +195,19 @@ namespace matplot::backend {
         // Activate our shader program
         glUseProgram(draw_2d_single_color_shader_program_);
 
+        // Set window size
+        int windowHeightLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "windowHeight");
+        if (windowHeightLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform1f(windowHeightLocation, static_cast<float>(height()));
+
+        int windowWidthLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "windowWidth");
+        if (windowWidthLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform1f(windowWidthLocation, static_cast<float>(width()));
+
         // Set color
         int vertexColorLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "ourColor");
         if (vertexColorLocation == -1) {
@@ -218,6 +222,10 @@ namespace matplot::backend {
 
         // Unbind our vertex array
         glBindVertexArray(0);
+
+        glDeleteBuffers(1, &EBO);
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
     }
 
     void opengl_3::draw_background(const std::array<float, 4> &color) {
@@ -232,15 +240,11 @@ namespace matplot::backend {
     void opengl_3::draw_path(const std::vector<double> &x,
                              const std::vector<double> &y,
                              const std::array<float, 4> &color) {
-        // Normalize positions outside shader
-        const auto w = width();
-        const auto h = height();
-
         // Copy vertex data into the buffer's memory
         std::vector<float> vertices;
         for (size_t i = 0; i < x.size(); ++i) {
-            vertices.emplace_back((x[i]/w)*2-1);
-            vertices.emplace_back((y[i]/h)*2-1);
+            vertices.emplace_back(static_cast<float>(x[i]));
+            vertices.emplace_back(static_cast<float>(y[i]));
         }
 
         // Create and bind vertex array object
@@ -252,7 +256,7 @@ namespace matplot::backend {
         unsigned int VBO;
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_DYNAMIC_DRAW);
 
         // Set the vertex attributes pointers
         int vertex_attribute_location = 0;
@@ -262,6 +266,19 @@ namespace matplot::backend {
 
         // Activate our shader program
         glUseProgram(draw_2d_single_color_shader_program_);
+
+        // Set window size
+        int windowHeightLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "windowHeight");
+        if (windowHeightLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform1f(windowHeightLocation, static_cast<float>(height()));
+
+        int windowWidthLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "windowWidth");
+        if (windowWidthLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform1f(windowWidthLocation, static_cast<float>(width()));
 
         // Set color
         int vertexColorLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "ourColor");
@@ -276,6 +293,9 @@ namespace matplot::backend {
 
         // Unbind our vertex array
         glBindVertexArray(0);
+
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
     }
 
     void opengl_3::draw_markers(const std::vector<double> &x,

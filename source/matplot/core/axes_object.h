@@ -29,6 +29,25 @@ namespace matplot {
         explicit axes_object(axes_handle parent);
 
       public:
+        virtual double xmax();
+        virtual double xmin();
+        virtual double ymax();
+        virtual double ymin();
+        virtual double zmax();
+        virtual double zmin();
+        virtual axes_category axes_category();
+        virtual bool requires_colormap();
+        virtual std::string tag();
+        virtual void tag(const std::string &);
+        bool is_3d();
+        bool is_3d_map();
+        bool is_2d();
+        bool is_polar();
+
+      public /* for the backend */:
+        virtual void run_draw_commands();
+
+      public /* for gnuplot backend only */:
         virtual std::string set_variables_string();
 
         // Plot command for this object
@@ -49,20 +68,6 @@ namespace matplot {
 
         virtual std::string data_string();
         virtual std::string unset_variables_string();
-        virtual double xmax();
-        virtual double xmin();
-        virtual double ymax();
-        virtual double ymin();
-        virtual double zmax();
-        virtual double zmin();
-        virtual axes_category axes_category();
-        virtual bool requires_colormap();
-        virtual std::string tag();
-        virtual void tag(const std::string &);
-        bool is_3d();
-        bool is_3d_map();
-        bool is_2d();
-        bool is_polar();
 
       public:
         const class axes *parent() const;

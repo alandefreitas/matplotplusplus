@@ -980,7 +980,9 @@ namespace matplot {
 
 
     void axes::run_plot_objects_draw_commands() {
-
+        for (const auto &child : children_) {
+            child->run_draw_commands();
+        }
     }
 
     void axes::run_command(const std::string &command) {
@@ -1949,7 +1951,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::xlim() const {
+    std::array<double, 2> axes::xlim() const {
         return x_axis().limits();
     }
 
@@ -1958,7 +1960,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::x2lim() const {
+    std::array<double, 2> axes::x2lim() const {
         return x2_axis().limits();
     }
 
@@ -1967,7 +1969,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::ylim() const {
+    std::array<double, 2> axes::ylim() const {
         return y_axis().limits();
     }
 
@@ -1976,7 +1978,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::y2lim() const {
+    std::array<double, 2> axes::y2lim() const {
         return y2_axis().limits();
     }
 
@@ -1985,7 +1987,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::zlim() const {
+    std::array<double, 2> axes::zlim() const {
         return z_axis().limits();
     }
 
@@ -1994,7 +1996,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::rlim() const {
+    std::array<double, 2> axes::rlim() const {
         return r_axis().limits();
     }
 
@@ -2003,7 +2005,7 @@ namespace matplot {
         touch();
     }
 
-    const std::array<double, 2> &axes::tlim() const {
+    std::array<double, 2> axes::tlim() const {
         return t_axis().limits();
     }
 
@@ -2075,7 +2077,7 @@ namespace matplot {
         return cb_axis_;
     }
 
-    const std::array<double, 2> &axes::cblim() const {
+    std::array<double, 2> axes::cblim() const {
         return cb_axis_.limits();
     }
 
@@ -5179,6 +5181,42 @@ namespace matplot {
         this->x_axis().limits(
             {0.5, static_cast<double>(category_indexes.size()) + 0.5});
         return h;
+    }
+
+    void axes::draw_path(const std::vector<double> &x,
+                   const std::vector<double> &y,
+                   const std::array<float, 4> &color) {
+        // we still have to make limits calculate and return the
+        // automatic limits rather than the default limits
+        auto xlimits = x_axis_.limits();
+        auto ylimits = y_axis_.limits();
+        // clamp
+        std::vector<double> cx = transform(x, [&](double x) { return std::clamp(x,xlimits[0],xlimits[1]); });
+        std::vector<double> cy = transform(y, [&](double y) { return std::clamp(y,ylimits[0],ylimits[1]); });
+        // normalize
+        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+        double view_width = parent_->backend_->width();
+        double x1 = lm * view_width;
+        double x2 = rm * view_width;
+        double view_height = parent_->backend_->height();
+        double y1 = bm * view_height;
+        double y2 = tm * view_height;
+        auto xrange = xlimits[1] - xlimits[0];
+        auto yrange = ylimits[1] - ylimits[0];
+        for (auto &v : cx) {
+            v -= xlimits[0];
+            v /= xrange;
+            v *= x2 - x1;
+            v += x1;
+        }
+        for (auto &v : cy) {
+            v -= ylimits[0];
+            v /= xrange;
+            v *= y2 - y1;
+            v += y1;
+        }
+        // draw the normalized path to the backend
+        parent_->backend_->draw_path(cx,cy,color);
     }
 
 } // namespace matplot

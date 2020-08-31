@@ -148,7 +148,7 @@ namespace matplot {
 
         class axis &x_axis();
 
-        const std::array<double, 2> &xlim() const;
+        std::array<double, 2> xlim() const;
 
         void xlim(const std::array<double, 2> &);
 
@@ -180,7 +180,7 @@ namespace matplot {
 
         class axis &x2_axis();
 
-        const std::array<double, 2> &x2lim() const;
+        std::array<double, 2> x2lim() const;
 
         void x2lim(const std::array<double, 2> &);
 
@@ -212,7 +212,7 @@ namespace matplot {
 
         class axis &y_axis();
 
-        const std::array<double, 2> &ylim() const;
+        std::array<double, 2> ylim() const;
 
         void ylim(const std::array<double, 2> &);
 
@@ -244,7 +244,7 @@ namespace matplot {
 
         class axis &y2_axis();
 
-        const std::array<double, 2> &y2lim() const;
+        std::array<double, 2> y2lim() const;
 
         void y2lim(const std::array<double, 2> &);
 
@@ -276,7 +276,7 @@ namespace matplot {
 
         class axis &z_axis();
 
-        const std::array<double, 2> &zlim() const;
+        std::array<double, 2> zlim() const;
 
         void zlim(const std::array<double, 2> &);
 
@@ -308,7 +308,7 @@ namespace matplot {
 
         class axis &cb_axis();
 
-        const std::array<double, 2> &cblim() const;
+        std::array<double, 2> cblim() const;
 
         void cblim(const std::array<double, 2> &);
 
@@ -352,7 +352,7 @@ namespace matplot {
 
         class axis &r_axis();
 
-        const std::array<double, 2> &rlim() const;
+        std::array<double, 2> rlim() const;
 
         void rlim(const std::array<double, 2> &);
 
@@ -384,7 +384,7 @@ namespace matplot {
 
         class axis &t_axis();
 
-        const std::array<double, 2> &tlim() const;
+        std::array<double, 2> tlim() const;
 
         void tlim(const std::array<double, 2> &);
 
@@ -2704,6 +2704,17 @@ namespace matplot {
         void run_labels_draw_commands();
         void run_legend_draw_commands();
         void run_plot_objects_draw_commands();
+
+      public /* commands children objects can call to draw on the axes */:
+        /*
+         * These functions are intermediaries between the axes
+         * and the backend because the axes need to clamp points
+         * outside the axes and normalize the points to the axes
+         * position on screen.
+         */
+        void draw_path(const std::vector<double> &x,
+                                 const std::vector<double> &y,
+                                 const std::array<float, 4> &color);
 
       private /* members */:
         // axes

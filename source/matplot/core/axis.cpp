@@ -26,7 +26,17 @@ namespace matplot {
 
     void axis::touch() { parent_->touch(); }
 
-    const std::array<double, 2> &axis::limits() const { return limits_; }
+    std::array<double, 2> axis::limits() const {
+        if (parent_->parent()->backend()->consumes_gnuplot_commands()) {
+            return limits_;
+        } else {
+            if (!std::isfinite(limits_[0]) || !std::isfinite(limits_[1])) {
+                return {-10,+10};
+            } else {
+                return limits_;
+            }
+        }
+    }
 
     class axis &axis::limits(const std::array<double, 2> &limits) {
         limits_ = limits;

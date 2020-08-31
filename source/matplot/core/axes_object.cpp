@@ -106,4 +106,7 @@ namespace matplot {
         display_name_ = display_name;
         touch();
     }
+
+    void axes_object::run_draw_commands() {}
+
 } // namespace matplot

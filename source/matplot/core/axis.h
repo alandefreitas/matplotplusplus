@@ -31,8 +31,7 @@ namespace matplot {
         void touch();
 
       public:
-        const std::array<double, 2> &limits() const;
-
+        std::array<double, 2> limits() const;
         class axis &limits(const std::array<double, 2> &limits);
 
         bool limits_mode_auto() const;
