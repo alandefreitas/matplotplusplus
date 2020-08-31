@@ -1,3 +1,5 @@
+set(MATPLOT_DEPS_INCLUDE_DIR ${CMAKE_INSTALL_INCLUDEDIR}/matplot/deps)
+
 # Add nodesoup library
 if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
@@ -19,21 +21,40 @@ else()
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/nodesoup.cpp
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
       )
-  target_include_directories(nodesoup PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include)
+  set_target_properties(nodesoup PROPERTIES
+      CXX_VISIBILITY_PRESET     "hidden")
+  target_include_directories(nodesoup
+      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>
+             $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
 
   # Hackfix to support MSVC standard library
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
+
+  if(MASTER_PROJECT)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
+        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  endif()
 endif()
 
 # Add CImg library
+add_library(cimg INTERFACE)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
+
+  target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
+
+  target_include_directories(cimg
+      INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>
+                $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
+
+  if(MASTER_PROJECT)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimg/CImg.h
+        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  endif()
 endif()
-add_library(cimg INTERFACE)
-target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 
 
 find_package(PkgConfig)
@@ -144,14 +165,30 @@ if(NOT WIN32)
   find_package(X11)
   if(X11_FOUND)
     target_compile_definitions(cimg INTERFACE cimg_display=1)
-    target_compile_definitions(cimg INTERFACE cimg_use_xshm cimg_use_xrandr)
-    # https://github.com/alandefreitas/matplotplusplus/issues/6
-    target_link_libraries(cimg INTERFACE ${X11_LIBRARIES} X11::Xrandr)
-    target_include_directories(cimg INTERFACE ${X11_INCLUDE_DIRS})
+    target_include_directories(cimg INTERFACE ${X11_X11_INCLUDE_PATH})
+    target_link_libraries(cimg INTERFACE ${X11_X11_LIB})
+    if(X11_XShm_FOUND)
+      target_compile_definitions(cimg INTERFACE cimg_use_xshm)
+      target_include_directories(cimg INTERFACE ${X11_XShm_INCLUDE_PATH})
+      target_link_libraries(cimg INTERFACE ${X11_Xext_LIB})
+    endif()
+    if(X11_Xrandr_FOUND)
+      target_compile_definitions(cimg INTERFACE cimg_use_xrandr)
+      target_include_directories(cimg INTERFACE ${X11_Xrandr_INCLUDE_DIR})
+      target_link_libraries(cimg INTERFACE ${X11_Xrandr_LIB})
+    endif()
   else()
     target_compile_definitions(cimg INTERFACE cimg_display=0)
   endif()
 else()
   target_compile_definitions(cimg INTERFACE cimg_display=2)
   target_link_libraries(cimg INTERFACE gdi32)
+endif()
+
+# Install
+if(MASTER_PROJECT)
+  install(TARGETS nodesoup cimg
+      EXPORT Matplot++Targets
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
 endif()
