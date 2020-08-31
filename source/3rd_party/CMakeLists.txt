@@ -29,8 +29,10 @@ else()
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
 
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
-      DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  if(MASTER_PROJECT)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
+        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  endif()
 endif()
 
 # Add CImg library
@@ -46,8 +48,10 @@ else()
       INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>
                 $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
 
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimg/CImg.h
-      DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  if(MASTER_PROJECT)
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimg/CImg.h
+        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  endif()
 endif()
 
 
@@ -180,7 +184,9 @@ else()
 endif()
 
 # Install
-install(TARGETS nodesoup cimg
-    EXPORT Matplot++Targets
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+if(MASTER_PROJECT)
+  install(TARGETS nodesoup cimg
+      EXPORT Matplot++Targets
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+endif()

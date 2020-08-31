@@ -39,10 +39,10 @@ if (MASTER_PROJECT)
     if (BUILD_TESTS)
         add_subdirectory(test)
     endif()
-endif()
 
-configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Matplot++-config.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/Matplot++-config.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++-config.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+    configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Matplot++-config.cmake.in
+        ${CMAKE_CURRENT_BINARY_DIR}/Matplot++-config.cmake
+        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++-config.cmake
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+endif()
