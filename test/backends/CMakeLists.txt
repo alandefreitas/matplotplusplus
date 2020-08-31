@@ -1,4 +1,4 @@
-if (TARGET matplot_opengl)
+if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     add_executable(matplot_opengl_test main.cpp)
     target_link_libraries(matplot_opengl_test PUBLIC matplot_opengl)
 endif()

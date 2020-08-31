@@ -123,22 +123,38 @@ else()
     message("Not including the high resolution maps for geoplots")
 endif()
 
-# Library for the OpenGL example
-# This is an example of what an OpenGL backend *could* look like.
-# We would need to adapt the axes objects to feed this backend
-#     with polygons and colors instead of commands, which is not
-#     a problem at all. The data is all prepared in these objects.
-#     We would not have to convert this data to strings and would
-#     not have to worry about an external syntax.
-# The biggest challenge is to actually create backends that can
-#     draw these polygons we feed them.
-# We discuss some of these difficulties in the documentation
-#     and the backend_interface.h.
-find_package(OpenGL)
-find_package(GLAD)
-find_package(glfw3 QUIET)
-if (OpenGL_FOUND AND GLAD_FOUND AND glfw3_FOUND)
+if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
+    # Library for the OpenGL example
+    # This is an example of what an OpenGL backend *could* look like.
+    # We would need to adapt the axes objects to feed this backend
+    #     with polygons and colors instead of commands, which is not
+    #     a problem at all. The data is all prepared in these objects.
+    #     We would not have to convert this data to strings and would
+    #     not have to worry about an external syntax.
+    # The biggest challenge is to actually create backends that can
+    #     draw these polygons we feed them.
+    # We discuss some of these difficulties in the documentation
+    #     and the backend_interface.h.
+    # The OpenGL backend cannot open a window on another thread.
+    #     All it can do is get in the middle of the render loop and
+    #     draw the plot.
+    find_package(OpenGL REQUIRED)
+
+    # https://github.com/Dav1dde/glad
+    find_package(GLAD QUIET)
+    if (GLAD_FOUND)
+        add_library(glad INTERFACE)
+        target_include_directories(glad INTERFACE ${GLAD_INCLUDE_PATH})
+        target_link_libraries(glad INTERFACE ${GLAD_LIBRARIES})
+    else()
+        # Only if not found, to avoid ODR violations
+        # find_package(GLAD REQUIRE) would suffice if it worked well
+        CPMAddPackage(NAME glad GIT_REPOSITORY https://github.com/Dav1dde/glad GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9 VERSION 0.1.33)
+    endif()
+
+    find_package(glfw3 REQUIRED)
+
     add_library(matplot_opengl backend/opengl_3.h backend/opengl_3.cpp)
-    target_include_directories(matplot_opengl PUBLIC matplot ${GLAD_INCLUDE_PATH})
-    target_link_libraries(matplot_opengl PUBLIC matplot ${GLAD_LIBRARIES} glfw)
+    target_include_directories(matplot_opengl PUBLIC matplot)
+    target_link_libraries(matplot_opengl PUBLIC matplot glad glfw)
 endif()

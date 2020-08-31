@@ -11,8 +11,12 @@ message("CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
 option(BUILD_EXAMPLES "Build examples" ON)
 option(BUILD_TESTS "Build tests" ON)
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass wait() commands and save figures as .svg at destruction" OFF)
+
+option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
+
 option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+
 option(WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
 option(WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OFF)
 
