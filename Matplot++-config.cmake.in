@@ -1,0 +1,7 @@
+include(CMakeFindDependencyMacro)
+
+@PACKAGE_INIT@
+
+find_dependency(Filesystem REQUIRED)
+
+include(Matplot++Targets.cmake)
