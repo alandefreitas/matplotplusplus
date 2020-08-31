@@ -77,6 +77,7 @@ int main() {
         float timeValue = glfwGetTime();
         std::vector<double> x = linspace(0., 2. * pi);
         std::vector<double> y = transform(x, [&](auto x) { return sin(x + timeValue); });
+        ax->hold(off);
         ax->plot(x, y, "-o");
         ax->hold(on);
         ax->plot(x, transform(y, [](auto y) { return -y; }), "--xr");
