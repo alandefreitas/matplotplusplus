@@ -66,7 +66,9 @@ int main() {
     f->backend(opengl3);
     auto ax = f->current_axes();
     ax->xlim({0.,2. * pi});
-    ax->ylim({-2.,2.});
+    ax->ylim({-1.5,1.5});
+    ax->yticks(iota(-1.5,0.5,+1.5));
+    ax->xticks(iota(0.,1.,2. * pi));
 
     // Start rendering
     while (!glfwWindowShouldClose(window)) {
