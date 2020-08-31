@@ -61,12 +61,13 @@ namespace matplot::backend {
         bool supports_fonts() override;
 
       public:
-        // These functions should buffer these commands
-        // When we call render_data, we start rendering something
-        // else on the rendering thread
+        void draw_background(const std::array<float, 4> &color) override;
+        void draw_rectangle(const double x1, const double x2,
+                                      const double y1, const double y2,
+                                      const std::array<float, 4> &color) override;
         void draw_path(const std::vector<double> &x,
                        const std::vector<double> &y,
-                       const std::vector<double> &z = {}) override;
+                       const std::array<float, 4> &color) override;
         void draw_markers(const std::vector<double> &x,
                           const std::vector<double> &y,
                           const std::vector<double> &z = {}) override;
@@ -81,9 +82,9 @@ namespace matplot::backend {
                            const std::vector<double> &y,
                            const std::vector<double> &z = {}) override;
 
-      private:
-        const unsigned int default_screen_width = 560;
-        const unsigned int default_screen_height = 420;
+      public:
+        static constexpr unsigned int default_screen_width = 560;
+        static constexpr unsigned int default_screen_height = 420;
 
         /// \brief glfw: whenever the window size changed (by OS or user resize)
         /// this callback function executes
@@ -93,10 +94,12 @@ namespace matplot::backend {
         /// \brief Process all input
         /// Query GLFW whether relevant keys are pressed/released
         /// this frame and react accordingly
-        void process_input(GLFWwindow *window);
+        static void process_input(GLFWwindow *window);
 
       private:
         GLFWwindow *window_{nullptr};
+        unsigned int draw_2d_single_color_shader_program_;
+        int n_vertex_attributes_available_;
     };
 } // namespace matplot::backend
 

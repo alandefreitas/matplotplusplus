@@ -3,6 +3,7 @@
 //
 
 #include "opengl_3.h"
+#include <iostream>
 #include <future>
 #include <matplot/util/common.h>
 #include <thread>
@@ -10,44 +11,80 @@
 namespace matplot::backend {
 
     opengl_3::opengl_3() {
-        // Initialize
-        if (!glfwInit()) {
-            glfwTerminate();
-            throw std::runtime_error("Failed to initialize GLFW");
+        // Create shaders
+        const char *draw_2d_single_color_vertex_shader_source =
+            "#version 330 core\n"
+            "layout (location = 0) in vec2 aPos;\n"
+            //"out vec4 vertexColor;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, 0.0, 1.0);"
+            //"   vertexColor = aColor;\n"
+            "}\0";
+        unsigned int draw_2d_single_color_vertex_shader;
+        draw_2d_single_color_vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+        glShaderSource(draw_2d_single_color_vertex_shader, 1, &draw_2d_single_color_vertex_shader_source, NULL);
+        glCompileShader(draw_2d_single_color_vertex_shader);
+        int success;
+        char info_log[512];
+        glGetShaderiv(draw_2d_single_color_vertex_shader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(draw_2d_single_color_vertex_shader, 512, NULL, info_log);
+            throw std::runtime_error(
+                std::string("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n") +
+                    info_log);
         }
 
-        // Initialization hints
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#ifdef __APPLE__
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-        // Create window
-        window_ = glfwCreateWindow(default_screen_width, default_screen_height,
-                                   "Figure 1", nullptr, nullptr);
-        if (window_ == nullptr) {
-            glfwTerminate();
-            throw std::runtime_error("Failed to create GLFW window");
+        // create and compile fragment shader
+        const char *draw_2d_single_color_fragment_shader_source =
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "\n"
+            "uniform vec4 ourColor;\n"
+            "\n"
+            "void main()\n"
+            "{\n"
+            "    FragColor = ourColor;\n"
+            "}";
+        unsigned int draw_2d_single_color_fragment_shader;
+        draw_2d_single_color_fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(draw_2d_single_color_fragment_shader, 1, &draw_2d_single_color_fragment_shader_source, NULL);
+        glCompileShader(draw_2d_single_color_fragment_shader);
+        glGetShaderiv(draw_2d_single_color_fragment_shader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(draw_2d_single_color_fragment_shader, 512, NULL, info_log);
+            throw std::runtime_error(
+                std::string("ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n") +
+                info_log);
         }
 
-        // Set window as context
-        glfwMakeContextCurrent(window_);
-
-        // Set callback when we resize the window
-        glfwSetFramebufferSizeCallback(window_,
-                                       opengl_3::framebuffer_size_callback);
-
-        // Load OpenGL function pointers
-        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-            throw std::runtime_error("Failed to initialize GLAD");
+        // Link shaders into shader program
+        draw_2d_single_color_shader_program_ = glCreateProgram();
+        glAttachShader(draw_2d_single_color_shader_program_, draw_2d_single_color_vertex_shader);
+        glAttachShader(draw_2d_single_color_shader_program_, draw_2d_single_color_fragment_shader);
+        glLinkProgram(draw_2d_single_color_shader_program_);
+        // check if linking was successful
+        glGetProgramiv(draw_2d_single_color_shader_program_, GL_LINK_STATUS, &success);
+        if (!success) {
+            glGetProgramInfoLog(draw_2d_single_color_shader_program_, 512, NULL, info_log);
+            throw std::runtime_error(
+                std::string("ERROR::SHADER_PROGRAM::LINKING_FAILED\n") +
+                info_log);
         }
+
+        // Delete the shader objects
+        glDeleteShader(draw_2d_single_color_vertex_shader);
+        glDeleteShader(draw_2d_single_color_fragment_shader);
+
+        glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &n_vertex_attributes_available_);
+        std::cout << "Maximum number of vertex attributes supported: " << n_vertex_attributes_available_ << std::endl;
     }
 
     opengl_3::~opengl_3() {
-        // glfw: terminate, clearing all previously allocated GLFW resources.
-        glfwTerminate();
+//        glDeleteVertexArrays(1, &VAO);
+//        glDeleteBuffers(1, &VBO);
+//        glDeleteBuffers(1, &EBO);
+        glDeleteProgram(draw_2d_single_color_shader_program_);
     }
 
     bool opengl_3::is_interactive() { return true; }
@@ -70,11 +107,15 @@ namespace matplot::backend {
     }
 
     unsigned int opengl_3::width() {
-        throw std::logic_error("width not implemented yet");
+        GLint m_viewport[4];
+        glGetIntegerv( GL_VIEWPORT, m_viewport );
+        return m_viewport[2];
     }
 
     unsigned int opengl_3::height() {
-        throw std::logic_error("height not implemented yet");
+        GLint m_viewport[4];
+        glGetIntegerv( GL_VIEWPORT, m_viewport );
+        return m_viewport[3];
     }
 
     void opengl_3::width(unsigned int new_width) {
@@ -101,45 +142,140 @@ namespace matplot::backend {
         throw std::logic_error("position_y not implemented yet");
     }
 
-    void opengl_3::new_frame() {
-        throw std::logic_error("new_frame not implemented yet");
-    }
+    void opengl_3::new_frame() {}
 
     bool opengl_3::render_data() {
-        // This is only a demonstration.
-        // Instead of entering into this loop, the render_data
-        // function should only update the data we should render in a
-        // loop that would be already running since we created the backend.
-        // The loop should be running in another thread.
-        while (!glfwWindowShouldClose(window_)) {
-            // Check if there is any input to process
-            process_input(window_);
-
-            // Render the window
-            // The drawing commands should go here
-            auto bg = background_color();
-            glClearColor(bg[0], bg[1], bg[2], bg[3]);
-            glClear(GL_COLOR_BUFFER_BIT);
-            // ...
-
-            // glfw: swap buffers and poll IO events (keys pressed/released,
-            // mouse moved etc.)
-            glfwSwapBuffers(window_);
-            glfwPollEvents();
-        }
         return true;
+    }
+
+    void opengl_3::draw_rectangle(const double x1, const double x2,
+                                           const double y1, const double y2,
+                                           const std::array<float, 4> &color) {
+        // Create and bind vertex array object
+        unsigned int VAO;
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+
+        // Normalize positions outside shader
+        const auto w = width();
+        const auto h = height();
+        float nx1 = (x1/w)*2-1;
+        float nx2 = (x2/w)*2-1;
+        float ny1 = (y1/h)*2-1;
+        float ny2 = (y2/h)*2-1;
+
+        // Copy vertex data into the buffer's memory
+        std::vector<float> vertices = {
+            // x, y, z, r, g, b
+            nx2,  ny2, // top right
+            nx2, ny1, // bottom right
+            nx1, ny1, // bottom left
+            nx1,  ny2  // top left
+        };
+
+        // Create and bind vertex buffer object
+        unsigned int VBO;
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+        std::vector<unsigned int> indices = {  // note that we start from 0!
+            0, 1, 3,   // first triangle
+            1, 2, 3    // second triangle
+        };
+
+        // Element buffer
+        unsigned int EBO;
+        glGenBuffers(1, &EBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+
+        // Set the vertex attributes pointers
+        int vertex_attribute_location = 0;
+        size_t stride = 2 * sizeof(float);
+        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, stride, (void *)0);
+        glEnableVertexAttribArray(0);
+
+        // Set the color attribute pointers
+        // int color_attribute_location = 1;
+        // glVertexAttribPointer(color_attribute_location, 3, GL_FLOAT, GL_FALSE, stride, (void *)(3*sizeof(float)));
+        // glEnableVertexAttribArray(1);
+
+        // Activate our shader program
+        glUseProgram(draw_2d_single_color_shader_program_);
+
+        // Set color
+        int vertexColorLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "ourColor");
+        if (vertexColorLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.-color[0]);
+
+        // Bind element buffer
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+
+        // Unbind our vertex array
+        glBindVertexArray(0);
+    }
+
+    void opengl_3::draw_background(const std::array<float, 4> &color) {
+        glClearColor(color[1], color[2], color[3], 1. - color[0]);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void opengl_3::wait() { backend_interface::wait(); }
 
-    bool opengl_3::supports_fonts() {
-        throw std::logic_error("supports_fonts not implemented yet");
-    }
+    bool opengl_3::supports_fonts() { return false; }
 
     void opengl_3::draw_path(const std::vector<double> &x,
                              const std::vector<double> &y,
-                             const std::vector<double> &z) {
-        throw std::logic_error("draw_path not implemented yet");
+                             const std::array<float, 4> &color) {
+        // Normalize positions outside shader
+        const auto w = width();
+        const auto h = height();
+
+        // Copy vertex data into the buffer's memory
+        std::vector<float> vertices;
+        for (size_t i = 0; i < x.size(); ++i) {
+            vertices.emplace_back((x[i]/w)*2-1);
+            vertices.emplace_back((y[i]/h)*2-1);
+        }
+
+        // Create and bind vertex array object
+        unsigned int VAO;
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+
+        // Create and bind vertex buffer object
+        unsigned int VBO;
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+        // Set the vertex attributes pointers
+        int vertex_attribute_location = 0;
+        size_t stride = 2 * sizeof(float);
+        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, stride, (void *)0);
+        glEnableVertexAttribArray(0);
+
+        // Activate our shader program
+        glUseProgram(draw_2d_single_color_shader_program_);
+
+        // Set color
+        int vertexColorLocation = glGetUniformLocation(draw_2d_single_color_shader_program_, "ourColor");
+        if (vertexColorLocation == -1) {
+            throw std::runtime_error("can't find uniform location");
+        }
+        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.-color[0]);
+
+        // Bind element buffer
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_LINE_STRIP, 0, x.size());
+
+        // Unbind our vertex array
+        glBindVertexArray(0);
     }
 
     void opengl_3::draw_markers(const std::vector<double> &x,
