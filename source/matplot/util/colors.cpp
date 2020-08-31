@@ -6,6 +6,7 @@
 #include <cmath>
 #include <matplot/util/colors.h>
 #include <vector>
+#include <stdexcept>
 
 namespace matplot {
 
@@ -122,6 +123,7 @@ namespace matplot {
         case color::none:
             return {1, 0, 0, 0};
         }
+        throw std::logic_error("colors::to_array: could not find an array for color");
     }
 
     std::array<float, 4> to_array(const std::string &s) {
