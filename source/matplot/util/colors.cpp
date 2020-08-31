@@ -30,6 +30,7 @@ namespace matplot {
         case color::none:
             return "none";
         }
+        throw std::logic_error("colors::to_string: could not find a string for color");
     }
 
     matplot::color string_to_color(const std::string &s) {

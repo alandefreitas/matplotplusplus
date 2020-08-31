@@ -510,6 +510,7 @@ namespace matplot {
         case binning_algorithm::sqrt:
             return sqrt_rule(data, minx, maxx, hard_limits);
         }
+        throw std::logic_error("histogram::histrogram_edges: could not find the binning algorithm");
     }
 
     std::vector<size_t>

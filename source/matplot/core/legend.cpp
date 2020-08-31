@@ -138,6 +138,7 @@ namespace matplot {
             }
             break;
         }
+        throw std::logic_error("legend::location: could not find the legend location");
     }
 
     void legend::location(general_alignment alignment) {
