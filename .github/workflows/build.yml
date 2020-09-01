@@ -1,0 +1,44 @@
+name: Matplotplusplus
+
+on: [push, pull_request]
+
+jobs:
+  Build:
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {
+              name: "Windows/Static/X86/Release",
+              os: windows-latest,
+              config: Release,
+              args: -G "Visual Studio 16 2019" -A Win32,
+            }
+          - {
+              name: "Windows/Static/X64/Release",
+              os: windows-latest,
+              config: Release,
+              args: -G "Visual Studio 16 2019" -A x64,
+            }
+          - {
+              name: "MacOSX/Static/X64/Release",
+              os: macos-latest,
+              config: Release,
+              args: "",
+            }
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Work Dir
+        run: mkdir build
+      - name: Configure
+        working-directory: ./build
+        run: |
+          cmake .. ${{ matrix.config.args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
+      - name: Build
+        working-directory: ./build
+        run: cmake --build . -j 2 --config ${{ matrix.config.config }}
+      - name: Test
+        working-directory: ./build
+        run: ctest -j 2
