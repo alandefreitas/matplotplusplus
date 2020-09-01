@@ -9,10 +9,6 @@
 #include <chrono>
 #include <matplot/backend/backend_interface.h>
 
-#ifndef NDEBUG
-#define TRACE_GNUPLOT_COMMANDS
-#endif
-
 namespace matplot::backend {
     class gnuplot : public backend_interface {
       public:
@@ -75,7 +71,7 @@ namespace matplot::backend {
 
 #if defined(TRACE_GNUPLOT_COMMANDS) &&                                         \
     !defined(MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
-        static constexpr bool trace_commands = false;
+        static constexpr bool trace_commands = true;
 #else
         static constexpr bool trace_commands = false;
 #endif
