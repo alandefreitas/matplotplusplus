@@ -54,6 +54,7 @@ namespace matplot::backend {
                                             time_since_last_flush);
             }
         }
+        flush_commands();
         run_command("exit");
         flush_commands();
         if (pipe_) {
