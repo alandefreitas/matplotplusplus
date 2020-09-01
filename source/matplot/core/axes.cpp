@@ -133,7 +133,7 @@ namespace matplot {
                 // the original colormap
                 for (size_t i = 0; i < max_colors_; ++i) {
                     color_array c =
-                        colormap_interpolation(i, 0., max_colors_ - 1.);
+                        colormap_interpolation(static_cast<double>(i), 0., max_colors_ - 1.);
                     ss << "    " << i << "   " << c[0 + 1] << " " << c[1 + 1]
                        << " " << c[2 + 1];
                     if (i != max_colors_ - 1 || max_colors_ == 1) {
@@ -1989,17 +1989,17 @@ namespace matplot {
         touch();
     }
 
-    void axes::xtickangle(double degrees) { x_axis().tickangle(degrees); }
+    void axes::xtickangle(double degrees) { x_axis().tickangle(static_cast<float>(degrees)); }
 
-    void axes::x2tickangle(double degrees) { x2_axis().tickangle(degrees); }
+    void axes::x2tickangle(double degrees) { x2_axis().tickangle(static_cast<float>(degrees)); }
 
-    void axes::ytickangle(double degrees) { y_axis().tickangle(degrees); }
+    void axes::ytickangle(double degrees) { y_axis().tickangle(static_cast<float>(degrees)); }
 
-    void axes::y2tickangle(double degrees) { y2_axis().tickangle(degrees); }
+    void axes::y2tickangle(double degrees) { y2_axis().tickangle(static_cast<float>(degrees)); }
 
-    void axes::ztickangle(double degrees) { z_axis().tickangle(degrees); }
+    void axes::ztickangle(double degrees) { z_axis().tickangle(static_cast<float>(degrees)); }
 
-    void axes::rtickangle(double degrees) { r_axis().tickangle(degrees); }
+    void axes::rtickangle(double degrees) { r_axis().tickangle(static_cast<float>(degrees)); }
 
     double axes::xtickangle() { return x_axis().tickangle(); }
 
@@ -2309,7 +2309,7 @@ namespace matplot {
         auto b = plot(rgb[2], "b-");
         // If nothing uses the palette, we can't show it
         // Create markers using it on the first points
-        double n = map.size();
+        double n = static_cast<double>(map.size());
         auto palette_enabler =
             plot(vector_1d{1, 1, 1, n, n, n},
                  vector_1d{rgb[0].front(), rgb[1].front(), rgb[2].front(),
@@ -2484,7 +2484,7 @@ namespace matplot {
             colors.emplace_back(this->get_color_and_bump());
             if (!stacked) {
                 // reduce opacity if not stacked
-                colors.back()[0] = 1 - (1 - colors.back()[0]) * 0.7;
+                colors.back()[0] = 1.f - (1.f - colors.back()[0]) * 0.7f;
             }
         }
         // use reverse iterator in this case because the first Ys should be
@@ -2519,7 +2519,7 @@ namespace matplot {
     axes::area(const std::vector<std::vector<double>> &Y, double base_value,
                bool stacked, const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1., Y.begin()->size()), Y, base_value, stacked,
+        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, base_value, stacked,
                           line_spec);
     }
 
@@ -2527,7 +2527,7 @@ namespace matplot {
     axes::area(const std::vector<std::vector<double>> &Y, bool stacked,
                const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1., Y.begin()->size()), Y, 0., stacked,
+        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, 0., stacked,
                           line_spec);
     }
 
@@ -2535,7 +2535,7 @@ namespace matplot {
                                   double base_value, bool stacked,
                                   const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1, y.size()), {y}, base_value, stacked,
+        return this->area(iota(1., static_cast<double>(y.size())), {y}, base_value, stacked,
                           line_spec);
     }
 
@@ -2715,7 +2715,7 @@ namespace matplot {
             if (it != category_indexes.end()) {
                 numeric_data.emplace_back(it->second);
             } else {
-                double category_num = category_indexes.size() + 1;
+                double category_num = static_cast<double>(category_indexes.size()) + 1;
                 category_indexes[category] = category_num;
                 numeric_data.emplace_back(category_num);
             }
@@ -2725,7 +2725,7 @@ namespace matplot {
         histogram_handle l = std::make_shared<class histogram>(
             this, numeric_data, fixed_edges, normalization_alg);
         this->emplace_object(l);
-        this->xticks(iota(1, category_indexes.size()));
+        this->xticks(iota(1., static_cast<double>(category_indexes.size())));
 
         std::vector<std::string> unique_categories(category_indexes.size());
         for (const auto &[category, index] : category_indexes) {
@@ -2776,7 +2776,7 @@ namespace matplot {
         }
 
         // stats for jitter style
-        double n_squares = values.size() * values[0].size();
+        double n_squares = static_cast<double>(values.size() * values[0].size());
         double avg_square_value = sum_values / n_squares;
         double n_point_per_plot = 500.;
         double avg_pts_per_square = n_point_per_plot / n_squares;
@@ -2819,7 +2819,7 @@ namespace matplot {
                         double fractional_part =
                             n_expected_points_in_bin - integer_part;
                         size_t n_points_in_bin =
-                            integer_part + (rand(0, 1) < fractional_part);
+                            static_cast<size_t>(integer_part + (rand(0, 1) < fractional_part));
                         for (size_t k = 0; k < n_points_in_bin; ++k) {
                             bin_x.emplace_back(
                                 rand(edges_x[i], edges_x[i + 1]));
@@ -2970,7 +2970,7 @@ namespace matplot {
     bars_handle axes::bar(const std::vector<double> &y, double width) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, y);
-        l->bar_width(width);
+        l->bar_width(static_cast<float>(width));
         this->emplace_object(l);
         return l;
     }
@@ -3078,9 +3078,9 @@ namespace matplot {
         this->y_axis().reverse(true);
         this->color_box(true);
         auto [h_, w_] = size(m);
-        this->y_axis().tick_values(iota(1, h_));
+        this->y_axis().tick_values(iota(1., static_cast<double>(h_)));
         this->y_axis().tick_length(0.);
-        this->x_axis().tick_values(iota(1, w_));
+        this->x_axis().tick_values(iota(1., static_cast<double>(w_)));
         this->x_axis().tick_length(0.);
         this->colormap(palette::blues());
         this->box(true);

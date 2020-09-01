@@ -20,7 +20,7 @@ KamadaKawai::KamadaKawai(const adj_list_t& g, double k, double energy_threshold)
     for (vertex_id_t v_id = 0; v_id < g_.size(); v_id++) {
         for (vertex_id_t other_id = 0; other_id < g_.size(); other_id++) {
             if (distances[v_id][other_id] > biggest_distance) {
-                biggest_distance = distances[v_id][other_id];
+                biggest_distance = static_cast<unsigned int>(distances[v_id][other_id]);
             }
         }
     }
@@ -40,7 +40,7 @@ KamadaKawai::KamadaKawai(const adj_list_t& g, double k, double energy_threshold)
                 spring.length = 0.0;
                 spring.strength = 0.0;
             } else {
-                unsigned int distance = distances[v_id][other_id];
+                unsigned int distance = static_cast<unsigned int>(distances[v_id][other_id]);
                 spring.length = distance * length;
                 spring.strength = k / (distance * distance);
             }
