@@ -1,11 +1,9 @@
-set(MATPLOT_DEPS_INCLUDE_DIR ${CMAKE_INSTALL_INCLUDEDIR}/matplot/deps)
-
 # Add nodesoup library
 if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
   find_library(NODESOUP_LIB nodesoup REQUIRED)
 
-  add_library(nodesoup INTERFACE)
+  add_library(nodesoup INTERFACE IMPORTED GLOBAL)
   target_include_directories(nodesoup INTERFACE ${NODESOUP_INCLUDE_DIR})
   target_link_libraries(nodesoup INTERFACE ${NODESOUP_LIB})
 else()
@@ -24,37 +22,28 @@ else()
   set_target_properties(nodesoup PROPERTIES
       CXX_VISIBILITY_PRESET     "hidden")
   target_include_directories(nodesoup
-      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>
-             $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
+      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>)
 
   # Hackfix to support MSVC standard library
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
 
-  if(MASTER_PROJECT)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
-        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  # Install
+  if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
+    install(TARGETS nodesoup
+        EXPORT Matplot++Targets
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
   endif()
 endif()
 
 # Add CImg library
-add_library(cimg INTERFACE)
+add_library(cimg INTERFACE IMPORTED GLOBAL)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
-
-  target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
-
-  target_include_directories(cimg
-      INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>
-                $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
-
-  if(MASTER_PROJECT)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimg/CImg.h
-        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
-  endif()
 endif()
+target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 
 
 find_package(PkgConfig)
@@ -175,12 +164,4 @@ if(NOT WIN32)
 else()
   target_compile_definitions(cimg INTERFACE cimg_display=2)
   target_link_libraries(cimg INTERFACE gdi32)
-endif()
-
-# Install
-if(MASTER_PROJECT)
-  install(TARGETS nodesoup cimg
-      EXPORT Matplot++Targets
-      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++
-      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
 endif()

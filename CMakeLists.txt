@@ -45,6 +45,5 @@ if (MASTER_PROJECT)
         ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
         INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
-                  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFilesystem.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 endif()
