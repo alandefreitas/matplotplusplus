@@ -87,8 +87,7 @@ target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_link_libraries(matplot
-    PUBLIC  cimg
-    PRIVATE nodesoup std::filesystem)
+    PRIVATE cimg nodesoup std::filesystem)
 
 # https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
 target_compile_features(matplot PUBLIC cxx_std_17)

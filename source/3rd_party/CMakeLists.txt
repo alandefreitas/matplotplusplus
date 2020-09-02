@@ -1,5 +1,3 @@
-set(MATPLOT_DEPS_INCLUDE_DIR ${CMAKE_INSTALL_INCLUDEDIR}/matplot/deps)
-
 # Add nodesoup library
 if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
@@ -39,23 +37,13 @@ else()
 endif()
 
 # Add CImg library
-add_library(cimg INTERFACE)
+add_library(cimg INTERFACE IMPORTED)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
-
-  target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
-
-  target_include_directories(cimg
-      INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>
-                $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
-
-  if(MASTER_PROJECT)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimg/CImg.h
-        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
-  endif()
 endif()
+target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
 
 
 find_package(PkgConfig)
@@ -176,15 +164,4 @@ if(NOT WIN32)
 else()
   target_compile_definitions(cimg INTERFACE cimg_display=2)
   target_link_libraries(cimg INTERFACE gdi32)
-endif()
-
-# Install
-if(MASTER_PROJECT)
-  install(TARGETS cimg
-      EXPORT Matplot++Targets)
-  if(NOT BUILD_SHARED_LIBS)
-    install(TARGETS nodesoup
-        EXPORT Matplot++Targets
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
-  endif()
 endif()
