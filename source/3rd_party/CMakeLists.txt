@@ -5,7 +5,7 @@ if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
   find_library(NODESOUP_LIB nodesoup REQUIRED)
 
-  add_library(nodesoup INTERFACE)
+  add_library(nodesoup INTERFACE IMPORTED)
   target_include_directories(nodesoup INTERFACE ${NODESOUP_INCLUDE_DIR})
   target_link_libraries(nodesoup INTERFACE ${NODESOUP_LIB})
 else()
@@ -24,16 +24,17 @@ else()
   set_target_properties(nodesoup PROPERTIES
       CXX_VISIBILITY_PRESET     "hidden")
   target_include_directories(nodesoup
-      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>
-             $<INSTALL_INTERFACE:${MATPLOT_DEPS_INCLUDE_DIR}>)
+      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>)
 
   # Hackfix to support MSVC standard library
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
 
-  if(MASTER_PROJECT)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
-        DESTINATION ${MATPLOT_DEPS_INCLUDE_DIR})
+  # Install
+  if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
+    install(TARGETS nodesoup
+        EXPORT Matplot++Targets
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
   endif()
 endif()
 
@@ -179,8 +180,11 @@ endif()
 
 # Install
 if(MASTER_PROJECT)
-  install(TARGETS nodesoup cimg
-      EXPORT Matplot++Targets
-      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++
-      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
+  install(TARGETS cimg
+      EXPORT Matplot++Targets)
+  if(NOT BUILD_SHARED_LIBS)
+    install(TARGETS nodesoup
+        EXPORT Matplot++Targets
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
+  endif()
 endif()
