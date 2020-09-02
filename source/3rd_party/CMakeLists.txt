@@ -3,7 +3,7 @@ if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
   find_library(NODESOUP_LIB nodesoup REQUIRED)
 
-  add_library(nodesoup INTERFACE IMPORTED)
+  add_library(nodesoup INTERFACE IMPORTED GLOBAL)
   target_include_directories(nodesoup INTERFACE ${NODESOUP_INCLUDE_DIR})
   target_link_libraries(nodesoup INTERFACE ${NODESOUP_LIB})
 else()
@@ -37,7 +37,7 @@ else()
 endif()
 
 # Add CImg library
-add_library(cimg INTERFACE IMPORTED)
+add_library(cimg INTERFACE IMPORTED GLOBAL)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
 else()
