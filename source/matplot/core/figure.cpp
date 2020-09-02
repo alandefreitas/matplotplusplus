@@ -797,12 +797,12 @@ namespace matplot {
         return h;
     }
 
-    const std::vector<std::shared_ptr<struct axes>> &figure::children() const {
+    const std::vector<std::shared_ptr<class axes>> &figure::children() const {
         return children_;
     }
 
     void figure::children(
-        const std::vector<std::shared_ptr<struct axes>> &children) {
+        const std::vector<std::shared_ptr<class axes>> &children) {
         children_ = children;
     }
 
@@ -925,8 +925,8 @@ namespace matplot {
         float subplot_height = (1.f - t_margin - b_margin) / n_rows;
         for (size_t i = 0; i < n_rows; ++i) {
             for (size_t j = 0; j < n_cols; ++j) {
-                axs[i][j]->width(subplot_width - 0.01);
-                axs[i][j]->height(subplot_height - 0.01);
+                axs[i][j]->width(subplot_width - 0.01f);
+                axs[i][j]->height(subplot_height - 0.01f);
                 axs[i][j]->x_origin(l_margin + subplot_width * j);
                 axs[i][j]->y_origin(1.f - t_margin - subplot_height -
                                     subplot_height * i);

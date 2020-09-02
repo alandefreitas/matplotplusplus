@@ -92,7 +92,7 @@ namespace matplot {
 
     std::vector<double> iota(double d1, double step, double d2) {
         vector_1d r;
-        r.reserve((d2 - d1) / step);
+        r.reserve(static_cast<size_t>((d2 - d1) / step));
         for (double i = d1; i <= d2; i += step) {
             r.emplace_back(i);
         }
@@ -587,8 +587,8 @@ namespace matplot {
         image_channels_t img(n_channels,
                              image_channel_t(height, image_row_t(width, 0)));
         for (size_t channel = 0; channel < n_channels; ++channel) {
-            for (size_t i = 0; i < cimg_image.height(); ++i) {
-                for (size_t j = 0; j < cimg_image.width(); ++j) {
+            for (int i = 0; i < cimg_image.height(); ++i) {
+                for (int j = 0; j < cimg_image.width(); ++j) {
                     img[channel][i][j] =
                         cimg_image.operator()(j, i, 0, channel);
                 }
@@ -604,8 +604,8 @@ namespace matplot {
         const size_t height = A[0].size();
         const size_t width = A[0][0].size();
         for (size_t channel = 0; channel < n_channels; ++channel) {
-            for (size_t i = 0; i < cimg_image.height(); ++i) {
-                for (size_t j = 0; j < cimg_image.width(); ++j) {
+            for (int i = 0; i < cimg_image.height(); ++i) {
+                for (int j = 0; j < cimg_image.width(); ++j) {
                     cimg_image.operator()(j, i, 0, channel) = A[channel][i][j];
                 }
             }
@@ -663,7 +663,7 @@ namespace matplot {
             return image_channels_t{};
         }
         auto [h, w] = size(A[0]);
-        return imresize(A, h * scale, w * scale, m);
+        return imresize(A, static_cast<size_t>(h * scale), static_cast<size_t>(w * scale), m);
     }
 
     void imwrite(const image_channels_t &A, const std::string &filename) {
@@ -690,9 +690,9 @@ namespace matplot {
             for (size_t j = 0; j < A[i].size(); ++j) {
                 color_array c =
                     colormap_interpolation(A[i][j], 0, 255, colormap);
-                img[0][i][j] = round(c[1] * 255);
-                img[1][i][j] = round(c[2] * 255);
-                img[2][i][j] = round(c[3] * 255);
+                img[0][i][j] = static_cast<unsigned char>(round(c[1] * 255));
+                img[1][i][j] = static_cast<unsigned char>(round(c[2] * 255));
+                img[2][i][j] = static_cast<unsigned char>(round(c[3] * 255));
             }
         }
         return img;

@@ -2829,22 +2829,22 @@ namespace matplot {
         value /= max;
         value *= cm.size() - 1;
         // find positions in colormap we are interested
-        size_t first_position = std::max(0., floor(value));
-        size_t second_position = std::min(ceil(value), cm.size() - 1.);
+        size_t first_position = static_cast<size_t>(std::max(0., floor(value)));
+        size_t second_position = static_cast<size_t>(std::min(ceil(value), cm.size() - 1.));
         // interpolation alpha
         double amount_first_color = 1 - (value - floor(value));
         double amount_second_color = value - floor(value);
         // create color
         auto &first_color = cm[first_position];
         auto &second_color = cm[second_position];
-        std::array<float, 4> result;
+        std::array<float, 4> result{};
         result[0] = 0.;
-        result[1] = amount_first_color * first_color[0] +
-                    amount_second_color * second_color[0];
-        result[2] = amount_first_color * first_color[1] +
-                    amount_second_color * second_color[1];
-        result[3] = amount_first_color * first_color[2] +
-                    amount_second_color * second_color[2];
+        result[1] = static_cast<float>(amount_first_color) * first_color[0] +
+                    static_cast<float>(amount_second_color) * second_color[0];
+        result[2] = static_cast<float>(amount_first_color) * first_color[1] +
+                    static_cast<float>(amount_second_color) * second_color[1];
+        result[3] = static_cast<float>(amount_first_color) * first_color[2] +
+                    static_cast<float>(amount_second_color) * second_color[2];
         return result;
     }
 

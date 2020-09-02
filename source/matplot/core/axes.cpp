@@ -3631,7 +3631,7 @@ namespace matplot {
         const double opacity = (1 - fc[0]);
         const double new_opacity = opacity * 0.7;
         const double new_alpha = 1 - new_opacity;
-        fc[0] = new_alpha;
+        fc[0] = static_cast<float>(new_alpha);
         h->face_color(fc);
         h->line_color(to_array("white"));
         this->emplace_object(h);
@@ -3993,13 +3993,13 @@ namespace matplot {
         if (w > h) {
             double old_width = this->width();
             double new_width = h / this->parent()->width();
-            this->width(new_width);
-            this->x_origin(this->x_origin() + (old_width - new_width) / 2.);
+            this->width(static_cast<float>(new_width));
+            this->x_origin(this->x_origin() + static_cast<float>(old_width - new_width) / 2.f);
         } else if (h > w) {
             double old_height = this->height();
             double new_height = h / this->parent()->height();
-            this->height(new_height);
-            this->y_origin(this->y_origin() + (old_height - new_height) / 2.);
+            this->height(static_cast<float>(new_height));
+            this->y_origin(this->y_origin() + static_cast<float>(old_height - new_height) / 2.f);
         }
     }
 
@@ -4572,8 +4572,8 @@ namespace matplot {
                                double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> x = linspace(x_range[0], x_range[1], mesh_density);
-        std::vector<double> y = linspace(y_range[0], y_range[1], mesh_density);
+        std::vector<double> x = linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> y = linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
         auto [X, Y] = meshgrid(x, y);
         auto Z = transform(X, Y, fn);
         surface_handle l = this->mesh(X, Y, Z, {});
@@ -4590,8 +4590,8 @@ namespace matplot {
                                double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> u = linspace(u_range[0], u_range[1], mesh_density);
-        std::vector<double> v = linspace(v_range[0], v_range[1], mesh_density);
+        std::vector<double> u = linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> v = linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
         auto [U, V] = meshgrid(u, v);
         auto X = transform(U, V, funx);
         auto Y = transform(U, V, funy);
@@ -4607,7 +4607,7 @@ namespace matplot {
                                const std::array<double, 4> &xy_range,
                                double mesh_density) {
         return this->fmesh(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]}, mesh_density);
+                           {xy_range[2], xy_range[3]}, static_cast<size_t>(mesh_density));
     }
 
     /// Lambda function mesh - Parametric
@@ -4618,7 +4618,7 @@ namespace matplot {
                                const std::array<double, 4> &uv_range,
                                double mesh_density) {
         return this->fmesh(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]}, mesh_density);
+                           {uv_range[2], uv_range[3]}, static_cast<size_t>(mesh_density));
     }
 
     /// Function mesh
@@ -4626,7 +4626,7 @@ namespace matplot {
     surface_handle axes::fmesh(fcontour_function_type fn,
                                const std::array<double, 2> &xy_range,
                                double mesh_density) {
-        return this->fmesh(fn, xy_range, xy_range, mesh_density);
+        return this->fmesh(fn, xy_range, xy_range, static_cast<size_t>(mesh_density));
     }
 
     /// Function mesh
@@ -4636,7 +4636,7 @@ namespace matplot {
                                fcontour_function_type funz,
                                const std::array<double, 2> &uv_range,
                                double mesh_density) {
-        return this->fmesh(funx, funy, funz, uv_range, uv_range, mesh_density);
+        return this->fmesh(funx, funy, funz, uv_range, uv_range, static_cast<size_t>(mesh_density));
     }
 
     // z = f(x,y)
@@ -4649,8 +4649,8 @@ namespace matplot {
                                std::string line_spec, double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> x = linspace(x_range[0], x_range[1], mesh_density);
-        std::vector<double> y = linspace(y_range[0], y_range[1], mesh_density);
+        std::vector<double> x = linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> y = linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
         auto [X, Y] = meshgrid(x, y);
         auto Z = transform(X, Y, fn);
         surface_handle l = this->surf(X, Y, Z, {}, line_spec);
@@ -4668,8 +4668,8 @@ namespace matplot {
                                std::string line_spec, double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> u = linspace(u_range[0], u_range[1], mesh_density);
-        std::vector<double> v = linspace(v_range[0], v_range[1], mesh_density);
+        std::vector<double> u = linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> v = linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
         auto [U, V] = meshgrid(u, v);
         auto X = transform(U, V, funx);
         auto Y = transform(U, V, funy);
@@ -4685,7 +4685,7 @@ namespace matplot {
                                const std::array<double, 4> &xy_range,
                                std::string line_spec, double mesh_density) {
         return this->fsurf(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]}, line_spec, mesh_density);
+                           {xy_range[2], xy_range[3]}, line_spec, static_cast<size_t>(mesh_density));
     }
 
     /// Parametric / Both ranges in the same array size 4
@@ -4695,7 +4695,7 @@ namespace matplot {
                                const std::array<double, 4> &uv_range,
                                std::string line_spec, double mesh_density) {
         return this->fsurf(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]}, line_spec, mesh_density);
+                           {uv_range[2], uv_range[3]}, line_spec, static_cast<size_t>(mesh_density));
     }
 
     /// Function surf
@@ -4703,7 +4703,7 @@ namespace matplot {
     surface_handle axes::fsurf(fcontour_function_type fn,
                                const std::array<double, 2> &xy_range,
                                std::string line_spec, double mesh_density) {
-        return this->fsurf(fn, xy_range, xy_range, line_spec, mesh_density);
+        return this->fsurf(fn, xy_range, xy_range, line_spec, static_cast<size_t>(mesh_density));
     }
 
     /// Function surf
@@ -4714,7 +4714,7 @@ namespace matplot {
                                const std::array<double, 2> &uv_range,
                                std::string line_spec, double mesh_density) {
         return this->fsurf(funx, funy, funz, uv_range, uv_range, line_spec,
-                           mesh_density);
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Mesh - Core function
