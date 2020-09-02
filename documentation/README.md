@@ -1097,7 +1097,7 @@ The paper presented **Matplot++**, an alternative for data visualization in C++.
  
 * NetworkX developers (2020). NetworkX. URL: [https://networkx.github.io](https://networkx.github.io).
  
-* OLVB (2020). Node Soup. URL: [https://github.com/olvb/nodesoup](https://github.com/olvb/nodesoup).
+* Olivier Birot (2020). nodesoup. URL: [https://github.com/olvb/nodesoup](https://github.com/olvb/nodesoup).
  
 * Pezent E (2020). ImPlot. URL: [https://github.com/epezent/implot](https://github.com/epezent/implot).
  
