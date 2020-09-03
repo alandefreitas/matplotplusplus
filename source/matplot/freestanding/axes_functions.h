@@ -286,10 +286,10 @@ namespace matplot {
     void yrange(axes_handle ah, const std::array<double, 2> &range);
 
     /// Enable colorbar axis
-    axis &colorbar();
-    axis &colorbar(axes_handle ah);
-    class axis &colorbar(bool v);
-    class axis &colorbar(axes_handle ah, bool v);
+    axis_type &colorbar();
+    axis_type &colorbar(axes_handle ah);
+    class axis_type &colorbar(bool v);
+    class axis_type &colorbar(axes_handle ah, bool v);
 
     /// Set limits of x and y axes
     void axis(const std::array<double, 4> &limits_x_y);

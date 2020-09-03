@@ -280,14 +280,14 @@ namespace matplot {
         return *this;
     }
 
-    const std::vector<class axis> &parallel_lines::axis() const {
+    const std::vector<class axis_type> &parallel_lines::axis() const {
         return axis_;
     }
 
-    std::vector<class axis> &parallel_lines::axis() { return axis_; }
+    std::vector<class axis_type> &parallel_lines::axis() { return axis_; }
 
     class parallel_lines &
-    parallel_lines::axis(const std::vector<class axis> &axis) {
+    parallel_lines::axis(const std::vector<class axis_type> &axis) {
         axis_ = axis;
         touch();
         return *this;

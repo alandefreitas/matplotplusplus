@@ -410,7 +410,7 @@ namespace matplot {
         _levels = levels_;
 
         // Extend minimum beyond zmin (for filled plots)
-        const bool log = parent_->z_axis().scale() == axis::axis_scale::log;
+        const bool log = parent_->z_axis().scale() == axis_type::axis_scale::log;
         if (extend_ == extend_option::both || extend_ == extend_option::min) {
             double lower = log ? 1e-250 : -1e250;
             _levels.insert(_levels.begin(), lower);
@@ -455,7 +455,7 @@ namespace matplot {
         if (zmin() == lowers[0]) {
             // Include minimum values in lowest interval
             // so we don't change levels_
-            if (parent_->z_axis().scale() == axis::axis_scale::log) {
+            if (parent_->z_axis().scale() == axis_type::axis_scale::log) {
                 lowers[0] = 0.99 * zmin();
             } else {
                 lowers[0] -= 1;

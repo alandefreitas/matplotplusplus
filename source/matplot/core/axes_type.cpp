@@ -266,20 +266,20 @@ namespace matplot {
         // if the user didn't explicitly set the grid, turn on the grid
         // by default in logscale
         if (!x_user_grid_) {
-            x_grid_ = x_axis().scale() == axis::axis_scale::log || is_3d();
-            x_minor_grid_ = x_axis().scale() == axis::axis_scale::log;
+            x_grid_ = x_axis().scale() == axis_type::axis_scale::log || is_3d();
+            x_minor_grid_ = x_axis().scale() == axis_type::axis_scale::log;
         }
         if (!y_user_grid_) {
-            y_grid_ = y_axis().scale() == axis::axis_scale::log || is_3d();
-            y_minor_grid_ = y_axis().scale() == axis::axis_scale::log;
+            y_grid_ = y_axis().scale() == axis_type::axis_scale::log || is_3d();
+            y_minor_grid_ = y_axis().scale() == axis_type::axis_scale::log;
         }
         if (!z_user_grid_) {
-            z_grid_ = z_axis().scale() == axis::axis_scale::log || is_3d();
-            z_minor_grid_ = z_axis().scale() == axis::axis_scale::log;
+            z_grid_ = z_axis().scale() == axis_type::axis_scale::log || is_3d();
+            z_minor_grid_ = z_axis().scale() == axis_type::axis_scale::log;
         }
         if (!r_user_grid_) {
-            r_grid_ = r_axis().scale() == axis::axis_scale::log || is_polar();
-            r_minor_grid_ = r_axis().scale() == axis::axis_scale::log;
+            r_grid_ = r_axis().scale() == axis_type::axis_scale::log || is_polar();
+            r_minor_grid_ = r_axis().scale() == axis_type::axis_scale::log;
         }
 
         // set grid xtics ytics mxtics mytics layerdefault linecolor 'blue'
@@ -416,7 +416,7 @@ namespace matplot {
         if (is_polar()) {
             run_command("set polar");
         }
-        auto set_or_unset_axis = [this](class axis &ax, std::string axis_name,
+        auto set_or_unset_axis = [this](class axis_type &ax, std::string axis_name,
                                         bool minor_ticks = false) {
             // cb is the only axis we don't unset if tics are empty
             if (ax.visible() && !ax.tick_values().empty()) {
@@ -569,14 +569,14 @@ namespace matplot {
         }
 
         include_comment("Axes scale");
-        if (x_axis().scale() == axis::axis_scale::log) {
+        if (x_axis().scale() == axis_type::axis_scale::log) {
             run_command("set logscale x");
         }
-        if (y_axis().scale() == axis::axis_scale::log) {
+        if (y_axis().scale() == axis_type::axis_scale::log) {
             run_command("set logscale y");
         }
         if (is_3d()) {
-            if (z_axis().scale() == axis::axis_scale::log) {
+            if (z_axis().scale() == axis_type::axis_scale::log) {
                 run_command("set logscale z");
             }
         }
@@ -1154,19 +1154,19 @@ namespace matplot {
         font_ = parent->font();
     }
 
-    const class axis &axes_type::x_axis() const { return x_axis_; }
+    const class axis_type &axes_type::x_axis() const { return x_axis_; }
 
-    class axis &axes_type::x_axis() {
+    class axis_type &axes_type::x_axis() {
         return x_axis_;
     }
 
-    const class axis &axes_type::x2_axis() const { return x2_axis_; }
+    const class axis_type &axes_type::x2_axis() const { return x2_axis_; }
 
-    class axis &axes_type::x2_axis() {
+    class axis_type &axes_type::x2_axis() {
         return x2_axis_;
     }
 
-    const class axis &axes_type::y_axis() const { return y_axis_; }
+    const class axis_type &axes_type::y_axis() const { return y_axis_; }
 
     const std::string &axes_type::xlabel() const { return x_axis_.label(); }
 
@@ -1306,25 +1306,25 @@ namespace matplot {
         r_axis_.tick_values(ticks);
     }
 
-    class axis &axes_type::y_axis() {
+    class axis_type &axes_type::y_axis() {
         return y_axis_;
     }
 
-    const class axis &axes_type::y2_axis() const { return y2_axis_; }
+    const class axis_type &axes_type::y2_axis() const { return y2_axis_; }
 
-    class axis &axes_type::y2_axis() {
+    class axis_type &axes_type::y2_axis() {
         return y2_axis_;
     }
 
-    const class axis &axes_type::z_axis() const { return z_axis_; }
+    const class axis_type &axes_type::z_axis() const { return z_axis_; }
 
-    class axis &axes_type::z_axis() {
+    class axis_type &axes_type::z_axis() {
         return z_axis_;
     }
 
-    const class axis &axes_type::r_axis() const { return r_axis_; }
+    const class axis_type &axes_type::r_axis() const { return r_axis_; }
 
-    class axis &axes_type::r_axis() {
+    class axis_type &axes_type::r_axis() {
         return r_axis_;
     }
 
@@ -1875,11 +1875,11 @@ namespace matplot {
     }
 
     bool axes_type::color_box_log_scale() const {
-        return cb_axis_.scale() == axis::axis_scale::log;
+        return cb_axis_.scale() == axis_type::axis_scale::log;
     }
 
     void axes_type::color_box_log_scale(bool v) {
-        cb_axis_.scale(v ? axis::axis_scale::log : axis::axis_scale::linear);
+        cb_axis_.scale(v ? axis_type::axis_scale::log : axis_type::axis_scale::linear);
         touch();
     }
 
@@ -1906,13 +1906,13 @@ namespace matplot {
         touch();
     }
 
-    const class axis &axes_type::t_axis() const { return t_axis_; }
+    const class axis_type &axes_type::t_axis() const { return t_axis_; }
 
-    class axis &axes_type::t_axis() {
+    class axis_type &axes_type::t_axis() {
         return t_axis_;
     }
 
-    void axes_type::t_axis(const class axis &t_axis) {
+    void axes_type::t_axis(const class axis_type &t_axis) {
         t_axis_ = t_axis;
         touch();
     }
@@ -2176,9 +2176,9 @@ namespace matplot {
         touch();
     }
 
-    const class axis &axes_type::cb_axis() const { return cb_axis_; }
+    const class axis_type &axes_type::cb_axis() const { return cb_axis_; }
 
-    class axis &axes_type::cb_axis() {
+    class axis_type &axes_type::cb_axis() {
         return cb_axis_;
     }
 

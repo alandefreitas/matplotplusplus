@@ -20,7 +20,7 @@
 
 // Figure and axes
 #include <matplot/core/axes_type.h>
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/figure_type.h>
 
 // Axes objects

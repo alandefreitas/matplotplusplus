@@ -11,7 +11,7 @@
 #include <matplot/util/handle_types.h>
 #include <matplot/util/keywords.h>
 
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/legend.h>
 #include <matplot/core/line_spec.h>
 
@@ -144,9 +144,9 @@ namespace matplot {
 
         void height(float h);
 
-        const class axis &x_axis() const;
+        const class axis_type &x_axis() const;
 
-        class axis &x_axis();
+        class axis_type &x_axis();
 
         std::array<double, 2> xlim() const;
 
@@ -176,9 +176,9 @@ namespace matplot {
 
         double xtickangle();
 
-        const class axis &x2_axis() const;
+        const class axis_type &x2_axis() const;
 
-        class axis &x2_axis();
+        class axis_type &x2_axis();
 
         std::array<double, 2> x2lim() const;
 
@@ -208,9 +208,9 @@ namespace matplot {
 
         double x2tickangle();
 
-        const class axis &y_axis() const;
+        const class axis_type &y_axis() const;
 
-        class axis &y_axis();
+        class axis_type &y_axis();
 
         std::array<double, 2> ylim() const;
 
@@ -240,9 +240,9 @@ namespace matplot {
 
         double ytickangle();
 
-        const class axis &y2_axis() const;
+        const class axis_type &y2_axis() const;
 
-        class axis &y2_axis();
+        class axis_type &y2_axis();
 
         std::array<double, 2> y2lim() const;
 
@@ -272,9 +272,9 @@ namespace matplot {
 
         double y2tickangle();
 
-        const class axis &z_axis() const;
+        const class axis_type &z_axis() const;
 
-        class axis &z_axis();
+        class axis_type &z_axis();
 
         std::array<double, 2> zlim() const;
 
@@ -304,9 +304,9 @@ namespace matplot {
 
         double ztickangle();
 
-        const class axis &cb_axis() const;
+        const class axis_type &cb_axis() const;
 
-        class axis &cb_axis();
+        class axis_type &cb_axis();
 
         std::array<double, 2> cblim() const;
 
@@ -348,9 +348,9 @@ namespace matplot {
 
         void cb_position(const std::array<float, 4> &cb_position);
 
-        const class axis &r_axis() const;
+        const class axis_type &r_axis() const;
 
-        class axis &r_axis();
+        class axis_type &r_axis();
 
         std::array<double, 2> rlim() const;
 
@@ -380,9 +380,9 @@ namespace matplot {
 
         double rtickangle();
 
-        const class axis &t_axis() const;
+        const class axis_type &t_axis() const;
 
-        class axis &t_axis();
+        class axis_type &t_axis();
 
         std::array<double, 2> tlim() const;
 
@@ -392,7 +392,7 @@ namespace matplot {
 
         void tlim(keyword_manual_type);
 
-        void t_axis(const class axis &t_axis);
+        void t_axis(const class axis_type &t_axis);
 
         bool title_visible() const;
 
@@ -2629,22 +2629,22 @@ namespace matplot {
         /// Loglog is a line plot variant with log on both x and y axes
         template <class... Args> auto loglog(Args... args) {
             auto h = this->plot(args...);
-            this->x_axis().scale(axis::axis_scale::log);
-            this->y_axis().scale(axis::axis_scale::log);
+            this->x_axis().scale(axis_type::axis_scale::log);
+            this->y_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
         template <class... Args> auto semilogx(Args... args) {
             auto h = this->plot(args...);
-            this->x_axis().scale(axis::axis_scale::log);
+            this->x_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
         template <class... Args> auto semilogy(Args... args) {
             auto h = this->plot(args...);
-            this->y_axis().scale(axis::axis_scale::log);
+            this->y_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
@@ -2718,35 +2718,35 @@ namespace matplot {
 
       private /* members */:
         // axes
-        class axis x_axis_ {
+        class axis_type x_axis_ {
             this, true
         };
 
-        class axis x2_axis_ {
+        class axis_type x2_axis_ {
             this, false
         };
 
-        class axis y_axis_ {
+        class axis_type y_axis_ {
             this, true
         };
 
-        class axis y2_axis_ {
+        class axis_type y2_axis_ {
             this, false
         };
 
-        class axis z_axis_ {
+        class axis_type z_axis_ {
             this, true
         };
 
-        class axis r_axis_ {
+        class axis_type r_axis_ {
             this, false
         };
 
-        class axis t_axis_ {
+        class axis_type t_axis_ {
             this, false
         };
 
-        class axis cb_axis_ {
+        class axis_type cb_axis_ {
             this, false
         };
 

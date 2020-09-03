@@ -528,20 +528,20 @@ namespace matplot {
         ah->touch();
     }
 
-    class axis &colorbar() {
+    class axis_type &colorbar() {
         return colorbar(gca());
     }
 
-    class axis &colorbar(axes_handle ah) {
+    class axis_type &colorbar(axes_handle ah) {
         ah->color_box(true);
         return ah->cb_axis();
     }
 
-    class axis &colorbar(bool v) {
+    class axis_type &colorbar(bool v) {
         return colorbar(gca(), v);
     }
 
-    class axis &colorbar(axes_handle ah, bool v) {
+    class axis_type &colorbar(axes_handle ah, bool v) {
         ah->color_box(v);
         return ah->cb_axis();
     }
