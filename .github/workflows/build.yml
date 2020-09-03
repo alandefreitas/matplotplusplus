@@ -23,6 +23,12 @@ jobs:
               args: -G "Visual Studio 16 2019" -A x64,
             }
           - {
+            name: "Linux/Static/X64/Release",
+            os: ubuntu-latest,
+            config: Release,
+            args: "",
+          }
+          - {
               name: "MacOSX/Static/X64/Release",
               os: macos-latest,
               config: Release,
