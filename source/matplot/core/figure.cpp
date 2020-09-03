@@ -783,7 +783,7 @@ namespace matplot {
         }
     } // namespace detail
 
-    figure_handle figure(bool quiet_mode) {
+    figure_handle figure_no_backend(bool quiet_mode) {
         figure_handle h = detail::register_figure_handle(quiet_mode);
         detail::set_current_figure_handle(h);
         return h;

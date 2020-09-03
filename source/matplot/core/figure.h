@@ -319,15 +319,14 @@ namespace matplot {
 
     using figure_handle = std::shared_ptr<figure>;
 
-
     /// \brief Create a new figure
-    figure_handle figure(bool quiet_mode);
+    figure_handle figure_no_backend(bool quiet_mode);
 
     /// \brief Create a new figure with a given backend
     template <class BACKEND = backend::gnuplot>
     figure_handle figure(bool quiet_mode) {
         std::shared_ptr<backend::backend_interface> b = create_backend<BACKEND>();
-        figure_handle f = figure(quiet_mode);
+        figure_handle f = figure_no_backend(quiet_mode);
         f->backend(b);
         return f;
     }
