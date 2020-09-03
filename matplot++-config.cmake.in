@@ -1,5 +1,14 @@
 @PACKAGE_INIT@
 
-include("${CMAKE_CURRENT_LIST_DIR}/Matplot++Targets.cmake")
+set(MATPLOT_BUILT_SHARED "@BUILD_SHARED_LIBS@")
+if(NOT ${MATPLOT_BUILT_SHARED})
+    include(CMakeFindDependencyMacro)
 
+    list(APPEND CMAKE_MODULE_PATH ${MATPLOT_CONFIG_INSTALL_DIR})
+    list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
+    find_dependency(Filesystem)
+    list(POP_BACK CMAKE_MODULE_PATH)
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/Matplot++Targets.cmake")
 check_required_components(Matplot++)

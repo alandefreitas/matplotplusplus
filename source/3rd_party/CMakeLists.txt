@@ -3,8 +3,8 @@ if(WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
   find_library(NODESOUP_LIB nodesoup REQUIRED)
 
-  add_library(nodesoup INTERFACE IMPORTED GLOBAL)
-  target_include_directories(nodesoup INTERFACE ${NODESOUP_INCLUDE_DIR})
+  add_library(nodesoup INTERFACE)
+  target_include_directories(nodesoup INTERFACE $<BUILD_INTERFACE:${NODESOUP_INCLUDE_DIR}>)
   target_link_libraries(nodesoup INTERFACE ${NODESOUP_LIB})
 else()
   add_library(nodesoup STATIC
@@ -27,23 +27,24 @@ else()
   # Hackfix to support MSVC standard library
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
-
-  # Install
-  if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
-    install(TARGETS nodesoup
-        EXPORT Matplot++Targets
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
-  endif()
 endif()
 
+# Install (only necessary for static lib build)
+if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
+  install(TARGETS nodesoup
+      EXPORT Matplot++Targets
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/Matplot++)
+endif()
+
+
 # Add CImg library
-add_library(cimg INTERFACE IMPORTED GLOBAL)
+add_library(cimg INTERFACE)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
 else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
 endif()
-target_include_directories(cimg INTERFACE ${CIMG_INCLUDE_DIR})
+target_include_directories(cimg INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>)
 
 
 find_package(PkgConfig)
@@ -164,4 +165,10 @@ if(NOT WIN32)
 else()
   target_compile_definitions(cimg INTERFACE cimg_display=2)
   target_link_libraries(cimg INTERFACE gdi32)
+endif()
+
+# Install (only necessary for static lib build)
+if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
+  install(TARGETS cimg
+      EXPORT Matplot++Targets)
 endif()
