@@ -6,6 +6,7 @@
 #define MATPLOTPLUSPLUS_COMMON_H
 
 #include <algorithm>
+#include <cctype>
 #include <complex>
 #include <functional>
 #include <map>
