@@ -4,6 +4,7 @@
 
 #include "backend_interface.h"
 #include <matplot/util/common.h>
+#include <matplot/core/figure.h>
 
 namespace matplot::backend {
     bool backend_interface::consumes_gnuplot_commands() { return false; }
@@ -47,14 +48,8 @@ namespace matplot::backend {
             "There is no function to set the height in this backend yet");
     }
 
-    void backend_interface::new_frame() {
-        if (!consumes_gnuplot_commands()) {
-            throw std::logic_error(
-                "There is no function to start new_frame in this backend yet");
-        } else {
-            throw std::logic_error("This backend has no function new_frame "
-                                   "because it is based on gnuplot commands");
-        }
+    bool backend_interface::new_frame() {
+        return true;
     }
 
     bool backend_interface::render_data() {
@@ -150,9 +145,11 @@ namespace matplot::backend {
         }
     }
 
-    void backend_interface::wait() {
+    void backend_interface::show(class matplot::figure* f) {
         // The default implementation waits for the user to interact with the
-        // console
+        // console. In interactive backends we expect this to start a render
+        // loop that will stop only when the user closes the window.
+        f->draw();
         matplot::wait();
     }
 
@@ -178,6 +175,17 @@ namespace matplot::backend {
             throw std::logic_error("This backend has no function draw_triangle "
                                    "because it is based on gnuplot commands");
         }
+    }
+
+    bool backend_interface::should_close() {
+        // by default, we assume backends simply don't have this feature
+        return false;
+    }
+
+    void backend_interface::window_title(const std::string& title) {}
+
+    std::string backend_interface::window_title() {
+        return "";
     }
 
 } // namespace matplot::backend

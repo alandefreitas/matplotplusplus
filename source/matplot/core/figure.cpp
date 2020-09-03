@@ -19,7 +19,6 @@ namespace matplot {
 
     figure::figure(size_t index, bool quiet_mode)
         : number_(index), quiet_mode_(quiet_mode) {
-        backend_ = create_default_backend();
     }
 
 #ifdef MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES
@@ -37,9 +36,21 @@ namespace matplot {
     }
 
     void figure::draw() {
+        // if there's no backend, then we use the default
+        if (backend_ == nullptr) {
+            backend_ = create_default_backend();
+            if (backend_ == nullptr) {
+                return;
+            }
+        }
+
         // we cannot call draw if we are already drawing
         // this could create infinite loops
-        if (backend_ == nullptr || is_plotting_) {
+        if (is_plotting_) {
+            return;
+        }
+
+        if (!backend_->new_frame()) {
             return;
         }
 
@@ -63,10 +74,9 @@ namespace matplot {
     }
 
     void figure::send_draw_commands() {
-        // This mode is not completely implemented yet
-        // We'll get there little by little
+        // Set title
+        backend_->window_title(generate_window_title());
 
-        // Tell the backend we're starting a new frame
         // Draw background
         backend_->draw_background(color_);
 
@@ -74,9 +84,6 @@ namespace matplot {
         for (const auto &ax : children_) {
             ax->run_draw_commands();
         }
-
-        // Finalize
-        backend_->render_data();
     }
 
     void figure::send_gnuplot_draw_commands() {
@@ -120,8 +127,7 @@ namespace matplot {
     }
 
     void figure::show() {
-        draw();
-        backend_->wait();
+        backend_->show(this);
     }
 
     void figure::touch() {
@@ -571,6 +577,19 @@ namespace matplot {
         }
     }
 
+    std::string figure::generate_window_title() const {
+        std::string title;
+        if (number_title_) {
+            title += "Figure " + num2str(number_);
+            if (!name_.empty()) {
+                title += ": " + name_;
+            }
+        } else {
+            title = name_;
+        }
+        return title;
+    }
+
     void figure::run_terminal_init_command() {
         std::stringstream ss;
         auto &terminal = backend_->output_format();
@@ -578,16 +597,7 @@ namespace matplot {
 
         if (!terminal.empty() &&
             backend::gnuplot::terminal_has_title_option(terminal)) {
-            std::string title;
-            if (number_title_) {
-                title += "Figure " + num2str(number_);
-                if (!name_.empty()) {
-                    title += ": " + name_;
-                }
-            } else {
-                title = name_;
-            }
-            ss << " title \"" << escape(title) << "\"";
+            ss << " title \"" << generate_window_title() << "\"";
             run_command(ss.str());
         }
 
@@ -773,12 +783,9 @@ namespace matplot {
         }
     } // namespace detail
 
-    figure_handle figure() { return figure(false); }
-
     figure_handle figure(bool quiet_mode) {
         figure_handle h = detail::register_figure_handle(quiet_mode);
         detail::set_current_figure_handle(h);
-        h->touch();
         return h;
     }
 
@@ -962,6 +969,10 @@ namespace matplot {
     void figure::backend(
         const std::shared_ptr<backend::backend_interface> &new_backend) {
         backend_ = new_backend;
+    }
+
+    bool figure::should_close() {
+        return backend_->should_close();
     }
 
 } // namespace matplot

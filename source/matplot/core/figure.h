@@ -4,7 +4,7 @@
 #include <array>
 #include <fstream>
 #include <iostream>
-#include <matplot/backend/backend_interface.h>
+#include <matplot/backend/backend_registry.h>
 #include <matplot/backend/gnuplot.h>
 #include <matplot/util/colors.h>
 #include <matplot/util/handle_types.h>
@@ -157,6 +157,9 @@ namespace matplot {
         /// performance.
         void touch();
 
+        /// True if user required the backend to close
+        bool should_close();
+
         /// True if in quiet mode (not reactive)
         bool quiet_mode() const;
 
@@ -282,6 +285,9 @@ namespace matplot {
         void run_multiplot_command();
 
       private:
+        std::string generate_window_title() const;
+
+      private:
         // The default backend for this figure
         std::shared_ptr<backend::backend_interface> backend_{nullptr};
 
@@ -313,11 +319,25 @@ namespace matplot {
 
     using figure_handle = std::shared_ptr<figure>;
 
-    /// \brief Create a new figure (reactive mode)
-    figure_handle figure();
 
     /// \brief Create a new figure
     figure_handle figure(bool quiet_mode);
+
+    /// \brief Create a new figure with a given backend
+    template <class BACKEND = backend::gnuplot>
+    figure_handle figure(bool quiet_mode) {
+        std::shared_ptr<backend::backend_interface> b = create_backend<BACKEND>();
+        figure_handle f = figure(quiet_mode);
+        f->backend(b);
+        return f;
+    }
+
+    /// \brief Create a new figure (reactive mode)
+    template <class BACKEND = backend::gnuplot>
+    figure_handle figure() {
+        /// Take default mode from backend?
+        return figure<BACKEND>(false);
+    }
 
     /// \brief Set the current figure
     figure_handle figure(figure_handle h);

@@ -202,14 +202,9 @@ namespace matplot::backend {
         }
     }
 
-    void gnuplot::new_frame() {
-        if (!consumes_gnuplot_commands()) {
-            throw std::logic_error("There is no function to start new_frame in "
-                                   "the gnuplot backend yet");
-        } else {
-            throw std::logic_error("This backend has no function new_frame "
-                                   "because it is based on gnuplot commands");
-        }
+    bool gnuplot::new_frame() {
+        // always accept starting a new frame
+        return true;
     }
 
     bool gnuplot::render_data() { return flush_commands(); }

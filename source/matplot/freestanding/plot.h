@@ -952,6 +952,10 @@ namespace matplot {
         return ax->boxchart(args...);
     }
 
+    inline void show() { return gcf()->show(); }
+
+    inline void show(figure_handle f) { f->show(); }
+
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_PLOT_H
