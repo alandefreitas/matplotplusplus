@@ -14,6 +14,6 @@ int main() {
     h->face_color({0., 0., 0.5, 0.5});
     h->edge_color("r");
 
-    wait();
+    show();
     return 0;
 }

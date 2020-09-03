@@ -7,6 +7,6 @@ int main() {
     fplot([](double t) { return cos(3 * t); },
           [](double t) { return sin(2 * t); });
 
-    wait();
+    show();
     return 0;
 }

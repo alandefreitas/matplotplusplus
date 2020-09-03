@@ -10,6 +10,6 @@ int main() {
     text(3, 90, "λ_{12}^{3/2}/π - πΔ^{2/3}");
     text(4, 60, "lambda12^{3/2}/pi - pi delta^{2/3}");
 
-    wait();
+    show();
     return 0;
 }

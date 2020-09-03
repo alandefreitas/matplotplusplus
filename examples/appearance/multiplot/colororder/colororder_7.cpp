@@ -20,6 +20,6 @@ int main() {
     c[0] = {0., 0.5, 0., 1.};
     p2[0]->color(c[0]);
 
-    wait();
+    show();
     return 0;
 }

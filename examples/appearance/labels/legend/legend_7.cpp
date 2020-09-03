@@ -17,6 +17,6 @@ int main() {
     lgd->location(legend::general_alignment::bottomleft);
     lgd->box(false);
 
-    wait();
+    show();
     return 0;
 }

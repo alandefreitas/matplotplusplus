@@ -10,6 +10,6 @@ int main() {
     zlabel("z");
     view(90, 0);
 
-    wait();
+    show();
     return 0;
 }

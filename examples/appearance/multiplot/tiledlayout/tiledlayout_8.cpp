@@ -21,6 +21,6 @@ int main() {
     auto ax = nexttile(2);
     colormap(ax, palette::cool());
 
-    wait();
+    show();
     return 0;
 }

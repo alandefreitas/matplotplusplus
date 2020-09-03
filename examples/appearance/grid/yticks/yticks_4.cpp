@@ -10,6 +10,6 @@ int main() {
     yticks(iota(-1, 1, 1));
     yticklabels({"min", "zero", "max"});
 
-    wait();
+    show();
     return 0;
 }

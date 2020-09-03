@@ -11,6 +11,6 @@ int main() {
     binscatter(x, y, bin_scatter_style::point_colormap);
     colormap(gca(), palette::parula());
 
-    wait();
+    show();
     return 0;
 }

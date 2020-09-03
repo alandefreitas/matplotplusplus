@@ -14,6 +14,6 @@ int main() {
     auto ax2 = nexttile();
     plot(x2);
 
-    wait();
+    show();
     return 0;
 }

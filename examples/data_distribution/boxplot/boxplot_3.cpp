@@ -16,6 +16,6 @@ int main() {
     subplot(2, 1, 1);
     boxplot(x)->box_style(box_chart::box_style_option::outline);
 
-    wait();
+    show();
     return 0;
 }

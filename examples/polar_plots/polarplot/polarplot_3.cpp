@@ -13,6 +13,6 @@ int main() {
     polarplot(theta, rho2, "--");
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

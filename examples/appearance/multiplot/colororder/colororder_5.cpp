@@ -16,6 +16,6 @@ int main() {
     p2[1]->use_y2(true).line_style("--");
     ax->y_axis().color("k");
 
-    wait();
+    show();
     return 0;
 }

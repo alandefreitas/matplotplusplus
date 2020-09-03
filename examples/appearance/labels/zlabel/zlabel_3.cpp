@@ -8,6 +8,6 @@ int main() {
     zlabel("Population Change");
     gca()->z_axis().label_color("red");
 
-    wait();
+    show();
     return 0;
 }

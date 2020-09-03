@@ -16,6 +16,6 @@ int main() {
     auto ax2 = nexttile();
     stem(ax2, x, y2);
 
-    wait();
+    show();
     return 0;
 }

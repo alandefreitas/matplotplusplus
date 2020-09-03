@@ -13,6 +13,6 @@ int main() {
     xlabel(ax, "Sizes");
     ylabel(ax, "Colors");
 
-    wait();
+    show();
     return 0;
 }

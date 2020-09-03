@@ -13,6 +13,6 @@ int main() {
         "no", "no",  "yes",       "yes",       "yes", "yes"};
     hist(categories)->bar_width(0.5);
 
-    wait();
+    show();
     return 0;
 }

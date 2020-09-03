@@ -10,6 +10,6 @@ int main() {
         transform(x, [](auto x) { return 1 / pow(10, x); });
     loglog(x, y1, x, y2);
 
-    wait();
+    show();
     return 0;
 }

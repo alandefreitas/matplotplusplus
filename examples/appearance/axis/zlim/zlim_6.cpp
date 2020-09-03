@@ -18,6 +18,6 @@ int main() {
     std::cout << "zl[0]: " << zl[0] << std::endl;
     std::cout << "zl[1]: " << zl[1] << std::endl;
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
     stem3(x, y, z);
     view(-8, 30);
 
-    wait();
+    show();
     return 0;
 }

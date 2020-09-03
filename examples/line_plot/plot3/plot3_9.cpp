@@ -25,6 +25,6 @@ int main() {
     zlabel("Duration");
     grid(on);
 
-    wait();
+    show();
     return 0;
 }

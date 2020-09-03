@@ -19,7 +19,7 @@ int main() {
     quiver3(Z, U, V, W);
     view(-35, 45);
 
-    wait();
+    show();
     return 0;
 }
 

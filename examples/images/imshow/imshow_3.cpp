@@ -22,6 +22,6 @@ int main() {
 
     imshow(gray);
 
-    wait();
+    show();
     return 0;
 }

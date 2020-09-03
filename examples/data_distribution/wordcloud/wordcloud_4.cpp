@@ -16,6 +16,6 @@ int main() {
     wordcloud(tokens, count, custom_colors);
     title("Shakespeare's sonnets - Random colors");
 
-    wait();
+    show();
     return 0;
 }

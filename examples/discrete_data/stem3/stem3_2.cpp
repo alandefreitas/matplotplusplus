@@ -8,6 +8,6 @@ int main() {
     auto z = transform(y, [](auto x) { return cos(x); });
     stem3(x, y, z);
 
-    wait();
+    show();
     return 0;
 }

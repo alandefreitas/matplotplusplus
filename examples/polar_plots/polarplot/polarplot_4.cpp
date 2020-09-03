@@ -7,6 +7,6 @@ int main() {
     std::vector<double> rho = iota(10, 5, 70);
     polarplot(rho, "-o");
 
-    wait();
+    show();
     return 0;
 }

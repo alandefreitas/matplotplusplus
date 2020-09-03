@@ -8,6 +8,6 @@ int main() {
     plot(x, y, "-v");
     xtickformat("%g GHz");
 
-    wait();
+    show();
     return 0;
 }

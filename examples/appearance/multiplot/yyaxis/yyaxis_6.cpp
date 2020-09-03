@@ -15,6 +15,6 @@ int main() {
     auto ax2 = nexttile();
     plot(ax2, iota(1, 10));
 
-    wait();
+    show();
     return 0;
 }

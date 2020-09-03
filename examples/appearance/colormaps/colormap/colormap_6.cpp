@@ -14,6 +14,6 @@ int main() {
     surf(x, y, z);
     colormap(map);
 
-    wait();
+    show();
     return 0;
 }

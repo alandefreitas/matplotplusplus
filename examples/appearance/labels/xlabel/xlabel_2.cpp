@@ -6,6 +6,6 @@ int main() {
     plot(x);
     xlabel("Population\\n(in thousands)");
 
-    wait();
+    show();
     return 0;
 }

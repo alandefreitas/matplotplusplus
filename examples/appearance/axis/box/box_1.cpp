@@ -11,6 +11,6 @@ int main() {
     surf(X, Y, Z);
     box(off);
 
-    wait();
+    show();
     return 0;
 }

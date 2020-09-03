@@ -11,6 +11,6 @@ int main() {
     xticks({1, 2, 3});
     xticklabels({"one", "two", "three"});
 
-    wait();
+    show();
     return 0;
 }

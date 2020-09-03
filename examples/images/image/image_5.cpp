@@ -9,6 +9,6 @@ int main() {
     im->alpha(0.5);
     gca()->y_axis().reverse(false);
 
-    wait();
+    show();
     return 0;
 }

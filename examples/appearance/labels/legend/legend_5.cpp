@@ -17,6 +17,6 @@ int main() {
 
     legend({p1, p3}, {"First", "Third"});
 
-    wait();
+    show();
     return 0;
 }

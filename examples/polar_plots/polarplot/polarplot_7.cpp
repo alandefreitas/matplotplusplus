@@ -11,6 +11,6 @@ int main() {
     p->marker("square");
     p->marker_size(8.);
 
-    wait();
+    show();
     return 0;
 }

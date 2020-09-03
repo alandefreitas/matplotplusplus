@@ -9,6 +9,6 @@ int main() {
                              179, 203, 226, 249,   281.5};
     bar(y, 0.4);
 
-    wait();
+    show();
     return 0;
 }

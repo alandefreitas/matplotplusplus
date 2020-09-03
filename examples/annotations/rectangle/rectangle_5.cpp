@@ -17,6 +17,6 @@ int main() {
     arrow(4, 2.2, 3, 3);
     textarrow(6, 1, 8, 0, "Last corner");
 
-    wait();
+    show();
     return 0;
 }

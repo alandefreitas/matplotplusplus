@@ -7,6 +7,6 @@ int main() {
     plot(iota(1, 10));
     auto a = arrow(2.5, 6.5, 5, 5);
 
-    wait();
+    show();
     return 0;
 }

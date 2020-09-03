@@ -21,6 +21,6 @@ int main() {
     color_array blue_water = {0., 0.4, 0.61, 0.76};
     gca()->color(blue_water);
 
-    wait();
+    show();
     return 0;
 }

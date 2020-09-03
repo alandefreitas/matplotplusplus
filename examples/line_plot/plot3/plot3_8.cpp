@@ -20,6 +20,6 @@ int main() {
     ax2->box(false);
     title(ax2, "Helix with 10 Turns");
 
-    wait();
+    show();
     return 0;
 }

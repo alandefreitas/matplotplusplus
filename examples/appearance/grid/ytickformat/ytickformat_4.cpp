@@ -8,6 +8,6 @@ int main() {
     scatter(x, y);
     ytickformat("%.2f");
 
-    wait();
+    show();
     return 0;
 }

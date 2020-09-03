@@ -9,6 +9,6 @@ int main() {
                                           randn(200, 0, 1)};
     plotmatrix(X);
 
-    wait();
+    show();
     return 0;
 }

@@ -20,6 +20,6 @@ int main() {
     hold(off);
     xlim(automatic);
 
-    wait();
+    show();
     return 0;
 }

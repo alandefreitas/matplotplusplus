@@ -19,6 +19,6 @@ int main() {
     y2label("Vehicle Miles Traveled");
     y2lim({0, inf});
 
-    wait();
+    show();
     return 0;
 }

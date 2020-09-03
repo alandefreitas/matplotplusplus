@@ -13,6 +13,6 @@ int main() {
     auto ax = gca();
     subplot(2, 1, 1, ax);
 
-    wait();
+    show();
     return 0;
 }

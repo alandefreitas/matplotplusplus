@@ -13,6 +13,6 @@ int main() {
     surf(ax2, X2, Y2, Z2);
     zlabel(ax2, "Height");
 
-    wait();
+    show();
     return 0;
 }

@@ -7,6 +7,6 @@ int main() {
     std::vector<double> explode = {0, 1, 0, 1, 0};
     pie(x, explode);
 
-    wait();
+    show();
     return 0;
 }

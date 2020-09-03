@@ -13,6 +13,6 @@ int main() {
               << std::accumulate(h->values().begin(), h->values().end(), 0.0)
               << std::endl;
 
-    wait();
+    show();
     return 0;
 }

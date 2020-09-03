@@ -7,6 +7,6 @@ int main() {
     plot(x, y);
     ylabel("-2π ≤ x ≤ 2π");
 
-    wait();
+    show();
     return 0;
 }

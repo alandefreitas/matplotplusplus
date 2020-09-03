@@ -10,6 +10,6 @@ int main() {
 
     scatter(x, y, c);
 
-    wait();
+    show();
     return 0;
 }

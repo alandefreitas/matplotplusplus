@@ -13,6 +13,6 @@ int main() {
 
     xtickformat(ax2, "usd");
 
-    wait();
+    show();
     return 0;
 }

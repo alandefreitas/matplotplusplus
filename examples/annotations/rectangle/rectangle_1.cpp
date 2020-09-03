@@ -14,6 +14,6 @@ int main() {
     r2->fill(true);
     r2->color({0.8, 0, 0, 1});
 
-    wait();
+    show();
     return 0;
 }

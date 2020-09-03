@@ -19,6 +19,6 @@ int main() {
     title(ax2, "Plot 2");
     grid(ax2, on);
 
-    wait();
+    show();
     return 0;
 }

@@ -6,6 +6,6 @@ int main() {
     plot(rand(5, 5, 0, 1));
     yticklabels({});
 
-    wait();
+    show();
     return 0;
 }

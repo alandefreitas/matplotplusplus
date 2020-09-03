@@ -15,6 +15,6 @@ int main() {
     auto ax2 = nexttile();
     stairs(ax2, x, y2);
 
-    wait();
+    show();
     return 0;
 }

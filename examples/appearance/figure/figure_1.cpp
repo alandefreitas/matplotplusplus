@@ -9,6 +9,6 @@ int main() {
     auto ax = h->current_axes();
     fplot(ax, "cos(x)");
 
-    wait();
+    show();
     return 0;
 }

@@ -9,6 +9,6 @@ int main() {
     t->color("red").font_size(14);
     a->color("blue");
 
-    wait();
+    show();
     return 0;
 }

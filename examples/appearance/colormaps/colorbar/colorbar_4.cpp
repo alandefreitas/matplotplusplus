@@ -14,6 +14,6 @@ int main() {
     mesh(x, y, z);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

@@ -22,6 +22,6 @@ int main() {
 
     zlim(automatic);
 
-    wait();
+    show();
     return 0;
 }

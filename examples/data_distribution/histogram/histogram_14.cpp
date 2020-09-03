@@ -347,6 +347,6 @@ int main() {
     //    save("distributions.gif");
     //    save("distributions.jpg");
 
-    wait();
+    show();
     return 0;
 }

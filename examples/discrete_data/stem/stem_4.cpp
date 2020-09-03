@@ -13,6 +13,6 @@ int main() {
     hold(on);
     stem(x2, y2);
 
-    wait();
+    show();
     return 0;
 }

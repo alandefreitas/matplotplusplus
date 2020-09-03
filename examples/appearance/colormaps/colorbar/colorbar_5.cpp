@@ -14,6 +14,6 @@ int main() {
         .tick_values({-5, -2, 1, 4, 7})
         .ticklabels({"Cold", "Cool", "Neutral", "Warm", "Hot"});
 
-    wait();
+    show();
     return 0;
 }

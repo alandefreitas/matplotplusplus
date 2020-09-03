@@ -8,6 +8,6 @@ int main() {
     zlim({-10, 10});
     zticks(iota(-10, 2, 10));
 
-    wait();
+    show();
     return 0;
 }

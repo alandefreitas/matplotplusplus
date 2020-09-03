@@ -8,6 +8,6 @@ int main() {
     std::vector<double> y = transform(x, [](auto x) { return pow(2, x); });
     loglog(x, y);
 
-    wait();
+    show();
     return 0;
 }

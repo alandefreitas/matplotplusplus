@@ -9,6 +9,6 @@ int main() {
     double size = 10;
     polarscatter(theta, rho, size, "filled");
 
-    wait();
+    show();
     return 0;
 }

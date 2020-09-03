@@ -14,6 +14,6 @@ int main() {
     auto ax = gca();
     ax->box_full(true);
 
-    wait();
+    show();
     return 0;
 }

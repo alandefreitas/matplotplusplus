@@ -14,6 +14,6 @@ int main() {
 
     geodensityplot(lat, lon);
 
-    wait();
+    show();
     return 0;
 }

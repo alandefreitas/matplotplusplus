@@ -10,6 +10,6 @@ int main() {
     yticks(ticks);
     xlabel("min");
 
-    wait();
+    show();
     return 0;
 }

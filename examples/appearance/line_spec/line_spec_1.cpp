@@ -12,6 +12,6 @@ int main() {
     fplot("sin(x-pi/2)", "--mo");
     fplot("sin(x-pi)", ":bs");
 
-    wait();
+    show();
     return 0;
 }

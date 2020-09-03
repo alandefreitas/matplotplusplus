@@ -9,6 +9,6 @@ int main() {
         {2, 2, 2, 2}, {2, 5, 8, 11}, {3, 6, 9, 12}};
     barstacked(Y);
 
-    wait();
+    show();
     return 0;
 }

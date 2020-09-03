@@ -11,6 +11,6 @@ int main() {
     binscatter(x, y, 20, 30, bin_scatter_style::heatmap);
     axis(tight);
 
-    wait();
+    show();
     return 0;
 }

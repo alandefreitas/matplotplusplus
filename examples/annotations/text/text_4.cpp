@@ -7,6 +7,6 @@ int main() {
     plot(iota(1, 10));
     text(2, 7, "A simple plot\\nfrom 1 to 10");
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
 
     bar(y)->face_color({0, .5, .5}).edge_color({0, .9, .9}).line_width(1.5);
 
-    wait();
+    show();
     return 0;
 }

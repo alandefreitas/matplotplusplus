@@ -11,6 +11,6 @@ int main() {
     auto l = scatter(x, y, 6, c);
     l->marker_face(true);
 
-    wait();
+    show();
     return 0;
 }

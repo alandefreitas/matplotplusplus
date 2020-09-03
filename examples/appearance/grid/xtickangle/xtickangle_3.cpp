@@ -9,6 +9,6 @@ int main() {
 
     std::cout << "xtickangle(): " << xtickangle() << std::endl;
 
-    wait();
+    show();
     return 0;
 }

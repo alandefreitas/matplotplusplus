@@ -9,6 +9,6 @@ int main() {
     };
     fcontour(rosenbrock)->n_levels(10).filled(true);
 
-    wait();
+    show();
     return 0;
 }

@@ -14,6 +14,6 @@ int main() {
     };
     auto s = polarscatter(theta, rho, sizes, colors, "filled");
 
-    wait();
+    show();
     return 0;
 }

@@ -5,6 +5,6 @@ int main() {
     auto image = imread("lena_color.tiff");
     imshow(image);
 
-    wait();
+    show();
     return 0;
 }

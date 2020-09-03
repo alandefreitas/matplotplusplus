@@ -32,6 +32,6 @@ int main() {
     subplot(3, 3, 8);
     surf(x, y, z)->lighting(true).primary(1.0).specular(1.0);
 
-    wait();
+    show();
     return 0;
 }

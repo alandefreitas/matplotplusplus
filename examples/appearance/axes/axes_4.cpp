@@ -9,6 +9,6 @@ int main() {
 
     gca();
 
-    wait();
+    show();
     return 0;
 }

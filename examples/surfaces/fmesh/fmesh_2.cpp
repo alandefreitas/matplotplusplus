@@ -10,6 +10,6 @@ int main() {
     auto funz = [r](double u, double v) { return r(u, v) * cos(v); };
     fmesh(funx, funy, funz, std::array<double, 4>{0, 2 * pi, 0, pi});
 
-    wait();
+    show();
     return 0;
 }

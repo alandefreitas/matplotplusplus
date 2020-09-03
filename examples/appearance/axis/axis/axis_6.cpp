@@ -8,6 +8,6 @@ int main() {
     colormap(palette::summer());
     axis(ij);
 
-    wait();
+    show();
     return 0;
 }

@@ -15,6 +15,6 @@ int main() {
     fsurf(ackley);
     rotate(20, 30);
 
-    wait();
+    show();
     return 0;
 }

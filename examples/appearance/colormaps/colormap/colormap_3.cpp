@@ -8,6 +8,6 @@ int main() {
     colormap(palette::summer());
     colormap(palette::default_map());
 
-    wait();
+    show();
     return 0;
 }

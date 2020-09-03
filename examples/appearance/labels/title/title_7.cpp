@@ -7,6 +7,6 @@ int main() {
     title("X_1");
     gca()->title_enhanced(false);
 
-    wait();
+    show();
     return 0;
 }

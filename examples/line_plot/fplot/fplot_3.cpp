@@ -10,6 +10,6 @@ int main() {
     hold(off);
     grid(on);
 
-    wait();
+    show();
     return 0;
 }

@@ -8,6 +8,6 @@ int main() {
         X, Y, [](double x, double y) { return y * sin(x) - x * cos(y); });
     fence(X, Y, Z)->edge_color("b").face_alpha(0.5);
 
-    wait();
+    show();
     return 0;
 }

@@ -9,6 +9,6 @@ int main() {
 
     stem(x, y, ":dr");
 
-    wait();
+    show();
     return 0;
 }

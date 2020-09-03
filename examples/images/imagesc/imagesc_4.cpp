@@ -8,6 +8,6 @@ int main() {
     gca()->color_box_range(4, 18);
     im->alpha(0.5);
 
-    wait();
+    show();
     return 0;
 }

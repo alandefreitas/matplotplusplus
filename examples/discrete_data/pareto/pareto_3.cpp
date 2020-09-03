@@ -12,6 +12,6 @@ int main() {
     pareto(votes, pies, 1.0);
     ylabel("Votes");
 
-    wait();
+    show();
     return 0;
 }

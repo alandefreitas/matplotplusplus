@@ -13,6 +13,6 @@ int main() {
     p2[0]->use_y2(true);
     p2[1]->use_y2(true);
 
-    wait();
+    show();
     return 0;
 }

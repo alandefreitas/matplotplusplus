@@ -9,6 +9,6 @@ int main() {
     yticks({0, 50, 100});
     yticklabels({"y=0", "y=50", "y=100"});
 
-    wait();
+    show();
     return 0;
 }

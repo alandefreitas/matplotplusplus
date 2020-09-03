@@ -11,6 +11,6 @@ int main() {
     auto colors = X[2];
     parallelplot(X, colors);
 
-    wait();
+    show();
     return 0;
 }

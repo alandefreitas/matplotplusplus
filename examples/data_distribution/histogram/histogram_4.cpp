@@ -19,6 +19,6 @@ int main() {
         ++e_it;
     }
 
-    wait();
+    show();
     return 0;
 }

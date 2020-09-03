@@ -11,6 +11,6 @@ int main() {
     auto h = polarhistogram(theta, 25);
     h->stairs_only(true);
 
-    wait();
+    show();
     return 0;
 }

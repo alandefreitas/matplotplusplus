@@ -15,6 +15,6 @@ int main() {
 
     subplot(2, 2, 1, true);
 
-    wait();
+    show();
     return 0;
 }

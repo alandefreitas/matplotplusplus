@@ -8,6 +8,6 @@ int main() {
     std::vector<double> y = {10, 23, 7, 16, 3};
     pareto(y);
 
-    wait();
+    show();
     return 0;
 }

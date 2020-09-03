@@ -14,6 +14,6 @@ int main() {
     fplot3(sin_t, cos_t, t_t, std::array<double, 2>{4 * pi, 6 * pi}, "-.*c");
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

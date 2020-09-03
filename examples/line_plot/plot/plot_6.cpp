@@ -16,6 +16,6 @@ int main() {
         .marker_color("b")
         .marker_face_color({.5, .5, .5});
 
-    wait();
+    show();
     return 0;
 }

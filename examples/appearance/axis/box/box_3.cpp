@@ -16,6 +16,6 @@ int main() {
     plot(ax2, iota(1, 10));
     box(ax2, off);
 
-    wait();
+    show();
     return 0;
 }

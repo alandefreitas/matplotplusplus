@@ -18,6 +18,6 @@ int main() {
     title("Second subplot");
     axis({0, 50, -1, 1});
 
-    wait();
+    show();
     return 0;
 }

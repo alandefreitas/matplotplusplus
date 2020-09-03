@@ -7,6 +7,6 @@ int main() {
     yticks({0, 5, 10});
     yticks(automatic);
 
-    wait();
+    show();
     return 0;
 }

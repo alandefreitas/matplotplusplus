@@ -16,6 +16,6 @@ int main() {
     auto l = legend("Series A", "Series B");
     l->location(legend::general_alignment::topright);
 
-    wait();
+    show();
     return 0;
 }

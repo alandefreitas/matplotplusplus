@@ -8,7 +8,7 @@ int main() {
     auto edges = get_edges();
     graph(edges, "-.dr")->show_labels(false);
 
-    wait();
+    show();
     return 0;
 }
 

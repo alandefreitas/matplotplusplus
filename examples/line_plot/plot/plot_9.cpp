@@ -19,6 +19,6 @@ int main() {
     title(ax2, "Bottom Plot");
     ylabel(ax2, "sin(15x)");
 
-    wait();
+    show();
     return 0;
 }

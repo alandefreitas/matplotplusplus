@@ -15,6 +15,6 @@ int main() {
     quiver(x, y, dx, dy);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

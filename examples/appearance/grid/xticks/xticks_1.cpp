@@ -9,6 +9,6 @@ int main() {
     xticks({0, 5, 10});
     xticklabels({"x=0", "x=5", "x=10"});
 
-    wait();
+    show();
     return 0;
 }

@@ -14,6 +14,6 @@ int main() {
     colorbar(ax1, off);
     surf(ax2, X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

@@ -19,6 +19,6 @@ int main() {
     plot(ax2, x, y);
     ylim(ax2, {-10, 10});
 
-    wait();
+    show();
     return 0;
 }

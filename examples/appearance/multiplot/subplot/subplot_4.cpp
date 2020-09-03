@@ -15,6 +15,6 @@ int main() {
     subplot(2, 2, 1, true);
     fplot("sin(x)");
     title("sin(x)");
-    wait();
+    show();
     return 0;
 }

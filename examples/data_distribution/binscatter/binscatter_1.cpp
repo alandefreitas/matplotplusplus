@@ -22,6 +22,6 @@ int main() {
     axis(tight);
     title(ax2, "Binned Scatter plot (n=1000000)");
 
-    wait();
+    show();
     return 0;
 }

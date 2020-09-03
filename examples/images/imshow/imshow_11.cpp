@@ -9,6 +9,6 @@ int main() {
 
     imwrite(image[0], palette::blues(), "lena_blues.tiff");
 
-    wait();
+    show();
     return 0;
 }

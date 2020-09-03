@@ -15,6 +15,6 @@ int main() {
     ax1->font_size(15);
     ax2->line_width(2);
 
-    wait();
+    show();
     return 0;
 }

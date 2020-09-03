@@ -13,6 +13,6 @@ int main() {
     fsurf(funx, funy, funz, {-5, 5, -2, +2})->edge_color("none");
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

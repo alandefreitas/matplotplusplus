@@ -10,6 +10,6 @@ int main() {
     grid(on);
     ztickformat("%g cm");
 
-    wait();
+    show();
     return 0;
 }

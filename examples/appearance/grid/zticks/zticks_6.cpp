@@ -8,6 +8,6 @@ int main() {
     zticks({});
     box(off);
 
-    wait();
+    show();
     return 0;
 }

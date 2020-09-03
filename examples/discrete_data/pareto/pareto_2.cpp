@@ -12,6 +12,6 @@ int main() {
     pareto(codelines, coders);
     title("Lines of Code by Programmer");
 
-    wait();
+    show();
     return 0;
 }

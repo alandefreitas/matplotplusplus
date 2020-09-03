@@ -10,6 +10,6 @@ int main() {
         ->line_width(2);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

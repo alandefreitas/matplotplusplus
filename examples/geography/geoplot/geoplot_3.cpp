@@ -11,6 +11,6 @@ int main() {
         .marker_colors(iota(1, names.size()));
     text(lon, lat, names);
 
-    wait();
+    show();
     return 0;
 }

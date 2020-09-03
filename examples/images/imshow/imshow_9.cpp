@@ -6,6 +6,6 @@ int main() {
     image = imresize(image, 0.1, image_interpolation::bilinear);
     imshow(image);
 
-    wait();
+    show();
     return 0;
 }

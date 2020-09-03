@@ -10,6 +10,6 @@ int main() {
     std::vector<double> th_radians = deg2rad(theta);
     auto s = polarscatter(th_radians, rho);
 
-    wait();
+    show();
     return 0;
 }

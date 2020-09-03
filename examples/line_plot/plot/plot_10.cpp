@@ -11,6 +11,6 @@ int main() {
     p[0]->line_width(2);
     p[1]->marker(line_spec::marker_style::asterisk);
 
-    wait();
+    show();
     return 0;
 }

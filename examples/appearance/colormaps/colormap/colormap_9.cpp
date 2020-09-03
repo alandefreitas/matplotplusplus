@@ -11,6 +11,6 @@ int main() {
     colorbar();
     caxis({20, 50});
 
-    wait();
+    show();
     return 0;
 }

@@ -11,6 +11,6 @@ int main() {
         transform(X, Y, [](double x, double y) { return sin(x) + cos(y); });
     contourf(X, Y, Z, 10);
 
-    wait();
+    show();
     return 0;
 }

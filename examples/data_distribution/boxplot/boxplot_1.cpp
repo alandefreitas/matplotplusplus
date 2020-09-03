@@ -20,6 +20,6 @@ int main() {
     ylabel("Miles per Gallon (MPG)");
     title("Miles per Gallon for All Vehicles");
 
-    wait();
+    show();
     return 0;
 }

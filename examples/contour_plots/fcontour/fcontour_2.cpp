@@ -13,6 +13,6 @@ int main() {
     axis({-5, +5, -5, +5});
     grid(on);
 
-    wait();
+    show();
     return 0;
 }

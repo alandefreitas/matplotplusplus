@@ -15,6 +15,6 @@ int main() {
 
     hist(x, edges)->normalization(histogram::normalization::count_density);
 
-    wait();
+    show();
     return 0;
 }

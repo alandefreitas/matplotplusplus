@@ -9,6 +9,6 @@ int main() {
     plot(x, y);
     text(pi, 0, "← sin(π)");
 
-    wait();
+    show();
     return 0;
 }

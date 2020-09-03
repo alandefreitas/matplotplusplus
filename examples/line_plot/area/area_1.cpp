@@ -17,6 +17,6 @@ int main() {
     area(Y, false);
     title("Not stacked");
 
-    wait();
+    show();
     return 0;
 }

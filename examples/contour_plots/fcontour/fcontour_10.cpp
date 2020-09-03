@@ -9,6 +9,6 @@ int main() {
     };
     fcontour(ackley)->n_levels(50).filled(true);
 
-    wait();
+    show();
     return 0;
 }

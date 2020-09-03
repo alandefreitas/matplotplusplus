@@ -7,6 +7,6 @@ int main() {
     imagesc(5, 8, 3, 6, C);
     gca()->color_box_range(4, 18);
 
-    wait();
+    show();
     return 0;
 }

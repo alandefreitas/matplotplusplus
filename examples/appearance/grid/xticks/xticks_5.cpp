@@ -10,6 +10,6 @@ int main() {
     xticks(ticks);
     xlabel("min");
 
-    wait();
+    show();
     return 0;
 }

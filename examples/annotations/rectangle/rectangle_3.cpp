@@ -9,6 +9,6 @@ int main() {
     r2->color("red");
     axis(equal);
 
-    wait();
+    show();
     return 0;
 }

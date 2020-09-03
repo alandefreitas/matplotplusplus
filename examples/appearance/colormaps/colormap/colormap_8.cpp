@@ -14,6 +14,6 @@ int main() {
     contourf(x, y, z);
     colormap(ax2, palette::pink());
 
-    wait();
+    show();
     return 0;
 }

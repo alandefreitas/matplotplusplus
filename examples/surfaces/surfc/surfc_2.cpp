@@ -8,6 +8,6 @@ int main() {
         transform(X, Y, [](double x, double y) { return sin(x) + cos(y); });
     auto s = surfc(X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

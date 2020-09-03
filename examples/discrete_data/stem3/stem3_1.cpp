@@ -7,6 +7,6 @@ int main() {
     auto z = transform(x, [](auto x) { return cos(x); });
     stem3(z);
 
-    wait();
+    show();
     return 0;
 }

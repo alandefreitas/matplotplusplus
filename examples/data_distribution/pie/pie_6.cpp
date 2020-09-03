@@ -10,6 +10,6 @@ int main() {
 
     pie(x, explode, labels);
 
-    wait();
+    show();
     return 0;
 }

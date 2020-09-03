@@ -16,6 +16,6 @@ int main() {
     auto lgd = legend("cos(x)", "cos(2x)");
     title(lgd, "My legend title");
 
-    wait();
+    show();
     return 0;
 }

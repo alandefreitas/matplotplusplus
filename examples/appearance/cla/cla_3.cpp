@@ -13,6 +13,6 @@ int main() {
     axis({0, 5, -2, 2});
     cla();
 
-    wait();
+    show();
     return 0;
 }

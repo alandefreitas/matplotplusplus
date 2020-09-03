@@ -11,6 +11,6 @@ int main() {
     mesh(x, y, z);
     colormap(palette::parula(5));
 
-    wait();
+    show();
     return 0;
 }

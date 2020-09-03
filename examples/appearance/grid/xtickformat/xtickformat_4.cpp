@@ -9,6 +9,6 @@ int main() {
     scatter(x, y);
     xtickformat("%.2f");
 
-    wait();
+    show();
     return 0;
 }

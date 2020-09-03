@@ -14,6 +14,6 @@ int main() {
     auto l = scatter(x, y, sz);
     l->marker_style(line_spec::marker_style::diamond);
 
-    wait();
+    show();
     return 0;
 }

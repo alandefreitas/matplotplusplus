@@ -9,6 +9,6 @@ int main() {
     fsurf([](double x, double y) { return sin(x) + cos(y); }, {0, 5}, {-5, 5});
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

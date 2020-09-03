@@ -9,6 +9,6 @@ int main() {
     waterfall(X, Y, Z, FX);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

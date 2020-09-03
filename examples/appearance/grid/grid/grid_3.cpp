@@ -9,6 +9,6 @@ int main() {
     grid(on);
     gca()->minor_grid(true);
 
-    wait();
+    show();
     return 0;
 }

@@ -14,6 +14,6 @@ int main() {
     fplot("cos(x)");
     title("Second Subplot");
 
-    wait();
+    show();
     return 0;
 }

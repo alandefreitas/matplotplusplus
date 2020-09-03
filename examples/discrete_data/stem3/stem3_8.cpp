@@ -11,6 +11,6 @@ int main() {
 
     stem3(x, y, z, ":*m");
 
-    wait();
+    show();
     return 0;
 }

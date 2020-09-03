@@ -15,6 +15,6 @@ int main() {
     H[2]->face_color("g");
     axs[0][1]->title("A Comparison of Data Sets");
 
-    wait();
+    show();
     return 0;
 }

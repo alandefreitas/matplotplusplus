@@ -13,6 +13,6 @@ int main() {
     auto funz = [](double u, double v) { return u; };
     fsurf(funx, funy, funz, std::array<double, 2>{-30., +30.})->face_alpha(.5);
 
-    wait();
+    show();
     return 0;
 }

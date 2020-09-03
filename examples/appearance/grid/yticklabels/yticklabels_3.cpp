@@ -11,6 +11,6 @@ int main() {
     yticks(automatic);
     yticklabels(automatic);
 
-    wait();
+    show();
     return 0;
 }

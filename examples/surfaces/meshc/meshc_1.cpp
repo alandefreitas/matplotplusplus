@@ -7,6 +7,6 @@ int main() {
     auto Z = peaks(X, Y);
     meshc(X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

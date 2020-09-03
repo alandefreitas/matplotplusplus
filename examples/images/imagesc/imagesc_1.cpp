@@ -7,6 +7,6 @@ int main() {
     imagesc(C);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

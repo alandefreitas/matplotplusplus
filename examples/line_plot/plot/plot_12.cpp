@@ -7,6 +7,6 @@ int main() {
     std::vector<int> y = {2, 4, 7, 7, 6, 3, 9, 7, 3, 5};
     plot(y);
 
-    wait();
+    show();
     return 0;
 }

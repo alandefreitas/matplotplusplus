@@ -7,6 +7,6 @@ int main() {
     auto [X, Y, Z] = peaks();
     contourf(X, Y, Z, {2});
 
-    wait();
+    show();
     return 0;
 }

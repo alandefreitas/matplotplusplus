@@ -6,6 +6,6 @@ int main() {
     plot(x);
     title("Case number # 3", "m");
 
-    wait();
+    show();
     return 0;
 }

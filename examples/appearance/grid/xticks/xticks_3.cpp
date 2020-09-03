@@ -8,6 +8,6 @@ int main() {
     plot(x, y);
     xticks(iota(0, 10, 50));
 
-    wait();
+    show();
     return 0;
 }

@@ -12,6 +12,6 @@ int main() {
     g->node_labels(
         {"{0}", "{x}", "{y}", "{z}", "{x,y}", "{x,z}", "{y,z}", "{x,y,z}"});
 
-    wait();
+    show();
     return 0;
 }

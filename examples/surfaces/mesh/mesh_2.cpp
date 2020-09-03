@@ -12,6 +12,6 @@ int main() {
     auto C = transform(X, Y, [](double x, double y) { return x * y; });
     mesh(X, Y, Z, C);
 
-    wait();
+    show();
     return 0;
 }

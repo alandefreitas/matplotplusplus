@@ -11,6 +11,6 @@ int main() {
     zticks(iota(0, 8, 40));
     zticks(automatic);
 
-    wait();
+    show();
     return 0;
 }

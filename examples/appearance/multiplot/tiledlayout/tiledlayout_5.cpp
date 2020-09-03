@@ -22,6 +22,6 @@ int main() {
 
     sgtitle("Size vs. Distance");
 
-    wait();
+    show();
     return 0;
 }

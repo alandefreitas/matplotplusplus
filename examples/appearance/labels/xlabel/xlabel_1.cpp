@@ -6,6 +6,6 @@ int main() {
     plot(x);
     xlabel("Population");
 
-    wait();
+    show();
     return 0;
 }

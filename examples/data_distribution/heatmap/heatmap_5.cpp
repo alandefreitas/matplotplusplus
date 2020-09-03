@@ -22,6 +22,6 @@ int main() {
     ax->width(w * 0.85);
     ax->x_origin(ax->x_origin() + w * 0.1);
 
-    wait();
+    show();
     return 0;
 }

@@ -20,6 +20,6 @@ int main() {
     };
     fplot(f, std::array<double, 2>{-5, 15})->line_width(1.5);
 
-    wait();
+    show();
     return 0;
 }

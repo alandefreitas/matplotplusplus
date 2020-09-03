@@ -9,6 +9,6 @@ int main() {
     bar(y);
     gca()->x_axis().ticklabels({"Small", "Medium", "Large", "Extra Large"});
 
-    wait();
+    show();
     return 0;
 }

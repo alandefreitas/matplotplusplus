@@ -17,6 +17,6 @@ int main() {
     pie(ax2, y2011);
     title("2011");
 
-    wait();
+    show();
     return 0;
 }

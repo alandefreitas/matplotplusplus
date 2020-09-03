@@ -14,6 +14,6 @@ int main() {
     std::string str = "dy/dx = 0";
     text(xt, yt, str);
 
-    wait();
+    show();
     return 0;
 }

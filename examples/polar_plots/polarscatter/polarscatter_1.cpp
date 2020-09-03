@@ -8,6 +8,6 @@ int main() {
     std::vector<double> rho = {19, 6, 12, 18, 16, 11, 15, 15};
     polarscatter(theta, rho);
 
-    wait();
+    show();
     return 0;
 }

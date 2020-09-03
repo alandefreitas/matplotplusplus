@@ -10,6 +10,6 @@ int main() {
         r1, r2, [](double x, double y) { return atan2(x - .5, 2 * (y - .5)); });
     polarhistogram(theta, 25);
 
-    wait();
+    show();
     return 0;
 }

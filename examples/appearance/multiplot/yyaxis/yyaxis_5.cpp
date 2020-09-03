@@ -23,6 +23,6 @@ int main() {
 
     legend();
 
-    wait();
+    show();
     return 0;
 }

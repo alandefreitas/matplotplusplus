@@ -12,6 +12,6 @@ int main() {
     colorbar(on);
     colorbar(off);
 
-    wait();
+    show();
     return 0;
 }

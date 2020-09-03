@@ -12,6 +12,6 @@ int main() {
     scatter(iota(1, 10), rand(10, 0, 1))->marker_face(true);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

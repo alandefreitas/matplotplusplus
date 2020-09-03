@@ -10,6 +10,6 @@ int main() {
 
     auto e = errorbar(x, y, err)->cap_size(18);
 
-    wait();
+    show();
     return 0;
 }

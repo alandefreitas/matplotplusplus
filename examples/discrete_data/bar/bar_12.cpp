@@ -11,6 +11,6 @@ int main() {
     bar(std::vector<double>{2}, rand(1, 0, 1));
     gca()->x_axis().tick_values(iota(1, 10));
 
-    wait();
+    show();
     return 0;
 }

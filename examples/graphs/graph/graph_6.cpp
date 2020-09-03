@@ -13,6 +13,6 @@ int main() {
     std::vector<double> weights = {4, 4, 2, 1, 1, 4, 2, 1, 3, 3, 2, 4, 1};
     graph(edges)->edge_labels(weights);
 
-    wait();
+    show();
     return 0;
 }

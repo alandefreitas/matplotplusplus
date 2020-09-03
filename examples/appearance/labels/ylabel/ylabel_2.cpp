@@ -6,6 +6,6 @@ int main() {
     plot(x);
     ylabel("2010 Population\\nin Years");
 
-    wait();
+    show();
     return 0;
 }

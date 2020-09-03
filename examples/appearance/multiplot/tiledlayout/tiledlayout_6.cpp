@@ -11,6 +11,6 @@ int main() {
     nexttile();
     bar(std::vector<double>{10, 22, 31, 43, 52});
 
-    wait();
+    show();
     return 0;
 }

@@ -11,6 +11,6 @@ int main() {
     xlabel("x");
     ylabel("5+3 sin(x)");
 
-    wait();
+    show();
     return 0;
 }

@@ -12,6 +12,6 @@ int main() {
     h->face_color("red");
     h->face_alpha(1. - 0.3);
 
-    wait();
+    show();
     return 0;
 }

@@ -12,6 +12,6 @@ int main() {
     plot(x, transform(x, [](auto x) { return x / pi - 1.; }), "-:gs");
     plot({1.0, 0.7, 0.4, 0.0, -0.4, -0.7, -1}, "k");
 
-    wait();
+    show();
     return 0;
 }

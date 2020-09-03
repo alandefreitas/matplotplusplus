@@ -11,6 +11,6 @@ int main() {
     ps->marker_size(20);
     ps->marker_color({0.5, 1, 0, 0});
 
-    wait();
+    show();
     return 0;
 }

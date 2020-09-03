@@ -10,6 +10,6 @@ int main() {
     std::vector<double> theta_radians = deg2rad(theta_degrees);
     polarplot(theta_radians, rho);
 
-    wait();
+    show();
     return 0;
 }

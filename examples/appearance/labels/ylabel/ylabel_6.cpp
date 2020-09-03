@@ -10,6 +10,6 @@ int main() {
     ax->y_axis().label_weight("bold");
     ax->y_axis().label_color({0, 1, 0, 0});
 
-    wait();
+    show();
     return 0;
 }

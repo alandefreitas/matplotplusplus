@@ -9,6 +9,6 @@ int main() {
     line(3, 3, 3, 4);
     arrow(3, 4, 4, 4);
 
-    wait();
+    show();
     return 0;
 }

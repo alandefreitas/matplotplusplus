@@ -8,6 +8,6 @@ int main() {
     xlabel("Population");
     gca()->x_axis().label_color("red");
 
-    wait();
+    show();
     return 0;
 }

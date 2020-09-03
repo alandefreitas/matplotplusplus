@@ -8,6 +8,6 @@ int main() {
     plot(x, y, "-V");
     ytickformat("%g M");
 
-    wait();
+    show();
     return 0;
 }

@@ -11,6 +11,6 @@ int main() {
         {14, 15}, {14, 16}, {14, 17}, {14, 18}, {14, 19}};
     digraph(edges);
 
-    wait();
+    show();
     return 0;
 }

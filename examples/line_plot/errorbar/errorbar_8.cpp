@@ -13,6 +13,6 @@ int main() {
                  .marker_color("red")
                  .marker_face_color("red");
 
-    wait();
+    show();
     return 0;
 }

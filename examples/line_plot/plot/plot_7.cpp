@@ -11,6 +11,6 @@ int main() {
     xlabel("x");
     ylabel("cos(5x)");
 
-    wait();
+    show();
     return 0;
 }

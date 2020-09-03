@@ -16,6 +16,6 @@ int main() {
     p->axis()[1].tick_values({0, 1});
     p->axis()[1].ticklabels({"false", "true"});
 
-    wait();
+    show();
     return 0;
 }

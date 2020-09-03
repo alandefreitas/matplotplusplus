@@ -12,6 +12,6 @@ int main() {
     vectors_handle l = std::make_shared<class vectors>(ax2, x, y);
     ax2->emplace_object(l);
 
-    wait();
+    show();
     return 0;
 }

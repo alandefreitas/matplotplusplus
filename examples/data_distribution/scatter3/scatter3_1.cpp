@@ -11,7 +11,7 @@ int main() {
     auto [x, y, z] = generate_data();
     scatter3(x, y, z);
 
-    wait();
+    show();
     return 0;
 }
 

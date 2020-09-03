@@ -8,6 +8,6 @@ int main() {
         return sin(x) + cos(y);
     })->levels({-1, 0, +1});
 
-    wait();
+    show();
     return 0;
 }

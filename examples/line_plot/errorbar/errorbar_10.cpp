@@ -12,6 +12,6 @@ int main() {
         errorbar(x, y, err)->cap_size(15).marker("*").marker_size(10).color(
             "red");
 
-    wait();
+    show();
     return 0;
 }

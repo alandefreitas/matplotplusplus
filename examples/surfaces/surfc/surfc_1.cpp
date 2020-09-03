@@ -10,6 +10,6 @@ int main() {
     });
     surfc(X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

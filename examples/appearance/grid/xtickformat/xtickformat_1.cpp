@@ -8,6 +8,6 @@ int main() {
     bar(x, y);
     xtickformat("usd");
 
-    wait();
+    show();
     return 0;
 }

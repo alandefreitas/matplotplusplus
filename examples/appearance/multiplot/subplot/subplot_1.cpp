@@ -9,6 +9,6 @@ int main() {
     subplot(2, 1, 1);
     fplot("sin(5*x)");
 
-    wait();
+    show();
     return 0;
 }

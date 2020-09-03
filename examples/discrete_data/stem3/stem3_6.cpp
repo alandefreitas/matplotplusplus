@@ -8,6 +8,6 @@ int main() {
 
     stem3(z, "filled");
 
-    wait();
+    show();
     return 0;
 }

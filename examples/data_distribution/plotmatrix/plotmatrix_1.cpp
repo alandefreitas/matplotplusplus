@@ -11,6 +11,6 @@ int main() {
                                           iota(101, 150)};
     plotmatrix(X, Y);
 
-    wait();
+    show();
     return 0;
 }

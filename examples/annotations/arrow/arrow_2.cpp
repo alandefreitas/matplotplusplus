@@ -9,6 +9,6 @@ int main() {
     a->color("blue");
     a->line_width(4);
 
-    wait();
+    show();
     return 0;
 }

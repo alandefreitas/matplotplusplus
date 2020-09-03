@@ -10,6 +10,6 @@ int main() {
     fplot("sin(x)", "-o");
     axis({0, 2 * pi, -1.15, 1.5});
 
-    wait();
+    show();
     return 0;
 }

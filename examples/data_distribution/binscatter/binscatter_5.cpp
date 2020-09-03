@@ -42,6 +42,6 @@ int main() {
 
     f->draw();
 
-    wait();
+    show();
     return 0;
 }

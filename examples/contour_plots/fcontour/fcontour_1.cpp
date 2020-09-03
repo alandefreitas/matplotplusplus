@@ -6,6 +6,6 @@ int main() {
     auto f = [](double x, double y) { return sin(x) + cos(y); };
     fcontour(f);
 
-    wait();
+    show();
     return 0;
 }

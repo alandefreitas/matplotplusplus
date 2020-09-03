@@ -21,6 +21,6 @@ int main() {
     l->location(legend::general_alignment::topleft);
     l->num_rows(2);
 
-    wait();
+    show();
     return 0;
 }
