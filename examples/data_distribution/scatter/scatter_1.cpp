@@ -9,6 +9,6 @@ int main() {
 
     scatter(x, y);
 
-    wait();
+    show();
     return 0;
 }

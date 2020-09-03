@@ -16,6 +16,6 @@ int main() {
         plot(x, y)->line_width(15);
     }
 
-    wait();
+    show();
     return 0;
 }

@@ -22,6 +22,6 @@ int main() {
     p->axis()[3].tick_values({1, 2, 3});
     p->axis()[3].ticklabels({"low", "medium", "high"});
 
-    wait();
+    show();
     return 0;
 }

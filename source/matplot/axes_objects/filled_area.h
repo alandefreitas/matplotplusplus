@@ -8,17 +8,17 @@
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     class filled_area : public line {
       public:
         enum class type { vertical, horizontal, both };
 
       public:
-        explicit filled_area(class axes *parent);
+        explicit filled_area(class axes_type *parent);
 
         /// Construct with x and y error
-        filled_area(class axes *parent, const std::vector<double> &x,
+        filled_area(class axes_type *parent, const std::vector<double> &x,
                     const std::vector<double> &y,
                     const std::vector<double> &base_values = {0.},
                     bool stacked = true, const std::string &line_spec = "k-");

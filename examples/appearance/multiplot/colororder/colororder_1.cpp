@@ -22,6 +22,6 @@ int main() {
     plot(x, y4)->line_width(2);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

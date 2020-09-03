@@ -5,20 +5,20 @@
 #ifndef MATPLOTPLUSPLUS_CIRCLES_H
 #define MATPLOTPLUSPLUS_CIRCLES_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class circles : public axes_object {
       public:
-        explicit circles(class axes *parent);
-        circles(class axes *parent, const std::vector<double> &x,
+        explicit circles(class axes_type *parent);
+        circles(class axes_type *parent, const std::vector<double> &x,
                 const std::vector<double> &y,
                 const std::vector<double> &radius = {},
                 const std::vector<double> &start_angle = {},

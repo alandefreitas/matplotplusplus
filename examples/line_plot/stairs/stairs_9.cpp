@@ -13,6 +13,6 @@ int main() {
     h[0]->marker(line_spec::marker_style::circle).marker_size(4);
     h[1]->marker(line_spec::marker_style::circle).marker_face_color("m");
 
-    wait();
+    show();
     return 0;
 }

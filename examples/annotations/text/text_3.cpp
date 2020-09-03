@@ -14,6 +14,6 @@ int main() {
     std::vector<std::string> str = {"local max", "local min"};
     text(xt, yt, str);
 
-    wait();
+    show();
     return 0;
 }

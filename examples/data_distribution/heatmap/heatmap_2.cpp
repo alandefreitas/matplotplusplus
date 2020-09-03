@@ -13,6 +13,6 @@ int main() {
     xlabel(ax, "Smoker");
     ylabel(ax, "SelfAssessedHealthStatus");
 
-    wait();
+    show();
     return 0;
 }

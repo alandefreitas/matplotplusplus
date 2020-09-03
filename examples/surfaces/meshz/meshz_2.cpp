@@ -9,6 +9,6 @@ int main() {
     meshz(X, Y, Z, FX);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

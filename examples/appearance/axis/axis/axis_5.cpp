@@ -11,6 +11,6 @@ int main() {
     surf(X, Y, Z);
     axis(tight);
 
-    wait();
+    show();
     return 0;
 }

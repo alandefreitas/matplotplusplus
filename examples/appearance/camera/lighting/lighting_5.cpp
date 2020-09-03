@@ -6,6 +6,6 @@ int main() {
     auto [x, y, z] = peaks();
     surf(x, y, z)->lighting(true).specular(0.8);
 
-    wait();
+    show();
     return 0;
 }

@@ -4,6 +4,6 @@ int main() {
     using namespace matplot;
     imshow("lena_color.tiff");
 
-    wait();
+    show();
     return 0;
 }

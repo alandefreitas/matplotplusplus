@@ -6,6 +6,6 @@ int main() {
     auto [X, Y, Z] = peaks();
     contourf(X, Y, Z, "--");
 
-    wait();
+    show();
     return 0;
 }

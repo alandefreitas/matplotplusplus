@@ -9,6 +9,6 @@ int main() {
     legend("Line 1", "Line 2");
     ls[2]->display_name("Line 3");
 
-    wait();
+    show();
     return 0;
 }

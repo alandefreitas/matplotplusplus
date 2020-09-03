@@ -10,6 +10,6 @@ int main() {
     fp->marker("x");
     fp->marker_color("b");
 
-    wait();
+    show();
     return 0;
 }

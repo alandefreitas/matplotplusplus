@@ -10,6 +10,6 @@ int main() {
           "x--b")
         ->line_width(2);
 
-    wait();
+    show();
     return 0;
 }

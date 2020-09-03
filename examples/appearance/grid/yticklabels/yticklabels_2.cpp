@@ -8,6 +8,6 @@ int main() {
     yticks({1, 4, 6, 10});
     yticklabels({"A", "B", "C", "D"});
 
-    wait();
+    show();
     return 0;
 }

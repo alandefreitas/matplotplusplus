@@ -22,6 +22,6 @@ int main() {
     nexttile();
     plot3(x, y, z);
 
-    wait();
+    show();
     return 0;
 }

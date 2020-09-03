@@ -28,7 +28,7 @@ namespace matplot::backend {
         void position_y(unsigned int new_position_y) override;
         void width(unsigned int new_width) override;
         void height(unsigned int new_height) override;
-        void new_frame() override;
+        bool new_frame() override;
         bool render_data() override;
         bool supports_fonts() override;
 

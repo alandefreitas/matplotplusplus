@@ -8,6 +8,6 @@ int main() {
         transform(X, Y, [](double x, double y) { return sin(x) + cos(y); });
     surf(X, Y, Z)->edge_color("none").lighting(true);
 
-    wait();
+    show();
     return 0;
 }

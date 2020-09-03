@@ -10,6 +10,6 @@ int main() {
     plot(rand(3, 3, 0, 1));
     xticks({1, 2, 3});
 
-    wait();
+    show();
     return 0;
 }

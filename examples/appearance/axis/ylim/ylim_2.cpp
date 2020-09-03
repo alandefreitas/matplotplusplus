@@ -11,6 +11,6 @@ int main() {
     surf(X, Y, Z);
     ylim({0, inf});
 
-    wait();
+    show();
     return 0;
 }

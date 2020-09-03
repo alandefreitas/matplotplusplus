@@ -8,6 +8,6 @@ int main() {
     colormap(palette::parula());
     colorbar().tick_values({});
 
-    wait();
+    show();
     return 0;
 }

@@ -17,6 +17,6 @@ int main() {
     l->marker_face(true);
     l->marker_style(line_spec::marker_style::diamond);
 
-    wait();
+    show();
     return 0;
 }

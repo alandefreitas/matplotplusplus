@@ -10,6 +10,6 @@ int main() {
 
     scatter(x, y, std::vector<double>{}, c);
 
-    wait();
+    show();
     return 0;
 }

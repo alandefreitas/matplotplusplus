@@ -7,6 +7,6 @@ int main() {
     xticks({0, 4, 6, 10});
     xticks(automatic);
 
-    wait();
+    show();
     return 0;
 }

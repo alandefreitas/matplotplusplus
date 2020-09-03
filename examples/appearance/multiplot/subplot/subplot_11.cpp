@@ -13,6 +13,6 @@ int main() {
     bar(y);
     title("Second Subplot");
 
-    wait();
+    show();
     return 0;
 }

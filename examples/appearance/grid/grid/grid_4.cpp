@@ -15,6 +15,6 @@ int main() {
     plot(ax2, x, y2);
     grid(ax2, on);
 
-    wait();
+    show();
     return 0;
 }

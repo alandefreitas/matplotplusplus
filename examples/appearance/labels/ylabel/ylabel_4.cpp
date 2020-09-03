@@ -7,6 +7,6 @@ int main() {
     int year = 2014;
     ylabel("Population for Year " + num2str(year));
 
-    wait();
+    show();
     return 0;
 }

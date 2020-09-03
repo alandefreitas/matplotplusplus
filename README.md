@@ -1451,7 +1451,7 @@ There's an extra target `matplot_opengl` that exemplifies how an OpenGL backend 
 
 ### Backends
 
-Coming up with new backends is a continuous process. See the complete [article](documentation/README.md) for a description of the [backend interface](source/matplot/backend/backend_interface.h), a description of the current default backend ([Gnuplot pipe](source/matplot/backend/gnuplot.h)), and what's involved in possible [new backends](documentation/README.md#backends). See the directory [`source/matplot/backend`](source/matplot/backend) for some examples. Also, have a look at this example [`test/backends/main.cpp`](test/backends/main.cpp). 
+Coming up with new backends is a continuous process. See the complete [article](documentation/README.md) for a description of the [backend interface](source/matplot/backend/backend_interface.h), a description of the current default backend ([Gnuplot pipe](source/matplot/backend/gnuplot.h)), and what's involved in possible [new backends](documentation/README.md#backends). See the directory [`source/matplot/backend`](source/matplot/backend) for some examples. Also, have a look at this example [`test/backends/main.cpp`](test/backends/ogl_main.cpp). 
 
 If you're in a hurry, here is a summary of the backends we have and the backends we have been considering or working on:
 

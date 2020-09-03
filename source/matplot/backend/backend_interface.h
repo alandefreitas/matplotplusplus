@@ -10,6 +10,7 @@
 #include <vector>
 
 namespace matplot {
+    class figure_type;
     namespace backend {
         /// Inherit from this class to create a new backend
         /// - Interactive backends show the plots on a window
@@ -101,8 +102,17 @@ namespace matplot {
             /// \brief Set position_y (for interactive backends)
             virtual void position_y(unsigned int new_position_y);
 
+            /// \brief Set window title
+            virtual void window_title(const std::string& title);
+
+            /// \brief Get window title
+            virtual std::string window_title();
+
             /// \brief Tell the backend we are about to draw a new image
-            virtual void new_frame();
+            /// The backend might reject starting this new image
+            /// For instance, the user already closed the window
+            /// and there's no point in feeding commands to the backend
+            virtual bool new_frame();
 
             /// \brief Tell the backend this new image is over
             /// The backend is free to plot whatever it's been
@@ -113,7 +123,12 @@ namespace matplot {
             /// \brief Tell the backend to wait for user interaction
             /// Until then, the backend should block execution if possible
             /// Figures use this in the show function
-            virtual void wait();
+            virtual void show(matplot::figure_type *);
+
+            /// \brief True if the user requested to close the window
+            /// This function allows the backend to send a signal
+            /// indicating the user has asked to close the window
+            virtual bool should_close();
 
             /// \brief True if the backend supports fonts
             /// We can avoid some commands if it doesn't

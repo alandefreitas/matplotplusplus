@@ -32,6 +32,6 @@ int main() {
     hist(x, a, histogram::normalization::cdf);
     title("CDF (∑_{j=1}^i c_j/N)");
 
-    wait();
+    show();
     return 0;
 }

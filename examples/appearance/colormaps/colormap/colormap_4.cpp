@@ -18,6 +18,6 @@ int main() {
     surf(x, y, z);
     colormap(ax2, palette::winter());
 
-    wait();
+    show();
     return 0;
 }

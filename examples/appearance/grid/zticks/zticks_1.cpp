@@ -9,6 +9,6 @@ int main() {
     zticks({-8, 0, +8});
     zticklabels({"z=-8", "z=0", "z=8"});
 
-    wait();
+    show();
     return 0;
 }

@@ -5,20 +5,20 @@
 #ifndef MATPLOTPLUSPLUS_PARALLEL_LINES_H
 #define MATPLOTPLUSPLUS_PARALLEL_LINES_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class parallel_lines : public axes_object {
       public:
-        explicit parallel_lines(class axes *parent);
-        parallel_lines(class axes *parent,
+        explicit parallel_lines(class axes_type *parent);
+        parallel_lines(class axes_type *parent,
                        const std::vector<std::vector<double>> &data,
                        const std::string &line_spec = "");
 
@@ -44,9 +44,9 @@ namespace matplot {
         class parallel_lines &
         data(const std::vector<std::vector<double>> &data);
 
-        const std::vector<class axis> &axis() const;
-        std::vector<class axis> &axis();
-        class parallel_lines &axis(const std::vector<class axis> &axis);
+        const std::vector<class axis_type> &axis() const;
+        std::vector<class axis_type> &axis();
+        class parallel_lines &axis(const std::vector<class axis_type> &axis);
 
         bool visible() const;
         class parallel_lines &visible(bool visible);
@@ -69,7 +69,7 @@ namespace matplot {
       protected:
         class line_spec line_spec_;
         std::vector<std::vector<double>> data_{};
-        std::vector<class axis> axis_{};
+        std::vector<class axis_type> axis_{};
         std::vector<float> line_widths_{};
         std::vector<double> line_colors_{};
         bool jitter_{true};

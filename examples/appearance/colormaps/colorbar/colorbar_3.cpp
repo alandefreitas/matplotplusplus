@@ -7,6 +7,6 @@ int main() {
     surf(x, y, z);
     colorbar().reverse(true);
 
-    wait();
+    show();
     return 0;
 }

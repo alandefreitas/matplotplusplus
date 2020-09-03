@@ -12,6 +12,6 @@ int main() {
     lg[0]->line_width(2);
     lg[1]->color({0.4, 0, 1});
 
-    wait();
+    show();
     return 0;
 }

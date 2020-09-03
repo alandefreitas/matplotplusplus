@@ -19,6 +19,6 @@ int main() {
     std::cout << "naz: " << naz << std::endl;
     std::cout << "nel: " << nel << std::endl;
 
-    wait();
+    show();
     return 0;
 }

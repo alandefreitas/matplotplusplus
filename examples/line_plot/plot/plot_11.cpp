@@ -15,6 +15,6 @@ int main() {
     plot(x, y);
     axis(equal);
 
-    wait();
+    show();
     return 0;
 }

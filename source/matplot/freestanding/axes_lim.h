@@ -5,7 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_AXES_LIM_H
 #define MATPLOTPLUSPLUS_AXES_LIM_H
 
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 
 namespace matplot {
     inline std::array<double, 2> xlim() { return gca()->xlim(); }

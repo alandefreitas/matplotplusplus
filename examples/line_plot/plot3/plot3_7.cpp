@@ -8,6 +8,6 @@ int main() {
     auto yt = transform(t, [](auto t) { return exp(-t / 10) * cos(5 * t); });
     auto p = plot3(xt, yt, t);
     p->line_width(3);
-    wait();
+    show();
     return 0;
 }

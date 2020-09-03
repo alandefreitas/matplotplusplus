@@ -10,6 +10,6 @@ int main() {
     sgtitle("Subplot Grid Title", "red");
     gcf()->title_font_size_multiplier(2.0);
 
-    wait();
+    show();
     return 0;
 }

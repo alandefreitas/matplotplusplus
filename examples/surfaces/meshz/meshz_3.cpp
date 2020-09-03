@@ -8,6 +8,6 @@ int main() {
         X, Y, [](double x, double y) { return y * sin(x) - x * cos(y); });
     meshz(X, Y, Z)->edge_color("b");
 
-    wait();
+    show();
     return 0;
 }

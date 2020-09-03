@@ -10,8 +10,8 @@
 #include <string>
 
 namespace matplot {
-    class axes;
-    using axes_handle = std::shared_ptr<class axes>;
+    class axes_type;
+    using axes_handle = std::shared_ptr<class axes_type>;
 
     /// Abstract class for the objects we put in the xlim
     class axes_object {
@@ -24,7 +24,7 @@ namespace matplot {
         };
 
       public:
-        explicit axes_object(class axes *parent);
+        explicit axes_object(class axes_type *parent);
 
         explicit axes_object(axes_handle parent);
 
@@ -70,9 +70,9 @@ namespace matplot {
         virtual std::string unset_variables_string();
 
       public:
-        const class axes *parent() const;
-        class axes *&parent();
-        void parent(class axes *&parent);
+        const class axes_type *parent() const;
+        class axes_type *&parent();
+        void parent(class axes_type *&parent);
         void touch();
 
         // Objects might have their own display name
@@ -84,7 +84,7 @@ namespace matplot {
       protected:
         std::string tag_{"axes_object"};
         std::string display_name_{""};
-        class axes *parent_;
+        class axes_type *parent_;
     };
 
 } // namespace matplot

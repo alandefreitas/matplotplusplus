@@ -16,6 +16,6 @@ int main() {
     std::vector<double> z = transform(t, [](auto x) { return cos(x); });
     plot3(X, Y, z);
 
-    wait();
+    show();
     return 0;
 }

@@ -6,6 +6,6 @@ int main() {
     image = imvignette(image);
     imshow(image);
 
-    wait();
+    show();
     return 0;
 }

@@ -19,9 +19,9 @@
 // #include <matplot/backend/opengl_3.h> // Don't include opengl by default
 
 // Figure and axes
-#include <matplot/core/axes.h>
-#include <matplot/core/axis.h>
-#include <matplot/core/figure.h>
+#include <matplot/core/axes_type.h>
+#include <matplot/core/axis_type.h>
+#include <matplot/core/figure_type.h>
 
 // Axes objects
 #include <matplot/axes_objects/bars.h>

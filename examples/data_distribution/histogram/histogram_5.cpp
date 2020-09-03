@@ -20,6 +20,6 @@ int main() {
     h->num_bins(50);
     title(num2str(h->num_bins()) + " bins");
 
-    wait();
+    show();
     return 0;
 }

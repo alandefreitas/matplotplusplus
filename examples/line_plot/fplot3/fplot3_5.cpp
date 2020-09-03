@@ -26,6 +26,6 @@ int main() {
     ax->yticks(iota(-pi, pi / 2, pi));
     ax->y_axis().ticklabels({"-π", "-π/2", "0", "π/2", "π"});
 
-    wait();
+    show();
     return 0;
 }

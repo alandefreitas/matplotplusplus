@@ -6,6 +6,6 @@ int main() {
     imshow(image[0]);
     colormap(palette::default_map());
 
-    wait();
+    show();
     return 0;
 }

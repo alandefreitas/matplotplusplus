@@ -4,15 +4,16 @@
 
 #include <iomanip>
 #include <matplot/axes_objects/parallel_lines.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <regex>
 #include <sstream>
 
 namespace matplot {
-    parallel_lines::parallel_lines(class axes *parent) : axes_object(parent) {}
+    parallel_lines::parallel_lines(class axes_type *parent)
+        : axes_object(parent) {}
 
-    parallel_lines::parallel_lines(class axes *parent,
+    parallel_lines::parallel_lines(class axes_type *parent,
                                    const std::vector<std::vector<double>> &data,
                                    const std::string &line_spec)
         : axes_object(parent), data_(data), line_spec_(this, line_spec) {
@@ -279,14 +280,14 @@ namespace matplot {
         return *this;
     }
 
-    const std::vector<class axis> &parallel_lines::axis() const {
+    const std::vector<class axis_type> &parallel_lines::axis() const {
         return axis_;
     }
 
-    std::vector<class axis> &parallel_lines::axis() { return axis_; }
+    std::vector<class axis_type> &parallel_lines::axis() { return axis_; }
 
     class parallel_lines &
-    parallel_lines::axis(const std::vector<class axis> &axis) {
+    parallel_lines::axis(const std::vector<class axis_type> &axis) {
         axis_ = axis;
         touch();
         return *this;

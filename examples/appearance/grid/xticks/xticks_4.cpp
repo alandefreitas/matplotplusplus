@@ -10,6 +10,6 @@ int main() {
     xticks(iota(0, pi, 6 * pi));
     xticklabels({"0", "π", "2π", "3π", "4π", "5π", "6π"});
 
-    wait();
+    show();
     return 0;
 }

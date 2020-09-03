@@ -7,6 +7,6 @@ int main() {
     auto [X, Y, Z] = peaks();
     contourf(X, Y, Z)->line_width(3);
 
-    wait();
+    show();
     return 0;
 }

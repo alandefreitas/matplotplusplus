@@ -15,6 +15,6 @@ int main() {
         transform(t, [](auto x) { return sin(x) * sin(12 * x); });
     std::vector<double> zt2 = transform(t, [](auto x) { return cos(x); });
     plot3(xt1, yt1, zt1, xt2, yt2, zt2);
-    wait();
+    show();
     return 0;
 }

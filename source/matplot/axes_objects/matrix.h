@@ -5,48 +5,48 @@
 #ifndef MATPLOTPLUSPLUS_MATRIX_H
 #define MATPLOTPLUSPLUS_MATRIX_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
+#include <matplot/util/common.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-#include <matplot/util/common.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     class matrix : public axes_object {
       public:
         enum class color_normalization { none, rows, columns };
 
       public:
-        explicit matrix(class axes *parent);
+        explicit matrix(class axes_type *parent);
 
         /// Heatmap
         /// Matrix of values that can be any double
-        matrix(class axes *parent,
+        matrix(class axes_type *parent,
                const std::vector<std::vector<double>> &matrix);
 
         /// Matrix with an rgb image
-        matrix(class axes *parent,
+        matrix(class axes_type *parent,
                const std::vector<std::vector<double>> &red_channel,
                const std::vector<std::vector<double>> &green_channel,
                const std::vector<std::vector<double>> &blue_channel,
                const std::vector<std::vector<double>> &alpha_channel = {});
 
         /// Matrix with a b&w image
-        matrix(class axes *parent, const image_channel_t &gray_image);
+        matrix(class axes_type *parent, const image_channel_t &gray_image);
 
         /// Matrix with an rgb image
-        matrix(class axes *parent, const image_channel_t &red_channel,
+        matrix(class axes_type *parent, const image_channel_t &red_channel,
                const image_channel_t &green_channel,
                const image_channel_t &blue_channel,
                const image_channel_t &alpha_channel = {});
 
         /// Matrices with an image
-        matrix(class axes *parent, const image_channels_t &rgb_image);
+        matrix(class axes_type *parent, const image_channels_t &rgb_image);
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here

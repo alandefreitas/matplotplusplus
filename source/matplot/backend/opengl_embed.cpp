@@ -2,15 +2,25 @@
 // Created by Alan Freitas on 26/08/20.
 //
 
-#include "opengl_3.h"
-#include <iostream>
+#include "opengl_embed.h"
 #include <future>
+#include <iostream>
+#include <matplot/core/figure_registry.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/common.h>
 #include <thread>
 
 namespace matplot::backend {
 
-    opengl_3::opengl_3() {
+    opengl_embed::opengl_embed() { create_shaders(); }
+
+    opengl_embed::opengl_embed(bool create_shaders_at_construction) {
+        if (create_shaders_at_construction) {
+            create_shaders();
+        }
+    }
+
+    void opengl_embed::create_shaders() {
         // Create shaders
         const char *draw_2d_single_color_vertex_shader_source =
             "#version 330 core\n"
@@ -34,7 +44,7 @@ namespace matplot::backend {
             glGetShaderInfoLog(draw_2d_single_color_vertex_shader, 512, NULL, info_log);
             throw std::runtime_error(
                 std::string("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n") +
-                    info_log);
+                info_log);
         }
 
         // create and compile fragment shader
@@ -78,76 +88,76 @@ namespace matplot::backend {
         glDeleteShader(draw_2d_single_color_vertex_shader);
         glDeleteShader(draw_2d_single_color_fragment_shader);
 
-        glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &n_vertex_attributes_available_);
-        std::cout << "Maximum number of vertex attributes supported: " << n_vertex_attributes_available_ << std::endl;
+//        glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &n_vertex_attributes_available_);
+//        std::cout << "Maximum number of vertex attributes supported: " << n_vertex_attributes_available_ << std::endl;
     }
 
-    opengl_3::~opengl_3() {
+    opengl_embed::~opengl_embed() {
         glDeleteProgram(draw_2d_single_color_shader_program_);
     }
 
-    bool opengl_3::is_interactive() { return true; }
+    bool opengl_embed::is_interactive() { return true; }
 
-    const std::string &opengl_3::output() {
+    const std::string &opengl_embed::output() {
         throw std::logic_error("output not implemented yet");
     }
 
-    const std::string &opengl_3::output_format() {
+    const std::string &opengl_embed::output_format() {
         throw std::logic_error("output_format not implemented yet");
     }
 
-    bool opengl_3::output(const std::string &filename) {
+    bool opengl_embed::output(const std::string &filename) {
         throw std::logic_error("output not implemented yet");
     }
 
-    bool opengl_3::output(const std::string &filename,
+    bool opengl_embed::output(const std::string &filename,
                           const std::string &file_format) {
         throw std::logic_error("output not implemented yet");
     }
 
-    unsigned int opengl_3::width() {
+    unsigned int opengl_embed::width() {
         GLint m_viewport[4];
         glGetIntegerv( GL_VIEWPORT, m_viewport );
         return m_viewport[2];
     }
 
-    unsigned int opengl_3::height() {
+    unsigned int opengl_embed::height() {
         GLint m_viewport[4];
         glGetIntegerv( GL_VIEWPORT, m_viewport );
         return m_viewport[3];
     }
 
-    void opengl_3::width(unsigned int new_width) {
+    void opengl_embed::width(unsigned int new_width) {
         throw std::logic_error("width not implemented yet");
     }
 
-    void opengl_3::height(unsigned int new_height) {
+    void opengl_embed::height(unsigned int new_height) {
         throw std::logic_error("height not implemented yet");
     }
 
-    unsigned int opengl_3::position_x() {
+    unsigned int opengl_embed::position_x() {
         throw std::logic_error("position_x not implemented yet");
     }
 
-    unsigned int opengl_3::position_y() {
+    unsigned int opengl_embed::position_y() {
         throw std::logic_error("position_y not implemented yet");
     }
 
-    void opengl_3::position_x(unsigned int new_position_x) {
+    void opengl_embed::position_x(unsigned int new_position_x) {
         throw std::logic_error("position_x not implemented yet");
     }
 
-    void opengl_3::position_y(unsigned int new_position_y) {
+    void opengl_embed::position_y(unsigned int new_position_y) {
         throw std::logic_error("position_y not implemented yet");
     }
 
-    void opengl_3::new_frame() {}
+    bool opengl_embed::new_frame() { return true; }
 
-    bool opengl_3::render_data() {
+    bool opengl_embed::render_data() {
         return true;
     }
 
-    void opengl_3::draw_rectangle(const double x1, const double x2,
+    void opengl_embed::draw_rectangle(const double x1, const double x2,
                                            const double y1, const double y2,
                                            const std::array<float, 4> &color) {
         // Create and bind vertex array object
@@ -228,16 +238,18 @@ namespace matplot::backend {
         glDeleteBuffers(1, &VBO);
     }
 
-    void opengl_3::draw_background(const std::array<float, 4> &color) {
+    void opengl_embed::draw_background(const std::array<float, 4> &color) {
         glClearColor(color[1], color[2], color[3], 1. - color[0]);
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    void opengl_3::wait() { backend_interface::wait(); }
+    void opengl_embed::show(class matplot::figure_type *f) {
+        backend_interface::show(f);
+    }
 
-    bool opengl_3::supports_fonts() { return false; }
+    bool opengl_embed::supports_fonts() { return false; }
 
-    void opengl_3::draw_path(const std::vector<double> &x,
+    void opengl_embed::draw_path(const std::vector<double> &x,
                              const std::vector<double> &y,
                              const std::array<float, 4> &color) {
         // Copy vertex data into the buffer's memory
@@ -298,42 +310,49 @@ namespace matplot::backend {
         glDeleteBuffers(1, &VBO);
     }
 
-    void opengl_3::draw_markers(const std::vector<double> &x,
+    void opengl_embed::draw_markers(const std::vector<double> &x,
                                 const std::vector<double> &y,
                                 const std::vector<double> &z) {
         throw std::logic_error("draw_markers not implemented yet");
     }
 
-    void opengl_3::draw_text(const std::vector<double> &x,
+    void opengl_embed::draw_text(const std::vector<double> &x,
                              const std::vector<double> &y,
                              const std::vector<double> &z) {
         throw std::logic_error("draw_text not implemented yet");
     }
 
-    void opengl_3::draw_image(const std::vector<std::vector<double>> &x,
+    void opengl_embed::draw_image(const std::vector<std::vector<double>> &x,
                               const std::vector<std::vector<double>> &y,
                               const std::vector<std::vector<double>> &z) {
         throw std::logic_error("draw_image not implemented yet");
     }
 
-    void opengl_3::draw_triangle(const std::vector<double> &x,
+    void opengl_embed::draw_triangle(const std::vector<double> &x,
                                  const std::vector<double> &y,
                                  const std::vector<double> &z) {
         throw std::logic_error("draw_triangle not implemented yet");
     }
 
-    void opengl_3::process_input(GLFWwindow *window) {
+    void opengl_embed::process_input(GLFWwindow *window) {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
             glfwSetWindowShouldClose(window, true);
         }
     }
 
-    void opengl_3::framebuffer_size_callback(GLFWwindow *window, int width,
-                                             int height) {
+    void opengl_embed::framebuffer_size_callback(GLFWwindow *window, int width, int height) {
         // Make sure the viewport matches the new window dimensions;
         // Note that width and height will be significantly larger than
         // specified on retina displays.
         glViewport(0, 0, width, height);
+        auto f = gcf();
+        auto b = f->backend();
+        auto ogl_b = std::dynamic_pointer_cast<opengl_embed>(b);
+        if (ogl_b != nullptr) {
+            f->draw();
+        }
     }
+
+
 
 } // namespace matplot::backend

@@ -13,8 +13,8 @@
 namespace matplot {
     class string_function : public line {
       public:
-        explicit string_function(class axes *parent);
-        string_function(class axes *parent, const std::string &equation,
+        explicit string_function(class axes_type *parent);
+        string_function(class axes_type *parent, const std::string &equation,
                         const std::string &line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw

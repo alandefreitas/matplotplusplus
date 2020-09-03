@@ -23,6 +23,6 @@ int main() {
     hold(on);
     text(label_x, label_y, labels);
 
-    wait();
+    show();
     return 0;
 }

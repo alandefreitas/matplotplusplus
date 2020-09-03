@@ -25,6 +25,6 @@ int main() {
     imwrite(imresize(image, 2., image_interpolation::nearest),
             "lena_nearest.tiff");
 
-    wait();
+    show();
     return 0;
 }

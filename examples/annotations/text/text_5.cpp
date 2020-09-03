@@ -8,6 +8,6 @@ int main() {
     text({2, 8}, {7, 7},
          std::vector<std::string>({"A simple plot\\nfrom 1 to 10", "y=x"}));
 
-    wait();
+    show();
     return 0;
 }

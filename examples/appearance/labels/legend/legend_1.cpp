@@ -19,10 +19,10 @@ int main() {
     p->display_name("cos(3x)");
     hold(off);
 
-    wait();
+    show();
 
     legend(off);
-    wait();
+    show();
 
     return 0;
 }

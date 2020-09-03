@@ -8,6 +8,6 @@ int main() {
         return sin(x) + cos(y);
     })->edge_color("red");
 
-    wait();
+    show();
     return 0;
 }

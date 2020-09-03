@@ -8,6 +8,6 @@ int main() {
     zlim({-10, 10});
     zticks({-10, -2.5, 0, 2.5, 10});
 
-    wait();
+    show();
     return 0;
 }

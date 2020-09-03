@@ -14,6 +14,6 @@ int main() {
     auto ax2 = nexttile();
     barstacked(ax2, y);
 
-    wait();
+    show();
     return 0;
 }

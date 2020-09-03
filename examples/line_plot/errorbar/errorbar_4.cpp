@@ -9,6 +9,6 @@ int main() {
     std::vector<double> err = {1, 3, 5, 3, 5, 3, 6, 4, 3, 3};
     errorbar(x, y, err, error_bar::type::horizontal);
     axis({0, 100, 0, 110});
-    wait();
+    show();
     return 0;
 }

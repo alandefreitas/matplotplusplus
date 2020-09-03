@@ -74,6 +74,6 @@ int main() {
 
     geobubble(tsunami_lat, tsunami_lon, log_tsunami_height);
 
-    wait();
+    show();
     return 0;
 }

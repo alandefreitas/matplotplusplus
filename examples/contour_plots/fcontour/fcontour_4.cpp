@@ -9,6 +9,6 @@ int main() {
     fcontour([](double x, double y) { return x - y; });
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

@@ -9,6 +9,6 @@ int main() {
         transform(theta, [](auto t) { return sin(2 * t) * cos(2 * t); });
     polarplot(theta, rho);
 
-    wait();
+    show();
     return 0;
 }

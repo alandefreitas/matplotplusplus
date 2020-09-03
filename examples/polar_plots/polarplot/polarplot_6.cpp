@@ -8,6 +8,6 @@ int main() {
     std::vector<double> rho = transform(theta, [](double t) { return 2 * t; });
     polarplot(theta, rho, "r-o");
 
-    wait();
+    show();
     return 0;
 }

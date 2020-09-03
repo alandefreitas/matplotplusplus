@@ -8,6 +8,6 @@ int main() {
     auto [u, v] = pol2cart(theta, rho);
     feather(u, v);
 
-    wait();
+    show();
     return 0;
 }

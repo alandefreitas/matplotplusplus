@@ -14,6 +14,6 @@ int main() {
     s->marker_color("b");
     s->marker_face_color({0, .5, .5});
 
-    wait();
+    show();
     return 0;
 }

@@ -14,6 +14,6 @@ int main() {
     colormap(mymap);
     colorbar().tick_values({});
 
-    wait();
+    show();
     return 0;
 }

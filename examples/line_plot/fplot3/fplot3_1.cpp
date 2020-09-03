@@ -9,6 +9,6 @@ int main() {
     auto zt = [](double t) { return t; };
     fplot3(xt, yt, zt);
 
-    wait();
+    show();
     return 0;
 }

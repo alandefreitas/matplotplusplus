@@ -12,6 +12,6 @@ int main() {
     t->sizes({14, 10});
     gca()->colormap({{1, 0, 0}, {0, 0, 0}});
 
-    wait();
+    show();
     return 0;
 }

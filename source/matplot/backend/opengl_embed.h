@@ -2,8 +2,8 @@
 // Created by Alan Freitas on 26/08/20.
 //
 
-#ifndef MATPLOTPLUSPLUS_OPENGL_3_H
-#define MATPLOTPLUSPLUS_OPENGL_3_H
+#ifndef MATPLOTPLUSPLUS_OPENGL_EMBED_H
+#define MATPLOTPLUSPLUS_OPENGL_EMBED_H
 
 #ifdef __APPLE__
 /* Defined before OpenGL and GLUT includes to avoid deprecation messages on
@@ -31,10 +31,11 @@
 #include <matplot/backend/backend_interface.h>
 
 namespace matplot::backend {
-    class opengl_3 : public backend_interface {
+    class opengl_embed : public backend_interface {
       public:
-        opengl_3();
-        ~opengl_3();
+        opengl_embed();
+        explicit opengl_embed(bool create_shaders);
+        ~opengl_embed();
 
       public:
         bool is_interactive() override;
@@ -51,13 +52,13 @@ namespace matplot::backend {
         unsigned int position_y() override;
         void position_x(unsigned int new_position_x) override;
         void position_y(unsigned int new_position_y) override;
-        void new_frame() override;
+        bool new_frame() override;
         // This is only a demonstration that is blocking the main thread.
         // Because glfw does not work well with multiple threads,
         // the challenge is to run the rendering loop in another thread
         // while we see this function only to update what should be rendered.
         bool render_data() override;
-        void wait() override;
+        void show(matplot::figure_type *) override;
         bool supports_fonts() override;
 
       public:
@@ -96,8 +97,9 @@ namespace matplot::backend {
         /// this frame and react accordingly
         static void process_input(GLFWwindow *window);
 
+        void create_shaders();
+
       private:
-        GLFWwindow *window_{nullptr};
         unsigned int draw_2d_single_color_shader_program_;
         int n_vertex_attributes_available_;
         unsigned int height_{default_screen_height};
@@ -105,4 +107,4 @@ namespace matplot::backend {
     };
 } // namespace matplot::backend
 
-#endif // MATPLOTPLUSPLUS_OPENGL_3_H
+#endif // MATPLOTPLUSPLUS_OPENGL_EMBED_H

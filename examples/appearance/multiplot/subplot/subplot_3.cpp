@@ -23,6 +23,6 @@ int main() {
 
     axis({ax1, ax2, ax3}, {-4, 4, inf, inf});
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
     std::cout << "xtickformat(): " << xtickformat() << std::endl;
     xtickformat("$%.0f");
 
-    wait();
+    show();
     return 0;
 }

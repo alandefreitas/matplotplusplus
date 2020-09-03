@@ -16,6 +16,6 @@ int main() {
     auto s2 = scatter(ax2, rand(10, 0, 1), rand(10, 0, 1));
     s2->marker_face(true);
 
-    wait();
+    show();
     return 0;
 }

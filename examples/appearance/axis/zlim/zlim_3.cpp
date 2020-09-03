@@ -18,6 +18,6 @@ int main() {
     surf(ax2, X, Y, Z);
     zlim(ax2, {-5, 5});
 
-    wait();
+    show();
     return 0;
 }

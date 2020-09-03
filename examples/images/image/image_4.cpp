@@ -11,6 +11,6 @@ int main() {
 
     image(C);
 
-    wait();
+    show();
     return 0;
 }

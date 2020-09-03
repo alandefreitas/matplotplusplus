@@ -23,6 +23,6 @@ int main() {
     fplot("sin(8*x)");
     title("Subplot 4: sin(8x)");
 
-    wait();
+    show();
     return 0;
 }

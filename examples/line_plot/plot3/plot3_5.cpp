@@ -12,6 +12,6 @@ int main() {
     xlabel("x(t)");
     ylabel("y(t)");
     zlabel("t");
-    wait();
+    show();
     return 0;
 }

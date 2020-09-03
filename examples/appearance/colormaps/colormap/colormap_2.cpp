@@ -7,6 +7,6 @@ int main() {
     surf(x, y, z);
     colormap(palette::summer());
 
-    wait();
+    show();
     return 0;
 }

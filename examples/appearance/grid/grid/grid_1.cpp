@@ -8,6 +8,6 @@ int main() {
     plot(x, y);
     grid(on);
 
-    wait();
+    show();
     return 0;
 }

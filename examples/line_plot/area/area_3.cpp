@@ -29,6 +29,6 @@ int main() {
     h2[2]->face_color({0.2, 0, 0.75, 0.75});
     title("Not stacked");
 
-    wait();
+    show();
     return 0;
 }

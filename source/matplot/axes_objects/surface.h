@@ -6,7 +6,7 @@
 #define MATPLOTPLUSPLUS_SURFACE_H
 
 #include <array>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 #include <optional>
@@ -16,17 +16,17 @@
 #include <matplot/util/common.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     /// Surfaces might include data for contours but, if you only want contours,
     /// it's best to use the contour, contourf, fcontour functions to plot it in
     /// 2d
     class surface : public axes_object {
       public:
-        explicit surface(class axes *parent);
+        explicit surface(class axes_type *parent);
 
         /// Grid surface
-        surface(class axes *parent, const vector_2d &X, const vector_2d &Y,
+        surface(class axes_type *parent, const vector_2d &X, const vector_2d &Y,
                 const vector_2d &Z, const vector_2d &C,
                 const std::string &line_spec = "");
 

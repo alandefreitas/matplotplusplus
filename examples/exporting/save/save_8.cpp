@@ -7,6 +7,6 @@ int main() {
     surf(x, y, z);
     save("img/peaks.gif");
     save("img/peaks.eps");
-    wait();
+    show();
     return 0;
 }

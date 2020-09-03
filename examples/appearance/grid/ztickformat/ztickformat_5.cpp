@@ -11,6 +11,6 @@ int main() {
     auto ax2 = nexttile();
     stem3(ax2, rand(5, 5, 0, 4));
 
-    wait();
+    show();
     return 0;
 }

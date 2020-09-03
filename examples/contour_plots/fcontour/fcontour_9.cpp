@@ -10,6 +10,6 @@ int main() {
     };
     fcontour(rastrigin)->filled(true);
 
-    wait();
+    show();
     return 0;
 }

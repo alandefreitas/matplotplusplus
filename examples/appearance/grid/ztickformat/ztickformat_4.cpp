@@ -9,6 +9,6 @@ int main() {
     scatter3(x, y, z);
     ztickformat("%.2f");
 
-    wait();
+    show();
     return 0;
 }

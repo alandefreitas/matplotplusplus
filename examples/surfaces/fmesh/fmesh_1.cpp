@@ -6,6 +6,6 @@ int main() {
 
     fmesh([](double x, double y) { return sin(x) + cos(y); });
 
-    wait();
+    show();
     return 0;
 }

@@ -7,6 +7,6 @@ int main() {
     stem3(z);
     ztickformat("usd");
 
-    wait();
+    show();
     return 0;
 }

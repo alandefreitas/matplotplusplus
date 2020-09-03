@@ -12,6 +12,6 @@ int main() {
     matplot::fill(x, y, color);
     axis(equal);
 
-    wait();
+    show();
     return 0;
 }

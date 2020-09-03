@@ -17,6 +17,6 @@ int main() {
     std::cout << "xl[0]: " << xl[0] << std::endl;
     std::cout << "xl[1]: " << xl[1] << std::endl;
 
-    wait();
+    show();
     return 0;
 }

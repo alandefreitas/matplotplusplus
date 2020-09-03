@@ -16,6 +16,6 @@ int main() {
                   << ", b: " << color[2] << std::endl;
     }
 
-    wait();
+    show();
     return 0;
 }

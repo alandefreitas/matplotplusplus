@@ -21,6 +21,6 @@ int main() {
     zlabel("z");
     view(ax2, 90, 0);
 
-    wait();
+    show();
     return 0;
 }

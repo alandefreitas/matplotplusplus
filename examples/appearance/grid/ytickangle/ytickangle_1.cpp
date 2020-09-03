@@ -8,6 +8,6 @@ int main() {
     stem(x, y);
     ytickangle(90);
 
-    wait();
+    show();
     return 0;
 }

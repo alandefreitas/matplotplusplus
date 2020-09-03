@@ -21,7 +21,7 @@ int main() {
     scatter3(x, y, z, sizes, colors);
     view(40, 35);
 
-    wait();
+    show();
     return 0;
 }
 

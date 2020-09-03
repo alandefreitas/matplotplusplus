@@ -6,6 +6,6 @@ int main() {
     surf(X, Y, Z);
     zlabel("Height");
 
-    wait();
+    show();
     return 0;
 }

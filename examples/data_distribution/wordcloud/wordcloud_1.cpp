@@ -12,6 +12,6 @@ int main() {
     wordcloud(text, black_list);
     title("Shakespeare's sonnets");
 
-    wait();
+    show();
     return 0;
 }

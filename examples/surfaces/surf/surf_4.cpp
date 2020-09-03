@@ -9,6 +9,6 @@ int main() {
     auto C = transform(X, Y, [](double x, double y) { return x * y; });
     surf(X, Y, Z)->face_alpha(0.5).edge_color("none");
 
-    wait();
+    show();
     return 0;
 }

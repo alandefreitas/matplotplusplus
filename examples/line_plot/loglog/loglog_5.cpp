@@ -17,6 +17,6 @@ int main() {
 
     axis({0.1, 100, 2, 8});
 
-    wait();
+    show();
     return 0;
 }

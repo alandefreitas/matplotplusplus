@@ -9,6 +9,6 @@ int main() {
 
     stem3(z)->marker("s").marker_color("m").marker_face_color("g");
 
-    wait();
+    show();
     return 0;
 }

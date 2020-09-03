@@ -7,6 +7,6 @@ int main() {
     fsurf([](double x, double y) { return peaks(x, y); }, {-3, +3})
         ->contour_base(true);
 
-    wait();
+    show();
     return 0;
 }

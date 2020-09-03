@@ -8,7 +8,7 @@
 #include <array>
 #include <cmath>
 #include <map>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 
@@ -17,7 +17,7 @@
 #include <matplot/util/common.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class box_chart : public axes_object {
       public:
         enum class box_style_option {
@@ -27,8 +27,8 @@ namespace matplot {
         };
 
       public:
-        explicit box_chart(class axes *parent);
-        box_chart(class axes *parent, const std::vector<double> &y_data,
+        explicit box_chart(class axes_type *parent);
+        box_chart(class axes_type *parent, const std::vector<double> &y_data,
                   const std::vector<double> &groups = {});
         //        box_chart(class xlim* parent, const std::vector<double>& data,
         //        const std::vector<double>& edges, enum

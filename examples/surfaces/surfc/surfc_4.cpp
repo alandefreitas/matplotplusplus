@@ -10,6 +10,6 @@ int main() {
     surfc(X, Y, Z)->edge_color({0, 1, 0, 0});
     colormap({{0, 0, 1}});
 
-    wait();
+    show();
     return 0;
 }

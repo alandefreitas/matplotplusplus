@@ -17,6 +17,6 @@ int main() {
     h2->normalization(histogram::normalization::probability);
     h2->bin_width(0.25);
 
-    wait();
+    show();
     return 0;
 }

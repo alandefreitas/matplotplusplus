@@ -15,6 +15,6 @@ int main() {
         transform(weights, [&](double w) { return 5. * w / m_weight; });
     g->line_widths(line_widths);
 
-    wait();
+    show();
     return 0;
 }

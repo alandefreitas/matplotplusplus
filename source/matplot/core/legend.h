@@ -12,7 +12,7 @@
 #include <vector>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     class legend {
       public:
@@ -34,9 +34,10 @@ namespace matplot {
 
       public:
         legend() = default;
-        legend(class axes *parent);
-        legend(class axes *parent, std::initializer_list<std::string> names);
-        legend(class axes *parent, const std::vector<std::string> &names);
+        legend(class axes_type *parent);
+        legend(class axes_type *parent,
+               std::initializer_list<std::string> names);
+        legend(class axes_type *parent, const std::vector<std::string> &names);
 
       public /* useful functions */:
         void touch();
@@ -154,7 +155,7 @@ namespace matplot {
         size_t num_rows_{0};
 
         // Parent xlim
-        class axes *parent_{nullptr};
+        class axes_type *parent_{nullptr};
     };
 } // namespace matplot
 

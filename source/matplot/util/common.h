@@ -6,7 +6,6 @@
 #define MATPLOTPLUSPLUS_COMMON_H
 
 #include <algorithm>
-#include <cctype>
 #include <complex>
 #include <functional>
 #include <map>
@@ -14,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cctype>
 
 namespace matplot {
     bool iequals(const std::string &str1, const std::string &str2);

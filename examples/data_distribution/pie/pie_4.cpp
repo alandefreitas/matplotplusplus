@@ -6,6 +6,6 @@ int main() {
     std::vector<double> x = {0.19, 0.22, 0.41};
     pie(x);
 
-    wait();
+    show();
     return 0;
 }

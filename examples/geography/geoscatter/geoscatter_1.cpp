@@ -15,6 +15,6 @@ int main() {
     geoscatter(lat, lon, A, C)
         ->marker_style(line_spec::marker_style::upward_pointing_triangle);
 
-    wait();
+    show();
     return 0;
 }

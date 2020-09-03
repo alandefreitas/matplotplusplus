@@ -10,6 +10,6 @@ int main() {
     stem(x, y);
     gca()->x_axis().zero_axis(false);
 
-    wait();
+    show();
     return 0;
 }

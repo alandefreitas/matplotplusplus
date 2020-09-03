@@ -3,14 +3,14 @@
 //
 
 #include <matplot/axes_objects/error_bar.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
 
 namespace matplot {
-    error_bar::error_bar(class axes *parent) : line(parent) {}
+    error_bar::error_bar(class axes_type *parent) : line(parent) {}
 
-    error_bar::error_bar(class axes *parent, const std::vector<double> &x,
+    error_bar::error_bar(class axes_type *parent, const std::vector<double> &x,
                          const std::vector<double> &y,
                          const std::vector<double> &y_neg_delta,
                          const std::vector<double> &y_pos_delta,
@@ -21,7 +21,7 @@ namespace matplot {
           y_positive_delta_(y_pos_delta), x_negative_delta_(x_neg_delta),
           x_positive_delta_(x_pos_delta) {}
 
-    error_bar::error_bar(class axes *parent, const std::vector<double> &x,
+    error_bar::error_bar(class axes_type *parent, const std::vector<double> &x,
                          const std::vector<double> &y,
                          const std::vector<double> &error, error_bar::type type,
                          const std::string &line_spec)

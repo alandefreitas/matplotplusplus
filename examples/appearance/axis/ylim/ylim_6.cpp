@@ -17,6 +17,6 @@ int main() {
     std::cout << "yl[0]: " << yl[0] << std::endl;
     std::cout << "yl[1]: " << yl[1] << std::endl;
 
-    wait();
+    show();
     return 0;
 }

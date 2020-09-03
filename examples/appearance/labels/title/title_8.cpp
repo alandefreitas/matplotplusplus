@@ -16,6 +16,6 @@ int main() {
     title(ax1, "Top Plot");
     title(ax2, "Bottom Plot");
 
-    wait();
+    show();
     return 0;
 }

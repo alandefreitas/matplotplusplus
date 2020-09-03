@@ -1,10 +1,10 @@
-#ifndef MATPLOTPLUSPLUS_FIGURE_H
-#define MATPLOTPLUSPLUS_FIGURE_H
+#ifndef MATPLOTPLUSPLUS_FIGURE_TYPE_H
+#define MATPLOTPLUSPLUS_FIGURE_TYPE_H
 
 #include <array>
 #include <fstream>
 #include <iostream>
-#include <matplot/backend/backend_interface.h>
+#include <matplot/backend/backend_registry.h>
 #include <matplot/backend/gnuplot.h>
 #include <matplot/util/colors.h>
 #include <matplot/util/handle_types.h>
@@ -14,7 +14,7 @@
 #include <vector>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     /// \class Figure
     /// From Figures, we can create plot handles and
@@ -30,30 +30,30 @@ namespace matplot {
     /// but we don't really recommend doing that. It's better
     /// to only use the default pipe for everything and use
     /// multiplots if more plots are needed.
-    class figure {
+    class figure_type {
       public:
-        friend class axes;
+        friend class axes_type;
         // Remove the copy operators because users are not
         // supposed to use this object directly.
         // Users will use a figure_handle which can be copied
         // and still reference to the same object.
-        figure(figure const &) = delete;
-        void operator=(figure const &) = delete;
+        figure_type(figure_type const &) = delete;
+        void operator=(figure_type const &) = delete;
 
         /// \brief Create a Figure window
-        figure();
+        figure_type();
 
         /// \brief Create a Figure window
-        explicit figure(bool quiet_mode);
+        explicit figure_type(bool quiet_mode);
 
         /// \brief Create a Figure window
-        explicit figure(size_t index);
+        explicit figure_type(size_t index);
 
         /// \brief Create a Figure window
-        explicit figure(size_t index, bool quiet_mode);
+        explicit figure_type(size_t index, bool quiet_mode);
 
         /// \brief The destructor closes the pipe
-        virtual ~figure();
+        virtual ~figure_type();
 
       public /* manage axes */:
         /// \brief Create new axes in a figure
@@ -76,7 +76,7 @@ namespace matplot {
         /// \param replace_if_overlap Replace any axes that overlap at all
         /// \param replace_if_same_position Replace any axes that are exactly in
         /// the same position \return Handle to new axes
-        axes_handle add_axes(std::shared_ptr<class axes> ax,
+        axes_handle add_axes(std::shared_ptr<class axes_type> ax,
                              bool replace_if_overlap,
                              bool replace_if_same_position);
 
@@ -116,18 +116,18 @@ namespace matplot {
         axes_handle nexttile(size_t index);
 
         /// Get reference to current axes / create new axes if it does not exist
-        std::shared_ptr<class axes> current_axes();
+        std::shared_ptr<class axes_type> current_axes();
 
         /// Get reference to current axes
-        std::shared_ptr<class axes> current_axes() const;
+        std::shared_ptr<class axes_type> current_axes() const;
 
         /// Set current axes in the figure
-        void current_axes(const std::shared_ptr<class axes> &current_axes);
+        void current_axes(const std::shared_ptr<class axes_type> &current_axes);
 
         /// \brief Get reference to vector with all child axes
-        const std::vector<std::shared_ptr<class axes>> &children() const;
+        const std::vector<std::shared_ptr<class axes_type>> &children() const;
         void
-        children(const std::vector<std::shared_ptr<class axes>> &children);
+        children(const std::vector<std::shared_ptr<class axes_type>> &children);
 
       protected:
         static std::array<float, 4>
@@ -156,6 +156,9 @@ namespace matplot {
         /// This is also the case in applications where we need
         /// performance.
         void touch();
+
+        /// True if user required the backend to close
+        bool should_close();
 
         /// True if in quiet mode (not reactive)
         bool quiet_mode() const;
@@ -282,6 +285,9 @@ namespace matplot {
         void run_multiplot_command();
 
       private:
+        std::string generate_window_title() const;
+
+      private:
         // The default backend for this figure
         std::shared_ptr<backend::backend_interface> backend_{nullptr};
 
@@ -301,8 +307,8 @@ namespace matplot {
         float font_size_{10.};
 
         // Axes
-        std::vector<std::shared_ptr<class axes>> children_;
-        std::shared_ptr<class axes> current_axes_;
+        std::vector<std::shared_ptr<class axes_type>> children_;
+        std::shared_ptr<class axes_type> current_axes_;
 
         // Axes tiles
         size_t current_tile_index_ = 0;
@@ -311,29 +317,6 @@ namespace matplot {
         bool tiledlayout_flow_ = true;
     };
 
-    using figure_handle = std::shared_ptr<figure>;
-
-    /// \brief Create a new figure (reactive mode)
-    figure_handle figure();
-
-    /// \brief Create a new figure
-    figure_handle figure(bool quiet_mode);
-
-    /// \brief Set the current figure
-    figure_handle figure(figure_handle h);
-
-    /// \brief Set the current figure
-    figure_handle figure(class figure *h);
-
-    /// \brief Get the current figure
-    figure_handle gcf();
-
-    bool save(const std::string &filename, const std::string &format);
-    bool save(const std::string &filename);
-    bool save(figure_handle f, const std::string &filename,
-              const std::string &format);
-    bool save(figure_handle f, const std::string &filename);
-
 } // namespace matplot
 
-#endif // MATPLOTPLUSPLUS_FIGURE_H
+#endif // MATPLOTPLUSPLUS_FIGURE_TYPE_H

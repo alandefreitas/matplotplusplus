@@ -12,6 +12,6 @@ int main() {
     plot(x, y);
     xlim({0, 5});
 
-    wait();
+    show();
     return 0;
 }

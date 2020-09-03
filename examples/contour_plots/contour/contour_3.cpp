@@ -6,6 +6,6 @@ int main() {
     auto [X, Y, Z] = peaks();
     contour(X, Y, Z, std::vector<double>{1});
 
-    wait();
+    show();
     return 0;
 }

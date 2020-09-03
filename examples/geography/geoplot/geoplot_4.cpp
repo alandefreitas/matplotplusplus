@@ -23,6 +23,6 @@ int main() {
     text(lon_seattle, lat_seattle, "Seattle");
     text(lon_pt_barrow, lat_pt_barrow, "Point Barrow");
 
-    wait();
+    show();
     return 0;
 }

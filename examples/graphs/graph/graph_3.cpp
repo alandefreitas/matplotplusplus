@@ -18,6 +18,6 @@ int main() {
     g->edge_labels(weights);
     view(2);
 
-    wait();
+    show();
     return 0;
 }

@@ -13,6 +13,6 @@ int main() {
     fence(X, Y, Z, c);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

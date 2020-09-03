@@ -14,6 +14,6 @@ int main() {
     wordcloud(tokens, count);
     title("Shakespeare's sonnets");
 
-    wait();
+    show();
     return 0;
 }

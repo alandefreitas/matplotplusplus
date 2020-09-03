@@ -20,7 +20,7 @@ int main() {
 
     scatter3(x, y, z, sizes, colors)->marker_face_color({0, .5, .5});
 
-    wait();
+    show();
     return 0;
 }
 

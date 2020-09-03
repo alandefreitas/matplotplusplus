@@ -14,6 +14,6 @@ int main() {
     errorbar(x, y, yneg, ypos, xneg, xpos, "o");
     axis({0, 100, 0, 100});
 
-    wait();
+    show();
     return 0;
 }

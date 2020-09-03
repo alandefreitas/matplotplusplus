@@ -20,6 +20,6 @@ int main() {
     scatter3(x, y, z2);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

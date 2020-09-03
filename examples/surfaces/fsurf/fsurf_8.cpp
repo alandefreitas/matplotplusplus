@@ -19,6 +19,6 @@ int main() {
     view(-172, 25);
     title("Increased Mesh Density");
 
-    wait();
+    show();
     return 0;
 }

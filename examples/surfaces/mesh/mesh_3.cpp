@@ -8,6 +8,6 @@ int main() {
         X, Y, [](double x, double y) { return y * sin(x) - x * cos(y); });
     mesh(X, Y, Z)->palette_map_at_surface(true).face_alpha(0.5);
 
-    wait();
+    show();
     return 0;
 }

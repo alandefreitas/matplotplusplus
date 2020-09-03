@@ -17,6 +17,6 @@ int main() {
 
     cla(ax1);
 
-    wait();
+    show();
     return 0;
 }

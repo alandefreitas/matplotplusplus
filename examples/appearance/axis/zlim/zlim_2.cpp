@@ -11,6 +11,6 @@ int main() {
     mesh(X, Y, Z);
     zlim({0, inf});
 
-    wait();
+    show();
     return 0;
 }

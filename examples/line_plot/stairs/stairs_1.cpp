@@ -10,6 +10,6 @@ int main() {
     figure();
     stairs(Y);
 
-    wait();
+    show();
     return 0;
 }

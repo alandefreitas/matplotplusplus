@@ -12,6 +12,6 @@ int main() {
     auto r = rectangle(-3.5, 11, 3.5, 8);
     r->color("red");
 
-    wait();
+    show();
     return 0;
 }

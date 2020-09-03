@@ -9,6 +9,6 @@ int main() {
     ribbon(X, Y, Z, FX, 1.0);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
     auto h = hist(x);
     std::cout << "Histogram with " << h->num_bins() << " bins" << std::endl;
 
-    wait();
+    show();
     return 0;
 }

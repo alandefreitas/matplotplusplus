@@ -7,6 +7,6 @@ int main() {
     auto f = [](double x, double y) { return pow(x, 2) - pow(y, 2); };
     fcontour(f, "--")->line_width(2);
 
-    wait();
+    show();
     return 0;
 }

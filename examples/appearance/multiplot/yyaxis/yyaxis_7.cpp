@@ -9,6 +9,6 @@ int main() {
     hold(on);
     plot(y2)->use_y2(true);
 
-    wait();
+    show();
     return 0;
 }

@@ -5,18 +5,19 @@
 #include <algorithm>
 #include <cmath>
 #include <matplot/axes_objects/bars.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
 
 namespace matplot {
 
-    bars::bars(class axes *parent) : axes_object(parent) {}
+    bars::bars(class axes_type *parent) : axes_object(parent) {}
 
-    bars::bars(class axes *parent, const std::vector<double> &y)
+    bars::bars(class axes_type *parent, const std::vector<double> &y)
         : bars(parent, std::vector<std::vector<double>>({y})) {}
 
-    bars::bars(class axes *parent, const std::vector<std::vector<double>> &Y)
+    bars::bars(class axes_type *parent,
+               const std::vector<std::vector<double>> &Y)
         : axes_object(parent), ys_(Y) {
         if (parent_->children().empty()) {
             parent_->x_axis().limits({0, double(ys_[0].size() + 1)});
@@ -37,11 +38,11 @@ namespace matplot {
         parent_->x_axis().zero_axis(true);
     }
 
-    bars::bars(class axes *parent, const std::vector<double> &x,
+    bars::bars(class axes_type *parent, const std::vector<double> &x,
                const std::vector<double> &y)
         : bars(parent, x, std::vector<std::vector<double>>({y})) {}
 
-    bars::bars(class axes *parent, const std::vector<double> &x,
+    bars::bars(class axes_type *parent, const std::vector<double> &x,
                const std::vector<std::vector<double>> &Y)
         : axes_object(parent), x_(x), ys_(Y) {
         if (parent_->children().empty()) {

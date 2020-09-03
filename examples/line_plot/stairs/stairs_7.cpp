@@ -9,6 +9,6 @@ int main() {
 
     auto s = stairs(Y)->line_width(2).marker("d").marker_face_color("c");
 
-    wait();
+    show();
     return 0;
 }

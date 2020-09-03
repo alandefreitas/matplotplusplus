@@ -12,6 +12,6 @@ int main() {
     stem3(x, y, z, "filled")->color("m").marker_face_color("y");
     view(-10, 35);
 
-    wait();
+    show();
     return 0;
 }

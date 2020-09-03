@@ -8,6 +8,6 @@ int main() {
     colororder(newcolors);
     bar(vector_2d{{10, 20, 30}, {25, 35, 45}, {30, 40, 52}});
 
-    wait();
+    show();
     return 0;
 }

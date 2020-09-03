@@ -12,6 +12,6 @@ int main() {
     plot(ax2, rand(6, 6, 0, 1));
     xtickangle(ax2, 45);
 
-    wait();
+    show();
     return 0;
 }

@@ -16,6 +16,6 @@ int main() {
     plot(x, yr2)->use_y2(true).color(gca()->colororder()[1]).line_style("--");
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

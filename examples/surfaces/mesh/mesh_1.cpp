@@ -11,6 +11,6 @@ int main() {
     });
     mesh(X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

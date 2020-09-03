@@ -10,14 +10,16 @@ add_library(matplot
         backend/backend_registry.h
         backend/backend_registry.cpp
 
-        core/axes.cpp
-        core/axes.h
+        core/axes_type.cpp
+        core/axes_type.h
         core/axes_object.cpp
         core/axes_object.h
-        core/axis.cpp
-        core/axis.h
-        core/figure.cpp
-        core/figure.h
+        core/axis_type.cpp
+        core/axis_type.h
+        core/figure_type.cpp
+        core/figure_type.h
+        core/figure_registry.cpp
+        core/figure_registry.h
         core/legend.cpp
         core/legend.h
         core/line_spec.cpp
@@ -129,18 +131,33 @@ endif()
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
     # This is an example of what an OpenGL backend *could* look like.
-    # We would need to adapt the axes objects to feed this backend
-    #     with polygons and colors instead of commands, which is not
-    #     a problem at all. The data is all prepared in these objects.
-    #     We would not have to convert this data to strings and would
-    #     not have to worry about an external syntax.
+    #     The opengl backend is currently incomplete.
+    # There are two backends for OpenGL:
+    #     - opengl_embed: you can put that inside your existing OpenGL
+    #       application. You can then call draw() in your render loop
+    #       to draw the plots on top of your application.
+    #     - opengl: this backend will create it's own window and make
+    #       plots there.
+    # Qt: If you're using Qt, opengl_embed allows you to create plots in your
+    #     application. See https://doc.qt.io/qt-5/qtgui-index.html
+    # Web: If you're creating plots for the web, you can use emscripten to
+    #     create efficient plots. See:
+    #     https://emscripten.org/docs/porting/multimedia_and_graphics/OpenGL-support.html
+    # We are continuously making plot categories compatible with these backends.
+    # For each category, we need to adapt the axes objects to feed this backend
+    #     with polygons and colors instead of commands.
+    # Feeding these commands is not a problem at all. The data is all prepared
+    #     in the axes objects. Unlike an gnuplot backend, we don't have to convert
+    #     this data to strings and do not have to worry about an external syntax.
     # The biggest challenge is to actually create backends that can
     #     draw these polygons we feed them.
     # We discuss some of these difficulties in the documentation
     #     and the backend_interface.h.
-    # The OpenGL backend cannot open a window on another thread.
-    #     All it can do is get in the middle of the render loop and
-    #     draw the plot.
+    # The biggest pro of the OpenGL backend is that it is very efficient.
+    #     Everything is happening on the GPU.
+    # The biggest con of the OpenGL backend is that it cannot open a window
+    #     in another thread. All it can do is get in the middle of the render
+    #     loop and draw the plot.
     find_package(OpenGL REQUIRED)
 
     # https://github.com/Dav1dde/glad
@@ -157,7 +174,11 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
 
     find_package(glfw3 REQUIRED)
 
-    add_library(matplot_opengl backend/opengl_3.h backend/opengl_3.cpp)
+    add_library(matplot_opengl
+            backend/opengl_embed.h
+            backend/opengl_embed.cpp
+            backend/opengl.h
+            backend/opengl.cpp)
     target_include_directories(matplot_opengl PUBLIC matplot)
     target_link_libraries(matplot_opengl PUBLIC matplot glad glfw)
 endif()

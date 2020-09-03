@@ -75,16 +75,17 @@ namespace matplot {
     using NotStringConvertible =
         TypeConcept<T, !std::is_convertible_v<std::decay_t<T>, std::string>>;
 
-    class figure;
+    class figure_type;
     // TypeConcept where C is true only if T is FigureHandle
     template <typename T>
     using FigureHandle = TypeConcept<
-        T, std::is_same_v<std::decay_t<T>, std::shared_ptr<class figure>>>;
+        T, std::is_same_v<std::decay_t<T>, std::shared_ptr<class figure_type>>>;
 
     // TypeConcept where C is true only if T is NotFigureHandle
     template <typename T>
-    using NotFigureHandle = TypeConcept<
-        T, !std::is_same_v<std::decay_t<T>, std::shared_ptr<class figure>>>;
+    using NotFigureHandle =
+        TypeConcept<T, !std::is_same_v<std::decay_t<T>,
+                                       std::shared_ptr<class figure_type>>>;
 
     // TypeConcept where C is true only if T is Iterable
     template <typename T>

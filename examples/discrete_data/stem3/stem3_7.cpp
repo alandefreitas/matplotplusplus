@@ -8,6 +8,6 @@ int main() {
 
     stem3(z, "--*m");
 
-    wait();
+    show();
     return 0;
 }

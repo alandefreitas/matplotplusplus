@@ -10,6 +10,6 @@ int main() {
     plot(rand(3, 3, 0, 1));
     yticks(iota(0, .2, 1));
 
-    wait();
+    show();
     return 0;
 }

@@ -15,6 +15,6 @@ int main() {
 
     legend(ax1, "Line 1", "Line 2", "Line 3");
 
-    wait();
+    show();
     return 0;
 }

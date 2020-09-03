@@ -10,6 +10,6 @@ int main() {
     };
     fcontour(f)->line_width(1).line_style("--").levels({1, 0.9, 0.8, 0.2, 0.1});
 
-    wait();
+    show();
     return 0;
 }

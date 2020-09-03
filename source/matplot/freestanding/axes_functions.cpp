@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <matplot/core/figure_registry.h>
 #include <matplot/freestanding/axes_functions.h>
 
 namespace matplot {
@@ -14,7 +15,7 @@ namespace matplot {
 
     /// \brief Create new axes in a figure
     axes_handle axes(figure_handle parent, bool replace_if_overlap) {
-        axes_handle h = std::make_shared<class axes>(parent);
+        axes_handle h = std::make_shared<class axes_type>(parent);
         return axes(h, parent, replace_if_overlap);
     }
 
@@ -527,20 +528,20 @@ namespace matplot {
         ah->touch();
     }
 
-    class axis &colorbar() {
+    class axis_type &colorbar() {
         return colorbar(gca());
     }
 
-    class axis &colorbar(axes_handle ah) {
+    class axis_type &colorbar(axes_handle ah) {
         ah->color_box(true);
         return ah->cb_axis();
     }
 
-    class axis &colorbar(bool v) {
+    class axis_type &colorbar(bool v) {
         return colorbar(gca(), v);
     }
 
-    class axis &colorbar(axes_handle ah, bool v) {
+    class axis_type &colorbar(axes_handle ah, bool v) {
         ah->color_box(v);
         return ah->cb_axis();
     }

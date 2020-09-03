@@ -11,6 +11,6 @@ int main() {
 
     polarplot(z);
 
-    wait();
+    show();
     return 0;
 }

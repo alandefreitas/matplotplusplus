@@ -12,6 +12,6 @@ int main() {
     scatter3(x, y, z, "*");
     view(-30, 10);
 
-    wait();
+    show();
     return 0;
 }

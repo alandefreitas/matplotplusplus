@@ -15,6 +15,6 @@ int main() {
     auto y3 = transform(x, [](double x) { return sin(2 * x); });
     plot(x, y3);
 
-    wait();
+    show();
     return 0;
 }

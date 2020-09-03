@@ -19,6 +19,6 @@ int main() {
 
     save("area_4.svg");
 
-    wait();
+    show();
     return 0;
 }

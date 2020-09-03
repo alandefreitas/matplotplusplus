@@ -7,6 +7,6 @@ int main() {
     auto Z = peaks(X, Y);
     waterfall(X, Y, Z);
 
-    wait();
+    show();
     return 0;
 }

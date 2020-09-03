@@ -5,6 +5,6 @@ int main() {
 
     fimplicit([](double x, double y) { return pow(x, 2) - pow(y, 2) - 1; });
 
-    wait();
+    show();
     return 0;
 }

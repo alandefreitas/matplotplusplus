@@ -8,6 +8,6 @@ int main() {
         .line_style("--")
         .line_width(2);
 
-    wait();
+    show();
     return 0;
 }

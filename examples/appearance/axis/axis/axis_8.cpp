@@ -20,6 +20,6 @@ int main() {
 
     axis(automatic);
 
-    wait();
+    show();
     return 0;
 }

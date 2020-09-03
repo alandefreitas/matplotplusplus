@@ -11,6 +11,6 @@ int main() {
 
     stem(x, Y);
 
-    wait();
+    show();
     return 0;
 }

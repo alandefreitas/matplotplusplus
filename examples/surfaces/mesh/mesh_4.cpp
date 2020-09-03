@@ -6,6 +6,6 @@ int main() {
     auto [X, Y, Z] = peaks();
     mesh(X, Y, Z)->hidden_3d(false);
 
-    wait();
+    show();
     return 0;
 }

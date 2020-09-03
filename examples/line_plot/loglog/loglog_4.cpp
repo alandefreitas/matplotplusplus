@@ -10,6 +10,6 @@ int main() {
     xlabel("x");
     ylabel("10^x");
 
-    wait();
+    show();
     return 0;
 }

@@ -8,6 +8,6 @@ int main() {
     std::vector<double> y = transform(x, [](auto x) { return log(x); });
     semilogx(x, y);
 
-    wait();
+    show();
     return 0;
 }

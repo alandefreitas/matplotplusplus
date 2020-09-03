@@ -11,6 +11,6 @@ int main() {
     b->face_colors()[2] = {0., .2, .6, .5};
     gcf()->draw();
 
-    wait();
+    show();
     return 0;
 }

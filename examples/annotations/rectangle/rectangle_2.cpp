@@ -8,6 +8,6 @@ int main() {
     rectangle(3, 0, 2, 4, 1);
     rectangle(6, 0, 2, 4, 0.5);
 
-    wait();
+    show();
     return 0;
 }

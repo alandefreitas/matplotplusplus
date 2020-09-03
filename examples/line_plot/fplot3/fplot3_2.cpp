@@ -9,6 +9,6 @@ int main() {
     auto zt = [](double t) { return t; };
     fplot3(xt, yt, zt, std::array<double, 2>{-10, 10});
 
-    wait();
+    show();
     return 0;
 }

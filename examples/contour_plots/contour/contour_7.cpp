@@ -10,6 +10,6 @@ int main() {
     c->font_color("blue");
     c->font_weight("bold");
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
     auto funz = [r](double u, double v) { return r(u, v) * cos(v); };
     fsurf(funx, funy, funz, {0, 2 * pi, 0, pi})->lighting(on);
 
-    wait();
+    show();
     return 0;
 }

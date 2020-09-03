@@ -9,6 +9,6 @@ int main() {
     meshc(X, Y, Z, C);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

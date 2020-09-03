@@ -8,6 +8,6 @@ int main() {
     double c = (f - 32) / 1.8;
     title("Temperature is " + num2str(c) + " C");
 
-    wait();
+    show();
     return 0;
 }

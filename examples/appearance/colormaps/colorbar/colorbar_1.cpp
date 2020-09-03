@@ -7,6 +7,6 @@ int main() {
     surf(x, y, z);
     colorbar();
 
-    wait();
+    show();
     return 0;
 }

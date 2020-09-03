@@ -11,6 +11,6 @@ int main() {
 
     rotate(20, 30);
 
-    wait();
+    show();
     return 0;
 }

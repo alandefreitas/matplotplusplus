@@ -10,6 +10,6 @@ int main() {
         {15, 10, -10}, {20, -17, 5}, {-5, 21, 15}};
     barstacked(x, Y);
 
-    wait();
+    show();
     return 0;
 }

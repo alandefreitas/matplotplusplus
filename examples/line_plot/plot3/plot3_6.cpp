@@ -9,6 +9,6 @@ int main() {
     auto xt2 = transform(t, [](auto t) { return sin(2 * t); });
     auto yt2 = transform(t, [](auto t) { return cos(2 * t); });
     plot3(xt1, yt1, t, xt2, yt2, t, "--");
-    wait();
+    show();
     return 0;
 }

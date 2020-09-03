@@ -10,6 +10,6 @@ int main() {
     };
     fcontour(f)->filled(true).colormap_line_when_filled(true);
 
-    wait();
+    show();
     return 0;
 }

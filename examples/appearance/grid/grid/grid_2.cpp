@@ -8,6 +8,6 @@ int main() {
     grid(off);
     box(off);
 
-    wait();
+    show();
     return 0;
 }

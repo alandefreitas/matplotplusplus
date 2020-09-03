@@ -19,6 +19,6 @@ int main() {
     plot(x2, y2);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

@@ -6,7 +6,7 @@
 #include <cmath>
 #include <matplot/axes_objects/contours.h>
 #include <matplot/axes_objects/histogram.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/freestanding/plot.h>
 #include <matplot/util/common.h>
 #include <numeric>
@@ -15,7 +15,7 @@
 #include <unordered_set>
 
 namespace matplot {
-    contours::contours(class axes *parent, const vector_2d &X,
+    contours::contours(class axes_type *parent, const vector_2d &X,
                        const vector_2d &Y, const vector_2d &Z,
                        const std::string &line_spec)
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z),
@@ -25,7 +25,7 @@ namespace matplot {
                                                   _corner_mask, nchunk_);
     }
 
-    contours::contours(class axes *parent, const vector_2d &Z,
+    contours::contours(class axes_type *parent, const vector_2d &Z,
                        const std::string &line_spec)
         : axes_object(parent), Z_data_(Z), line_spec_(this, line_spec) {
         initialize_preprocessed_data();
@@ -410,7 +410,7 @@ namespace matplot {
         _levels = levels_;
 
         // Extend minimum beyond zmin (for filled plots)
-        const bool log = parent_->z_axis().scale() == axis::axis_scale::log;
+        const bool log = parent_->z_axis().scale() == axis_type::axis_scale::log;
         if (extend_ == extend_option::both || extend_ == extend_option::min) {
             double lower = log ? 1e-250 : -1e250;
             _levels.insert(_levels.begin(), lower);
@@ -455,7 +455,7 @@ namespace matplot {
         if (zmin() == lowers[0]) {
             // Include minimum values in lowest interval
             // so we don't change levels_
-            if (parent_->z_axis().scale() == axis::axis_scale::log) {
+            if (parent_->z_axis().scale() == axis_type::axis_scale::log) {
                 lowers[0] = 0.99 * zmin();
             } else {
                 lowers[0] -= 1;

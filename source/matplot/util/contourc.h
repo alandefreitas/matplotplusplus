@@ -156,7 +156,7 @@
 #include <cmath>
 #include <iostream>
 #include <list>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <matplot/util/handle_types.h>
 #include <numeric>

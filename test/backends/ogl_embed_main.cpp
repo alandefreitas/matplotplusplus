@@ -1,26 +1,6 @@
-//
-// Created by Alan Freitas on 26/08/20.
-//
-
-#ifdef __APPLE__
-#define GL_SILENCE_DEPRECATION
-#endif
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include <matplot/backend/opengl_3.h>
+#include <matplot/backend/opengl_embed.h>
 #include <matplot/matplot.h>
 
-// The opengl backend can be used inside the render loop
-// to generate plots. This is still very experimental.
-//
-// This is a demonstration of how we could create a new backend
-// - This example backend will not draw the plots yet
-// - See the opengl_3.h file for more information on how
-//   you can prepare a backend that will draw vertices
-// - See figure::draw() for more information on how you can
-//   make the matplot objects send vertices to these
-//   backends
 int main() {
     using namespace matplot;
 
@@ -40,9 +20,9 @@ int main() {
 
     // Create window
     GLFWwindow *window =
-        glfwCreateWindow(backend::opengl_3::default_screen_width,
-                         backend::opengl_3::default_screen_height,
-                         "My Figure", nullptr, nullptr);
+        glfwCreateWindow(backend::opengl_embed::default_screen_width,
+                         backend::opengl_embed::default_screen_height,
+                         "My Existing Application", nullptr, nullptr);
 
     if (window == nullptr) {
         glfwTerminate();
@@ -53,7 +33,8 @@ int main() {
     glfwMakeContextCurrent(window);
 
     // Set callback when we resize the window
-    glfwSetFramebufferSizeCallback(window, backend::opengl_3::framebuffer_size_callback);
+    glfwSetFramebufferSizeCallback(
+        window, backend::opengl_embed::framebuffer_size_callback);
 
     // Load OpenGL function pointers
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -61,9 +42,7 @@ int main() {
     }
 
     // Create figure with backend
-    auto opengl3 = create_backend<backend::opengl_3>();
-    auto f = figure(true);
-    f->backend(opengl3);
+    auto f = figure<backend::opengl_embed>(true);
     auto ax = f->current_axes();
     ax->xlim({0.,2. * pi});
     ax->ylim({-1.5,1.5});
@@ -73,7 +52,7 @@ int main() {
     // Start rendering
     while (!glfwWindowShouldClose(window)) {
         // Check if there is any input to process
-        backend::opengl_3::process_input(window);
+        backend::opengl_embed::process_input(window);
 
         // Create plots
         float timeValue = glfwGetTime();

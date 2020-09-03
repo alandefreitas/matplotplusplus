@@ -14,6 +14,6 @@ int main() {
     surf(x, y, z);
     colorbar().label("Elevation (ft in 1000s)");
 
-    wait();
+    show();
     return 0;
 }

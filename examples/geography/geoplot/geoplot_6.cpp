@@ -217,6 +217,6 @@ int main() {
     eurotrip_solver s(lat, lon, names, f->current_axes());
     s.run();
 
-    wait();
+    show();
     return 0;
 }

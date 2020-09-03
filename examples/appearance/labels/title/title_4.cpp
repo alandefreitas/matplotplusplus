@@ -7,6 +7,6 @@ int main() {
     plot(t, y);
     title("y = {/:Italic e^{λt}}", "b");
 
-    wait();
+    show();
     return 0;
 }

@@ -9,6 +9,6 @@ int main() {
     polarplot(theta, rho);
     gca()->r_axis().limits({-1, 1});
 
-    wait();
+    show();
     return 0;
 }

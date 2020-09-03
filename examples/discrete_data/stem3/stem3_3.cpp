@@ -11,6 +11,6 @@ int main() {
 
     stem3(Z);
 
-    wait();
+    show();
     return 0;
 }

@@ -6,6 +6,6 @@ int main() {
     fimplicit([](double x, double y) { return pow(x, 2) + pow(y, 2) - 3; },
               std::array<double, 4>{-3, 0, -2, 2});
 
-    wait();
+    show();
     return 0;
 }

@@ -15,6 +15,6 @@ int main() {
     text(lon_anchorage, lat_anchorage, "Anchorage");
     text(lon_seattle, lat_seattle, "Seattle");
 
-    wait();
+    show();
     return 0;
 }

@@ -10,6 +10,6 @@ int main() {
     sc->edge_color("r");
     sc->contour_line_spec().color("b");
 
-    wait();
+    show();
     return 0;
 }

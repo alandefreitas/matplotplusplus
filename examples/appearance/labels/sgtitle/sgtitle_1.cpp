@@ -13,6 +13,6 @@ int main() {
 
     sgtitle("Subplot Grid Title");
 
-    wait();
+    show();
     return 0;
 }

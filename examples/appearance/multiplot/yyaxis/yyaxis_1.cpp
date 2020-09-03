@@ -12,6 +12,6 @@ int main() {
     plot(x, z)->use_y2(true);
     y2lim({-150, 150});
 
-    wait();
+    show();
     return 0;
 }

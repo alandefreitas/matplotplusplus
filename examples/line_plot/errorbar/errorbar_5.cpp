@@ -10,6 +10,6 @@ int main() {
     errorbar(x, y, err, error_bar::type::both);
     axis({0, 100, 0, 110});
     axis(equal);
-    wait();
+    show();
     return 0;
 }

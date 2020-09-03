@@ -11,11 +11,11 @@
 namespace matplot {
     using color_array = std::array<float, 4>;
 
-    class figure;
-    using figure_handle = std::shared_ptr<class figure>;
+    class figure_type;
+    using figure_handle = std::shared_ptr<class figure_type>;
 
-    class axes;
-    using axes_handle = std::shared_ptr<class axes>;
+    class axes_type;
+    using axes_handle = std::shared_ptr<class axes_type>;
 
     class axes_object;
     using axes_object_handle = std::shared_ptr<class axes_object>;

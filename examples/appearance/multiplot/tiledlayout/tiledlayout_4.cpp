@@ -26,6 +26,6 @@ int main() {
     nexttile();
     plot(x, y4);
 
-    wait();
+    show();
     return 0;
 }

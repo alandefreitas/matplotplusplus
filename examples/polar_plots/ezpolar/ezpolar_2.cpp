@@ -6,6 +6,6 @@ int main() {
 
     ezpolar([](double t) { return 1. + cos(t); });
 
-    wait();
+    show();
     return 0;
 }

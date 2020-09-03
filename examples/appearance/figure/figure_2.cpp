@@ -18,6 +18,6 @@ int main() {
     axis({-pi, pi, -1.5, +1.5});
     fplot("cos(x)");
     h->draw();
-    wait();
+    show();
     return 0;
 }

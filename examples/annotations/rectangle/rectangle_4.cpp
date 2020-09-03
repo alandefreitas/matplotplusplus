@@ -13,6 +13,6 @@ int main() {
     r2->color("blue");
     r2->line_width(3);
 
-    wait();
+    show();
     return 0;
 }

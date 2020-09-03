@@ -12,6 +12,6 @@ int main() {
     auto p = plot3(xt, yt, zt, "-o");
     p->marker_indices({200});
 
-    wait();
+    show();
     return 0;
 }

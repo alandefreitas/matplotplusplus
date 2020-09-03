@@ -5,16 +5,16 @@
 #ifndef MATPLOTPLUSPLUS_LABELS_H
 #define MATPLOTPLUSPLUS_LABELS_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
-#include <matplot/core/axis.h>
+#include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class labels : public axes_object {
       public:
         enum alignment { left, right, center, automatic };
@@ -24,8 +24,8 @@ namespace matplot {
         static constexpr double height_factor = 0.08;
 
       public:
-        explicit labels(class axes *parent);
-        labels(class axes *parent, const std::vector<double> &x,
+        explicit labels(class axes_type *parent);
+        labels(class axes_type *parent, const std::vector<double> &x,
                const std::vector<double> &y,
                const std::vector<std::string> &labels = {},
                const std::vector<double> &color = {},

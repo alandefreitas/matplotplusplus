@@ -9,6 +9,6 @@ int main() {
     auto s = stem(x, y)->line_style("-.").marker_face_color("red").marker_color(
         "green");
 
-    wait();
+    show();
     return 0;
 }

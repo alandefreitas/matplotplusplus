@@ -7,6 +7,6 @@ int main() {
     std::vector<std::string> labels = {"Taxes", "Expenses", "Profit"};
     pie(x, labels);
 
-    wait();
+    show();
     return 0;
 }

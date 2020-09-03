@@ -8,6 +8,6 @@ int main() {
     ylabel("t_{seconds}");
     ylabel("e^t");
 
-    wait();
+    show();
     return 0;
 }

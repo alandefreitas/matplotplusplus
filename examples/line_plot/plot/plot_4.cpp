@@ -10,6 +10,6 @@ int main() {
     std::vector<double> y3 = transform(x, [](auto x) { return sin(x - 0.5); });
     plot(x, y1, "g", x, y2, "b--o", x, y3, "c*");
 
-    wait();
+    show();
     return 0;
 }

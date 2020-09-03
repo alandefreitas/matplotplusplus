@@ -9,6 +9,6 @@ int main() {
     }
     contour(X, Y, Z)->contour_text(true);
 
-    wait();
+    show();
     return 0;
 }

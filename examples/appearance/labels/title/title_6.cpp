@@ -6,6 +6,6 @@ int main() {
     plot(x);
     title("First line\\nSecond line");
 
-    wait();
+    show();
     return 0;
 }

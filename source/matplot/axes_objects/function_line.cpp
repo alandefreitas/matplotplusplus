@@ -7,15 +7,15 @@
 
 namespace matplot {
 
-    function_line::function_line(class axes *parent) : line(parent) {}
+    function_line::function_line(class axes_type *parent) : line(parent) {}
 
-    function_line::function_line(class axes *parent,
+    function_line::function_line(class axes_type *parent,
                                  const function_type &function,
                                  std::array<double, 2> x_range,
                                  const std::string &line_spec)
         : line(parent, {}, line_spec), fn_x_(function), t_range_(x_range) {}
 
-    function_line::function_line(class axes *parent,
+    function_line::function_line(class axes_type *parent,
                                  const function_type &function_x,
                                  const function_type &function_y,
                                  std::array<double, 2> t_range,
@@ -23,7 +23,7 @@ namespace matplot {
         : line(parent, {}, line_spec), fn_x_(function_x), fn_y_(function_y),
           t_range_(t_range) {}
 
-    function_line::function_line(class axes *parent,
+    function_line::function_line(class axes_type *parent,
                                  const function_type &function_x,
                                  const function_type &function_y,
                                  const function_type &function_z,

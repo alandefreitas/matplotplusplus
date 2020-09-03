@@ -28,6 +28,6 @@ int main() {
 
     axis({0, 12, 0, 13});
 
-    wait();
+    show();
     return 0;
 }

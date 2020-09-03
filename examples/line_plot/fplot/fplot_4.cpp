@@ -11,6 +11,6 @@ int main() {
     fplot([](double x) { return sin(x); }, "-.*c");
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

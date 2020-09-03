@@ -10,6 +10,6 @@ int main() {
     std::cout << "ytickformat(): " << ytickformat() << std::endl;
     ytickformat("$%.0f");
 
-    wait();
+    show();
     return 0;
 }

@@ -6,6 +6,6 @@ int main() {
     plot(x);
     title("α^2 and X_1");
 
-    wait();
+    show();
     return 0;
 }

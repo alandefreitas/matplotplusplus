@@ -24,6 +24,6 @@ int main() {
     auto ax2_copy = ax2->copy(fnew);
     subplot(2, 1, 1, ax2_copy);
 
-    wait();
+    show();
     return 0;
 }

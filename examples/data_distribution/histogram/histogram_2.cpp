@@ -33,6 +33,6 @@ int main() {
 
     save("histogram_2.svg");
 
-    wait();
+    show();
     return 0;
 }

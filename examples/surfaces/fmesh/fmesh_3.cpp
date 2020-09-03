@@ -11,6 +11,6 @@ int main() {
           std::array<double, 2>{0, 5}, std::array<double, 2>{-5, 5});
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

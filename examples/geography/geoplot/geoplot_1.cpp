@@ -12,6 +12,6 @@ int main() {
             std::vector{lon_seattle, lon_anchorage}, "g-*");
     geolimits({45, 62}, {-155, -120});
 
-    wait();
+    show();
     return 0;
 }

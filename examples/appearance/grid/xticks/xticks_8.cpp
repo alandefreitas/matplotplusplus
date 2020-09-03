@@ -8,6 +8,6 @@ int main() {
     plot(x, y);
     xticks({});
 
-    wait();
+    show();
     return 0;
 }

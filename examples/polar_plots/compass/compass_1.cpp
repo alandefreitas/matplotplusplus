@@ -7,6 +7,6 @@ int main() {
     std::vector<double> y = rand(20, -1, +1);
     compass(x, y);
 
-    wait();
+    show();
     return 0;
 }

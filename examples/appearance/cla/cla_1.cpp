@@ -21,6 +21,6 @@ int main() {
     plot(x, y3);
     hold(off);
 
-    wait();
+    show();
     return 0;
 }

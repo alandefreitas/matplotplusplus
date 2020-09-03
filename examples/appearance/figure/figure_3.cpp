@@ -10,6 +10,6 @@ int main() {
     figure(f1);
     scatter(iota(1, 20), rand(20, 0, 1));
 
-    wait();
+    show();
     return 0;
 }

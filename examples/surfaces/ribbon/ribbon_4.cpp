@@ -13,6 +13,6 @@ int main() {
     auto Z = transform(X, Y, rastrigin);
     ribbon(X, Y, Z)->face_alpha(0.8);
 
-    wait();
+    show();
     return 0;
 }
