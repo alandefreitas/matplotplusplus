@@ -46,4 +46,9 @@ if (MASTER_PROJECT)
         INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+
+    if(NOT BUILD_SHARED_LIBS)
+        install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFilesystem.cmake
+            DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+    endif()
 endif()
