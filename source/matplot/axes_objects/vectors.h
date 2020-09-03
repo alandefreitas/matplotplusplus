@@ -6,7 +6,7 @@
 #define MATPLOTPLUSPLUS_VECTORS_H
 
 #include <array>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 

@@ -16,8 +16,10 @@ add_library(matplot
         core/axes_object.h
         core/axis.cpp
         core/axis.h
-        core/figure.cpp
-        core/figure.h
+        core/figure_type.cpp
+        core/figure_type.h
+        core/figure_registry.cpp
+        core/figure_registry.h
         core/legend.cpp
         core/legend.h
         core/line_spec.cpp

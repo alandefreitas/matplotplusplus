@@ -5,7 +5,7 @@
 #include <cmath>
 #include <matplot/core/axes.h>
 #include <matplot/core/axis.h>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/colors.h>
 #include <matplot/util/common.h>
 

@@ -3,8 +3,8 @@
 //
 
 #include "backend_interface.h"
+#include <matplot/core/figure_type.h>
 #include <matplot/util/common.h>
-#include <matplot/core/figure.h>
 
 namespace matplot::backend {
     bool backend_interface::consumes_gnuplot_commands() { return false; }
@@ -145,7 +145,7 @@ namespace matplot::backend {
         }
     }
 
-    void backend_interface::show(class matplot::figure* f) {
+    void backend_interface::show(class matplot::figure_type *f) {
         // The default implementation waits for the user to interact with the
         // console. In interactive backends we expect this to start a render
         // loop that will stop only when the user closes the window.

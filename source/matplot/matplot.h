@@ -21,7 +21,7 @@
 // Figure and axes
 #include <matplot/core/axes.h>
 #include <matplot/core/axis.h>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 // Axes objects
 #include <matplot/axes_objects/bars.h>

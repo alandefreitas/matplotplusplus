@@ -1,5 +1,5 @@
-#ifndef MATPLOTPLUSPLUS_FIGURE_H
-#define MATPLOTPLUSPLUS_FIGURE_H
+#ifndef MATPLOTPLUSPLUS_FIGURE_TYPE_H
+#define MATPLOTPLUSPLUS_FIGURE_TYPE_H
 
 #include <array>
 #include <fstream>
@@ -30,30 +30,30 @@ namespace matplot {
     /// but we don't really recommend doing that. It's better
     /// to only use the default pipe for everything and use
     /// multiplots if more plots are needed.
-    class figure {
+    class figure_type {
       public:
         friend class axes;
         // Remove the copy operators because users are not
         // supposed to use this object directly.
         // Users will use a figure_handle which can be copied
         // and still reference to the same object.
-        figure(figure const &) = delete;
-        void operator=(figure const &) = delete;
+        figure_type(figure_type const &) = delete;
+        void operator=(figure_type const &) = delete;
 
         /// \brief Create a Figure window
-        figure();
+        figure_type();
 
         /// \brief Create a Figure window
-        explicit figure(bool quiet_mode);
+        explicit figure_type(bool quiet_mode);
 
         /// \brief Create a Figure window
-        explicit figure(size_t index);
+        explicit figure_type(size_t index);
 
         /// \brief Create a Figure window
-        explicit figure(size_t index, bool quiet_mode);
+        explicit figure_type(size_t index, bool quiet_mode);
 
         /// \brief The destructor closes the pipe
-        virtual ~figure();
+        virtual ~figure_type();
 
       public /* manage axes */:
         /// \brief Create new axes in a figure
@@ -317,42 +317,6 @@ namespace matplot {
         bool tiledlayout_flow_ = true;
     };
 
-    using figure_handle = std::shared_ptr<figure>;
-
-    /// \brief Create a new figure
-    figure_handle figure_no_backend(bool quiet_mode);
-
-    /// \brief Create a new figure with a given backend
-    template <class BACKEND = backend::gnuplot>
-    figure_handle figure(bool quiet_mode) {
-        std::shared_ptr<backend::backend_interface> b = create_backend<BACKEND>();
-        figure_handle f = figure_no_backend(quiet_mode);
-        f->backend(b);
-        return f;
-    }
-
-    /// \brief Create a new figure (reactive mode)
-    template <class BACKEND = backend::gnuplot>
-    figure_handle figure() {
-        /// Take default mode from backend?
-        return figure<BACKEND>(false);
-    }
-
-    /// \brief Set the current figure
-    figure_handle figure(figure_handle h);
-
-    /// \brief Set the current figure
-    figure_handle figure(class figure *h);
-
-    /// \brief Get the current figure
-    figure_handle gcf();
-
-    bool save(const std::string &filename, const std::string &format);
-    bool save(const std::string &filename);
-    bool save(figure_handle f, const std::string &filename,
-              const std::string &format);
-    bool save(figure_handle f, const std::string &filename);
-
 } // namespace matplot
 
-#endif // MATPLOTPLUSPLUS_FIGURE_H
+#endif // MATPLOTPLUSPLUS_FIGURE_TYPE_H

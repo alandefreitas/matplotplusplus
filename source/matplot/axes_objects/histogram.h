@@ -9,7 +9,7 @@
 #include <cmath>
 #include <map>
 #include <matplot/core/axes_object.h>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/common.h>
 #include <matplot/util/concepts.h>

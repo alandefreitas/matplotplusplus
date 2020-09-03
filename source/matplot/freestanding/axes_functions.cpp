@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <matplot/core/figure_registry.h>
 #include <matplot/freestanding/axes_functions.h>
 
 namespace matplot {

@@ -5,15 +5,14 @@
 #include "opengl_embed.h"
 #include <future>
 #include <iostream>
+#include <matplot/core/figure_registry.h>
+#include <matplot/core/figure_type.h>
 #include <matplot/util/common.h>
-#include <matplot/core/figure.h>
 #include <thread>
 
 namespace matplot::backend {
 
-    opengl_embed::opengl_embed() {
-        create_shaders();
-    }
+    opengl_embed::opengl_embed() { create_shaders(); }
 
     opengl_embed::opengl_embed(bool create_shaders_at_construction) {
         if (create_shaders_at_construction) {
@@ -244,7 +243,7 @@ namespace matplot::backend {
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    void opengl_embed::show(class matplot::figure* f) {
+    void opengl_embed::show(class matplot::figure_type *f) {
         backend_interface::show(f);
     }
 

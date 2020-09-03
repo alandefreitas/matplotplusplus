@@ -33,9 +33,9 @@ namespace matplot {
       public:
         axes();
 
-        explicit axes(class figure *parent);
+        explicit axes(class figure_type *parent);
 
-        axes(class figure *parent, std::array<float, 4> position);
+        axes(class figure_type *parent, std::array<float, 4> position);
 
         explicit axes(figure_handle parent);
 
@@ -634,11 +634,11 @@ namespace matplot {
 
         void grid_front(bool grid_front);
 
-        const class figure *parent() const;
+        const class figure_type *parent() const;
 
-        class figure *parent();
+        class figure_type *parent();
 
-        void parent(class figure *);
+        void parent(class figure_type *);
 
       public /* create plots on the axes */:
         /// Create simple line plot
@@ -2835,7 +2835,7 @@ namespace matplot {
         // parent figure
         // we don't need a shared_ptr here because there is no
         // relationship of ownership
-        class figure *parent_;
+        class figure_type *parent_;
     };
 
 } // namespace matplot

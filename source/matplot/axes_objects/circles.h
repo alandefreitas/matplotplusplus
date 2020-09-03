@@ -5,7 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_CIRCLES_H
 #define MATPLOTPLUSPLUS_CIRCLES_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
 #include <matplot/core/axis.h>

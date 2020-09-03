@@ -58,7 +58,7 @@ namespace matplot::backend {
         // the challenge is to run the rendering loop in another thread
         // while we see this function only to update what should be rendered.
         bool render_data() override;
-        void show(matplot::figure*) override;
+        void show(matplot::figure_type *) override;
         bool supports_fonts() override;
 
       public:

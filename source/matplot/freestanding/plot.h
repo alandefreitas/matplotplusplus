@@ -9,6 +9,7 @@
 #include <matplot/util/handle_types.h>
 
 #include <matplot/core/axes.h>
+#include <matplot/core/figure_registry.h>
 
 #include <matplot/axes_objects/function_line.h>
 #include <matplot/axes_objects/string_function.h>
@@ -955,6 +956,23 @@ namespace matplot {
     inline void show() { return gcf()->show(); }
 
     inline void show(figure_handle f) { f->show(); }
+
+    inline bool save(const std::string &filename) {
+        return gcf()->save(filename);
+    }
+
+    inline bool save(figure_handle f, const std::string &filename,
+                     const std::string &format) {
+        return f->save(filename, format);
+    }
+
+    inline bool save(const std::string &filename, const std::string &format) {
+        return gcf()->save(filename, format);
+    }
+
+    inline bool save(figure_handle f, const std::string &filename) {
+        return f->save(filename);
+    }
 
 } // namespace matplot
 

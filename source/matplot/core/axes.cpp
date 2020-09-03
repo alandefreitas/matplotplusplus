@@ -10,7 +10,7 @@
 
 #include <matplot/core/axes.h>
 #include <matplot/core/axes_object.h>
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/util/colors.h>
 #include <matplot/util/common.h>
@@ -1126,14 +1126,15 @@ namespace matplot {
         t_axis_.tick_values_automatic_ = false;
     }
 
-    axes::axes(class figure *parent) : axes(parent, default_axes_position) {
+    axes::axes(class figure_type *parent)
+        : axes(parent, default_axes_position) {
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
         font_ = parent->font();
     }
 
-    axes::axes(class figure *parent, std::array<float, 4> position)
+    axes::axes(class figure_type *parent, std::array<float, 4> position)
         : parent_(parent), position_(position), x_axis_(this, -10, +10, true),
           x2_axis_(this, inf, inf, false), y_axis_(this, inf, inf, true),
           y2_axis_(this, inf, inf, false), z_axis_(this, inf, inf, true) {
@@ -1547,13 +1548,13 @@ namespace matplot {
         touch();
     }
 
-    const class figure *axes::parent() const { return parent_; }
+    const class figure_type *axes::parent() const { return parent_; }
 
-    class figure *axes::parent() {
+    class figure_type *axes::parent() {
         return parent_;
     }
 
-    void axes::parent(class figure *p) {
+    void axes::parent(class figure_type *p) {
         parent_ = p;
         touch();
     }

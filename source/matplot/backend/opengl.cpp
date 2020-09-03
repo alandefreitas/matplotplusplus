@@ -3,8 +3,8 @@
 //
 
 #include "opengl.h"
+#include <matplot/core/figure_type.h>
 #include <matplot/util/common.h>
-#include <matplot/core/figure.h>
 
 namespace matplot::backend {
 
@@ -70,7 +70,7 @@ namespace matplot::backend {
         return glfwWindowShouldClose(window_);
     }
 
-    void opengl::show(class matplot::figure* f) {
+    void opengl::show(class matplot::figure_type *f) {
         while (!this->should_close()) {
             f->draw();
         }

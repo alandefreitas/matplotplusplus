@@ -5,7 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_LABELS_H
 #define MATPLOTPLUSPLUS_LABELS_H
 
-#include <matplot/core/figure.h>
+#include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
 #include <matplot/core/axis.h>

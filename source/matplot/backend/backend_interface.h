@@ -10,7 +10,7 @@
 #include <vector>
 
 namespace matplot {
-    class figure;
+    class figure_type;
     namespace backend {
         /// Inherit from this class to create a new backend
         /// - Interactive backends show the plots on a window
@@ -123,7 +123,7 @@ namespace matplot {
             /// \brief Tell the backend to wait for user interaction
             /// Until then, the backend should block execution if possible
             /// Figures use this in the show function
-            virtual void show(matplot::figure*);
+            virtual void show(matplot::figure_type *);
 
             /// \brief True if the user requested to close the window
             /// This function allows the backend to send a signal

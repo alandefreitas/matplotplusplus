@@ -17,7 +17,7 @@ namespace matplot::backend {
       public:
         bool new_frame() override;
         bool render_data() override;
-        void show(matplot::figure*) override;
+        void show(matplot::figure_type *) override;
         bool should_close() override;
         void window_title(const std::string& title) override;
         std::string window_title() override;
