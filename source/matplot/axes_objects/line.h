@@ -13,16 +13,16 @@
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class line : public axes_object {
       public:
-        explicit line(class axes *parent);
-        line(class axes *parent, const std::vector<double> &y_data,
+        explicit line(class axes_type *parent);
+        line(class axes_type *parent, const std::vector<double> &y_data,
              const std::string &line_spec = "");
-        line(class axes *parent, const std::vector<double> &x_data,
+        line(class axes_type *parent, const std::vector<double> &x_data,
              const std::vector<double> &y_data,
              const std::string &line_spec = "");
-        line(class axes *parent, const std::vector<double> &x_data,
+        line(class axes_type *parent, const std::vector<double> &x_data,
              const std::vector<double> &y_data,
              const std::vector<double> &z_data,
              const std::string &line_spec = "");

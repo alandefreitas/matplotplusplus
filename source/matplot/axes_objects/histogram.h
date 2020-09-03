@@ -16,7 +16,7 @@
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class histogram : public axes_object {
       public:
         // source code in 'edit histcount'
@@ -42,16 +42,16 @@ namespace matplot {
         };
 
       public:
-        explicit histogram(class axes *parent);
-        histogram(class axes *parent, const std::vector<double> &data,
+        explicit histogram(class axes_type *parent);
+        histogram(class axes_type *parent, const std::vector<double> &data,
                   size_t n_bins,
                   enum histogram::normalization normalization_alg =
                       histogram::normalization::count);
-        histogram(class axes *parent, const std::vector<double> &data,
+        histogram(class axes_type *parent, const std::vector<double> &data,
                   const std::vector<double> &edges,
                   enum histogram::normalization normalization_alg =
                       histogram::normalization::count);
-        histogram(class axes *parent, const std::vector<double> &data,
+        histogram(class axes_type *parent, const std::vector<double> &data,
                   binning_algorithm algorithm = binning_algorithm::automatic,
                   histogram::normalization normalization_alg =
                       histogram::normalization::count);

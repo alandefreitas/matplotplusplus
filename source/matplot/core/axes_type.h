@@ -2,8 +2,8 @@
 // Created by Alan Freitas on 2020-07-04.
 //
 
-#ifndef MATPLOTPLUSPLUS_AXES_H
-#define MATPLOTPLUSPLUS_AXES_H
+#ifndef MATPLOTPLUSPLUS_AXES_TYPE_H
+#define MATPLOTPLUSPLUS_AXES_TYPE_H
 
 #include <optional>
 
@@ -21,7 +21,7 @@
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
-    class axes : public std::enable_shared_from_this<class axes> {
+    class axes_type : public std::enable_shared_from_this<class axes_type> {
       public:
         // {left bottom right top}
         static constexpr std::array<float, 4> default_subplot_inset{.2, .18,
@@ -31,15 +31,15 @@ namespace matplot {
                                                                     .775, .815};
 
       public:
-        axes();
+        axes_type();
 
-        explicit axes(class figure_type *parent);
+        explicit axes_type(class figure_type *parent);
 
-        axes(class figure_type *parent, std::array<float, 4> position);
+        axes_type(class figure_type *parent, std::array<float, 4> position);
 
-        explicit axes(figure_handle parent);
+        explicit axes_type(figure_handle parent);
 
-        axes(figure_handle parent, std::array<float, 4> position);
+        axes_type(figure_handle parent, std::array<float, 4> position);
 
       public /* functions that operate the axes */:
         /// Plot parent figure
@@ -2840,4 +2840,4 @@ namespace matplot {
 
 } // namespace matplot
 
-#endif // MATPLOTPLUSPLUS_AXES_H
+#endif // MATPLOTPLUSPLUS_AXES_TYPE_H

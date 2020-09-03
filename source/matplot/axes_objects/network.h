@@ -15,14 +15,14 @@
 #include <matplot/util/common.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class network : public axes_object {
       public:
         enum class layout { automatic, force, circle, kawai, random };
 
       public:
-        explicit network(class axes *parent);
-        network(class axes *parent,
+        explicit network(class axes_type *parent);
+        network(class axes_type *parent,
                 const std::vector<std::pair<size_t, size_t>> &edges,
                 const std::vector<double> &weights, size_t n_vertices,
                 const std::string &line_spec = "");

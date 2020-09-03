@@ -14,33 +14,33 @@
 #include <matplot/core/line_spec.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class vectors : public axes_object {
       public:
-        explicit vectors(class axes *parent);
+        explicit vectors(class axes_type *parent);
 
         /// Origin xy = (0,0), u = {1,...n}, v = {v_data}
-        vectors(class axes *parent, const std::vector<double> &v_data,
+        vectors(class axes_type *parent, const std::vector<double> &v_data,
                 const std::string &line_spec = "");
 
         /// Origin xy = (0,0), u = {u_data}, v = {v_data}
-        vectors(class axes *parent, const std::vector<double> &u_data,
+        vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::string &line_spec = "");
 
         /// Origin xy = (0,0,0), u = {u_data}, v = {v_data}, w = {w_data}
-        vectors(class axes *parent, const std::vector<double> &u_data,
+        vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::vector<double> &w_data,
                 const std::string &line_spec = "");
 
-        vectors(class axes *parent, const std::vector<double> &x_data,
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::string &line_spec = "");
 
-        vectors(class axes *parent, const std::vector<double> &x_data,
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
                 const std::vector<double> &u_data,

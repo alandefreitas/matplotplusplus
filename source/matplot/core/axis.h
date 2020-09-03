@@ -12,7 +12,7 @@
 #include <vector>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     /// A two dimensional axis
     class axis {
@@ -20,12 +20,12 @@ namespace matplot {
         enum class axis_scale { linear, log };
 
       public:
-        friend axes;
+        friend axes_type;
         axis();
-        explicit axis(class axes *parent);
-        explicit axis(class axes *parent, bool visible);
-        axis(class axes *parent, double min, double max);
-        axis(class axes *parent, double min, double max, bool visible);
+        explicit axis(class axes_type *parent);
+        explicit axis(class axes_type *parent, bool visible);
+        axis(class axes_type *parent, double min, double max);
+        axis(class axes_type *parent, double min, double max, bool visible);
 
       public:
         void touch();
@@ -166,7 +166,7 @@ namespace matplot {
         bool visible_{true};
 
         // parent xlim
-        class axes *parent_;
+        class axes_type *parent_;
     };
 
 } // namespace matplot

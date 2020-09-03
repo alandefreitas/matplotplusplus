@@ -3,13 +3,13 @@
 //
 
 #include <matplot/axes_objects/string_function.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 
 namespace matplot {
-    string_function::string_function(class axes *parent)
+    string_function::string_function(class axes_type *parent)
         : string_function(parent, "x", "") {}
 
-    string_function::string_function(class axes *parent,
+    string_function::string_function(class axes_type *parent,
                                      const std::string &equation,
                                      const std::string &line_spec)
         : line(parent, {}, line_spec), equation_(equation) {}

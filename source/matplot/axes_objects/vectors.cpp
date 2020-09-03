@@ -4,32 +4,32 @@
 
 #include <cmath>
 #include <matplot/axes_objects/vectors.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <regex>
 #include <sstream>
 
 namespace matplot {
-    vectors::vectors(class axes *parent) : axes_object(parent) {}
+    vectors::vectors(class axes_type *parent) : axes_object(parent) {}
 
-    vectors::vectors(class axes *parent, const std::vector<double> &v_data,
+    vectors::vectors(class axes_type *parent, const std::vector<double> &v_data,
                      const std::string &line_spec)
         : axes_object(parent), v_data_(v_data), line_spec_(this, line_spec) {}
 
-    vectors::vectors(class axes *parent, const std::vector<double> &u_data,
+    vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::string &line_spec)
         : axes_object(parent), u_data_(u_data), v_data_(v_data),
           line_spec_(this, line_spec) {}
 
-    vectors::vectors(class axes *parent, const std::vector<double> &u_data,
+    vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
                      const std::string &line_spec)
         : axes_object(parent), u_data_(u_data), v_data_(v_data),
           w_data_(w_data), line_spec_(this, line_spec) {}
 
-    vectors::vectors(class axes *parent, const std::vector<double> &x_data,
+    vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
@@ -37,7 +37,7 @@ namespace matplot {
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           u_data_(u_data), v_data_(v_data), line_spec_(this, line_spec) {}
 
-    vectors::vectors(class axes *parent, const std::vector<double> &x_data,
+    vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
                      const std::vector<double> &z_data,
                      const std::vector<double> &u_data,

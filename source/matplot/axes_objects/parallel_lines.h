@@ -14,11 +14,11 @@
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class parallel_lines : public axes_object {
       public:
-        explicit parallel_lines(class axes *parent);
-        parallel_lines(class axes *parent,
+        explicit parallel_lines(class axes_type *parent);
+        parallel_lines(class axes_type *parent,
                        const std::vector<std::vector<double>> &data,
                        const std::string &line_spec = "");
 

@@ -4,16 +4,16 @@
 
 #include <cmath>
 #include <matplot/axes_objects/surface.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <regex>
 #include <sstream>
 
 namespace matplot {
-    surface::surface(class axes *parent) : axes_object(parent) {}
+    surface::surface(class axes_type *parent) : axes_object(parent) {}
 
-    surface::surface(class axes *parent, const vector_2d &X, const vector_2d &Y,
-                     const vector_2d &Z, const vector_2d &C,
+    surface::surface(class axes_type *parent, const vector_2d &X,
+                     const vector_2d &Y, const vector_2d &Z, const vector_2d &C,
                      const std::string &line_spec)
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z), C_data_(C),
           line_spec_(this, line_spec), contour_line_spec_(this, ""),

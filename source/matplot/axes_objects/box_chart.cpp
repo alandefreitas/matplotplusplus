@@ -4,14 +4,15 @@
 
 #include <limits>
 #include <matplot/axes_objects/box_chart.h>
-#include <matplot/core/axes.h>
 #include <matplot/core/axes_object.h>
+#include <matplot/core/axes_type.h>
 #include <sstream>
 
 namespace matplot {
-    box_chart::box_chart(class axes *parent) : axes_object(parent) {}
+    box_chart::box_chart(class axes_type *parent) : axes_object(parent) {}
 
-    box_chart::box_chart(class axes *parent, const std::vector<double> &y_data,
+    box_chart::box_chart(class axes_type *parent,
+                         const std::vector<double> &y_data,
                          const std::vector<double> &groups)
         : axes_object(parent), y_data_(y_data), x_data_(groups) {}
 

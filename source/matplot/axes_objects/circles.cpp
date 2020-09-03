@@ -5,12 +5,12 @@
 #include <algorithm>
 #include <matplot/axes_objects/circles.h>
 #include <matplot/axes_objects/labels.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
 
 namespace matplot {
-    circles::circles(class axes *parent, const std::vector<double> &x,
+    circles::circles(class axes_type *parent, const std::vector<double> &x,
                      const std::vector<double> &y,
                      const std::vector<double> &radius,
                      const std::vector<double> &start_angle,

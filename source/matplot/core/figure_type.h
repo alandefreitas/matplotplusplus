@@ -14,7 +14,7 @@
 #include <vector>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     /// \class Figure
     /// From Figures, we can create plot handles and
@@ -32,7 +32,7 @@ namespace matplot {
     /// multiplots if more plots are needed.
     class figure_type {
       public:
-        friend class axes;
+        friend class axes_type;
         // Remove the copy operators because users are not
         // supposed to use this object directly.
         // Users will use a figure_handle which can be copied
@@ -76,7 +76,7 @@ namespace matplot {
         /// \param replace_if_overlap Replace any axes that overlap at all
         /// \param replace_if_same_position Replace any axes that are exactly in
         /// the same position \return Handle to new axes
-        axes_handle add_axes(std::shared_ptr<class axes> ax,
+        axes_handle add_axes(std::shared_ptr<class axes_type> ax,
                              bool replace_if_overlap,
                              bool replace_if_same_position);
 
@@ -116,18 +116,18 @@ namespace matplot {
         axes_handle nexttile(size_t index);
 
         /// Get reference to current axes / create new axes if it does not exist
-        std::shared_ptr<class axes> current_axes();
+        std::shared_ptr<class axes_type> current_axes();
 
         /// Get reference to current axes
-        std::shared_ptr<class axes> current_axes() const;
+        std::shared_ptr<class axes_type> current_axes() const;
 
         /// Set current axes in the figure
-        void current_axes(const std::shared_ptr<class axes> &current_axes);
+        void current_axes(const std::shared_ptr<class axes_type> &current_axes);
 
         /// \brief Get reference to vector with all child axes
-        const std::vector<std::shared_ptr<class axes>> &children() const;
+        const std::vector<std::shared_ptr<class axes_type>> &children() const;
         void
-        children(const std::vector<std::shared_ptr<class axes>> &children);
+        children(const std::vector<std::shared_ptr<class axes_type>> &children);
 
       protected:
         static std::array<float, 4>
@@ -307,8 +307,8 @@ namespace matplot {
         float font_size_{10.};
 
         // Axes
-        std::vector<std::shared_ptr<class axes>> children_;
-        std::shared_ptr<class axes> current_axes_;
+        std::vector<std::shared_ptr<class axes_type>> children_;
+        std::shared_ptr<class axes_type> current_axes_;
 
         // Axes tiles
         size_t current_tile_index_ = 0;

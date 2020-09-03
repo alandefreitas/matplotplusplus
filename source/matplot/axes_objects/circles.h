@@ -14,11 +14,11 @@
 #include <matplot/util/handle_types.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class circles : public axes_object {
       public:
-        explicit circles(class axes *parent);
-        circles(class axes *parent, const std::vector<double> &x,
+        explicit circles(class axes_type *parent);
+        circles(class axes_type *parent, const std::vector<double> &x,
                 const std::vector<double> &y,
                 const std::vector<double> &radius = {},
                 const std::vector<double> &start_angle = {},

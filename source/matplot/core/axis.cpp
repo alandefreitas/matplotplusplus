@@ -3,7 +3,7 @@
 //
 
 #include <cmath>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/core/axis.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/util/colors.h>
@@ -13,15 +13,15 @@ namespace matplot {
 
     axis::axis() : axis(nullptr, inf, inf) {}
 
-    axis::axis(class axes *parent) : axis(parent, inf, inf) {}
+    axis::axis(class axes_type *parent) : axis(parent, inf, inf) {}
 
-    axis::axis(class axes *parent, bool visible)
+    axis::axis(class axes_type *parent, bool visible)
         : axis(parent, inf, inf, visible) {}
 
-    axis::axis(class axes *parent, double min, double max)
+    axis::axis(class axes_type *parent, double min, double max)
         : axis(parent, min, max, true) {}
 
-    axis::axis(class axes *parent, double min, double max, bool visible)
+    axis::axis(class axes_type *parent, double min, double max, bool visible)
         : parent_(parent), limits_({min, max}), visible_(visible) {}
 
     void axis::touch() { parent_->touch(); }

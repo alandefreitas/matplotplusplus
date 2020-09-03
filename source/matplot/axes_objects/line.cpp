@@ -4,24 +4,24 @@
 
 #include <cmath>
 #include <matplot/axes_objects/line.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <regex>
 #include <sstream>
 
 namespace matplot {
-    line::line(class axes *parent) : axes_object(parent) {}
+    line::line(class axes_type *parent) : axes_object(parent) {}
 
-    line::line(class axes *parent, const std::vector<double> &y_data,
+    line::line(class axes_type *parent, const std::vector<double> &y_data,
                const std::string &line_spec)
         : axes_object(parent), y_data_(y_data), line_spec_(this, line_spec) {}
 
-    line::line(class axes *parent, const std::vector<double> &x_data,
+    line::line(class axes_type *parent, const std::vector<double> &x_data,
                const std::vector<double> &y_data, const std::string &line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           line_spec_(this, line_spec) {}
 
-    line::line(class axes *parent, const std::vector<double> &x_data,
+    line::line(class axes_type *parent, const std::vector<double> &x_data,
                const std::vector<double> &y_data,
                const std::vector<double> &z_data, const std::string &line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),

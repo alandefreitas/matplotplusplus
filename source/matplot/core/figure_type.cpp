@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <map>
 #include <matplot/backend/backend_registry.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
@@ -290,12 +290,12 @@ namespace matplot {
     bool figure_type::number_title() const { return number_title_; }
 
     axes_handle figure_type::add_axes(bool replace_if_overlap) {
-        axes_handle h = std::make_shared<class axes>(this);
+        axes_handle h = std::make_shared<class axes_type>(this);
         return this->add_axes(h, replace_if_overlap, replace_if_overlap);
     }
 
     axes_handle figure_type::add_axes(std::array<float, 4> position) {
-        axes_handle h = std::make_shared<class axes>(this, position);
+        axes_handle h = std::make_shared<class axes_type>(this, position);
         h->box(true);
         return this->add_axes(h, false, true);
     }
@@ -354,43 +354,43 @@ namespace matplot {
         const size_t max_row = row;
         const size_t max_col = col;
         float width =
-            axes::default_axes_position[2] /
-            (static_cast<float>(cols) - axes::default_subplot_inset[0] -
-             axes::default_subplot_inset[2]); // 1,0197
+            axes_type::default_axes_position[2] /
+            (static_cast<float>(cols) - axes_type::default_subplot_inset[0] -
+             axes_type::default_subplot_inset[2]); // 1,0197
         float height =
-            axes::default_axes_position[3] /
-            (static_cast<float>(rows) - axes::default_subplot_inset[1] -
-             axes::default_subplot_inset[3]); // 0,4738
+            axes_type::default_axes_position[3] /
+            (static_cast<float>(rows) - axes_type::default_subplot_inset[1] -
+             axes_type::default_subplot_inset[3]); // 0,4738
         std::array<float, 4> subplot_inset{
-            axes::default_subplot_inset[0] * width,
-            axes::default_subplot_inset[1] * height,
-            axes::default_subplot_inset[2] * width,
-            axes::default_subplot_inset[3] * height};
-        std::array<float, 4> outer_pos{axes::default_axes_position[0] +
+            axes_type::default_subplot_inset[0] * width,
+            axes_type::default_subplot_inset[1] * height,
+            axes_type::default_subplot_inset[2] * width,
+            axes_type::default_subplot_inset[3] * height};
+        std::array<float, 4> outer_pos{axes_type::default_axes_position[0] +
                                            min_col * width - subplot_inset[0],
-                                       axes::default_axes_position[1] +
+                                       axes_type::default_axes_position[1] +
                                            min_row * height - subplot_inset[1],
                                        width * col_width, height * row_width};
         if (min_col == 0) {
-            subplot_inset[0] = axes::default_axes_position[0];
+            subplot_inset[0] = axes_type::default_axes_position[0];
             outer_pos[2] = outer_pos[0] + outer_pos[2];
             outer_pos[0] = 0;
         }
         if (min_row == 0) {
-            subplot_inset[1] = axes::default_axes_position[1];
+            subplot_inset[1] = axes_type::default_axes_position[1];
             outer_pos[3] = outer_pos[1] + outer_pos[3];
             outer_pos[1] = 0;
         }
         if (max_col == cols - 1) {
             subplot_inset[2] =
-                std::max(0.f, 1.f - axes::default_axes_position[0] -
-                                  axes::default_axes_position[2]);
+                std::max(0.f, 1.f - axes_type::default_axes_position[0] -
+                                  axes_type::default_axes_position[2]);
             outer_pos[2] = 1 - outer_pos[0];
         }
         if (max_row == rows - 1) {
             subplot_inset[3] =
-                std::max(0., 1. - axes::default_axes_position[1] -
-                                 axes::default_axes_position[3]);
+                std::max(0., 1. - axes_type::default_axes_position[1] -
+                                 axes_type::default_axes_position[3]);
             outer_pos[3] = 1 - outer_pos[1];
         }
         std::array<float, 4> position = {
@@ -448,43 +448,43 @@ namespace matplot {
         const size_t row_width = max_row - min_row + 1;
         const size_t col_width = max_col - min_col + 1;
         float width =
-            axes::default_axes_position[2] /
-            (static_cast<float>(cols) - axes::default_subplot_inset[0] -
-             axes::default_subplot_inset[2]); // 1,0197
+            axes_type::default_axes_position[2] /
+            (static_cast<float>(cols) - axes_type::default_subplot_inset[0] -
+             axes_type::default_subplot_inset[2]); // 1,0197
         float height =
-            axes::default_axes_position[3] /
-            (static_cast<float>(rows) - axes::default_subplot_inset[1] -
-             axes::default_subplot_inset[3]); // 0,4738
+            axes_type::default_axes_position[3] /
+            (static_cast<float>(rows) - axes_type::default_subplot_inset[1] -
+             axes_type::default_subplot_inset[3]); // 0,4738
         std::array<float, 4> subplot_inset{
-            axes::default_subplot_inset[0] * width,
-            axes::default_subplot_inset[1] * height,
-            axes::default_subplot_inset[2] * width,
-            axes::default_subplot_inset[3] * height};
-        std::array<float, 4> outer_pos{axes::default_axes_position[0] +
+            axes_type::default_subplot_inset[0] * width,
+            axes_type::default_subplot_inset[1] * height,
+            axes_type::default_subplot_inset[2] * width,
+            axes_type::default_subplot_inset[3] * height};
+        std::array<float, 4> outer_pos{axes_type::default_axes_position[0] +
                                            min_col * width - subplot_inset[0],
-                                       axes::default_axes_position[1] +
+                                       axes_type::default_axes_position[1] +
                                            min_row * height - subplot_inset[1],
                                        width * col_width, height * row_width};
         if (min_col == 0) {
-            subplot_inset[0] = axes::default_axes_position[0];
+            subplot_inset[0] = axes_type::default_axes_position[0];
             outer_pos[2] = outer_pos[0] + outer_pos[2];
             outer_pos[0] = 0;
         }
         if (min_row == 0) {
-            subplot_inset[1] = axes::default_axes_position[1];
+            subplot_inset[1] = axes_type::default_axes_position[1];
             outer_pos[3] = outer_pos[1] + outer_pos[3];
             outer_pos[1] = 0;
         }
         if (max_col == cols - 1) {
             subplot_inset[2] =
-                std::max(0.f, 1.f - axes::default_axes_position[0] -
-                                  axes::default_axes_position[2]);
+                std::max(0.f, 1.f - axes_type::default_axes_position[0] -
+                                  axes_type::default_axes_position[2]);
             outer_pos[2] = 1 - outer_pos[0];
         }
         if (max_row == rows - 1) {
             subplot_inset[3] =
-                std::max(0., 1. - axes::default_axes_position[1] -
-                                 axes::default_axes_position[3]);
+                std::max(0., 1. - axes_type::default_axes_position[1] -
+                                 axes_type::default_axes_position[3]);
             outer_pos[3] = 1 - outer_pos[1];
         }
         std::array<float, 4> position = {
@@ -496,7 +496,7 @@ namespace matplot {
 
     axes_handle figure_type::add_subplot(std::array<float, 4> position,
                                          bool replace_if_same_position) {
-        axes_handle h = std::make_shared<class axes>(this, position);
+        axes_handle h = std::make_shared<class axes_type>(this, position);
         h->box(true);
         return this->add_axes(h, true, replace_if_same_position);
     }
@@ -734,13 +734,13 @@ namespace matplot {
 
     void figure_type::ioff() { quiet_mode_ = true; }
 
-    const std::vector<std::shared_ptr<class axes>> &
+    const std::vector<std::shared_ptr<class axes_type>> &
     figure_type::children() const {
         return children_;
     }
 
     void figure_type::children(
-        const std::vector<std::shared_ptr<class axes>> &children) {
+        const std::vector<std::shared_ptr<class axes_type>> &children) {
         children_ = children;
     }
 

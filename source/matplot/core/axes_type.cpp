@@ -8,8 +8,8 @@
 #include <memory>
 #include <sstream>
 
-#include <matplot/core/axes.h>
 #include <matplot/core/axes_object.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/core/figure_type.h>
 
 #include <matplot/util/colors.h>
@@ -39,11 +39,11 @@
 
 namespace matplot {
 
-    void axes::draw() { parent_->draw(); }
+    void axes_type::draw() { parent_->draw(); }
 
-    void axes::touch() { parent_->touch(); }
+    void axes_type::touch() { parent_->touch(); }
 
-    void axes::emplace_object(axes_object_handle obj) {
+    void axes_type::emplace_object(axes_object_handle obj) {
         if (next_plot_replace_) {
             children_.clear();
             colororder_index_ = 0;
@@ -52,7 +52,7 @@ namespace matplot {
         touch();
     }
 
-    void axes::run_title_command() {
+    void axes_type::run_title_command() {
         include_comment("Axes title");
         if (title_visible_ && !title_.empty()) {
             std::string cmd;
@@ -88,7 +88,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_colormap_command() {
+    void axes_type::run_colormap_command() {
         bool any_obj_needs_colormap = false;
         for (const auto &child : children_) {
             if (child->requires_colormap()) {
@@ -155,7 +155,8 @@ namespace matplot {
         }
     }
 
-    std::tuple<double,double,double,double,double,double> axes::calculate_margins() {
+    std::tuple<double, double, double, double, double, double>
+    axes_type::calculate_margins() {
         // There are conditions on which the xlim are smaller than requested
         // to make room for other elements
         double width_multiplier = is_3d() && !is_3d_map() ? 0.72 : 1.;
@@ -236,7 +237,7 @@ namespace matplot {
         return std::make_tuple(bg_width, bg_height,lmargin,rmargin,bmargin,tmargin);
     }
 
-    void axes::run_position_margin_command() {
+    void axes_type::run_position_margin_command() {
         include_comment("Axes position");
         run_command("set origin " + std::to_string(x_origin()) + "," +
                     std::to_string(y_origin()));
@@ -244,9 +245,7 @@ namespace matplot {
         auto [bg_width, bg_height, lmargin, rmargin, bmargin, tmargin] =
             calculate_margins();
 
-        run_command("set size " + num2str(bg_width) + "," +
-                    num2str(bg_height));
-
+        run_command("set size " + num2str(bg_width) + "," + num2str(bg_height));
 
         run_command("set lmargin at screen " + num2str(lmargin));
         run_command("set rmargin at screen " + num2str(rmargin));
@@ -263,7 +262,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_grid_command() {
+    void axes_type::run_grid_command() {
         // if the user didn't explicitly set the grid, turn on the grid
         // by default in logscale
         if (!x_user_grid_) {
@@ -332,7 +331,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_box_command() {
+    void axes_type::run_box_command() {
         include_comment("Axes box");
         if (!visible_) {
             run_command("unset border");
@@ -411,7 +410,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_axes_command() {
+    void axes_type::run_axes_command() {
         // plot tics
         // http://www.gnuplot.info/docs_4.2/node182.html
         if (is_polar()) {
@@ -613,7 +612,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_labels_command() {
+    void axes_type::run_labels_command() {
         include_comment("Axes labels");
         //      set xlabel {"<label>"} {offset <offset>} {font
         //      "<font>{,<size>}"}
@@ -645,7 +644,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_legend_command() {
+    void axes_type::run_legend_command() {
         //  set key {on|off} {default}
         //  {{inside | outside} | {lmargin | rmargin | tmargin | bmargin}
         //      | {at <position>}}
@@ -767,7 +766,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_background_command() {
+    void axes_type::run_background_command() {
         const bool saving_to_file = !parent_->backend_->output().empty();
         const bool using_default_color =
             color_ == std::array<float, 4>{0, 1.0, 1.0, 1.0};
@@ -820,7 +819,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_empty_plot_command() {
+    void axes_type::run_empty_plot_command() {
         include_comment("Empty xlim");
         if (x_axis().limits_mode_auto()) {
             run_command("set yrange [0:1]");
@@ -838,7 +837,7 @@ namespace matplot {
         }
     }
 
-    void axes::run_plot_objects_command() {
+    void axes_type::run_plot_objects_command() {
         include_comment("Axes objects");
         // Plot empty xlim if there are no objects
         if (children_.empty()) {
@@ -909,7 +908,7 @@ namespace matplot {
         run_command(unset_variables_command);
     }
 
-    void axes::run_commands() {
+    void axes_type::run_commands() {
         run_colormap_command();
         run_position_margin_command();
         run_title_command();
@@ -922,7 +921,7 @@ namespace matplot {
         run_plot_objects_command();
     }
 
-    void axes::run_draw_commands() {
+    void axes_type::run_draw_commands() {
         run_background_draw_commands();
         run_grid_draw_commands();
         run_box_draw_commands();
@@ -933,41 +932,39 @@ namespace matplot {
         run_plot_objects_draw_commands();
     }
 
-    void axes::run_background_draw_commands() {
-        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+    void axes_type::run_background_draw_commands() {
+        auto [w, h, lm, rm, bm, tm] = calculate_margins();
         double view_width = parent_->backend_->width();
         double x1 = lm * view_width;
         double x2 = rm * view_width;
         double view_height = parent_->backend_->height();
         double y1 = bm * view_height;
         double y2 = tm * view_height;
-        parent_->backend_->draw_rectangle(x1,x2,y1,y2,this->color_);
+        parent_->backend_->draw_rectangle(x1, x2, y1, y2, this->color_);
     }
 
-    void axes::run_title_draw_commands() {
+    void axes_type::run_title_draw_commands() {
         // This should draw the title on top of the axes
     }
 
-    void axes::run_box_draw_commands() {
-        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+    void axes_type::run_box_draw_commands() {
+        auto [w, h, lm, rm, bm, tm] = calculate_margins();
         double view_width = parent_->backend_->width();
         double x1 = lm * view_width;
         double x2 = rm * view_width;
         double view_height = parent_->backend_->height();
         double y1 = bm * view_height;
         double y2 = tm * view_height;
-        const std::array<float, 4> color = {0.,0.,0.,0.};
-        std::vector<double> box_xs = {x1,x2,x2,x1,x1};
-        std::vector<double> box_ys = {y1,y1,y2,y2,y1};
+        const std::array<float, 4> color = {0., 0., 0., 0.};
+        std::vector<double> box_xs = {x1, x2, x2, x1, x1};
+        std::vector<double> box_ys = {y1, y1, y2, y2, y1};
         parent_->backend_->draw_path(box_xs, box_ys, color);
     }
 
-    void axes::run_grid_draw_commands() {
+    void axes_type::run_grid_draw_commands() {}
 
-    }
-
-    void axes::run_axes_draw_commands() {
-        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+    void axes_type::run_axes_draw_commands() {
+        auto [w, h, lm, rm, bm, tm] = calculate_margins();
         double view_width = parent_->backend_->width();
         double view_height = parent_->backend_->height();
         // to draw the x axis we
@@ -1046,53 +1043,48 @@ namespace matplot {
         }
     }
 
-    void axes::run_labels_draw_commands() {
+    void axes_type::run_labels_draw_commands() {}
 
-    }
+    void axes_type::run_legend_draw_commands() {}
 
-    void axes::run_legend_draw_commands() {
-
-    }
-
-
-    void axes::run_plot_objects_draw_commands() {
+    void axes_type::run_plot_objects_draw_commands() {
         for (const auto &child : children_) {
             child->run_draw_commands();
         }
     }
 
-    void axes::run_command(const std::string &command) {
+    void axes_type::run_command(const std::string &command) {
         parent_->run_command("    " + command);
     }
 
-    void axes::include_comment(const std::string &command) {
+    void axes_type::include_comment(const std::string &command) {
         parent_->run_command("    # " + command);
     }
 
-    bool axes::is_3d() {
+    bool axes_type::is_3d() {
         return children_.empty() ? false : children_[0]->is_3d();
     }
 
-    bool axes::is_3d_map() {
+    bool axes_type::is_3d_map() {
         return children_.empty() ? false : children_[0]->is_3d_map();
     }
 
-    bool axes::is_2d() {
+    bool axes_type::is_2d() {
         return children_.empty() ? true : children_[0]->is_2d();
     }
 
-    bool axes::is_polar() {
+    bool axes_type::is_polar() {
         return children_.empty() ? false : children_[0]->is_polar();
     }
 
-    axes_handle axes::copy(figure_handle parent) {
-        axes_handle new_axes = std::make_shared<class axes>(*this);
+    axes_handle axes_type::copy(figure_handle parent) {
+        axes_handle new_axes = std::make_shared<class axes_type>(*this);
         new_axes->parent_ = parent.get();
         new_axes->parent_->add_axes(new_axes, false, false);
         return new_axes;
     }
 
-    std::array<double, 4> axes::child_limits() const {
+    std::array<double, 4> axes_type::child_limits() const {
         if (children_.empty()) {
             return {-10, +10, -10, +10};
         }
@@ -1120,21 +1112,22 @@ namespace matplot {
                 (*ymaxit)->ymax()};
     }
 
-    axes::axes() : axes(nullptr) {
+    axes_type::axes_type() : axes_type(nullptr) {
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
     }
 
-    axes::axes(class figure_type *parent)
-        : axes(parent, default_axes_position) {
+    axes_type::axes_type(class figure_type *parent)
+        : axes_type(parent, default_axes_position) {
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
         font_ = parent->font();
     }
 
-    axes::axes(class figure_type *parent, std::array<float, 4> position)
+    axes_type::axes_type(class figure_type *parent,
+                         std::array<float, 4> position)
         : parent_(parent), position_(position), x_axis_(this, -10, +10, true),
           x2_axis_(this, inf, inf, false), y_axis_(this, inf, inf, true),
           y2_axis_(this, inf, inf, false), z_axis_(this, inf, inf, true) {
@@ -1146,196 +1139,196 @@ namespace matplot {
         font_ = parent->font();
     }
 
-    axes::axes(figure_handle parent) : axes(parent.get()) {
+    axes_type::axes_type(figure_handle parent) : axes_type(parent.get()) {
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
         font_ = parent->font();
     }
 
-    axes::axes(figure_handle parent, std::array<float, 4> position)
-        : axes(parent.get(), position) {
+    axes_type::axes_type(figure_handle parent, std::array<float, 4> position)
+        : axes_type(parent.get(), position) {
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
         font_ = parent->font();
     }
 
-    const class axis &axes::x_axis() const { return x_axis_; }
+    const class axis &axes_type::x_axis() const { return x_axis_; }
 
-    class axis &axes::x_axis() {
+    class axis &axes_type::x_axis() {
         return x_axis_;
     }
 
-    const class axis &axes::x2_axis() const { return x2_axis_; }
+    const class axis &axes_type::x2_axis() const { return x2_axis_; }
 
-    class axis &axes::x2_axis() {
+    class axis &axes_type::x2_axis() {
         return x2_axis_;
     }
 
-    const class axis &axes::y_axis() const { return y_axis_; }
+    const class axis &axes_type::y_axis() const { return y_axis_; }
 
-    const std::string &axes::xlabel() const { return x_axis_.label(); }
+    const std::string &axes_type::xlabel() const { return x_axis_.label(); }
 
-    void axes::xlabel(const std::string &str) {
+    void axes_type::xlabel(const std::string &str) {
         x_axis_.label(str);
         touch();
     }
 
-    const std::string &axes::x2label() const { return x2_axis_.label(); }
+    const std::string &axes_type::x2label() const { return x2_axis_.label(); }
 
-    void axes::x2label(const std::string &str) {
+    void axes_type::x2label(const std::string &str) {
         x2_axis_.label(str);
         touch();
     }
 
-    const std::string &axes::ylabel() const { return y_axis_.label(); }
+    const std::string &axes_type::ylabel() const { return y_axis_.label(); }
 
-    void axes::ylabel(const std::string &str) {
+    void axes_type::ylabel(const std::string &str) {
         y_axis_.label(str);
         touch();
     }
 
-    const std::string &axes::xtickformat() const {
+    const std::string &axes_type::xtickformat() const {
         return x_axis_.tick_label_format();
     }
 
-    void axes::xtickformat(const std::string &str) {
+    void axes_type::xtickformat(const std::string &str) {
         x_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::x2tickformat() const {
+    const std::string &axes_type::x2tickformat() const {
         return x2_axis_.tick_label_format();
     }
 
-    void axes::x2tickformat(const std::string &str) {
+    void axes_type::x2tickformat(const std::string &str) {
         x2_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::ytickformat() const {
+    const std::string &axes_type::ytickformat() const {
         return y_axis_.tick_label_format();
     }
 
-    void axes::ytickformat(const std::string &str) {
+    void axes_type::ytickformat(const std::string &str) {
         y_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::y2tickformat() const {
+    const std::string &axes_type::y2tickformat() const {
         return y2_axis_.tick_label_format();
     }
 
-    void axes::y2tickformat(const std::string &str) {
+    void axes_type::y2tickformat(const std::string &str) {
         y2_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::ztickformat() const {
+    const std::string &axes_type::ztickformat() const {
         return z_axis_.tick_label_format();
     }
 
-    void axes::ztickformat(const std::string &str) {
+    void axes_type::ztickformat(const std::string &str) {
         z_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::rtickformat() const {
+    const std::string &axes_type::rtickformat() const {
         return r_axis_.tick_label_format();
     }
 
-    void axes::rtickformat(const std::string &str) {
+    void axes_type::rtickformat(const std::string &str) {
         r_axis_.tick_label_format(str);
     }
 
-    const std::string &axes::y2label() const { return y2_axis_.label(); }
+    const std::string &axes_type::y2label() const { return y2_axis_.label(); }
 
-    void axes::y2label(const std::string &str) {
+    void axes_type::y2label(const std::string &str) {
         y2_axis_.label(str);
         touch();
     }
 
-    const std::string &axes::zlabel() const { return z_axis_.label(); }
+    const std::string &axes_type::zlabel() const { return z_axis_.label(); }
 
-    void axes::zlabel(const std::string &str) {
+    void axes_type::zlabel(const std::string &str) {
         z_axis_.label(str);
         touch();
     }
 
-    const std::string &axes::rlabel() const { return r_axis_.label(); }
+    const std::string &axes_type::rlabel() const { return r_axis_.label(); }
 
-    void axes::rlabel(const std::string &str) {
+    void axes_type::rlabel(const std::string &str) {
         r_axis_.label(str);
         touch();
     }
 
-    const std::vector<double> &axes::xticks() const {
+    const std::vector<double> &axes_type::xticks() const {
         return x_axis_.tick_values();
     }
 
-    void axes::xticks(const std::vector<double> &ticks) {
+    void axes_type::xticks(const std::vector<double> &ticks) {
         x_axis_.tick_values(ticks);
     }
 
-    const std::vector<double> &axes::x2ticks() const {
+    const std::vector<double> &axes_type::x2ticks() const {
         return x2_axis_.tick_values();
     }
 
-    void axes::x2ticks(const std::vector<double> &ticks) {
+    void axes_type::x2ticks(const std::vector<double> &ticks) {
         x2_axis_.tick_values(ticks);
     }
 
-    const std::vector<double> &axes::yticks() const {
+    const std::vector<double> &axes_type::yticks() const {
         return y_axis_.tick_values();
     }
 
-    void axes::yticks(const std::vector<double> &ticks) {
+    void axes_type::yticks(const std::vector<double> &ticks) {
         y_axis_.tick_values(ticks);
     }
 
-    const std::vector<double> &axes::y2ticks() const {
+    const std::vector<double> &axes_type::y2ticks() const {
         return y2_axis_.tick_values();
     }
 
-    void axes::y2ticks(const std::vector<double> &ticks) {
+    void axes_type::y2ticks(const std::vector<double> &ticks) {
         y2_axis_.tick_values(ticks);
     }
 
-    const std::vector<double> &axes::zticks() const {
+    const std::vector<double> &axes_type::zticks() const {
         return z_axis_.tick_values();
     }
 
-    void axes::zticks(const std::vector<double> &ticks) {
+    void axes_type::zticks(const std::vector<double> &ticks) {
         z_axis_.tick_values(ticks);
     }
 
-    const std::vector<double> &axes::rticks() const {
+    const std::vector<double> &axes_type::rticks() const {
         return r_axis_.tick_values();
     }
 
-    void axes::rticks(const std::vector<double> &ticks) {
+    void axes_type::rticks(const std::vector<double> &ticks) {
         r_axis_.tick_values(ticks);
     }
 
-    class axis &axes::y_axis() {
+    class axis &axes_type::y_axis() {
         return y_axis_;
     }
 
-    const class axis &axes::y2_axis() const { return y2_axis_; }
+    const class axis &axes_type::y2_axis() const { return y2_axis_; }
 
-    class axis &axes::y2_axis() {
+    class axis &axes_type::y2_axis() {
         return y2_axis_;
     }
 
-    const class axis &axes::z_axis() const { return z_axis_; }
+    const class axis &axes_type::z_axis() const { return z_axis_; }
 
-    class axis &axes::z_axis() {
+    class axis &axes_type::z_axis() {
         return z_axis_;
     }
 
-    const class axis &axes::r_axis() const { return r_axis_; }
+    const class axis &axes_type::r_axis() const { return r_axis_; }
 
-    class axis &axes::r_axis() {
+    class axis &axes_type::r_axis() {
         return r_axis_;
     }
 
-    const std::string &axes::font() const {
+    const std::string &axes_type::font() const {
         if (font_) {
             return *font_;
         } else {
@@ -1343,12 +1336,12 @@ namespace matplot {
         }
     }
 
-    void axes::font(const std::string &font) {
+    void axes_type::font(const std::string &font) {
         font_ = font;
         touch();
     }
 
-    float axes::font_size() const {
+    float axes_type::font_size() const {
         if (font_size_) {
             return *font_size_;
         } else {
@@ -1356,190 +1349,191 @@ namespace matplot {
         }
     }
 
-    void axes::font_size(float font_size) {
+    void axes_type::font_size(float font_size) {
         font_size_ = font_size;
         touch();
     }
 
-    const std::string &axes::font_weight() const { return font_weight_; }
+    const std::string &axes_type::font_weight() const { return font_weight_; }
 
-    void axes::font_weight(const std::string &font_weight) {
+    void axes_type::font_weight(const std::string &font_weight) {
         font_weight_ = font_weight;
         touch();
     }
 
-    float axes::title_font_size_multiplier() const {
+    float axes_type::title_font_size_multiplier() const {
         return title_font_size_multiplier_;
     }
 
-    void axes::title_font_size_multiplier(float title_font_size_multiplier) {
+    void
+    axes_type::title_font_size_multiplier(float title_font_size_multiplier) {
         title_font_size_multiplier_ = title_font_size_multiplier;
         touch();
     }
 
-    const std::string &axes::title_font_weight() const {
+    const std::string &axes_type::title_font_weight() const {
         return title_font_weight_;
     }
 
-    void axes::title_font_weight(const std::string &title_font_weight) {
+    void axes_type::title_font_weight(const std::string &title_font_weight) {
         title_font_weight_ = title_font_weight;
         touch();
     }
 
-    const color_array &axes::color() const { return color_; }
+    const color_array &axes_type::color() const { return color_; }
 
-    void axes::color(const color_array &color) {
+    void axes_type::color(const color_array &color) {
         color_ = color;
         touch();
     }
 
-    void axes::color(const std::array<float, 3> &color) {
+    void axes_type::color(const std::array<float, 3> &color) {
         color_ = {0, color[0], color[1], color[2]};
         touch();
     }
 
-    void axes::color(const std::string &c) { color(string_to_color(c)); }
+    void axes_type::color(const std::string &c) { color(string_to_color(c)); }
 
-    void axes::color(const enum color &c) { color(to_array(c)); }
+    void axes_type::color(const enum color &c) { color(to_array(c)); }
 
-    const std::vector<color_array> &axes::colororder() const {
+    const std::vector<color_array> &axes_type::colororder() const {
         return colororder_;
     }
 
-    void axes::colororder(const std::vector<color_array> &colororder) {
+    void axes_type::colororder(const std::vector<color_array> &colororder) {
         colororder_ = colororder;
         touch();
     }
 
-    size_t axes::colororder_index() const { return colororder_index_; }
+    size_t axes_type::colororder_index() const { return colororder_index_; }
 
-    void axes::colororder_index(size_t colororder_index) {
+    void axes_type::colororder_index(size_t colororder_index) {
         colororder_index_ = colororder_index;
     }
 
-    void axes::bump_colororder_index() {
+    void axes_type::bump_colororder_index() {
         colororder_index_ = (colororder_index_ + 1) % colororder_.size();
     }
 
-    color_array axes::get_color_and_bump() {
+    color_array axes_type::get_color_and_bump() {
         color_array r = colororder_[colororder_index_];
         bump_colororder_index();
         return r;
     }
 
-    const color_array axes::grid_color() const {
+    const color_array axes_type::grid_color() const {
         return grid_line_style_.color();
     }
 
-    void axes::grid_color(const color_array &grid_color) {
+    void axes_type::grid_color(const color_array &grid_color) {
         grid_line_style_.color(grid_color);
         touch();
     }
 
-    float axes::grid_alpha() const { return grid_line_style_.alpha(); }
+    float axes_type::grid_alpha() const { return grid_line_style_.alpha(); }
 
-    void axes::grid_alpha(float grid_alpha) {
+    void axes_type::grid_alpha(float grid_alpha) {
         grid_line_style_.alpha(grid_alpha);
         touch();
     }
 
-    bool axes::handle_visibility() const { return handle_visibility_; }
+    bool axes_type::handle_visibility() const { return handle_visibility_; }
 
-    void axes::handle_visibility(bool handle_visibility) {
+    void axes_type::handle_visibility(bool handle_visibility) {
         handle_visibility_ = handle_visibility;
         touch();
     }
 
-    float axes::minor_grid_alpha() const {
+    float axes_type::minor_grid_alpha() const {
         return minor_grid_line_style_.alpha();
     }
 
-    void axes::minor_grid_alpha(float minor_grid_alpha) {
+    void axes_type::minor_grid_alpha(float minor_grid_alpha) {
         minor_grid_line_style_.alpha(minor_grid_alpha);
         touch();
     }
 
-    const color_array axes::minor_grid_color() const {
+    const color_array axes_type::minor_grid_color() const {
         return minor_grid_line_style_.color();
     }
 
-    void axes::minor_grid_color(const color_array &minor_grid_color) {
+    void axes_type::minor_grid_color(const color_array &minor_grid_color) {
         minor_grid_line_style_.color(minor_grid_color);
         touch();
     }
 
-    line_spec axes::minor_grid_line_style() const {
+    line_spec axes_type::minor_grid_line_style() const {
         return minor_grid_line_style_;
     }
 
-    void axes::minor_grid_line_style(line_spec minor_grid_line_style) {
+    void axes_type::minor_grid_line_style(line_spec minor_grid_line_style) {
         minor_grid_line_style_ = minor_grid_line_style;
         touch();
     }
 
-    line_spec axes::grid_line_style() const { return grid_line_style_; }
+    line_spec axes_type::grid_line_style() const { return grid_line_style_; }
 
-    void axes::grid_line_style(line_spec grid_line_style) {
+    void axes_type::grid_line_style(line_spec grid_line_style) {
         grid_line_style_ = grid_line_style;
         touch();
     }
 
-    const std::string &axes::line_style_order() const {
+    const std::string &axes_type::line_style_order() const {
         return line_style_order_;
     }
 
-    void axes::line_style_order(const std::string &line_style_order) {
+    void axes_type::line_style_order(const std::string &line_style_order) {
         line_style_order_ = line_style_order;
         touch();
     }
 
-    size_t axes::line_style_order_index() const {
+    size_t axes_type::line_style_order_index() const {
         return line_style_order_index_;
     }
 
-    void axes::line_style_order_index(size_t line_style_order_index) {
+    void axes_type::line_style_order_index(size_t line_style_order_index) {
         line_style_order_index_ = line_style_order_index;
         touch();
     }
 
-    float axes::line_width() const { return line_width_; }
+    float axes_type::line_width() const { return line_width_; }
 
-    void axes::line_width(float line_width) {
+    void axes_type::line_width(float line_width) {
         line_width_ = line_width;
         touch();
     }
 
-    bool axes::next_plot_replace() const { return next_plot_replace_; }
+    bool axes_type::next_plot_replace() const { return next_plot_replace_; }
 
-    void axes::next_plot_replace(bool next_plot_replace) {
+    void axes_type::next_plot_replace(bool next_plot_replace) {
         if (next_plot_replace != next_plot_replace_) {
             next_plot_replace_ = next_plot_replace;
         }
     }
 
-    bool axes::hold() const { return !next_plot_replace(); }
+    bool axes_type::hold() const { return !next_plot_replace(); }
 
-    void axes::hold(bool v) { next_plot_replace(!v); }
+    void axes_type::hold(bool v) { next_plot_replace(!v); }
 
     const std::vector<std::shared_ptr<class axes_object>> &
-    axes::children() const {
+    axes_type::children() const {
         return children_;
     }
 
-    void
-    axes::children(const std::vector<std::shared_ptr<axes_object>> &children) {
+    void axes_type::children(
+        const std::vector<std::shared_ptr<axes_object>> &children) {
         children_ = children;
         touch();
     }
 
-    const legend_handle &axes::legend() const { return legend_; }
+    const legend_handle &axes_type::legend() const { return legend_; }
 
-    void axes::legend(const legend_handle &legend) {
+    void axes_type::legend(const legend_handle &legend) {
         legend_ = legend;
         touch();
     }
 
-    void axes::legend(const std::vector<std::string> &names) {
+    void axes_type::legend(const std::vector<std::string> &names) {
         if (legend_ == nullptr) {
             legend_.reset(new class legend(this, names));
         } else {
@@ -1548,20 +1542,20 @@ namespace matplot {
         touch();
     }
 
-    const class figure_type *axes::parent() const { return parent_; }
+    const class figure_type *axes_type::parent() const { return parent_; }
 
-    class figure_type *axes::parent() {
+    class figure_type *axes_type::parent() {
         return parent_;
     }
 
-    void axes::parent(class figure_type *p) {
+    void axes_type::parent(class figure_type *p) {
         parent_ = p;
         touch();
     }
 
-    const std::string &axes::title() const { return title_; }
+    const std::string &axes_type::title() const { return title_; }
 
-    void axes::title(const std::string &title) {
+    void axes_type::title(const std::string &title) {
         title_ = title;
         title_visible_ = !title.empty();
         if (parent_->children_.size() == 1 && !parent_->quiet_mode()) {
@@ -1573,53 +1567,55 @@ namespace matplot {
         }
     }
 
-    const std::array<float, 4> &axes::position() const { return position_; }
+    const std::array<float, 4> &axes_type::position() const {
+        return position_;
+    }
 
-    void axes::position(const std::array<float, 4> &position) {
+    void axes_type::position(const std::array<float, 4> &position) {
         position_ = position;
         touch();
     }
 
-    const float &axes::x_origin() const { return position_[0]; }
+    const float &axes_type::x_origin() const { return position_[0]; }
 
-    void axes::x_origin(float x) {
+    void axes_type::x_origin(float x) {
         position_[0] = x;
         touch();
     }
 
-    const float &axes::y_origin() const { return position_[1]; }
+    const float &axes_type::y_origin() const { return position_[1]; }
 
-    void axes::y_origin(float y) {
+    void axes_type::y_origin(float y) {
         position_[1] = y;
         touch();
     }
 
-    const float &axes::width() const { return position_[2]; }
+    const float &axes_type::width() const { return position_[2]; }
 
-    void axes::width(float w) {
+    void axes_type::width(float w) {
         position_[2] = w;
         touch();
     }
 
-    const float &axes::height() const { return position_[3]; }
+    const float &axes_type::height() const { return position_[3]; }
 
-    void axes::height(float h) {
+    void axes_type::height(float h) {
         position_[3] = h;
         touch();
     }
 
-    bool axes::box() const { return box_; }
+    bool axes_type::box() const { return box_; }
 
-    void axes::box(bool box) {
+    void axes_type::box(bool box) {
         if (box != box_) {
             box_ = box;
             touch();
         }
     }
 
-    bool axes::box_full() const { return box_full_; }
+    bool axes_type::box_full() const { return box_full_; }
 
-    void axes::box_full(bool box_full) {
+    void axes_type::box_full(bool box_full) {
         if (box_full != box_full_) {
             box_full_ = box_full;
             if (box_full) {
@@ -1629,31 +1625,31 @@ namespace matplot {
         }
     }
 
-    bool axes::title_visible() const { return title_visible_; }
+    bool axes_type::title_visible() const { return title_visible_; }
 
-    void axes::title_visible(bool title_visible) {
+    void axes_type::title_visible(bool title_visible) {
         title_visible_ = title_visible;
         touch();
     }
 
-    bool axes::visible() const { return visible_; }
+    bool axes_type::visible() const { return visible_; }
 
-    void axes::visible(bool visible) {
+    void axes_type::visible(bool visible) {
         visible_ = visible;
         touch();
     }
 
-    void axes::limits_mode(keyword_automatic_type automatic) {
+    void axes_type::limits_mode(keyword_automatic_type automatic) {
         limits_mode_automatic(true);
         touch();
     }
 
-    void axes::limits_mode(keyword_manual_type manual) {
+    void axes_type::limits_mode(keyword_manual_type manual) {
         limits_mode_automatic(false);
         touch();
     }
 
-    void axes::limits_mode_automatic(bool automatic) {
+    void axes_type::limits_mode_automatic(bool automatic) {
         x_axis_.limits_mode_auto(automatic);
         y_axis_.limits_mode_auto(automatic);
         y2_axis_.limits_mode_auto(automatic);
@@ -1661,12 +1657,12 @@ namespace matplot {
         touch();
     }
 
-    bool axes::limits_mode_automatic() const {
+    bool axes_type::limits_mode_automatic() const {
         return x_axis_.limits_mode_auto() && y_axis_.limits_mode_auto() &&
                y2_axis_.limits_mode_auto() && z_axis_.limits_mode_auto();
     }
 
-    void axes::limits_mode_manual(bool manual) {
+    void axes_type::limits_mode_manual(bool manual) {
         x_axis_.limits_mode_auto(!manual);
         y_axis_.limits_mode_auto(!manual);
         y2_axis_.limits_mode_auto(!manual);
@@ -1674,14 +1670,14 @@ namespace matplot {
         touch();
     }
 
-    bool axes::limits_mode_manual() const {
+    bool axes_type::limits_mode_manual() const {
         return x_axis_.limits_mode_manual() && y_axis_.limits_mode_manual() &&
                y2_axis_.limits_mode_manual() && z_axis_.limits_mode_manual();
     }
 
-    bool axes::grid() const { return x_grid_ && y_grid_ && z_grid_; }
+    bool axes_type::grid() const { return x_grid_ && y_grid_ && z_grid_; }
 
-    void axes::grid(bool grid) {
+    void axes_type::grid(bool grid) {
         x_grid_ = grid;
         x_user_grid_ = true;
         y_grid_ = grid;
@@ -1691,11 +1687,11 @@ namespace matplot {
         touch();
     }
 
-    bool axes::minor_grid() const {
+    bool axes_type::minor_grid() const {
         return x_minor_grid_ && y_minor_grid_ && z_minor_grid_;
     }
 
-    void axes::minor_grid(bool minor_grid) {
+    void axes_type::minor_grid(bool minor_grid) {
         x_minor_grid_ = minor_grid;
         x_user_grid_ = true;
         y_minor_grid_ = minor_grid;
@@ -1705,62 +1701,68 @@ namespace matplot {
         touch();
     }
 
-    bool axes::x_grid() const { return x_grid_; }
+    bool axes_type::x_grid() const { return x_grid_; }
 
-    void axes::x_grid(bool x_grid) {
+    void axes_type::x_grid(bool x_grid) {
         x_grid_ = x_grid;
         x_user_grid_ = true;
         touch();
     }
 
-    bool axes::x_minor_grid() const { return x_minor_grid_; }
+    bool axes_type::x_minor_grid() const { return x_minor_grid_; }
 
-    void axes::x_minor_grid(bool x_minor_grid) { x_minor_grid_ = x_minor_grid; }
+    void axes_type::x_minor_grid(bool x_minor_grid) {
+        x_minor_grid_ = x_minor_grid;
+    }
 
-    bool axes::y_grid() const { return y_grid_; }
+    bool axes_type::y_grid() const { return y_grid_; }
 
-    void axes::y_grid(bool y_grid) {
+    void axes_type::y_grid(bool y_grid) {
         y_grid_ = y_grid;
         x_user_grid_ = true;
         touch();
     }
 
-    bool axes::y_minor_grid() const { return y_minor_grid_; }
+    bool axes_type::y_minor_grid() const { return y_minor_grid_; }
 
-    void axes::y_minor_grid(bool y_minor_grid) { y_minor_grid_ = y_minor_grid; }
+    void axes_type::y_minor_grid(bool y_minor_grid) {
+        y_minor_grid_ = y_minor_grid;
+    }
 
-    bool axes::z_grid() const { return z_grid_; }
+    bool axes_type::z_grid() const { return z_grid_; }
 
-    void axes::z_grid(bool z_grid) {
+    void axes_type::z_grid(bool z_grid) {
         z_grid_ = z_grid;
         x_user_grid_ = true;
         touch();
     }
 
-    bool axes::z_minor_grid() const { return z_minor_grid_; }
+    bool axes_type::z_minor_grid() const { return z_minor_grid_; }
 
-    void axes::z_minor_grid(bool z_minor_grid) { z_minor_grid_ = z_minor_grid; }
+    void axes_type::z_minor_grid(bool z_minor_grid) {
+        z_minor_grid_ = z_minor_grid;
+    }
 
-    bool axes::axes_aspect_ratio_auto() const {
+    bool axes_type::axes_aspect_ratio_auto() const {
         return axes_aspect_ratio_auto_;
     }
 
-    void axes::axes_aspect_ratio_auto(bool axes_aspect_ratio_auto) {
+    void axes_type::axes_aspect_ratio_auto(bool axes_aspect_ratio_auto) {
         axes_aspect_ratio_auto_ = axes_aspect_ratio_auto;
         touch();
     }
 
-    void axes::axes_aspect_ratio(float axes_aspect_ratio) {
+    void axes_type::axes_aspect_ratio(float axes_aspect_ratio) {
         axes_aspect_ratio_ = axes_aspect_ratio;
         axes_aspect_ratio_auto_ = false;
         touch();
     }
 
-    float axes::axes_aspect_ratio() const { return axes_aspect_ratio_; }
+    float axes_type::axes_aspect_ratio() const { return axes_aspect_ratio_; }
 
-    float axes::azimuth() const { return azimuth_; }
+    float axes_type::azimuth() const { return azimuth_; }
 
-    void axes::azimuth(float azimuth) {
+    void axes_type::azimuth(float azimuth) {
         if (azimuth != azimuth_) {
             azimuth_ = azimuth;
             if (parent_->children_.size() == 1 && !parent_->quiet_mode()) {
@@ -1781,9 +1783,9 @@ namespace matplot {
         }
     }
 
-    float axes::elevation() const { return elevation_; }
+    float axes_type::elevation() const { return elevation_; }
 
-    void axes::elevation(float elevation) {
+    void axes_type::elevation(float elevation) {
         if (elevation != elevation_) {
             elevation_ = elevation;
             if (parent_->children_.size() == 1 && !parent_->quiet_mode()) {
@@ -1804,11 +1806,11 @@ namespace matplot {
         }
     }
 
-    std::pair<float, float> axes::view() const {
+    std::pair<float, float> axes_type::view() const {
         return std::make_pair(azimuth_, elevation_);
     }
 
-    void axes::view(float azimuth, float elevation) {
+    void axes_type::view(float azimuth, float elevation) {
         if (azimuth != azimuth_ || elevation != elevation_) {
             azimuth_ = azimuth;
             elevation_ = elevation;
@@ -1845,309 +1847,325 @@ namespace matplot {
         }
     }
 
-    void axes::rotate(float azimuth, float elevation) {
+    void axes_type::rotate(float azimuth, float elevation) {
         azimuth_ += azimuth;
         elevation_ += elevation;
         touch();
     }
 
-    const std::vector<std::vector<double>> &axes::colormap() const {
+    const std::vector<std::vector<double>> &axes_type::colormap() const {
         return colormap_;
     }
 
-    color_array axes::colormap_interpolation(double value, double min,
-                                             double max) {
+    color_array axes_type::colormap_interpolation(double value, double min,
+                                                  double max) {
         return ::matplot::colormap_interpolation(value, min, max, colormap_);
     }
 
-    void axes::colormap(const std::vector<std::vector<double>> &colormap) {
+    void axes_type::colormap(const std::vector<std::vector<double>> &colormap) {
         colormap_ = colormap;
         touch();
     }
 
-    bool axes::color_box() const { return cb_axis_.visible(); }
+    bool axes_type::color_box() const { return cb_axis_.visible(); }
 
-    void axes::color_box(bool v) {
+    void axes_type::color_box(bool v) {
         cb_axis_.visible(v);
         touch();
     }
 
-    bool axes::color_box_log_scale() const {
+    bool axes_type::color_box_log_scale() const {
         return cb_axis_.scale() == axis::axis_scale::log;
     }
 
-    void axes::color_box_log_scale(bool v) {
+    void axes_type::color_box_log_scale(bool v) {
         cb_axis_.scale(v ? axis::axis_scale::log : axis::axis_scale::linear);
         touch();
     }
 
-    bool axes::grid_front() const { return grid_front_; }
+    bool axes_type::grid_front() const { return grid_front_; }
 
-    void axes::grid_front(bool grid_front) {
+    void axes_type::grid_front(bool grid_front) {
         grid_front_ = grid_front;
         touch();
     }
 
-    bool axes::r_grid() const { return r_grid_; }
+    bool axes_type::r_grid() const { return r_grid_; }
 
-    void axes::r_grid(bool r_grid) {
+    void axes_type::r_grid(bool r_grid) {
         r_grid_ = r_grid;
         r_user_grid_ = true;
         touch();
     }
 
-    bool axes::r_minor_grid() const { return r_minor_grid_; }
+    bool axes_type::r_minor_grid() const { return r_minor_grid_; }
 
-    void axes::r_minor_grid(bool r_minor_grid) {
+    void axes_type::r_minor_grid(bool r_minor_grid) {
         r_minor_grid_ = r_minor_grid;
         r_user_grid_ = true;
         touch();
     }
 
-    const class axis &axes::t_axis() const { return t_axis_; }
+    const class axis &axes_type::t_axis() const { return t_axis_; }
 
-    class axis &axes::t_axis() {
+    class axis &axes_type::t_axis() {
         return t_axis_;
     }
 
-    void axes::t_axis(const class axis &t_axis) {
+    void axes_type::t_axis(const class axis &t_axis) {
         t_axis_ = t_axis;
         touch();
     }
 
-    size_t axes::max_colors() const { return max_colors_; }
+    size_t axes_type::max_colors() const { return max_colors_; }
 
-    void axes::max_colors(size_t max_colors) {
+    void axes_type::max_colors(size_t max_colors) {
         max_colors_ = max_colors;
         touch();
     }
 
-    const std::pair<double, double> axes::color_box_range() const {
+    const std::pair<double, double> axes_type::color_box_range() const {
         auto a = cb_axis_.limits();
         return std::make_pair(a[0], a[1]);
     }
 
-    void axes::color_box_range(const std::pair<double, double> &r) {
+    void axes_type::color_box_range(const std::pair<double, double> &r) {
         cb_axis_.limits({r.first, r.second});
         touch();
     }
 
-    void axes::color_box_range(double cb_min, double cb_max) {
+    void axes_type::color_box_range(double cb_min, double cb_max) {
         color_box_range({cb_min, cb_max});
     }
 
-    const std::vector<std::string> &axes::xticklabels() const {
+    const std::vector<std::string> &axes_type::xticklabels() const {
         return x_axis().ticklabels();
     }
 
-    void axes::xticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::xticklabels(const std::vector<std::string> &ticks) {
         x_axis().ticklabels(ticks);
         touch();
     }
 
-    const std::vector<std::string> &axes::x2ticklabels() const {
+    const std::vector<std::string> &axes_type::x2ticklabels() const {
         return x2_axis().ticklabels();
     }
 
-    void axes::x2ticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::x2ticklabels(const std::vector<std::string> &ticks) {
         x2_axis().ticklabels(ticks);
         touch();
     }
 
-    const std::vector<std::string> &axes::yticklabels() const {
+    const std::vector<std::string> &axes_type::yticklabels() const {
         return y_axis().ticklabels();
     }
 
-    void axes::yticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::yticklabels(const std::vector<std::string> &ticks) {
         y_axis().ticklabels(ticks);
         touch();
     }
 
-    const std::vector<std::string> &axes::y2ticklabels() const {
+    const std::vector<std::string> &axes_type::y2ticklabels() const {
         return y2_axis().ticklabels();
     }
 
-    void axes::y2ticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::y2ticklabels(const std::vector<std::string> &ticks) {
         y2_axis().ticklabels(ticks);
         touch();
     }
 
-    const std::vector<std::string> &axes::zticklabels() const {
+    const std::vector<std::string> &axes_type::zticklabels() const {
         return z_axis().ticklabels();
     }
 
-    void axes::zticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::zticklabels(const std::vector<std::string> &ticks) {
         z_axis().ticklabels(ticks);
         touch();
     }
 
-    const std::vector<std::string> &axes::rticklabels() const {
+    const std::vector<std::string> &axes_type::rticklabels() const {
         return r_axis().ticklabels();
     }
 
-    void axes::rticklabels(const std::vector<std::string> &ticks) {
+    void axes_type::rticklabels(const std::vector<std::string> &ticks) {
         r_axis().ticklabels(ticks);
         touch();
     }
 
-    void axes::xtickangle(double degrees) { x_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::xtickangle(double degrees) {
+        x_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    void axes::x2tickangle(double degrees) { x2_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::x2tickangle(double degrees) {
+        x2_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    void axes::ytickangle(double degrees) { y_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::ytickangle(double degrees) {
+        y_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    void axes::y2tickangle(double degrees) { y2_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::y2tickangle(double degrees) {
+        y2_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    void axes::ztickangle(double degrees) { z_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::ztickangle(double degrees) {
+        z_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    void axes::rtickangle(double degrees) { r_axis().tickangle(static_cast<float>(degrees)); }
+    void axes_type::rtickangle(double degrees) {
+        r_axis().tickangle(static_cast<float>(degrees));
+    }
 
-    double axes::xtickangle() { return x_axis().tickangle(); }
+    double axes_type::xtickangle() { return x_axis().tickangle(); }
 
-    double axes::x2tickangle() { return x2_axis().tickangle(); }
+    double axes_type::x2tickangle() { return x2_axis().tickangle(); }
 
-    double axes::ytickangle() { return y_axis().tickangle(); }
+    double axes_type::ytickangle() { return y_axis().tickangle(); }
 
-    double axes::y2tickangle() { return y2_axis().tickangle(); }
+    double axes_type::y2tickangle() { return y2_axis().tickangle(); }
 
-    double axes::ztickangle() { return z_axis().tickangle(); }
+    double axes_type::ztickangle() { return z_axis().tickangle(); }
 
-    double axes::rtickangle() { return r_axis().tickangle(); }
+    double axes_type::rtickangle() { return r_axis().tickangle(); }
 
-    const color_array &axes::title_color() const { return title_color_; }
+    const color_array &axes_type::title_color() const { return title_color_; }
 
-    void axes::title_color(const color_array &title_color) {
+    void axes_type::title_color(const color_array &title_color) {
         title_color_ = title_color;
         touch();
     }
 
-    bool axes::title_enhanced() const { return title_enhanced_; }
+    bool axes_type::title_enhanced() const { return title_enhanced_; }
 
-    void axes::title_enhanced(bool title_enhanced) {
+    void axes_type::title_enhanced(bool title_enhanced) {
         title_enhanced_ = title_enhanced;
         touch();
     }
 
-    std::array<double, 2> axes::xlim() const {
+    std::array<double, 2> axes_type::xlim() const {
         if (x_axis_.limits_mode_auto()) {
             auto [xmin, xmax, ymin, ymax] = this->child_limits();
-            return std::array<double, 2>{xmin,xmax};
+            return std::array<double, 2>{xmin, xmax};
         } else {
             return x_axis().limits();
         }
     }
 
-    void axes::xlim(const std::array<double, 2> &lim) {
+    void axes_type::xlim(const std::array<double, 2> &lim) {
         x_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::x2lim() const {
+    std::array<double, 2> axes_type::x2lim() const {
         return x2_axis().limits();
     }
 
-    void axes::x2lim(const std::array<double, 2> &lim) {
+    void axes_type::x2lim(const std::array<double, 2> &lim) {
         x2_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::ylim() const {
+    std::array<double, 2> axes_type::ylim() const {
         if (x_axis_.limits_mode_auto()) {
             auto [xmin, xmax, ymin, ymax] = this->child_limits();
-            return std::array<double, 2>{ymin,ymax};
+            return std::array<double, 2>{ymin, ymax};
         } else {
             return y_axis().limits();
         }
     }
 
-    void axes::ylim(const std::array<double, 2> &lim) {
+    void axes_type::ylim(const std::array<double, 2> &lim) {
         y_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::y2lim() const {
+    std::array<double, 2> axes_type::y2lim() const {
         return y2_axis().limits();
     }
 
-    void axes::y2lim(const std::array<double, 2> &lim) {
+    void axes_type::y2lim(const std::array<double, 2> &lim) {
         y2_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::zlim() const {
-        return z_axis().limits();
-    }
+    std::array<double, 2> axes_type::zlim() const { return z_axis().limits(); }
 
-    void axes::zlim(const std::array<double, 2> &lim) {
+    void axes_type::zlim(const std::array<double, 2> &lim) {
         z_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::rlim() const {
-        return r_axis().limits();
-    }
+    std::array<double, 2> axes_type::rlim() const { return r_axis().limits(); }
 
-    void axes::rlim(const std::array<double, 2> &lim) {
+    void axes_type::rlim(const std::array<double, 2> &lim) {
         r_axis().limits(lim);
         touch();
     }
 
-    std::array<double, 2> axes::tlim() const {
-        return t_axis().limits();
-    }
+    std::array<double, 2> axes_type::tlim() const { return t_axis().limits(); }
 
-    void axes::tlim(const std::array<double, 2> &lim) {
+    void axes_type::tlim(const std::array<double, 2> &lim) {
         t_axis().limits(lim);
         touch();
     }
 
-    void axes::xlim(keyword_automatic_type) {
+    void axes_type::xlim(keyword_automatic_type) {
         x_axis().limits_mode_manual(false);
     }
 
-    void axes::xlim(keyword_manual_type) { x_axis().limits_mode_manual(true); }
+    void axes_type::xlim(keyword_manual_type) {
+        x_axis().limits_mode_manual(true);
+    }
 
-    void axes::x2lim(keyword_automatic_type) {
+    void axes_type::x2lim(keyword_automatic_type) {
         x2_axis().limits_mode_manual(false);
     }
 
-    void axes::x2lim(keyword_manual_type) {
+    void axes_type::x2lim(keyword_manual_type) {
         x2_axis().limits_mode_manual(true);
     }
 
-    void axes::ylim(keyword_automatic_type) {
+    void axes_type::ylim(keyword_automatic_type) {
         y_axis().limits_mode_manual(false);
     }
 
-    void axes::ylim(keyword_manual_type) { y_axis().limits_mode_manual(true); }
+    void axes_type::ylim(keyword_manual_type) {
+        y_axis().limits_mode_manual(true);
+    }
 
-    void axes::y2lim(keyword_automatic_type) {
+    void axes_type::y2lim(keyword_automatic_type) {
         y2_axis().limits_mode_manual(false);
     }
 
-    void axes::y2lim(keyword_manual_type) {
+    void axes_type::y2lim(keyword_manual_type) {
         y2_axis().limits_mode_manual(true);
     }
 
-    void axes::zlim(keyword_automatic_type) {
+    void axes_type::zlim(keyword_automatic_type) {
         z_axis().limits_mode_manual(false);
     }
 
-    void axes::zlim(keyword_manual_type) { z_axis().limits_mode_manual(true); }
+    void axes_type::zlim(keyword_manual_type) {
+        z_axis().limits_mode_manual(true);
+    }
 
-    void axes::rlim(keyword_automatic_type) {
+    void axes_type::rlim(keyword_automatic_type) {
         r_axis().limits_mode_manual(false);
     }
 
-    void axes::rlim(keyword_manual_type) { r_axis().limits_mode_manual(true); }
+    void axes_type::rlim(keyword_manual_type) {
+        r_axis().limits_mode_manual(true);
+    }
 
-    void axes::tlim(keyword_automatic_type) {
+    void axes_type::tlim(keyword_automatic_type) {
         t_axis().limits_mode_manual(false);
     }
 
-    void axes::tlim(keyword_manual_type) { t_axis().limits_mode_manual(true); }
+    void axes_type::tlim(keyword_manual_type) {
+        t_axis().limits_mode_manual(true);
+    }
 
-    void axes::clear() {
+    void axes_type::clear() {
         children_.clear();
         legend_.reset();
         colororder_index_ = 0;
@@ -2158,83 +2176,85 @@ namespace matplot {
         touch();
     }
 
-    const class axis &axes::cb_axis() const { return cb_axis_; }
+    const class axis &axes_type::cb_axis() const { return cb_axis_; }
 
-    class axis &axes::cb_axis() {
+    class axis &axes_type::cb_axis() {
         return cb_axis_;
     }
 
-    std::array<double, 2> axes::cblim() const {
-        return cb_axis_.limits();
+    std::array<double, 2> axes_type::cblim() const { return cb_axis_.limits(); }
+
+    void axes_type::cblim(const std::array<double, 2> &a) {
+        cb_axis_.limits(a);
     }
 
-    void axes::cblim(const std::array<double, 2> &a) { cb_axis_.limits(a); }
-
-    void axes::cblim(keyword_automatic_type) {
+    void axes_type::cblim(keyword_automatic_type) {
         cb_axis_.limits_mode_auto(true);
     }
 
-    void axes::cblim(keyword_manual_type) { cb_axis_.limits_mode_manual(true); }
+    void axes_type::cblim(keyword_manual_type) {
+        cb_axis_.limits_mode_manual(true);
+    }
 
-    const std::string &axes::cblabel() const { return cb_axis_.label(); }
+    const std::string &axes_type::cblabel() const { return cb_axis_.label(); }
 
-    void axes::cblabel(const std::string &str) { cb_axis_.label(); }
+    void axes_type::cblabel(const std::string &str) { cb_axis_.label(); }
 
-    const std::string &axes::cbtickformat() const {
+    const std::string &axes_type::cbtickformat() const {
         return cb_axis_.tick_label_format();
     }
 
-    void axes::cbtickformat(const std::string &str) {
+    void axes_type::cbtickformat(const std::string &str) {
         cb_axis_.tick_label_format(str);
     }
 
-    const std::vector<double> &axes::cbticks() const {
+    const std::vector<double> &axes_type::cbticks() const {
         return cb_axis_.tick_values();
     }
 
-    void axes::cbticks(const std::vector<double> &ticks) {
+    void axes_type::cbticks(const std::vector<double> &ticks) {
         cb_axis_.tick_values(ticks);
     }
 
-    const std::vector<std::string> &axes::cbticklabels() const {
+    const std::vector<std::string> &axes_type::cbticklabels() const {
         return cb_axis_.ticklabels();
     }
 
-    void axes::cbticklabels(const std::vector<std::string> &labels) {
+    void axes_type::cbticklabels(const std::vector<std::string> &labels) {
         cb_axis_.ticklabels();
     }
 
-    void axes::cbtickangle(double degrees) { cb_axis_.tickangle(); }
+    void axes_type::cbtickangle(double degrees) { cb_axis_.tickangle(); }
 
-    double axes::cbtickangle() { return cb_axis_.tickangle(); }
+    double axes_type::cbtickangle() { return cb_axis_.tickangle(); }
 
-    bool axes::cb_vertical() const { return cb_vertical_; }
+    bool axes_type::cb_vertical() const { return cb_vertical_; }
 
-    void axes::cb_vertical(bool cb_vertical) {
+    void axes_type::cb_vertical(bool cb_vertical) {
         cb_vertical_ = cb_vertical;
         touch();
     }
 
-    const std::array<float, 4> &axes::cb_position() const {
+    const std::array<float, 4> &axes_type::cb_position() const {
         return cb_position_;
     }
 
-    void axes::cb_position(const std::array<float, 4> &cb_position) {
+    void axes_type::cb_position(const std::array<float, 4> &cb_position) {
         cb_position_ = cb_position;
         cb_vertical_ = cb_position_[2] <= cb_position_[3];
         touch();
     }
 
-    bool axes::cb_inside() const { return cb_inside_; }
+    bool axes_type::cb_inside() const { return cb_inside_; }
 
-    void axes::cb_inside(bool cb_inside) {
+    void axes_type::cb_inside(bool cb_inside) {
         cb_inside_ = cb_inside;
         touch();
     }
 
     class axes_silencer {
       public:
-        explicit axes_silencer(class axes *ax)
+        explicit axes_silencer(class axes_type *ax)
             : ax_(ax), previous_quiet_mode_(ax->parent()->quiet_mode()) {
             ax_->parent()->quiet_mode(true);
         }
@@ -2247,22 +2267,22 @@ namespace matplot {
         }
 
       private:
-        class axes *ax_;
+        class axes_type *ax_;
 
         bool previous_quiet_mode_;
     };
 
-    line_handle axes::plot(const std::vector<double> &x,
-                           const std::vector<double> &y,
-                           const std::string &line_spec) {
+    line_handle axes_type::plot(const std::vector<double> &x,
+                                const std::vector<double> &y,
+                                const std::string &line_spec) {
         axes_silencer s{this};
         line_handle l = std::make_shared<class line>(this, x, y, line_spec);
         this->emplace_object(l);
         return l;
     }
 
-    line_handle axes::plot(const std::vector<double> &y,
-                           const std::string &line_spec) {
+    line_handle axes_type::plot(const std::vector<double> &y,
+                                const std::string &line_spec) {
         axes_silencer s{this};
         line_handle l = std::make_shared<class line>(this, y, line_spec);
         this->emplace_object(l);
@@ -2270,9 +2290,9 @@ namespace matplot {
     }
 
     std::vector<line_handle>
-    axes::plot(const std::vector<double> &x,
-               const std::vector<std::vector<double>> &Y,
-               const std::string &line_spec) {
+    axes_type::plot(const std::vector<double> &x,
+                    const std::vector<std::vector<double>> &Y,
+                    const std::string &line_spec) {
         axes_silencer s{this};
         std::vector<line_handle> hs;
         bool previous_replace_status = this->next_plot_replace();
@@ -2285,8 +2305,8 @@ namespace matplot {
     }
 
     std::vector<line_handle>
-    axes::plot(const std::vector<std::vector<double>> &Y,
-               const std::string &line_spec) {
+    axes_type::plot(const std::vector<std::vector<double>> &Y,
+                    const std::string &line_spec) {
         axes_silencer s{this};
         std::vector<line_handle> hs;
         bool previous_replace_status = this->next_plot_replace();
@@ -2299,7 +2319,7 @@ namespace matplot {
     }
 
     std::vector<line_handle>
-    axes::rgbplot(const std::vector<std::vector<double>> &map) {
+    axes_type::rgbplot(const std::vector<std::vector<double>> &map) {
         axes_silencer s{this};
         // Process data
         auto rgb = transpose(map);
@@ -2321,10 +2341,10 @@ namespace matplot {
         return {r, g, b, palette_enabler};
     }
 
-    line_handle axes::plot3(const std::vector<double> &x,
-                            const std::vector<double> &y,
-                            const std::vector<double> &z,
-                            const std::string &line_spec) {
+    line_handle axes_type::plot3(const std::vector<double> &x,
+                                 const std::vector<double> &y,
+                                 const std::vector<double> &z,
+                                 const std::string &line_spec) {
         axes_silencer s{this};
         line_handle l = std::make_shared<class line>(this, x, y, z, line_spec);
         this->emplace_object(l);
@@ -2332,9 +2352,10 @@ namespace matplot {
     }
 
     std::vector<line_handle>
-    axes::plot3(const std::vector<std::vector<double>> &X,
-                const std::vector<std::vector<double>> &Y,
-                const std::vector<double> &z, const std::string &line_spec) {
+    axes_type::plot3(const std::vector<std::vector<double>> &X,
+                     const std::vector<std::vector<double>> &Y,
+                     const std::vector<double> &z,
+                     const std::string &line_spec) {
         axes_silencer s{this};
         auto it_x = X.begin();
         auto it_y = Y.begin();
@@ -2351,10 +2372,10 @@ namespace matplot {
     }
 
     std::vector<line_handle>
-    axes::plot3(const std::vector<std::vector<double>> &X,
-                const std::vector<std::vector<double>> &Y,
-                const std::vector<std::vector<double>> &Z,
-                const std::string &line_spec) {
+    axes_type::plot3(const std::vector<std::vector<double>> &X,
+                     const std::vector<std::vector<double>> &Y,
+                     const std::vector<std::vector<double>> &Z,
+                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         auto it_x = X.begin();
         auto it_y = Y.begin();
@@ -2372,17 +2393,17 @@ namespace matplot {
         return ls;
     }
 
-    stair_handle axes::stairs(const std::vector<double> &x,
-                              const std::vector<double> &y,
-                              const std::string &line_spec) {
+    stair_handle axes_type::stairs(const std::vector<double> &x,
+                                   const std::vector<double> &y,
+                                   const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         stair_handle l = std::make_shared<class stair>(this, x, y, line_spec);
         this->emplace_object(l);
         return l;
     }
 
-    stair_handle axes::stairs(const std::vector<double> &y,
-                              const std::string &line_spec) {
+    stair_handle axes_type::stairs(const std::vector<double> &y,
+                                   const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         stair_handle l = std::make_shared<class stair>(this, y, line_spec);
         this->emplace_object(l);
@@ -2390,9 +2411,9 @@ namespace matplot {
     }
 
     std::vector<stair_handle>
-    axes::stairs(const std::vector<std::vector<double>> &X,
-                 const std::vector<std::vector<double>> &Y,
-                 const std::string &line_spec) {
+    axes_type::stairs(const std::vector<std::vector<double>> &X,
+                      const std::vector<std::vector<double>> &Y,
+                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         std::vector<stair_handle> hs;
         bool previous_replace_status = this->next_plot_replace();
@@ -2407,8 +2428,8 @@ namespace matplot {
     }
 
     std::vector<stair_handle>
-    axes::stairs(const std::vector<std::vector<double>> &Y,
-                 const std::string &line_spec) {
+    axes_type::stairs(const std::vector<std::vector<double>> &Y,
+                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         std::vector<stair_handle> hs;
         bool previous_replace_status = this->next_plot_replace();
@@ -2421,9 +2442,9 @@ namespace matplot {
     }
 
     std::vector<stair_handle>
-    axes::stairs(const std::vector<double> &x,
-                 const std::vector<std::vector<double>> &Y,
-                 const std::string &line_spec) {
+    axes_type::stairs(const std::vector<double> &x,
+                      const std::vector<std::vector<double>> &Y,
+                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         std::vector<stair_handle> hs;
         bool previous_replace_status = this->next_plot_replace();
@@ -2435,11 +2456,11 @@ namespace matplot {
         return hs;
     }
 
-    error_bar_handle axes::errorbar(const std::vector<double> &x,
-                                    const std::vector<double> &y,
-                                    const std::vector<double> &error,
-                                    error_bar::type type,
-                                    const std::string &line_spec) {
+    error_bar_handle axes_type::errorbar(const std::vector<double> &x,
+                                         const std::vector<double> &y,
+                                         const std::vector<double> &error,
+                                         error_bar::type type,
+                                         const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         error_bar_handle l = std::make_shared<class error_bar>(
             this, x, y, error, type, line_spec);
@@ -2447,13 +2468,13 @@ namespace matplot {
         return l;
     }
 
-    error_bar_handle axes::errorbar(const std::vector<double> &x,
-                                    const std::vector<double> &y,
-                                    const std::vector<double> &y_neg_delta,
-                                    const std::vector<double> &y_pos_delta,
-                                    const std::vector<double> &x_neg_delta,
-                                    const std::vector<double> &x_pos_delta,
-                                    const std::string &line_spec) {
+    error_bar_handle axes_type::errorbar(const std::vector<double> &x,
+                                         const std::vector<double> &y,
+                                         const std::vector<double> &y_neg_delta,
+                                         const std::vector<double> &y_pos_delta,
+                                         const std::vector<double> &x_neg_delta,
+                                         const std::vector<double> &x_pos_delta,
+                                         const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         error_bar_handle l = std::make_shared<class error_bar>(
             this, x, y, y_neg_delta, y_pos_delta, x_neg_delta, x_pos_delta,
@@ -2462,19 +2483,18 @@ namespace matplot {
         return l;
     }
 
-    error_bar_handle axes::errorbar(const std::vector<double> &x,
-                                    const std::vector<double> &y,
-                                    const std::vector<double> &y_error,
-                                    const std::string &line_spec) {
+    error_bar_handle axes_type::errorbar(const std::vector<double> &x,
+                                         const std::vector<double> &y,
+                                         const std::vector<double> &y_error,
+                                         const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->errorbar(x, y, y_error, error_bar::type::vertical,
                               line_spec);
     }
 
-    std::vector<filled_area_handle>
-    axes::area(const std::vector<double> &x,
-               const std::vector<std::vector<double>> &Y, double base_value,
-               bool stacked, const std::string &line_spec) {
+    std::vector<filled_area_handle> axes_type::area(
+        const std::vector<double> &x, const std::vector<std::vector<double>> &Y,
+        double base_value, bool stacked, const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         std::vector<filled_area_handle> hs;
         bool previous_state = this->next_plot_replace();
@@ -2506,10 +2526,10 @@ namespace matplot {
         return hs;
     }
 
-    filled_area_handle axes::area(const std::vector<double> &x,
-                                  const std::vector<double> &y,
-                                  double base_value, bool stacked,
-                                  const std::string &line_spec) {
+    filled_area_handle axes_type::area(const std::vector<double> &x,
+                                       const std::vector<double> &y,
+                                       double base_value, bool stacked,
+                                       const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         auto as =
             this->area(x, std::vector({y}), base_value, stacked, line_spec);
@@ -2517,32 +2537,33 @@ namespace matplot {
     }
 
     std::vector<filled_area_handle>
-    axes::area(const std::vector<std::vector<double>> &Y, double base_value,
-               bool stacked, const std::string &line_spec) {
+    axes_type::area(const std::vector<std::vector<double>> &Y,
+                    double base_value, bool stacked,
+                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, base_value, stacked,
                           line_spec);
     }
 
     std::vector<filled_area_handle>
-    axes::area(const std::vector<std::vector<double>> &Y, bool stacked,
-               const std::string &line_spec) {
+    axes_type::area(const std::vector<std::vector<double>> &Y, bool stacked,
+                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, 0., stacked,
                           line_spec);
     }
 
-    filled_area_handle axes::area(const std::vector<double> &y,
-                                  double base_value, bool stacked,
-                                  const std::string &line_spec) {
+    filled_area_handle axes_type::area(const std::vector<double> &y,
+                                       double base_value, bool stacked,
+                                       const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1., static_cast<double>(y.size())), {y}, base_value, stacked,
-                          line_spec);
+        return this->area(iota(1., static_cast<double>(y.size())), {y},
+                          base_value, stacked, line_spec);
     }
 
-    line_handle axes::fimplicit(axes::implicit_function_type equation,
-                                const std::array<double, 4> &xy_interval,
-                                const std::string &line_spec) {
+    line_handle axes_type::fimplicit(axes_type::implicit_function_type equation,
+                                     const std::array<double, 4> &xy_interval,
+                                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         auto [X, Y] = meshgrid(linspace(xy_interval[0], xy_interval[1]),
                                linspace(xy_interval[2], xy_interval[3]));
@@ -2557,14 +2578,14 @@ namespace matplot {
         }
     }
 
-    line_handle axes::fimplicit(axes::implicit_function_type equation,
-                                const std::string &line_spec) {
+    line_handle axes_type::fimplicit(axes_type::implicit_function_type equation,
+                                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->fimplicit(equation, {-5, 5, -5, 5}, line_spec);
     }
 
-    string_function_handle axes::fplot(const std::string &equation,
-                                       const std::string &line_spec) {
+    string_function_handle axes_type::fplot(const std::string &equation,
+                                            const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         string_function_handle obj =
             std::make_shared<class string_function>(this, equation, line_spec);
@@ -2574,8 +2595,8 @@ namespace matplot {
     }
 
     std::vector<string_function_handle>
-    axes::fplot(std::vector<std::string> equations,
-                std::vector<std::string> line_specs) {
+    axes_type::fplot(std::vector<std::string> equations,
+                     std::vector<std::string> line_specs) {
         axes_silencer temp_silencer_{this};
         std::vector<string_function_handle> res;
         auto it_line_specs = line_specs.begin();
@@ -2590,9 +2611,9 @@ namespace matplot {
         return res;
     }
 
-    function_line_handle axes::fplot(function_line::function_type equation,
-                                     const std::array<double, 2> &x_range,
-                                     const std::string &line_spec) {
+    function_line_handle axes_type::fplot(function_line::function_type equation,
+                                          const std::array<double, 2> &x_range,
+                                          const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         function_line_handle obj = std::make_shared<class function_line>(
             this, equation, x_range, line_spec);
@@ -2601,8 +2622,8 @@ namespace matplot {
         return obj;
     }
 
-    function_line_handle axes::fplot(function_line::function_type equation,
-                                     const std::string &line_spec) {
+    function_line_handle axes_type::fplot(function_line::function_type equation,
+                                          const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         function_line_handle obj = std::make_shared<class function_line>(
             this, equation, std::array<double, 2>({-5, 5}), line_spec);
@@ -2611,10 +2632,11 @@ namespace matplot {
         return obj;
     }
 
-    function_line_handle axes::fplot(function_line::function_type function_x,
-                                     function_line::function_type function_y,
-                                     const std::array<double, 2> &t_range,
-                                     const std::string &line_spec) {
+    function_line_handle
+    axes_type::fplot(function_line::function_type function_x,
+                     function_line::function_type function_y,
+                     const std::array<double, 2> &t_range,
+                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         function_line_handle obj = std::make_shared<class function_line>(
             this, function_x, function_y, t_range, line_spec);
@@ -2624,9 +2646,9 @@ namespace matplot {
     }
 
     std::vector<function_line_handle>
-    axes::fplot(std::vector<function_line::function_type> equations,
-                std::array<double, 2> x_range,
-                std::vector<std::string> line_specs) {
+    axes_type::fplot(std::vector<function_line::function_type> equations,
+                     std::array<double, 2> x_range,
+                     std::vector<std::string> line_specs) {
         axes_silencer temp_silencer_{this};
         std::vector<function_line_handle> res;
         auto it_line_specs = line_specs.begin();
@@ -2643,17 +2665,18 @@ namespace matplot {
     }
 
     std::vector<function_line_handle>
-    axes::fplot(std::vector<function_line::function_type> equations,
-                std::vector<double> x_range,
-                std::vector<std::string> line_specs) {
+    axes_type::fplot(std::vector<function_line::function_type> equations,
+                     std::vector<double> x_range,
+                     std::vector<std::string> line_specs) {
         return this->fplot(equations, to_array<2>(x_range), line_specs);
     }
 
-    function_line_handle axes::fplot3(function_line::function_type function_x,
-                                      function_line::function_type function_y,
-                                      function_line::function_type function_z,
-                                      const std::array<double, 2> &t_range,
-                                      const std::string &line_spec) {
+    function_line_handle
+    axes_type::fplot3(function_line::function_type function_x,
+                      function_line::function_type function_y,
+                      function_line::function_type function_z,
+                      const std::array<double, 2> &t_range,
+                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         function_line_handle obj = std::make_shared<class function_line>(
             this, function_x, function_y, function_z, t_range, line_spec);
@@ -2664,9 +2687,9 @@ namespace matplot {
 
     /// Histogram - Choose binning algorithm and normalization algorithm
     histogram_handle
-    axes::hist(const std::vector<double> &data,
-               histogram::binning_algorithm algorithm,
-               enum histogram::normalization normalization_alg) {
+    axes_type::hist(const std::vector<double> &data,
+                    histogram::binning_algorithm algorithm,
+                    enum histogram::normalization normalization_alg) {
         axes_silencer temp_silencer_{this};
         histogram_handle l = std::make_shared<class histogram>(
             this, data, algorithm, normalization_alg);
@@ -2676,8 +2699,8 @@ namespace matplot {
 
     /// Histogram - Fixed number of bins
     /// If n_bins = 0, automatic number of bins
-    histogram_handle axes::hist(const std::vector<double> &data,
-                                size_t n_bins) {
+    histogram_handle axes_type::hist(const std::vector<double> &data,
+                                     size_t n_bins) {
         axes_silencer temp_silencer_{this};
         histogram_handle l =
             std::make_shared<class histogram>(this, data, n_bins);
@@ -2686,8 +2709,8 @@ namespace matplot {
     }
 
     /// Histogram - Fixed edges
-    histogram_handle axes::hist(const std::vector<double> &data,
-                                const std::vector<double> &edges) {
+    histogram_handle axes_type::hist(const std::vector<double> &data,
+                                     const std::vector<double> &edges) {
         axes_silencer temp_silencer_{this};
         histogram_handle l =
             std::make_shared<class histogram>(this, data, edges);
@@ -2697,8 +2720,8 @@ namespace matplot {
 
     /// Histogram - Normalization algorithm
     histogram_handle
-    axes::hist(const std::vector<double> &data,
-               enum histogram::normalization normalization_alg) {
+    axes_type::hist(const std::vector<double> &data,
+                    enum histogram::normalization normalization_alg) {
         axes_silencer temp_silencer_{this};
         return this->hist(data, histogram::binning_algorithm::automatic,
                           normalization_alg);
@@ -2706,8 +2729,8 @@ namespace matplot {
 
     /// Histogram - Categorical histogram from strings
     histogram_handle
-    axes::hist(const std::vector<std::string> &data,
-               enum histogram::normalization normalization_alg) {
+    axes_type::hist(const std::vector<std::string> &data,
+                    enum histogram::normalization normalization_alg) {
         axes_silencer temp_silencer_{this};
         std::map<std::string, double> category_indexes;
         std::vector<double> numeric_data;
@@ -2739,12 +2762,11 @@ namespace matplot {
         return l;
     }
 
-    axes_object_handle
-    axes::binscatter(const std::vector<double> &x, const std::vector<double> &y,
-                     const std::vector<double> &edges_x,
-                     const std::vector<double> &edges_y,
-                     enum bin_scatter_style scatter_style,
-                     enum histogram::normalization normalization_alg) {
+    axes_object_handle axes_type::binscatter(
+        const std::vector<double> &x, const std::vector<double> &y,
+        const std::vector<double> &edges_x, const std::vector<double> &edges_y,
+        enum bin_scatter_style scatter_style,
+        enum histogram::normalization normalization_alg) {
         axes_silencer temp_silencer_{this};
 
         // count data in each bin combination
@@ -2894,10 +2916,11 @@ namespace matplot {
     }
 
     axes_object_handle
-    axes::binscatter(const std::vector<double> &x, const std::vector<double> &y,
-                     histogram::binning_algorithm algorithm,
-                     enum bin_scatter_style scatter_style,
-                     enum histogram::normalization normalization_alg) {
+    axes_type::binscatter(const std::vector<double> &x,
+                          const std::vector<double> &y,
+                          histogram::binning_algorithm algorithm,
+                          enum bin_scatter_style scatter_style,
+                          enum histogram::normalization normalization_alg) {
         auto [min_x, max_x] = std::minmax_element(x.begin(), x.end());
         auto x_edges =
             histogram::histogram_edges(x, *min_x, *max_x, algorithm, false);
@@ -2911,19 +2934,20 @@ namespace matplot {
     }
 
     axes_object_handle
-    axes::binscatter(const std::vector<double> &x, const std::vector<double> &y,
-                     enum bin_scatter_style scatter_style,
-                     histogram::binning_algorithm algorithm,
-                     enum histogram::normalization normalization_alg) {
+    axes_type::binscatter(const std::vector<double> &x,
+                          const std::vector<double> &y,
+                          enum bin_scatter_style scatter_style,
+                          histogram::binning_algorithm algorithm,
+                          enum histogram::normalization normalization_alg) {
         return this->binscatter(x, y, algorithm, scatter_style,
                                 normalization_alg);
     }
 
     axes_object_handle
-    axes::binscatter(const std::vector<double> &x, const std::vector<double> &y,
-                     size_t nbins_x, size_t nbins_y,
-                     enum bin_scatter_style scatter_style,
-                     enum histogram::normalization normalization_alg) {
+    axes_type::binscatter(const std::vector<double> &x,
+                          const std::vector<double> &y, size_t nbins_x,
+                          size_t nbins_y, enum bin_scatter_style scatter_style,
+                          enum histogram::normalization normalization_alg) {
         auto [minx, maxx] = std::minmax_element(x.begin(), x.end());
         double xrange = *maxx - *minx;
         auto x_edges =
@@ -2938,37 +2962,37 @@ namespace matplot {
                                 normalization_alg);
     }
 
-    bars_handle axes::bar(const std::vector<double> &x,
-                          const std::vector<double> &y) {
+    bars_handle axes_type::bar(const std::vector<double> &x,
+                               const std::vector<double> &y) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, x, y);
         this->emplace_object(l);
         return l;
     }
 
-    bars_handle axes::bar(const std::vector<double> &y) {
+    bars_handle axes_type::bar(const std::vector<double> &y) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, y);
         this->emplace_object(l);
         return l;
     }
 
-    bars_handle axes::bar(const std::vector<std::vector<double>> &Y) {
+    bars_handle axes_type::bar(const std::vector<std::vector<double>> &Y) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, Y);
         this->emplace_object(l);
         return l;
     }
 
-    bars_handle axes::bar(const std::vector<double> &x,
-                          const std::vector<std::vector<double>> &Y) {
+    bars_handle axes_type::bar(const std::vector<double> &x,
+                               const std::vector<std::vector<double>> &Y) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, x, Y);
         this->emplace_object(l);
         return l;
     }
 
-    bars_handle axes::bar(const std::vector<double> &y, double width) {
+    bars_handle axes_type::bar(const std::vector<double> &y, double width) {
         axes_silencer temp_silencer_{this};
         bars_handle l = std::make_shared<class bars>(this, y);
         l->bar_width(static_cast<float>(width));
@@ -2978,7 +3002,7 @@ namespace matplot {
 
     /// Bar stacked - Many Y - Automatic x
     std::vector<bars_handle>
-    axes::barstacked(const std::vector<std::vector<double>> &Y) {
+    axes_type::barstacked(const std::vector<std::vector<double>> &Y) {
         axes_silencer temp_silencer_{this};
         std::vector<bars_handle> hs;
         auto stacked_positive_values = Y[0];
@@ -3025,8 +3049,8 @@ namespace matplot {
 
     /// Bar stacked - One x - Many Y
     std::vector<bars_handle>
-    axes::barstacked(const std::vector<double> &x,
-                     const std::vector<std::vector<double>> &Y) {
+    axes_type::barstacked(const std::vector<double> &x,
+                          const std::vector<std::vector<double>> &Y) {
         axes_silencer temp_silencer_{this};
         std::vector<bars_handle> hs;
         auto stacked_positive_values = Y[0];
@@ -3071,7 +3095,8 @@ namespace matplot {
         return hs;
     }
 
-    matrix_handle axes::heatmap(const std::vector<std::vector<double>> &m) {
+    matrix_handle
+    axes_type::heatmap(const std::vector<std::vector<double>> &m) {
         axes_silencer temp_silencer_{this};
         // create matrix in the xlim
         matrix_handle heatmap = std::make_shared<class matrix>(this, m);
@@ -3092,7 +3117,7 @@ namespace matplot {
         return heatmap;
     }
 
-    matrix_handle axes::pcolor(const std::vector<std::vector<double>> &m) {
+    matrix_handle axes_type::pcolor(const std::vector<std::vector<double>> &m) {
         axes_silencer temp_silencer_{this};
         // create matrix in the xlim
         matrix_handle pcolor = std::make_shared<class matrix>(this, m);
@@ -3120,9 +3145,9 @@ namespace matplot {
 
     /// Core parallel plot function
     parallel_lines_handle
-    axes::parallelplot(const std::vector<std::vector<double>> &X,
-                       const std::vector<double> &colors,
-                       const std::string &line_spec) {
+    axes_type::parallelplot(const std::vector<std::vector<double>> &X,
+                            const std::vector<double> &colors,
+                            const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         parallel_lines_handle l =
             std::make_shared<class parallel_lines>(this, X, line_spec);
@@ -3139,15 +3164,15 @@ namespace matplot {
 
     /// Parallel plot - default line colors
     parallel_lines_handle
-    axes::parallelplot(const std::vector<std::vector<double>> &X,
-                       const std::string &line_spec) {
+    axes_type::parallelplot(const std::vector<std::vector<double>> &X,
+                            const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->parallelplot(X, std::vector<double>({}), line_spec);
     }
 
-    circles_handle axes::pie(const std::vector<double> &x,
-                             const std::vector<double> &explode,
-                             const std::vector<std::string> &labels) {
+    circles_handle axes_type::pie(const std::vector<double> &x,
+                                  const std::vector<double> &explode,
+                                  const std::vector<std::string> &labels) {
         // axes_silencer temp_silencer_{this};
 
         // pie position
@@ -3243,15 +3268,15 @@ namespace matplot {
         return pie;
     }
 
-    circles_handle axes::pie(const std::vector<double> &x,
-                             const std::vector<std::string> &labels) {
+    circles_handle axes_type::pie(const std::vector<double> &x,
+                                  const std::vector<std::string> &labels) {
         return this->pie(x, {}, labels);
     }
 
-    line_handle axes::scatter(const std::vector<double> &x,
-                              const std::vector<double> &y,
-                              const std::vector<double> &sizes,
-                              const std::vector<double> &colors) {
+    line_handle axes_type::scatter(const std::vector<double> &x,
+                                   const std::vector<double> &y,
+                                   const std::vector<double> &sizes,
+                                   const std::vector<double> &colors) {
         axes_silencer temp_silencer_{this};
         line_handle l = this->plot(x, y, "o");
         if (l->line_spec().marker_style() == line_spec::marker_style::none) {
@@ -3268,9 +3293,9 @@ namespace matplot {
         return l;
     }
 
-    line_handle axes::scatter(const std::vector<double> &x,
-                              const std::vector<double> &y, double sizes,
-                              const std::vector<double> &colors) {
+    line_handle axes_type::scatter(const std::vector<double> &x,
+                                   const std::vector<double> &y, double sizes,
+                                   const std::vector<double> &colors) {
         if (sizes == 0) {
             return scatter(x, y, std::vector<double>{}, colors);
         } else {
@@ -3279,12 +3304,12 @@ namespace matplot {
     }
 
     /// Core scatter3 function
-    line_handle axes::scatter3(const std::vector<double> &x,
-                               const std::vector<double> &y,
-                               const std::vector<double> &z,
-                               const std::vector<double> &sizes,
-                               const std::vector<double> &colors,
-                               const std::string &line_spec) {
+    line_handle axes_type::scatter3(const std::vector<double> &x,
+                                    const std::vector<double> &y,
+                                    const std::vector<double> &z,
+                                    const std::vector<double> &sizes,
+                                    const std::vector<double> &colors,
+                                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         line_handle l = this->plot3(x, y, z, line_spec);
         if (l->line_spec().marker_style() == line_spec::marker_style::none) {
@@ -3302,17 +3327,18 @@ namespace matplot {
     }
 
     /// Scatter3 - Default sizes and colors
-    line_handle axes::scatter3(const std::vector<double> &x,
-                               const std::vector<double> &y,
-                               const std::vector<double> &z,
-                               const std::string &line_spec) {
+    line_handle axes_type::scatter3(const std::vector<double> &x,
+                                    const std::vector<double> &y,
+                                    const std::vector<double> &z,
+                                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         return this->scatter3(x, y, z, {}, {}, line_spec);
     }
 
-    labels_handle axes::wordcloud(const std::vector<std::string> &words,
-                                  const std::vector<double> &sizes,
-                                  const std::vector<double> &custom_colors) {
+    labels_handle
+    axes_type::wordcloud(const std::vector<std::string> &words,
+                         const std::vector<double> &sizes,
+                         const std::vector<double> &custom_colors) {
         axes_silencer temp_silencer_{this};
 
         // set labels, their colors, and sizes give words a random position
@@ -3411,19 +3437,20 @@ namespace matplot {
         return wordcloud;
     }
 
-    labels_handle axes::wordcloud(const std::vector<std::string> &words,
-                                  const std::vector<size_t> &sizes,
-                                  const std::vector<double> &custom_colors) {
+    labels_handle
+    axes_type::wordcloud(const std::vector<std::string> &words,
+                         const std::vector<size_t> &sizes,
+                         const std::vector<double> &custom_colors) {
         return this->wordcloud(words,
                                std::vector<double>(sizes.begin(), sizes.end()),
                                custom_colors);
     }
 
-    labels_handle axes::wordcloud(const std::string &text,
-                                  const std::vector<std::string> &black_list,
-                                  const std::string &delimiters,
-                                  size_t max_cloud_size,
-                                  const std::vector<double> &custom_colors) {
+    labels_handle
+    axes_type::wordcloud(const std::string &text,
+                         const std::vector<std::string> &black_list,
+                         const std::string &delimiters, size_t max_cloud_size,
+                         const std::vector<double> &custom_colors) {
         auto [tokens, count] =
             wordcount(text, black_list, delimiters, max_cloud_size);
         return this->wordcloud(tokens, to_vector_1d(count), custom_colors);
@@ -3431,9 +3458,9 @@ namespace matplot {
 
     /// Core pareto function
     std::pair<bars_handle, line_handle>
-    axes::pareto(const std::vector<double> &y,
-                 const std::vector<std::string> &names, double p_threshold,
-                 size_t item_threshold) {
+    axes_type::pareto(const std::vector<double> &y,
+                      const std::vector<std::string> &names, double p_threshold,
+                      size_t item_threshold) {
         axes_silencer temp_silencer_{this};
         std::vector<size_t> rankings(y.size());
         rank_elements(y.begin(), y.end(), rankings.begin(),
@@ -3498,9 +3525,9 @@ namespace matplot {
     }
 
     /// Core plot function
-    line_handle axes::stem(const std::vector<double> &x,
-                           const std::vector<double> &y,
-                           const std::string &line_spec) {
+    line_handle axes_type::stem(const std::vector<double> &x,
+                                const std::vector<double> &y,
+                                const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         line_handle l = this->plot(x, y, line_spec);
         l->impulse(true);
@@ -3509,8 +3536,8 @@ namespace matplot {
     }
 
     /// Basic plot function with automatic x
-    line_handle axes::stem(const std::vector<double> &y,
-                           const std::string &line_spec) {
+    line_handle axes_type::stem(const std::vector<double> &y,
+                                const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         line_handle l = this->stem(iota(1, y.size()), y, line_spec);
@@ -3522,9 +3549,9 @@ namespace matplot {
 
     /// Stem - Plot lists of lists
     std::vector<line_handle>
-    axes::stem(const std::vector<double> &x,
-               const std::vector<std::vector<double>> &Y,
-               const std::string &line_spec) {
+    axes_type::stem(const std::vector<double> &x,
+                    const std::vector<std::vector<double>> &Y,
+                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         std::vector<line_handle> hs = this->plot(x, Y, line_spec);
@@ -3538,8 +3565,8 @@ namespace matplot {
 
     /// Plot lists of lists with automatic x
     std::vector<line_handle>
-    axes::stem(const std::vector<std::vector<double>> &Y,
-               const std::string &line_spec) {
+    axes_type::stem(const std::vector<std::vector<double>> &Y,
+                    const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         std::vector<line_handle> hs = this->plot(Y, line_spec);
@@ -3552,10 +3579,10 @@ namespace matplot {
     }
 
     /// Stem 3d - Core function
-    line_handle axes::stem3(const std::vector<double> &x,
-                            const std::vector<double> &y,
-                            const std::vector<double> &z,
-                            const std::string &line_spec) {
+    line_handle axes_type::stem3(const std::vector<double> &x,
+                                 const std::vector<double> &y,
+                                 const std::vector<double> &z,
+                                 const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         line_handle l = this->plot3(x, y, z, line_spec);
         l->impulse(true);
@@ -3564,9 +3591,10 @@ namespace matplot {
 
     /// 3d-stem lists of Xs and Ys
     std::vector<line_handle>
-    axes::stem3(const std::vector<std::vector<double>> &X,
-                const std::vector<std::vector<double>> &Y,
-                const std::vector<double> &z, const std::string &line_spec) {
+    axes_type::stem3(const std::vector<std::vector<double>> &X,
+                     const std::vector<std::vector<double>> &Y,
+                     const std::vector<double> &z,
+                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         auto hs = this->plot3(X, Y, z, line_spec);
         for (auto &h : hs) {
@@ -3576,15 +3604,15 @@ namespace matplot {
     }
 
     /// Stem 3d - Automatic x and y
-    line_handle axes::stem3(const std::vector<double> &z,
-                            const std::string &line_spec) {
+    line_handle axes_type::stem3(const std::vector<double> &z,
+                                 const std::string &line_spec) {
         return this->stem3(iota(1, z.size()), std::vector<double>(z.size(), 1.),
                            z, line_spec);
     }
 
     /// Stem 3d - Automatic x and y - Many Zs
-    line_handle axes::stem3(const std::vector<std::vector<double>> &Z,
-                            const std::string &line_spec) {
+    line_handle axes_type::stem3(const std::vector<std::vector<double>> &Z,
+                                 const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         std::vector<double> x;
         std::vector<double> y;
@@ -3600,10 +3628,10 @@ namespace matplot {
     }
 
     /// Core geoplot function
-    circles_handle axes::geobubble(const std::vector<double> &latitude,
-                                   const std::vector<double> &longitude,
-                                   const std::vector<double> &sizes,
-                                   const std::vector<double> &colors) {
+    circles_handle axes_type::geobubble(const std::vector<double> &latitude,
+                                        const std::vector<double> &longitude,
+                                        const std::vector<double> &sizes,
+                                        const std::vector<double> &colors) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
 
@@ -3642,9 +3670,9 @@ namespace matplot {
     }
 
     /// Core geoplot function
-    line_handle axes::geodensityplot(const std::vector<double> &latitude,
-                                     const std::vector<double> &longitude,
-                                     const std::vector<double> &weights) {
+    line_handle axes_type::geodensityplot(const std::vector<double> &latitude,
+                                          const std::vector<double> &longitude,
+                                          const std::vector<double> &weights) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
 
@@ -3705,7 +3733,7 @@ namespace matplot {
     }
 
     /// Plot world map on the axes
-    line_handle axes::geoplot() {
+    line_handle axes_type::geoplot() {
         axes_silencer temp_silencer_{this};
 
         for (const auto &child : this->children()) {
@@ -3734,9 +3762,9 @@ namespace matplot {
     }
 
     /// Core geoplot function - Plot lines on world map
-    line_handle axes::geoplot(const std::vector<double> &latitude,
-                              const std::vector<double> &longitude,
-                              const std::string &line_spec) {
+    line_handle axes_type::geoplot(const std::vector<double> &latitude,
+                                   const std::vector<double> &longitude,
+                                   const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->geoplot();
@@ -3749,8 +3777,8 @@ namespace matplot {
 
     /// Adjust limits and reload that region of the world map in the proper
     /// resolution
-    void axes::geolimits(const std::array<double, 2> &latitude,
-                         const std::array<double, 2> &longitude) {
+    void axes_type::geolimits(const std::array<double, 2> &latitude,
+                              const std::array<double, 2> &longitude) {
         axes_silencer temp_silencer_{this};
 
         // look for map object in the xlim
@@ -3881,22 +3909,22 @@ namespace matplot {
         this->y_axis().limits(latitude);
     }
 
-    void axes::geolimits(double latitude_x, double latitude_y,
-                         double longitude_x, double longitude_y) {
+    void axes_type::geolimits(double latitude_x, double latitude_y,
+                              double longitude_x, double longitude_y) {
         geolimits(std::array<double, 2>{latitude_x, latitude_y},
                   std::array<double, 2>{longitude_x, longitude_y});
     }
 
-    void axes::geolimits(const std::vector<double> &latitude,
-                         const std::vector<double> &longitude) {
+    void axes_type::geolimits(const std::vector<double> &latitude,
+                              const std::vector<double> &longitude) {
         this->geolimits(to_array<2>(latitude), to_array<2>(longitude));
     }
 
     /// Core geoscatter function
-    line_handle axes::geoscatter(const std::vector<double> &latitude,
-                                 const std::vector<double> &longitude,
-                                 const std::vector<double> &sizes,
-                                 const std::vector<double> &colors) {
+    line_handle axes_type::geoscatter(const std::vector<double> &latitude,
+                                      const std::vector<double> &longitude,
+                                      const std::vector<double> &sizes,
+                                      const std::vector<double> &colors) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
 
@@ -3910,7 +3938,7 @@ namespace matplot {
         return l;
     }
 
-    void axes::axis(const std::array<double, 4> &limits_x_y) {
+    void axes_type::axis(const std::array<double, 4> &limits_x_y) {
         this->x_axis().limits({limits_x_y[0], limits_x_y[1]});
         this->x_axis().limits_mode_auto(false);
         this->y_axis().limits({limits_x_y[2], limits_x_y[3]});
@@ -3918,7 +3946,7 @@ namespace matplot {
         this->touch();
     }
 
-    void axes::axis(bool v) {
+    void axes_type::axis(bool v) {
         this->visible(v);
         if (!v) {
             this->title_visible(true);
@@ -3926,18 +3954,20 @@ namespace matplot {
     }
 
     /// \brief Make x/y/z-axis limits automatic
-    void axes::axis(keyword_automatic_type automatic) {
+    void axes_type::axis(keyword_automatic_type automatic) {
         this->limits_mode(automatic);
     }
 
     /// \brief Make x/y/z-axis limits manual
-    void axes::axis(keyword_manual_type manual) { this->limits_mode(manual); }
+    void axes_type::axis(keyword_manual_type manual) {
+        this->limits_mode(manual);
+    }
 
     /// \brief Reverse y-axis
-    void axes::axis(keyword_ij_type) { this->y_axis().reverse(true); }
+    void axes_type::axis(keyword_ij_type) { this->y_axis().reverse(true); }
 
     /// \brief Make x/y-axis ratio = 1 by changing the axis limits
-    void axes::axis(keyword_equal_type) {
+    void axes_type::axis(keyword_equal_type) {
         if (this->children().empty()) {
             return;
         }
@@ -3963,7 +3993,7 @@ namespace matplot {
     }
 
     /// \brief Make x/y/z-axis limits tight from x/y/z-min to x/y/z-max
-    void axes::axis(keyword_tight_type) {
+    void axes_type::axis(keyword_tight_type) {
         if (this->children().empty()) {
             return;
         }
@@ -3986,7 +4016,7 @@ namespace matplot {
     }
 
     /// \brief Make x/y-axis square with ratio 1 by changing the axes size
-    void axes::axis(keyword_square_type) {
+    void axes_type::axis(keyword_square_type) {
         axis(equal);
         double w = this->width() * this->parent()->width();
         double h = this->height() * this->parent()->height();
@@ -3995,7 +4025,8 @@ namespace matplot {
             double old_width = this->width();
             double new_width = h / this->parent()->width();
             this->width(static_cast<float>(new_width));
-            this->x_origin(this->x_origin() + static_cast<float>(old_width - new_width) / 2.f);
+            this->x_origin(this->x_origin() +
+                           static_cast<float>(old_width - new_width) / 2.f);
         } else if (h > w) {
             double old_height = this->height();
             double new_height = h / this->parent()->height();
@@ -4005,9 +4036,9 @@ namespace matplot {
     }
 
     /// Compass plot function
-    vectors_handle axes::compass(const std::vector<double> &x,
-                                 const std::vector<double> &y,
-                                 const std::string &line_spec) {
+    vectors_handle axes_type::compass(const std::vector<double> &x,
+                                      const std::vector<double> &y,
+                                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         auto theta = transform(
@@ -4033,8 +4064,8 @@ namespace matplot {
     }
 
     /// Ezpolar - Plot function on polar plot
-    string_function_handle axes::ezpolar(const std::string &equation,
-                                         const std::string &line_spec) {
+    string_function_handle axes_type::ezpolar(const std::string &equation,
+                                              const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         string_function_handle obj =
             std::make_shared<class string_function>(this, equation, line_spec);
@@ -4054,8 +4085,8 @@ namespace matplot {
     }
 
     std::vector<string_function_handle>
-    axes::ezpolar(std::vector<std::string> equations,
-                  std::vector<std::string> line_specs) {
+    axes_type::ezpolar(std::vector<std::string> equations,
+                       std::vector<std::string> line_specs) {
         std::vector<string_function_handle> res;
         auto it_line_specs = line_specs.begin();
         for (const auto &equation : equations) {
@@ -4069,9 +4100,10 @@ namespace matplot {
         return res;
     }
 
-    function_line_handle axes::ezpolar(function_line::function_type equation,
-                                       const std::array<double, 2> &t_range,
-                                       const std::string &line_spec) {
+    function_line_handle
+    axes_type::ezpolar(function_line::function_type equation,
+                       const std::array<double, 2> &t_range,
+                       const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         function_line_handle obj = std::make_shared<class function_line>(
@@ -4090,8 +4122,9 @@ namespace matplot {
         return obj;
     }
 
-    function_line_handle axes::ezpolar(function_line::function_type equation,
-                                       const std::string &line_spec) {
+    function_line_handle
+    axes_type::ezpolar(function_line::function_type equation,
+                       const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         function_line_handle obj = std::make_shared<class function_line>(
@@ -4109,16 +4142,18 @@ namespace matplot {
         return obj;
     }
 
-    function_line_handle axes::ezpolar(function_line::function_type equation,
-                                       std::vector<double> x_range,
-                                       const std::string &line_spec) {
+    function_line_handle
+    axes_type::ezpolar(function_line::function_type equation,
+                       std::vector<double> x_range,
+                       const std::string &line_spec) {
         return this->ezpolar(equation, to_array<2>(x_range), line_spec);
     }
 
-    function_line_handle axes::ezpolar(function_line::function_type function_x,
-                                       function_line::function_type function_y,
-                                       const std::array<double, 2> &t_range,
-                                       const std::string &line_spec) {
+    function_line_handle
+    axes_type::ezpolar(function_line::function_type function_x,
+                       function_line::function_type function_y,
+                       const std::array<double, 2> &t_range,
+                       const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         function_line_handle obj = std::make_shared<class function_line>(
@@ -4136,18 +4171,19 @@ namespace matplot {
         return obj;
     }
 
-    function_line_handle axes::ezpolar(function_line::function_type function_x,
-                                       function_line::function_type function_y,
-                                       std::vector<double> t_range,
-                                       const std::string &line_spec) {
+    function_line_handle
+    axes_type::ezpolar(function_line::function_type function_x,
+                       function_line::function_type function_y,
+                       std::vector<double> t_range,
+                       const std::string &line_spec) {
         return this->ezpolar(function_x, function_y, to_array<2>(t_range),
                              line_spec);
     }
 
     std::vector<function_line_handle>
-    axes::ezpolar(std::vector<function_line::function_type> equations,
-                  std::array<double, 2> x_range,
-                  std::vector<std::string> line_specs) {
+    axes_type::ezpolar(std::vector<function_line::function_type> equations,
+                       std::array<double, 2> x_range,
+                       std::vector<std::string> line_specs) {
         axes_silencer temp_silencer_{this};
         std::vector<function_line_handle> res;
         auto it_line_specs = line_specs.begin();
@@ -4164,15 +4200,15 @@ namespace matplot {
     }
 
     std::vector<function_line_handle>
-    axes::ezpolar(std::vector<function_line::function_type> equations,
-                  std::vector<double> x_range,
-                  std::vector<std::string> line_specs) {
+    axes_type::ezpolar(std::vector<function_line::function_type> equations,
+                       std::vector<double> x_range,
+                       std::vector<std::string> line_specs) {
         return this->ezpolar(equations, to_array<2>(x_range), line_specs);
     }
 
     /// Polar histogram - Core function
-    histogram_handle axes::polarhistogram(const std::vector<double> &theta,
-                                          size_t nbins) {
+    histogram_handle axes_type::polarhistogram(const std::vector<double> &theta,
+                                               size_t nbins) {
         axes_silencer temp_silencer_{this};
 
         auto reflect_theta =
@@ -4193,9 +4229,9 @@ namespace matplot {
     }
 
     /// Polar plot - Core function
-    line_handle axes::polarplot(const std::vector<double> &theta,
-                                const std::vector<double> &rho,
-                                const std::string &line_spec) {
+    line_handle axes_type::polarplot(const std::vector<double> &theta,
+                                     const std::vector<double> &rho,
+                                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         line_handle l = this->plot(theta, rho, line_spec);
@@ -4213,14 +4249,14 @@ namespace matplot {
     }
 
     /// Polar plot - Automatic theta
-    line_handle axes::polarplot(const std::vector<double> &rho,
-                                const std::string &line_spec) {
+    line_handle axes_type::polarplot(const std::vector<double> &rho,
+                                     const std::string &line_spec) {
         return this->polarplot(linspace(0, 2 * pi, rho.size()), rho, line_spec);
     }
 
     /// Polar plot - Complex numbers
-    line_handle axes::polarplot(const std::vector<std::complex<double>> &z,
-                                const std::string &line_spec) {
+    line_handle axes_type::polarplot(const std::vector<std::complex<double>> &z,
+                                     const std::string &line_spec) {
         std::vector<double> theta;
         std::vector<double> rho;
         for (size_t i = 0; i < z.size(); ++i) {
@@ -4231,11 +4267,11 @@ namespace matplot {
     }
 
     /// Polar scatter - Core function
-    line_handle axes::polarscatter(const std::vector<double> &theta,
-                                   const std::vector<double> &rho,
-                                   const std::vector<double> &sizes,
-                                   const std::vector<double> &colors,
-                                   const std::string &line_spec) {
+    line_handle axes_type::polarscatter(const std::vector<double> &theta,
+                                        const std::vector<double> &rho,
+                                        const std::vector<double> &sizes,
+                                        const std::vector<double> &colors,
+                                        const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         line_handle l = this->scatter(theta, rho, sizes, colors);
@@ -4254,27 +4290,28 @@ namespace matplot {
     }
 
     /// Polar scatter - Single size - Default colors
-    line_handle axes::polarscatter(const std::vector<double> &theta,
-                                   const std::vector<double> &rho, double size,
-                                   const std::string &line_spec) {
+    line_handle axes_type::polarscatter(const std::vector<double> &theta,
+                                        const std::vector<double> &rho,
+                                        double size,
+                                        const std::string &line_spec) {
         return this->polarscatter(theta, rho, std::vector(theta.size(), size),
                                   {}, line_spec);
     }
 
     /// Polar scatter - Default size and colors
-    line_handle axes::polarscatter(const std::vector<double> &theta,
-                                   const std::vector<double> &rho,
-                                   const std::string &line_spec) {
+    line_handle axes_type::polarscatter(const std::vector<double> &theta,
+                                        const std::vector<double> &rho,
+                                        const std::string &line_spec) {
         return this->polarscatter(theta, rho, {}, {}, line_spec);
     }
 
     /// Contour - Core function - Manual levels
-    contours_handle axes::contour(const std::vector<std::vector<double>> &X,
-                                  const std::vector<std::vector<double>> &Y,
-                                  const std::vector<std::vector<double>> &Z,
-                                  std::vector<double> levels,
-                                  const std::string &line_spec,
-                                  size_t n_levels) {
+    contours_handle
+    axes_type::contour(const std::vector<std::vector<double>> &X,
+                       const std::vector<std::vector<double>> &Y,
+                       const std::vector<std::vector<double>> &Z,
+                       std::vector<double> levels, const std::string &line_spec,
+                       size_t n_levels) {
         axes_silencer temp_silencer_{this};
 
         contours_handle l =
@@ -4294,29 +4331,30 @@ namespace matplot {
     }
 
     /// Contour - Manual number of levels (or 0 for automatic number of levels)
-    contours_handle axes::contour(const std::vector<std::vector<double>> &X,
-                                  const std::vector<std::vector<double>> &Y,
-                                  const std::vector<std::vector<double>> &Z,
-                                  size_t n_levels,
-                                  const std::string &line_spec) {
+    contours_handle
+    axes_type::contour(const std::vector<std::vector<double>> &X,
+                       const std::vector<std::vector<double>> &Y,
+                       const std::vector<std::vector<double>> &Z,
+                       size_t n_levels, const std::string &line_spec) {
         return this->contour(X, Y, Z, {}, line_spec, n_levels);
     }
 
     /// Contour - Automatic levels and number of levels
-    contours_handle axes::contour(const std::vector<std::vector<double>> &X,
-                                  const std::vector<std::vector<double>> &Y,
-                                  const std::vector<std::vector<double>> &Z,
-                                  const std::string &line_spec) {
+    contours_handle
+    axes_type::contour(const std::vector<std::vector<double>> &X,
+                       const std::vector<std::vector<double>> &Y,
+                       const std::vector<std::vector<double>> &Z,
+                       const std::string &line_spec) {
         return this->contour(X, Y, Z, 0, line_spec);
     }
 
     /// Contour filled - Manual levels
-    contours_handle axes::contourf(const std::vector<std::vector<double>> &X,
-                                   const std::vector<std::vector<double>> &Y,
-                                   const std::vector<std::vector<double>> &Z,
-                                   std::vector<double> levels,
-                                   const std::string &line_spec,
-                                   size_t n_levels) {
+    contours_handle
+    axes_type::contourf(const std::vector<std::vector<double>> &X,
+                        const std::vector<std::vector<double>> &Y,
+                        const std::vector<std::vector<double>> &Z,
+                        std::vector<double> levels,
+                        const std::string &line_spec, size_t n_levels) {
         axes_silencer temp_silencer_{this};
 
         contours_handle l = this->contour(X, Y, Z, levels, line_spec, n_levels);
@@ -4328,19 +4366,20 @@ namespace matplot {
     }
 
     /// Contour filled - Manual number of levels
-    contours_handle axes::contourf(const std::vector<std::vector<double>> &X,
-                                   const std::vector<std::vector<double>> &Y,
-                                   const std::vector<std::vector<double>> &Z,
-                                   size_t n_levels,
-                                   const std::string &line_spec) {
+    contours_handle
+    axes_type::contourf(const std::vector<std::vector<double>> &X,
+                        const std::vector<std::vector<double>> &Y,
+                        const std::vector<std::vector<double>> &Z,
+                        size_t n_levels, const std::string &line_spec) {
         return this->contourf(X, Y, Z, {}, line_spec, n_levels);
     }
 
     /// Contour filled - Automatic number of levels
-    contours_handle axes::contourf(const std::vector<std::vector<double>> &X,
-                                   const std::vector<std::vector<double>> &Y,
-                                   const std::vector<std::vector<double>> &Z,
-                                   const std::string &line_spec) {
+    contours_handle
+    axes_type::contourf(const std::vector<std::vector<double>> &X,
+                        const std::vector<std::vector<double>> &Y,
+                        const std::vector<std::vector<double>> &Z,
+                        const std::string &line_spec) {
         return this->contourf(X, Y, Z, 0, line_spec);
     }
 
@@ -4348,11 +4387,11 @@ namespace matplot {
 
     /// Lambda function contour - Manual levels (or empty list for automatic) /
     /// Manual number of levels (or 0 for automatic)
-    contours_handle axes::fcontour(fcontour_function_type fn,
-                                   const std::array<double, 4> &xy_range,
-                                   std::vector<double> levels,
-                                   const std::string &line_spec,
-                                   size_t n_levels) {
+    contours_handle axes_type::fcontour(fcontour_function_type fn,
+                                        const std::array<double, 4> &xy_range,
+                                        std::vector<double> levels,
+                                        const std::string &line_spec,
+                                        size_t n_levels) {
         axes_silencer temp_silencer_{this};
 
         std::vector<double> x = linspace(xy_range[0], xy_range[1]);
@@ -4371,22 +4410,23 @@ namespace matplot {
     }
 
     /// Lambda function contour - Manual number of levels (default = 9)
-    contours_handle axes::fcontour(fcontour_function_type fn, size_t n_levels,
-                                   const std::string &line_spec) {
+    contours_handle axes_type::fcontour(fcontour_function_type fn,
+                                        size_t n_levels,
+                                        const std::string &line_spec) {
         return this->fcontour(fn, std::array<double, 4>{-5, +5, -5, +5},
                               std::vector<double>{}, line_spec, n_levels);
     }
 
     /// Lambda function contour - Automatic number of levels and levels
-    contours_handle axes::fcontour(fcontour_function_type fn,
-                                   const std::string &line_spec) {
+    contours_handle axes_type::fcontour(fcontour_function_type fn,
+                                        const std::string &line_spec) {
         return this->fcontour(fn, 9, line_spec);
     }
 
     /// Feather - Core function
-    vectors_handle axes::feather(const std::vector<double> &u,
-                                 const std::vector<double> &v,
-                                 const std::string &line_spec) {
+    vectors_handle axes_type::feather(const std::vector<double> &u,
+                                      const std::vector<double> &v,
+                                      const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         vectors_handle l =
@@ -4408,11 +4448,11 @@ namespace matplot {
     }
 
     /// Quiver - Core function
-    vectors_handle axes::quiver(const std::vector<double> &x,
-                                const std::vector<double> &y,
-                                const std::vector<double> &u,
-                                const std::vector<double> &v, double scale,
-                                const std::string &line_spec) {
+    vectors_handle axes_type::quiver(const std::vector<double> &x,
+                                     const std::vector<double> &y,
+                                     const std::vector<double> &u,
+                                     const std::vector<double> &v, double scale,
+                                     const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         auto x_copy = x;
@@ -4454,21 +4494,22 @@ namespace matplot {
     }
 
     /// Quiver - 2d x,y,u,v
-    vectors_handle axes::quiver(const std::vector<std::vector<double>> &x,
-                                const std::vector<std::vector<double>> &y,
-                                const std::vector<std::vector<double>> &u,
-                                const std::vector<std::vector<double>> &v,
-                                double scale, const std::string &line_spec) {
+    vectors_handle axes_type::quiver(const std::vector<std::vector<double>> &x,
+                                     const std::vector<std::vector<double>> &y,
+                                     const std::vector<std::vector<double>> &u,
+                                     const std::vector<std::vector<double>> &v,
+                                     double scale,
+                                     const std::string &line_spec) {
         return this->quiver(flatten(x), flatten(y), flatten(u), flatten(v),
                             scale, line_spec);
     }
 
     /// Quiver 3d - Core function
-    vectors_handle
-    axes::quiver3(const std::vector<double> &x, const std::vector<double> &y,
-                  const std::vector<double> &z, const std::vector<double> &u,
-                  const std::vector<double> &v, const std::vector<double> &w,
-                  double scale, const std::string &line_spec) {
+    vectors_handle axes_type::quiver3(
+        const std::vector<double> &x, const std::vector<double> &y,
+        const std::vector<double> &z, const std::vector<double> &u,
+        const std::vector<double> &v, const std::vector<double> &w,
+        double scale, const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
 
         auto x_copy = x;
@@ -4525,23 +4566,25 @@ namespace matplot {
     }
 
     /// Quiver 3d - 2d vectors
-    vectors_handle axes::quiver3(const std::vector<std::vector<double>> &x,
-                                 const std::vector<std::vector<double>> &y,
-                                 const std::vector<std::vector<double>> &z,
-                                 const std::vector<std::vector<double>> &u,
-                                 const std::vector<std::vector<double>> &v,
-                                 const std::vector<std::vector<double>> &w,
-                                 double scale, const std::string &line_spec) {
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &x,
+                                      const std::vector<std::vector<double>> &y,
+                                      const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
+                                      double scale,
+                                      const std::string &line_spec) {
         return this->quiver3(flatten(x), flatten(y), flatten(z), flatten(u),
                              flatten(v), flatten(w), scale, line_spec);
     }
 
     /// Quiver 3d - Automatic x and y - 2d vectors
-    vectors_handle axes::quiver3(const std::vector<std::vector<double>> &z,
-                                 const std::vector<std::vector<double>> &u,
-                                 const std::vector<std::vector<double>> &v,
-                                 const std::vector<std::vector<double>> &w,
-                                 double scale, const std::string &line_spec) {
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
+                                      double scale,
+                                      const std::string &line_spec) {
         auto [n, m] = size(z);
         vector_1d x = iota(1, m);
         vector_1d y = iota(1, n);
@@ -4550,10 +4593,10 @@ namespace matplot {
     }
 
     /// Fence - Core function
-    surface_handle axes::fence(const std::vector<std::vector<double>> &X,
-                               const std::vector<std::vector<double>> &Y,
-                               const std::vector<std::vector<double>> &Z,
-                               const std::vector<double> &c) {
+    surface_handle axes_type::fence(const std::vector<std::vector<double>> &X,
+                                    const std::vector<std::vector<double>> &Y,
+                                    const std::vector<std::vector<double>> &Z,
+                                    const std::vector<double> &c) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l =
@@ -4567,14 +4610,16 @@ namespace matplot {
     using fmesh_function_type = std::function<double(double, double)>;
 
     /// Lambda function mesh - Core function
-    surface_handle axes::fmesh(fcontour_function_type fn,
-                               const std::array<double, 2> &x_range,
-                               const std::array<double, 2> &y_range,
-                               double mesh_density) {
+    surface_handle axes_type::fmesh(fcontour_function_type fn,
+                                    const std::array<double, 2> &x_range,
+                                    const std::array<double, 2> &y_range,
+                                    double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> x = linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
-        std::vector<double> y = linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> x =
+            linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> y =
+            linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
         auto [X, Y] = meshgrid(x, y);
         auto Z = transform(X, Y, fn);
         surface_handle l = this->mesh(X, Y, Z, {});
@@ -4583,16 +4628,18 @@ namespace matplot {
     }
 
     /// Lambda function mesh - parametric function
-    surface_handle axes::fmesh(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 2> &u_range,
-                               const std::array<double, 2> &v_range,
-                               double mesh_density) {
+    surface_handle axes_type::fmesh(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 2> &u_range,
+                                    const std::array<double, 2> &v_range,
+                                    double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> u = linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
-        std::vector<double> v = linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> u =
+            linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> v =
+            linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
         auto [U, V] = meshgrid(u, v);
         auto X = transform(U, V, funx);
         auto Y = transform(U, V, funy);
@@ -4604,54 +4651,61 @@ namespace matplot {
 
     /// Lambda function mesh
     /// Grid / Both ranges in the same array size 4
-    surface_handle axes::fmesh(fcontour_function_type fn,
-                               const std::array<double, 4> &xy_range,
-                               double mesh_density) {
+    surface_handle axes_type::fmesh(fcontour_function_type fn,
+                                    const std::array<double, 4> &xy_range,
+                                    double mesh_density) {
         return this->fmesh(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]}, static_cast<size_t>(mesh_density));
+                           {xy_range[2], xy_range[3]},
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Lambda function mesh - Parametric
     /// Parametric / Both ranges in the same array size 4
-    surface_handle axes::fmesh(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 4> &uv_range,
-                               double mesh_density) {
+    surface_handle axes_type::fmesh(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 4> &uv_range,
+                                    double mesh_density) {
         return this->fmesh(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]}, static_cast<size_t>(mesh_density));
+                           {uv_range[2], uv_range[3]},
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Function mesh
     /// Grid / Both ranges in the same array size 2
-    surface_handle axes::fmesh(fcontour_function_type fn,
-                               const std::array<double, 2> &xy_range,
-                               double mesh_density) {
-        return this->fmesh(fn, xy_range, xy_range, static_cast<size_t>(mesh_density));
+    surface_handle axes_type::fmesh(fcontour_function_type fn,
+                                    const std::array<double, 2> &xy_range,
+                                    double mesh_density) {
+        return this->fmesh(fn, xy_range, xy_range,
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Function mesh
     /// Parametric / Both ranges in the same array size 2
-    surface_handle axes::fmesh(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 2> &uv_range,
-                               double mesh_density) {
-        return this->fmesh(funx, funy, funz, uv_range, uv_range, static_cast<size_t>(mesh_density));
+    surface_handle axes_type::fmesh(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 2> &uv_range,
+                                    double mesh_density) {
+        return this->fmesh(funx, funy, funz, uv_range, uv_range,
+                           static_cast<size_t>(mesh_density));
     }
 
     // z = f(x,y)
     using fsurf_function_type = std::function<double(double, double)>;
 
     /// Function surf - Core function
-    surface_handle axes::fsurf(fcontour_function_type fn,
-                               const std::array<double, 2> &x_range,
-                               const std::array<double, 2> &y_range,
-                               std::string line_spec, double mesh_density) {
+    surface_handle axes_type::fsurf(fcontour_function_type fn,
+                                    const std::array<double, 2> &x_range,
+                                    const std::array<double, 2> &y_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> x = linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
-        std::vector<double> y = linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> x =
+            linspace(x_range[0], x_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> y =
+            linspace(y_range[0], y_range[1], static_cast<size_t>(mesh_density));
         auto [X, Y] = meshgrid(x, y);
         auto Z = transform(X, Y, fn);
         surface_handle l = this->surf(X, Y, Z, {}, line_spec);
@@ -4661,16 +4715,19 @@ namespace matplot {
 
     /// Function surf - Parametric
     /// Core parametric function
-    surface_handle axes::fsurf(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 2> &u_range,
-                               const std::array<double, 2> &v_range,
-                               std::string line_spec, double mesh_density) {
+    surface_handle axes_type::fsurf(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 2> &u_range,
+                                    const std::array<double, 2> &v_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
         axes_silencer temp_silencer_{this};
 
-        std::vector<double> u = linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
-        std::vector<double> v = linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> u =
+            linspace(u_range[0], u_range[1], static_cast<size_t>(mesh_density));
+        std::vector<double> v =
+            linspace(v_range[0], v_range[1], static_cast<size_t>(mesh_density));
         auto [U, V] = meshgrid(u, v);
         auto X = transform(U, V, funx);
         auto Y = transform(U, V, funy);
@@ -4682,47 +4739,54 @@ namespace matplot {
 
     /// Function surf
     /// Grid / Both ranges in the same array size 4
-    surface_handle axes::fsurf(fcontour_function_type fn,
-                               const std::array<double, 4> &xy_range,
-                               std::string line_spec, double mesh_density) {
+    surface_handle axes_type::fsurf(fcontour_function_type fn,
+                                    const std::array<double, 4> &xy_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
         return this->fsurf(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]}, line_spec, static_cast<size_t>(mesh_density));
+                           {xy_range[2], xy_range[3]}, line_spec,
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Parametric / Both ranges in the same array size 4
-    surface_handle axes::fsurf(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 4> &uv_range,
-                               std::string line_spec, double mesh_density) {
+    surface_handle axes_type::fsurf(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 4> &uv_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
         return this->fsurf(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]}, line_spec, static_cast<size_t>(mesh_density));
+                           {uv_range[2], uv_range[3]}, line_spec,
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Function surf
     /// Grid / Both ranges in the same array size 2
-    surface_handle axes::fsurf(fcontour_function_type fn,
-                               const std::array<double, 2> &xy_range,
-                               std::string line_spec, double mesh_density) {
-        return this->fsurf(fn, xy_range, xy_range, line_spec, static_cast<size_t>(mesh_density));
+    surface_handle axes_type::fsurf(fcontour_function_type fn,
+                                    const std::array<double, 2> &xy_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
+        return this->fsurf(fn, xy_range, xy_range, line_spec,
+                           static_cast<size_t>(mesh_density));
     }
 
     /// Function surf
     /// Parametric / Both ranges in the same array size 2
-    surface_handle axes::fsurf(fcontour_function_type funx,
-                               fcontour_function_type funy,
-                               fcontour_function_type funz,
-                               const std::array<double, 2> &uv_range,
-                               std::string line_spec, double mesh_density) {
+    surface_handle axes_type::fsurf(fcontour_function_type funx,
+                                    fcontour_function_type funy,
+                                    fcontour_function_type funz,
+                                    const std::array<double, 2> &uv_range,
+                                    std::string line_spec,
+                                    double mesh_density) {
         return this->fsurf(funx, funy, funz, uv_range, uv_range, line_spec,
                            static_cast<size_t>(mesh_density));
     }
 
     /// Mesh - Core function
-    surface_handle axes::mesh(const std::vector<std::vector<double>> &X,
-                              const std::vector<std::vector<double>> &Y,
-                              const std::vector<std::vector<double>> &Z,
-                              const std::vector<std::vector<double>> &C) {
+    surface_handle axes_type::mesh(const std::vector<std::vector<double>> &X,
+                                   const std::vector<std::vector<double>> &Y,
+                                   const std::vector<std::vector<double>> &Z,
+                                   const std::vector<std::vector<double>> &C) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = std::make_shared<class surface>(this, X, Y, Z, C);
@@ -4734,10 +4798,10 @@ namespace matplot {
     }
 
     /// Mesh with contour
-    surface_handle axes::meshc(const std::vector<std::vector<double>> &X,
-                               const std::vector<std::vector<double>> &Y,
-                               const std::vector<std::vector<double>> &Z,
-                               const std::vector<std::vector<double>> &C) {
+    surface_handle axes_type::meshc(const std::vector<std::vector<double>> &X,
+                                    const std::vector<std::vector<double>> &Y,
+                                    const std::vector<std::vector<double>> &Z,
+                                    const std::vector<std::vector<double>> &C) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = std::make_shared<class surface>(this, X, Y, Z, C);
@@ -4751,10 +4815,10 @@ namespace matplot {
 
     /// Mesh with curtain
     /// Core function
-    surface_handle axes::meshz(const std::vector<std::vector<double>> &X,
-                               const std::vector<std::vector<double>> &Y,
-                               const std::vector<std::vector<double>> &Z,
-                               const std::vector<std::vector<double>> &C) {
+    surface_handle axes_type::meshz(const std::vector<std::vector<double>> &X,
+                                    const std::vector<std::vector<double>> &Y,
+                                    const std::vector<std::vector<double>> &Z,
+                                    const std::vector<std::vector<double>> &C) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = this->mesh(X, Y, Z, C);
@@ -4764,11 +4828,11 @@ namespace matplot {
     }
 
     /// Ribbon
-    surface_handle axes::ribbon(const std::vector<std::vector<double>> &X,
-                                const std::vector<std::vector<double>> &Y,
-                                const std::vector<std::vector<double>> &Z,
-                                const std::vector<std::vector<double>> &C,
-                                double width) {
+    surface_handle axes_type::ribbon(const std::vector<std::vector<double>> &X,
+                                     const std::vector<std::vector<double>> &Y,
+                                     const std::vector<std::vector<double>> &Z,
+                                     const std::vector<std::vector<double>> &C,
+                                     double width) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = this->surf(X, Y, Z, C);
@@ -4780,11 +4844,11 @@ namespace matplot {
     }
 
     /// Surf - Core function
-    surface_handle axes::surf(const std::vector<std::vector<double>> &X,
-                              const std::vector<std::vector<double>> &Y,
-                              const std::vector<std::vector<double>> &Z,
-                              const std::vector<std::vector<double>> &C,
-                              std::string line_spec) {
+    surface_handle axes_type::surf(const std::vector<std::vector<double>> &X,
+                                   const std::vector<std::vector<double>> &Y,
+                                   const std::vector<std::vector<double>> &Z,
+                                   const std::vector<std::vector<double>> &C,
+                                   std::string line_spec) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l =
@@ -4795,10 +4859,10 @@ namespace matplot {
     }
 
     /// Surf with contour - Core function
-    surface_handle axes::surfc(const std::vector<std::vector<double>> &X,
-                               const std::vector<std::vector<double>> &Y,
-                               const std::vector<std::vector<double>> &Z,
-                               const std::vector<std::vector<double>> &C) {
+    surface_handle axes_type::surfc(const std::vector<std::vector<double>> &X,
+                                    const std::vector<std::vector<double>> &Y,
+                                    const std::vector<std::vector<double>> &Z,
+                                    const std::vector<std::vector<double>> &C) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = std::make_shared<class surface>(this, X, Y, Z, C);
@@ -4810,10 +4874,11 @@ namespace matplot {
     }
 
     /// Waterfall - Core function
-    surface_handle axes::waterfall(const std::vector<std::vector<double>> &X,
-                                   const std::vector<std::vector<double>> &Y,
-                                   const std::vector<std::vector<double>> &Z,
-                                   const std::vector<std::vector<double>> &C) {
+    surface_handle
+    axes_type::waterfall(const std::vector<std::vector<double>> &X,
+                         const std::vector<std::vector<double>> &Y,
+                         const std::vector<std::vector<double>> &Z,
+                         const std::vector<std::vector<double>> &C) {
         axes_silencer temp_silencer_{this};
 
         surface_handle l = this->mesh(X, Y, Z, C);
@@ -4824,9 +4889,9 @@ namespace matplot {
 
     /// Graph - Undirected - Core function
     network_handle
-    axes::graph(const std::vector<std::pair<size_t, size_t>> &edges,
-                const std::vector<double> &weights, size_t n_vertices,
-                std::string line_spec) {
+    axes_type::graph(const std::vector<std::pair<size_t, size_t>> &edges,
+                     const std::vector<double> &weights, size_t n_vertices,
+                     std::string line_spec) {
         axes_silencer temp_silencer_{this};
 
         network_handle l = std::make_shared<class network>(
@@ -4845,13 +4910,13 @@ namespace matplot {
     }
 
     network_handle
-    axes::graph(const std::vector<std::pair<size_t, size_t>> &edges,
-                std::string line_spec) {
+    axes_type::graph(const std::vector<std::pair<size_t, size_t>> &edges,
+                     std::string line_spec) {
         return this->graph(edges, vector_1d{}, 0, line_spec);
     }
 
     /// B&W image show - Core function
-    matrix_handle axes::imshow(
+    matrix_handle axes_type::imshow(
         const std::vector<std::vector<unsigned char>> &gray_scale_img) {
         axes_silencer temp_silencer_{this};
 
@@ -4878,11 +4943,11 @@ namespace matplot {
     }
 
     /// Core RGB / RGBA imshow function
-    matrix_handle
-    axes::imshow(const std::vector<std::vector<unsigned char>> &r_channel,
-                 const std::vector<std::vector<unsigned char>> &g_channel,
-                 const std::vector<std::vector<unsigned char>> &b_channel,
-                 const std::vector<std::vector<unsigned char>> &a_channel) {
+    matrix_handle axes_type::imshow(
+        const std::vector<std::vector<unsigned char>> &r_channel,
+        const std::vector<std::vector<unsigned char>> &g_channel,
+        const std::vector<std::vector<unsigned char>> &b_channel,
+        const std::vector<std::vector<unsigned char>> &a_channel) {
         axes_silencer temp_silencer_{this};
         // Create matrix in the xlim
         matrix_handle img = std::make_shared<class matrix>(
@@ -4904,7 +4969,7 @@ namespace matplot {
     }
 
     /// Image show from 2d vectors with image channels
-    matrix_handle axes::imshow(
+    matrix_handle axes_type::imshow(
         const std::vector<std::vector<std::vector<unsigned char>>> &img) {
         axes_silencer temp_silencer_{this};
         if (img.size() == 1) {
@@ -4919,14 +4984,14 @@ namespace matplot {
     }
 
     /// Image show from filename
-    matrix_handle axes::imshow(const std::string &filename) {
+    matrix_handle axes_type::imshow(const std::string &filename) {
         image_channels_t image = imread(filename);
         return this->imshow(image);
     }
 
     /// Display array as image
-    matrix_handle axes::image(const std::vector<std::vector<double>> &C,
-                              bool scaled_colorbar) {
+    matrix_handle axes_type::image(const std::vector<std::vector<double>> &C,
+                                   bool scaled_colorbar) {
         axes_silencer temp_silencer_{this};
 
         // create matrix in the xlim
@@ -4950,10 +5015,11 @@ namespace matplot {
     }
 
     /// Display 3 arrays as image
-    matrix_handle axes::image(const std::vector<std::vector<double>> &r_channel,
-                              const std::vector<std::vector<double>> &g_channel,
-                              const std::vector<std::vector<double>> &b_channel,
-                              bool scaled_colorbar) {
+    matrix_handle
+    axes_type::image(const std::vector<std::vector<double>> &r_channel,
+                     const std::vector<std::vector<double>> &g_channel,
+                     const std::vector<std::vector<double>> &b_channel,
+                     bool scaled_colorbar) {
         axes_silencer temp_silencer_{this};
 
         // create matrix in the xlim
@@ -4977,10 +5043,10 @@ namespace matplot {
     }
 
     /// Show 2d-array as image
-    matrix_handle axes::image(double x_min, double x_max, double y_min,
-                              double y_max,
-                              const std::vector<std::vector<double>> &C,
-                              bool scaled_colorbar) {
+    matrix_handle axes_type::image(double x_min, double x_max, double y_min,
+                                   double y_max,
+                                   const std::vector<std::vector<double>> &C,
+                                   bool scaled_colorbar) {
         axes_silencer temp_silencer_{this};
 
         matrix_handle img = this->image(C, scaled_colorbar);
@@ -5015,9 +5081,9 @@ namespace matplot {
 
     /// Show image from tuple of rgb 2d vectors
     matrix_handle
-    axes::image(const std::tuple<std::vector<std::vector<double>>,
-                                 std::vector<std::vector<double>>,
-                                 std::vector<std::vector<double>>> &img) {
+    axes_type::image(const std::tuple<std::vector<std::vector<double>>,
+                                      std::vector<std::vector<double>>,
+                                      std::vector<std::vector<double>>> &img) {
         return this->image(std::get<0>(img), std::get<1>(img), std::get<2>(img),
                            false);
     }
@@ -5027,8 +5093,8 @@ namespace matplot {
     /// \param y Positions
     /// \param texts Texts
     /// \return
-    labels_handle axes::text(const vector_1d &x, const vector_1d &y,
-                             const std::vector<std::string> &texts) {
+    labels_handle axes_type::text(const vector_1d &x, const vector_1d &y,
+                                  const std::vector<std::string> &texts) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
 
@@ -5042,18 +5108,19 @@ namespace matplot {
     }
 
     /// Annotate plot with single text
-    labels_handle axes::text(double x, double y, const std::string &str) {
+    labels_handle axes_type::text(double x, double y, const std::string &str) {
         return this->text(std::vector{x}, std::vector{y}, std::vector{str});
     }
 
     /// Annotate plot with same text at many positions
-    labels_handle axes::text(const vector_1d &x, const vector_1d &y,
-                             const std::string &str) {
+    labels_handle axes_type::text(const vector_1d &x, const vector_1d &y,
+                                  const std::string &str) {
         return this->text(x, y, std::vector<std::string>(x.size(), str));
     }
 
     /// Annotate plot with arrow
-    vectors_handle axes::arrow(double x1, double y1, double x2, double y2) {
+    vectors_handle axes_type::arrow(double x1, double y1, double x2,
+                                    double y2) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5071,7 +5138,7 @@ namespace matplot {
     }
 
     /// Annotate plot with single line between two points
-    line_handle axes::line(double x1, double y1, double x2, double y2) {
+    line_handle axes_type::line(double x1, double y1, double x2, double y2) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5085,8 +5152,8 @@ namespace matplot {
 
     /// Annotate plot with text and arrow
     std::pair<labels_handle, vectors_handle>
-    axes::textarrow(double x1, double y1, double x2, double y2,
-                    const std::string &str) {
+    axes_type::textarrow(double x1, double y1, double x2, double y2,
+                         const std::string &str) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5103,8 +5170,8 @@ namespace matplot {
     }
 
     /// Annotate plot with rectangle
-    line_handle axes::rectangle(double x, double y, double w, double h,
-                                double curvature) {
+    line_handle axes_type::rectangle(double x, double y, double w, double h,
+                                     double curvature) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5159,8 +5226,8 @@ namespace matplot {
     }
 
     std::pair<labels_handle, line_handle>
-    axes::textbox(double x, double y, double w, double h,
-                  const std::string &str) {
+    axes_type::textbox(double x, double y, double w, double h,
+                       const std::string &str) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5173,8 +5240,8 @@ namespace matplot {
         return std::make_pair(t, r);
     }
 
-    line_handle axes::fill(const vector_1d &x, const vector_1d &y,
-                           const std::string &line_spec) {
+    line_handle axes_type::fill(const vector_1d &x, const vector_1d &y,
+                                const std::string &line_spec) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5186,7 +5253,7 @@ namespace matplot {
         return l;
     }
 
-    line_handle axes::ellipse(double x, double y, double w, double h) {
+    line_handle axes_type::ellipse(double x, double y, double w, double h) {
         axes_silencer temp_silencer_{this};
         bool p2 = this->next_plot_replace();
         this->next_plot_replace(false);
@@ -5202,7 +5269,7 @@ namespace matplot {
     }
 
     /// Create boxplot from vector 1d
-    box_chart_handle axes::boxplot(const std::vector<double> &data) {
+    box_chart_handle axes_type::boxplot(const std::vector<double> &data) {
         box_chart_handle l = std::make_shared<class box_chart>(this, data);
         this->emplace_object(l);
         return l;
@@ -5210,7 +5277,7 @@ namespace matplot {
 
     /// Create boxplot from vector 2d
     box_chart_handle
-    axes::boxplot(const std::vector<std::vector<double>> &data) {
+    axes_type::boxplot(const std::vector<std::vector<double>> &data) {
         std::vector<double> y_data;
         std::vector<double> x_data;
         size_t index = 1;
@@ -5229,8 +5296,8 @@ namespace matplot {
     }
 
     /// Create boxplot with groups
-    box_chart_handle axes::boxplot(const std::vector<double> &data,
-                                   const std::vector<double> &groups) {
+    box_chart_handle axes_type::boxplot(const std::vector<double> &data,
+                                        const std::vector<double> &groups) {
         box_chart_handle l =
             std::make_shared<class box_chart>(this, data, groups);
         this->emplace_object(l);
@@ -5238,8 +5305,9 @@ namespace matplot {
     }
 
     /// Create boxplot with group strings
-    box_chart_handle axes::boxplot(const std::vector<double> &y_data,
-                                   const std::vector<std::string> &groups) {
+    box_chart_handle
+    axes_type::boxplot(const std::vector<double> &y_data,
+                       const std::vector<std::string> &groups) {
         // map<group,index>
         std::map<std::string, double> category_indexes;
         std::vector<double> group_indexes;
@@ -5270,16 +5338,18 @@ namespace matplot {
         return h;
     }
 
-    void axes::draw_path(const std::vector<double> &x,
-                   const std::vector<double> &y,
-                   const std::array<float, 4> &color) {
+    void axes_type::draw_path(const std::vector<double> &x,
+                              const std::vector<double> &y,
+                              const std::array<float, 4> &color) {
         // we still have to make limits calculate and return the
         // automatic limits rather than the default limits
         auto xlimits = xlim();
         auto ylimits = ylim();
         // clamp
-        std::vector<double> cx = transform(x, [&](double x) { return std::clamp(x,xlimits[0],xlimits[1]); });
-        std::vector<double> cy = transform(y, [&](double y) { return std::clamp(y,ylimits[0],ylimits[1]); });
+        std::vector<double> cx = transform(
+            x, [&](double x) { return std::clamp(x, xlimits[0], xlimits[1]); });
+        std::vector<double> cy = transform(
+            y, [&](double y) { return std::clamp(y, ylimits[0], ylimits[1]); });
         // normalize
         auto [w,h,lm,rm,bm,tm] = calculate_margins();
         double view_width = parent_->backend_->width();

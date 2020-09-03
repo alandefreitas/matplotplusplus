@@ -5,7 +5,7 @@
 #include <cmath>
 #include <iomanip>
 #include <matplot/axes_objects/network.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <nodesoup.hpp>
 #include <random>
@@ -13,9 +13,9 @@
 #include <sstream>
 
 namespace matplot {
-    network::network(class axes *parent) : axes_object(parent) {}
+    network::network(class axes_type *parent) : axes_object(parent) {}
 
-    network::network(class axes *parent,
+    network::network(class axes_type *parent,
                      const std::vector<std::pair<size_t, size_t>> &edges,
                      const vector_1d &weights, size_t n_vertices,
                      const std::string &line_spec)

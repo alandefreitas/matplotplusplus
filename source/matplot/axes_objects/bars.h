@@ -17,15 +17,16 @@
 #include <matplot/util/common.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
     class bars : public axes_object {
       public:
-        explicit bars(class axes *parent);
-        bars(class axes *parent, const std::vector<double> &y);
-        bars(class axes *parent, const std::vector<std::vector<double>> &Y);
-        bars(class axes *parent, const std::vector<double> &x,
+        explicit bars(class axes_type *parent);
+        bars(class axes_type *parent, const std::vector<double> &y);
+        bars(class axes_type *parent,
+             const std::vector<std::vector<double>> &Y);
+        bars(class axes_type *parent, const std::vector<double> &x,
              const std::vector<double> &y);
-        bars(class axes *parent, const std::vector<double> &x,
+        bars(class axes_type *parent, const std::vector<double> &x,
              const std::vector<std::vector<double>> &Y);
 
         /// If we receive an axes_handle, we can convert it to a raw

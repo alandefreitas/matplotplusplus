@@ -2,17 +2,19 @@
 // Created by Alan Freitas on 10/07/20.
 //
 
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/core/legend.h>
 #include <matplot/util/common.h>
 
 namespace matplot {
-    legend::legend(class axes *parent) : legend(parent, {}) {}
+    legend::legend(class axes_type *parent) : legend(parent, {}) {}
 
-    legend::legend(class axes *parent, std::initializer_list<std::string> names)
+    legend::legend(class axes_type *parent,
+                   std::initializer_list<std::string> names)
         : legend(parent, std::vector(names)) {}
 
-    legend::legend(class axes *parent, const std::vector<std::string> &names)
+    legend::legend(class axes_type *parent,
+                   const std::vector<std::string> &names)
         : parent_(parent), strings_(names) {
         if (names.empty() && !parent_->children().empty()) {
             for (size_t i = 0; i < parent_->children().size(); ++i) {

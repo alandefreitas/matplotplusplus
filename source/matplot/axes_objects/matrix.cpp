@@ -4,14 +4,14 @@
 
 #include <cmath>
 #include <matplot/axes_objects/matrix.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
 
 namespace matplot {
-    matrix::matrix(class axes *parent) : axes_object(parent) {}
+    matrix::matrix(class axes_type *parent) : axes_object(parent) {}
 
-    matrix::matrix(class axes *parent,
+    matrix::matrix(class axes_type *parent,
                    const std::vector<std::vector<double>> &matrix)
         : axes_object(parent), matrices_({matrix}) {
         // Matrix does not seem to be an image.
@@ -23,7 +23,7 @@ namespace matplot {
         std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes *parent,
+    matrix::matrix(class axes_type *parent,
                    const std::vector<std::vector<double>> &red_channel,
                    const std::vector<std::vector<double>> &green_channel,
                    const std::vector<std::vector<double>> &blue_channel,
@@ -41,7 +41,7 @@ namespace matplot {
         std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes *parent, const image_channel_t &gray_image)
+    matrix::matrix(class axes_type *parent, const image_channel_t &gray_image)
         : axes_object(parent), matrices_({to_vector_2d(gray_image)}) {
         // This seems to be an image because the matrix is unsigned char
         parent_->y_axis().reverse(true);
@@ -50,7 +50,7 @@ namespace matplot {
         std::tie(h_, w_) = size(matrices_[0]);
     }
 
-    matrix::matrix(class axes *parent, const image_channel_t &red_channel,
+    matrix::matrix(class axes_type *parent, const image_channel_t &red_channel,
                    const image_channel_t &green_channel,
                    const image_channel_t &blue_channel,
                    const image_channel_t &alpha_channel)
@@ -71,7 +71,7 @@ namespace matplot {
     }
 
     /// Constructor for all channels at once
-    matrix::matrix(class axes *parent, const image_channels_t &image)
+    matrix::matrix(class axes_type *parent, const image_channels_t &image)
         : axes_object(parent), matrices_(to_vector_3d(image)) {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;

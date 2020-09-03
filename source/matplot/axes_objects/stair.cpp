@@ -4,16 +4,16 @@
 
 #include <algorithm>
 #include <matplot/axes_objects/stair.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 
 namespace matplot {
-    stair::stair(class axes *parent) : line(parent) {}
+    stair::stair(class axes_type *parent) : line(parent) {}
 
-    stair::stair(class axes *parent, const std::vector<double> &y_data,
+    stair::stair(class axes_type *parent, const std::vector<double> &y_data,
                  const std::string &line_spec)
         : line(parent, y_data, line_spec) {}
 
-    stair::stair(class axes *parent, const std::vector<double> &x_data,
+    stair::stair(class axes_type *parent, const std::vector<double> &x_data,
                  const std::vector<double> &y_data,
                  const std::string &line_spec)
         : line(parent, x_data, y_data, line_spec) {}

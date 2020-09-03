@@ -2,12 +2,12 @@
 // Created by Alan Freitas on 2020-07-05.
 //
 
-#include <matplot/core/axes.h>
 #include <matplot/core/axes_object.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 
 namespace matplot {
-    axes_object::axes_object(class axes *parent) : parent_(parent) {
+    axes_object::axes_object(class axes_type *parent) : parent_(parent) {
         const bool axes_have_legend = parent_->legend() != nullptr;
         if (axes_have_legend) {
             const bool all_objects_have_legend =
@@ -22,15 +22,15 @@ namespace matplot {
 
     axes_object::axes_object(axes_handle parent) : axes_object(parent.get()){};
 
-    const class axes *axes_object::parent() const { return parent_; }
+    const class axes_type *axes_object::parent() const { return parent_; }
 
-    class axes *&axes_object::parent() {
+    class axes_type *&axes_object::parent() {
         return parent_;
     }
 
     void axes_object::touch() { parent_->touch(); }
 
-    void axes_object::parent(class axes *&parent) { parent_ = parent; }
+    void axes_object::parent(class axes_type *&parent) { parent_ = parent; }
 
     std::string axes_object::data_string() { return ""; }
 

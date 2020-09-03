@@ -5,10 +5,10 @@
 #ifndef MATPLOTPLUSPLUS_AXES_FUNCTIONS_H
 #define MATPLOTPLUSPLUS_AXES_FUNCTIONS_H
 
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 
 namespace matplot {
-    using axes_handle = std::shared_ptr<class axes>;
+    using axes_handle = std::shared_ptr<class axes_type>;
 
     /// \brief Create new axes
     axes_handle axes();

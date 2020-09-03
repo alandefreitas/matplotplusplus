@@ -8,17 +8,17 @@
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     class error_bar : public line {
       public:
         enum class type { vertical, horizontal, both };
 
       public:
-        explicit error_bar(class axes *parent);
+        explicit error_bar(class axes_type *parent);
 
         /// Construct with x and y error
-        error_bar(class axes *parent, const std::vector<double> &x,
+        error_bar(class axes_type *parent, const std::vector<double> &x,
                   const std::vector<double> &y,
                   const std::vector<double> &y_neg_delta,
                   const std::vector<double> &y_pos_delta,
@@ -27,7 +27,7 @@ namespace matplot {
                   const std::string &line_spec = "");
 
         /// Construct with y error only
-        error_bar(class axes *parent, const std::vector<double> &x_data,
+        error_bar(class axes_type *parent, const std::vector<double> &x_data,
                   const std::vector<double> &y_data,
                   const std::vector<double> &error,
                   error_bar::type type = error_bar::type::vertical,

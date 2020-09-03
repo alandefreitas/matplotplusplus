@@ -10,8 +10,8 @@ add_library(matplot
         backend/backend_registry.h
         backend/backend_registry.cpp
 
-        core/axes.cpp
-        core/axes.h
+        core/axes_type.cpp
+        core/axes_type.h
         core/axes_object.cpp
         core/axes_object.h
         core/axis.cpp

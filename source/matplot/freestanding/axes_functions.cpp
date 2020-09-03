@@ -15,7 +15,7 @@ namespace matplot {
 
     /// \brief Create new axes in a figure
     axes_handle axes(figure_handle parent, bool replace_if_overlap) {
-        axes_handle h = std::make_shared<class axes>(parent);
+        axes_handle h = std::make_shared<class axes_type>(parent);
         return axes(h, parent, replace_if_overlap);
     }
 

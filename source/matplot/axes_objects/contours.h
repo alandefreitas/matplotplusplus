@@ -17,7 +17,7 @@
 #include <matplot/core/line_spec.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     /// Create and store a set of contour lines or filled regions.
     /// We have a class just for contours instead of using the
@@ -50,10 +50,11 @@ namespace matplot {
         /// \param Y Y grid
         /// \param Z Z heights
         /// \param line_spec Line properties
-        contours(class axes *parent, const vector_2d &X, const vector_2d &Y,
-                 const vector_2d &Z, const std::string &line_spec = "");
+        contours(class axes_type *parent, const vector_2d &X,
+                 const vector_2d &Y, const vector_2d &Z,
+                 const std::string &line_spec = "");
 
-        contours(class axes *parent, const vector_2d &Z,
+        contours(class axes_type *parent, const vector_2d &Z,
                  const std::string &line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw

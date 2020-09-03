@@ -8,7 +8,7 @@
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
-    class axes;
+    class axes_type;
 
     class stair : public line {
       public:
@@ -27,10 +27,10 @@ namespace matplot {
         };
 
       public:
-        explicit stair(class axes *parent);
-        stair(class axes *parent, const std::vector<double> &y_data,
+        explicit stair(class axes_type *parent);
+        stair(class axes_type *parent, const std::vector<double> &y_data,
               const std::string &line_spec = "");
-        stair(class axes *parent, const std::vector<double> &x_data,
+        stair(class axes_type *parent, const std::vector<double> &x_data,
               const std::vector<double> &y_data,
               const std::string &line_spec = "");
 

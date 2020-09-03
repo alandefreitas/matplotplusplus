@@ -5,20 +5,20 @@
 #include <algorithm>
 #include <cmath>
 #include <matplot/axes_objects/histogram.h>
-#include <matplot/core/axes.h>
+#include <matplot/core/axes_type.h>
 #include <matplot/util/common.h>
 #include <sstream>
 
 namespace matplot {
 
-    histogram::histogram(class axes *parent) : axes_object(parent) {
+    histogram::histogram(class axes_type *parent) : axes_object(parent) {
         if (parent_->y_axis().limits_mode_auto()) {
             parent_->y_axis().limits({0, inf});
         }
     }
 
-    histogram::histogram(class axes *parent, const std::vector<double> &data,
-                         size_t n_bins,
+    histogram::histogram(class axes_type *parent,
+                         const std::vector<double> &data, size_t n_bins,
                          enum histogram::normalization normalization_alg)
         : axes_object(parent), data_(data), num_bins_(n_bins),
           binning_mode_{binning_mode_type::use_fixed_num_bins},
@@ -28,7 +28,8 @@ namespace matplot {
         }
     }
 
-    histogram::histogram(class axes *parent, const std::vector<double> &data,
+    histogram::histogram(class axes_type *parent,
+                         const std::vector<double> &data,
                          const std::vector<double> &edges,
                          enum histogram::normalization normalization_alg)
         : axes_object(parent), data_(data),
@@ -39,7 +40,8 @@ namespace matplot {
         }
     }
 
-    histogram::histogram(class axes *parent, const std::vector<double> &data,
+    histogram::histogram(class axes_type *parent,
+                         const std::vector<double> &data,
                          binning_algorithm algorithm,
                          enum histogram::normalization normalization_alg)
         : axes_object(parent), data_(data), algorithm_(algorithm),
