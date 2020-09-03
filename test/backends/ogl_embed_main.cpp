@@ -22,7 +22,7 @@ int main() {
     GLFWwindow *window =
         glfwCreateWindow(backend::opengl_embed::default_screen_width,
                          backend::opengl_embed::default_screen_height,
-                         "My Figure", nullptr, nullptr);
+                         "My Existing Application", nullptr, nullptr);
 
     if (window == nullptr) {
         glfwTerminate();
