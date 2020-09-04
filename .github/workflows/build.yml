@@ -10,6 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          # see: https://github.com/actions/virtual-environments
           - {
             name: "Windows/2019/Static/X86/Release",
             os: windows-2019,
