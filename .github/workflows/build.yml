@@ -23,11 +23,11 @@ jobs:
               args: -G "Visual Studio 16 2019" -A x64,
             }
           - {
-            name: "Linux/Static/X64/Release",
-            os: ubuntu-latest,
-            config: Release,
-            args: "",
-          }
+              name: "Linux/Static/X64/Release",
+              os: ubuntu-latest,
+              config: Release,
+              args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
+            }
           - {
               name: "MacOSX/Static/X64/Release",
               os: macos-latest,
