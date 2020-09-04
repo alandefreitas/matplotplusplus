@@ -26,7 +26,7 @@ jobs:
             name: "Ubuntu/18.04/Static/X64/Release",
             os: ubuntu-18.04,
             config: Release,
-            args: "",
+            args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
           }
           - {
             name: "MacOSX/10.15/Static/X64/Release",
