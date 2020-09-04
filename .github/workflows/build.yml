@@ -1,6 +1,6 @@
 name: Matplotplusplus
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   Build:
@@ -11,29 +11,29 @@ jobs:
       matrix:
         config:
           - {
-              name: "Windows/Static/X86/Release",
-              os: windows-latest,
-              config: Release,
-              args: -G "Visual Studio 16 2019" -A Win32,
-            }
+            name: "Windows/2019/Static/X86/Release",
+            os: windows-2019,
+            config: Release,
+            args: -G "Visual Studio 16 2019" -A Win32,
+          }
           - {
-              name: "Windows/Static/X64/Release",
-              os: windows-latest,
-              config: Release,
-              args: -G "Visual Studio 16 2019" -A x64,
-            }
+            name: "Windows/2019/Static/X64/Release",
+            os: windows-2019,
+            config: Release,
+            args: -G "Visual Studio 16 2019" -A x64,
+          }
           - {
-              name: "Linux/Static/X64/Release",
-              os: ubuntu-latest,
-              config: Release,
-              args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
-            }
+            name: "Ubuntu/18.04/Static/X64/Release",
+            os: ubuntu-18.04,
+            config: Release,
+            args: "",
+          }
           - {
-              name: "MacOSX/Static/X64/Release",
-              os: macos-latest,
-              config: Release,
-              args: "",
-            }
+            name: "MacOSX/10.15/Static/X64/Release",
+            os: macos-10.15,
+            config: Release,
+            args: "",
+          }
     steps:
       - uses: actions/checkout@v2
       - name: Create Work Dir
