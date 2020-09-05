@@ -1,4 +1,3 @@
-#include <cmath>
 #include <matplot/matplot.h>
 
 int main() {
