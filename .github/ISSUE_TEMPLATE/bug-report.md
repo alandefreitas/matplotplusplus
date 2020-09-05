@@ -17,7 +17,18 @@ assignees: ''
 
 **Steps to Reproduce**
 
+```bash
+# Your steps go here
+mkdir build
+cd build
+cmake .. <options> -DCMAKE_BUILD_TYPE=Release
+```
+
 **Output**
+
+```console
+# The output you got
+```
 
 **Platform**
 - [ ] *cross-platform issue - linux*
