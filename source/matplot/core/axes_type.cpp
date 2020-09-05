@@ -660,7 +660,15 @@ namespace matplot {
         //              | {linetype | lt <line_type>}
         //              {linewidth | lw <line_width>}}}
         include_comment("Axes legend");
-        if (legend_ == nullptr || !legend_->visible()) {
+        // Gnuplot version needs to be 5.2.6+ for keyentry
+        bool ok = true;
+        if (parent_->backend_->consumes_gnuplot_commands()) {
+            std::pair<int, int> v = backend::gnuplot::gnuplot_version();
+            if (v.first < 5 || v.second < 2) {
+                ok = false;
+            }
+        }
+        if (legend_ == nullptr || !legend_->visible() || !ok) {
             run_command("set key off");
         } else {
             bool legends_to_plot = !legend_->empty();
@@ -868,24 +876,42 @@ namespace matplot {
 
         // Keyentry commands (legends for each child)
         if (legend_ != nullptr && legend_->visible()) {
-            auto legend_it = legend_->begin();
-            auto legend_end = legend_->end();
-            for (auto child_it = children_.begin(); child_it != children_.end();
-                 ++child_it) {
-                const bool no_legend = legend_it == legend_end &&
-                                       (*child_it)->display_name().empty();
-                if (no_legend) {
-                    continue;
+            bool ok = true;
+            static bool msg_shown_once = false;
+            // Gnuplot version needs to be 5.2.6+ for keyentry
+            if (parent_->backend_->consumes_gnuplot_commands()) {
+                std::pair<int, int> v = backend::gnuplot::gnuplot_version();
+                if (v.first < 5 || v.second < 2) {
+                    if (!msg_shown_once) {
+                        std::cerr
+                            << "You need gnuplot 5.2.6+ to include legends"
+                            << std::endl;
+                        msg_shown_once = true;
+                    }
+                    ok = false;
                 }
-                const auto &child = *child_it;
-                if (!first) {
-                    plot_command += ", ";
-                } else {
-                    first = false;
+            }
+
+            if (ok) {
+                auto legend_it = legend_->begin();
+                auto legend_end = legend_->end();
+                for (auto child_it = children_.begin();
+                     child_it != children_.end(); ++child_it) {
+                    const bool no_legend = legend_it == legend_end &&
+                                           (*child_it)->display_name().empty();
+                    if (no_legend) {
+                        continue;
+                    }
+                    const auto &child = *child_it;
+                    if (!first) {
+                        plot_command += ", ";
+                    } else {
+                        first = false;
+                    }
+                    // https://stackoverflow.com/a/60624922/2983585
+                    // http://gnuplot.sourceforge.net/demo_svg_5.5/custom_key.html
+                    plot_command += child->legend_string(legend_it, legend_end);
                 }
-                // https://stackoverflow.com/a/60624922/2983585
-                // http://gnuplot.sourceforge.net/demo_svg_5.5/custom_key.html
-                plot_command += child->legend_string(legend_it, legend_end);
             }
         }
 
