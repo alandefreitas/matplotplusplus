@@ -8,6 +8,7 @@ assignees: ''
 ---
 
 **Bug category**
+<!-- Mark the bug category with an x-->
 - [ ] *bug - compilation error*
 - [ ] *bug - compilation warning*
 - [ ] *bug - runtime error*
@@ -34,6 +35,7 @@ cmake .. <options> -DCMAKE_BUILD_TYPE=Release
 </details>
 
 **Platform**
+<!-- Mark your platform with an x-->
 - [ ] *cross-platform issue - linux*
 - [ ] *cross-platform issue - windows*
 - [ ] *cross-platform issue - macos*
