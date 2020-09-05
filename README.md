@@ -2,40 +2,8 @@
 
 Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. **Matplot++** is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.
 
-<!--./gh-md-toc --insert README.md-->
-<!--ts-->
-  * [Gallery](#gallery)
-  * [Examples](#examples)
-     * [Line Plots](#line-plots)
-     * [Data Distribution](#data-distribution)
-     * [Discrete Data](#discrete-data)
-     * [Geography](#geography)
-     * [Polar Plots](#polar-plots)
-     * [Contour Plots](#contour-plots)
-     * [Vector Fields](#vector-fields)
-     * [Surfaces](#surfaces)
-     * [Graphs](#graphs)
-     * [Images](#images)
-     * [Annotations](#annotations)
-     * [Appearance](#appearance)
-     * [Exporting](#exporting)
-  * [Coding styles](#coding-styles)
-     * [Member vs. Free-standing Functions](#member-vs-free-standing-functions)
-     * [Reactive figures](#reactive-figures)
-     * [Method Chaining](#method-chaining)
-     * [Ranges](#ranges)
-     * [Common Utilities](#common-utilities)
-  * [Motivation and Details](#motivation-and-details)
-  * [Integration](#integration)
-     * [CMake (manual download)](#cmake-manual-download)
-     * [CMake (automatic download)](#cmake-automatic-download)
-     * [Other build systems](#other-build-systems)
-     * [Dependencies](#dependencies)
-     * [Backends](#backends)
-     * [Contributing](#contributing)
-  * [References](#references)
-<!--te-->
-
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ## Gallery
 
@@ -1399,6 +1367,7 @@ Install [CPM.cmake](https://github.com/TheLartians/CPM.cmake) and then:
 CPMAddPackage(
     NAME matplotplusplus
     GITHUB_REPOSITORY alandefreitas/matplotplusplus
+    GIT_TAG origin/master # or whatever tag you want
 )
 # ...
 target_link_libraries(my_target PUBLIC matplot)
@@ -1459,15 +1428,14 @@ If you're in a hurry, here is a summary of the backends we have and the backends
     * Pros: It seems to be working for everyone. *In practice, this is current default backend you'll get right now.*
     * Cons: Pipes are comparatively slow and unidirectional
 * OpenGL
-    * Pros: Efficient for many FPS
-    * Cons: Unacceptably blocks the main thread on some operating systems
+    * Pros: Efficient for many FPS.
+    *The experimental OpenGL backend already works for some plot categories.*
+    * Cons: Blocks the main thread on some operating systems
+* Qt
+    * Same as OpenGL [[1](https://doc.qt.io/qt-5/qtgui-index.html#opengl-and-opengl-es-integration), [2](https://doc.qt.io/qt-5/qtopengl-index.html)]
 * AGG
     * Pros: Great for vector graphics
-    * Cons: Unmaintained, 2D only, and non-interactive by itself
-* Qt / QPainter
-    * Cons: Unacceptably blocks the main thread on some operating systems
-* OpenCV
-* Elements
+    * Cons: Unmaintained [[1](https://github.com/ghaerr/agg-2.6#roadmap), [2](https://github.com/mapnik/mapnik/wiki/MapnikRenderers), [3](http://www.antigrain.com/)], 2D only, and non-interactive by itself
 
 ### Contributing
 
