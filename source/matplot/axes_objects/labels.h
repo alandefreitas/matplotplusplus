@@ -85,7 +85,7 @@ namespace matplot {
         }
 
         const std::string &font() const;
-        class labels &font(const std::string &font);
+        class labels &font(std::string_view font);
 
         float font_size() const;
         class labels &font_size(float font_size);

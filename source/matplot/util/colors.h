@@ -24,7 +24,7 @@ namespace matplot {
 
     std::string to_string(matplot::color c);
 
-    matplot::color string_to_color(const std::string &s);
+    matplot::color string_to_color(std::string_view s);
 
     matplot::color char_to_color(char c);
 
@@ -53,7 +53,7 @@ namespace matplot {
         return r;
     }
 
-    std::array<float, 4> to_array(const std::string &str_color);
+    std::array<float, 4> to_array(std::string_view str_color);
 
     std::string to_string(const std::array<float, 4> &c);
     std::string to_string(const std::array<float, 3> &c);

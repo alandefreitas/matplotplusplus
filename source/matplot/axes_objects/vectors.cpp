@@ -13,19 +13,19 @@ namespace matplot {
     vectors::vectors(class axes_type *parent) : axes_object(parent) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &v_data,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), v_data_(v_data), line_spec_(this, line_spec) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), u_data_(u_data), v_data_(v_data),
           line_spec_(this, line_spec) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), u_data_(u_data), v_data_(v_data),
           w_data_(w_data), line_spec_(this, line_spec) {}
 
@@ -33,7 +33,7 @@ namespace matplot {
                      const std::vector<double> &y_data,
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           u_data_(u_data), v_data_(v_data), line_spec_(this, line_spec) {}
 
@@ -43,7 +43,7 @@ namespace matplot {
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           z_data_(z_data), u_data_(u_data), v_data_(v_data), w_data_(w_data),
           line_spec_(this, line_spec) {}
@@ -60,7 +60,7 @@ namespace matplot {
         return ss.str();
     }
 
-    std::string vectors::legend_string(const std::string &title) {
+    std::string vectors::legend_string(std::string_view title) {
         return " keyentry with vectors " +
                line_spec_.plot_string(line_spec::style_to_plot::plot_line_only,
                                       false) +
@@ -243,7 +243,7 @@ namespace matplot {
         }
     }
 
-    class vectors &vectors::line_style(const std::string &str) {
+    class vectors &vectors::line_style(std::string_view str) {
         line_spec_.parse_string(str);
         touch();
         return *this;

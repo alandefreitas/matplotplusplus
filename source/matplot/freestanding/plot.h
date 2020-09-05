@@ -43,18 +43,18 @@ namespace matplot {
 
     inline line_handle plot(const std::vector<double> &x,
                             const std::vector<double> &y,
-                            const std::string &line_spec = "") {
+                            std::string_view line_spec = "") {
         return gca()->plot(x, y, line_spec);
     }
 
     inline line_handle plot(const std::vector<double> &y,
-                            const std::string &line_spec = "") {
+                            std::string_view line_spec = "") {
         return gca()->plot(y, line_spec);
     }
 
     template <class... Args>
     auto plot(const std::vector<double> &x, const std::vector<double> &y,
-              const std::string &line_spec, Args&&... args) {
+              std::string_view line_spec, Args&&... args) {
         return gca()->plot(x, y, line_spec, std::forward<Args>(args)...);
     }
 
@@ -65,25 +65,25 @@ namespace matplot {
     }
 
     template <class... Args>
-    auto plot(const std::vector<double> &y, const std::string &line_spec,
+    auto plot(const std::vector<double> &y, std::string_view line_spec,
               Args&&... args) {
         return gca()->plot(y, line_spec, std::forward<Args>(args)...);
     }
 
     inline line_handle plot(axes_handle ax, const std::vector<double> &x,
                             const std::vector<double> &y,
-                            const std::string &line_spec = "") {
+                            std::string_view line_spec = "") {
         return ax->plot(x, y, line_spec);
     }
 
     inline line_handle plot(axes_handle ax, const std::vector<double> &y,
-                            const std::string &line_spec = "") {
+                            std::string_view line_spec = "") {
         return ax->plot(y, line_spec);
     }
 
     template <class... Args>
     auto plot(axes_handle ax, const std::vector<double> &x,
-              const std::vector<double> &y, const std::string &line_spec,
+              const std::vector<double> &y, std::string_view line_spec,
               Args&&... args) {
         return ax->plot(x, y, line_spec, std::forward<Args>(args)...);
     }
@@ -97,7 +97,7 @@ namespace matplot {
 
     template <class... Args>
     auto plot(axes_handle ax, const std::vector<double> &y,
-              const std::string &line_spec, Args&&... args) {
+              std::string_view line_spec, Args&&... args) {
         return ax->plot(y, line_spec, std::forward<Args>(args)...);
     }
 
@@ -501,12 +501,12 @@ namespace matplot {
     inline contours_handle fcontour(axes_type::fcontour_function_type fn,
                                     const std::array<double, 4> &xy_range,
                                     std::vector<double> levels,
-                                    const std::string &line_spec = "") {
+                                    std::string_view line_spec = "") {
         return gca()->fcontour(fn, xy_range, levels, line_spec);
     }
 
     inline contours_handle fcontour(axes_type::fcontour_function_type fn,
-                                    const std::string &line_spec) {
+                                    std::string_view line_spec) {
         return gca()->fcontour(fn, line_spec);
     }
 
@@ -514,13 +514,13 @@ namespace matplot {
                                     axes_type::fcontour_function_type fn,
                                     const std::array<double, 4> &xy_range,
                                     std::vector<double> levels,
-                                    const std::string &line_spec = "") {
+                                    std::string_view line_spec = "") {
         return ax->fcontour(fn, xy_range, levels, line_spec);
     }
 
     inline contours_handle fcontour(axes_handle ax,
                                     axes_type::fcontour_function_type fn,
-                                    const std::string &line_spec) {
+                                    std::string_view line_spec) {
         return ax->fcontour(fn, line_spec);
     }
 
@@ -581,7 +581,7 @@ namespace matplot {
     inline surface_handle fsurf(axes_type::fcontour_function_type fn,
                                 const std::array<double, 2> &x_range,
                                 const std::array<double, 2> &y_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(fn, x_range, y_range, line_spec, mesh_density);
     }
@@ -591,7 +591,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funz,
                                 const std::array<double, 2> &u_range,
                                 const std::array<double, 2> &v_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(funx, funy, funz, u_range, v_range, line_spec,
                             mesh_density);
@@ -601,7 +601,7 @@ namespace matplot {
     /// Grid / Both ranges in the same array size 4
     inline surface_handle fsurf(axes_type::fcontour_function_type fn,
                                 const std::array<double, 4> &xy_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(fn, xy_range, line_spec, mesh_density);
     }
@@ -610,7 +610,7 @@ namespace matplot {
     /// Grid / Both ranges in the same array size 4
     inline surface_handle fsurf(axes_type::fcontour_function_type fn,
                                 std::initializer_list<double> xy_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(fn, xy_range, line_spec, mesh_density);
     }
@@ -620,7 +620,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funy,
                                 axes_type::fcontour_function_type funz,
                                 const std::array<double, 4> &uv_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(funx, funy, funz, uv_range, line_spec,
                             mesh_density);
@@ -631,7 +631,7 @@ namespace matplot {
     inline surface_handle
     fsurf(axes_type::fcontour_function_type fn,
           const std::array<double, 2> &xy_range = {-5, +5},
-          std::string line_spec = "", double mesh_density = 40) {
+          std::string_view line_spec = "", double mesh_density = 40) {
         return gca()->fsurf(fn, xy_range, line_spec, mesh_density);
     }
 
@@ -642,7 +642,7 @@ namespace matplot {
           axes_type::fcontour_function_type funy,
           axes_type::fcontour_function_type funz,
           const std::array<double, 2> &uv_range = {-5, +5},
-          std::string line_spec = "", double mesh_density = 40) {
+          std::string_view line_spec = "", double mesh_density = 40) {
         return gca()->fsurf(funx, funy, funz, uv_range, line_spec,
                             mesh_density);
     }
@@ -651,7 +651,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funy,
                                 axes_type::fcontour_function_type funz,
                                 std::initializer_list<double> &uv_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return gca()->fsurf(funx, funy, funz, uv_range, line_spec,
                             mesh_density);
@@ -662,7 +662,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type fn,
                                 const std::array<double, 2> &x_range,
                                 const std::array<double, 2> &y_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return ax->fsurf(fn, x_range, y_range, line_spec, mesh_density);
     }
@@ -675,7 +675,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funz,
                                 const std::array<double, 2> &u_range,
                                 const std::array<double, 2> &v_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return ax->fsurf(funx, funy, funz, u_range, v_range, line_spec,
                          mesh_density);
@@ -686,7 +686,7 @@ namespace matplot {
     inline surface_handle fsurf(axes_handle ax,
                                 axes_type::fcontour_function_type fn,
                                 const std::array<double, 4> &xy_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return ax->fsurf(fn, xy_range, line_spec, mesh_density);
     }
@@ -697,7 +697,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funy,
                                 axes_type::fcontour_function_type funz,
                                 const std::array<double, 4> &uv_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return ax->fsurf(funx, funy, funz, uv_range, line_spec, mesh_density);
     }
@@ -707,7 +707,7 @@ namespace matplot {
     inline surface_handle
     fsurf(axes_handle ax, axes_type::fcontour_function_type fn,
           const std::array<double, 2> &xy_range = {-5, +5},
-          std::string line_spec = "", double mesh_density = 40) {
+          std::string_view line_spec = "", double mesh_density = 40) {
         return ax->fsurf(fn, xy_range, line_spec, mesh_density);
     }
 
@@ -718,7 +718,7 @@ namespace matplot {
           axes_type::fcontour_function_type funy,
           axes_type::fcontour_function_type funz,
           const std::array<double, 2> &uv_range = {-5, +5},
-          std::string line_spec = "", double mesh_density = 40) {
+          std::string_view line_spec = "", double mesh_density = 40) {
         return ax->fsurf(funx, funy, funz, uv_range, line_spec, mesh_density);
     }
 
@@ -727,7 +727,7 @@ namespace matplot {
                                 axes_type::fcontour_function_type funy,
                                 axes_type::fcontour_function_type funz,
                                 std::initializer_list<double> &uv_range,
-                                std::string line_spec = "",
+                                std::string_view line_spec = "",
                                 double mesh_density = 40) {
         return ax->fsurf(funx, funy, funz, uv_range, line_spec, mesh_density);
     }
@@ -839,7 +839,7 @@ namespace matplot {
 
     inline labels_handle text(const std::vector<double> &x,
                               const std::vector<double> &y,
-                              const std::string &str) {
+                              std::string_view str) {
         return gca()->text(x, y, str);
     }
 
@@ -851,7 +851,7 @@ namespace matplot {
 
     inline labels_handle text(axes_handle ax, const std::vector<double> &x,
                               const std::vector<double> &y,
-                              const std::string &str) {
+                              std::string_view str) {
         return ax->text(x, y, str);
     }
 

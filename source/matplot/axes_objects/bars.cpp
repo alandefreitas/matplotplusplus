@@ -88,7 +88,7 @@ namespace matplot {
         return res;
     }
 
-    std::string bars::legend_string(const std::string &title) {
+    std::string bars::legend_string(std::string_view title) {
         std::string res;
         for (size_t i = 0; i < ys_.size(); ++i) {
             res += " keyentry with boxes fillstyle solid border rgb '" +
@@ -231,7 +231,7 @@ namespace matplot {
         return *this;
     }
 
-    class bars &bars::face_color(const std::string &color) {
+    class bars &bars::face_color(std::string_view color) {
         face_color(to_array(color));
         return *this;
     }
@@ -268,7 +268,7 @@ namespace matplot {
         return *this;
     }
 
-    class bars &bars::edge_color(const std::string &color) {
+    class bars &bars::edge_color(std::string_view color) {
         edge_color(to_array(color));
         return *this;
     }

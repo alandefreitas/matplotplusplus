@@ -16,7 +16,7 @@ namespace matplot {
                          const std::vector<double> &y_pos_delta,
                          const std::vector<double> &x_neg_delta,
                          const std::vector<double> &x_pos_delta,
-                         const std::string &line_spec)
+                         std::string_view line_spec)
         : line(parent, x, y, line_spec), y_negative_delta_(y_neg_delta),
           y_positive_delta_(y_pos_delta), x_negative_delta_(x_neg_delta),
           x_positive_delta_(x_pos_delta) {}
@@ -24,7 +24,7 @@ namespace matplot {
     error_bar::error_bar(class axes_type *parent, const std::vector<double> &x,
                          const std::vector<double> &y,
                          const std::vector<double> &error, error_bar::type type,
-                         const std::string &line_spec)
+                         std::string_view line_spec)
         : line(parent, x, y, line_spec),
           y_negative_delta_(type != error_bar::type::horizontal
                                 ? error

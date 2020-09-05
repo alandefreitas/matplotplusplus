@@ -178,7 +178,7 @@ namespace matplot {
         run_command("plot 2 with lines");
     }
 
-    void figure_type::name(const std::string &name) {
+    void figure_type::name(std::string_view name) {
         name_ = name;
         touch();
     }
@@ -196,7 +196,7 @@ namespace matplot {
         touch();
     }
 
-    void figure_type::color(const std::string &c) {
+    void figure_type::color(std::string_view c) {
         color(to_array(string_to_color(c)));
     }
 
@@ -677,7 +677,7 @@ namespace matplot {
 
     const std::string &figure_type::font() const { return font_; }
 
-    void figure_type::font(const std::string &font) {
+    void figure_type::font(std::string_view font) {
         font_ = font;
         touch();
     }
@@ -691,7 +691,7 @@ namespace matplot {
 
     const std::string &figure_type::title() const { return title_; }
 
-    void figure_type::title(const std::string &title) {
+    void figure_type::title(std::string_view title) {
         title_ = title;
         touch();
     }
@@ -749,7 +749,7 @@ namespace matplot {
                std::vector<std::vector<axes_handle>>>
     figure_type::plotmatrix(const std::vector<std::vector<double>> &X,
                             const std::vector<std::vector<double>> &Y,
-                            const std::string &line_spec,
+                            std::string_view line_spec,
                             bool histogram_on_diagonals) {
         bool p = this->quiet_mode();
         this->quiet_mode(true);

@@ -94,55 +94,55 @@ namespace matplot {
     axes_handle nexttile();
     axes_handle nexttile(size_t index);
 
-    void title(const std::string &str);
-    void title(const std::string &str, const color_array &c);
+    void title(std::string_view str);
+    void title(std::string_view str, const color_array &c);
 
     template <class COLOR_TYPE>
-    void title(const std::string &str, COLOR_TYPE c) {
+    void title(std::string_view str, COLOR_TYPE c) {
         title(str, to_array(c));
     }
 
-    void title(axes_handle ax, const std::string &str);
-    void title(axes_handle ax, const std::string &str, const color_array &c);
+    void title(axes_handle ax, std::string_view str);
+    void title(axes_handle ax, std::string_view str, const color_array &c);
 
     template <class COLOR_TYPE>
-    void title(axes_handle ax, const std::string &str, COLOR_TYPE c) {
+    void title(axes_handle ax, std::string_view str, COLOR_TYPE c) {
         title(ax, str, to_array(c));
     }
 
-    void title(legend_handle lgd, const std::string &str);
+    void title(legend_handle lgd, std::string_view str);
 
-    void sgtitle(const std::string &str);
-    void sgtitle(const std::string &str, const color_array &c);
+    void sgtitle(std::string_view str);
+    void sgtitle(std::string_view str, const color_array &c);
 
     template <class COLOR_TYPE>
-    void sgtitle(const std::string &str, COLOR_TYPE c) {
+    void sgtitle(std::string_view str, COLOR_TYPE c) {
         sgtitle(str, to_array(c));
     }
 
-    void sgtitle(axes_handle ax, const std::string &str);
-    void sgtitle(axes_handle ax, const std::string &str, const color_array &c);
+    void sgtitle(axes_handle ax, std::string_view str);
+    void sgtitle(axes_handle ax, std::string_view str, const color_array &c);
 
     template <class COLOR_TYPE>
-    void sgtitle(axes_handle ax, const std::string &str, COLOR_TYPE c) {
+    void sgtitle(axes_handle ax, std::string_view str, COLOR_TYPE c) {
         sgtitle(ax, str, to_array(c));
     }
 
-    void xlabel(const std::string &str);
-    void xlabel(axes_handle ax, const std::string &str);
-    void ylabel(const std::string &str);
-    void ylabel(axes_handle ax, const std::string &str);
-    void y2label(const std::string &str);
-    void y2label(axes_handle ax, const std::string &str);
-    void zlabel(const std::string &str);
-    void zlabel(axes_handle ax, const std::string &str);
+    void xlabel(std::string_view str);
+    void xlabel(axes_handle ax, std::string_view str);
+    void ylabel(std::string_view str);
+    void ylabel(axes_handle ax, std::string_view str);
+    void y2label(std::string_view str);
+    void y2label(axes_handle ax, std::string_view str);
+    void zlabel(std::string_view str);
+    void zlabel(axes_handle ax, std::string_view str);
 
-    void xtickformat(const std::string &str);
-    void xtickformat(axes_handle ax, const std::string &str);
-    void ytickformat(const std::string &str);
-    void ytickformat(axes_handle ax, const std::string &str);
-    void ztickformat(const std::string &str);
-    void ztickformat(axes_handle ax, const std::string &str);
+    void xtickformat(std::string_view str);
+    void xtickformat(axes_handle ax, std::string_view str);
+    void ytickformat(std::string_view str);
+    void ytickformat(axes_handle ax, std::string_view str);
+    void ztickformat(std::string_view str);
+    void ztickformat(axes_handle ax, std::string_view str);
 
     std::string xtickformat();
     std::string xtickformat(axes_handle ax);
@@ -245,14 +245,14 @@ namespace matplot {
     // Hackfix for a compiler bug in MSVC
     namespace {
         template <typename... Args>
-        legend_handle legend(axes_handle ax, const std::string &name,
+        legend_handle legend(axes_handle ax, std::string_view name,
                              Args const &... next_name) {
-            std::vector<std::string> legends = {name, next_name...};
+            std::vector<std::string> legends = {std::string(name), std::string(next_name)...};
             return ::matplot::legend(ax, legends);
         }
 
         template <typename... Args>
-        legend_handle legend(const std::string &name,
+        legend_handle legend(std::string_view name,
                              Args const &... next_name) {
             return legend(gca(), name, next_name...);
         }

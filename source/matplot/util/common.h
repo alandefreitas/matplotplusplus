@@ -12,15 +12,16 @@
 #include <matplot/util/concepts.h>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <cctype>
 
 namespace matplot {
-    bool iequals(const std::string &str1, const std::string &str2);
-    bool is_true(const std::string &str);
-    bool is_false(const std::string &str);
+    bool iequals(std::string_view str1, std::string_view str2);
+    bool is_true(std::string_view str);
+    bool is_false(std::string_view str);
     std::string run_and_get_output(const std::string &command);
-    std::string escape(const std::string &label);
+    std::string escape(std::string_view label);
 
     inline void ltrim(std::string &s) {
         s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
@@ -60,8 +61,8 @@ namespace matplot {
         }
     }
 
-    template <class T = double> T str2num(const std::string &Text) {
-        std::istringstream ss(Text);
+    template <class T = double> T str2num(std::string_view text) {
+        std::istringstream ss((std::string(text)));
         T result;
         return ss >> result ? result : 0;
     }
@@ -421,19 +422,18 @@ namespace matplot {
     vector_2d transpose(const vector_2d &z);
 
     std::vector<std::string>
-    tokenize(const std::string &text,
-             std::string delimiters = " ',\n\r\t\".!?:");
+    tokenize(std::string_view text, std::string_view delimiters = " ',\n\r\t\".!?:");
 
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
               const std::vector<std::string> &black_list,
-              const std::string &delimiters = " ',\n\r\t\".!?:;",
+              std::string_view delimiters = " ',\n\r\t\".!?:;",
               size_t max_cloud_size = 100);
 
     std::pair<std::vector<std::string>, std::vector<size_t>>
-    wordcount(const std::string &text,
+    wordcount(std::string_view text,
               const std::vector<std::string> &black_list,
-              const std::string &delimiters = " ',\n\r\t\".!?:;",
+              std::string_view delimiters = " ',\n\r\t\".!?:;",
               size_t max_cloud_size = 100);
 
     // Distance from x to the next larger floating point number

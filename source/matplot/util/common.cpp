@@ -27,7 +27,7 @@
 #endif
 
 namespace matplot {
-    bool iequals(const std::string &str1, const std::string &str2) {
+    bool iequals(std::string_view str1, std::string_view str2) {
         if (str1.size() != str2.size()) {
             return false;
         } else {
@@ -40,12 +40,12 @@ namespace matplot {
         return true;
     }
 
-    bool is_true(const std::string &str) {
+    bool is_true(std::string_view str) {
         return iequals(str, "on") || iequals(str, "true") ||
                iequals(str, "yes");
     }
 
-    bool is_false(const std::string &str) {
+    bool is_false(std::string_view str) {
         return iequals(str, "off") || iequals(str, "false") ||
                iequals(str, "no");
     }
@@ -64,8 +64,13 @@ namespace matplot {
         return result;
     }
 
-    std::string escape(const std::string &label) {
-        return std::regex_replace(label, std::regex("\""), "\\\"");
+    std::string escape(std::string_view label) {
+        std::string escaped;
+        escaped.reserve(label.size());
+
+        std::regex_replace(std::back_inserter(escaped), label.begin(), label.end(), std::regex("\""), "\\\"");
+
+        return escaped;
     }
 
     std::vector<double> linspace(double d1, double d2, size_t n) {
@@ -767,8 +772,8 @@ namespace matplot {
         return z2;
     }
 
-    std::vector<std::string> tokenize(const std::string &text,
-                                      std::string delimiters) {
+    std::vector<std::string> tokenize(std::string_view text,
+                                      std::string_view delimiters) {
         std::vector<std::string> tokens;
         size_t pos = 0;
         while ((pos = text.find_first_not_of(delimiters, pos)) !=
@@ -783,7 +788,7 @@ namespace matplot {
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
               const std::vector<std::string> &black_list,
-              const std::string &delimiters, size_t max_cloud_size) {
+              std::string_view delimiters, size_t max_cloud_size) {
         // count the frequency of each token
         const bool bl_sorted =
             std::is_sorted(black_list.begin(), black_list.end());
@@ -828,9 +833,9 @@ namespace matplot {
     }
 
     std::pair<std::vector<std::string>, std::vector<size_t>>
-    wordcount(const std::string &text,
+    wordcount(std::string_view text,
               const std::vector<std::string> &black_list,
-              const std::string &delimiters, size_t max_cloud_size) {
+              std::string_view delimiters, size_t max_cloud_size) {
         auto tokens = tokenize(text);
         return wordcount(tokens, black_list, delimiters, max_cloud_size);
     }

@@ -21,7 +21,7 @@ namespace matplot {
         filled_area(class axes_type *parent, const std::vector<double> &x,
                     const std::vector<double> &y,
                     const std::vector<double> &base_values = {0.},
-                    bool stacked = true, const std::string &line_spec = "k-");
+                    bool stacked = true, std::string_view line_spec = "k-");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership of the xlim

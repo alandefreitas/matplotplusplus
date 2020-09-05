@@ -13,17 +13,17 @@ namespace matplot {
     line::line(class axes_type *parent) : axes_object(parent) {}
 
     line::line(class axes_type *parent, const std::vector<double> &y_data,
-               const std::string &line_spec)
+               std::string_view line_spec)
         : axes_object(parent), y_data_(y_data), line_spec_(this, line_spec) {}
 
     line::line(class axes_type *parent, const std::vector<double> &x_data,
-               const std::vector<double> &y_data, const std::string &line_spec)
+               const std::vector<double> &y_data, std::string_view line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           line_spec_(this, line_spec) {}
 
     line::line(class axes_type *parent, const std::vector<double> &x_data,
                const std::vector<double> &y_data,
-               const std::vector<double> &z_data, const std::string &line_spec)
+               const std::vector<double> &z_data, std::string_view line_spec)
         : axes_object(parent), x_data_(x_data), y_data_(y_data),
           z_data_(z_data), line_spec_(this, line_spec) {}
 
@@ -132,7 +132,7 @@ namespace matplot {
         return res;
     }
 
-    std::string line::legend_string(const std::string &title) {
+    std::string line::legend_string(std::string_view title) {
         if (line_spec_.has_line() && line_spec_.has_non_custom_marker()) {
             return " keyentry " +
                    line_spec_.plot_string(
@@ -348,7 +348,7 @@ namespace matplot {
 
     bool line::requires_colormap() { return !marker_colors_.empty(); }
 
-    class line &line::line_style(const std::string &str) {
+    class line &line::line_style(std::string_view str) {
         line_spec_.parse_string(str);
         touch();
         return *this;

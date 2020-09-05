@@ -183,71 +183,71 @@ namespace matplot {
 
     std::pair<float, float> view(axes_handle ax) { return ax->view(); }
 
-    void title(const std::string &str) { title(gca(), str); }
+    void title(std::string_view str) { title(gca(), str); }
 
-    void title(axes_handle ax, const std::string &str) { ax->title(str); }
+    void title(axes_handle ax, std::string_view str) { ax->title(str); }
 
-    void title(const std::string &str, const color_array &c) {
+    void title(std::string_view str, const color_array &c) {
         auto ax = gca();
         title(ax, str);
         ax->title_color(c);
     }
 
-    void title(axes_handle ax, const std::string &str, const color_array &c) {
+    void title(axes_handle ax, std::string_view str, const color_array &c) {
         title(ax, str);
         ax->title_color(c);
     }
 
-    void title(legend_handle lgd, const std::string &str) { lgd->title(str); }
+    void title(legend_handle lgd, std::string_view str) { lgd->title(str); }
 
-    void sgtitle(const std::string &str) { sgtitle(gca(), str); }
+    void sgtitle(std::string_view str) { sgtitle(gca(), str); }
 
-    void sgtitle(axes_handle ax, const std::string &str) {
+    void sgtitle(axes_handle ax, std::string_view str) {
         ax->parent()->title(str);
     }
 
-    void sgtitle(const std::string &str, const color_array &c) {
+    void sgtitle(std::string_view str, const color_array &c) {
         auto ax = gca();
         sgtitle(ax, str);
         ax->parent()->title_color(c);
     }
 
-    void sgtitle(axes_handle ax, const std::string &str, const color_array &c) {
+    void sgtitle(axes_handle ax, std::string_view str, const color_array &c) {
         sgtitle(ax, str);
         ax->parent()->title_color(c);
     }
 
-    void xlabel(const std::string &str) { xlabel(gca(), str); }
+    void xlabel(std::string_view str) { xlabel(gca(), str); }
 
-    void xlabel(axes_handle ax, const std::string &str) { ax->xlabel(str); }
+    void xlabel(axes_handle ax, std::string_view str) { ax->xlabel(str); }
 
-    void ylabel(const std::string &str) { ylabel(gca(), str); }
+    void ylabel(std::string_view str) { ylabel(gca(), str); }
 
-    void ylabel(axes_handle ax, const std::string &str) { ax->ylabel(str); }
+    void ylabel(axes_handle ax, std::string_view str) { ax->ylabel(str); }
 
-    void y2label(const std::string &str) { y2label(gca(), str); }
+    void y2label(std::string_view str) { y2label(gca(), str); }
 
-    void y2label(axes_handle ax, const std::string &str) { ax->y2label(str); }
+    void y2label(axes_handle ax, std::string_view str) { ax->y2label(str); }
 
-    void zlabel(const std::string &str) { zlabel(gca(), str); }
+    void zlabel(std::string_view str) { zlabel(gca(), str); }
 
-    void zlabel(axes_handle ax, const std::string &str) { ax->zlabel(str); }
+    void zlabel(axes_handle ax, std::string_view str) { ax->zlabel(str); }
 
-    void xtickformat(const std::string &str) { xtickformat(gca(), str); }
+    void xtickformat(std::string_view str) { xtickformat(gca(), str); }
 
-    void xtickformat(axes_handle ax, const std::string &str) {
+    void xtickformat(axes_handle ax, std::string_view str) {
         ax->xtickformat(str);
     }
 
-    void ytickformat(const std::string &str) { ytickformat(gca(), str); }
+    void ytickformat(std::string_view str) { ytickformat(gca(), str); }
 
-    void ytickformat(axes_handle ax, const std::string &str) {
+    void ytickformat(axes_handle ax, std::string_view str) {
         ax->ytickformat(str);
     }
 
-    void ztickformat(const std::string &str) { ztickformat(gca(), str); }
+    void ztickformat(std::string_view str) { ztickformat(gca(), str); }
 
-    void ztickformat(axes_handle ax, const std::string &str) {
+    void ztickformat(axes_handle ax, std::string_view str) {
         ax->ztickformat(str);
     }
 
