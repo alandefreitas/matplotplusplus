@@ -1,8 +1,5 @@
 find_package(Filesystem REQUIRED)
 
-add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-
 add_library(matplot
         matplot.h
 
@@ -102,6 +99,9 @@ if(MSVC)
     # World maps require this option because there is so much in the file
     target_compile_options(matplot PRIVATE /bigobj)
     target_compile_options(matplot PUBLIC /wd4305)
+    # Fix compile error caused by utf8 character in line_spec.cpp
+    target_compile_options(matplot PUBLIC /utf-8)
+
 endif()
 
 include(CheckSymbolExists)
