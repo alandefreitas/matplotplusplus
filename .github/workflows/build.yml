@@ -1,7 +1,25 @@
 name: Matplotplusplus
 
-on: [ push, pull_request ]
-
+on: 
+  push:
+    paths-ignore: 
+      - '**.md'
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - 'documentation/**'
+      - '.clang-format'
+      - '.gitignore'
+      - 'LICENSE'
+  pull-request:
+    paths-ignore: 
+      - '**.md'
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - 'documentation/**'
+      - '.clang-format'
+      - '.gitignore'
+      - 'LICENSE'
+        
 jobs:
   Build:
     name: ${{ matrix.config.name }}
