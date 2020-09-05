@@ -1,5 +1,10 @@
-on: push
 name: TOC Generator
+
+on: 
+  push:
+    paths: 
+      - 'README.md'  
+
 jobs:
   generateTOC:
     name: TOC Generator
