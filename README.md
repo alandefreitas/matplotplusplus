@@ -2,8 +2,44 @@
 
 Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. **Matplot++** is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Table of Contents</summary>
+
+- [Gallery](#gallery)
+- [Examples](#examples)
+  - [Line Plots](#line-plots)
+  - [Data Distribution](#data-distribution)
+  - [Discrete Data](#discrete-data)
+  - [Geography](#geography)
+  - [Polar Plots](#polar-plots)
+  - [Contour Plots](#contour-plots)
+  - [Vector Fields](#vector-fields)
+  - [Surfaces](#surfaces)
+  - [Graphs](#graphs)
+  - [Images](#images)
+  - [Annotations](#annotations)
+  - [Appearance](#appearance)
+  - [Exporting](#exporting)
+- [Coding styles](#coding-styles)
+  - [Member vs. Free-standing Functions](#member-vs-free-standing-functions)
+  - [Reactive figures](#reactive-figures)
+  - [Method Chaining](#method-chaining)
+  - [Ranges](#ranges)
+  - [Common Utilities](#common-utilities)
+- [Motivation and Details](#motivation-and-details)
+- [Integration](#integration)
+  - [CMake (manual download)](#cmake-manual-download)
+  - [CMake (automatic download)](#cmake-automatic-download)
+  - [Other build systems](#other-build-systems)
+  - [Dependencies](#dependencies)
+  - [Backends](#backends)
+  - [Contributing](#contributing)
+- [References](#references)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Gallery
 
