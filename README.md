@@ -2092,7 +2092,8 @@ This project requires C++17. You can see other dependencies in [`source/3rd_part
 * Required 
     * olvb/nodesoup (bundled; but you can define `WITH_SYSTEM_NODESOUP=ON` in the cmake command line to use a system-provided version of nodesoup)
     * dtschump/CImg (bundled; but you can define `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of CImg)
-    * Gnuplot (for the Gnuplot backend only)
+* Required (at Runtime)
+    * Gnuplot 5.2.6+
 * Optional (for images)
     * JPEG
     * TIFF
@@ -2102,15 +2103,12 @@ This project requires C++17. You can see other dependencies in [`source/3rd_part
     * BLAS
     * FFTW
     * OpenCV
-    * OPENEXR
-    * MAGICK
-
-There's an extra target `matplot_opengl` that exemplifies how an OpenGL backend **could** be implemented. It's not a complete backend. If you want to test it, only then there are some extra dependencies.
-
-* Dependencies for the OpenGL backend
+* Optional (for OpenGL backend)
     * OpenGL
     * GLAD
     * GLFW3
+
+There's an extra target `matplot_opengl` that exemplifies how an OpenGL backend **could** be implemented. It's not a complete backend. If you want to test it, only then there are some extra dependencies.
 
 ### Backends
 
