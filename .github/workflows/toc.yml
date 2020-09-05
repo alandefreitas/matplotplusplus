@@ -7,5 +7,6 @@ jobs:
     steps:
       - uses: technote-space/toc-generator@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAX_HEADER_LEVEL: 3
+          FOLDING: true
