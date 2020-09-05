@@ -26,9 +26,12 @@ cmake .. <options> -DCMAKE_BUILD_TYPE=Release
 
 **Output**
 
+<details>
+ 
 ```console
 # The output you got
 ```
+</details>
 
 **Platform**
 - [ ] *cross-platform issue - linux*
