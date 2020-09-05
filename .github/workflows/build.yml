@@ -48,7 +48,7 @@ jobs:
             args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
           }
           - {
-            name: "MacOSX/10.15/Static/X64/Release",
+            name: "MacOSX/10.15/Shared/X64/Release",
             os: macos-10.15,
             config: Release,
             args: "-DBUILD_SHARED_LIBS=ON",
@@ -67,3 +67,15 @@ jobs:
       - name: Test
         working-directory: ./build
         run: ctest -j 2
+  contrib-readme-job:
+    runs-on: ubuntu-latest
+    name: Contributions
+    steps:
+      - name: Update Contribution List
+        uses: akhilmhdh/contributors-readme-action@v1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          imageSize: 100
+          columnsPerRow: 6
+
