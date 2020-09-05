@@ -43,7 +43,13 @@ Data visualization can help programmers and scientists identify trends in their 
 
 ## Gallery
 
+[![example_plot_1](documentation/examples/line_plot/plot/plot_1_thumb.png)](documentation/GALLERY.md#plot_1) [![example_plot3_1](documentation/examples/line_plot/plot3/plot3_1_thumb.png)](documentation/GALLERY.md#plot3_1) [![example_stairs_1](documentation/examples/line_plot/stairs/stairs_1_thumb.png)](documentation/GALLERY.md#stairs_1) [![example_errorbar_1](documentation/examples/line_plot/errorbar/errorbar_1_thumb.png)](documentation/GALLERY.md#errorbar_1) [![example_area_1](documentation/examples/line_plot/area/area_1_thumb.png)](documentation/GALLERY.md#area_1) [![example_loglog_1](documentation/examples/line_plot/loglog/loglog_1_thumb.png)](documentation/GALLERY.md#loglog_1) [![example_fplot_1](documentation/examples/line_plot/fplot/fplot_1_thumb.png)](documentation/GALLERY.md#fplot_1) [![example_fimplicit_1](documentation/examples/line_plot/fimplicit/fimplicit_1_thumb.png)](documentation/GALLERY.md#fimplicit_1)  [![example_histogram_1](documentation/examples/data_distribution/histogram/histogram_1_thumb.png)](documentation/GALLERY.md#histogram_1) [![example_boxplot_1](documentation/examples/data_distribution/boxplot/boxplot_1_thumb.png)](documentation/GALLERY.md#boxplot_1) [![example_scatter_1](documentation/examples/data_distribution/scatter/scatter_1_thumb.png)](documentation/GALLERY.md#scatter_1) [![example_scatter3_1](documentation/examples/data_distribution/scatter3/scatter3_1_thumb.png)](documentation/GALLERY.md#scatter3_1) [![example_binscatter_1](documentation/examples/data_distribution/binscatter/binscatter_1_thumb.png)](documentation/GALLERY.md#binscatter_1)  [![example_plotmatrix_1](documentation/examples/data_distribution/plotmatrix/plotmatrix_1_thumb.png)](documentation/GALLERY.md#plotmatrix_1)  [![example_parallelplot_1](documentation/examples/data_distribution/parallelplot/parallelplot_1_thumb.png)](documentation/GALLERY.md#parallelplot_1)  [![example_pie_1](documentation/examples/data_distribution/pie/pie_1_thumb.png)](documentation/GALLERY.md#pie_1)  [![example_heatmap_1](documentation/examples/data_distribution/heatmap/heatmap_1_thumb.png)](documentation/GALLERY.md#heatmap_1)  [![example_wordcloud_1](documentation/examples/data_distribution/wordcloud/wordcloud_1_thumb.png)](documentation/GALLERY.md#wordcloud_1)  [![example_bar_1](documentation/examples/discrete_data/bar/bar_1_thumb.png)](documentation/GALLERY.md#bar_1)  [![example_pareto_1](documentation/examples/discrete_data/pareto/pareto_1_thumb.png)](documentation/GALLERY.md#pareto_1)  [![example_stem_1](documentation/examples/discrete_data/stem/stem_1_thumb.png)](documentation/GALLERY.md#stem_1)  [![example_stem3_1](documentation/examples/discrete_data/stem3/stem3_1_thumb.png)](documentation/GALLERY.md#stem3_1)  [![example_geoplot_1](documentation/examples/geography/geoplot/geoplot_1_thumb.png)](documentation/GALLERY.md#geoplot_1)  [![example_geoscatter_1](documentation/examples/geography/geoscatter/geoscatter_1_thumb.png)](documentation/GALLERY.md#geoscatter_1)  [![example_geobubble_1](documentation/examples/geography/geobubble/geobubble_1_thumb.png)](documentation/GALLERY.md#geobubble_1)  [![example_geodensityplot_1](documentation/examples/geography/geodensityplot/geodensityplot_1_thumb.png)](documentation/GALLERY.md#geodensityplot_1)  [![example_polarplot_1](documentation/examples/polar_plots/polarplot/polarplot_1_thumb.png)](documentation/GALLERY.md#polarplot_1)  [![example_polarscatter_1](documentation/examples/polar_plots/polarscatter/polarscatter_1_thumb.png)](documentation/GALLERY.md#polarscatter_1)  [![example_polarhistogram_1](documentation/examples/polar_plots/polarhistogram/polarhistogram_1_thumb.png)](documentation/GALLERY.md#polarhistogram_1)  [![example_compass_1](documentation/examples/polar_plots/compass/compass_1_thumb.png)](documentation/GALLERY.md#compass_1)  [![example_ezpolar_1](documentation/examples/polar_plots/ezpolar/ezpolar_1_thumb.png)](documentation/GALLERY.md#ezpolar_1)  [![example_contour_1](documentation/examples/contour_plots/contour/contour_1_thumb.png)](documentation/GALLERY.md#contour_1)  [![example_contourf_1](documentation/examples/contour_plots/contourf/contourf_1_thumb.png)](documentation/GALLERY.md#contourf_1)  [![example_fcontour_1](documentation/examples/contour_plots/fcontour/fcontour_1_thumb.png)](documentation/GALLERY.md#fcontour_1)  [![example_feather_1](documentation/examples/vector_fields/feather/feather_1_thumb.png)](documentation/GALLERY.md#feather_1)  [![example_quiver_1](documentation/examples/vector_fields/quiver/quiver_1_thumb.png)](documentation/GALLERY.md#quiver_1)  [![example_surf_1](documentation/examples/surfaces/surf/surf_1_thumb.png)](documentation/GALLERY.md#surf_1)  [![example_surfc_1](documentation/examples/surfaces/surfc/surfc_1_thumb.png)](documentation/GALLERY.md#surfc_1)  [![example_mesh_1](documentation/examples/surfaces/mesh/mesh_1_thumb.png)](documentation/GALLERY.md#mesh_1)  [![example_meshc_1](documentation/examples/surfaces/meshc/meshc_1_thumb.png)](documentation/GALLERY.md#meshc_1)  [![example_meshz_1](documentation/examples/surfaces/meshz/meshz_1_thumb.png)](documentation/GALLERY.md#meshz_1)  [![example_fsurf_1](documentation/examples/surfaces/fsurf/fsurf_1_thumb.png)](documentation/GALLERY.md#fsurf_1)  [![example_fmesh_1](documentation/examples/surfaces/fmesh/fmesh_1_thumb.png)](documentation/GALLERY.md#fmesh_1)  [![example_waterfall_1](documentation/examples/surfaces/waterfall/waterfall_1_thumb.png)](documentation/GALLERY.md#waterfall_1)  [![example_fence_1](documentation/examples/surfaces/fence/fence_1_thumb.png)](documentation/GALLERY.md#fence_1)  [![example_ribbon_1](documentation/examples/surfaces/ribbon/ribbon_1_thumb.png)](documentation/GALLERY.md#ribbon_1)  [![example_graph_1](documentation/examples/graphs/graph/graph_1_thumb.png)](documentation/GALLERY.md#graph_1)  [![example_digraph_1](documentation/examples/graphs/digraph/digraph_1_thumb.png)](documentation/GALLERY.md#digraph_1)  [![example_imshow_1](documentation/examples/images/imshow/imshow_1_thumb.png)](documentation/GALLERY.md#imshow_1)  [![example_image_1](documentation/examples/images/image/image_1_thumb.png)](documentation/GALLERY.md#image_1)  [![example_imagesc_1](documentation/examples/images/imagesc/imagesc_1_thumb.png)](documentation/GALLERY.md#imagesc_1)
+
+<details>
+    <summary>Complete Gallery</summary>
+    
 [![example_plot_1](documentation/examples/line_plot/plot/plot_1_thumb.png)](documentation/GALLERY.md#plot_1)  [![example_plot_2](documentation/examples/line_plot/plot/plot_2_thumb.png)](documentation/GALLERY.md#plot_2)  [![example_plot_3](documentation/examples/line_plot/plot/plot_3_thumb.png)](documentation/GALLERY.md#plot_3)  [![example_plot_4](documentation/examples/line_plot/plot/plot_4_thumb.png)](documentation/GALLERY.md#plot_4)  [![example_plot_5](documentation/examples/line_plot/plot/plot_5_thumb.png)](documentation/GALLERY.md#plot_5)  [![example_plot_6](documentation/examples/line_plot/plot/plot_6_thumb.png)](documentation/GALLERY.md#plot_6)  [![example_plot_7](documentation/examples/line_plot/plot/plot_7_thumb.png)](documentation/GALLERY.md#plot_7)  [![example_plot_8](documentation/examples/line_plot/plot/plot_8_thumb.png)](documentation/GALLERY.md#plot_8)  [![example_plot_9](documentation/examples/line_plot/plot/plot_9_thumb.png)](documentation/GALLERY.md#plot_9)  [![example_plot_10](documentation/examples/line_plot/plot/plot_10_thumb.png)](documentation/GALLERY.md#plot_10)  [![example_plot_11](documentation/examples/line_plot/plot/plot_11_thumb.png)](documentation/GALLERY.md#plot_11)  [![example_plot_12](documentation/examples/line_plot/plot/plot_12_thumb.png)](documentation/GALLERY.md#plot_12)  [![example_plot3_1](documentation/examples/line_plot/plot3/plot3_1_thumb.png)](documentation/GALLERY.md#plot3_1)  [![example_plot3_2](documentation/examples/line_plot/plot3/plot3_2_thumb.png)](documentation/GALLERY.md#plot3_2)  [![example_plot3_3](documentation/examples/line_plot/plot3/plot3_3_thumb.png)](documentation/GALLERY.md#plot3_3)  [![example_plot3_4](documentation/examples/line_plot/plot3/plot3_4_thumb.png)](documentation/GALLERY.md#plot3_4)  [![example_plot3_5](documentation/examples/line_plot/plot3/plot3_5_thumb.png)](documentation/GALLERY.md#plot3_5)  [![example_plot3_6](documentation/examples/line_plot/plot3/plot3_6_thumb.png)](documentation/GALLERY.md#plot3_6)  [![example_plot3_7](documentation/examples/line_plot/plot3/plot3_7_thumb.png)](documentation/GALLERY.md#plot3_7)  [![example_plot3_8](documentation/examples/line_plot/plot3/plot3_8_thumb.png)](documentation/GALLERY.md#plot3_8)  [![example_plot3_9](documentation/examples/line_plot/plot3/plot3_9_thumb.png)](documentation/GALLERY.md#plot3_9)  [![example_plot3_10](documentation/examples/line_plot/plot3/plot3_10_thumb.png)](documentation/GALLERY.md#plot3_10)  [![example_stairs_1](documentation/examples/line_plot/stairs/stairs_1_thumb.png)](documentation/GALLERY.md#stairs_1)  [![example_stairs_2](documentation/examples/line_plot/stairs/stairs_2_thumb.png)](documentation/GALLERY.md#stairs_2)  [![example_stairs_3](documentation/examples/line_plot/stairs/stairs_3_thumb.png)](documentation/GALLERY.md#stairs_3)  [![example_stairs_4](documentation/examples/line_plot/stairs/stairs_4_thumb.png)](documentation/GALLERY.md#stairs_4)  [![example_stairs_5](documentation/examples/line_plot/stairs/stairs_5_thumb.png)](documentation/GALLERY.md#stairs_5)  [![example_stairs_6](documentation/examples/line_plot/stairs/stairs_6_thumb.png)](documentation/GALLERY.md#stairs_6)  [![example_stairs_7](documentation/examples/line_plot/stairs/stairs_7_thumb.png)](documentation/GALLERY.md#stairs_7)  [![example_stairs_8](documentation/examples/line_plot/stairs/stairs_8_thumb.png)](documentation/GALLERY.md#stairs_8)  [![example_stairs_9](documentation/examples/line_plot/stairs/stairs_9_thumb.png)](documentation/GALLERY.md#stairs_9)  [![example_stairs_10](documentation/examples/line_plot/stairs/stairs_10_thumb.png)](documentation/GALLERY.md#stairs_10)  [![example_errorbar_1](documentation/examples/line_plot/errorbar/errorbar_1_thumb.png)](documentation/GALLERY.md#errorbar_1)  [![example_errorbar_2](documentation/examples/line_plot/errorbar/errorbar_2_thumb.png)](documentation/GALLERY.md#errorbar_2)  [![example_errorbar_3](documentation/examples/line_plot/errorbar/errorbar_3_thumb.png)](documentation/GALLERY.md#errorbar_3)  [![example_errorbar_4](documentation/examples/line_plot/errorbar/errorbar_4_thumb.png)](documentation/GALLERY.md#errorbar_4)  [![example_errorbar_5](documentation/examples/line_plot/errorbar/errorbar_5_thumb.png)](documentation/GALLERY.md#errorbar_5)  [![example_errorbar_6](documentation/examples/line_plot/errorbar/errorbar_6_thumb.png)](documentation/GALLERY.md#errorbar_6)  [![example_errorbar_7](documentation/examples/line_plot/errorbar/errorbar_7_thumb.png)](documentation/GALLERY.md#errorbar_7)  [![example_errorbar_8](documentation/examples/line_plot/errorbar/errorbar_8_thumb.png)](documentation/GALLERY.md#errorbar_8)  [![example_errorbar_9](documentation/examples/line_plot/errorbar/errorbar_9_thumb.png)](documentation/GALLERY.md#errorbar_9)  [![example_errorbar_10](documentation/examples/line_plot/errorbar/errorbar_10_thumb.png)](documentation/GALLERY.md#errorbar_10)  [![example_area_1](documentation/examples/line_plot/area/area_1_thumb.png)](documentation/GALLERY.md#area_1)  [![example_area_2](documentation/examples/line_plot/area/area_2_thumb.png)](documentation/GALLERY.md#area_2)  [![example_area_3](documentation/examples/line_plot/area/area_3_thumb.png)](documentation/GALLERY.md#area_3)  [![example_area_4](documentation/examples/line_plot/area/area_4_thumb.png)](documentation/GALLERY.md#area_4)  [![example_loglog_1](documentation/examples/line_plot/loglog/loglog_1_thumb.png)](documentation/GALLERY.md#loglog_1)  [![example_loglog_2](documentation/examples/line_plot/loglog/loglog_2_thumb.png)](documentation/GALLERY.md#loglog_2)  [![example_loglog_3](documentation/examples/line_plot/loglog/loglog_3_thumb.png)](documentation/GALLERY.md#loglog_3)  [![example_loglog_4](documentation/examples/line_plot/loglog/loglog_4_thumb.png)](documentation/GALLERY.md#loglog_4)  [![example_loglog_5](documentation/examples/line_plot/loglog/loglog_5_thumb.png)](documentation/GALLERY.md#loglog_5)  [![example_loglog_6](documentation/examples/line_plot/loglog/loglog_6_thumb.png)](documentation/GALLERY.md#loglog_6)  [![example_loglog_7](documentation/examples/line_plot/loglog/loglog_7_thumb.png)](documentation/GALLERY.md#loglog_7)  [![example_loglog_8](documentation/examples/line_plot/loglog/loglog_8_thumb.png)](documentation/GALLERY.md#loglog_8)  [![example_loglog_9](documentation/examples/line_plot/loglog/loglog_9_thumb.png)](documentation/GALLERY.md#loglog_9)  [![example_semilogx_1](documentation/examples/line_plot/semilogx/semilogx_1_thumb.png)](documentation/GALLERY.md#semilogx_1)  [![example_semilogy_1](documentation/examples/line_plot/semilogy/semilogy_1_thumb.png)](documentation/GALLERY.md#semilogy_1)  [![example_fplot_1](documentation/examples/line_plot/fplot/fplot_1_thumb.png)](documentation/GALLERY.md#fplot_1)  [![example_fplot_2](documentation/examples/line_plot/fplot/fplot_2_thumb.png)](documentation/GALLERY.md#fplot_2)  [![example_fplot_3](documentation/examples/line_plot/fplot/fplot_3_thumb.png)](documentation/GALLERY.md#fplot_3)  [![example_fplot_4](documentation/examples/line_plot/fplot/fplot_4_thumb.png)](documentation/GALLERY.md#fplot_4)  [![example_fplot_5](documentation/examples/line_plot/fplot/fplot_5_thumb.png)](documentation/GALLERY.md#fplot_5)  [![example_fplot_6](documentation/examples/line_plot/fplot/fplot_6_thumb.png)](documentation/GALLERY.md#fplot_6)  [![example_fplot3_1](documentation/examples/line_plot/fplot3/fplot3_1_thumb.png)](documentation/GALLERY.md#fplot3_1)  [![example_fplot3_2](documentation/examples/line_plot/fplot3/fplot3_2_thumb.png)](documentation/GALLERY.md#fplot3_2)  [![example_fplot3_3](documentation/examples/line_plot/fplot3/fplot3_3_thumb.png)](documentation/GALLERY.md#fplot3_3)  [![example_fplot3_4](documentation/examples/line_plot/fplot3/fplot3_4_thumb.png)](documentation/GALLERY.md#fplot3_4)  [![example_fplot3_5](documentation/examples/line_plot/fplot3/fplot3_5_thumb.png)](documentation/GALLERY.md#fplot3_5)  [![example_fimplicit_1](documentation/examples/line_plot/fimplicit/fimplicit_1_thumb.png)](documentation/GALLERY.md#fimplicit_1)  [![example_fimplicit_2](documentation/examples/line_plot/fimplicit/fimplicit_2_thumb.png)](documentation/GALLERY.md#fimplicit_2)  [![example_fimplicit_3](documentation/examples/line_plot/fimplicit/fimplicit_3_thumb.png)](documentation/GALLERY.md#fimplicit_3)  [![example_fimplicit_4](documentation/examples/line_plot/fimplicit/fimplicit_4_thumb.png)](documentation/GALLERY.md#fimplicit_4)  [![example_histogram_1](documentation/examples/data_distribution/histogram/histogram_1_thumb.png)](documentation/GALLERY.md#histogram_1)  [![example_histogram_2](documentation/examples/data_distribution/histogram/histogram_2_thumb.png)](documentation/GALLERY.md#histogram_2)  [![example_histogram_3](documentation/examples/data_distribution/histogram/histogram_3_thumb.png)](documentation/GALLERY.md#histogram_3)  [![example_histogram_4](documentation/examples/data_distribution/histogram/histogram_4_thumb.png)](documentation/GALLERY.md#histogram_4)  [![example_histogram_5](documentation/examples/data_distribution/histogram/histogram_5_thumb.png)](documentation/GALLERY.md#histogram_5)  [![example_histogram_6](documentation/examples/data_distribution/histogram/histogram_6_thumb.png)](documentation/GALLERY.md#histogram_6)  [![example_histogram_7](documentation/examples/data_distribution/histogram/histogram_7_thumb.png)](documentation/GALLERY.md#histogram_7)  [![example_histogram_8](documentation/examples/data_distribution/histogram/histogram_8_thumb.png)](documentation/GALLERY.md#histogram_8)  [![example_histogram_9](documentation/examples/data_distribution/histogram/histogram_9_thumb.png)](documentation/GALLERY.md#histogram_9)  [![example_histogram_10](documentation/examples/data_distribution/histogram/histogram_10_thumb.png)](documentation/GALLERY.md#histogram_10)  [![example_histogram_11](documentation/examples/data_distribution/histogram/histogram_11_thumb.png)](documentation/GALLERY.md#histogram_11)  [![example_histogram_12](documentation/examples/data_distribution/histogram/histogram_12_thumb.png)](documentation/GALLERY.md#histogram_12)  [![example_histogram_14](documentation/examples/data_distribution/histogram/histogram_14_thumb.png)](documentation/GALLERY.md#histogram_14)  [![example_boxplot_1](documentation/examples/data_distribution/boxplot/boxplot_1_thumb.png)](documentation/GALLERY.md#boxplot_1)  [![example_boxplot_2](documentation/examples/data_distribution/boxplot/boxplot_2_thumb.png)](documentation/GALLERY.md#boxplot_2)  [![example_boxplot_3](documentation/examples/data_distribution/boxplot/boxplot_3_thumb.png)](documentation/GALLERY.md#boxplot_3)  [![example_scatter_1](documentation/examples/data_distribution/scatter/scatter_1_thumb.png)](documentation/GALLERY.md#scatter_1)  [![example_scatter_2](documentation/examples/data_distribution/scatter/scatter_2_thumb.png)](documentation/GALLERY.md#scatter_2)  [![example_scatter_3](documentation/examples/data_distribution/scatter/scatter_3_thumb.png)](documentation/GALLERY.md#scatter_3)  [![example_scatter_4](documentation/examples/data_distribution/scatter/scatter_4_thumb.png)](documentation/GALLERY.md#scatter_4)  [![example_scatter_5](documentation/examples/data_distribution/scatter/scatter_5_thumb.png)](documentation/GALLERY.md#scatter_5)  [![example_scatter_6](documentation/examples/data_distribution/scatter/scatter_6_thumb.png)](documentation/GALLERY.md#scatter_6)  [![example_scatter_7](documentation/examples/data_distribution/scatter/scatter_7_thumb.png)](documentation/GALLERY.md#scatter_7)  [![example_scatter_8](documentation/examples/data_distribution/scatter/scatter_8_thumb.png)](documentation/GALLERY.md#scatter_8)  [![example_scatter3_1](documentation/examples/data_distribution/scatter3/scatter3_1_thumb.png)](documentation/GALLERY.md#scatter3_1)  [![example_scatter3_2](documentation/examples/data_distribution/scatter3/scatter3_2_thumb.png)](documentation/GALLERY.md#scatter3_2)  [![example_scatter3_3](documentation/examples/data_distribution/scatter3/scatter3_3_thumb.png)](documentation/GALLERY.md#scatter3_3)  [![example_scatter3_4](documentation/examples/data_distribution/scatter3/scatter3_4_thumb.png)](documentation/GALLERY.md#scatter3_4)  [![example_scatter3_5](documentation/examples/data_distribution/scatter3/scatter3_5_thumb.png)](documentation/GALLERY.md#scatter3_5)  [![example_scatter3_6](documentation/examples/data_distribution/scatter3/scatter3_6_thumb.png)](documentation/GALLERY.md#scatter3_6)  [![example_binscatter_1](documentation/examples/data_distribution/binscatter/binscatter_1_thumb.png)](documentation/GALLERY.md#binscatter_1)  [![example_binscatter_2](documentation/examples/data_distribution/binscatter/binscatter_2_thumb.png)](documentation/GALLERY.md#binscatter_2)  [![example_binscatter_3](documentation/examples/data_distribution/binscatter/binscatter_3_thumb.png)](documentation/GALLERY.md#binscatter_3)  [![example_binscatter_4](documentation/examples/data_distribution/binscatter/binscatter_4_thumb.png)](documentation/GALLERY.md#binscatter_4)  [![example_binscatter_5](documentation/examples/data_distribution/binscatter/binscatter_5_thumb.png)](documentation/GALLERY.md#binscatter_5)  [![example_binscatter_6](documentation/examples/data_distribution/binscatter/binscatter_6_thumb.png)](documentation/GALLERY.md#binscatter_6)  [![example_binscatter_7](documentation/examples/data_distribution/binscatter/binscatter_7_thumb.png)](documentation/GALLERY.md#binscatter_7)  [![example_plotmatrix_1](documentation/examples/data_distribution/plotmatrix/plotmatrix_1_thumb.png)](documentation/GALLERY.md#plotmatrix_1)  [![example_plotmatrix_2](documentation/examples/data_distribution/plotmatrix/plotmatrix_2_thumb.png)](documentation/GALLERY.md#plotmatrix_2)  [![example_plotmatrix_3](documentation/examples/data_distribution/plotmatrix/plotmatrix_3_thumb.png)](documentation/GALLERY.md#plotmatrix_3)  [![example_plotmatrix_4](documentation/examples/data_distribution/plotmatrix/plotmatrix_4_thumb.png)](documentation/GALLERY.md#plotmatrix_4)  [![example_parallelplot_1](documentation/examples/data_distribution/parallelplot/parallelplot_1_thumb.png)](documentation/GALLERY.md#parallelplot_1)  [![example_parallelplot_2](documentation/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](documentation/GALLERY.md#parallelplot_2)  [![example_parallelplot_3](documentation/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](documentation/GALLERY.md#parallelplot_3)  [![example_pie_1](documentation/examples/data_distribution/pie/pie_1_thumb.png)](documentation/GALLERY.md#pie_1)  [![example_pie_2](documentation/examples/data_distribution/pie/pie_2_thumb.png)](documentation/GALLERY.md#pie_2)  [![example_pie_3](documentation/examples/data_distribution/pie/pie_3_thumb.png)](documentation/GALLERY.md#pie_3)  [![example_pie_4](documentation/examples/data_distribution/pie/pie_4_thumb.png)](documentation/GALLERY.md#pie_4)  [![example_pie_5](documentation/examples/data_distribution/pie/pie_5_thumb.png)](documentation/GALLERY.md#pie_5)  [![example_pie_6](documentation/examples/data_distribution/pie/pie_6_thumb.png)](documentation/GALLERY.md#pie_6)  [![example_heatmap_1](documentation/examples/data_distribution/heatmap/heatmap_1_thumb.png)](documentation/GALLERY.md#heatmap_1)  [![example_heatmap_2](documentation/examples/data_distribution/heatmap/heatmap_2_thumb.png)](documentation/GALLERY.md#heatmap_2)  [![example_heatmap_3](documentation/examples/data_distribution/heatmap/heatmap_3_thumb.png)](documentation/GALLERY.md#heatmap_3)  [![example_heatmap_4](documentation/examples/data_distribution/heatmap/heatmap_4_thumb.png)](documentation/GALLERY.md#heatmap_4)  [![example_heatmap_5](documentation/examples/data_distribution/heatmap/heatmap_5_thumb.png)](documentation/GALLERY.md#heatmap_5)  [![example_heatmap_6](documentation/examples/data_distribution/heatmap/heatmap_6_thumb.png)](documentation/GALLERY.md#heatmap_6)  [![example_heatmap_7](documentation/examples/data_distribution/heatmap/heatmap_7_thumb.png)](documentation/GALLERY.md#heatmap_7)  [![example_wordcloud_1](documentation/examples/data_distribution/wordcloud/wordcloud_1_thumb.png)](documentation/GALLERY.md#wordcloud_1)  [![example_wordcloud_3](documentation/examples/data_distribution/wordcloud/wordcloud_3_thumb.png)](documentation/GALLERY.md#wordcloud_3)  [![example_wordcloud_4](documentation/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](documentation/GALLERY.md#wordcloud_4)  [![example_wordcloud_4](documentation/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](documentation/GALLERY.md#wordcloud_4)  [![example_bar_1](documentation/examples/discrete_data/bar/bar_1_thumb.png)](documentation/GALLERY.md#bar_1)  [![example_bar_2](documentation/examples/discrete_data/bar/bar_2_thumb.png)](documentation/GALLERY.md#bar_2)  [![example_bar_3](documentation/examples/discrete_data/bar/bar_3_thumb.png)](documentation/GALLERY.md#bar_3)  [![example_bar_4](documentation/examples/discrete_data/bar/bar_4_thumb.png)](documentation/GALLERY.md#bar_4)  [![example_bar_5](documentation/examples/discrete_data/bar/bar_5_thumb.png)](documentation/GALLERY.md#bar_5)  [![example_bar_6](documentation/examples/discrete_data/bar/bar_6_thumb.png)](documentation/GALLERY.md#bar_6)  [![example_bar_7](documentation/examples/discrete_data/bar/bar_7_thumb.png)](documentation/GALLERY.md#bar_7)  [![example_bar_8](documentation/examples/discrete_data/bar/bar_8_thumb.png)](documentation/GALLERY.md#bar_8)  [![example_bar_9](documentation/examples/discrete_data/bar/bar_9_thumb.png)](documentation/GALLERY.md#bar_9)  [![example_bar_10](documentation/examples/discrete_data/bar/bar_10_thumb.png)](documentation/GALLERY.md#bar_10)  [![example_bar_11](documentation/examples/discrete_data/bar/bar_11_thumb.png)](documentation/GALLERY.md#bar_11)  [![example_bar_12](documentation/examples/discrete_data/bar/bar_12_thumb.png)](documentation/GALLERY.md#bar_12)  [![example_bar_13](documentation/examples/discrete_data/bar/bar_13_thumb.png)](documentation/GALLERY.md#bar_13)  [![example_pareto_1](documentation/examples/discrete_data/pareto/pareto_1_thumb.png)](documentation/GALLERY.md#pareto_1)  [![example_pareto_2](documentation/examples/discrete_data/pareto/pareto_2_thumb.png)](documentation/GALLERY.md#pareto_2)  [![example_pareto_3](documentation/examples/discrete_data/pareto/pareto_3_thumb.png)](documentation/GALLERY.md#pareto_3)  [![example_pareto_4](documentation/examples/discrete_data/pareto/pareto_4_thumb.png)](documentation/GALLERY.md#pareto_4)  [![example_stem_1](documentation/examples/discrete_data/stem/stem_1_thumb.png)](documentation/GALLERY.md#stem_1)  [![example_stem_2](documentation/examples/discrete_data/stem/stem_2_thumb.png)](documentation/GALLERY.md#stem_2)  [![example_stem_3](documentation/examples/discrete_data/stem/stem_3_thumb.png)](documentation/GALLERY.md#stem_3)  [![example_stem_4](documentation/examples/discrete_data/stem/stem_4_thumb.png)](documentation/GALLERY.md#stem_4)  [![example_stem_5](documentation/examples/discrete_data/stem/stem_5_thumb.png)](documentation/GALLERY.md#stem_5)  [![example_stem_6](documentation/examples/discrete_data/stem/stem_6_thumb.png)](documentation/GALLERY.md#stem_6)  [![example_stem_7](documentation/examples/discrete_data/stem/stem_7_thumb.png)](documentation/GALLERY.md#stem_7)  [![example_stem_8](documentation/examples/discrete_data/stem/stem_8_thumb.png)](documentation/GALLERY.md#stem_8)  [![example_stem_9](documentation/examples/discrete_data/stem/stem_9_thumb.png)](documentation/GALLERY.md#stem_9)  [![example_stem3_1](documentation/examples/discrete_data/stem3/stem3_1_thumb.png)](documentation/GALLERY.md#stem3_1)  [![example_stem3_2](documentation/examples/discrete_data/stem3/stem3_2_thumb.png)](documentation/GALLERY.md#stem3_2)  [![example_stem3_3](documentation/examples/discrete_data/stem3/stem3_3_thumb.png)](documentation/GALLERY.md#stem3_3)  [![example_stem3_4](documentation/examples/discrete_data/stem3/stem3_4_thumb.png)](documentation/GALLERY.md#stem3_4)  [![example_stem3_5](documentation/examples/discrete_data/stem3/stem3_5_thumb.png)](documentation/GALLERY.md#stem3_5)  [![example_stem3_6](documentation/examples/discrete_data/stem3/stem3_6_thumb.png)](documentation/GALLERY.md#stem3_6)  [![example_stem3_7](documentation/examples/discrete_data/stem3/stem3_7_thumb.png)](documentation/GALLERY.md#stem3_7)  [![example_stem3_8](documentation/examples/discrete_data/stem3/stem3_8_thumb.png)](documentation/GALLERY.md#stem3_8)  [![example_stem3_9](documentation/examples/discrete_data/stem3/stem3_9_thumb.png)](documentation/GALLERY.md#stem3_9)  [![example_stem3_10](documentation/examples/discrete_data/stem3/stem3_10_thumb.png)](documentation/GALLERY.md#stem3_10)  [![example_stem3_11](documentation/examples/discrete_data/stem3/stem3_11_thumb.png)](documentation/GALLERY.md#stem3_11)  [![example_geoplot_1](documentation/examples/geography/geoplot/geoplot_1_thumb.png)](documentation/GALLERY.md#geoplot_1)  [![example_geoplot_2](documentation/examples/geography/geoplot/geoplot_2_thumb.png)](documentation/GALLERY.md#geoplot_2)  [![example_geoplot_3](documentation/examples/geography/geoplot/geoplot_3_thumb.png)](documentation/GALLERY.md#geoplot_3)  [![example_geoplot_4](documentation/examples/geography/geoplot/geoplot_4_thumb.png)](documentation/GALLERY.md#geoplot_4)  [![example_geoplot_5](documentation/examples/geography/geoplot/geoplot_5_thumb.png)](documentation/GALLERY.md#geoplot_5)  [![example_geoplot_6](documentation/examples/geography/geoplot/geoplot_6_thumb.png)](documentation/GALLERY.md#geoplot_6)  [![example_geoplot_7](documentation/examples/geography/geoplot/geoplot_7_thumb.png)](documentation/GALLERY.md#geoplot_7)  [![example_geoscatter_1](documentation/examples/geography/geoscatter/geoscatter_1_thumb.png)](documentation/GALLERY.md#geoscatter_1)  [![example_geoscatter_2](documentation/examples/geography/geoscatter/geoscatter_2_thumb.png)](documentation/GALLERY.md#geoscatter_2)  [![example_geobubble_1](documentation/examples/geography/geobubble/geobubble_1_thumb.png)](documentation/GALLERY.md#geobubble_1)  [![example_geobubble_2](documentation/examples/geography/geobubble/geobubble_2_thumb.png)](documentation/GALLERY.md#geobubble_2)  [![example_geodensityplot_1](documentation/examples/geography/geodensityplot/geodensityplot_1_thumb.png)](documentation/GALLERY.md#geodensityplot_1)  [![example_polarplot_1](documentation/examples/polar_plots/polarplot/polarplot_1_thumb.png)](documentation/GALLERY.md#polarplot_1)  [![example_polarplot_2](documentation/examples/polar_plots/polarplot/polarplot_2_thumb.png)](documentation/GALLERY.md#polarplot_2)  [![example_polarplot_3](documentation/examples/polar_plots/polarplot/polarplot_3_thumb.png)](documentation/GALLERY.md#polarplot_3)  [![example_polarplot_4](documentation/examples/polar_plots/polarplot/polarplot_4_thumb.png)](documentation/GALLERY.md#polarplot_4)  [![example_polarplot_5](documentation/examples/polar_plots/polarplot/polarplot_5_thumb.png)](documentation/GALLERY.md#polarplot_5)  [![example_polarplot_6](documentation/examples/polar_plots/polarplot/polarplot_6_thumb.png)](documentation/GALLERY.md#polarplot_6)  [![example_polarplot_7](documentation/examples/polar_plots/polarplot/polarplot_7_thumb.png)](documentation/GALLERY.md#polarplot_7)  [![example_polarplot_8](documentation/examples/polar_plots/polarplot/polarplot_8_thumb.png)](documentation/GALLERY.md#polarplot_8)  [![example_polarscatter_1](documentation/examples/polar_plots/polarscatter/polarscatter_1_thumb.png)](documentation/GALLERY.md#polarscatter_1)  [![example_polarscatter_2](documentation/examples/polar_plots/polarscatter/polarscatter_2_thumb.png)](documentation/GALLERY.md#polarscatter_2)  [![example_polarscatter_3](documentation/examples/polar_plots/polarscatter/polarscatter_3_thumb.png)](documentation/GALLERY.md#polarscatter_3)  [![example_polarscatter_4](documentation/examples/polar_plots/polarscatter/polarscatter_4_thumb.png)](documentation/GALLERY.md#polarscatter_4)  [![example_polarscatter_5](documentation/examples/polar_plots/polarscatter/polarscatter_5_thumb.png)](documentation/GALLERY.md#polarscatter_5)  [![example_polarscatter_6](documentation/examples/polar_plots/polarscatter/polarscatter_6_thumb.png)](documentation/GALLERY.md#polarscatter_6)  [![example_polarhistogram_1](documentation/examples/polar_plots/polarhistogram/polarhistogram_1_thumb.png)](documentation/GALLERY.md#polarhistogram_1)  [![example_polarhistogram_2](documentation/examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png)](documentation/GALLERY.md#polarhistogram_2)  [![example_polarhistogram_3](documentation/examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png)](documentation/GALLERY.md#polarhistogram_3)  [![example_polarhistogram_4](documentation/examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png)](documentation/GALLERY.md#polarhistogram_4)  [![example_polarhistogram_5](documentation/examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png)](documentation/GALLERY.md#polarhistogram_5)  [![example_compass_1](documentation/examples/polar_plots/compass/compass_1_thumb.png)](documentation/GALLERY.md#compass_1)  [![example_compass_2](documentation/examples/polar_plots/compass/compass_2_thumb.png)](documentation/GALLERY.md#compass_2)  [![example_ezpolar_1](documentation/examples/polar_plots/ezpolar/ezpolar_1_thumb.png)](documentation/GALLERY.md#ezpolar_1)  [![example_ezpolar_2](documentation/examples/polar_plots/ezpolar/ezpolar_2_thumb.png)](documentation/GALLERY.md#ezpolar_2)  [![example_contour_1](documentation/examples/contour_plots/contour/contour_1_thumb.png)](documentation/GALLERY.md#contour_1)  [![example_contour_2](documentation/examples/contour_plots/contour/contour_2_thumb.png)](documentation/GALLERY.md#contour_2)  [![example_contour_3](documentation/examples/contour_plots/contour/contour_3_thumb.png)](documentation/GALLERY.md#contour_3)  [![example_contour_4](documentation/examples/contour_plots/contour/contour_4_thumb.png)](documentation/GALLERY.md#contour_4)  [![example_contour_5](documentation/examples/contour_plots/contour/contour_5_thumb.png)](documentation/GALLERY.md#contour_5)  [![example_contour_6](documentation/examples/contour_plots/contour/contour_6_thumb.png)](documentation/GALLERY.md#contour_6)  [![example_contour_7](documentation/examples/contour_plots/contour/contour_7_thumb.png)](documentation/GALLERY.md#contour_7)  [![example_contour_8](documentation/examples/contour_plots/contour/contour_8_thumb.png)](documentation/GALLERY.md#contour_8)  [![example_contourf_1](documentation/examples/contour_plots/contourf/contourf_1_thumb.png)](documentation/GALLERY.md#contourf_1)  [![example_contourf_2](documentation/examples/contour_plots/contourf/contourf_2_thumb.png)](documentation/GALLERY.md#contourf_2)  [![example_contourf_3](documentation/examples/contour_plots/contourf/contourf_3_thumb.png)](documentation/GALLERY.md#contourf_3)  [![example_contourf_4](documentation/examples/contour_plots/contourf/contourf_4_thumb.png)](documentation/GALLERY.md#contourf_4)  [![example_contourf_5](documentation/examples/contour_plots/contourf/contourf_5_thumb.png)](documentation/GALLERY.md#contourf_5)  [![example_contourf_6](documentation/examples/contour_plots/contourf/contourf_6_thumb.png)](documentation/GALLERY.md#contourf_6)  [![example_fcontour_1](documentation/examples/contour_plots/fcontour/fcontour_1_thumb.png)](documentation/GALLERY.md#fcontour_1)  [![example_fcontour_2](documentation/examples/contour_plots/fcontour/fcontour_2_thumb.png)](documentation/GALLERY.md#fcontour_2)  [![example_fcontour_3](documentation/examples/contour_plots/fcontour/fcontour_3_thumb.png)](documentation/GALLERY.md#fcontour_3)  [![example_fcontour_4](documentation/examples/contour_plots/fcontour/fcontour_4_thumb.png)](documentation/GALLERY.md#fcontour_4)  [![example_fcontour_5](documentation/examples/contour_plots/fcontour/fcontour_5_thumb.png)](documentation/GALLERY.md#fcontour_5)  [![example_fcontour_6](documentation/examples/contour_plots/fcontour/fcontour_6_thumb.png)](documentation/GALLERY.md#fcontour_6)  [![example_fcontour_7](documentation/examples/contour_plots/fcontour/fcontour_7_thumb.png)](documentation/GALLERY.md#fcontour_7)  [![example_fcontour_8](documentation/examples/contour_plots/fcontour/fcontour_8_thumb.png)](documentation/GALLERY.md#fcontour_8)  [![example_fcontour_9](documentation/examples/contour_plots/fcontour/fcontour_9_thumb.png)](documentation/GALLERY.md#fcontour_9)  [![example_fcontour_10](documentation/examples/contour_plots/fcontour/fcontour_10_thumb.png)](documentation/GALLERY.md#fcontour_10)  [![example_fcontour_11](documentation/examples/contour_plots/fcontour/fcontour_11_thumb.png)](documentation/GALLERY.md#fcontour_11)  [![example_feather_1](documentation/examples/vector_fields/feather/feather_1_thumb.png)](documentation/GALLERY.md#feather_1)  [![example_quiver_1](documentation/examples/vector_fields/quiver/quiver_1_thumb.png)](documentation/GALLERY.md#quiver_1)  [![example_quiver_2](documentation/examples/vector_fields/quiver/quiver_2_thumb.png)](documentation/GALLERY.md#quiver_2)  [![example_quiver_3](documentation/examples/vector_fields/quiver/quiver_3_thumb.png)](documentation/GALLERY.md#quiver_3)  [![example_quiver_4](documentation/examples/vector_fields/quiver/quiver_4_thumb.png)](documentation/GALLERY.md#quiver_4)  [![example_quiver_5](documentation/examples/vector_fields/quiver/quiver_5_thumb.png)](documentation/GALLERY.md#quiver_5)  [![example_quiver3_1](documentation/examples/vector_fields/quiver3/quiver3_1_thumb.png)](documentation/GALLERY.md#quiver3_1)  [![example_surf_1](documentation/examples/surfaces/surf/surf_1_thumb.png)](documentation/GALLERY.md#surf_1)  [![example_surf_2](documentation/examples/surfaces/surf/surf_2_thumb.png)](documentation/GALLERY.md#surf_2)  [![example_surf_3](documentation/examples/surfaces/surf/surf_3_thumb.png)](documentation/GALLERY.md#surf_3)  [![example_surf_4](documentation/examples/surfaces/surf/surf_4_thumb.png)](documentation/GALLERY.md#surf_4)  [![example_surf_5](documentation/examples/surfaces/surf/surf_5_thumb.png)](documentation/GALLERY.md#surf_5)  [![example_surf_6](documentation/examples/surfaces/surf/surf_6_thumb.png)](documentation/GALLERY.md#surf_6)  [![example_surfc_1](documentation/examples/surfaces/surfc/surfc_1_thumb.png)](documentation/GALLERY.md#surfc_1)  [![example_surfc_2](documentation/examples/surfaces/surfc/surfc_2_thumb.png)](documentation/GALLERY.md#surfc_2)  [![example_surfc_3](documentation/examples/surfaces/surfc/surfc_3_thumb.png)](documentation/GALLERY.md#surfc_3)  [![example_surfc_4](documentation/examples/surfaces/surfc/surfc_4_thumb.png)](documentation/GALLERY.md#surfc_4)  [![example_mesh_1](documentation/examples/surfaces/mesh/mesh_1_thumb.png)](documentation/GALLERY.md#mesh_1)  [![example_mesh_2](documentation/examples/surfaces/mesh/mesh_2_thumb.png)](documentation/GALLERY.md#mesh_2)  [![example_mesh_3](documentation/examples/surfaces/mesh/mesh_3_thumb.png)](documentation/GALLERY.md#mesh_3)  [![example_mesh_4](documentation/examples/surfaces/mesh/mesh_4_thumb.png)](documentation/GALLERY.md#mesh_4)  [![example_meshc_1](documentation/examples/surfaces/meshc/meshc_1_thumb.png)](documentation/GALLERY.md#meshc_1)  [![example_meshc_2](documentation/examples/surfaces/meshc/meshc_2_thumb.png)](documentation/GALLERY.md#meshc_2)  [![example_meshc_3](documentation/examples/surfaces/meshc/meshc_3_thumb.png)](documentation/GALLERY.md#meshc_3)  [![example_meshz_1](documentation/examples/surfaces/meshz/meshz_1_thumb.png)](documentation/GALLERY.md#meshz_1)  [![example_meshz_2](documentation/examples/surfaces/meshz/meshz_2_thumb.png)](documentation/GALLERY.md#meshz_2)  [![example_meshz_3](documentation/examples/surfaces/meshz/meshz_3_thumb.png)](documentation/GALLERY.md#meshz_3)  [![example_fsurf_1](documentation/examples/surfaces/fsurf/fsurf_1_thumb.png)](documentation/GALLERY.md#fsurf_1)  [![example_fsurf_2](documentation/examples/surfaces/fsurf/fsurf_2_thumb.png)](documentation/GALLERY.md#fsurf_2)  [![example_fsurf_3](documentation/examples/surfaces/fsurf/fsurf_3_thumb.png)](documentation/GALLERY.md#fsurf_3)  [![example_fsurf_4](documentation/examples/surfaces/fsurf/fsurf_4_thumb.png)](documentation/GALLERY.md#fsurf_4)  [![example_fsurf_5](documentation/examples/surfaces/fsurf/fsurf_5_thumb.png)](documentation/GALLERY.md#fsurf_5)  [![example_fsurf_6](documentation/examples/surfaces/fsurf/fsurf_6_thumb.png)](documentation/GALLERY.md#fsurf_6)  [![example_fsurf_7](documentation/examples/surfaces/fsurf/fsurf_7_thumb.png)](documentation/GALLERY.md#fsurf_7)  [![example_fsurf_8](documentation/examples/surfaces/fsurf/fsurf_8_thumb.png)](documentation/GALLERY.md#fsurf_8)  [![example_fmesh_1](documentation/examples/surfaces/fmesh/fmesh_1_thumb.png)](documentation/GALLERY.md#fmesh_1)  [![example_fmesh_2](documentation/examples/surfaces/fmesh/fmesh_2_thumb.png)](documentation/GALLERY.md#fmesh_2)  [![example_fmesh_3](documentation/examples/surfaces/fmesh/fmesh_3_thumb.png)](documentation/GALLERY.md#fmesh_3)  [![example_fmesh_4](documentation/examples/surfaces/fmesh/fmesh_4_thumb.png)](documentation/GALLERY.md#fmesh_4)  [![example_waterfall_1](documentation/examples/surfaces/waterfall/waterfall_1_thumb.png)](documentation/GALLERY.md#waterfall_1)  [![example_waterfall_2](documentation/examples/surfaces/waterfall/waterfall_2_thumb.png)](documentation/GALLERY.md#waterfall_2)  [![example_waterfall_3](documentation/examples/surfaces/waterfall/waterfall_3_thumb.png)](documentation/GALLERY.md#waterfall_3)  [![example_fence_1](documentation/examples/surfaces/fence/fence_1_thumb.png)](documentation/GALLERY.md#fence_1)  [![example_fence_2](documentation/examples/surfaces/fence/fence_2_thumb.png)](documentation/GALLERY.md#fence_2)  [![example_fence_3](documentation/examples/surfaces/fence/fence_3_thumb.png)](documentation/GALLERY.md#fence_3)  [![example_ribbon_1](documentation/examples/surfaces/ribbon/ribbon_1_thumb.png)](documentation/GALLERY.md#ribbon_1)  [![example_ribbon_2](documentation/examples/surfaces/ribbon/ribbon_2_thumb.png)](documentation/GALLERY.md#ribbon_2)  [![example_ribbon_3](documentation/examples/surfaces/ribbon/ribbon_3_thumb.png)](documentation/GALLERY.md#ribbon_3)  [![example_ribbon_4](documentation/examples/surfaces/ribbon/ribbon_4_thumb.png)](documentation/GALLERY.md#ribbon_4)  [![example_graph_1](documentation/examples/graphs/graph/graph_1_thumb.png)](documentation/GALLERY.md#graph_1)  [![example_graph_2](documentation/examples/graphs/graph/graph_2_thumb.png)](documentation/GALLERY.md#graph_2)  [![example_graph_3](documentation/examples/graphs/graph/graph_3_thumb.png)](documentation/GALLERY.md#graph_3)  [![example_graph_4](documentation/examples/graphs/graph/graph_4_thumb.png)](documentation/GALLERY.md#graph_4)  [![example_graph_5](documentation/examples/graphs/graph/graph_5_thumb.png)](documentation/GALLERY.md#graph_5)  [![example_graph_6](documentation/examples/graphs/graph/graph_6_thumb.png)](documentation/GALLERY.md#graph_6)  [![example_digraph_1](documentation/examples/graphs/digraph/digraph_1_thumb.png)](documentation/GALLERY.md#digraph_1)  [![example_digraph_2](documentation/examples/graphs/digraph/digraph_2_thumb.png)](documentation/GALLERY.md#digraph_2)  [![example_digraph_3](documentation/examples/graphs/digraph/digraph_3_thumb.png)](documentation/GALLERY.md#digraph_3)  [![example_imshow_1](documentation/examples/images/imshow/imshow_1_thumb.png)](documentation/GALLERY.md#imshow_1)  [![example_imshow_2](documentation/examples/images/imshow/imshow_2_thumb.png)](documentation/GALLERY.md#imshow_2)  [![example_imshow_3](documentation/examples/images/imshow/imshow_3_thumb.png)](documentation/GALLERY.md#imshow_3)  [![example_imshow_4](documentation/examples/images/imshow/imshow_4_thumb.png)](documentation/GALLERY.md#imshow_4)  [![example_imshow_5](documentation/examples/images/imshow/imshow_5_thumb.png)](documentation/GALLERY.md#imshow_5)  [![example_imshow_6](documentation/examples/images/imshow/imshow_6_thumb.png)](documentation/GALLERY.md#imshow_6)  [![example_imshow_7](documentation/examples/images/imshow/imshow_7_thumb.png)](documentation/GALLERY.md#imshow_7)  [![example_imshow_8](documentation/examples/images/imshow/imshow_8_thumb.png)](documentation/GALLERY.md#imshow_8)  [![example_imshow_9](documentation/examples/images/imshow/imshow_9_thumb.png)](documentation/GALLERY.md#imshow_9)  [![example_imshow_10](documentation/examples/images/imshow/imshow_10_thumb.png)](documentation/GALLERY.md#imshow_10)  [![example_imshow_11](documentation/examples/images/imshow/imshow_11_thumb.png)](documentation/GALLERY.md#imshow_11)  [![example_image_1](documentation/examples/images/image/image_1_thumb.png)](documentation/GALLERY.md#image_1)  [![example_image_2](documentation/examples/images/image/image_2_thumb.png)](documentation/GALLERY.md#image_2)  [![example_image_3](documentation/examples/images/image/image_3_thumb.png)](documentation/GALLERY.md#image_3)  [![example_image_4](documentation/examples/images/image/image_4_thumb.png)](documentation/GALLERY.md#image_4)  [![example_image_5](documentation/examples/images/image/image_5_thumb.png)](documentation/GALLERY.md#image_5)  [![example_imagesc_1](documentation/examples/images/imagesc/imagesc_1_thumb.png)](documentation/GALLERY.md#imagesc_1)  [![example_imagesc_2](documentation/examples/images/imagesc/imagesc_2_thumb.png)](documentation/GALLERY.md#imagesc_2)  [![example_imagesc_3](documentation/examples/images/imagesc/imagesc_3_thumb.png)](documentation/GALLERY.md#imagesc_3)  [![example_imagesc_4](documentation/examples/images/imagesc/imagesc_4_thumb.png)](documentation/GALLERY.md#imagesc_4)  [![example_text_1](documentation/examples/annotations/text/text_1_thumb.png)](documentation/GALLERY.md#text_1)  [![example_text_2](documentation/examples/annotations/text/text_2_thumb.png)](documentation/GALLERY.md#text_2)  [![example_text_3](documentation/examples/annotations/text/text_3_thumb.png)](documentation/GALLERY.md#text_3)  [![example_text_4](documentation/examples/annotations/text/text_4_thumb.png)](documentation/GALLERY.md#text_4)  [![example_text_5](documentation/examples/annotations/text/text_5_thumb.png)](documentation/GALLERY.md#text_5)  [![example_text_6](documentation/examples/annotations/text/text_6_thumb.png)](documentation/GALLERY.md#text_6)  [![example_text_7](documentation/examples/annotations/text/text_7_thumb.png)](documentation/GALLERY.md#text_7)  [![example_text_8](documentation/examples/annotations/text/text_8_thumb.png)](documentation/GALLERY.md#text_8)  [![example_textarrow_1](documentation/examples/annotations/textarrow/textarrow_1_thumb.png)](documentation/GALLERY.md#textarrow_1)  [![example_textarrow_2](documentation/examples/annotations/textarrow/textarrow_2_thumb.png)](documentation/GALLERY.md#textarrow_2)  [![example_rectangle_1](documentation/examples/annotations/rectangle/rectangle_1_thumb.png)](documentation/GALLERY.md#rectangle_1)  [![example_rectangle_2](documentation/examples/annotations/rectangle/rectangle_2_thumb.png)](documentation/GALLERY.md#rectangle_2)  [![example_rectangle_3](documentation/examples/annotations/rectangle/rectangle_3_thumb.png)](documentation/GALLERY.md#rectangle_3)  [![example_rectangle_4](documentation/examples/annotations/rectangle/rectangle_4_thumb.png)](documentation/GALLERY.md#rectangle_4)  [![example_rectangle_5](documentation/examples/annotations/rectangle/rectangle_5_thumb.png)](documentation/GALLERY.md#rectangle_5)  [![example_fill_1](documentation/examples/annotations/fill/fill_1_thumb.png)](documentation/GALLERY.md#fill_1)  [![example_ellipse_1](documentation/examples/annotations/ellipse/ellipse_1_thumb.png)](documentation/GALLERY.md#ellipse_1)  [![example_textbox_1](documentation/examples/annotations/textbox/textbox_1_thumb.png)](documentation/GALLERY.md#textbox_1)  [![example_arrow_1](documentation/examples/annotations/arrow/arrow_1_thumb.png)](documentation/GALLERY.md#arrow_1)  [![example_arrow_2](documentation/examples/annotations/arrow/arrow_2_thumb.png)](documentation/GALLERY.md#arrow_2)  [![example_line_1](documentation/examples/annotations/line/line_1_thumb.png)](documentation/GALLERY.md#line_1)  [![example_title_1](documentation/examples/appearance/labels/title/title_1_thumb.png)](documentation/GALLERY.md#title_1)  [![example_title_2](documentation/examples/appearance/labels/title/title_2_thumb.png)](documentation/GALLERY.md#title_2)  [![example_title_3](documentation/examples/appearance/labels/title/title_3_thumb.png)](documentation/GALLERY.md#title_3)  [![example_title_4](documentation/examples/appearance/labels/title/title_4_thumb.png)](documentation/GALLERY.md#title_4)  [![example_title_5](documentation/examples/appearance/labels/title/title_5_thumb.png)](documentation/GALLERY.md#title_5)  [![example_title_6](documentation/examples/appearance/labels/title/title_6_thumb.png)](documentation/GALLERY.md#title_6)  [![example_title_7](documentation/examples/appearance/labels/title/title_7_thumb.png)](documentation/GALLERY.md#title_7)  [![example_title_8](documentation/examples/appearance/labels/title/title_8_thumb.png)](documentation/GALLERY.md#title_8)  [![example_sgtitle_1](documentation/examples/appearance/labels/sgtitle/sgtitle_1_thumb.png)](documentation/GALLERY.md#sgtitle_1)  [![example_sgtitle_2](documentation/examples/appearance/labels/sgtitle/sgtitle_2_thumb.png)](documentation/GALLERY.md#sgtitle_2)  [![example_xlabel_1](documentation/examples/appearance/labels/xlabel/xlabel_1_thumb.png)](documentation/GALLERY.md#xlabel_1)  [![example_xlabel_2](documentation/examples/appearance/labels/xlabel/xlabel_2_thumb.png)](documentation/GALLERY.md#xlabel_2)  [![example_xlabel_3](documentation/examples/appearance/labels/xlabel/xlabel_3_thumb.png)](documentation/GALLERY.md#xlabel_3)  [![example_xlabel_4](documentation/examples/appearance/labels/xlabel/xlabel_4_thumb.png)](documentation/GALLERY.md#xlabel_4)  [![example_xlabel_5](documentation/examples/appearance/labels/xlabel/xlabel_5_thumb.png)](documentation/GALLERY.md#xlabel_5)  [![example_xlabel_6](documentation/examples/appearance/labels/xlabel/xlabel_6_thumb.png)](documentation/GALLERY.md#xlabel_6)  [![example_xlabel_7](documentation/examples/appearance/labels/xlabel/xlabel_7_thumb.png)](documentation/GALLERY.md#xlabel_7)  [![example_xlabel_8](documentation/examples/appearance/labels/xlabel/xlabel_8_thumb.png)](documentation/GALLERY.md#xlabel_8)  [![example_ylabel_1](documentation/examples/appearance/labels/ylabel/ylabel_1_thumb.png)](documentation/GALLERY.md#ylabel_1)  [![example_ylabel_2](documentation/examples/appearance/labels/ylabel/ylabel_2_thumb.png)](documentation/GALLERY.md#ylabel_2)  [![example_ylabel_3](documentation/examples/appearance/labels/ylabel/ylabel_3_thumb.png)](documentation/GALLERY.md#ylabel_3)  [![example_ylabel_4](documentation/examples/appearance/labels/ylabel/ylabel_4_thumb.png)](documentation/GALLERY.md#ylabel_4)  [![example_ylabel_5](documentation/examples/appearance/labels/ylabel/ylabel_5_thumb.png)](documentation/GALLERY.md#ylabel_5)  [![example_ylabel_6](documentation/examples/appearance/labels/ylabel/ylabel_6_thumb.png)](documentation/GALLERY.md#ylabel_6)  [![example_ylabel_7](documentation/examples/appearance/labels/ylabel/ylabel_7_thumb.png)](documentation/GALLERY.md#ylabel_7)  [![example_ylabel_8](documentation/examples/appearance/labels/ylabel/ylabel_8_thumb.png)](documentation/GALLERY.md#ylabel_8)  [![example_zlabel_1](documentation/examples/appearance/labels/zlabel/zlabel_1_thumb.png)](documentation/GALLERY.md#zlabel_1)  [![example_zlabel_2](documentation/examples/appearance/labels/zlabel/zlabel_2_thumb.png)](documentation/GALLERY.md#zlabel_2)  [![example_zlabel_3](documentation/examples/appearance/labels/zlabel/zlabel_3_thumb.png)](documentation/GALLERY.md#zlabel_3)  [![example_legend_1](documentation/examples/appearance/labels/legend/legend_1_thumb.png)](documentation/GALLERY.md#legend_1)  [![example_legend_2](documentation/examples/appearance/labels/legend/legend_2_thumb.png)](documentation/GALLERY.md#legend_2)  [![example_legend_3](documentation/examples/appearance/labels/legend/legend_3_thumb.png)](documentation/GALLERY.md#legend_3)  [![example_legend_4](documentation/examples/appearance/labels/legend/legend_4_thumb.png)](documentation/GALLERY.md#legend_4)  [![example_legend_5](documentation/examples/appearance/labels/legend/legend_5_thumb.png)](documentation/GALLERY.md#legend_5)  [![example_legend_6](documentation/examples/appearance/labels/legend/legend_6_thumb.png)](documentation/GALLERY.md#legend_6)  [![example_legend_7](documentation/examples/appearance/labels/legend/legend_7_thumb.png)](documentation/GALLERY.md#legend_7)  [![example_legend_8](documentation/examples/appearance/labels/legend/legend_8_thumb.png)](documentation/GALLERY.md#legend_8)  [![example_legend_9](documentation/examples/appearance/labels/legend/legend_9_thumb.png)](documentation/GALLERY.md#legend_9)  [![example_xlim_1](documentation/examples/appearance/axis/xlim/xlim_1_thumb.png)](documentation/GALLERY.md#xlim_1)  [![example_xlim_2](documentation/examples/appearance/axis/xlim/xlim_2_thumb.png)](documentation/GALLERY.md#xlim_2)  [![example_xlim_3](documentation/examples/appearance/axis/xlim/xlim_3_thumb.png)](documentation/GALLERY.md#xlim_3)  [![example_xlim_4](documentation/examples/appearance/axis/xlim/xlim_4_thumb.png)](documentation/GALLERY.md#xlim_4)  [![example_xlim_5](documentation/examples/appearance/axis/xlim/xlim_5_thumb.png)](documentation/GALLERY.md#xlim_5)  [![example_xlim_6](documentation/examples/appearance/axis/xlim/xlim_6_thumb.png)](documentation/GALLERY.md#xlim_6)  [![example_ylim_1](documentation/examples/appearance/axis/ylim/ylim_1_thumb.png)](documentation/GALLERY.md#ylim_1)  [![example_ylim_2](documentation/examples/appearance/axis/ylim/ylim_2_thumb.png)](documentation/GALLERY.md#ylim_2)  [![example_ylim_3](documentation/examples/appearance/axis/ylim/ylim_3_thumb.png)](documentation/GALLERY.md#ylim_3)  [![example_ylim_4](documentation/examples/appearance/axis/ylim/ylim_4_thumb.png)](documentation/GALLERY.md#ylim_4)  [![example_ylim_5](documentation/examples/appearance/axis/ylim/ylim_5_thumb.png)](documentation/GALLERY.md#ylim_5)  [![example_ylim_6](documentation/examples/appearance/axis/ylim/ylim_6_thumb.png)](documentation/GALLERY.md#ylim_6)  [![example_zlim_1](documentation/examples/appearance/axis/zlim/zlim_1_thumb.png)](documentation/GALLERY.md#zlim_1)  [![example_zlim_2](documentation/examples/appearance/axis/zlim/zlim_2_thumb.png)](documentation/GALLERY.md#zlim_2)  [![example_zlim_3](documentation/examples/appearance/axis/zlim/zlim_3_thumb.png)](documentation/GALLERY.md#zlim_3)  [![example_zlim_4](documentation/examples/appearance/axis/zlim/zlim_4_thumb.png)](documentation/GALLERY.md#zlim_4)  [![example_zlim_5](documentation/examples/appearance/axis/zlim/zlim_5_thumb.png)](documentation/GALLERY.md#zlim_5)  [![example_zlim_6](documentation/examples/appearance/axis/zlim/zlim_6_thumb.png)](documentation/GALLERY.md#zlim_6)  [![example_axis_1](documentation/examples/appearance/axis/axis/axis_1_thumb.png)](documentation/GALLERY.md#axis_1)  [![example_axis_2](documentation/examples/appearance/axis/axis/axis_2_thumb.png)](documentation/GALLERY.md#axis_2)  [![example_axis_3](documentation/examples/appearance/axis/axis/axis_3_thumb.png)](documentation/GALLERY.md#axis_3)  [![example_axis_4](documentation/examples/appearance/axis/axis/axis_4_thumb.png)](documentation/GALLERY.md#axis_4)  [![example_axis_5](documentation/examples/appearance/axis/axis/axis_5_thumb.png)](documentation/GALLERY.md#axis_5)  [![example_axis_6](documentation/examples/appearance/axis/axis/axis_6_thumb.png)](documentation/GALLERY.md#axis_6)  [![example_axis_7](documentation/examples/appearance/axis/axis/axis_7_thumb.png)](documentation/GALLERY.md#axis_7)  [![example_axis_8](documentation/examples/appearance/axis/axis/axis_8_thumb.png)](documentation/GALLERY.md#axis_8)  [![example_box_1](documentation/examples/appearance/axis/box/box_1_thumb.png)](documentation/GALLERY.md#box_1)  [![example_box_2](documentation/examples/appearance/axis/box/box_2_thumb.png)](documentation/GALLERY.md#box_2)  [![example_box_3](documentation/examples/appearance/axis/box/box_3_thumb.png)](documentation/GALLERY.md#box_3)  [![example_grid_1](documentation/examples/appearance/grid/grid/grid_1_thumb.png)](documentation/GALLERY.md#grid_1)  [![example_grid_2](documentation/examples/appearance/grid/grid/grid_2_thumb.png)](documentation/GALLERY.md#grid_2)  [![example_grid_3](documentation/examples/appearance/grid/grid/grid_3_thumb.png)](documentation/GALLERY.md#grid_3)  [![example_grid_4](documentation/examples/appearance/grid/grid/grid_4_thumb.png)](documentation/GALLERY.md#grid_4)  [![example_xticks_1](documentation/examples/appearance/grid/xticks/xticks_1_thumb.png)](documentation/GALLERY.md#xticks_1)  [![example_xticks_2](documentation/examples/appearance/grid/xticks/xticks_2_thumb.png)](documentation/GALLERY.md#xticks_2)  [![example_xticks_3](documentation/examples/appearance/grid/xticks/xticks_3_thumb.png)](documentation/GALLERY.md#xticks_3)  [![example_xticks_4](documentation/examples/appearance/grid/xticks/xticks_4_thumb.png)](documentation/GALLERY.md#xticks_4)  [![example_xticks_5](documentation/examples/appearance/grid/xticks/xticks_5_thumb.png)](documentation/GALLERY.md#xticks_5)  [![example_xticks_6](documentation/examples/appearance/grid/xticks/xticks_6_thumb.png)](documentation/GALLERY.md#xticks_6)  [![example_xticks_7](documentation/examples/appearance/grid/xticks/xticks_7_thumb.png)](documentation/GALLERY.md#xticks_7)  [![example_xticks_8](documentation/examples/appearance/grid/xticks/xticks_8_thumb.png)](documentation/GALLERY.md#xticks_8)  [![example_yticks_1](documentation/examples/appearance/grid/yticks/yticks_1_thumb.png)](documentation/GALLERY.md#yticks_1)  [![example_yticks_2](documentation/examples/appearance/grid/yticks/yticks_2_thumb.png)](documentation/GALLERY.md#yticks_2)  [![example_yticks_3](documentation/examples/appearance/grid/yticks/yticks_3_thumb.png)](documentation/GALLERY.md#yticks_3)  [![example_yticks_4](documentation/examples/appearance/grid/yticks/yticks_4_thumb.png)](documentation/GALLERY.md#yticks_4)  [![example_yticks_5](documentation/examples/appearance/grid/yticks/yticks_5_thumb.png)](documentation/GALLERY.md#yticks_5)  [![example_yticks_6](documentation/examples/appearance/grid/yticks/yticks_6_thumb.png)](documentation/GALLERY.md#yticks_6)  [![example_yticks_7](documentation/examples/appearance/grid/yticks/yticks_7_thumb.png)](documentation/GALLERY.md#yticks_7)  [![example_yticks_8](documentation/examples/appearance/grid/yticks/yticks_8_thumb.png)](documentation/GALLERY.md#yticks_8)  [![example_zticks_1](documentation/examples/appearance/grid/zticks/zticks_1_thumb.png)](documentation/GALLERY.md#zticks_1)  [![example_zticks_2](documentation/examples/appearance/grid/zticks/zticks_2_thumb.png)](documentation/GALLERY.md#zticks_2)  [![example_zticks_3](documentation/examples/appearance/grid/zticks/zticks_3_thumb.png)](documentation/GALLERY.md#zticks_3)  [![example_zticks_4](documentation/examples/appearance/grid/zticks/zticks_4_thumb.png)](documentation/GALLERY.md#zticks_4)  [![example_zticks_5](documentation/examples/appearance/grid/zticks/zticks_5_thumb.png)](documentation/GALLERY.md#zticks_5)  [![example_zticks_6](documentation/examples/appearance/grid/zticks/zticks_6_thumb.png)](documentation/GALLERY.md#zticks_6)  [![example_xticklabels_1](documentation/examples/appearance/grid/xticklabels/xticklabels_1_thumb.png)](documentation/GALLERY.md#xticklabels_1)  [![example_xticklabels_2](documentation/examples/appearance/grid/xticklabels/xticklabels_2_thumb.png)](documentation/GALLERY.md#xticklabels_2)  [![example_xticklabels_3](documentation/examples/appearance/grid/xticklabels/xticklabels_3_thumb.png)](documentation/GALLERY.md#xticklabels_3)  [![example_xticklabels_4](documentation/examples/appearance/grid/xticklabels/xticklabels_4_thumb.png)](documentation/GALLERY.md#xticklabels_4)  [![example_yticklabels_1](documentation/examples/appearance/grid/yticklabels/yticklabels_1_thumb.png)](documentation/GALLERY.md#yticklabels_1)  [![example_yticklabels_2](documentation/examples/appearance/grid/yticklabels/yticklabels_2_thumb.png)](documentation/GALLERY.md#yticklabels_2)  [![example_yticklabels_3](documentation/examples/appearance/grid/yticklabels/yticklabels_3_thumb.png)](documentation/GALLERY.md#yticklabels_3)  [![example_yticklabels_4](documentation/examples/appearance/grid/yticklabels/yticklabels_4_thumb.png)](documentation/GALLERY.md#yticklabels_4)  [![example_xtickformat_1](documentation/examples/appearance/grid/xtickformat/xtickformat_1_thumb.png)](documentation/GALLERY.md#xtickformat_1)  [![example_xtickformat_2](documentation/examples/appearance/grid/xtickformat/xtickformat_2_thumb.png)](documentation/GALLERY.md#xtickformat_2)  [![example_xtickformat_3](documentation/examples/appearance/grid/xtickformat/xtickformat_3_thumb.png)](documentation/GALLERY.md#xtickformat_3)  [![example_xtickformat_4](documentation/examples/appearance/grid/xtickformat/xtickformat_4_thumb.png)](documentation/GALLERY.md#xtickformat_4)  [![example_xtickformat_5](documentation/examples/appearance/grid/xtickformat/xtickformat_5_thumb.png)](documentation/GALLERY.md#xtickformat_5)  [![example_ytickformat_1](documentation/examples/appearance/grid/ytickformat/ytickformat_1_thumb.png)](documentation/GALLERY.md#ytickformat_1)  [![example_ytickformat_2](documentation/examples/appearance/grid/ytickformat/ytickformat_2_thumb.png)](documentation/GALLERY.md#ytickformat_2)  [![example_ytickformat_3](documentation/examples/appearance/grid/ytickformat/ytickformat_3_thumb.png)](documentation/GALLERY.md#ytickformat_3)  [![example_ytickformat_4](documentation/examples/appearance/grid/ytickformat/ytickformat_4_thumb.png)](documentation/GALLERY.md#ytickformat_4)  [![example_ytickformat_5](documentation/examples/appearance/grid/ytickformat/ytickformat_5_thumb.png)](documentation/GALLERY.md#ytickformat_5)  [![example_ztickformat_1](documentation/examples/appearance/grid/ztickformat/ztickformat_1_thumb.png)](documentation/GALLERY.md#ztickformat_1)  [![example_ztickformat_2](documentation/examples/appearance/grid/ztickformat/ztickformat_2_thumb.png)](documentation/GALLERY.md#ztickformat_2)  [![example_ztickformat_3](documentation/examples/appearance/grid/ztickformat/ztickformat_3_thumb.png)](documentation/GALLERY.md#ztickformat_3)  [![example_ztickformat_4](documentation/examples/appearance/grid/ztickformat/ztickformat_4_thumb.png)](documentation/GALLERY.md#ztickformat_4)  [![example_ztickformat_5](documentation/examples/appearance/grid/ztickformat/ztickformat_5_thumb.png)](documentation/GALLERY.md#ztickformat_5)  [![example_xtickangle_1](documentation/examples/appearance/grid/xtickangle/xtickangle_1_thumb.png)](documentation/GALLERY.md#xtickangle_1)  [![example_xtickangle_2](documentation/examples/appearance/grid/xtickangle/xtickangle_2_thumb.png)](documentation/GALLERY.md#xtickangle_2)  [![example_xtickangle_3](documentation/examples/appearance/grid/xtickangle/xtickangle_3_thumb.png)](documentation/GALLERY.md#xtickangle_3)  [![example_ytickangle_1](documentation/examples/appearance/grid/ytickangle/ytickangle_1_thumb.png)](documentation/GALLERY.md#ytickangle_1)  [![example_ytickangle_2](documentation/examples/appearance/grid/ytickangle/ytickangle_2_thumb.png)](documentation/GALLERY.md#ytickangle_2)  [![example_ytickangle_3](documentation/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](documentation/GALLERY.md#ytickangle_3)  [![example_hold_1](documentation/examples/appearance/multiplot/hold/hold_1_thumb.png)](documentation/GALLERY.md#hold_1)  [![example_hold_2](documentation/examples/appearance/multiplot/hold/hold_2_thumb.png)](documentation/GALLERY.md#hold_2)  [![example_hold_3](documentation/examples/appearance/multiplot/hold/hold_3_thumb.png)](documentation/GALLERY.md#hold_3)  [![example_hold_4](documentation/examples/appearance/multiplot/hold/hold_4_thumb.png)](documentation/GALLERY.md#hold_4)  [![example_yyaxis_1](documentation/examples/appearance/multiplot/yyaxis/yyaxis_1_thumb.png)](documentation/GALLERY.md#yyaxis_1)  [![example_yyaxis_2](documentation/examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png)](documentation/GALLERY.md#yyaxis_2)  [![example_yyaxis_3](documentation/examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png)](documentation/GALLERY.md#yyaxis_3)  [![example_yyaxis_4](documentation/examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png)](documentation/GALLERY.md#yyaxis_4)  [![example_yyaxis_5](documentation/examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png)](documentation/GALLERY.md#yyaxis_5)  [![example_yyaxis_6](documentation/examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png)](documentation/GALLERY.md#yyaxis_6)  [![example_yyaxis_7](documentation/examples/appearance/multiplot/yyaxis/yyaxis_7_thumb.png)](documentation/GALLERY.md#yyaxis_7)  [![example_colororder_1](documentation/examples/appearance/multiplot/colororder/colororder_1_thumb.png)](documentation/GALLERY.md#colororder_1)  [![example_colororder_2](documentation/examples/appearance/multiplot/colororder/colororder_2_thumb.png)](documentation/GALLERY.md#colororder_2)  [![example_colororder_3](documentation/examples/appearance/multiplot/colororder/colororder_3_thumb.png)](documentation/GALLERY.md#colororder_3)  [![example_colororder_4](documentation/examples/appearance/multiplot/colororder/colororder_4_thumb.png)](documentation/GALLERY.md#colororder_4)  [![example_colororder_5](documentation/examples/appearance/multiplot/colororder/colororder_5_thumb.png)](documentation/GALLERY.md#colororder_5)  [![example_colororder_6](documentation/examples/appearance/multiplot/colororder/colororder_6_thumb.png)](documentation/GALLERY.md#colororder_6)  [![example_colororder_7](documentation/examples/appearance/multiplot/colororder/colororder_7_thumb.png)](documentation/GALLERY.md#colororder_7)  [![example_subplot_1](documentation/examples/appearance/multiplot/subplot/subplot_1_thumb.png)](documentation/GALLERY.md#subplot_1)  [![example_subplot_2](documentation/examples/appearance/multiplot/subplot/subplot_2_thumb.png)](documentation/GALLERY.md#subplot_2)  [![example_subplot_3](documentation/examples/appearance/multiplot/subplot/subplot_3_thumb.png)](documentation/GALLERY.md#subplot_3)  [![example_subplot_4](documentation/examples/appearance/multiplot/subplot/subplot_4_thumb.png)](documentation/GALLERY.md#subplot_4)  [![example_subplot_5](documentation/examples/appearance/multiplot/subplot/subplot_5_thumb.png)](documentation/GALLERY.md#subplot_5)  [![example_subplot_6](documentation/examples/appearance/multiplot/subplot/subplot_6_thumb.png)](documentation/GALLERY.md#subplot_6)  [![example_subplot_7](documentation/examples/appearance/multiplot/subplot/subplot_7_thumb.png)](documentation/GALLERY.md#subplot_7)  [![example_subplot_8](documentation/examples/appearance/multiplot/subplot/subplot_8_thumb.png)](documentation/GALLERY.md#subplot_8)  [![example_subplot_9](documentation/examples/appearance/multiplot/subplot/subplot_9_thumb.png)](documentation/GALLERY.md#subplot_9)  [![example_subplot_10](documentation/examples/appearance/multiplot/subplot/subplot_10_thumb.png)](documentation/GALLERY.md#subplot_10)  [![example_subplot_11](documentation/examples/appearance/multiplot/subplot/subplot_11_thumb.png)](documentation/GALLERY.md#subplot_11)  [![example_subplot_12](documentation/examples/appearance/multiplot/subplot/subplot_12_thumb.png)](documentation/GALLERY.md#subplot_12)  [![example_subplot_13](documentation/examples/appearance/multiplot/subplot/subplot_13_thumb.png)](documentation/GALLERY.md#subplot_13)  [![example_tiledlayout_1](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_1_thumb.png)](documentation/GALLERY.md#tiledlayout_1)  [![example_tiledlayout_2](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png)](documentation/GALLERY.md#tiledlayout_2)  [![example_tiledlayout_3](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png)](documentation/GALLERY.md#tiledlayout_3)  [![example_tiledlayout_4](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png)](documentation/GALLERY.md#tiledlayout_4)  [![example_tiledlayout_5](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png)](documentation/GALLERY.md#tiledlayout_5)  [![example_tiledlayout_6](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png)](documentation/GALLERY.md#tiledlayout_6)  [![example_tiledlayout_7](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png)](documentation/GALLERY.md#tiledlayout_7)  [![example_tiledlayout_8](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png)](documentation/GALLERY.md#tiledlayout_8)  [![example_colormap_1](documentation/examples/appearance/colormaps/colormap/colormap_1_thumb.png)](documentation/GALLERY.md#colormap_1)  [![example_colormap_2](documentation/examples/appearance/colormaps/colormap/colormap_2_thumb.png)](documentation/GALLERY.md#colormap_2)  [![example_colormap_3](documentation/examples/appearance/colormaps/colormap/colormap_3_thumb.png)](documentation/GALLERY.md#colormap_3)  [![example_colormap_4](documentation/examples/appearance/colormaps/colormap/colormap_4_thumb.png)](documentation/GALLERY.md#colormap_4)  [![example_colormap_5](documentation/examples/appearance/colormaps/colormap/colormap_5_thumb.png)](documentation/GALLERY.md#colormap_5)  [![example_colormap_6](documentation/examples/appearance/colormaps/colormap/colormap_6_thumb.png)](documentation/GALLERY.md#colormap_6)  [![example_colormap_7](documentation/examples/appearance/colormaps/colormap/colormap_7_thumb.png)](documentation/GALLERY.md#colormap_7)  [![example_colormap_8](documentation/examples/appearance/colormaps/colormap/colormap_8_thumb.png)](documentation/GALLERY.md#colormap_8)  [![example_colormap_9](documentation/examples/appearance/colormaps/colormap/colormap_9_thumb.png)](documentation/GALLERY.md#colormap_9)  [![example_colorbar_1](documentation/examples/appearance/colormaps/colorbar/colorbar_1_thumb.png)](documentation/GALLERY.md#colorbar_1)  [![example_colorbar_2](documentation/examples/appearance/colormaps/colorbar/colorbar_2_thumb.png)](documentation/GALLERY.md#colorbar_2)  [![example_colorbar_3](documentation/examples/appearance/colormaps/colorbar/colorbar_3_thumb.png)](documentation/GALLERY.md#colorbar_3)  [![example_colorbar_4](documentation/examples/appearance/colormaps/colorbar/colorbar_4_thumb.png)](documentation/GALLERY.md#colorbar_4)  [![example_colorbar_5](documentation/examples/appearance/colormaps/colorbar/colorbar_5_thumb.png)](documentation/GALLERY.md#colorbar_5)  [![example_colorbar_6](documentation/examples/appearance/colormaps/colorbar/colorbar_6_thumb.png)](documentation/GALLERY.md#colorbar_6)  [![example_colorbar_7](documentation/examples/appearance/colormaps/colorbar/colorbar_7_thumb.png)](documentation/GALLERY.md#colorbar_7)  [![example_rgbplot_1](documentation/examples/appearance/colormaps/rgbplot/rgbplot_1_thumb.png)](documentation/GALLERY.md#rgbplot_1)  [![example_rgbplot_2](documentation/examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png)](documentation/GALLERY.md#rgbplot_2)  [![example_view_1](documentation/examples/appearance/camera/view/view_1_thumb.png)](documentation/GALLERY.md#view_1)  [![example_view_2](documentation/examples/appearance/camera/view/view_2_thumb.png)](documentation/GALLERY.md#view_2)  [![example_view_3](documentation/examples/appearance/camera/view/view_3_thumb.png)](documentation/GALLERY.md#view_3)  [![example_view_4](documentation/examples/appearance/camera/view/view_4_thumb.png)](documentation/GALLERY.md#view_4)  [![example_view_5](documentation/examples/appearance/camera/view/view_5_thumb.png)](documentation/GALLERY.md#view_5)  [![example_view_6](documentation/examples/appearance/camera/view/view_6_thumb.png)](documentation/GALLERY.md#view_6)  [![example_lighting_1](documentation/examples/appearance/camera/lighting/lighting_1_thumb.png)](documentation/GALLERY.md#lighting_1)  [![example_lighting_2](documentation/examples/appearance/camera/lighting/lighting_2_thumb.png)](documentation/GALLERY.md#lighting_2)  [![example_lighting_3](documentation/examples/appearance/camera/lighting/lighting_3_thumb.png)](documentation/GALLERY.md#lighting_3)  [![example_lighting_4](documentation/examples/appearance/camera/lighting/lighting_4_thumb.png)](documentation/GALLERY.md#lighting_4)  [![example_lighting_5](documentation/examples/appearance/camera/lighting/lighting_5_thumb.png)](documentation/GALLERY.md#lighting_5)  [![example_lighting_6](documentation/examples/appearance/camera/lighting/lighting_6_thumb.png)](documentation/GALLERY.md#lighting_6)  [![example_figure_1](documentation/examples/appearance/figure/figure_1_thumb.png)](documentation/GALLERY.md#figure_1)  [![example_figure_2](documentation/examples/appearance/figure/figure_2_thumb.png)](documentation/GALLERY.md#figure_2)  [![example_figure_3](documentation/examples/appearance/figure/figure_3_thumb.png)](documentation/GALLERY.md#figure_3)  [![example_line_spec_1](documentation/examples/appearance/line_spec/line_spec_1_thumb.png)](documentation/GALLERY.md#line_spec_1)  [![example_axes_1](documentation/examples/appearance/axes/axes_1_thumb.png)](documentation/GALLERY.md#axes_1)  [![example_axes_2](documentation/examples/appearance/axes/axes_2_thumb.png)](documentation/GALLERY.md#axes_2)  [![example_axes_3](documentation/examples/appearance/axes/axes_3_thumb.png)](documentation/GALLERY.md#axes_3)  [![example_axes_4](documentation/examples/appearance/axes/axes_4_thumb.png)](documentation/GALLERY.md#axes_4)  [![example_cla_1](documentation/examples/appearance/cla/cla_1_thumb.png)](documentation/GALLERY.md#cla_1)  [![example_cla_2](documentation/examples/appearance/cla/cla_2_thumb.png)](documentation/GALLERY.md#cla_2)  [![example_cla_3](documentation/examples/appearance/cla/cla_3_thumb.png)](documentation/GALLERY.md#cla_3)  [![example_save_1](documentation/examples/exporting/save/save_1_thumb.png)](documentation/GALLERY.md#save_1)  [![example_save_2](documentation/examples/exporting/save/save_2_thumb.png)](documentation/GALLERY.md#save_2)  [![example_save_3](documentation/examples/exporting/save/save_3_thumb.png)](documentation/GALLERY.md#save_3)  [![example_save_4](documentation/examples/exporting/save/save_4_thumb.png)](documentation/GALLERY.md#save_4)  [![example_save_5](documentation/examples/exporting/save/save_5_thumb.png)](documentation/GALLERY.md#save_5)  [![example_save_6](documentation/examples/exporting/save/save_6_thumb.png)](documentation/GALLERY.md#save_6)  [![example_save_7](documentation/examples/exporting/save/save_7_thumb.png)](documentation/GALLERY.md#save_7)  [![example_save_8](documentation/examples/exporting/save/save_8_thumb.png)](documentation/GALLERY.md#save_8)  
+</details>
 
 ## Examples
 
@@ -51,17 +57,7 @@ The examples assume we are in the `matplot` namespace. Use these examples to und
 
 ### Line Plots
 
-* [Line Plot](#line-plot)
-* [Line Plot 3D](#line-plot-3d)
-* [Stairs](#stairs)
-* [Error Bars](#error-bars)
-* [Area](#area)
-* [Loglog Plot](#loglog-plot)
-* [Semilogx Plot](#semilogx-plot)
-* [Semilogy Plot](#semilogy-plot)
-* [Function Plot](#function-plot)
-* [Function Plot 3D](#function-plot-3d)
-* [Implicit function](#implicit-function)
+[Line Plot](#line-plot) | [Line Plot 3D](#line-plot-3d) | [Stairs](#stairs) | [Error Bars](#error-bars) | [Area](#area) | [Loglog Plot](#loglog-plot) | [Semilogx Plot](#semilogx-plot) | [Semilogy Plot](#semilogy-plot) | [Function Plot](#function-plot) | [Function Plot 3D](#function-plot-3d) | [Implicit function](#implicit-function)
 
 #### Line Plot
 
@@ -69,13 +65,19 @@ The examples assume we are in the `matplot` namespace. Use these examples to und
 plot(x,y); 
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_plot_1](documentation/examples/line_plot/plot/plot_1.svg)](examples/line_plot/plot/plot_1.cpp)
+</details>
 
 Where `x` and `y` are are any value ranges.
 
-More examples:
-
-[![example_plot_2](documentation/examples/line_plot/plot/plot_2_thumb.png)](examples/line_plot/plot/plot_2.cpp)  [![example_plot_3](documentation/examples/line_plot/plot/plot_3_thumb.png)](examples/line_plot/plot/plot_3.cpp)  [![example_plot_4](documentation/examples/line_plot/plot/plot_4_thumb.png)](examples/line_plot/plot/plot_4.cpp)  [![example_plot_5](documentation/examples/line_plot/plot/plot_5_thumb.png)](examples/line_plot/plot/plot_5.cpp)  [![example_plot_6](documentation/examples/line_plot/plot/plot_6_thumb.png)](examples/line_plot/plot/plot_6.cpp)  [![example_plot_7](documentation/examples/line_plot/plot/plot_7_thumb.png)](examples/line_plot/plot/plot_7.cpp)  [![example_plot_8](documentation/examples/line_plot/plot/plot_8_thumb.png)](examples/line_plot/plot/plot_8.cpp)  [![example_plot_9](documentation/examples/line_plot/plot/plot_9_thumb.png)](examples/line_plot/plot/plot_9.cpp)  [![example_plot_10](documentation/examples/line_plot/plot/plot_10_thumb.png)](examples/line_plot/plot/plot_10.cpp)  [![example_plot_11](documentation/examples/line_plot/plot/plot_11_thumb.png)](examples/line_plot/plot/plot_11.cpp)  [![example_plot_12](documentation/examples/line_plot/plot/plot_12_thumb.png)](examples/line_plot/plot/plot_12.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_plot_2](documentation/examples/line_plot/plot/plot_2_thumb.png)](examples/line_plot/plot/plot_2.cpp)  [![example_plot_3](documentation/examples/line_plot/plot/plot_3_thumb.png)](examples/line_plot/plot/plot_3.cpp)  [![example_plot_4](documentation/examples/line_plot/plot/plot_4_thumb.png)](examples/line_plot/plot/plot_4.cpp)  [![example_plot_5](documentation/examples/line_plot/plot/plot_5_thumb.png)](examples/line_plot/plot/plot_5.cpp)  [![example_plot_6](documentation/examples/line_plot/plot/plot_6_thumb.png)](examples/line_plot/plot/plot_6.cpp)  [![example_plot_7](documentation/examples/line_plot/plot/plot_7_thumb.png)](examples/line_plot/plot/plot_7.cpp)  [![example_plot_8](documentation/examples/line_plot/plot/plot_8_thumb.png)](examples/line_plot/plot/plot_8.cpp)  [![example_plot_9](documentation/examples/line_plot/plot/plot_9_thumb.png)](examples/line_plot/plot/plot_9.cpp)  [![example_plot_10](documentation/examples/line_plot/plot/plot_10_thumb.png)](examples/line_plot/plot/plot_10.cpp)  [![example_plot_11](documentation/examples/line_plot/plot/plot_11_thumb.png)](examples/line_plot/plot/plot_11.cpp)  [![example_plot_12](documentation/examples/line_plot/plot/plot_12_thumb.png)](examples/line_plot/plot/plot_12.cpp)
+</details>  
 
 Setters return a reference to `*this` to allow method chaining:
 
@@ -91,11 +93,17 @@ The examples use free-standing functions to create plots. You can also use a obj
 plot3(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_plot3_1](documentation/examples/line_plot/plot3/plot3_1.svg)](examples/line_plot/plot3/plot3_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_plot3_2](documentation/examples/line_plot/plot3/plot3_2_thumb.png)](examples/line_plot/plot3/plot3_2.cpp)  [![example_plot3_3](documentation/examples/line_plot/plot3/plot3_3_thumb.png)](examples/line_plot/plot3/plot3_3.cpp)  [![example_plot3_4](documentation/examples/line_plot/plot3/plot3_4_thumb.png)](examples/line_plot/plot3/plot3_4.cpp)  [![example_plot3_5](documentation/examples/line_plot/plot3/plot3_5_thumb.png)](examples/line_plot/plot3/plot3_5.cpp)  [![example_plot3_7](documentation/examples/line_plot/plot3/plot3_7_thumb.png)](examples/line_plot/plot3/plot3_7.cpp)  [![example_plot3_8](documentation/examples/line_plot/plot3/plot3_8_thumb.png)](examples/line_plot/plot3/plot3_8.cpp)  [![example_plot3_9](documentation/examples/line_plot/plot3/plot3_9_thumb.png)](examples/line_plot/plot3/plot3_9.cpp)  [![example_plot3_10](documentation/examples/line_plot/plot3/plot3_10_thumb.png)](examples/line_plot/plot3/plot3_10.cpp)
+</details>
 
 With method chaining:
 
@@ -109,11 +117,17 @@ plot3(x,y)->line_width(2).color("red");
 stairs(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_stairs_1](documentation/examples/line_plot/stairs/stairs_1.svg)](examples/line_plot/stairs/stairs_1.cpp)
+</details>
 
-More examples:
-
-[![example_stairs_2](documentation/examples/line_plot/stairs/stairs_2_thumb.png)](examples/line_plot/stairs/stairs_2.cpp)  [![example_stairs_3](documentation/examples/line_plot/stairs/stairs_3_thumb.png)](examples/line_plot/stairs/stairs_3.cpp)  [![example_stairs_4](documentation/examples/line_plot/stairs/stairs_4_thumb.png)](examples/line_plot/stairs/stairs_4.cpp)  [![example_stairs_5](documentation/examples/line_plot/stairs/stairs_5_thumb.png)](examples/line_plot/stairs/stairs_5.cpp)  [![example_stairs_6](documentation/examples/line_plot/stairs/stairs_6_thumb.png)](examples/line_plot/stairs/stairs_6.cpp)  [![example_stairs_7](documentation/examples/line_plot/stairs/stairs_7_thumb.png)](examples/line_plot/stairs/stairs_7.cpp)  [![example_stairs_8](documentation/examples/line_plot/stairs/stairs_8_thumb.png)](examples/line_plot/stairs/stairs_8.cpp)  [![example_stairs_9](documentation/examples/line_plot/stairs/stairs_9_thumb.png)](examples/line_plot/stairs/stairs_9.cpp)  [![example_stairs_10](documentation/examples/line_plot/stairs/stairs_10_thumb.png)](examples/line_plot/stairs/stairs_10.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_stairs_2](documentation/examples/line_plot/stairs/stairs_2_thumb.png)](examples/line_plot/stairs/stairs_2.cpp)  [![example_stairs_3](documentation/examples/line_plot/stairs/stairs_3_thumb.png)](examples/line_plot/stairs/stairs_3.cpp)  [![example_stairs_4](documentation/examples/line_plot/stairs/stairs_4_thumb.png)](examples/line_plot/stairs/stairs_4.cpp)  [![example_stairs_5](documentation/examples/line_plot/stairs/stairs_5_thumb.png)](examples/line_plot/stairs/stairs_5.cpp)  [![example_stairs_6](documentation/examples/line_plot/stairs/stairs_6_thumb.png)](examples/line_plot/stairs/stairs_6.cpp)  [![example_stairs_7](documentation/examples/line_plot/stairs/stairs_7_thumb.png)](examples/line_plot/stairs/stairs_7.cpp)  [![example_stairs_8](documentation/examples/line_plot/stairs/stairs_8_thumb.png)](examples/line_plot/stairs/stairs_8.cpp)  [![example_stairs_9](documentation/examples/line_plot/stairs/stairs_9_thumb.png)](examples/line_plot/stairs/stairs_9.cpp)  [![example_stairs_10](documentation/examples/line_plot/stairs/stairs_10_thumb.png)](examples/line_plot/stairs/stairs_10.cpp)
+</details>  
 
 The `stair` object renders the line with stairs between data points to denote discrete data.
 
@@ -123,11 +137,17 @@ The `stair` object renders the line with stairs between data points to denote di
 errorbar(x,y,err);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_errorbar_1](documentation/examples/line_plot/errorbar/errorbar_1.svg)](examples/line_plot/errorbar/errorbar_1.cpp)
+</details>
 
-More examples:
-
-[![example_errorbar_2](documentation/examples/line_plot/errorbar/errorbar_2_thumb.png)](examples/line_plot/errorbar/errorbar_2.cpp)  [![example_errorbar_3](documentation/examples/line_plot/errorbar/errorbar_3_thumb.png)](examples/line_plot/errorbar/errorbar_3.cpp)  [![example_errorbar_4](documentation/examples/line_plot/errorbar/errorbar_4_thumb.png)](examples/line_plot/errorbar/errorbar_4.cpp)  [![example_errorbar_5](documentation/examples/line_plot/errorbar/errorbar_5_thumb.png)](examples/line_plot/errorbar/errorbar_5.cpp)  [![example_errorbar_6](documentation/examples/line_plot/errorbar/errorbar_6_thumb.png)](examples/line_plot/errorbar/errorbar_6.cpp)  [![example_errorbar_7](documentation/examples/line_plot/errorbar/errorbar_7_thumb.png)](examples/line_plot/errorbar/errorbar_7.cpp)  [![example_errorbar_8](documentation/examples/line_plot/errorbar/errorbar_8_thumb.png)](examples/line_plot/errorbar/errorbar_8.cpp)  [![example_errorbar_9](documentation/examples/line_plot/errorbar/errorbar_9_thumb.png)](examples/line_plot/errorbar/errorbar_9.cpp)  [![example_errorbar_10](documentation/examples/line_plot/errorbar/errorbar_10_thumb.png)](examples/line_plot/errorbar/errorbar_10.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_errorbar_2](documentation/examples/line_plot/errorbar/errorbar_2_thumb.png)](examples/line_plot/errorbar/errorbar_2.cpp)  [![example_errorbar_3](documentation/examples/line_plot/errorbar/errorbar_3_thumb.png)](examples/line_plot/errorbar/errorbar_3.cpp)  [![example_errorbar_4](documentation/examples/line_plot/errorbar/errorbar_4_thumb.png)](examples/line_plot/errorbar/errorbar_4.cpp)  [![example_errorbar_5](documentation/examples/line_plot/errorbar/errorbar_5_thumb.png)](examples/line_plot/errorbar/errorbar_5.cpp)  [![example_errorbar_6](documentation/examples/line_plot/errorbar/errorbar_6_thumb.png)](examples/line_plot/errorbar/errorbar_6.cpp)  [![example_errorbar_7](documentation/examples/line_plot/errorbar/errorbar_7_thumb.png)](examples/line_plot/errorbar/errorbar_7.cpp)  [![example_errorbar_8](documentation/examples/line_plot/errorbar/errorbar_8_thumb.png)](examples/line_plot/errorbar/errorbar_8.cpp)  [![example_errorbar_9](documentation/examples/line_plot/errorbar/errorbar_9_thumb.png)](examples/line_plot/errorbar/errorbar_9.cpp)  [![example_errorbar_10](documentation/examples/line_plot/errorbar/errorbar_10_thumb.png)](examples/line_plot/errorbar/errorbar_10.cpp)
+</details>  
 
 The `error bar` object includes extra lines to represent error around data points. Log plots are utility functions that adjust the x or y axes to a logarithmic scale. 
 
@@ -137,11 +157,17 @@ The `error bar` object includes extra lines to represent error around data point
 area(Y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_area_1](documentation/examples/line_plot/area/area_1.svg)](examples/line_plot/area/area_1.cpp)
+</details>
 
-More examples:
-
-[![example_area_2](documentation/examples/line_plot/area/area_2_thumb.png)](examples/line_plot/area/area_2.cpp)  [![example_area_3](documentation/examples/line_plot/area/area_3_thumb.png)](examples/line_plot/area/area_3.cpp)  [![example_area_4](documentation/examples/line_plot/area/area_4_thumb.png)](examples/line_plot/area/area_4.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_area_2](documentation/examples/line_plot/area/area_2_thumb.png)](examples/line_plot/area/area_2.cpp)  [![example_area_3](documentation/examples/line_plot/area/area_3_thumb.png)](examples/line_plot/area/area_3.cpp)  [![example_area_4](documentation/examples/line_plot/area/area_4_thumb.png)](examples/line_plot/area/area_4.cpp)
+</details>  
 
 #### Loglog Plot
 
@@ -149,11 +175,17 @@ More examples:
 loglog(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_loglog_1](documentation/examples/line_plot/loglog/loglog_1.svg)](examples/line_plot/loglog/loglog_1.cpp)
+</details>
 
-More examples:
-
-[![example_loglog_2](documentation/examples/line_plot/loglog/loglog_2_thumb.png)](examples/line_plot/loglog/loglog_2.cpp)  [![example_loglog_3](documentation/examples/line_plot/loglog/loglog_3_thumb.png)](examples/line_plot/loglog/loglog_3.cpp)  [![example_loglog_4](documentation/examples/line_plot/loglog/loglog_4_thumb.png)](examples/line_plot/loglog/loglog_4.cpp)  [![example_loglog_5](documentation/examples/line_plot/loglog/loglog_5_thumb.png)](examples/line_plot/loglog/loglog_5.cpp)  [![example_loglog_6](documentation/examples/line_plot/loglog/loglog_6_thumb.png)](examples/line_plot/loglog/loglog_6.cpp)  [![example_loglog_7](documentation/examples/line_plot/loglog/loglog_7_thumb.png)](examples/line_plot/loglog/loglog_7.cpp)  [![example_loglog_8](documentation/examples/line_plot/loglog/loglog_8_thumb.png)](examples/line_plot/loglog/loglog_8.cpp)  [![example_loglog_9](documentation/examples/line_plot/loglog/loglog_9_thumb.png)](examples/line_plot/loglog/loglog_9.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_loglog_2](documentation/examples/line_plot/loglog/loglog_2_thumb.png)](examples/line_plot/loglog/loglog_2.cpp)  [![example_loglog_3](documentation/examples/line_plot/loglog/loglog_3_thumb.png)](examples/line_plot/loglog/loglog_3.cpp)  [![example_loglog_4](documentation/examples/line_plot/loglog/loglog_4_thumb.png)](examples/line_plot/loglog/loglog_4.cpp)  [![example_loglog_5](documentation/examples/line_plot/loglog/loglog_5_thumb.png)](examples/line_plot/loglog/loglog_5.cpp)  [![example_loglog_6](documentation/examples/line_plot/loglog/loglog_6_thumb.png)](examples/line_plot/loglog/loglog_6.cpp)  [![example_loglog_7](documentation/examples/line_plot/loglog/loglog_7_thumb.png)](examples/line_plot/loglog/loglog_7.cpp)  [![example_loglog_8](documentation/examples/line_plot/loglog/loglog_8_thumb.png)](examples/line_plot/loglog/loglog_8.cpp)  [![example_loglog_9](documentation/examples/line_plot/loglog/loglog_9_thumb.png)](examples/line_plot/loglog/loglog_9.cpp)
+</details>  
 
 #### Semilogx Plot
 
@@ -161,7 +193,11 @@ More examples:
 semilogx(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_semilogx_1](documentation/examples/line_plot/semilogx/semilogx_1.svg)](examples/line_plot/semilogx/semilogx_1.cpp)
+</details>
 
 
 #### Semilogy Plot
@@ -170,7 +206,11 @@ semilogx(x,y);
 semilogy(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_semilogy_1](documentation/examples/line_plot/semilogy/semilogy_1.svg)](examples/line_plot/semilogy/semilogy_1.cpp)
+</details>
 
 #### Function Plot
 
@@ -178,11 +218,17 @@ semilogy(x,y);
 fplot(fx);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_fplot_1](documentation/examples/line_plot/fplot/fplot_1.svg)](examples/line_plot/fplot/fplot_1.cpp)
+</details>
 
-More examples:
-
-[![example_fplot_2](documentation/examples/line_plot/fplot/fplot_2_thumb.png)](examples/line_plot/fplot/fplot_2.cpp)  [![example_fplot_3](documentation/examples/line_plot/fplot/fplot_3_thumb.png)](examples/line_plot/fplot/fplot_3.cpp)  [![example_fplot_4](documentation/examples/line_plot/fplot/fplot_4_thumb.png)](examples/line_plot/fplot/fplot_4.cpp)  [![example_fplot_5](documentation/examples/line_plot/fplot/fplot_5_thumb.png)](examples/line_plot/fplot/fplot_5.cpp)  [![example_fplot_6](documentation/examples/line_plot/fplot/fplot_6_thumb.png)](examples/line_plot/fplot/fplot_6.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_fplot_2](documentation/examples/line_plot/fplot/fplot_2_thumb.png)](examples/line_plot/fplot/fplot_2.cpp)  [![example_fplot_3](documentation/examples/line_plot/fplot/fplot_3_thumb.png)](examples/line_plot/fplot/fplot_3.cpp)  [![example_fplot_4](documentation/examples/line_plot/fplot/fplot_4_thumb.png)](examples/line_plot/fplot/fplot_4.cpp)  [![example_fplot_5](documentation/examples/line_plot/fplot/fplot_5_thumb.png)](examples/line_plot/fplot/fplot_5.cpp)  [![example_fplot_6](documentation/examples/line_plot/fplot/fplot_6_thumb.png)](examples/line_plot/fplot/fplot_6.cpp)
+</details>  
 
 Instead of storing data points, the objects `function line` and `string function` store a function as a lambda function or as a string with an expression. These objects use lazy evaluation to generate absolute data points. The data is generated only when the `draw` function is called.
 
@@ -192,11 +238,17 @@ Instead of storing data points, the objects `function line` and `string function
 fplot(fxy);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_fplot3_1](documentation/examples/line_plot/fplot3/fplot3_1.svg)](examples/line_plot/fplot3/fplot3_1.cpp)
+</details>
 
-More examples:
-
-[![example_fplot3_2](documentation/examples/line_plot/fplot3/fplot3_2_thumb.png)](examples/line_plot/fplot3/fplot3_2.cpp)  [![example_fplot3_3](documentation/examples/line_plot/fplot3/fplot3_3_thumb.png)](examples/line_plot/fplot3/fplot3_3.cpp)  [![example_fplot3_4](documentation/examples/line_plot/fplot3/fplot3_4_thumb.png)](examples/line_plot/fplot3/fplot3_4.cpp)  [![example_fplot3_5](documentation/examples/line_plot/fplot3/fplot3_5_thumb.png)](examples/line_plot/fplot3/fplot3_5.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_fplot3_2](documentation/examples/line_plot/fplot3/fplot3_2_thumb.png)](examples/line_plot/fplot3/fplot3_2.cpp)  [![example_fplot3_3](documentation/examples/line_plot/fplot3/fplot3_3_thumb.png)](examples/line_plot/fplot3/fplot3_3.cpp)  [![example_fplot3_4](documentation/examples/line_plot/fplot3/fplot3_4_thumb.png)](examples/line_plot/fplot3/fplot3_4.cpp)  [![example_fplot3_5](documentation/examples/line_plot/fplot3/fplot3_5_thumb.png)](examples/line_plot/fplot3/fplot3_5.cpp)
+</details>  
 
 #### Implicit function
 
@@ -204,36 +256,39 @@ More examples:
 fplot(fxy);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_fimplicit_1](documentation/examples/line_plot/fimplicit/fimplicit_1.svg)](examples/line_plot/fimplicit/fimplicit_1.cpp)
+</details>
 
-More examples:
-
-[![example_fimplicit_2](documentation/examples/line_plot/fimplicit/fimplicit_2_thumb.png)](examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](documentation/examples/line_plot/fimplicit/fimplicit_3_thumb.png)](examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](documentation/examples/line_plot/fimplicit/fimplicit_4_thumb.png)](examples/line_plot/fimplicit/fimplicit_4.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_fimplicit_2](documentation/examples/line_plot/fimplicit/fimplicit_2_thumb.png)](examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](documentation/examples/line_plot/fimplicit/fimplicit_3_thumb.png)](examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](documentation/examples/line_plot/fimplicit/fimplicit_4_thumb.png)](examples/line_plot/fimplicit/fimplicit_4.cpp)
+</details>  
 
 ### Data Distribution
 
-* [Histogram](#histogram)
-* [Boxplot](#boxplot)
-* [Scatter Plot](#scatter-plot)
-* [Scatter Plot 3D](#scatter-plot-3d)
-* [Binscatter](#binscatter)
-* [Plot Matrix](#plot-matrix)
-* [Parallel Coordinates](#parallel-coordinates)
-* [Pie Chart](#pie-chart)
-* [Heatmap](#heatmap)
-* [Word Cloud](#word-cloud)
-
+[Histogram](#histogram) | [Boxplot](#boxplot) | [Scatter Plot](#scatter-plot) | [Scatter Plot 3D](#scatter-plot-3d) | [Binscatter](#binscatter) | [Plot Matrix](#plot-matrix) | [Parallel Coordinates](#parallel-coordinates) | [Pie Chart](#pie-chart) | [Heatmap](#heatmap) | [Word Cloud](#word-cloud)
+ 
 #### Histogram
 
 ```cpp
 hist(data);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_histogram_1](documentation/examples/data_distribution/histogram/histogram_1.png)](examples/data_distribution/histogram/histogram_1.cpp)
+</details>
 
-More examples:
-
-[![example_histogram_2](documentation/examples/data_distribution/histogram/histogram_2_thumb.png)](examples/data_distribution/histogram/histogram_2.cpp)  [![example_histogram_3](documentation/examples/data_distribution/histogram/histogram_3_thumb.png)](examples/data_distribution/histogram/histogram_3.cpp)  [![example_histogram_4](documentation/examples/data_distribution/histogram/histogram_4_thumb.png)](examples/data_distribution/histogram/histogram_4.cpp)  [![example_histogram_5](documentation/examples/data_distribution/histogram/histogram_5_thumb.png)](examples/data_distribution/histogram/histogram_5.cpp)  [![example_histogram_6](documentation/examples/data_distribution/histogram/histogram_6_thumb.png)](examples/data_distribution/histogram/histogram_6.cpp)  [![example_histogram_7](documentation/examples/data_distribution/histogram/histogram_7_thumb.png)](examples/data_distribution/histogram/histogram_7.cpp)  [![example_histogram_8](documentation/examples/data_distribution/histogram/histogram_8_thumb.png)](examples/data_distribution/histogram/histogram_8.cpp)  [![example_histogram_9](documentation/examples/data_distribution/histogram/histogram_9_thumb.png)](examples/data_distribution/histogram/histogram_9.cpp)  [![example_histogram_10](documentation/examples/data_distribution/histogram/histogram_10_thumb.png)](examples/data_distribution/histogram/histogram_10.cpp)  [![example_histogram_11](documentation/examples/data_distribution/histogram/histogram_11_thumb.png)](examples/data_distribution/histogram/histogram_11.cpp)  [![example_histogram_12](documentation/examples/data_distribution/histogram/histogram_12_thumb.png)](examples/data_distribution/histogram/histogram_12.cpp)  [![example_histogram_14](documentation/examples/data_distribution/histogram/histogram_14_thumb.png)](examples/data_distribution/histogram/histogram_14.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_histogram_2](documentation/examples/data_distribution/histogram/histogram_2_thumb.png)](examples/data_distribution/histogram/histogram_2.cpp)  [![example_histogram_3](documentation/examples/data_distribution/histogram/histogram_3_thumb.png)](examples/data_distribution/histogram/histogram_3.cpp)  [![example_histogram_4](documentation/examples/data_distribution/histogram/histogram_4_thumb.png)](examples/data_distribution/histogram/histogram_4.cpp)  [![example_histogram_5](documentation/examples/data_distribution/histogram/histogram_5_thumb.png)](examples/data_distribution/histogram/histogram_5.cpp)  [![example_histogram_6](documentation/examples/data_distribution/histogram/histogram_6_thumb.png)](examples/data_distribution/histogram/histogram_6.cpp)  [![example_histogram_7](documentation/examples/data_distribution/histogram/histogram_7_thumb.png)](examples/data_distribution/histogram/histogram_7.cpp)  [![example_histogram_8](documentation/examples/data_distribution/histogram/histogram_8_thumb.png)](examples/data_distribution/histogram/histogram_8.cpp)  [![example_histogram_9](documentation/examples/data_distribution/histogram/histogram_9_thumb.png)](examples/data_distribution/histogram/histogram_9.cpp)  [![example_histogram_10](documentation/examples/data_distribution/histogram/histogram_10_thumb.png)](examples/data_distribution/histogram/histogram_10.cpp)  [![example_histogram_11](documentation/examples/data_distribution/histogram/histogram_11_thumb.png)](examples/data_distribution/histogram/histogram_11.cpp)  [![example_histogram_12](documentation/examples/data_distribution/histogram/histogram_12_thumb.png)](examples/data_distribution/histogram/histogram_12.cpp)  [![example_histogram_14](documentation/examples/data_distribution/histogram/histogram_14_thumb.png)](examples/data_distribution/histogram/histogram_14.cpp)
+</details>  
 
 The `histogram` object creates the histogram edges and bins when the `draw` function is called for the first time with lazy evaluation. Lazy evaluation avoids calculating edges unnecessarily in case the user changes the object parameters before calling `draw`. This object includes several algorithms for automatically delimiting the edges and bins for the histograms. 
 
@@ -243,11 +298,17 @@ The `histogram` object creates the histogram edges and bins when the `draw` func
 boxplot(data);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_boxplot_1](documentation/examples/data_distribution/boxplot/boxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
+</details>
 
-More examples:
-
-[![example_boxplot_2](documentation/examples/data_distribution/boxplot/boxplot_2_thumb.png)](examples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](documentation/examples/data_distribution/boxplot/boxplot_3_thumb.png)](examples/data_distribution/boxplot/boxplot_3.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_boxplot_2](documentation/examples/data_distribution/boxplot/boxplot_2_thumb.png)](examples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](documentation/examples/data_distribution/boxplot/boxplot_3_thumb.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
+</details>  
 
 #### Scatter Plot
 
@@ -255,11 +316,17 @@ More examples:
 scatter(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_scatter_1](documentation/examples/data_distribution/scatter/scatter_1.svg)](examples/data_distribution/scatter/scatter_1.cpp)
+</details>
 
-More examples:
-
-[![example_scatter_2](documentation/examples/data_distribution/scatter/scatter_2_thumb.png)](examples/data_distribution/scatter/scatter_2.cpp)  [![example_scatter_3](documentation/examples/data_distribution/scatter/scatter_3_thumb.png)](examples/data_distribution/scatter/scatter_3.cpp)  [![example_scatter_4](documentation/examples/data_distribution/scatter/scatter_4_thumb.png)](examples/data_distribution/scatter/scatter_4.cpp)  [![example_scatter_5](documentation/examples/data_distribution/scatter/scatter_5_thumb.png)](examples/data_distribution/scatter/scatter_5.cpp)  [![example_scatter_6](documentation/examples/data_distribution/scatter/scatter_6_thumb.png)](examples/data_distribution/scatter/scatter_6.cpp)  [![example_scatter_7](documentation/examples/data_distribution/scatter/scatter_7_thumb.png)](examples/data_distribution/scatter/scatter_7.cpp)  [![example_scatter_8](documentation/examples/data_distribution/scatter/scatter_8_thumb.png)](examples/data_distribution/scatter/scatter_8.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_scatter_2](documentation/examples/data_distribution/scatter/scatter_2_thumb.png)](examples/data_distribution/scatter/scatter_2.cpp)  [![example_scatter_3](documentation/examples/data_distribution/scatter/scatter_3_thumb.png)](examples/data_distribution/scatter/scatter_3.cpp)  [![example_scatter_4](documentation/examples/data_distribution/scatter/scatter_4_thumb.png)](examples/data_distribution/scatter/scatter_4.cpp)  [![example_scatter_5](documentation/examples/data_distribution/scatter/scatter_5_thumb.png)](examples/data_distribution/scatter/scatter_5.cpp)  [![example_scatter_6](documentation/examples/data_distribution/scatter/scatter_6_thumb.png)](examples/data_distribution/scatter/scatter_6.cpp)  [![example_scatter_7](documentation/examples/data_distribution/scatter/scatter_7_thumb.png)](examples/data_distribution/scatter/scatter_7.cpp)  [![example_scatter_8](documentation/examples/data_distribution/scatter/scatter_8_thumb.png)](examples/data_distribution/scatter/scatter_8.cpp)
+</details>  
 
 Scatter plots also depend on the `line` object. As the line object can represent lines with markers, the `scatter` function simply creates markers without the lines.
 
@@ -269,11 +336,17 @@ Scatter plots also depend on the `line` object. As the line object can represent
 scatter(x,y,z);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_scatter3_1](documentation/examples/data_distribution/scatter3/scatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
+</details>
 
-More examples:
-
-[![example_scatter3_2](documentation/examples/data_distribution/scatter3/scatter3_2_thumb.png)](examples/data_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](documentation/examples/data_distribution/scatter3/scatter3_3_thumb.png)](examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](documentation/examples/data_distribution/scatter3/scatter3_4_thumb.png)](examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](documentation/examples/data_distribution/scatter3/scatter3_5_thumb.png)](examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](documentation/examples/data_distribution/scatter3/scatter3_6_thumb.png)](examples/data_distribution/scatter3/scatter3_6.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_scatter3_2](documentation/examples/data_distribution/scatter3/scatter3_2_thumb.png)](examples/data_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](documentation/examples/data_distribution/scatter3/scatter3_3_thumb.png)](examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](documentation/examples/data_distribution/scatter3/scatter3_4_thumb.png)](examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](documentation/examples/data_distribution/scatter3/scatter3_5_thumb.png)](examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](documentation/examples/data_distribution/scatter3/scatter3_6_thumb.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
+</details>  
 
 #### Binned Scatter Plots
 
@@ -281,11 +354,17 @@ More examples:
 binscatter(x,y);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_binscatter_1](documentation/examples/data_distribution/binscatter/binscatter_1.png)](examples/data_distribution/binscatter/binscatter_1.cpp)
+</details>
 
-More examples:
-
-[![example_binscatter_2](documentation/examples/data_distribution/binscatter/binscatter_2_thumb.png)](examples/data_distribution/binscatter/binscatter_2.cpp)  [![example_binscatter_3](documentation/examples/data_distribution/binscatter/binscatter_3_thumb.png)](examples/data_distribution/binscatter/binscatter_3.cpp)  [![example_binscatter_4](documentation/examples/data_distribution/binscatter/binscatter_4_thumb.png)](examples/data_distribution/binscatter/binscatter_4.cpp)  [![example_binscatter_5](documentation/examples/data_distribution/binscatter/binscatter_5_thumb.png)](examples/data_distribution/binscatter/binscatter_5.cpp)  [![example_binscatter_6](documentation/examples/data_distribution/binscatter/binscatter_6_thumb.png)](examples/data_distribution/binscatter/binscatter_6.cpp)  [![example_binscatter_7](documentation/examples/data_distribution/binscatter/binscatter_7_thumb.png)](examples/data_distribution/binscatter/binscatter_7.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_binscatter_2](documentation/examples/data_distribution/binscatter/binscatter_2_thumb.png)](examples/data_distribution/binscatter/binscatter_2.cpp)  [![example_binscatter_3](documentation/examples/data_distribution/binscatter/binscatter_3_thumb.png)](examples/data_distribution/binscatter/binscatter_3.cpp)  [![example_binscatter_4](documentation/examples/data_distribution/binscatter/binscatter_4_thumb.png)](examples/data_distribution/binscatter/binscatter_4.cpp)  [![example_binscatter_5](documentation/examples/data_distribution/binscatter/binscatter_5_thumb.png)](examples/data_distribution/binscatter/binscatter_5.cpp)  [![example_binscatter_6](documentation/examples/data_distribution/binscatter/binscatter_6_thumb.png)](examples/data_distribution/binscatter/binscatter_6.cpp)  [![example_binscatter_7](documentation/examples/data_distribution/binscatter/binscatter_7_thumb.png)](examples/data_distribution/binscatter/binscatter_7.cpp)
+</details>  
 
 Binned scatter plots use variations of the histogram algorithms of the previous section as an extra step to place all the data into two-dimensional bins that can be represented with varying colors or sizes. This is useful when there are so many data points that a scatter plot would be impractical for visualizing the data.
 
@@ -295,47 +374,93 @@ Binned scatter plots use variations of the histogram algorithms of the previous 
 plotmatrix(X);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_plotmatrix_1](documentation/examples/data_distribution/plotmatrix/plotmatrix_1.svg)](examples/data_distribution/plotmatrix/plotmatrix_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_plotmatrix_2](documentation/examples/data_distribution/plotmatrix/plotmatrix_2_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_2.cpp)  [![example_plotmatrix_3](documentation/examples/data_distribution/plotmatrix/plotmatrix_3_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_3.cpp)  [![example_plotmatrix_4](documentation/examples/data_distribution/plotmatrix/plotmatrix_4_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_4.cpp)
+</details>
 
 The Plot Matrix subcategory is a combination of histograms and scatter plots. It creates a matrix of `axes` objects on the `figure` and creates a scatter plot for each pair of data sets.
  
 #### Parallel Coordinates
 
+```cpp
+parallelplot(X);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_parallelplot_1](documentation/examples/data_distribution/parallelplot/parallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
+</details>
 
-More examples:
-
-[![example_parallelplot_2](documentation/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](documentation/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](examples/data_distribution/parallelplot/parallelplot_3.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_parallelplot_2](documentation/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](documentation/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
+</details>  
 
 The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data. 
 
 #### Pie Chart
 
+```cpp
+pie(x);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_pie_1](documentation/examples/data_distribution/pie/pie_1.svg)](examples/data_distribution/pie/pie_1.cpp)
+</details>
 
-More examples:
-
-[![example_pie_2](documentation/examples/data_distribution/pie/pie_2_thumb.png)](examples/data_distribution/pie/pie_2.cpp)  [![example_pie_3](documentation/examples/data_distribution/pie/pie_3_thumb.png)](examples/data_distribution/pie/pie_3.cpp)  [![example_pie_4](documentation/examples/data_distribution/pie/pie_4_thumb.png)](examples/data_distribution/pie/pie_4.cpp)  [![example_pie_5](documentation/examples/data_distribution/pie/pie_5_thumb.png)](examples/data_distribution/pie/pie_5.cpp)  [![example_pie_6](documentation/examples/data_distribution/pie/pie_6_thumb.png)](examples/data_distribution/pie/pie_6.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_pie_2](documentation/examples/data_distribution/pie/pie_2_thumb.png)](examples/data_distribution/pie/pie_2.cpp)  [![example_pie_3](documentation/examples/data_distribution/pie/pie_3_thumb.png)](examples/data_distribution/pie/pie_3.cpp)  [![example_pie_4](documentation/examples/data_distribution/pie/pie_4_thumb.png)](examples/data_distribution/pie/pie_4.cpp)  [![example_pie_5](documentation/examples/data_distribution/pie/pie_5_thumb.png)](examples/data_distribution/pie/pie_5.cpp)  [![example_pie_6](documentation/examples/data_distribution/pie/pie_6_thumb.png)](examples/data_distribution/pie/pie_6.cpp)
+</details>  
 
 #### Heatmap
 
+```cpp
+heatmap(data);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_heatmap_1](documentation/examples/data_distribution/heatmap/heatmap_1.png)](examples/data_distribution/heatmap/heatmap_1.cpp)
+</details>
 
-More examples:
-
-[![example_heatmap_2](documentation/examples/data_distribution/heatmap/heatmap_2_thumb.png)](examples/data_distribution/heatmap/heatmap_2.cpp)  [![example_heatmap_3](documentation/examples/data_distribution/heatmap/heatmap_3_thumb.png)](examples/data_distribution/heatmap/heatmap_3.cpp)  [![example_heatmap_4](documentation/examples/data_distribution/heatmap/heatmap_4_thumb.png)](examples/data_distribution/heatmap/heatmap_4.cpp)  [![example_heatmap_5](documentation/examples/data_distribution/heatmap/heatmap_5_thumb.png)](examples/data_distribution/heatmap/heatmap_5.cpp)  [![example_heatmap_6](documentation/examples/data_distribution/heatmap/heatmap_6_thumb.png)](examples/data_distribution/heatmap/heatmap_6.cpp)  [![example_heatmap_7](documentation/examples/data_distribution/heatmap/heatmap_7_thumb.png)](examples/data_distribution/heatmap/heatmap_7.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_heatmap_2](documentation/examples/data_distribution/heatmap/heatmap_2_thumb.png)](examples/data_distribution/heatmap/heatmap_2.cpp)  [![example_heatmap_3](documentation/examples/data_distribution/heatmap/heatmap_3_thumb.png)](examples/data_distribution/heatmap/heatmap_3.cpp)  [![example_heatmap_4](documentation/examples/data_distribution/heatmap/heatmap_4_thumb.png)](examples/data_distribution/heatmap/heatmap_4.cpp)  [![example_heatmap_5](documentation/examples/data_distribution/heatmap/heatmap_5_thumb.png)](examples/data_distribution/heatmap/heatmap_5.cpp)  [![example_heatmap_6](documentation/examples/data_distribution/heatmap/heatmap_6_thumb.png)](examples/data_distribution/heatmap/heatmap_6.cpp)  [![example_heatmap_7](documentation/examples/data_distribution/heatmap/heatmap_7_thumb.png)](examples/data_distribution/heatmap/heatmap_7.cpp)
+</details>  
 
 #### Word Cloud
 
+```cpp
+wordcloud(text, black_list);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_wordcloud_1](documentation/examples/data_distribution/wordcloud/wordcloud_1.png)](examples/data_distribution/wordcloud/wordcloud_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_wordcloud_3](documentation/examples/data_distribution/wordcloud/wordcloud_3_thumb.png)](examples/data_distribution/wordcloud/wordcloud_3.cpp)  [![example_wordcloud_4](documentation/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)  [![example_wordcloud_4](documentation/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
+</details>
 
 Word clouds are generated from text or pairs of words and their frequency. After attributing a size proportional to each word frequency, the algorithm to position the labels iterates words from the largest to the smallest. For each word, it spins the word in polar coordinates converted to Cartesian coordinates until it does not overlap with any other word.
 
@@ -343,26 +468,43 @@ By default, the colors and the sizes depend on the word frequencies. We can cust
 
 ### Discrete Data
 
-* [Bar Plot](#bar-plot)
-* [Pareto Chart](#pareto-chart)
-* [Stem Plot](#stem-plot)
-* [Stem Plot 3D](#stem-plot-3d)
-
+[Bar Plot](#bar-plot) | [Pareto Chart](#pareto-chart) | [Stem Plot](#stem-plot) | [Stem Plot 3D](#stem-plot-3d)
+ 
 #### Bar Plot
 
+```cpp
+bar(y);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_bar_1](documentation/examples/discrete_data/bar/bar_1.png)](examples/discrete_data/bar/bar_1.cpp)
+</details>
 
-More examples:
-
-[![example_bar_2](documentation/examples/discrete_data/bar/bar_2_thumb.png)](examples/discrete_data/bar/bar_2.cpp)  [![example_bar_3](documentation/examples/discrete_data/bar/bar_3_thumb.png)](examples/discrete_data/bar/bar_3.cpp)  [![example_bar_4](documentation/examples/discrete_data/bar/bar_4_thumb.png)](examples/discrete_data/bar/bar_4.cpp)  [![example_bar_5](documentation/examples/discrete_data/bar/bar_5_thumb.png)](examples/discrete_data/bar/bar_5.cpp)  [![example_bar_6](documentation/examples/discrete_data/bar/bar_6_thumb.png)](examples/discrete_data/bar/bar_6.cpp)  [![example_bar_7](documentation/examples/discrete_data/bar/bar_7_thumb.png)](examples/discrete_data/bar/bar_7.cpp)  [![example_bar_8](documentation/examples/discrete_data/bar/bar_8_thumb.png)](examples/discrete_data/bar/bar_8.cpp)  [![example_bar_9](documentation/examples/discrete_data/bar/bar_9_thumb.png)](examples/discrete_data/bar/bar_9.cpp)  [![example_bar_10](documentation/examples/discrete_data/bar/bar_10_thumb.png)](examples/discrete_data/bar/bar_10.cpp)  [![example_bar_11](documentation/examples/discrete_data/bar/bar_11_thumb.png)](examples/discrete_data/bar/bar_11.cpp)  [![example_bar_12](documentation/examples/discrete_data/bar/bar_12_thumb.png)](examples/discrete_data/bar/bar_12.cpp)  [![example_bar_13](documentation/examples/discrete_data/bar/bar_13_thumb.png)](examples/discrete_data/bar/bar_13.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_bar_2](documentation/examples/discrete_data/bar/bar_2_thumb.png)](examples/discrete_data/bar/bar_2.cpp)  [![example_bar_3](documentation/examples/discrete_data/bar/bar_3_thumb.png)](examples/discrete_data/bar/bar_3.cpp)  [![example_bar_4](documentation/examples/discrete_data/bar/bar_4_thumb.png)](examples/discrete_data/bar/bar_4.cpp)  [![example_bar_5](documentation/examples/discrete_data/bar/bar_5_thumb.png)](examples/discrete_data/bar/bar_5.cpp)  [![example_bar_6](documentation/examples/discrete_data/bar/bar_6_thumb.png)](examples/discrete_data/bar/bar_6.cpp)  [![example_bar_7](documentation/examples/discrete_data/bar/bar_7_thumb.png)](examples/discrete_data/bar/bar_7.cpp)  [![example_bar_8](documentation/examples/discrete_data/bar/bar_8_thumb.png)](examples/discrete_data/bar/bar_8.cpp)  [![example_bar_9](documentation/examples/discrete_data/bar/bar_9_thumb.png)](examples/discrete_data/bar/bar_9.cpp)  [![example_bar_10](documentation/examples/discrete_data/bar/bar_10_thumb.png)](examples/discrete_data/bar/bar_10.cpp)  [![example_bar_11](documentation/examples/discrete_data/bar/bar_11_thumb.png)](examples/discrete_data/bar/bar_11.cpp)  [![example_bar_12](documentation/examples/discrete_data/bar/bar_12_thumb.png)](examples/discrete_data/bar/bar_12.cpp)  [![example_bar_13](documentation/examples/discrete_data/bar/bar_13_thumb.png)](examples/discrete_data/bar/bar_13.cpp)
+</details>  
 
 #### Pareto Chart
 
+```cpp
+pareto(y);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_pareto_1](documentation/examples/discrete_data/pareto/pareto_1.svg)](examples/discrete_data/pareto/pareto_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_pareto_2](documentation/examples/discrete_data/pareto/pareto_2_thumb.png)](examples/discrete_data/pareto/pareto_2.cpp)  [![example_pareto_3](documentation/examples/discrete_data/pareto/pareto_3_thumb.png)](examples/discrete_data/pareto/pareto_3.cpp) [![example_pareto_4](documentation/examples/discrete_data/pareto/pareto_4_thumb.png)](examples/discrete_data/pareto/pareto_4.cpp)
+</details>
 
 Pareto Charts are a type of chart that uses both $y$ axes. The $y_1$ axis is used to represent bars with the data values in descending order. The $y_2$ axis is used to represent the cumulative distribution function of the data in the $y_1$ axis. By default, a Pareto Chart includes up to 10 items or as many items as needed to represent 95% of the cumulative distribution.
 
@@ -370,34 +512,61 @@ If you need Pareto *fronts* rather than Pareto *charts*, we refer to [Scatter Pl
 
 #### Stem Plot
 
+```cpp
+stem(Y);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_stem_1](documentation/examples/discrete_data/stem/stem_1.svg)](examples/discrete_data/stem/stem_1.cpp)
+</details>
 
-More examples:
-
-[![example_stem_2](documentation/examples/discrete_data/stem/stem_2_thumb.png)](examples/discrete_data/stem/stem_2.cpp)  [![example_stem_3](documentation/examples/discrete_data/stem/stem_3_thumb.png)](examples/discrete_data/stem/stem_3.cpp)  [![example_stem_4](documentation/examples/discrete_data/stem/stem_4_thumb.png)](examples/discrete_data/stem/stem_4.cpp)  [![example_stem_5](documentation/examples/discrete_data/stem/stem_5_thumb.png)](examples/discrete_data/stem/stem_5.cpp)  [![example_stem_6](documentation/examples/discrete_data/stem/stem_6_thumb.png)](examples/discrete_data/stem/stem_6.cpp)  [![example_stem_7](documentation/examples/discrete_data/stem/stem_7_thumb.png)](examples/discrete_data/stem/stem_7.cpp)  [![example_stem_8](documentation/examples/discrete_data/stem/stem_8_thumb.png)](examples/discrete_data/stem/stem_8.cpp)  [![example_stem_9](documentation/examples/discrete_data/stem/stem_9_thumb.png)](examples/discrete_data/stem/stem_9.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_stem_2](documentation/examples/discrete_data/stem/stem_2_thumb.png)](examples/discrete_data/stem/stem_2.cpp)  [![example_stem_3](documentation/examples/discrete_data/stem/stem_3_thumb.png)](examples/discrete_data/stem/stem_3.cpp)  [![example_stem_4](documentation/examples/discrete_data/stem/stem_4_thumb.png)](examples/discrete_data/stem/stem_4.cpp)  [![example_stem_5](documentation/examples/discrete_data/stem/stem_5_thumb.png)](examples/discrete_data/stem/stem_5.cpp)  [![example_stem_6](documentation/examples/discrete_data/stem/stem_6_thumb.png)](examples/discrete_data/stem/stem_6.cpp)  [![example_stem_7](documentation/examples/discrete_data/stem/stem_7_thumb.png)](examples/discrete_data/stem/stem_7.cpp)  [![example_stem_8](documentation/examples/discrete_data/stem/stem_8_thumb.png)](examples/discrete_data/stem/stem_8.cpp)  [![example_stem_9](documentation/examples/discrete_data/stem/stem_9_thumb.png)](examples/discrete_data/stem/stem_9.cpp)
+</details>  
 
 #### Stem Plot 3D
 
+```cpp
+stem3(z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_stem3_1](documentation/examples/discrete_data/stem3/stem3_1.svg)](examples/discrete_data/stem3/stem3_1.cpp)
+</details>
 
-More examples:
-
-[![example_stem3_2](documentation/examples/discrete_data/stem3/stem3_2_thumb.png)](examples/discrete_data/stem3/stem3_2.cpp)  [![example_stem3_3](documentation/examples/discrete_data/stem3/stem3_3_thumb.png)](examples/discrete_data/stem3/stem3_3.cpp)  [![example_stem3_4](documentation/examples/discrete_data/stem3/stem3_4_thumb.png)](examples/discrete_data/stem3/stem3_4.cpp)  [![example_stem3_5](documentation/examples/discrete_data/stem3/stem3_5_thumb.png)](examples/discrete_data/stem3/stem3_5.cpp)  [![example_stem3_6](documentation/examples/discrete_data/stem3/stem3_6_thumb.png)](examples/discrete_data/stem3/stem3_6.cpp)  [![example_stem3_7](documentation/examples/discrete_data/stem3/stem3_7_thumb.png)](examples/discrete_data/stem3/stem3_7.cpp)  [![example_stem3_8](documentation/examples/discrete_data/stem3/stem3_8_thumb.png)](examples/discrete_data/stem3/stem3_8.cpp)  [![example_stem3_9](documentation/examples/discrete_data/stem3/stem3_9_thumb.png)](examples/discrete_data/stem3/stem3_9.cpp)  [![example_stem3_10](documentation/examples/discrete_data/stem3/stem3_10_thumb.png)](examples/discrete_data/stem3/stem3_10.cpp)  [![example_stem3_11](documentation/examples/discrete_data/stem3/stem3_11_thumb.png)](examples/discrete_data/stem3/stem3_11.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_stem3_2](documentation/examples/discrete_data/stem3/stem3_2_thumb.png)](examples/discrete_data/stem3/stem3_2.cpp)  [![example_stem3_3](documentation/examples/discrete_data/stem3/stem3_3_thumb.png)](examples/discrete_data/stem3/stem3_3.cpp)  [![example_stem3_4](documentation/examples/discrete_data/stem3/stem3_4_thumb.png)](examples/discrete_data/stem3/stem3_4.cpp)  [![example_stem3_5](documentation/examples/discrete_data/stem3/stem3_5_thumb.png)](examples/discrete_data/stem3/stem3_5.cpp)  [![example_stem3_6](documentation/examples/discrete_data/stem3/stem3_6_thumb.png)](examples/discrete_data/stem3/stem3_6.cpp)  [![example_stem3_7](documentation/examples/discrete_data/stem3/stem3_7_thumb.png)](examples/discrete_data/stem3/stem3_7.cpp)  [![example_stem3_8](documentation/examples/discrete_data/stem3/stem3_8_thumb.png)](examples/discrete_data/stem3/stem3_8.cpp)  [![example_stem3_9](documentation/examples/discrete_data/stem3/stem3_9_thumb.png)](examples/discrete_data/stem3/stem3_9.cpp)  [![example_stem3_10](documentation/examples/discrete_data/stem3/stem3_10_thumb.png)](examples/discrete_data/stem3/stem3_10.cpp)  [![example_stem3_11](documentation/examples/discrete_data/stem3/stem3_11_thumb.png)](examples/discrete_data/stem3/stem3_11.cpp)
+</details>  
 
 ### Geography
 
-* [Geoplot](#geoplot)
-* [Geoscatter Plot](#geoscatter-plot)
-* [Geobubble](#geobubble)
-* [Geodensity Plot](#geodensity-plot)
-
+[Geoplot](#geoplot) | [Geoscatter Plot](#geoscatter-plot) | [Geobubble](#geobubble) | [Geodensity Plot](#geodensity-plot)
+ 
 #### Geoplot
 
+```cpp
+geoplot(lat,lon);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_geoplot_1](documentation/examples/geography/geoplot/geoplot_1.png)](examples/geography/geoplot/geoplot_1.cpp)
+</details>
 
-More examples:
-
-[![example_geoplot_2](documentation/examples/geography/geoplot/geoplot_2_thumb.png)](examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](documentation/examples/geography/geoplot/geoplot_3_thumb.png)](examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](documentation/examples/geography/geoplot/geoplot_4_thumb.png)](examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](documentation/examples/geography/geoplot/geoplot_5_thumb.png)](examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](documentation/examples/geography/geoplot/geoplot_6_thumb.png)](examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](documentation/examples/geography/geoplot/geoplot_7_thumb.png)](examples/geography/geoplot/geoplot_7.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_geoplot_2](documentation/examples/geography/geoplot/geoplot_2_thumb.png)](examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](documentation/examples/geography/geoplot/geoplot_3_thumb.png)](examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](documentation/examples/geography/geoplot/geoplot_4_thumb.png)](examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](documentation/examples/geography/geoplot/geoplot_5_thumb.png)](examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](documentation/examples/geography/geoplot/geoplot_6_thumb.png)](examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](documentation/examples/geography/geoplot/geoplot_7_thumb.png)](examples/geography/geoplot/geoplot_7.cpp)
+</details>  
 
 For the first geography plot, **Matplot++** calls `geoplot()`, which creates a filled polygon with the world map. This first plot receives the tag `"map"` so that subsequent geography plots recognize there is no need to recreate this world map.
 
@@ -413,39 +582,73 @@ The function `world_cities` returns a list of major world cities. Its parameters
 
 #### Geoscatter Plot
 
+```cpp
+geoscatter(lat,lon);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_geoscatter_1](documentation/examples/geography/geoscatter/geoscatter_1.png)](examples/geography/geoscatter/geoscatter_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_geoscatter_2](documentation/examples/geography/geoscatter/geoscatter_2_thumb.png)](examples/geography/geoscatter/geoscatter_2.cpp)
+</details>
   
 #### Geobubble
 
+```cpp
+geobubble(lat,lon,sizes);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_geobubble_1](documentation/examples/geography/geobubble/geobubble_1.png)](examples/geography/geobubble/geobubble_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_geobubble_2](documentation/examples/geography/geobubble/geobubble_2_thumb.png)](examples/geography/geobubble/geobubble_2.cpp)
+</details>
   
 #### Geodensity Plot
 
+```cpp
+geodensityplot(lat, lon);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_geodensityplot_1](documentation/examples/geography/geodensityplot/geodensityplot_1.png)](examples/geography/geodensityplot/geodensityplot_1.cpp)
+</details>
 
 ### Polar Plots
 
-* [Polar Line Plot](#polar-line-plot)
-* [Polar Scatter Plot](#polar-scatter-plot)
-* [Polar Histogram](#polar-histogram)
-* [Compass](#compass)
-* [Polar Function](#polar-function)
-
+[Polar Line Plot](#polar-line-plot) | [Polar Scatter Plot](#polar-scatter-plot) | [Polar Histogram](#polar-histogram) | [Compass](#compass) | [Polar Function](#polar-function)
+ 
 #### Polar Line Plot
 
+```cpp
+polarplot(theta, rho);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_polarplot_1](documentation/examples/polar_plots/polarplot/polarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_polarplot_2](documentation/examples/polar_plots/polarplot/polarplot_2_thumb.png)](examples/polar_plots/polarplot/polarplot_2.cpp)  [![example_polarplot_3](documentation/examples/polar_plots/polarplot/polarplot_3_thumb.png)](examples/polar_plots/polarplot/polarplot_3.cpp)  [![example_polarplot_4](documentation/examples/polar_plots/polarplot/polarplot_4_thumb.png)](examples/polar_plots/polarplot/polarplot_4.cpp)  [![example_polarplot_5](documentation/examples/polar_plots/polarplot/polarplot_5_thumb.png)](examples/polar_plots/polarplot/polarplot_5.cpp)  [![example_polarplot_6](documentation/examples/polar_plots/polarplot/polarplot_6_thumb.png)](examples/polar_plots/polarplot/polarplot_6.cpp)  [![example_polarplot_7](documentation/examples/polar_plots/polarplot/polarplot_7_thumb.png)](examples/polar_plots/polarplot/polarplot_7.cpp)  [![example_polarplot_8](documentation/examples/polar_plots/polarplot/polarplot_8_thumb.png)](examples/polar_plots/polarplot/polarplot_8.cpp)
+</details>
   
 By emplacing a polar plot in the `axes`, the `axes` move to a polar mode, where we use the $r$ and $t$ axis instead of the $x$ and $y$ axis.
 
@@ -455,51 +658,99 @@ Aside from this conversion, these plot subcategories are analogous to line plots
   
 #### Polar Scatter Plot
 
+```cpp
+polarscatter(theta, rho);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_polarscatter_1](documentation/examples/polar_plots/polarscatter/polarscatter_1.svg)](examples/polar_plots/polarscatter/polarscatter_1.cpp)
+</details>
 
-More examples:
-
-[![example_polarscatter_2](documentation/examples/polar_plots/polarscatter/polarscatter_2_thumb.png)](examples/polar_plots/polarscatter/polarscatter_2.cpp)  [![example_polarscatter_3](documentation/examples/polar_plots/polarscatter/polarscatter_3_thumb.png)](examples/polar_plots/polarscatter/polarscatter_3.cpp)  [![example_polarscatter_4](documentation/examples/polar_plots/polarscatter/polarscatter_4_thumb.png)](examples/polar_plots/polarscatter/polarscatter_4.cpp)  [![example_polarscatter_5](documentation/examples/polar_plots/polarscatter/polarscatter_5_thumb.png)](examples/polar_plots/polarscatter/polarscatter_5.cpp)  [![example_polarscatter_6](documentation/examples/polar_plots/polarscatter/polarscatter_6_thumb.png)](examples/polar_plots/polarscatter/polarscatter_6.cpp
-)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_polarscatter_2](documentation/examples/polar_plots/polarscatter/polarscatter_2_thumb.png)](examples/polar_plots/polarscatter/polarscatter_2.cpp)  [![example_polarscatter_3](documentation/examples/polar_plots/polarscatter/polarscatter_3_thumb.png)](examples/polar_plots/polarscatter/polarscatter_3.cpp)  [![example_polarscatter_4](documentation/examples/polar_plots/polarscatter/polarscatter_4_thumb.png)](examples/polar_plots/polarscatter/polarscatter_4.cpp)  [![example_polarscatter_5](documentation/examples/polar_plots/polarscatter/polarscatter_5_thumb.png)](examples/polar_plots/polarscatter/polarscatter_5.cpp)  [![example_polarscatter_6](documentation/examples/polar_plots/polarscatter/polarscatter_6_thumb.png)](examples/polar_plots/polarscatter/polarscatter_6.cpp)
+</details>
+  
 #### Polar Histogram
 
+```cpp
+polarhistogram(theta, 6);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_polarhistogram_1](documentation/examples/polar_plots/polarhistogram/polarhistogram_1.svg)](examples/polar_plots/polarhistogram/polarhistogram_1.cpp)
+</details>
 
-More examples:
-
-[![example_polarhistogram_2](documentation/examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)  [![example_polarhistogram_3](documentation/examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)  [![example_polarhistogram_4](documentation/examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)  [![example_polarhistogram_5](documentation/examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_polarhistogram_2](documentation/examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)  [![example_polarhistogram_3](documentation/examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)  [![example_polarhistogram_4](documentation/examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)  [![example_polarhistogram_5](documentation/examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)
+</details>  
 
 The function `polarhistogram` distributes the data into the number of bins provided as its second parameter.
   
 #### Compass
 
+```cpp
+compass(u, v);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_compass_1](documentation/examples/polar_plots/compass/compass_1.svg)](examples/polar_plots/compass/compass_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_compass_2](documentation/examples/polar_plots/compass/compass_2_thumb.png)](examples/polar_plots/compass/compass_2.cpp)
+</details>
   
 #### Polar Function
 
+```cpp
+ezpolar(fn);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ezpolar_1](documentation/examples/polar_plots/ezpolar/ezpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
+</details>
 
-More examples:
-
-[![example_ezpolar_2](documentation/examples/polar_plots/ezpolar/ezpolar_2_thumb.png)](examples/polar_plots/ezpolar/ezpolar_2.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_ezpolar_2](documentation/examples/polar_plots/ezpolar/ezpolar_2_thumb.png)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
+</details>  
 
 ### Contour Plots
 
-* [Contour](#contour)
-* [Filled Contour](#filled-contour)
-* [Function Contour](#function-contour)
-
+[Contour](#contour) | [Filled Contour](#filled-contour) | [Function Contour](#function-contour)
+ 
 #### Contour
 
+```cpp
+contour(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_contour_1](documentation/examples/contour_plots/contour/contour_1.svg)](examples/contour_plots/contour/contour_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_contour_2](documentation/examples/contour_plots/contour/contour_2_thumb.png)](examples/contour_plots/contour/contour_2.cpp)  [![example_contour_3](documentation/examples/contour_plots/contour/contour_3_thumb.png)](examples/contour_plots/contour/contour_3.cpp)  [![example_contour_4](documentation/examples/contour_plots/contour/contour_4_thumb.png)](examples/contour_plots/contour/contour_4.cpp)  [![example_contour_5](documentation/examples/contour_plots/contour/contour_5_thumb.png)](examples/contour_plots/contour/contour_5.cpp)  [![example_contour_6](documentation/examples/contour_plots/contour/contour_6_thumb.png)](examples/contour_plots/contour/contour_6.cpp)  [![example_contour_7](documentation/examples/contour_plots/contour/contour_7_thumb.png)](examples/contour_plots/contour/contour_7.cpp)  [![example_contour_8](documentation/examples/contour_plots/contour/contour_8_thumb.png)](examples/contour_plots/contour/contour_8.cpp)
+</details>
   
 All these subcategories depend on the `contours` type. They also depend on lazy evaluation for generating the contour lines. When the function `draw` is called in the `contours` class, it preprocesses all contour lines for a three-dimensional function.
 
@@ -513,35 +764,63 @@ Once we find the quads with the contour line, the line is generated by interpola
   
 #### Filled Contour
 
+```cpp
+contourf(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_contourf_1](documentation/examples/contour_plots/contourf/contourf_1.svg)](examples/contour_plots/contourf/contourf_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_contourf_2](documentation/examples/contour_plots/contourf/contourf_2_thumb.png)](examples/contour_plots/contourf/contourf_2.cpp)  [![example_contourf_3](documentation/examples/contour_plots/contourf/contourf_3_thumb.png)](examples/contour_plots/contourf/contourf_3.cpp)  [![example_contourf_4](documentation/examples/contour_plots/contourf/contourf_4_thumb.png)](examples/contour_plots/contourf/contourf_4.cpp)  [![example_contourf_5](documentation/examples/contour_plots/contourf/contourf_5_thumb.png)](examples/contour_plots/contourf/contourf_5.cpp)  [![example_contourf_6](documentation/examples/contour_plots/contourf/contourf_6_thumb.png)](examples/contour_plots/contourf/contourf_6.cpp)
+</details>
   
 #### Function Contour
 
+```cpp
+fcontour(f);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_fcontour_1](documentation/examples/contour_plots/fcontour/fcontour_1.svg)](examples/contour_plots/fcontour/fcontour_1.cpp)
+</details>
 
-More examples:
-
-[![example_fcontour_2](documentation/examples/contour_plots/fcontour/fcontour_2_thumb.png)](examples/contour_plots/fcontour/fcontour_2.cpp)  [![example_fcontour_3](documentation/examples/contour_plots/fcontour/fcontour_3_thumb.png)](examples/contour_plots/fcontour/fcontour_3.cpp)  [![example_fcontour_4](documentation/examples/contour_plots/fcontour/fcontour_4_thumb.png)](examples/contour_plots/fcontour/fcontour_4.cpp)  [![example_fcontour_5](documentation/examples/contour_plots/fcontour/fcontour_5_thumb.png)](examples/contour_plots/fcontour/fcontour_5.cpp)  [![example_fcontour_6](documentation/examples/contour_plots/fcontour/fcontour_6_thumb.png)](examples/contour_plots/fcontour/fcontour_6.cpp)  [![example_fcontour_7](documentation/examples/contour_plots/fcontour/fcontour_7_thumb.png)](examples/contour_plots/fcontour/fcontour_7.cpp)  [![example_fcontour_8](documentation/examples/contour_plots/fcontour/fcontour_8_thumb.png)](examples/contour_plots/fcontour/fcontour_8.cpp)  [![example_fcontour_9](documentation/examples/contour_plots/fcontour/fcontour_9_thumb.png)](examples/contour_plots/fcontour/fcontour_9.cpp)  [![example_fcontour_10](documentation/examples/contour_plots/fcontour/fcontour_10_thumb.png)](examples/contour_plots/fcontour/fcontour_10.cpp)  [![example_fcontour_11](documentation/examples/contour_plots/fcontour/fcontour_11_thumb.png)](examples/contour_plots/fcontour/fcontour_11.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_fcontour_2](documentation/examples/contour_plots/fcontour/fcontour_2_thumb.png)](examples/contour_plots/fcontour/fcontour_2.cpp)  [![example_fcontour_3](documentation/examples/contour_plots/fcontour/fcontour_3_thumb.png)](examples/contour_plots/fcontour/fcontour_3.cpp)  [![example_fcontour_4](documentation/examples/contour_plots/fcontour/fcontour_4_thumb.png)](examples/contour_plots/fcontour/fcontour_4.cpp)  [![example_fcontour_5](documentation/examples/contour_plots/fcontour/fcontour_5_thumb.png)](examples/contour_plots/fcontour/fcontour_5.cpp)  [![example_fcontour_6](documentation/examples/contour_plots/fcontour/fcontour_6_thumb.png)](examples/contour_plots/fcontour/fcontour_6.cpp)  [![example_fcontour_7](documentation/examples/contour_plots/fcontour/fcontour_7_thumb.png)](examples/contour_plots/fcontour/fcontour_7.cpp)  [![example_fcontour_8](documentation/examples/contour_plots/fcontour/fcontour_8_thumb.png)](examples/contour_plots/fcontour/fcontour_8.cpp)  [![example_fcontour_9](documentation/examples/contour_plots/fcontour/fcontour_9_thumb.png)](examples/contour_plots/fcontour/fcontour_9.cpp)  [![example_fcontour_10](documentation/examples/contour_plots/fcontour/fcontour_10_thumb.png)](examples/contour_plots/fcontour/fcontour_10.cpp)  [![example_fcontour_11](documentation/examples/contour_plots/fcontour/fcontour_11_thumb.png)](examples/contour_plots/fcontour/fcontour_11.cpp)
+</details>  
 
 By default, the function `fcontour` will generate 9 contour lines from a lambda function. The functions `contour` and `contourf`, on the other hand, plot contour lines and filled contour lines from a grid of data points for $x$, $y$, and $z$.
 
 ### Vector Fields
 
-* [Feather](#feather)
-* [Quiver](#quiver)
-* [Quiver 3D](#quiver-3d)
-
+[Feather](#feather) | [Quiver](#quiver) | [Quiver 3D](#quiver-3d)
+ 
 #### Quiver
 
+```cpp
+quiver(x, y, u, v);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_quiver_1](documentation/examples/vector_fields/quiver/quiver_1.svg)](examples/vector_fields/quiver/quiver_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_quiver_2](documentation/examples/vector_fields/quiver/quiver_2_thumb.png)](examples/vector_fields/quiver/quiver_2.cpp)  [![example_quiver_3](documentation/examples/vector_fields/quiver/quiver_3_thumb.png)](examples/vector_fields/quiver/quiver_3.cpp)  [![example_quiver_4](documentation/examples/vector_fields/quiver/quiver_4_thumb.png)](examples/vector_fields/quiver/quiver_4.cpp)
+</details>
 
 All these subcategories depend on the `vectors` object type. In a two-dimensional plot, for each value of $x$ and $y$ with the position of a vector, it also requires the value of $u$ and $v$ indicating its direction and magnitude. In a three-dimensional plot, the direction and magnitude are defined by $u$, $v$, and $w$.
 
@@ -550,117 +829,233 @@ A quiver plot (or velocity plot) shows a grid of vectors whose direction and mag
 
 #### Quiver 3D
 
+```cpp
+quiver3(Z, U, V, W);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_quiver3_1](documentation/examples/vector_fields/quiver3/quiver3_1.svg)](examples/vector_fields/quiver3/quiver3_1.cpp)
+</details>
 
 #### Feather
 
+```cpp
+feather(u, v);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_feather_1](documentation/examples/vector_fields/feather/feather_1.svg)](examples/vector_fields/feather/feather_1.cpp)
+</details>
 
 ### Surfaces
 
-* [Surface](#surface)
-* [Surface with Contour](#surface-with-contour)
-* [Mesh](#mesh)
-* [Mesh with Contour](#mesh-with-contour)
-* [Mesh with Curtain](#mesh-with-curtain)
-* [Function Surface](#function-surface)
-* [Function Mesh](#function-mesh)
-* [Waterfall](#waterfall)
-* [Fence](#fence)
-* [Ribbon](#ribbon)
-
+[Surface](#surface) | [Surface with Contour](#surface-with-contour) | [Mesh](#mesh) | [Mesh with Contour](#mesh-with-contour) | [Mesh with Curtain](#mesh-with-curtain) | [Function Surface](#function-surface) | [Function Mesh](#function-mesh) | [Waterfall](#waterfall) | [Fence](#fence) | [Ribbon](#ribbon)
+ 
 #### Surface
 
+```cpp
+surf(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_surf_1](documentation/examples/surfaces/surf/surf_1.png)](examples/surfaces/surf/surf_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_surf_2](documentation/examples/surfaces/surf/surf_2_thumb.png)](examples/surfaces/surf/surf_2.cpp)  [![example_surf_3](documentation/examples/surfaces/surf/surf_3_thumb.png)](examples/surfaces/surf/surf_3.cpp)  [![example_surf_4](documentation/examples/surfaces/surf/surf_4_thumb.png)](examples/surfaces/surf/surf_4.cpp)  [![example_surf_5](documentation/examples/surfaces/surf/surf_5_thumb.png)](examples/surfaces/surf/surf_5.cpp)  [![example_surf_6](documentation/examples/surfaces/surf/surf_6_thumb.png)](examples/surfaces/surf/surf_6.cpp)
+</details>
   
 #### Surface with Contour
 
+```cpp
+surfc(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_surfc_1](documentation/examples/surfaces/surfc/surfc_1.png)](examples/surfaces/surfc/surfc_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_surfc_2](documentation/examples/surfaces/surfc/surfc_2_thumb.png)](examples/surfaces/surfc/surfc_2.cpp)  [![example_surfc_3](documentation/examples/surfaces/surfc/surfc_3_thumb.png)](examples/surfaces/surfc/surfc_3.cpp)  [![example_surfc_4](documentation/examples/surfaces/surfc/surfc_4_thumb.png)](examples/surfaces/surfc/surfc_4.cpp)
+</details>
   
 #### Mesh
 
+```cpp
+mesh(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_mesh_1](documentation/examples/surfaces/mesh/mesh_1.png)](examples/surfaces/mesh/mesh_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_mesh_2](documentation/examples/surfaces/mesh/mesh_2_thumb.png)](examples/surfaces/mesh/mesh_2.cpp)  [![example_mesh_3](documentation/examples/surfaces/mesh/mesh_3_thumb.png)](examples/surfaces/mesh/mesh_3.cpp)  [![example_mesh_4](documentation/examples/surfaces/mesh/mesh_4_thumb.png)](examples/surfaces/mesh/mesh_4.cpp)
+</details>
   
 #### Mesh with Contour
 
+```cpp
+meshc(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_meshc_1](documentation/examples/surfaces/meshc/meshc_1.png)](examples/surfaces/meshc/meshc_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_meshc_2](documentation/examples/surfaces/meshc/meshc_2_thumb.png)](examples/surfaces/meshc/meshc_2.cpp)  [![example_meshc_3](documentation/examples/surfaces/meshc/meshc_3_thumb.png)](examples/surfaces/meshc/meshc_3.cpp)
+</details>
   
 #### Mesh with Curtain
 
+```cpp
+meshz(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_meshz_1](documentation/examples/surfaces/meshz/meshz_1.png)](examples/surfaces/meshz/meshz_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_meshz_2](documentation/examples/surfaces/meshz/meshz_2_thumb.png)](examples/surfaces/meshz/meshz_2.cpp)  [![example_meshz_3](documentation/examples/surfaces/meshz/meshz_3_thumb.png)](examples/surfaces/meshz/meshz_3.cpp)
+</details>
   
 #### Function Surface
 
+```cpp
+fsurf(fn);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_fsurf_1](documentation/examples/surfaces/fsurf/fsurf_1.png)](examples/surfaces/fsurf/fsurf_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_fsurf_2](documentation/examples/surfaces/fsurf/fsurf_2_thumb.png)](examples/surfaces/fsurf/fsurf_2.cpp)  [![example_fsurf_3](documentation/examples/surfaces/fsurf/fsurf_3_thumb.png)](examples/surfaces/fsurf/fsurf_3.cpp)  [![example_fsurf_4](documentation/examples/surfaces/fsurf/fsurf_4_thumb.png)](examples/surfaces/fsurf/fsurf_4.cpp)  [![example_fsurf_5](documentation/examples/surfaces/fsurf/fsurf_5_thumb.png)](examples/surfaces/fsurf/fsurf_5.cpp)  [![example_fsurf_6](documentation/examples/surfaces/fsurf/fsurf_6_thumb.png)](examples/surfaces/fsurf/fsurf_6.cpp)  [![example_fsurf_7](documentation/examples/surfaces/fsurf/fsurf_7_thumb.png)](examples/surfaces/fsurf/fsurf_7.cpp)  [![example_fsurf_8](documentation/examples/surfaces/fsurf/fsurf_8_thumb.png)](examples/surfaces/fsurf/fsurf_8.cpp)
+</details>
   
 #### Function Mesh
 
+```cpp
+fmesh(fn);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_fmesh_1](documentation/examples/surfaces/fmesh/fmesh_1.png)](examples/surfaces/fmesh/fmesh_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_fmesh_2](documentation/examples/surfaces/fmesh/fmesh_2_thumb.png)](examples/surfaces/fmesh/fmesh_2.cpp)  [![example_fmesh_3](documentation/examples/surfaces/fmesh/fmesh_3_thumb.png)](examples/surfaces/fmesh/fmesh_3.cpp)  [![example_fmesh_4](documentation/examples/surfaces/fmesh/fmesh_4_thumb.png)](examples/surfaces/fmesh/fmesh_4.cpp)
+</details>
   
 #### Waterfall
 
+```cpp
+waterfall(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_waterfall_1](documentation/examples/surfaces/waterfall/waterfall_1.png)](examples/surfaces/waterfall/waterfall_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_waterfall_2](documentation/examples/surfaces/waterfall/waterfall_2_thumb.png)](examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](documentation/examples/surfaces/waterfall/waterfall_3_thumb.png)](examples/surfaces/waterfall/waterfall_3.cpp)
+</details>
   
 #### Fence
 
+```cpp
+fence(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_fence_1](documentation/examples/surfaces/fence/fence_1.png)](examples/surfaces/fence/fence_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_fence_2](documentation/examples/surfaces/fence/fence_2_thumb.png)](examples/surfaces/fence/fence_2.cpp)  [![example_fence_3](documentation/examples/surfaces/fence/fence_3_thumb.png)](examples/surfaces/fence/fence_3.cpp)
+</details>
   
 #### Ribbon
 
+```cpp
+ribbon(X, Y, Z);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ribbon_1](documentation/examples/surfaces/ribbon/ribbon_1.png)](examples/surfaces/ribbon/ribbon_1.cpp)
+</details>
 
-More examples:
-
-[![example_ribbon_2](documentation/examples/surfaces/ribbon/ribbon_2_thumb.png)](examples/surfaces/ribbon/ribbon_2.cpp)  [![example_ribbon_3](documentation/examples/surfaces/ribbon/ribbon_3_thumb.png)](examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](documentation/examples/surfaces/ribbon/ribbon_4_thumb.png)](examples/surfaces/ribbon/ribbon_4.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_ribbon_2](documentation/examples/surfaces/ribbon/ribbon_2_thumb.png)](examples/surfaces/ribbon/ribbon_2.cpp)  [![example_ribbon_3](documentation/examples/surfaces/ribbon/ribbon_3_thumb.png)](examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](documentation/examples/surfaces/ribbon/ribbon_4_thumb.png)](examples/surfaces/ribbon/ribbon_4.cpp)
+</details>  
 
 ### Graphs
 
-* [Undirected Graph](#undirected-graph)
-* [Directed Graph](#directed-graph)
-
+[Undirected Graph](#undirected-graph) | [Directed Graph](#directed-graph)
+ 
 #### Undirected Graph
 
+```cpp
+graph(edges);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_graph_1](documentation/examples/graphs/graph/graph_1.svg)](examples/graphs/graph/graph_1.cpp)
+</details>
 
-More examples:
-
-[![example_graph_2](documentation/examples/graphs/graph/graph_2_thumb.png)](examples/graphs/graph/graph_2.cpp)  [![example_graph_3](documentation/examples/graphs/graph/graph_3_thumb.png)](examples/graphs/graph/graph_3.cpp)  [![example_graph_4](documentation/examples/graphs/graph/graph_4_thumb.png)](examples/graphs/graph/graph_4.cpp)  [![example_graph_5](documentation/examples/graphs/graph/graph_5_thumb.png)](examples/graphs/graph/graph_5.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_graph_2](documentation/examples/graphs/graph/graph_2_thumb.png)](examples/graphs/graph/graph_2.cpp)  [![example_graph_3](documentation/examples/graphs/graph/graph_3_thumb.png)](examples/graphs/graph/graph_3.cpp)  [![example_graph_4](documentation/examples/graphs/graph/graph_4_thumb.png)](examples/graphs/graph/graph_4.cpp)  [![example_graph_5](documentation/examples/graphs/graph/graph_5_thumb.png)](examples/graphs/graph/graph_5.cpp)
+</details>  
 
 All these subcategories depend on the `network` class. Graphs are abstract structures that represent objects and relationships between these objects. The objects are represented as vertices and the relationships are depicted as edges.
 
@@ -670,25 +1065,43 @@ The implementation of the Kamada Kawai and Fruchterman-Reingold algorithms depen
 
 #### Directed Graph
 
+```cpp
+digraph(edges);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_digraph_1](documentation/examples/graphs/digraph/digraph_1.svg)](examples/graphs/digraph/digraph_1.cpp)
+</details>
 
-More examples:
-
-[![example_digraph_2](documentation/examples/graphs/digraph/digraph_2_thumb.png)](examples/graphs/digraph/digraph_2.cpp)  [![example_digraph_3](documentation/examples/graphs/digraph/digraph_3_thumb.png)](examples/graphs/digraph/digraph_3.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_digraph_2](documentation/examples/graphs/digraph/digraph_2_thumb.png)](examples/graphs/digraph/digraph_2.cpp)  [![example_digraph_3](documentation/examples/graphs/digraph/digraph_3_thumb.png)](examples/graphs/digraph/digraph_3.cpp)
+</details>  
 
 ### Images
 
-* [Image Show](#image-show)
-* [Image Matrix](#image-matrix)
-* [Scaled Image](#scaled-image)
-
+[Image Show](#image-show) | [Image Matrix](#image-matrix) | [Scaled Image](#scaled-image)
+ 
 #### Image Show
 
+```cpp
+imshow(image);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_imshow_1](documentation/examples/images/imshow/imshow_1.png)](examples/images/imshow/imshow_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_imshow_2](documentation/examples/images/imshow/imshow_2_thumb.png)](examples/images/imshow/imshow_2.cpp)  [![example_imshow_3](documentation/examples/images/imshow/imshow_3_thumb.png)](examples/images/imshow/imshow_3.cpp)  [![example_imshow_4](documentation/examples/images/imshow/imshow_4_thumb.png)](examples/images/imshow/imshow_4.cpp)  [![example_imshow_5](documentation/examples/images/imshow/imshow_5_thumb.png)](examples/images/imshow/imshow_5.cpp)  [![example_imshow_6](documentation/examples/images/imshow/imshow_6_thumb.png)](examples/images/imshow/imshow_6.cpp)  [![example_imshow_7](documentation/examples/images/imshow/imshow_7_thumb.png)](examples/images/imshow/imshow_7.cpp)  [![example_imshow_8](documentation/examples/images/imshow/imshow_8_thumb.png)](examples/images/imshow/imshow_8.cpp)  [![example_imshow_9](documentation/examples/images/imshow/imshow_9_thumb.png)](examples/images/imshow/imshow_9.cpp)  [![example_imshow_10](documentation/examples/images/imshow/imshow_10_thumb.png)](examples/images/imshow/imshow_10.cpp)  [![example_imshow_11](documentation/examples/images/imshow/imshow_11_thumb.png)](examples/images/imshow/imshow_11.cpp)
+</details>
 
 These subcategories depend on the `matrix` class. The `matrix` class can have up to four matrices. If it has only one matrix, it is represented with a colormap. If it has three matrices, they represent the red, green, and blue channels. If it has four matrices, the fourth matrix represents an alpha channel to control the transparency of each pixel.
 
@@ -698,127 +1111,180 @@ We use the CImg library to load and save images. CImg can handle many common ima
 
 #### Image Matrix
 
+```cpp
+image(C);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_image_1](documentation/examples/images/image/image_1.png)](examples/images/image/image_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_image_2](documentation/examples/images/image/image_2_thumb.png)](examples/images/image/image_2.cpp)  [![example_image_3](documentation/examples/images/image/image_3_thumb.png)](examples/images/image/image_3.cpp)  [![example_image_4](documentation/examples/images/image/image_4_thumb.png)](examples/images/image/image_4.cpp)  [![example_image_5](documentation/examples/images/image/image_5_thumb.png)](examples/images/image/image_5.cpp)
+</details>
   
 #### Scaled Image
 
+```cpp
+imagesc(C);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_imagesc_1](documentation/examples/images/imagesc/imagesc_1.png)](examples/images/imagesc/imagesc_1.cpp)
+</details>
 
-More examples:
-
-[![example_imagesc_2](documentation/examples/images/imagesc/imagesc_2_thumb.png)](examples/images/imagesc/imagesc_2.cpp)  [![example_imagesc_3](documentation/examples/images/imagesc/imagesc_3_thumb.png)](examples/images/imagesc/imagesc_3.cpp)  [![example_imagesc_4](documentation/examples/images/imagesc/imagesc_4_thumb.png)](examples/images/imagesc/imagesc_4.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_imagesc_2](documentation/examples/images/imagesc/imagesc_2_thumb.png)](examples/images/imagesc/imagesc_2.cpp)  [![example_imagesc_3](documentation/examples/images/imagesc/imagesc_3_thumb.png)](examples/images/imagesc/imagesc_3.cpp)  [![example_imagesc_4](documentation/examples/images/imagesc/imagesc_4_thumb.png)](examples/images/imagesc/imagesc_4.cpp)
+</details>  
 
 ### Annotations
 
-* [Text](#text)
-* [Text with Arrow](#text-with-arrow)
-* [Rectangle](#rectangle)
-* [Filled Polygon](#filled-polygon)
-* [Ellipse](#ellipse)
-* [Textbox](#textbox)
-* [Arrow](#arrow)
-* [Line](#line)
-
+[Text](#text) | [Text with Arrow](#text-with-arrow) | [Rectangle](#rectangle) | [Filled Polygon](#filled-polygon) | [Ellipse](#ellipse) | [Textbox](#textbox) | [Arrow](#arrow) | [Line](#line)
+ 
 The annotations category is meant to create individual objects on the plot rather than representations of data sets. An important difference between the annotations category and other categories is that, by default, the annotations do not replace the plot that already exists in the `axes` object, even if the user does not call the `hold` function.
 
 #### Text
 
+```cpp
+text(x0, y0, str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_text_1](documentation/examples/annotations/text/text_1.svg)](examples/annotations/text/text_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_text_2](documentation/examples/annotations/text/text_2_thumb.png)](examples/annotations/text/text_2.cpp)  [![example_text_3](documentation/examples/annotations/text/text_3_thumb.png)](examples/annotations/text/text_3.cpp)  [![example_text_4](documentation/examples/annotations/text/text_4_thumb.png)](examples/annotations/text/text_4.cpp)  [![example_text_5](documentation/examples/annotations/text/text_5_thumb.png)](examples/annotations/text/text_5.cpp)  [![example_text_6](documentation/examples/annotations/text/text_6_thumb.png)](examples/annotations/text/text_6.cpp)  [![example_text_7](documentation/examples/annotations/text/text_7_thumb.png)](examples/annotations/text/text_7.cpp)  [![example_text_8](documentation/examples/annotations/text/text_8_thumb.png)](examples/annotations/text/text_8.cpp)
+</details>
   
 #### Text with Arrow
 
+```cpp
+textarrow(x1, y1, x2, y2, str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_textarrow_1](documentation/examples/annotations/textarrow/textarrow_1.svg)](examples/annotations/textarrow/textarrow_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_textarrow_2](documentation/examples/annotations/textarrow/textarrow_2_thumb.png)](examples/annotations/textarrow/textarrow_2.cpp)
+</details>
   
 #### Rectangle
 
+```cpp
+rectangle(x, y, w, h);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_rectangle_1](documentation/examples/annotations/rectangle/rectangle_1.svg)](examples/annotations/rectangle/rectangle_1.cpp)
+</details>
 
-More examples:
-
-[![example_rectangle_2](documentation/examples/annotations/rectangle/rectangle_2_thumb.png)](examples/annotations/rectangle/rectangle_2.cpp)  [![example_rectangle_3](documentation/examples/annotations/rectangle/rectangle_3_thumb.png)](examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](documentation/examples/annotations/rectangle/rectangle_4_thumb.png)](examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](documentation/examples/annotations/rectangle/rectangle_5_thumb.png)](examples/annotations/rectangle/rectangle_5.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_rectangle_2](documentation/examples/annotations/rectangle/rectangle_2_thumb.png)](examples/annotations/rectangle/rectangle_2.cpp)  [![example_rectangle_3](documentation/examples/annotations/rectangle/rectangle_3_thumb.png)](examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](documentation/examples/annotations/rectangle/rectangle_4_thumb.png)](examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](documentation/examples/annotations/rectangle/rectangle_5_thumb.png)](examples/annotations/rectangle/rectangle_5.cpp)
+</details>  
 
 The rectangle object can have a border curvature from $0$ to $1$. We can also annotate with text, arrows, polygons, and lines.
   
 #### Filled Polygon
 
+```cpp
+polygon(x0, y0, color);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_fill_1](documentation/examples/annotations/fill/fill_1.svg)](examples/annotations/fill/fill_1.cpp)
+</details>
 
 
 #### Ellipse
 
+```cpp
+ellipse(x, y, w, h);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ellipse_1](documentation/examples/annotations/ellipse/ellipse_1.svg)](examples/annotations/ellipse/ellipse_1.cpp)
+</details>
 
 
 #### Textbox
 
+```cpp
+textbox(x, y, w, h, str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_textbox_1](documentation/examples/annotations/textbox/textbox_1.svg)](examples/annotations/textbox/textbox_1.cpp)
+</details>
 
 
 #### Arrow
 
+```cpp
+arrow(x1, y1, x2, y2);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_arrow_1](documentation/examples/annotations/arrow/arrow_1.svg)](examples/annotations/arrow/arrow_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_arrow_2](documentation/examples/annotations/arrow/arrow_2_thumb.png)](examples/annotations/arrow/arrow_2.cpp)
+</details>
   
 #### Line
 
+```cpp
+line(x1, y1, x2, y2);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_line_1](documentation/examples/annotations/line/line_1.svg)](examples/annotations/line/line_1.cpp)
+</details>
 
 
 ### Appearance
 
-* [Labels](#labels)
-   * [Title](#title)
-   * [Subplot Title](#subplot-title)
-   * [X Label](#x-label)
-   * [Y Label](#y-label)
-   * [Z Label](#z-label)
-   * [Legend](#legend)
-* [Axis](#axis)
-   * [X Limits](#x-limits)
-   * [Y Limits](#y-limits)
-   * [Z Limits](#z-limits)
-   * [Adjust Axis](#adjust-axis)
-   * [Box](#box)
-* [Grid](#grid)
-   * [Grid](#grid-1)
-   * [X Ticks](#x-ticks)
-   * [Y Ticks](#y-ticks)
-   * [Z Ticks](#z-ticks)
-   * [X Tick Labels](#x-tick-labels)
-   * [Y Tick Labels](#y-tick-labels)
-   * [X Tick Format](#x-tick-format)
-   * [Y Tick Format](#y-tick-format)
-   * [Z Tick Format](#z-tick-format)
-   * [X Tick Angle](#x-tick-angle)
-   * [Y Tick Angle](#y-tick-angle)
-* [Multiplot](#multiplot)
-   * [Hold](#hold)
-   * [YY-axis](#yy-axis)
-   * [Color Order](#color-order)
-   * [Subplots](#subplots)
-   * [Tiled Layout](#tiled-layout)
-* [Colormaps](#colormaps)
-   * [Colormap](#colormap)
-   * [Color Bar](#color-bar)
-   * [RGB Plot](#rgb-plot)
-* [Camera](#camera)
-   * [View](#view)
-   * [Lighting](#lighting)
+* [Labels](#labels): [Title](#title) | [Subplot Title](#subplot-title) | [X Label](#x-label) | [Y Label](#y-label) | [Z Label](#z-label) | [Legend](#legend) 
+* [Axis](#axis): [X Limits](#x-limits) | [Y Limits](#y-limits) | [Z Limits](#z-limits) | [Adjust Axis](#adjust-axis) | [Box](#box) 
+* [Grid](#grid): [Grid](#grid-1) | [X Ticks](#x-ticks) | [Y Ticks](#y-ticks) | [Z Ticks](#z-ticks) | [X Tick Labels](#x-tick-labels) | [Y Tick Labels](#y-tick-labels) | [X Tick Format](#x-tick-format) | [Y Tick Format](#y-tick-format) | [Z Tick Format](#z-tick-format) | [X Tick Angle](#x-tick-angle) | [Y Tick Angle](#y-tick-angle) 
+* [Multiplot](#multiplot): [Hold](#hold) | [YY-axis](#yy-axis) | [Color Order](#color-order) | [Subplots](#subplots) | [Tiled Layout](#tiled-layout) 
+* [Colormaps](#colormaps): [Colormap](#colormap) | [Color Bar](#color-bar) | [RGB Plot](#rgb-plot) 
+* [Camera](#camera): [View](#view) | [Lighting](#lighting) 
 * [Figure Object](#figure-object)
 * [Line Specs](#line-specs)
 * [Axes Object](#axes-object)
@@ -828,309 +1294,657 @@ As a convenience, the `colors.h` header contains many functions to generate colo
 
 #### Labels
 
-
 ##### Title
 
+```cpp
+title(str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_title_1](documentation/examples/appearance/labels/title/title_1.svg)](examples/appearance/labels/title/title_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_title_2](documentation/examples/appearance/labels/title/title_2_thumb.png)](examples/appearance/labels/title/title_2.cpp)  [![example_title_3](documentation/examples/appearance/labels/title/title_3_thumb.png)](examples/appearance/labels/title/title_3.cpp)  [![example_title_4](documentation/examples/appearance/labels/title/title_4_thumb.png)](examples/appearance/labels/title/title_4.cpp)  [![example_title_5](documentation/examples/appearance/labels/title/title_5_thumb.png)](examples/appearance/labels/title/title_5.cpp)  [![example_title_6](documentation/examples/appearance/labels/title/title_6_thumb.png)](examples/appearance/labels/title/title_6.cpp)  [![example_title_7](documentation/examples/appearance/labels/title/title_7_thumb.png)](examples/appearance/labels/title/title_7.cpp)  [![example_title_8](documentation/examples/appearance/labels/title/title_8_thumb.png)](examples/appearance/labels/title/title_8.cpp)
+</details>
   
 ##### Subplot Title
 
+```cpp
+sgtitle(str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_sgtitle_1](documentation/examples/appearance/labels/sgtitle/sgtitle_1.png)](examples/appearance/labels/sgtitle/sgtitle_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_sgtitle_2](documentation/examples/appearance/labels/sgtitle/sgtitle_2_thumb.png)](examples/appearance/labels/sgtitle/sgtitle_2.cpp)
+</details>
   
 ##### X Label
 
+```cpp
+xlabel(str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xlabel_1](documentation/examples/appearance/labels/xlabel/xlabel_1.svg)](examples/appearance/labels/xlabel/xlabel_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_xlabel_2](documentation/examples/appearance/labels/xlabel/xlabel_2_thumb.png)](examples/appearance/labels/xlabel/xlabel_2.cpp)  [![example_xlabel_3](documentation/examples/appearance/labels/xlabel/xlabel_3_thumb.png)](examples/appearance/labels/xlabel/xlabel_3.cpp)  [![example_xlabel_4](documentation/examples/appearance/labels/xlabel/xlabel_4_thumb.png)](examples/appearance/labels/xlabel/xlabel_4.cpp)  [![example_xlabel_5](documentation/examples/appearance/labels/xlabel/xlabel_5_thumb.png)](examples/appearance/labels/xlabel/xlabel_5.cpp)  [![example_xlabel_6](documentation/examples/appearance/labels/xlabel/xlabel_6_thumb.png)](examples/appearance/labels/xlabel/xlabel_6.cpp)  [![example_xlabel_7](documentation/examples/appearance/labels/xlabel/xlabel_7_thumb.png)](examples/appearance/labels/xlabel/xlabel_7.cpp)  [![example_xlabel_8](documentation/examples/appearance/labels/xlabel/xlabel_8_thumb.png)](examples/appearance/labels/xlabel/xlabel_8.cpp)
+</details>
   
 ##### Y Label
 
+```cpp
+ylabel(str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ylabel_1](documentation/examples/appearance/labels/ylabel/ylabel_1.svg)](examples/appearance/labels/ylabel/ylabel_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_ylabel_2](documentation/examples/appearance/labels/ylabel/ylabel_2_thumb.png)](examples/appearance/labels/ylabel/ylabel_2.cpp)  [![example_ylabel_3](documentation/examples/appearance/labels/ylabel/ylabel_3_thumb.png)](examples/appearance/labels/ylabel/ylabel_3.cpp)  [![example_ylabel_4](documentation/examples/appearance/labels/ylabel/ylabel_4_thumb.png)](examples/appearance/labels/ylabel/ylabel_4.cpp)  [![example_ylabel_5](documentation/examples/appearance/labels/ylabel/ylabel_5_thumb.png)](examples/appearance/labels/ylabel/ylabel_5.cpp)  [![example_ylabel_6](documentation/examples/appearance/labels/ylabel/ylabel_6_thumb.png)](examples/appearance/labels/ylabel/ylabel_6.cpp)  [![example_ylabel_7](documentation/examples/appearance/labels/ylabel/ylabel_7_thumb.png)](examples/appearance/labels/ylabel/ylabel_7.cpp)  [![example_ylabel_8](documentation/examples/appearance/labels/ylabel/ylabel_8_thumb.png)](examples/appearance/labels/ylabel/ylabel_8.cpp)
+</details>
   
 ##### Z Label
 
+```cpp
+zlabel(str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_zlabel_1](documentation/examples/appearance/labels/zlabel/zlabel_1.png)](examples/appearance/labels/zlabel/zlabel_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_zlabel_2](documentation/examples/appearance/labels/zlabel/zlabel_2_thumb.png)](examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](documentation/examples/appearance/labels/zlabel/zlabel_3_thumb.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
+</details>
   
 ##### Legend
 
+```cpp
+legend({str1,str2,str3});
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_legend_1](documentation/examples/appearance/labels/legend/legend_1.svg)](examples/appearance/labels/legend/legend_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_legend_2](documentation/examples/appearance/labels/legend/legend_2_thumb.png)](examples/appearance/labels/legend/legend_2.cpp)  [![example_legend_3](documentation/examples/appearance/labels/legend/legend_3_thumb.png)](examples/appearance/labels/legend/legend_3.cpp)  [![example_legend_4](documentation/examples/appearance/labels/legend/legend_4_thumb.png)](examples/appearance/labels/legend/legend_4.cpp)  [![example_legend_5](documentation/examples/appearance/labels/legend/legend_5_thumb.png)](examples/appearance/labels/legend/legend_5.cpp)  [![example_legend_6](documentation/examples/appearance/labels/legend/legend_6_thumb.png)](examples/appearance/labels/legend/legend_6.cpp)  [![example_legend_7](documentation/examples/appearance/labels/legend/legend_7_thumb.png)](examples/appearance/labels/legend/legend_7.cpp)  [![example_legend_8](documentation/examples/appearance/labels/legend/legend_8_thumb.png)](examples/appearance/labels/legend/legend_8.cpp)
+</details>
   
 #### Axis
 
-
 ##### X Limits
 
+```cpp
+xlim({xmin,xmax});
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xlim_1](documentation/examples/appearance/axis/xlim/xlim_1.svg)](examples/appearance/axis/xlim/xlim_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_xlim_2](documentation/examples/appearance/axis/xlim/xlim_2_thumb.png)](examples/appearance/axis/xlim/xlim_2.cpp)  [![example_xlim_3](documentation/examples/appearance/axis/xlim/xlim_3_thumb.png)](examples/appearance/axis/xlim/xlim_3.cpp)  [![example_xlim_4](documentation/examples/appearance/axis/xlim/xlim_4_thumb.png)](examples/appearance/axis/xlim/xlim_4.cpp)  [![example_xlim_5](documentation/examples/appearance/axis/xlim/xlim_5_thumb.png)](examples/appearance/axis/xlim/xlim_5.cpp)  [![example_xlim_6](documentation/examples/appearance/axis/xlim/xlim_6_thumb.png)](examples/appearance/axis/xlim/xlim_6.cpp)
+</details>
   
 ##### Y Limits
 
+```cpp
+ylim({ymin,ymax});
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ylim_1](documentation/examples/appearance/axis/ylim/ylim_1.svg)](examples/appearance/axis/ylim/ylim_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_ylim_2](documentation/examples/appearance/axis/ylim/ylim_2_thumb.png)](examples/appearance/axis/ylim/ylim_2.cpp)  [![example_ylim_3](documentation/examples/appearance/axis/ylim/ylim_3_thumb.png)](examples/appearance/axis/ylim/ylim_3.cpp)  [![example_ylim_4](documentation/examples/appearance/axis/ylim/ylim_4_thumb.png)](examples/appearance/axis/ylim/ylim_4.cpp)  [![example_ylim_5](documentation/examples/appearance/axis/ylim/ylim_5_thumb.png)](examples/appearance/axis/ylim/ylim_5.cpp)  [![example_ylim_6](documentation/examples/appearance/axis/ylim/ylim_6_thumb.png)](examples/appearance/axis/ylim/ylim_6.cpp)
+</details>
   
 ##### Z Limits
 
+```cpp
+zlim({zmin,zmax});
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_zlim_1](documentation/examples/appearance/axis/zlim/zlim_1.png)](examples/appearance/axis/zlim/zlim_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_zlim_2](documentation/examples/appearance/axis/zlim/zlim_2_thumb.png)](examples/appearance/axis/zlim/zlim_2.cpp)  [![example_zlim_3](documentation/examples/appearance/axis/zlim/zlim_3_thumb.png)](examples/appearance/axis/zlim/zlim_3.cpp)  [![example_zlim_4](documentation/examples/appearance/axis/zlim/zlim_4_thumb.png)](examples/appearance/axis/zlim/zlim_4.cpp)  [![example_zlim_5](documentation/examples/appearance/axis/zlim/zlim_5_thumb.png)](examples/appearance/axis/zlim/zlim_5.cpp)  [![example_zlim_6](documentation/examples/appearance/axis/zlim/zlim_6_thumb.png)](examples/appearance/axis/zlim/zlim_6.cpp)
+</details>
   
 ##### Adjust Axis
 
+```cpp
+axis({xmin, xmax, ymin, ymax});
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_axis_1](documentation/examples/appearance/axis/axis/axis_1.svg)](examples/appearance/axis/axis/axis_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_axis_2](documentation/examples/appearance/axis/axis/axis_2_thumb.png)](examples/appearance/axis/axis/axis_2.cpp)  [![example_axis_3](documentation/examples/appearance/axis/axis/axis_3_thumb.png)](examples/appearance/axis/axis/axis_3.cpp)  [![example_axis_4](documentation/examples/appearance/axis/axis/axis_4_thumb.png)](examples/appearance/axis/axis/axis_4.cpp)  [![example_axis_5](documentation/examples/appearance/axis/axis/axis_5_thumb.png)](examples/appearance/axis/axis/axis_5.cpp)  [![example_axis_6](documentation/examples/appearance/axis/axis/axis_6_thumb.png)](examples/appearance/axis/axis/axis_6.cpp)  [![example_axis_7](documentation/examples/appearance/axis/axis/axis_7_thumb.png)](examples/appearance/axis/axis/axis_7.cpp)  [![example_axis_8](documentation/examples/appearance/axis/axis/axis_8_thumb.png)](examples/appearance/axis/axis/axis_8.cpp)
+</details>
   
 ##### Box
 
+```cpp
+box(on);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_box_1](documentation/examples/appearance/axis/box/box_1.png)](examples/appearance/axis/box/box_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_box_2](documentation/examples/appearance/axis/box/box_2_thumb.png)](examples/appearance/axis/box/box_2.cpp)  [![example_box_3](documentation/examples/appearance/axis/box/box_3_thumb.png)](examples/appearance/axis/box/box_3.cpp)
+</details>
   
 #### Grid
 
 
 ##### Grid
 
+```cpp
+grid(on);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_grid_1](documentation/examples/appearance/grid/grid/grid_1.svg)](examples/appearance/grid/grid/grid_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_grid_2](documentation/examples/appearance/grid/grid/grid_2_thumb.png)](examples/appearance/grid/grid/grid_2.cpp)  [![example_grid_3](documentation/examples/appearance/grid/grid/grid_3_thumb.png)](examples/appearance/grid/grid/grid_3.cpp)  [![example_grid_4](documentation/examples/appearance/grid/grid/grid_4_thumb.png)](examples/appearance/grid/grid/grid_4.cpp)
+</details>
   
 ##### X Ticks
 
+```cpp
+xticks(xs);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xticks_1](documentation/examples/appearance/grid/xticks/xticks_1.svg)](examples/appearance/grid/xticks/xticks_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_xticks_2](documentation/examples/appearance/grid/xticks/xticks_2_thumb.png)](examples/appearance/grid/xticks/xticks_2.cpp)  [![example_xticks_3](documentation/examples/appearance/grid/xticks/xticks_3_thumb.png)](examples/appearance/grid/xticks/xticks_3.cpp)  [![example_xticks_4](documentation/examples/appearance/grid/xticks/xticks_4_thumb.png)](examples/appearance/grid/xticks/xticks_4.cpp)  [![example_xticks_5](documentation/examples/appearance/grid/xticks/xticks_5_thumb.png)](examples/appearance/grid/xticks/xticks_5.cpp)  [![example_xticks_6](documentation/examples/appearance/grid/xticks/xticks_6_thumb.png)](examples/appearance/grid/xticks/xticks_6.cpp)  [![example_xticks_7](documentation/examples/appearance/grid/xticks/xticks_7_thumb.png)](examples/appearance/grid/xticks/xticks_7.cpp)  [![example_xticks_8](documentation/examples/appearance/grid/xticks/xticks_8_thumb.png)](examples/appearance/grid/xticks/xticks_8.cpp)
+</details>
   
 ##### Y Ticks
 
+```cpp
+yticks(ys);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_yticks_1](documentation/examples/appearance/grid/yticks/yticks_1.svg)](examples/appearance/grid/yticks/yticks_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_yticks_2](documentation/examples/appearance/grid/yticks/yticks_2_thumb.png)](examples/appearance/grid/yticks/yticks_2.cpp)  [![example_yticks_3](documentation/examples/appearance/grid/yticks/yticks_3_thumb.png)](examples/appearance/grid/yticks/yticks_3.cpp)  [![example_yticks_4](documentation/examples/appearance/grid/yticks/yticks_4_thumb.png)](examples/appearance/grid/yticks/yticks_4.cpp)  [![example_yticks_5](documentation/examples/appearance/grid/yticks/yticks_5_thumb.png)](examples/appearance/grid/yticks/yticks_5.cpp)  [![example_yticks_6](documentation/examples/appearance/grid/yticks/yticks_6_thumb.png)](examples/appearance/grid/yticks/yticks_6.cpp)  [![example_yticks_7](documentation/examples/appearance/grid/yticks/yticks_7_thumb.png)](examples/appearance/grid/yticks/yticks_7.cpp)  [![example_yticks_8](documentation/examples/appearance/grid/yticks/yticks_8_thumb.png)](examples/appearance/grid/yticks/yticks_8.cpp)
+</details>
   
 ##### Z Ticks
 
+```cpp
+zticks(zs);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_zticks_1](documentation/examples/appearance/grid/zticks/zticks_1.png)](examples/appearance/grid/zticks/zticks_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_zticks_2](documentation/examples/appearance/grid/zticks/zticks_2_thumb.png)](examples/appearance/grid/zticks/zticks_2.cpp)  [![example_zticks_3](documentation/examples/appearance/grid/zticks/zticks_3_thumb.png)](examples/appearance/grid/zticks/zticks_3.cpp)  [![example_zticks_4](documentation/examples/appearance/grid/zticks/zticks_4_thumb.png)](examples/appearance/grid/zticks/zticks_4.cpp)  [![example_zticks_5](documentation/examples/appearance/grid/zticks/zticks_5_thumb.png)](examples/appearance/grid/zticks/zticks_5.cpp)  [![example_zticks_6](documentation/examples/appearance/grid/zticks/zticks_6_thumb.png)](examples/appearance/grid/zticks/zticks_6.cpp)
+</details>
   
 ##### X Tick Labels
 
+```cpp
+xticklabels(xstrs);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xticklabels_1](documentation/examples/appearance/grid/xticklabels/xticklabels_1.svg)](examples/appearance/grid/xticklabels/xticklabels_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_xticklabels_2](documentation/examples/appearance/grid/xticklabels/xticklabels_2_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_2.cpp)  [![example_xticklabels_3](documentation/examples/appearance/grid/xticklabels/xticklabels_3_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)  [![example_xticklabels_4](documentation/examples/appearance/grid/xticklabels/xticklabels_4_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
+</details>
   
 ##### Y Tick Labels
 
+```cpp
+yticklabels(ystrs);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_yticklabels_1](documentation/examples/appearance/grid/yticklabels/yticklabels_1.svg)](examples/appearance/grid/yticklabels/yticklabels_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_yticklabels_2](documentation/examples/appearance/grid/yticklabels/yticklabels_2_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_2.cpp)  [![example_yticklabels_3](documentation/examples/appearance/grid/yticklabels/yticklabels_3_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)  [![example_yticklabels_4](documentation/examples/appearance/grid/yticklabels/yticklabels_4_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
+</details>
   
 ##### X Tick Format
 
+```cpp
+xtickformat(fmtstr);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xtickformat_1](documentation/examples/appearance/grid/xtickformat/xtickformat_1.svg)](examples/appearance/grid/xtickformat/xtickformat_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_xtickformat_2](documentation/examples/appearance/grid/xtickformat/xtickformat_2_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_2.cpp)  [![example_xtickformat_3](documentation/examples/appearance/grid/xtickformat/xtickformat_3_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)  [![example_xtickformat_4](documentation/examples/appearance/grid/xtickformat/xtickformat_4_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)  [![example_xtickformat_5](documentation/examples/appearance/grid/xtickformat/xtickformat_5_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
+</details>
   
 ##### Y Tick Format
 
+```cpp
+ytickformat(fmtstr);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ytickformat_1](documentation/examples/appearance/grid/ytickformat/ytickformat_1.svg)](examples/appearance/grid/ytickformat/ytickformat_1.cpp)
+</details>
 
-More examples:
-
-[![example_ytickformat_2](documentation/examples/appearance/grid/ytickformat/ytickformat_2_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)  [![example_ytickformat_3](documentation/examples/appearance/grid/ytickformat/ytickformat_3_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)  [![example_ytickformat_4](documentation/examples/appearance/grid/ytickformat/ytickformat_4_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)  [![example_ytickformat_5](documentation/examples/appearance/grid/ytickformat/ytickformat_5_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_ytickformat_2](documentation/examples/appearance/grid/ytickformat/ytickformat_2_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)  [![example_ytickformat_3](documentation/examples/appearance/grid/ytickformat/ytickformat_3_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)  [![example_ytickformat_4](documentation/examples/appearance/grid/ytickformat/ytickformat_4_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)  [![example_ytickformat_5](documentation/examples/appearance/grid/ytickformat/ytickformat_5_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)
+</details>  
 
 ##### Z Tick Format
 
+```cpp
+ztickformat(fmtstr);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ztickformat_1](documentation/examples/appearance/grid/ztickformat/ztickformat_1.svg)](examples/appearance/grid/ztickformat/ztickformat_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_ztickformat_2](documentation/examples/appearance/grid/ztickformat/ztickformat_2_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_2.cpp)  [![example_ztickformat_3](documentation/examples/appearance/grid/ztickformat/ztickformat_3_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_3.cpp)  [![example_ztickformat_4](documentation/examples/appearance/grid/ztickformat/ztickformat_4_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_4.cpp)  [![example_ztickformat_5](documentation/examples/appearance/grid/ztickformat/ztickformat_5_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_5.cpp)
+</details>
   
 ##### X Tick Angle
 
+```cpp
+xtickangle(ang);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_xtickangle_1](documentation/examples/appearance/grid/xtickangle/xtickangle_1.svg)](examples/appearance/grid/xtickangle/xtickangle_1.cpp)
+</details>
 
-More examples:
-
-[![example_xtickangle_2](documentation/examples/appearance/grid/xtickangle/xtickangle_2_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](documentation/examples/appearance/grid/xtickangle/xtickangle_3_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_3.cpp
-)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_xtickangle_2](documentation/examples/appearance/grid/xtickangle/xtickangle_2_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](documentation/examples/appearance/grid/xtickangle/xtickangle_3_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_3.cpp)
+</details>
+  
 ##### Y Tick Angle
 
+```cpp
+ytickangle(ang);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_ytickangle_1](documentation/examples/appearance/grid/ytickangle/ytickangle_1.svg)](examples/appearance/grid/ytickangle/ytickangle_1.cpp)
+</details>
 
-More examples:
-
-[![example_ytickangle_2](documentation/examples/appearance/grid/ytickangle/ytickangle_2_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](documentation/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_3.cpp
-)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_ytickangle_2](documentation/examples/appearance/grid/ytickangle/ytickangle_2_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](documentation/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
+</details>
+  
 #### Multiplot
 
 ##### Hold
 
+```cpp
+hold(on);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_hold_1](documentation/examples/appearance/multiplot/hold/hold_1.svg)](examples/appearance/multiplot/hold/hold_1.cpp)
+</details>
 
-More examples:
-
-[![example_hold_2](documentation/examples/appearance/multiplot/hold/hold_2_thumb.png)](examples/appearance/multiplot/hold/hold_2.cpp)  [![example_hold_3](documentation/examples/appearance/multiplot/hold/hold_3_thumb.png)](examples/appearance/multiplot/hold/hold_3.cpp)  [![example_hold_4](documentation/examples/appearance/multiplot/hold/hold_4_thumb.png)](examples/appearance/multiplot/hold/hold_4.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_hold_2](documentation/examples/appearance/multiplot/hold/hold_2_thumb.png)](examples/appearance/multiplot/hold/hold_2.cpp)  [![example_hold_3](documentation/examples/appearance/multiplot/hold/hold_3_thumb.png)](examples/appearance/multiplot/hold/hold_3.cpp)  [![example_hold_4](documentation/examples/appearance/multiplot/hold/hold_4_thumb.png)](examples/appearance/multiplot/hold/hold_4.cpp)
+</details>  
 
 ##### YY-axis
 
+```cpp
+plot(x, y)->use_y2(true);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_yyaxis_1](documentation/examples/appearance/multiplot/yyaxis/yyaxis_1.svg)](examples/appearance/multiplot/yyaxis/yyaxis_1.cpp)
+</details>
 
-More examples:
-
-[![example_yyaxis_2](documentation/examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)  [![example_yyaxis_3](documentation/examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)  [![example_yyaxis_4](documentation/examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)  [![example_yyaxis_5](documentation/examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)  [![example_yyaxis_6](documentation/examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_yyaxis_2](documentation/examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)  [![example_yyaxis_3](documentation/examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)  [![example_yyaxis_4](documentation/examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)  [![example_yyaxis_5](documentation/examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)  [![example_yyaxis_6](documentation/examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)
+</details>  
 
 ##### Color Order
 
+```cpp
+colororder(colors);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_colororder_1](documentation/examples/appearance/multiplot/colororder/colororder_1.svg)](examples/appearance/multiplot/colororder/colororder_1.cpp)
+</details>
 
-More examples:
-
-[![example_colororder_2](documentation/examples/appearance/multiplot/colororder/colororder_2_thumb.png)](examples/appearance/multiplot/colororder/colororder_2.cpp)  [![example_colororder_3](documentation/examples/appearance/multiplot/colororder/colororder_3_thumb.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)  [![example_colororder_4](documentation/examples/appearance/multiplot/colororder/colororder_4_thumb.png)](examples/appearance/multiplot/colororder/colororder_4.cpp)  [![example_colororder_5](documentation/examples/appearance/multiplot/colororder/colororder_5_thumb.png)](examples/appearance/multiplot/colororder/colororder_5.cpp)  [![example_colororder_6](documentation/examples/appearance/multiplot/colororder/colororder_6_thumb.png)](examples/appearance/multiplot/colororder/colororder_6.cpp)  [![example_colororder_7](documentation/examples/appearance/multiplot/colororder/colororder_7_thumb.png)](examples/appearance/multiplot/colororder/colororder_7.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_colororder_2](documentation/examples/appearance/multiplot/colororder/colororder_2_thumb.png)](examples/appearance/multiplot/colororder/colororder_2.cpp)  [![example_colororder_3](documentation/examples/appearance/multiplot/colororder/colororder_3_thumb.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)  [![example_colororder_4](documentation/examples/appearance/multiplot/colororder/colororder_4_thumb.png)](examples/appearance/multiplot/colororder/colororder_4.cpp)  [![example_colororder_5](documentation/examples/appearance/multiplot/colororder/colororder_5_thumb.png)](examples/appearance/multiplot/colororder/colororder_5.cpp)  [![example_colororder_6](documentation/examples/appearance/multiplot/colororder/colororder_6_thumb.png)](examples/appearance/multiplot/colororder/colororder_6.cpp)  [![example_colororder_7](documentation/examples/appearance/multiplot/colororder/colororder_7_thumb.png)](examples/appearance/multiplot/colororder/colororder_7.cpp)
+</details>  
 
 ##### Subplots
+
+```cpp
+subplot(rows, cols, id);
+```
 
 Unlike other libraries, subplots uses 0-based indices.
 
 [![example_subplot_1](documentation/examples/appearance/multiplot/subplot/subplot_1.svg)](examples/appearance/multiplot/subplot/subplot_1.cpp)
 
-More examples:
-
-[![example_subplot_2](documentation/examples/appearance/multiplot/subplot/subplot_2_thumb.png)](examples/appearance/multiplot/subplot/subplot_2.cpp)  [![example_subplot_3](documentation/examples/appearance/multiplot/subplot/subplot_3_thumb.png)](examples/appearance/multiplot/subplot/subplot_3.cpp)  [![example_subplot_4](documentation/examples/appearance/multiplot/subplot/subplot_4_thumb.png)](examples/appearance/multiplot/subplot/subplot_4.cpp)  [![example_subplot_5](documentation/examples/appearance/multiplot/subplot/subplot_5_thumb.png)](examples/appearance/multiplot/subplot/subplot_5.cpp)  [![example_subplot_6](documentation/examples/appearance/multiplot/subplot/subplot_6_thumb.png)](examples/appearance/multiplot/subplot/subplot_6.cpp)  [![example_subplot_7](documentation/examples/appearance/multiplot/subplot/subplot_7_thumb.png)](examples/appearance/multiplot/subplot/subplot_7.cpp)  [![example_subplot_8](documentation/examples/appearance/multiplot/subplot/subplot_8_thumb.png)](examples/appearance/multiplot/subplot/subplot_8.cpp)  [![example_subplot_9](documentation/examples/appearance/multiplot/subplot/subplot_9_thumb.png)](examples/appearance/multiplot/subplot/subplot_9.cpp)  [![example_subplot_10](documentation/examples/appearance/multiplot/subplot/subplot_10_thumb.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)  [![example_subplot_11](documentation/examples/appearance/multiplot/subplot/subplot_11_thumb.png)](examples/appearance/multiplot/subplot/subplot_11.cpp)  [![example_subplot_12](documentation/examples/appearance/multiplot/subplot/subplot_12_thumb.png)](examples/appearance/multiplot/subplot/subplot_12.cpp)  [![example_subplot_13](documentation/examples/appearance/multiplot/subplot/subplot_13_thumb.png)](examples/appearance/multiplot/subplot/subplot_13.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_subplot_2](documentation/examples/appearance/multiplot/subplot/subplot_2_thumb.png)](examples/appearance/multiplot/subplot/subplot_2.cpp)  [![example_subplot_3](documentation/examples/appearance/multiplot/subplot/subplot_3_thumb.png)](examples/appearance/multiplot/subplot/subplot_3.cpp)  [![example_subplot_4](documentation/examples/appearance/multiplot/subplot/subplot_4_thumb.png)](examples/appearance/multiplot/subplot/subplot_4.cpp)  [![example_subplot_5](documentation/examples/appearance/multiplot/subplot/subplot_5_thumb.png)](examples/appearance/multiplot/subplot/subplot_5.cpp)  [![example_subplot_6](documentation/examples/appearance/multiplot/subplot/subplot_6_thumb.png)](examples/appearance/multiplot/subplot/subplot_6.cpp)  [![example_subplot_7](documentation/examples/appearance/multiplot/subplot/subplot_7_thumb.png)](examples/appearance/multiplot/subplot/subplot_7.cpp)  [![example_subplot_8](documentation/examples/appearance/multiplot/subplot/subplot_8_thumb.png)](examples/appearance/multiplot/subplot/subplot_8.cpp)  [![example_subplot_9](documentation/examples/appearance/multiplot/subplot/subplot_9_thumb.png)](examples/appearance/multiplot/subplot/subplot_9.cpp)  [![example_subplot_10](documentation/examples/appearance/multiplot/subplot/subplot_10_thumb.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)  [![example_subplot_11](documentation/examples/appearance/multiplot/subplot/subplot_11_thumb.png)](examples/appearance/multiplot/subplot/subplot_11.cpp)  [![example_subplot_12](documentation/examples/appearance/multiplot/subplot/subplot_12_thumb.png)](examples/appearance/multiplot/subplot/subplot_12.cpp)  [![example_subplot_13](documentation/examples/appearance/multiplot/subplot/subplot_13_thumb.png)](examples/appearance/multiplot/subplot/subplot_13.cpp)
+</details>  
 
 ##### Tiled Layout
+
+```cpp
+tiledlayout(rows, cols);
+nexttile();
+```
 
 Our tiling functions are convenience shortcuts for the subplot functions. If there is no room for the next tile, we automatically rearrange the axes and increase the number of subplot rows or columns to fit the next tile. Use subplots for more control over the subplots. 
 
 [![example_tiledlayout_1](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_tiledlayout_2](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)  [![example_tiledlayout_3](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)  [![example_tiledlayout_4](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)  [![example_tiledlayout_5](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)  [![example_tiledlayout_6](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)  [![example_tiledlayout_7](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)  [![example_tiledlayout_8](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
+</details>
   
 #### Colormaps
 
 
 ##### Colormap
 
+```cpp
+colormap(colors);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_colormap_1](documentation/examples/appearance/colormaps/colormap/colormap_1.png)](examples/appearance/colormaps/colormap/colormap_1.cpp)
+</details>
 
-More examples:
-
-[![example_colormap_2](documentation/examples/appearance/colormaps/colormap/colormap_2_thumb.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)  [![example_colormap_3](documentation/examples/appearance/colormaps/colormap/colormap_3_thumb.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)  [![example_colormap_4](documentation/examples/appearance/colormaps/colormap/colormap_4_thumb.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)  [![example_colormap_5](documentation/examples/appearance/colormaps/colormap/colormap_5_thumb.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)  [![example_colormap_6](documentation/examples/appearance/colormaps/colormap/colormap_6_thumb.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)  [![example_colormap_7](documentation/examples/appearance/colormaps/colormap/colormap_7_thumb.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)  [![example_colormap_8](documentation/examples/appearance/colormaps/colormap/colormap_8_thumb.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)  [![example_colormap_9](documentation/examples/appearance/colormaps/colormap/colormap_9_thumb.png)](examples/appearance/colormaps/colormap/colormap_9.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_colormap_2](documentation/examples/appearance/colormaps/colormap/colormap_2_thumb.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)  [![example_colormap_3](documentation/examples/appearance/colormaps/colormap/colormap_3_thumb.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)  [![example_colormap_4](documentation/examples/appearance/colormaps/colormap/colormap_4_thumb.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)  [![example_colormap_5](documentation/examples/appearance/colormaps/colormap/colormap_5_thumb.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)  [![example_colormap_6](documentation/examples/appearance/colormaps/colormap/colormap_6_thumb.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)  [![example_colormap_7](documentation/examples/appearance/colormaps/colormap/colormap_7_thumb.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)  [![example_colormap_8](documentation/examples/appearance/colormaps/colormap/colormap_8_thumb.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)  [![example_colormap_9](documentation/examples/appearance/colormaps/colormap/colormap_9_thumb.png)](examples/appearance/colormaps/colormap/colormap_9.cpp)
+</details>  
 
 ##### Color Bar
 
+```cpp
+colorbar();
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_colorbar_1](documentation/examples/appearance/colormaps/colorbar/colorbar_1.png)](examples/appearance/colormaps/colorbar/colorbar_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_colorbar_2](documentation/examples/appearance/colormaps/colorbar/colorbar_2_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_2.cpp)  [![example_colorbar_3](documentation/examples/appearance/colormaps/colorbar/colorbar_3_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_3.cpp)  [![example_colorbar_4](documentation/examples/appearance/colormaps/colorbar/colorbar_4_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_4.cpp)  [![example_colorbar_5](documentation/examples/appearance/colormaps/colorbar/colorbar_5_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_5.cpp)  [![example_colorbar_6](documentation/examples/appearance/colormaps/colorbar/colorbar_6_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_6.cpp)  [![example_colorbar_7](documentation/examples/appearance/colormaps/colorbar/colorbar_7_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_7.cpp)
+</details>
   
 ##### RGB Plot
 
+```cpp
+rgbplot(colors);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_rgbplot_1](documentation/examples/appearance/colormaps/rgbplot/rgbplot_1.svg)](examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
+</details>
 
-More examples:
-
-[![example_rgbplot_2](documentation/examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_rgbplot_2](documentation/examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
+</details>  
 
 #### Camera
 
-
 ##### View
 
+```cpp
+view(az, el);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_view_1](documentation/examples/appearance/camera/view/view_1.png)](examples/appearance/camera/view/view_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_view_2](documentation/examples/appearance/camera/view/view_2_thumb.png)](examples/appearance/camera/view/view_2.cpp)  [![example_view_3](documentation/examples/appearance/camera/view/view_3_thumb.png)](examples/appearance/camera/view/view_3.cpp)  [![example_view_4](documentation/examples/appearance/camera/view/view_4_thumb.png)](examples/appearance/camera/view/view_4.cpp)  [![example_view_5](documentation/examples/appearance/camera/view/view_5_thumb.png)](examples/appearance/camera/view/view_5.cpp)
+</details>
   
 ##### Lighting
 
+```cpp
+surf(x, y, z)->lighting(true);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_lighting_1](documentation/examples/appearance/camera/lighting/lighting_1.png)](examples/appearance/camera/lighting/lighting_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_lighting_2](documentation/examples/appearance/camera/lighting/lighting_2_thumb.png)](examples/appearance/camera/lighting/lighting_2.cpp)  [![example_lighting_3](documentation/examples/appearance/camera/lighting/lighting_3_thumb.png)](examples/appearance/camera/lighting/lighting_3.cpp)  [![example_lighting_4](documentation/examples/appearance/camera/lighting/lighting_4_thumb.png)](examples/appearance/camera/lighting/lighting_4.cpp)  [![example_lighting_5](documentation/examples/appearance/camera/lighting/lighting_5_thumb.png)](examples/appearance/camera/lighting/lighting_5.cpp)  [![example_lighting_6](documentation/examples/appearance/camera/lighting/lighting_6_thumb.png)](examples/appearance/camera/lighting/lighting_6.cpp)
+</details>
   
 #### Figure Object
 
+```cpp
+figure();
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_figure_1](documentation/examples/appearance/figure/figure_1.svg)](examples/appearance/figure/figure_1.cpp)
+</details>
 
-More examples:
-
+<details>
+    <summary>More examples</summary>
+    
 [![example_figure_2](documentation/examples/appearance/figure/figure_2_thumb.png)](examples/appearance/figure/figure_2.cpp)  [![example_figure_3](documentation/examples/appearance/figure/figure_3_thumb.png)](examples/appearance/figure/figure_3.cpp)
+</details>
   
 #### Line Specs
 
+```cpp
+fplot(fn, spec_str);
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_line_spec_1](documentation/examples/appearance/line_spec/line_spec_1.svg)](examples/appearance/line_spec/line_spec_1.cpp)
+</details>
 
 
 #### Axes Object
 
+```cpp
+auto ax1 = gca();
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_axes_1](documentation/examples/appearance/axes/axes_1.svg)](examples/appearance/axes/axes_1.cpp)
+</details>
 
-More examples:
-
-[![example_axes_2](documentation/examples/appearance/axes/axes_2_thumb.png)](examples/appearance/axes/axes_2.cpp)  [![example_axes_3](documentation/examples/appearance/axes/axes_3_thumb.png)](examples/appearance/axes/axes_3.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_axes_2](documentation/examples/appearance/axes/axes_2_thumb.png)](examples/appearance/axes/axes_2.cpp)  [![example_axes_3](documentation/examples/appearance/axes/axes_3_thumb.png)](examples/appearance/axes/axes_3.cpp)
+</details>  
 
 #### Clear Axes
 
+```cpp
+cla();
+```
+
+<details>
+    <summary>See result</summary>
+
 [![example_cla_1](documentation/examples/appearance/cla/cla_1.svg)](examples/appearance/cla/cla_1.cpp)
+</details>
 
-More examples:
-
-[![example_cla_2](documentation/examples/appearance/cla/cla_2_thumb.png)](examples/appearance/cla/cla_2.cpp)  [![example_cla_3](documentation/examples/appearance/cla/cla_3_thumb.png)](examples/appearance/cla/cla_3.cpp)  
+<details>
+    <summary>More examples</summary>
+    
+[![example_cla_2](documentation/examples/appearance/cla/cla_2_thumb.png)](examples/appearance/cla/cla_2.cpp)  [![example_cla_3](documentation/examples/appearance/cla/cla_3_thumb.png)](examples/appearance/cla/cla_3.cpp)
+</details>  
 
 ### Exporting
 
@@ -1155,11 +1969,17 @@ or
 save(filename, fileformat);
 ```
 
+<details>
+    <summary>See result</summary>
+    
 [![example_save_1](documentation/examples/exporting/save/save_1.png)](examples/exporting/save/save_1.cpp)
+</details>
 
-More examples:
-
-[![example_save_2](documentation/examples/exporting/save/save_2_thumb.png)](examples/exporting/save/save_2.cpp)  [![example_save_3](documentation/examples/exporting/save/save_3_thumb.png)](examples/exporting/save/save_3.cpp)  [![example_save_4](documentation/examples/exporting/save/save_4_thumb.png)](examples/exporting/save/save_4.cpp)  [![example_save_5](documentation/examples/exporting/save/save_5_thumb.png)](examples/exporting/save/save_5.cpp)  [![example_save_6](documentation/examples/exporting/save/save_6_thumb.png)](examples/exporting/save/save_6.cpp)  [![example_save_7](documentation/examples/exporting/save/save_7_thumb.png)](examples/exporting/save/save_7.cpp)  [![example_save_8](documentation/examples/exporting/save/save_8_thumb.png)](examples/exporting/save/save_8.cpp) 
+<details>
+    <summary>More examples</summary>
+    
+[![example_save_2](documentation/examples/exporting/save/save_2_thumb.png)](examples/exporting/save/save_2.cpp)  [![example_save_3](documentation/examples/exporting/save/save_3_thumb.png)](examples/exporting/save/save_3.cpp)  [![example_save_4](documentation/examples/exporting/save/save_4_thumb.png)](examples/exporting/save/save_4.cpp)  [![example_save_5](documentation/examples/exporting/save/save_5_thumb.png)](examples/exporting/save/save_5.cpp)  [![example_save_6](documentation/examples/exporting/save/save_6_thumb.png)](examples/exporting/save/save_6.cpp)  [![example_save_7](documentation/examples/exporting/save/save_7_thumb.png)](examples/exporting/save/save_7.cpp)  [![example_save_8](documentation/examples/exporting/save/save_8_thumb.png)](examples/exporting/save/save_8.cpp)
+</details> 
 
 The first option (`save(filename)`) infers the appropriate file format from the filename extension. In both cases (`save(filename)` and `save(filename,fileformat)`), this function temporarily changes the backend to a non-interactive backend appropriate to draw the figure. A different backend is used for each format and, depending on the format, the final image does not necessarily match what is on the interactive plot window. The reason is that some file formats purposefully do not include the same features.
 
@@ -1177,8 +1997,12 @@ The first option (`save(filename)`) infers the appropriate file format from the 
  ```
  
  we get the vector graphics 
- 
+
+<details>
+    <summary>See result</summary>
+
  ![Barchart as SVG file](documentation/img/barchart.svg)
+</details>
  
  Exporting the image with
  
@@ -1187,6 +2011,10 @@ The first option (`save(filename)`) infers the appropriate file format from the 
  ```
  
  generates a representation of the image appropriate for text or markdown files, such as
+ 
+ <details>
+     <summary>See result</summary>
+
  
  ```
  
@@ -1213,6 +2041,7 @@ The first option (`save(filename)`) infers the appropriate file format from the 
                    1      2       3      4       5      6       7
  
  ```
+ </details>
  
  As the last example, saving an image with
  
@@ -1222,7 +2051,11 @@ The first option (`save(filename)`) infers the appropriate file format from the 
  
  would save the image in a format appropriate to embed in latex documents, such as
   
+<details>
+  <summary>See result</summary>
+
  ![Barchart - Latex](documentation/img/barchart.png) 
+</details>
   
  This exports the image in a format in which the labels are replaced by latex text so that the plot fits the rest of the document.
 
@@ -1461,28 +2294,29 @@ Coming up with new backends is a continuous process. See the complete [article](
 If you're in a hurry, here is a summary of the backends we have and the backends we have been considering or working on:
 
 * Gnuplot
-    * Pros: It seems to be working for everyone. *In practice, this is current default backend you'll get right now.*
+    * Pros: It seems to be working for everyone.
     * Cons: Pipes are comparatively slow and unidirectional
+    * *In practice, this is default backend you'll get right now.*
 * OpenGL
     * Pros: Efficient for many FPS.
-    *The experimental OpenGL backend already works for some plot categories.*
     * Cons: Blocks the main thread on some operating systems
+    * *The experimental OpenGL backend already works for some plot categories.* <sup>see [1](test/backends/ogl_main.cpp) </sup>
 * Qt
-    * Same as OpenGL [[1](https://doc.qt.io/qt-5/qtgui-index.html#opengl-and-opengl-es-integration), [2](https://doc.qt.io/qt-5/qtopengl-index.html)]
+    * Same as OpenGL <sup>see [1](https://doc.qt.io/qt-5/qtgui-index.html#opengl-and-opengl-es-integration), [2](https://doc.qt.io/qt-5/qtopengl-index.html) </sup>
 * AGG
     * Pros: Great for vector graphics
-    * Cons: Unmaintained [[1](https://github.com/ghaerr/agg-2.6#roadmap), [2](https://github.com/mapnik/mapnik/wiki/MapnikRenderers), [3](http://www.antigrain.com/)], 2D only, and non-interactive by itself
+    * Cons: Unmaintained, 2D only, and non-interactive by itself <sup>see [1](https://github.com/ghaerr/agg-2.6#roadmap), [2](https://github.com/mapnik/mapnik/wiki/MapnikRenderers), [3](http://www.antigrain.com/) </sup>
 
 ### Contributing
 
 There are many ways in which you can contribute to this library:
 
-* Testing the library in new environments
-* Contributing with interesting examples
-* Designing new backends <sup>see [1](source/matplot/backend/backend_interface.h), [2](#backends), [3](documentation/README.md#backends)</sup>
-* Finding problems in this documentation
-* Writing algorithms for new plot categories
-* Finding bugs in general
+* Testing the library in new environments <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22cross-platform+issue+-+windows%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22cross-platform+issue+-+linux%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22cross-platform+issue+-+macos%22) </sup>
+* Contributing with interesting examples <sup>see [1](source/examples)</sup>
+* Designing new backends <sup>see [1](source/matplot/backend/backend_interface.h), [2](test/backends/ogl_main.cpp), [3](#backends), [4](documentation/README.md#backends)</sup>
+* Finding problems in this documentation <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22enhancement+-+documentation%22) </sup>
+* Writing algorithms for new plot categories <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22enhancement+-+plot+categories%22) </sup>
+* Finding bugs in general <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+error%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+warning%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+error%22), [4](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+warning%22) </sup>
 * Whatever idea seems interesting to you
 
 ## References
