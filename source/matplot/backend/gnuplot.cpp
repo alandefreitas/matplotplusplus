@@ -270,9 +270,9 @@ namespace matplot::backend {
 
     std::pair<int, int> gnuplot::gnuplot_version() {
         static std::pair<int, int> version{0, 0};
-        const bool dont_know_gnuplot_version =
+        const bool dont_know_gnuplot_version_yet =
             version == std::pair<int, int>({0, 0});
-        if (dont_know_gnuplot_version) {
+        if (dont_know_gnuplot_version_yet) {
             std::string version_str =
                 run_and_get_output("gnuplot --version 2>&1");
             std::string version_major = std::regex_replace(
