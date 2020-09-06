@@ -36,8 +36,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership of the xlim
         template <class... Args>
-        error_bar(const axes_handle &parent, Args... args)
-            : error_bar(parent.get(), args...) {}
+        error_bar(const axes_handle &parent, Args&&... args)
+            : error_bar(parent.get(), std::forward<Args>(args)...) {}
 
       public /* override the plotting function for error_bar */:
         std::string set_variables_string() override;

@@ -30,8 +30,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        line(const axes_handle &parent, Args... args)
-            : line(parent.get(), args...) {}
+        line(const axes_handle &parent, Args&&... args)
+            : line(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
         void run_draw_commands() override;

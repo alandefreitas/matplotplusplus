@@ -51,8 +51,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        vectors(const axes_handle &parent, Args... args)
-            : vectors(parent.get(), args...) {}
+        vectors(const axes_handle &parent, Args&&... args)
+            : vectors(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
         std::string plot_string() override;

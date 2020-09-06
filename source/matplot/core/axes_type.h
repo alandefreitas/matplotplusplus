@@ -662,13 +662,13 @@ namespace matplot {
         /// is a divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &x, const std::vector<double> &y,
-                  const std::string &line_spec, Args... args) {
+                  const std::string &line_spec, Args&&... args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot(x, y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot(args...));
+            std::vector<line_handle> result_b = vectorize(this->plot(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -687,13 +687,13 @@ namespace matplot {
         /// divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &x, const std::vector<double> &y,
-                  const std::vector<double> &x2, Args... args) {
+                  const std::vector<double> &x2, Args&&... args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a = vectorize(this->plot(x, y));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
             std::vector<line_handle> result_b =
-                vectorize(this->plot(x2, args...));
+                vectorize(this->plot(x2, std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -712,13 +712,13 @@ namespace matplot {
         /// is a divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &y, const std::string &line_spec,
-                  Args... args) {
+                  Args&&... args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot(y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot(args...));
+            std::vector<line_handle> result_b = vectorize(this->plot(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -766,13 +766,13 @@ namespace matplot {
         template <class... Args>
         auto plot3(const std::vector<double> &x, const std::vector<double> &y,
                    const std::vector<double> &z, const std::string &line_spec,
-                   Args... args) {
+                   Args&&... args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot3(x, y, z, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot3(args...));
+            std::vector<line_handle> result_b = vectorize(this->plot3(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -788,13 +788,13 @@ namespace matplot {
         template <class... Args>
         auto plot3(const std::vector<double> &x, const std::vector<double> &y,
                    const std::vector<double> &z, const std::vector<double> &x2,
-                   Args... args) {
+                   Args&&... args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a = vectorize(this->plot3(x, y, z));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
             std::vector<line_handle> result_b =
-                vectorize(this->plot3(x2, args...));
+                vectorize(this->plot3(x2, std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -835,14 +835,14 @@ namespace matplot {
         /// This function represents case 1a
         template <class... Args>
         auto stairs(const std::vector<double> &x, const std::vector<double> &y,
-                    const std::string &line_spec, Args... args) {
+                    const std::string &line_spec, Args&&... args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a =
                 vectorize(this->stairs(x, y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
             std::vector<stair_handle> result_b =
-                vectorize(this->stairs(args...));
+                vectorize(this->stairs(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -857,13 +857,13 @@ namespace matplot {
         /// This function represents case 1b
         template <class... Args>
         auto stairs(const std::vector<double> &x, const std::vector<double> &y,
-                    const std::vector<double> &x2, Args... args) {
+                    const std::vector<double> &x2, Args&&... args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a = vectorize(this->stairs(x, y));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
             std::vector<stair_handle> result_b =
-                vectorize(this->stairs(x2, args...));
+                vectorize(this->stairs(x2, std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -878,14 +878,14 @@ namespace matplot {
         /// This function represents case 2
         template <class... Args>
         auto stairs(const std::vector<double> &y, const std::string &line_spec,
-                    Args... args) {
+                    Args&&... args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a =
                 vectorize(this->stairs(y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
             std::vector<stair_handle> result_b =
-                vectorize(this->stairs(args...));
+                vectorize(this->stairs(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -1734,21 +1734,21 @@ namespace matplot {
 
         template <class T1, class T2, class... Args>
         auto plot(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                  const std::string &line_spec, Args... args) {
-            return plot(to_vector_1d(x), to_vector_1d(y), line_spec, args...);
+                  const std::string &line_spec, Args&&... args) {
+            return plot(to_vector_1d(x), to_vector_1d(y), line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3, class... Args>
         auto plot(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                  const IterableValues<T3> &x2, Args... args) {
+                  const IterableValues<T3> &x2, Args&&... args) {
             return plot(to_vector_1d(x), to_vector_1d(y), to_vector_1d(x2),
-                        args...);
+                        std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto plot(const IterableValues<T1> &y, const std::string &line_spec,
-                  Args... args) {
-            return plot(to_vector_1d(y), line_spec, args...);
+                  Args&&... args) {
+            return plot(to_vector_1d(y), line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2>
@@ -1798,23 +1798,23 @@ namespace matplot {
         template <class T1, class T2, class T3, class... Args>
         auto plot3(const IterableValues<T1> &x, const IterableValues<T2> &y,
                    const IterableValues<T3> &z, const std::string &line_spec,
-                   Args... args) {
+                   Args&&... args) {
             return plot3(to_vector_1d(x), to_vector_1d(y), to_vector_1d(z),
-                         line_spec, args...);
+                         line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3, class T4, class... Args>
         auto plot3(const IterableValues<T1> &x, const IterableValues<T2> &y,
                    const IterableValues<T3> &z, const IterableValues<T4> &x2,
-                   Args... args) {
+                   Args&&... args) {
             return plot3(to_vector_1d(x), to_vector_1d(y), to_vector_1d(z),
-                         to_vector_1d(x2), args...);
+                         to_vector_1d(x2), std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto plot3(const IterableValues<T1> &z, const std::string &line_spec,
-                   Args... args) {
-            return plot3(to_vector_1d(z), line_spec, args...);
+                   Args&&... args) {
+            return plot3(to_vector_1d(z), line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2>
@@ -1852,21 +1852,21 @@ namespace matplot {
 
         template <class T1, class T2, class... Args>
         auto stairs(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                    const std::string &line_spec, Args... args) {
-            return stairs(to_vector_1d(x), to_vector_1d(y), line_spec, args...);
+                    const std::string &line_spec, Args&&... args) {
+            return stairs(to_vector_1d(x), to_vector_1d(y), line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3, class... Args>
         auto stairs(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                    const IterableValues<T3> &x2, Args... args) {
+                    const IterableValues<T3> &x2, Args&&... args) {
             return stairs(to_vector_1d(x), to_vector_1d(y), to_vector_1d(x2),
-                          args...);
+                          std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto stairs(const IterableValues<T1> &y, const std::string &line_spec,
-                    Args... args) {
-            return stairs(to_vector_1d(y), line_spec, args...);
+                    Args&&... args) {
+            return stairs(to_vector_1d(y), line_spec, std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3>
@@ -2627,53 +2627,53 @@ namespace matplot {
 
       public /* template variants of plot functions above  */:
         /// Loglog is a line plot variant with log on both x and y axes
-        template <class... Args> auto loglog(Args... args) {
-            auto h = this->plot(args...);
+        template <class... Args> auto loglog(Args&&... args) {
+            auto h = this->plot(std::forward<Args>(args)...);
             this->x_axis().scale(axis_type::axis_scale::log);
             this->y_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
-        template <class... Args> auto semilogx(Args... args) {
-            auto h = this->plot(args...);
+        template <class... Args> auto semilogx(Args&&... args) {
+            auto h = this->plot(std::forward<Args>(args)...);
             this->x_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
-        template <class... Args> auto semilogy(Args... args) {
-            auto h = this->plot(args...);
+        template <class... Args> auto semilogy(Args&&... args) {
+            auto h = this->plot(std::forward<Args>(args)...);
             this->y_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// If the user tries to use boxchart instead of boxplot, it also works
-        template <class T1, class... Args> auto boxchart(Args... args) {
-            return boxplot(args...);
+        template <class T1, class... Args> auto boxchart(Args&&... args) {
+            return boxplot(std::forward<Args>(args)...);
         }
 
         /// The function hist2 is equivalent to binscatter (usually with a
         /// heatmap)
-        template <class... Args> auto hist2(Args... args) {
-            return binscatter(args...);
+        template <class... Args> auto hist2(Args&&... args) {
+            return binscatter(std::forward<Args>(args)...);
         }
 
         /// Directed graph
-        template <class... Args> auto digraph(Args... args) {
-            auto l = graph(args...);
+        template <class... Args> auto digraph(Args&&... args) {
+            auto l = graph(std::forward<Args>(args)...);
             l->directed(true);
             return l;
         }
 
         /// Show array as image and scale the colorbar
-        template <class... Args> auto imagesc(Args... args) {
-            return image(args..., true);
+        template <class... Args> auto imagesc(Args&&... args) {
+            return image(std::forward<Args>(args)..., true);
         }
 
         /// Show array as image and scale the colorbar
-        template <class... Args> auto polygon(Args... args) {
-            return fill(args...);
+        template <class... Args> auto polygon(Args&&... args) {
+            return fill(std::forward<Args>(args)...);
         }
 
       public /* templates converting to vector<double> and

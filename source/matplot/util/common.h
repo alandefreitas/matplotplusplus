@@ -242,9 +242,9 @@ namespace matplot {
 
     template <class... Args>
     std::vector<double> concat(const std::vector<double> &a,
-                               const std::vector<double> &b, Args... args) {
+                               const std::vector<double> &b, Args&&... args) {
         std::vector<double> r = concat(a, b);
-        return concat(r, args...);
+        return concat(r, std::forward<Args>(args)...);
     }
 
     double truncate(double x, double lower_bound, double upper_bound);
@@ -255,9 +255,9 @@ namespace matplot {
     }
 
     template <class Arg1, class... Args, class TUPLE>
-    void reorder_parameter_pack_in_tuple(TUPLE &t, Arg1 x, Args... args) {
+    void reorder_parameter_pack_in_tuple(TUPLE &t, Arg1 x, Args&&... args) {
         std::get<Arg1>(t) = x;
-        reorder_parameter_pack_in_tuple(t, args...);
+        reorder_parameter_pack_in_tuple(t, std::forward<Args>(args)...);
     }
 
     std::string fileread(const std::string &filename);

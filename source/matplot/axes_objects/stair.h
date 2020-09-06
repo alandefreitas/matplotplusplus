@@ -37,8 +37,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        stair(const axes_handle &parent, Args... args)
-            : stair(parent.get(), args...) {}
+        stair(const axes_handle &parent, Args&&... args)
+            : stair(parent.get(), std::forward<Args>(args)...) {}
 
       public /* override the plotting function for stair */:
         std::string plot_string() override;
