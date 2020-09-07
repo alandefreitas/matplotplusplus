@@ -2163,7 +2163,7 @@ There are many ways in which you can contribute to this library:
                     <a href="https://github.com/lacc97">
                         <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
                         <br />
-                        <sub><b>Luis Cáceres</b></sub>
+                        <sub><b>Luis CC!ceres</b></sub>
                     </a>
                 </td>
                 <td align="center">
@@ -2293,3 +2293,43 @@ There are many ways in which you can contribute to this library:
 * Zaitsev S (2020). Webview. URL: [https://github.com/zserge/webview](https://github.com/zserge/webview).
  
 * Zakai A (2011). "Emscripten: an LLVM-to-JavaScript compiler." In Proceedings of the ACM international conference companion on Object oriented programming systems languages and applications companion, pp. 301-312.
+## Contributors :sparkles:
+<table>
+<tr>
+                <td align="center">
+                    <a href="https://github.com/alandefreitas">
+                        <img src="https://avatars0.githubusercontent.com/u/5369819?v=4" width="100;" alt="alandefreitas"/>
+                        <br />
+                        <sub><b>Alan De Freitas</b></sub>
+                    </a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/mrexodia">
+                        <img src="https://avatars2.githubusercontent.com/u/2458265?v=4" width="100;" alt="mrexodia"/>
+                        <br />
+                        <sub><b>Duncan Ogilvie</b></sub>
+                    </a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/lacc97">
+                        <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
+                        <br />
+                        <sub><b>Luis Cáceres</b></sub>
+                    </a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/sammi">
+                        <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
+                        <br />
+                        <sub><b>Sammi</b></sub>
+                    </a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/dimztimz">
+                        <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
+                        <br />
+                        <sub><b>Dimitrij Mijoski</b></sub>
+                    </a>
+                </td></tr>
+</table>
+
