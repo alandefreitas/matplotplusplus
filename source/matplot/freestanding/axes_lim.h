@@ -18,13 +18,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void xlim(axes_handle ax, Args... args) {
-        ax->xlim(args...);
+    template <class T, class... Args> void xlim(axes_handle ax, Args&&... args) {
+        ax->xlim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void xlim(NotAxesHandle<T> x, Args... args) {
-        gca()->xlim(x, args...);
+    void xlim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->xlim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> cblim() { return gca()->cblim(); }
@@ -37,13 +37,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void cblim(axes_handle ax, Args... args) {
-        ax->cblim(args...);
+    template <class T, class... Args> void cblim(axes_handle ax, Args&&... args) {
+        ax->cblim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void cblim(NotAxesHandle<T> x, Args... args) {
-        gca()->cblim(x, args...);
+    void cblim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->cblim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> caxis() { return gca()->cblim(); }
@@ -56,13 +56,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void caxis(axes_handle ax, Args... args) {
-        ax->cblim(args...);
+    template <class T, class... Args> void caxis(axes_handle ax, Args&&... args) {
+        ax->cblim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void caxis(NotAxesHandle<T> x, Args... args) {
-        gca()->cblim(x, args...);
+    void caxis(NotAxesHandle<T> x, Args&&... args) {
+        gca()->cblim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> x2lim() { return gca()->x2lim(); }
@@ -75,13 +75,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void x2lim(axes_handle ax, Args... args) {
-        ax->x2lim(args...);
+    template <class T, class... Args> void x2lim(axes_handle ax, Args&&... args) {
+        ax->x2lim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void x2lim(NotAxesHandle<T> x, Args... args) {
-        gca()->x2lim(x, args...);
+    void x2lim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->x2lim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> ylim() { return gca()->ylim(); }
@@ -94,13 +94,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void ylim(axes_handle ax, Args... args) {
-        ax->ylim(args...);
+    template <class T, class... Args> void ylim(axes_handle ax, Args&&... args) {
+        ax->ylim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void ylim(NotAxesHandle<T> x, Args... args) {
-        gca()->ylim(x, args...);
+    void ylim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->ylim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> y2lim() { return gca()->y2lim(); }
@@ -113,13 +113,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void y2lim(axes_handle ax, Args... args) {
-        ax->y2lim(args...);
+    template <class T, class... Args> void y2lim(axes_handle ax, Args&&... args) {
+        ax->y2lim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void y2lim(NotAxesHandle<T> x, Args... args) {
-        gca()->y2lim(x, args...);
+    void y2lim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->y2lim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> zlim() { return gca()->zlim(); }
@@ -132,13 +132,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void zlim(axes_handle ax, Args... args) {
-        ax->zlim(args...);
+    template <class T, class... Args> void zlim(axes_handle ax, Args&&... args) {
+        ax->zlim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void zlim(NotAxesHandle<T> x, Args... args) {
-        gca()->zlim(x, args...);
+    void zlim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->zlim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> rlim() { return gca()->rlim(); }
@@ -151,13 +151,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void rlim(axes_handle ax, Args... args) {
-        ax->rlim(args...);
+    template <class T, class... Args> void rlim(axes_handle ax, Args&&... args) {
+        ax->rlim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void rlim(NotAxesHandle<T> x, Args... args) {
-        gca()->rlim(x, args...);
+    void rlim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->rlim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> tlim() { return gca()->tlim(); }
@@ -170,13 +170,13 @@ namespace matplot {
         }
     }
 
-    template <class T, class... Args> void tlim(axes_handle ax, Args... args) {
-        ax->tlim(args...);
+    template <class T, class... Args> void tlim(axes_handle ax, Args&&... args) {
+        ax->tlim(std::forward<Args>(args)...);
     }
 
     template <class T, class... Args>
-    void tlim(NotAxesHandle<T> x, Args... args) {
-        gca()->tlim(x, args...);
+    void tlim(NotAxesHandle<T> x, Args&&... args) {
+        gca()->tlim(x, std::forward<Args>(args)...);
     }
 
     inline std::array<double, 2> xlim(axes_handle ax) {

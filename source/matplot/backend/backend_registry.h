@@ -11,10 +11,10 @@
 
 namespace matplot {
     template <class BACKEND_TYPE, class ... Args>
-    std::shared_ptr<backend::backend_interface> create_backend(Args... args) {
+    std::shared_ptr<backend::backend_interface> create_backend(Args&&... args) {
         if constexpr (std::is_base_of_v<backend::backend_interface,
                                         BACKEND_TYPE>) {
-            std::shared_ptr<BACKEND_TYPE> dp = std::make_shared<BACKEND_TYPE>(args...);
+            std::shared_ptr<BACKEND_TYPE> dp = std::make_shared<BACKEND_TYPE>(std::forward<Args>(args)...);
             std::shared_ptr<backend::backend_interface> bp =
                 std::dynamic_pointer_cast<backend::backend_interface>(dp);
             return bp;

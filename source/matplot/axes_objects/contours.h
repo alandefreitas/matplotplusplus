@@ -60,8 +60,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        contours(const axes_handle &parent, Args... args)
-            : contours(parent.get(), args...) {}
+        contours(const axes_handle &parent, Args&&... args)
+            : contours(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;

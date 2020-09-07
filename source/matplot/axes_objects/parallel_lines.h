@@ -25,8 +25,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        parallel_lines(const axes_handle &parent, Args... args)
-            : parallel_lines(parent.get(), args...) {}
+        parallel_lines(const axes_handle &parent, Args&&... args)
+            : parallel_lines(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;

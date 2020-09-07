@@ -30,8 +30,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        network(const axes_handle &parent, Args... args)
-            : network(parent.get(), args...) {}
+        network(const axes_handle &parent, Args&&... args)
+            : network(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
         std::string plot_string() override;

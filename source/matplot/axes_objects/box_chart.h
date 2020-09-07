@@ -42,8 +42,8 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        box_chart(const axes_handle &parent, Args... args)
-            : box_chart(parent.get(), args...) {}
+        box_chart(const axes_handle &parent, Args&&... args)
+            : box_chart(parent.get(), std::forward<Args>(args)...) {}
 
       public /* xlim object virtual functions */:
         std::string set_variables_string() override;
