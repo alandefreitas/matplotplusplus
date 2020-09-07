@@ -2020,7 +2020,82 @@ If you are interested in understanding how the library works, you can read the d
 
 ## Integration
 
-### CMake (manual download)
+### Dependencies
+
+The build script will try to find all these dependencies for you:
+
+* C++17
+* CMake 3.14+
+* Required at runtime
+    * Gnuplot 5.2.6+
+
+It will also look for these *optional* dependencies for manipulating images:
+
+* JPEG
+* TIFF
+* ZLIB
+* PNG
+* LAPACK
+* BLAS
+* FFTW
+* OpenCV
+    
+There are two dependencies in [`source/3rd_party`](source/3rd_party). These dependencies are bundled, so you don't have to worry about them:
+ 
+* olvb/nodesoup
+* dtschump/CImg
+
+You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
+
+There's an extra target `matplot_opengl` with the experimental OpenGL backend. You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+
+* OpenGL
+* GLAD
+* GLFW3
+
+You can see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
+
+### Build the examples
+
+```bash
+mkdir build
+cmake -version
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build . -j 2 --config Release
+```
+
+### Installing
+
+```bash
+mkdir build
+cmake -version
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build . -j 2 --config Release
+cmake --install
+```
+
+### As a CMake package
+
+If you have library installed, you can call
+
+```cmake
+find_package(Matplot++)
+```
+
+from your CMake build script. When creating your executable, link the library to the targets you want:
+
+```
+add_executable(my_target main.cpp)
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+Add this header to your source files:
+
+```cpp
+#include <matplot/matplot.h>
+```
+
+### As a CMake subdirectory
 
 Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
@@ -2028,7 +2103,7 @@ Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 cmake -version
 ```
 
-Download the whole project and add the subdirectory to your Cmake project:
+Download the whole project and add the subdirectory to your CMake project:
 
 ```cmake
 add_subdirectory(matplotplusplus)
@@ -2047,7 +2122,7 @@ Add this header to your source files:
 #include <matplot/matplot.h>
 ```   
 
-### CMake (automatic download)
+### CMake with Automatic Download
 
 Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
@@ -2073,42 +2148,17 @@ Then add this header to your source files:
 #include <matplot/matplot.h>
 ```   
 
-### Other build systems 
+### Other build systems
 
-Right now, it really doesn't have support for anything other than CMake. If you really want to use it in another build system you pretty much have to rewrite the entire build script.
+If you want to use it in another build system you can either install the library (Section [*Installing*](#installing)) or you have to rewrite the build script.
 
-If you're not using Cmake, your project needs to include the headers and compile all source files in the [`source`](source) directory. You also need to link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
+Your project needs to 1) include the headers and compile all source files in the [`source`](source) directory, and 2) link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
 Then add this header to your source files:
 
 ```cpp
 #include <matplot/matplot.h>
 ```   
-
-### Dependencies
-
-This project requires C++17. You can see other dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt). CMake will try to solve everything for you.
-
-* Required 
-    * olvb/nodesoup (bundled; but you can define `WITH_SYSTEM_NODESOUP=ON` in the cmake command line to use a system-provided version of nodesoup)
-    * dtschump/CImg (bundled; but you can define `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of CImg)
-* Required (at Runtime)
-    * Gnuplot 5.2.6+
-* Optional (for images)
-    * JPEG
-    * TIFF
-    * ZLIB
-    * PNG
-    * LAPACK
-    * BLAS
-    * FFTW
-    * OpenCV
-* Optional (for OpenGL backend)
-    * OpenGL
-    * GLAD
-    * GLFW3
-
-There's an extra target `matplot_opengl` that exemplifies how an OpenGL backend **could** be implemented. It's not a complete backend. If you want to test it, only then there are some extra dependencies.
 
 ### Backends
 
@@ -2130,7 +2180,7 @@ If you're in a hurry, here is a summary of the backends we have and the backends
     * Pros: Great for vector graphics
     * Cons: Unmaintained, 2D only, and non-interactive by itself <sup>see [1](https://github.com/ghaerr/agg-2.6#roadmap), [2](https://github.com/mapnik/mapnik/wiki/MapnikRenderers), [3](http://www.antigrain.com/) </sup>
 
-### Contributing
+## Contributing
 
 There are many ways in which you can contribute to this library:
 
@@ -2163,7 +2213,7 @@ There are many ways in which you can contribute to this library:
                     <a href="https://github.com/lacc97">
                         <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
                         <br />
-                        <sub><b>Luis CC!ceres</b></sub>
+                        <sub><b>Luis Cáceres</b></sub>
                     </a>
                 </td>
                 <td align="center">
@@ -2293,43 +2343,3 @@ There are many ways in which you can contribute to this library:
 * Zaitsev S (2020). Webview. URL: [https://github.com/zserge/webview](https://github.com/zserge/webview).
  
 * Zakai A (2011). "Emscripten: an LLVM-to-JavaScript compiler." In Proceedings of the ACM international conference companion on Object oriented programming systems languages and applications companion, pp. 301-312.
-## Contributors :sparkles:
-<table>
-<tr>
-                <td align="center">
-                    <a href="https://github.com/alandefreitas">
-                        <img src="https://avatars0.githubusercontent.com/u/5369819?v=4" width="100;" alt="alandefreitas"/>
-                        <br />
-                        <sub><b>Alan De Freitas</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/mrexodia">
-                        <img src="https://avatars2.githubusercontent.com/u/2458265?v=4" width="100;" alt="mrexodia"/>
-                        <br />
-                        <sub><b>Duncan Ogilvie</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/lacc97">
-                        <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
-                        <br />
-                        <sub><b>Luis Cáceres</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/sammi">
-                        <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
-                        <br />
-                        <sub><b>Sammi</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/dimztimz">
-                        <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
-                        <br />
-                        <sub><b>Dimitrij Mijoski</b></sub>
-                    </a>
-                </td></tr>
-</table>
-
