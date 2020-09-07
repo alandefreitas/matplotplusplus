@@ -39,9 +39,8 @@ Data visualization can help programmers and scientists identify trends in their 
   - [Other build systems](#other-build-systems)
   - [Backends](#backends)
 - [Contributing](#contributing)
-  - [Contributors :sparkles:](#contributors-sparkles)
+- [Contributors :sparkles:](#contributors-sparkles)
 - [References](#references)
-- [Contributors :sparkles:](#contributors-sparkles-1)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
