@@ -2069,7 +2069,7 @@ cmake --build . -j 2 --config Release
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -BUILD_TESTS=OFF
 cmake --build . -j 2 --config Release
 cmake --install
 ```
