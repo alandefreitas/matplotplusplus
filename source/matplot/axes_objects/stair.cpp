@@ -10,12 +10,12 @@ namespace matplot {
     stair::stair(class axes_type *parent) : line(parent) {}
 
     stair::stair(class axes_type *parent, const std::vector<double> &y_data,
-                 const std::string &line_spec)
+                 std::string_view line_spec)
         : line(parent, y_data, line_spec) {}
 
     stair::stair(class axes_type *parent, const std::vector<double> &x_data,
                  const std::vector<double> &y_data,
-                 const std::string &line_spec)
+                 std::string_view line_spec)
         : line(parent, x_data, y_data, line_spec) {}
 
     std::vector<line_spec::style_to_plot> stair::styles_to_plot() {

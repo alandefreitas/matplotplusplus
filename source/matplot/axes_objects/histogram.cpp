@@ -78,7 +78,7 @@ namespace matplot {
         return ss.str();
     }
 
-    std::string histogram::legend_string(const std::string &title) {
+    std::string histogram::legend_string(std::string_view title) {
         return " keyentry with boxes fillstyle solid border rgb '" +
                to_string(edge_color_) + "' fillcolor '" +
                to_string(face_color_) + "' title \"" + escape(title) + "\"";
@@ -705,7 +705,7 @@ namespace matplot {
         return *this;
     }
 
-    class histogram &histogram::face_color(const std::string &color) {
+    class histogram &histogram::face_color(std::string_view color) {
         face_color(to_array(color));
         return *this;
     }
@@ -744,7 +744,7 @@ namespace matplot {
         return *this;
     }
 
-    class histogram &histogram::edge_color(const std::string &color) {
+    class histogram &histogram::edge_color(std::string_view color) {
         edge_color(to_array(color));
         return *this;
     }

@@ -17,7 +17,7 @@
 namespace matplot {
     contours::contours(class axes_type *parent, const vector_2d &X,
                        const vector_2d &Y, const vector_2d &Z,
-                       const std::string &line_spec)
+                       std::string_view line_spec)
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z),
           line_spec_(this, line_spec) {
         initialize_preprocessed_data();
@@ -26,7 +26,7 @@ namespace matplot {
     }
 
     contours::contours(class axes_type *parent, const vector_2d &Z,
-                       const std::string &line_spec)
+                       std::string_view line_spec)
         : axes_object(parent), Z_data_(Z), line_spec_(this, line_spec) {
         initialize_preprocessed_data();
         contour_generator_ = QuadContourGenerator(X_data_, Y_data_, Z_data_,
@@ -465,7 +465,7 @@ namespace matplot {
         return std::make_pair(lowers, uppers);
     }
 
-    std::string contours::legend_string(const std::string &title) {
+    std::string contours::legend_string(std::string_view title) {
         auto [min_level_it, max_level_it] =
             std::minmax_element(levels_.begin(), levels_.end());
         double zmax = *max_level_it;
@@ -1217,7 +1217,7 @@ namespace matplot {
         return axes_object::axes_category::two_dimensional;
     }
 
-    class contours &contours::line_style(const std::string &str) {
+    class contours &contours::line_style(std::string_view str) {
         line_spec_.parse_string(str);
         touch();
         return *this;
@@ -1322,7 +1322,7 @@ namespace matplot {
         }
     }
 
-    class contours &contours::font(const std::string &font) {
+    class contours &contours::font(std::string_view font) {
         font_ = font;
         touch();
         return *this;
@@ -1330,7 +1330,7 @@ namespace matplot {
 
     const std::string &contours::font_weight() const { return font_weight_; }
 
-    class contours &contours::font_weight(const std::string &font_weight) {
+    class contours &contours::font_weight(std::string_view font_weight) {
         font_weight_ = font_weight;
         touch();
         return *this;
@@ -1344,7 +1344,7 @@ namespace matplot {
         return *this;
     }
 
-    class contours &contours::font_color(const std::string &fc) {
+    class contours &contours::font_color(std::string_view fc) {
         font_color(to_array(fc));
         return *this;
     }

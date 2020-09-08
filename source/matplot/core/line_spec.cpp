@@ -12,12 +12,12 @@
 namespace matplot {
     line_spec::line_spec() = default;
 
-    line_spec::line_spec(const std::string &expr)
+    line_spec::line_spec(std::string_view expr)
         : marker_style_(marker_style::none) {
         parse_string(expr);
     }
 
-    void line_spec::parse_string(const std::string &expr) {
+    void line_spec::parse_string(std::string_view expr) {
         for (size_t expr_pos = 0; expr_pos != expr.size(); ++expr_pos) {
             size_t chars_left = expr.size() - expr_pos;
             switch (expr[expr_pos]) {
@@ -310,7 +310,7 @@ namespace matplot {
         }
     }
 
-    void line_spec::color(const std::string &c) {
+    void line_spec::color(std::string_view c) {
         color(to_array(string_to_color(c)));
     }
 
@@ -353,7 +353,7 @@ namespace matplot {
         touch();
     }
 
-    void line_spec::marker_style(const std::string &marker_style) {
+    void line_spec::marker_style(std::string_view marker_style) {
         switch (marker_style[0]) {
         case '+':
             marker_style_ = marker_style::plus_sign;
@@ -417,7 +417,7 @@ namespace matplot {
         return custom_marker_;
     }
 
-    void line_spec::custom_marker(const std::string &custom_marker) {
+    void line_spec::custom_marker(std::string_view custom_marker) {
         custom_marker_ = custom_marker;
         touch();
     }
@@ -460,7 +460,7 @@ namespace matplot {
         }
     }
 
-    void line_spec::marker_color(const std::string &m) {
+    void line_spec::marker_color(std::string_view m) {
         marker_color_ = to_array(string_to_color(m));
         touch();
     }
@@ -499,7 +499,7 @@ namespace matplot {
         }
     }
 
-    void line_spec::marker_face_color(const std::string &color) {
+    void line_spec::marker_face_color(std::string_view color) {
         marker_face_color(to_array(color));
     }
 

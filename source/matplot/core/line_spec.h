@@ -53,10 +53,10 @@ namespace matplot {
 
       public:
         line_spec();
-        explicit line_spec(const std::string &expr);
+        explicit line_spec(std::string_view expr);
 
         template <class T>
-        line_spec(Pointer<T> parent, const std::string &expr)
+        line_spec(Pointer<T> parent, std::string_view expr)
             : line_spec(expr) {
             touch_function_ = [parent]() { parent->touch(); };
         }
@@ -70,7 +70,7 @@ namespace matplot {
                     bool include_style = true);
 
         /// Get line_spec properties from a string
-        void parse_string(const std::string &expr);
+        void parse_string(std::string_view expr);
 
         /// \brief True if we can plot line and marker with only one plot
         /// command We can plot them together "with linespoints" if:
@@ -101,7 +101,7 @@ namespace matplot {
         void color(const std::array<float, 3> &color);
         void color(const std::array<float, 4> &color);
         void color(std::initializer_list<float> color);
-        void color(const std::string &color);
+        void color(std::string_view color);
         void color(enum color marker_color);
         void alpha(float alpha);
         [[nodiscard]] bool user_color() const;
@@ -115,12 +115,12 @@ namespace matplot {
 
         [[nodiscard]] enum marker_style marker_style() const;
         void marker_style(enum marker_style marker_style);
-        void marker_style(const std::string &marker_style);
+        void marker_style(std::string_view marker_style);
         [[nodiscard]] enum marker_style marker() const;
         template <class T> void marker(T marker) { marker_style(marker); }
 
         [[nodiscard]] const std::string &custom_marker() const;
-        void custom_marker(const std::string &custom_marker);
+        void custom_marker(std::string_view custom_marker);
 
         [[nodiscard]] float marker_size() const;
         void marker_size(float marker_size);
@@ -130,7 +130,7 @@ namespace matplot {
         void marker_color(const std::array<float, 3> &color);
         void marker_color(const std::array<float, 4> &color);
         void marker_color(std::initializer_list<float> color);
-        void marker_color(const std::string &color);
+        void marker_color(std::string_view color);
         void marker_color(enum color marker_color);
         void marker_alpha(float alpha);
         bool marker_user_color() const;
@@ -141,7 +141,7 @@ namespace matplot {
         void marker_face_color(const std::array<float, 3> &color);
         void marker_face_color(const std::array<float, 4> &color);
         void marker_face_color(std::initializer_list<float> color);
-        void marker_face_color(const std::string &color);
+        void marker_face_color(std::string_view color);
         void marker_face_color(enum color marker_face_color);
         void marker_face_alpha(float alpha);
         bool marker_face_user_color() const;

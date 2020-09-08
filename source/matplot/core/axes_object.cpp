@@ -36,7 +36,7 @@ namespace matplot {
 
     std::string axes_object::set_variables_string() { return ""; }
 
-    std::string axes_object::legend_string(const std::string &title) {
+    std::string axes_object::legend_string(std::string_view title) {
         return "keyentry with boxes title \"" + escape(title) + "\"";
     }
 
@@ -79,7 +79,7 @@ namespace matplot {
 
     std::string axes_object::tag() { return tag_; }
 
-    void axes_object::tag(const std::string &tag_name) { tag_ = tag_name; }
+    void axes_object::tag(std::string_view tag_name) { tag_ = tag_name; }
 
     bool axes_object::is_2d() {
         return axes_category() == axes_category::two_dimensional;
@@ -102,7 +102,7 @@ namespace matplot {
         return display_name_;
     }
 
-    void axes_object::display_name(const std::string &display_name) {
+    void axes_object::display_name(std::string_view display_name) {
         display_name_ = display_name;
         touch();
     }

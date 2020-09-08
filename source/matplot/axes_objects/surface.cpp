@@ -14,7 +14,7 @@ namespace matplot {
 
     surface::surface(class axes_type *parent, const vector_2d &X,
                      const vector_2d &Y, const vector_2d &Z, const vector_2d &C,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z), C_data_(C),
           line_spec_(this, line_spec), contour_line_spec_(this, ""),
           is_parametric_(false) {
@@ -336,7 +336,7 @@ namespace matplot {
         return ss.str();
     }
 
-    std::string surface::legend_string(const std::string &title) {
+    std::string surface::legend_string(std::string_view title) {
         return " keyentry " +
                line_spec_.plot_string(
                    line_spec::style_to_plot::plot_line_only) +
@@ -581,7 +581,7 @@ namespace matplot {
         }
     }
 
-    class surface &surface::line_style(const std::string &str) {
+    class surface &surface::line_style(std::string_view str) {
         line_spec_.parse_string(str);
         touch();
         return *this;
@@ -788,7 +788,7 @@ namespace matplot {
         }
     }
 
-    class surface &surface::font(const std::string &font) {
+    class surface &surface::font(std::string_view font) {
         font_ = font;
         touch();
         return *this;
@@ -796,7 +796,7 @@ namespace matplot {
 
     const std::string &surface::font_weight() const { return font_weight_; }
 
-    class surface &surface::font_weight(const std::string &font_weight) {
+    class surface &surface::font_weight(std::string_view font_weight) {
         font_weight_ = font_weight;
         touch();
         return *this;
@@ -810,7 +810,7 @@ namespace matplot {
         return *this;
     }
 
-    class surface &surface::font_color(const std::string &fc) {
+    class surface &surface::font_color(std::string_view fc) {
         font_color(to_array(fc));
         return *this;
     }

@@ -52,10 +52,10 @@ namespace matplot {
         /// \param line_spec Line properties
         contours(class axes_type *parent, const vector_2d &X,
                  const vector_2d &Y, const vector_2d &Z,
-                 const std::string &line_spec = "");
+                 std::string_view line_spec = "");
 
         contours(class axes_type *parent, const vector_2d &Z,
-                 const std::string &line_spec = "");
+                 std::string_view line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
@@ -66,7 +66,7 @@ namespace matplot {
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;
-        std::string legend_string(const std::string &title) override;
+        std::string legend_string(std::string_view title) override;
         std::string data_string() override;
         bool requires_colormap() override;
         double xmax() override;
@@ -76,7 +76,7 @@ namespace matplot {
         enum axes_object::axes_category axes_category() override;
 
       public /* getters and setters */:
-        class contours &line_style(const std::string &line_spec);
+        class contours &line_style(std::string_view line_spec);
 
         const matplot::line_spec &line_spec() const;
         matplot::line_spec &line_spec();
@@ -107,14 +107,14 @@ namespace matplot {
         class contours &font_size(const float &font_size);
 
         const std::string font() const;
-        class contours &font(const std::string &font);
+        class contours &font(std::string_view font);
 
         const std::string &font_weight() const;
-        class contours &font_weight(const std::string &font_weight);
+        class contours &font_weight(std::string_view font_weight);
 
         const color_array &font_color() const;
         class contours &font_color(const color_array &font_color);
-        class contours &font_color(const std::string &font_color);
+        class contours &font_color(std::string_view font_color);
 
         bool visible() const;
         class contours &visible(bool visible);

@@ -18,7 +18,7 @@ namespace matplot {
     network::network(class axes_type *parent,
                      const std::vector<std::pair<size_t, size_t>> &edges,
                      const vector_1d &weights, size_t n_vertices,
-                     const std::string &line_spec)
+                     std::string_view line_spec)
         : axes_object(parent), edges_(edges), weights_(weights),
           n_vertices_(n_vertices), line_spec_(this, line_spec) {
         line_spec_.marker_face(true);
@@ -85,7 +85,7 @@ namespace matplot {
         return res;
     }
 
-    std::string network::legend_string(const std::string &title) {
+    std::string network::legend_string(std::string_view title) {
         if (line_spec_.has_line() && line_spec_.has_non_custom_marker()) {
             return " keyentry " +
                    line_spec_.plot_string(
@@ -444,7 +444,7 @@ namespace matplot {
         }
     }
 
-    class network &network::line_style(const std::string &str) {
+    class network &network::line_style(std::string_view str) {
         line_spec_.parse_string(str);
         touch();
         return *this;

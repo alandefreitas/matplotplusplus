@@ -15,7 +15,7 @@ namespace matplot {
 
     parallel_lines::parallel_lines(class axes_type *parent,
                                    const std::vector<std::vector<double>> &data,
-                                   const std::string &line_spec)
+                                   std::string_view line_spec)
         : axes_object(parent), data_(data), line_spec_(this, line_spec) {
         for (size_t i = 0; i < data.size(); ++i) {
             axis_.emplace_back(parent_, true);
@@ -122,7 +122,7 @@ namespace matplot {
         }
     }
 
-    std::string parallel_lines::legend_string(const std::string &title) {
+    std::string parallel_lines::legend_string(std::string_view title) {
         return " keyentry " +
                line_spec_.plot_string(
                    line_spec::style_to_plot::plot_line_only) +

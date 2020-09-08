@@ -203,7 +203,7 @@ namespace matplot {
 
     const std::string &labels::font() const { return font_; }
 
-    class labels &labels::font(const std::string &font) {
+    class labels &labels::font(std::string_view font) {
         font_ = font;
         touch();
         return *this;

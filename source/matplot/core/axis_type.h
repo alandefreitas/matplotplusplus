@@ -45,14 +45,14 @@ namespace matplot {
 
         const color_array &color() const;
         class axis_type &color(const color_array &color);
-        class axis_type &color(const std::string &color);
+        class axis_type &color(std::string_view color);
         class axis_type &color(const enum color &color);
 
         const std::string &label() const;
-        class axis_type &label(const std::string &label);
+        class axis_type &label(std::string_view label);
 
         const std::string &tick_label_format() const;
-        class axis_type &tick_label_format(const std::string &tick_label_format);
+        class axis_type &tick_label_format(std::string_view tick_label_format);
 
         bool tick_values_automatic() const;
         class axis_type &tick_values_automatic(bool tick_values_automatic);
@@ -94,7 +94,7 @@ namespace matplot {
         class axis_type &on_axis(bool on_axis);
 
         const std::string &label_weight() const;
-        class axis_type &label_weight(const std::string &label_weight);
+        class axis_type &label_weight(std::string_view label_weight);
 
         float label_font_size() const;
         class axis_type &label_font_size(float label_font_size);

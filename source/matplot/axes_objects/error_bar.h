@@ -24,14 +24,14 @@ namespace matplot {
                   const std::vector<double> &y_pos_delta,
                   const std::vector<double> &x_neg_delta,
                   const std::vector<double> &x_pos_delta,
-                  const std::string &line_spec = "");
+                  std::string_view line_spec = "");
 
         /// Construct with y error only
         error_bar(class axes_type *parent, const std::vector<double> &x_data,
                   const std::vector<double> &y_data,
                   const std::vector<double> &error,
                   error_bar::type type = error_bar::type::vertical,
-                  const std::string &line_spec = "");
+                  std::string_view line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership of the xlim

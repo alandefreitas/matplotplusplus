@@ -20,18 +20,18 @@ namespace matplot {
 
         function_line(class axes_type *parent, const function_type &equation,
                       std::array<double, 2> x_range = {-5, 5},
-                      const std::string &line_spec = "");
+                      std::string_view line_spec = "");
 
         function_line(class axes_type *parent, const function_type &function_x,
                       const function_type &function_y,
                       std::array<double, 2> t_range = {-5, 5},
-                      const std::string &line_spec = "");
+                      std::string_view line_spec = "");
 
         function_line(class axes_type *parent, const function_type &function_x,
                       const function_type &function_y,
                       const function_type &function_z,
                       std::array<double, 2> t_range = {-5, 5},
-                      const std::string &line_spec = "");
+                      std::string_view line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here

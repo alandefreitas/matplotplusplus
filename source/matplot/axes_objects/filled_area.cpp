@@ -14,7 +14,7 @@ namespace matplot {
                              const std::vector<double> &x,
                              const std::vector<double> &y,
                              const std::vector<double> &base_values,
-                             bool stacked, const std::string &line_spec)
+                             bool stacked, std::string_view line_spec)
         : line(parent, x, y, line_spec), stacked_(stacked),
           base_data_(base_values) {}
 

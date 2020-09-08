@@ -190,12 +190,12 @@ namespace matplot {
                    std::vector<std::vector<axes_handle>>>
         plotmatrix(const std::vector<std::vector<double>> &X,
                    const std::vector<std::vector<double>> &Y,
-                   const std::string &line_spec = "of",
+                   std::string_view line_spec = "of",
                    bool histogram_on_diagonals = false);
 
         /// Create matrix of axes with scatter plots - X / X
         auto plotmatrix(const std::vector<std::vector<double>> &X,
-                        const std::string &line_spec = "of",
+                        std::string_view line_spec = "of",
                         bool histogram_on_diagonals = false) {
             return this->plotmatrix(X, X, line_spec, true);
         }
@@ -205,14 +205,14 @@ namespace matplot {
         void
         backend(const std::shared_ptr<backend::backend_interface> &new_backend);
 
-        void name(const std::string &name);
+        void name(std::string_view name);
         std::string name() const;
 
         size_t number() const;
 
         void color(const color_array &c);
         void color(const std::array<float, 3> &c);
-        void color(const std::string &c);
+        void color(std::string_view c);
         void color(const enum color &c);
         color_array color() const;
 
@@ -238,13 +238,13 @@ namespace matplot {
         bool number_title() const;
 
         const std::string &font() const;
-        void font(const std::string &font);
+        void font(std::string_view font);
 
         float font_size() const;
         void font_size(float font_size);
 
         const std::string &title() const;
-        void title(const std::string &title);
+        void title(std::string_view title);
 
         const color_array &title_color() const;
         void title_color(const color_array &title_color);

@@ -105,19 +105,19 @@ namespace matplot {
         void visible(bool visible);
 
         const std::string &title() const;
-        void title(const std::string &title);
+        void title(std::string_view title);
 
         const std::string &font_name() const;
-        void font_name(const std::string &font_name);
+        void font_name(std::string_view font_name);
 
         float font_size() const;
         void font_size(float font_size);
 
         const std::string &font_angle() const;
-        void font_angle(const std::string &font_angle);
+        void font_angle(std::string_view font_angle);
 
         const std::string &font_weight() const;
-        void font_weight(const std::string &font_weight);
+        void font_weight(std::string_view font_weight);
 
         const color_array &text_color() const;
         void text_color(const color_array &text_color);
