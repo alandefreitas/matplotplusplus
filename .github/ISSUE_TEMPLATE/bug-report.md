@@ -13,6 +13,7 @@ assignees: ''
 - [ ] *bug - compilation warning*
 - [ ] *bug - runtime error*
 - [ ] *bug - runtime warning*
+- [ ] *bug - logic error*
 
 **Describe the bug**
 
