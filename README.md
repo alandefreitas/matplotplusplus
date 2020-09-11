@@ -41,7 +41,6 @@ Data visualization can help programmers and scientists identify trends in their 
 - [Contributing](#contributing)
 - [Contributors :sparkles:](#contributors-sparkles)
 - [References](#references)
-- [Contributors :sparkles:](#contributors-sparkles-1)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -2026,12 +2025,132 @@ If you are interested in understanding how the library works, you can read the d
 
 ### Dependencies
 
-The build script will try to find all these dependencies for you:
+This section lists the dependencies you need before installing Matplot++ from source. The build script will try to find all these dependencies for you:
 
 * C++17
 * CMake 3.14+
-* Required at runtime
-    * Gnuplot 5.2.6+
+* Gnuplot 5.2.6+ (Required at runtime)
+
+<details>
+    <summary>Linux/Ubuntu/GCC:</summary>
+
+Check your GCC version:
+
+```bash
+g++ --version
+```
+
+The output should be something like:
+
+```console
+g++-8 (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0
+```
+
+If you see a version before GCC-8, update it with
+
+```bash
+sudo apt update
+sudo apt install gcc-8
+sudo apt install g++-8
+```
+
+To update to any other version, like GCC-9 or GCC-10:
+
+```bash
+sudo apt install build-essential
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt install g++-10
+```
+
+Once you installed a newer version of GCC, you can link it to `update-alternatives`. For instance, if you have GCC-7 and GCC-10, you can link them with:
+
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
+```
+
+You can now use `update-alternatives` to set you default `gcc` and `g++`:
+
+```bash
+update-alternatives --config g++
+update-alternatives --config gcc
+```
+
+Check your CMake version:
+
+```bash
+cmake --version
+```
+
+If it's older than CMake 3.14, update it with
+
+```bash
+sudo apt upgrade cmake
+```
+
+or download the most recent version from [cmake.org](https://cmake.org/).
+
+Later when running CMake, make sure you are using GCC-8 or higher.
+
+```bash
+-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
+```
+
+Install Gnuplot: www.gnuplot.info
+
+Make sure you mark the option "Add application directory to your PATH environment variable".
+
+</details>
+
+<details>
+    <summary>Mac Os/Clang</summary>
+
+Check your Clang version:
+
+```bash
+clang --version
+```
+
+The output should have something like
+
+```console
+Apple clang version 11.0.0 (clang-1100.0.33.8)
+```
+
+If you see a version before Clang 11, update XCode in the App Store or update clang with homebrew. 
+
+Check your CMake version:
+
+```bash
+cmake --version
+```
+
+If it's older than CMake 3.14, update it
+
+```bash
+sudo brew upgrade cmake
+```
+
+or download the most recent version from [cmake.org](https://cmake.org/).
+                                                                                                                                                                                                                                                                                                                                                                                                                   If building the Python bindings, check your Python version:
+Install Gnuplot: www.gnuplot.info
+
+Make sure you mark the option "Add application directory to your PATH environment variable".
+
+</details>
+
+<details>
+    <summary>Instructions: Windows/MSVC</summary>
+
+* Make sure you have a recent version of Visual Studio.
+* Download and install Git.
+* Install CMake from https://cmake.org/download/
+* Install Gnuplot: www.gnuplot.info
+
+</details>
 
 It will also look for these *optional* dependencies for manipulating images:
 
@@ -2059,7 +2178,7 @@ There's an extra target `matplot_opengl` with the experimental OpenGL backend. Y
 
 You can see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
-### Build the examples
+### Build the Examples
 
 ```bash
 mkdir build
@@ -2068,7 +2187,9 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . -j 2 --config Release
 ```
 
-### Installing
+### Installing Matplot++ from Source
+
+This will install Matplot++ on your system:
 
 ```bash
 mkdir build
@@ -2078,15 +2199,34 @@ cmake --build . -j 2 --config Release
 cmake --install .
 ```
 
-### As a CMake package
+You might need `sudo` for this last command.
 
-If you have library installed, you can call
+### Building the packages
+
+This will create packages you can use to install Matplot++ on your system:
+
+```bash
+mkdir build
+cmake -version
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
+cmake --build . -j 2 --config Release
+cmake --install .
+cpack .
+```
+
+You might need `sudo` for this last command.
+
+### Find it as a CMake Package
+
+If you have the library installed, you can call
 
 ```cmake
 find_package(Matplot++)
 ```
 
-from your CMake build script. When creating your executable, link the library to the targets you want:
+from your CMake build script. 
+
+When creating your executable, link the library to the targets you want:
 
 ```
 add_executable(my_target main.cpp)
@@ -2099,15 +2239,21 @@ Add this header to your source files:
 #include <matplot/matplot.h>
 ```
 
-### As a CMake subdirectory
+### Use it as a CMake subdirectory
 
-Check if you have [Cmake](http://cmake.org) 3.14+ installed:
+You can use Matplot++ directly in CMake projects without installing it. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
 ```bash
 cmake -version
 ```
 
-Download the whole project and add the subdirectory to your CMake project:
+Clone the whole project
+ 
+```bash
+git clone https://github.com/alandefreitas/matplotplusplus/
+```
+
+and add the subdirectory to your CMake project:
 
 ```cmake
 add_subdirectory(matplotplusplus)
@@ -2124,7 +2270,7 @@ Add this header to your source files:
 
 ```cpp
 #include <matplot/matplot.h>
-```   
+```
 
 ### CMake with Automatic Download
 
@@ -2196,47 +2342,10 @@ There are many ways in which you can contribute to this library:
 * Finding bugs in general <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+error%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+warning%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+error%22), [4](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+warning%22) </sup>
 * Whatever idea seems interesting to you
 
-## Contributors :sparkles:
-<table>
-<tr>
-                <td align="center">
-                    <a href="https://github.com/alandefreitas">
-                        <img src="https://avatars0.githubusercontent.com/u/5369819?v=4" width="100;" alt="alandefreitas"/>
-                        <br />
-                        <sub><b>Alan De Freitas</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/mrexodia">
-                        <img src="https://avatars2.githubusercontent.com/u/2458265?v=4" width="100;" alt="mrexodia"/>
-                        <br />
-                        <sub><b>Duncan Ogilvie</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/lacc97">
-                        <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
-                        <br />
-                        <sub><b>Luis CC!ceres</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/sammi">
-                        <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
-                        <br />
-                        <sub><b>Sammi</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/dimztimz">
-                        <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
-                        <br />
-                        <sub><b>Dimitrij Mijoski</b></sub>
-                    </a>
-                </td></tr>
-</table>
+### Contributors
 
-
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
 
 ## References
 
@@ -2349,43 +2458,3 @@ There are many ways in which you can contribute to this library:
 * Zaitsev S (2020). Webview. URL: [https://github.com/zserge/webview](https://github.com/zserge/webview).
  
 * Zakai A (2011). "Emscripten: an LLVM-to-JavaScript compiler." In Proceedings of the ACM international conference companion on Object oriented programming systems languages and applications companion, pp. 301-312.
-## Contributors :sparkles:
-<table>
-<tr>
-                <td align="center">
-                    <a href="https://github.com/alandefreitas">
-                        <img src="https://avatars0.githubusercontent.com/u/5369819?v=4" width="100;" alt="alandefreitas"/>
-                        <br />
-                        <sub><b>Alan De Freitas</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/mrexodia">
-                        <img src="https://avatars2.githubusercontent.com/u/2458265?v=4" width="100;" alt="mrexodia"/>
-                        <br />
-                        <sub><b>Duncan Ogilvie</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/lacc97">
-                        <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
-                        <br />
-                        <sub><b>Luis Cáceres</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/sammi">
-                        <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
-                        <br />
-                        <sub><b>Sammi</b></sub>
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="https://github.com/dimztimz">
-                        <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
-                        <br />
-                        <sub><b>Dimitrij Mijoski</b></sub>
-                    </a>
-                </td></tr>
-</table>
-
