@@ -1,17 +1,22 @@
 #######################################################
 ### Matplot++                                       ###
 #######################################################
+# Project information
 cmake_minimum_required(VERSION 3.14)
-project(matplotplusplus VERSION 1.0.0)
-
+project(matplotplusplus VERSION 1.0.1)
 set(CMAKE_CXX_STANDARD 17)
+
+# CMake dependencies for installer
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-include(cmake/CPM.cmake)
-message("CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
 
-# Is this a master project or a subdirectory of another project
+# To find or download packages
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+message("CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
+option(CPM_USE_LOCAL_PACKAGES "Try `find_package` before downloading dependencies" ON)
+include(cmake/CPM.cmake)
+
+# Check if this is a master project or a subdirectory of another project
 if (${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     set(MASTER_PROJECT ON)
 else ()
@@ -34,6 +39,9 @@ option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geo
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass wait() commands and save figures as .svg at destruction" OFF)
 option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
 option(OPTIMIZE_RELEASE_CODE_BY_DEFAULT "Turn on optimization flags by default in Release" OFF)
+option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." OFF)
+option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
+
 if (OPTIMIZE_RELEASE_CODE_BY_DEFAULT)
     if (MSVC)
         set(CMAKE_CXX_FLAGS_RELEASE "/O2")
@@ -41,8 +49,6 @@ if (OPTIMIZE_RELEASE_CODE_BY_DEFAULT)
         set(CMAKE_CXX_FLAGS_RELEASE "-O2")
     endif ()
 endif ()
-option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." OFF)
-option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
 
 # Where to find dependencies
 option(WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
