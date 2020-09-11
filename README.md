@@ -2047,7 +2047,7 @@ This section lists the dependencies you need before installing Matplot++ from so
 * Gnuplot 5.2.6+ (Required at runtime)
 
 <details>
-    <summary>Instructions: Linux/Ubuntu/GCC:</summary>
+    <summary>Instructions: Linux/Ubuntu/GCC</summary>
 
 Check your GCC version:
 
@@ -2181,6 +2181,8 @@ or download the latest version from [www.gnuplot.info](www.gnuplot.info). If you
 * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
 * Download CMake from [https://cmake.org/download/](https://cmake.org/download/) and install it
 * Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it
+
+If you're using the Gnuplot installer, make sure you mark the option "Add application directory to your PATH environment variable".
 
 </details>
 
