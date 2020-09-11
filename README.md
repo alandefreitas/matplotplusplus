@@ -41,6 +41,7 @@ Data visualization can help programmers and scientists identify trends in their 
 - [Contributing](#contributing)
 - [Contributors :sparkles:](#contributors-sparkles)
 - [References](#references)
+- [Contributors :sparkles:](#contributors-sparkles-1)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
