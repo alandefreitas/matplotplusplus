@@ -38,17 +38,8 @@ option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass wait() commands and save figures as .svg at destruction" OFF)
 option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
-option(OPTIMIZE_RELEASE_CODE_BY_DEFAULT "Turn on optimization flags by default in Release" OFF)
 option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." OFF)
 option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
-
-if (OPTIMIZE_RELEASE_CODE_BY_DEFAULT)
-    if (MSVC)
-        set(CMAKE_CXX_FLAGS_RELEASE "/O2")
-    else ()
-        set(CMAKE_CXX_FLAGS_RELEASE "-O2")
-    endif ()
-endif ()
 
 # Where to find dependencies
 option(WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
