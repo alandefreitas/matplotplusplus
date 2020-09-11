@@ -33,25 +33,33 @@ jobs:
             name: "Windows/2019/Static/X86/Release",
             os: windows-2019,
             config: Release,
-            args: -G "Visual Studio 16 2019" -A Win32,
+            cmake_extra_args: -G "Visual Studio 16 2019" -A Win32,
+            sudocmd: "",
+            artifact_name: "Windows x86",
           }
           - {
             name: "Windows/2019/Static/X64/Release",
             os: windows-2019,
             config: Release,
-            args: -G "Visual Studio 16 2019" -A x64,
+            cmake_extra_args: -G "Visual Studio 16 2019" -A x64,
+            sudocmd: "",
+            artifact_name: "Windows x64",
           }
           - {
             name: "Ubuntu/18.04/Static/X64/Release",
             os: ubuntu-18.04,
             config: Release,
-            args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
+            cmake_extra_args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8",
+            sudocmd: "sudo",
+            artifact_name: "Linux",
           }
           - {
-            name: "MacOSX/10.15/Shared/X64/Release",
+            name: "MacOSX/10.15/Static/X64/Release",
             os: macos-10.15,
             config: Release,
-            args: "-DBUILD_SHARED_LIBS=ON",
+            cmake_extra_args: "",
+            sudocmd: "sudo",
+            artifact_name: "MacOSX",
           }
     steps:
       - uses: actions/checkout@v2
@@ -60,22 +68,21 @@ jobs:
       - name: Configure
         working-directory: ./build
         run: |
-          cmake .. ${{ matrix.config.args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
+          cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
       - name: Build
         working-directory: ./build
         run: cmake --build . -j 2 --config ${{ matrix.config.config }}
       - name: Test
         working-directory: ./build
-        run: ctest -j 2
-  contrib-readme-job:
-    runs-on: ubuntu-latest
-    name: Contributions
-    steps:
-      - name: Update Contribution List
-        uses: akhilmhdh/contributors-readme-action@v1.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ctest -j 2 -C Release
+      - name: Install
+        working-directory: ./build
+        run: ${{ matrix.config.sudocmd }} cmake --install .
+      - name: Create packages
+        working-directory: ./build
+        run: ${{ matrix.config.sudocmd }} cpack
+      - name: Archive Packages
+        uses: actions/upload-artifact@v2
         with:
-          imageSize: 100
-          columnsPerRow: 6
-
+          name: Binary Package ${{ matrix.config.artifact_name }}
+          path: build/matplotplusplus-1.?.?-*.*
