@@ -2023,7 +2023,25 @@ If you are interested in understanding how the library works, you can read the d
 
 ## Integration
 
-### Dependencies
+### Binary Packages
+
+Get the binary package from the [release section](https://github.com/alandefreitas/matplotplusplus/releases). These binaries refer to the last release version of Matplot++. 
+
+If you need a more recent version of Matplot++, you can download the [binary packages from the CI artifacts](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush) or build the library [from the source files](#build-from-source). 
+
+Once the package is installed, you can link your C++ program to the library and include the directories where you installed Matplot++. Unless you changed the default options, the library is likely to be in `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows).
+
+If you are using CMake, you can then find Matplot++ with the usual `find_package` command:
+
+```cmake
+find_package(Matplot++ REQUIRED)
+# ...
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+### Build from Source
+
+#### Dependencies
 
 This section lists the dependencies you need before installing Matplot++ from source. The build script will try to find all these dependencies for you:
 
@@ -2032,7 +2050,7 @@ This section lists the dependencies you need before installing Matplot++ from so
 * Gnuplot 5.2.6+ (Required at runtime)
 
 <details>
-    <summary>Linux/Ubuntu/GCC:</summary>
+    <summary>Instructions: Linux/Ubuntu/GCC:</summary>
 
 Check your GCC version:
 
@@ -2072,14 +2090,14 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
 ```
 
-You can now use `update-alternatives` to set you default `gcc` and `g++`:
+You can now use `update-alternatives` to set your default `gcc` and `g++` to a more recent version:
 
 ```bash
 update-alternatives --config g++
 update-alternatives --config gcc
 ```
 
-Check your CMake version:
+Also check your CMake version:
 
 ```bash
 cmake --version
@@ -2093,20 +2111,25 @@ sudo apt upgrade cmake
 
 or download the most recent version from [cmake.org](https://cmake.org/).
 
-Later when running CMake, make sure you are using GCC-8 or higher.
+[Later](#build-the-examples) when running CMake, make sure you are using GCC-8 or higher by appending the following options:
 
 ```bash
 -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
 ```
 
-Install Gnuplot: www.gnuplot.info
+Install Gnuplot 5.2.6+
 
-Make sure you mark the option "Add application directory to your PATH environment variable".
+```bash
+sudo apt update
+sudo apt install gnuplot
+```
+
+or download the latest version from [www.gnuplot.info](www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
 
 </details>
 
 <details>
-    <summary>Mac Os/Clang</summary>
+    <summary>Instructions: Mac Os/Clang</summary>
 
 Check your Clang version:
 
@@ -2135,20 +2158,32 @@ sudo brew upgrade cmake
 ```
 
 or download the most recent version from [cmake.org](https://cmake.org/).
-                                                                                                                                                                                                                                                                                                                                                                                                                   If building the Python bindings, check your Python version:
-Install Gnuplot: www.gnuplot.info
 
-Make sure you mark the option "Add application directory to your PATH environment variable".
+If the last command fails because you don't have [Homebrew](https://brew.sh) on your computer, you can install it with
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+or you can follow the instructions in [https://brew.sh](https://brew.sh).
+
+Install Gnuplot 5.2.6+
+
+```bash
+sudo brew install gnuplot
+```
+
+or download the latest version from [www.gnuplot.info](www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
 
 </details>
 
 <details>
     <summary>Instructions: Windows/MSVC</summary>
 
-* Make sure you have a recent version of Visual Studio.
-* Download and install Git.
-* Install CMake from https://cmake.org/download/
-* Install Gnuplot: www.gnuplot.info
+* Make sure you have a recent version of [Visual Studio](https://visualstudio.microsoft.com)
+* Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
+* Download CMake from [https://cmake.org/download/](https://cmake.org/download/) and install it
+* Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it
 
 </details>
 
@@ -2178,7 +2213,7 @@ There's an extra target `matplot_opengl` with the experimental OpenGL backend. Y
 
 You can see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
-### Build the Examples
+#### Build the Examples
 
 ```bash
 mkdir build
@@ -2187,7 +2222,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . -j 2 --config Release
 ```
 
-### Installing Matplot++ from Source
+#### Installing Matplot++ from Source
 
 This will install Matplot++ on your system:
 
@@ -2201,7 +2236,7 @@ cmake --install .
 
 You might need `sudo` for this last command.
 
-### Building the packages
+#### Building the packages
 
 This will create packages you can use to install Matplot++ on your system:
 
@@ -2216,7 +2251,9 @@ cpack .
 
 You might need `sudo` for this last command.
 
-### Find it as a CMake Package
+### CMake targets
+
+#### Find it as a CMake Package
 
 If you have the library installed, you can call
 
@@ -2239,7 +2276,7 @@ Add this header to your source files:
 #include <matplot/matplot.h>
 ```
 
-### Use it as a CMake subdirectory
+#### Use it as a CMake subdirectory
 
 You can use Matplot++ directly in CMake projects without installing it. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
@@ -2272,7 +2309,9 @@ Add this header to your source files:
 #include <matplot/matplot.h>
 ```
 
-### CMake with Automatic Download
+However, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory. Otherwise, we can get [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule) in larger projects. 
+
+#### CMake with Automatic Download
 
 Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
@@ -2298,11 +2337,19 @@ Then add this header to your source files:
 #include <matplot/matplot.h>
 ```   
 
+However, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory. You can use:
+
+```
+option(CPM_USE_LOCAL_PACKAGES "Try `find_package` before downloading dependencies" ON)
+```
+
+to let CPM.cmake do that for you. Otherwise, we can get [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule) in larger projects.
+
 ### Other build systems
 
-If you want to use it in another build system you can either install the library (Section [*Installing*](#installing)) or you have to rewrite the build script.
+If you want to use it in another build system you can either install the library (Section [*Installing*](#installing)) or you have to somehow rewrite the build script.
 
-Your project needs to 1) include the headers and compile all source files in the [`source`](source) directory, and 2) link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
+If you want to rewrite the build script, your project needs to 1) include the headers and compile all source files in the [`source`](source) directory, and 2) link with the dependencies described in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
 Then add this header to your source files:
 
