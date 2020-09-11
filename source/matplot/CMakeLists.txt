@@ -88,6 +88,7 @@ add_library(matplot
 target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
 target_link_libraries(matplot
     PRIVATE cimg nodesoup std::filesystem)
 
@@ -101,7 +102,6 @@ if(MSVC)
     target_compile_options(matplot PUBLIC /wd4305)
     # Fix compile error caused by utf8 character in line_spec.cpp
     target_compile_options(matplot PUBLIC /utf-8)
-
 endif()
 
 include(CheckSymbolExists)
@@ -123,13 +123,21 @@ endif()
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
-endif()
+endif ()
 
 if (BUILD_HIGH_RESOLUTION_WORLD_MAP)
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_HIGH_RESOLUTION_WORLD_MAP)
-else()
+else ()
     message("Not including the high resolution maps for geoplots")
-endif()
+endif ()
+
+if (BUILD_WITH_PEDANTIC_WARNINGS)
+    if (MSVC)
+        target_compile_options(matplot PRIVATE /W4 /WX)
+    else ()
+        target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
+    endif ()
+endif ()
 
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
@@ -188,17 +196,24 @@ endif()
 
 
 # Install
-if(MASTER_PROJECT)
+if (BUILD_INSTALLER)
+    # Install targets
     install(TARGETS matplot
-        EXPORT Matplot++Targets
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-        FILES_MATCHING PATTERN "*.h")
+            EXPORT Matplot++Targets
+            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            )
 
+    # Install headers
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+            FILES_MATCHING PATTERN "*.h"
+            )
+
+    # Install cmake script
     install(EXPORT Matplot++Targets
-        FILE Matplot++Targets.cmake
-        NAMESPACE Matplot++::
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+            FILE Matplot++Targets.cmake
+            NAMESPACE Matplot++::
+            DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
+            )
 endif()
