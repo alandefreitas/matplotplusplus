@@ -282,6 +282,7 @@ namespace matplot::detail {
             else
                 t_cur = e_cur->t[0];
 
+            /* find edge to continue (but not whence we came) */
             edge *e_next = nullptr;
             for (edge *e_t : t_cur->e) {
                 if (e_t != e_cur && e_t->flags.active)
@@ -298,9 +299,12 @@ namespace matplot::detail {
 
             fn_deactivate_edge(*e_cur);
 
+            /* do not include points at diagonal edges or we get awful
+             * zigzag patterns */
             if (!e_cur->flags.diagonal) {
                 contour::point p = contour_point(z, *e_cur);
 
+                /* do not include points that are too close to each other */
                 if (!fn_fuzzy_equals(ctr.points.back(), p))
                     ctr.points.emplace_back(contour_point(z, *e_cur));
             }
