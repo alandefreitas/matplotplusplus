@@ -78,13 +78,15 @@ namespace matplot::detail {
         std::pair<vector_1d, vector_1d> vertices;
 
         auto fn_push_contour = [&vertices](const contour &c) {
-            vertices.first.reserve(vertices.first.size() + c.points.size());
-            vertices.second.reserve(vertices.second.size() + c.points.size());
+            vertices.first.reserve(vertices.first.size() + c.points.size() + 1);
+            vertices.second.reserve(vertices.second.size() + c.points.size() + 1);
 
             for (auto point : c.points) {
                 vertices.first.push_back(point.x);
                 vertices.second.push_back(point.y);
             }
+            vertices.first.push_back(NaN);
+            vertices.second.push_back(NaN);
         };
 
         generation_parameters p{};
