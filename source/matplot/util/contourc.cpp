@@ -264,11 +264,14 @@ namespace matplot::detail {
                     (std::abs(p1.y - p2.y) < unit_y * k_Epsilon));
         };
 
+        assert(e.t[0] || e.t[1]);
+
         edge *e_start = &e, *e_cur = &e;
 
-        /* push back first point in edge */
+        /* push back first point in edge (we intentionally not deactivate
+         * this edge so that we can return back to it if this contour
+         * is closed) */
         ctr.points.emplace_back(contour_point(z, *e_cur));
-        fn_deactivate_edge(*e_cur);
 
         triangle *t_last = nullptr;
         do {
@@ -286,9 +289,10 @@ namespace matplot::detail {
             }
 
             if (!e_next) {
-                /* TODO: handle somewhat gracefully */
+                /* contour ended unexpectedly */
                 return contour();
             }
+
             e_cur = e_next;
             t_last = t_cur;
 
@@ -302,9 +306,18 @@ namespace matplot::detail {
             }
         } while ((e_start != e_cur) && (!e_cur->flags.on_boundary));
 
-        /* for a closed contour the first and last point should be equal */
-        if (e_start == e_cur)
+        if (e_start == e_cur) {
+            ctr.closed = true;
+
+            /* for a closed contour the first and last point should be equal */
             ctr.points.front() = ctr.points.back();
+        } else {
+            ctr.closed = false;
+
+            /* for an open contour we must deactivate the starting edge (we
+             * didn't do it initially so we have to do it now) */
+            fn_deactivate_edge(*e_start);
+        }
 
         return ctr;
     }
