@@ -21,16 +21,14 @@ namespace matplot {
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z),
           line_spec_(this, line_spec) {
         initialize_preprocessed_data();
-        contour_generator_ = QuadContourGenerator(X_data_, Y_data_, Z_data_,
-                                                  _corner_mask, nchunk_);
+        contour_generator_ = detail::contour_generator(X_data_, Y_data_, Z_data_);
     }
 
     contours::contours(class axes_type *parent, const vector_2d &Z,
                        std::string_view line_spec)
         : axes_object(parent), Z_data_(Z), line_spec_(this, line_spec) {
         initialize_preprocessed_data();
-        contour_generator_ = QuadContourGenerator(X_data_, Y_data_, Z_data_,
-                                                  _corner_mask, nchunk_);
+        contour_generator_ = detail::contour_generator(X_data_, Y_data_, Z_data_);
     }
 
     std::string contours::set_variables_string() {

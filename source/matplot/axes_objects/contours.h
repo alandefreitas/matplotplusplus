@@ -205,7 +205,7 @@ namespace matplot {
 
       protected:
         /// Pre-processed contour lines
-        std::vector<QuadContourGenerator::vertices_list_type> lines_;
+        std::vector<detail::contour_generator::vertices_list_type> lines_;
 
         /// Pre-processed contour lines for filled plots
         /// This uses another algorithm for pairs of levels
@@ -213,14 +213,14 @@ namespace matplot {
         /// the closed polygons of filled plots are not good enough
         /// to represent everything.
         /// Also, this makes it much easier to label the unfilled lines.
-        std::vector<QuadContourGenerator::vertices_list_type> filled_lines_;
+        std::vector<detail::contour_generator::vertices_list_type> filled_lines_;
 
         /// These codes indicate what's happening in a filled line
         /// Starting a polygon, closing a polygon, or middle of a polygon
-        std::vector<QuadContourGenerator::codes_list_type> codes_;
+        std::vector<detail::contour_generator::codes_list_type> codes_;
 
         /// Object with the algorithm to generate contour lines
-        QuadContourGenerator contour_generator_;
+        detail::contour_generator contour_generator_;
 
         /// Segments of filled contours
         using level_index_type = size_t;
@@ -255,7 +255,6 @@ namespace matplot {
         bool filled_{false};
         vector_1d linewidths_ = {};
         bool antialiased_ = false;
-        bool _corner_mask = false;
         bool colormap_line_when_filled_ = false;
 
         /// Pre-processed data
@@ -267,7 +266,6 @@ namespace matplot {
         double vmin_ = NaN;
         double vmax_ = NaN;
         extend_option extend_ = extend_option::neither;
-        size_t nchunk_ = 0;
         double zmin_{NaN};
         double zmax_{NaN};
 
