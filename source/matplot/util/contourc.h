@@ -179,6 +179,7 @@ namespace matplot::detail {
             return e.flags.active;
         }
         size_t activate_edges(double z) const noexcept;
+        void generate_contours(double z, vertices_list_type& vertices) const;
 
         contour::point contour_point(double z, const edge &e) const noexcept {
             /* test if t is out of interval [0:1]
@@ -190,7 +191,6 @@ namespace matplot::detail {
                     y_[e.p[1]] * t + y_[e.p[0]] * (1 - t)};
         }
         contour trace_contour(double z, size_t &num_active, edge &e) const;
-        contour generate_contour(double z, generation_parameters &p) const;
 
         array_2d<double> x_, y_, z_;
         double x_min_, x_max_, y_min_, y_max_;

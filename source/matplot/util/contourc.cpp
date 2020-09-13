@@ -73,33 +73,10 @@ namespace matplot::detail {
         y_max_ = *y_max;
     }
 
-    std::pair<vector_1d, vector_1d>
+    contour_generator::vertices_list_type
     contour_generator::create_contour(double level) const {
-        std::pair<vector_1d, vector_1d> vertices;
-
-        auto fn_push_contour = [&vertices](const contour &c) {
-            vertices.first.reserve(vertices.first.size() + c.points.size() + 1);
-            vertices.second.reserve(vertices.second.size() + c.points.size() + 1);
-
-            for (auto point : c.points) {
-                vertices.first.push_back(point.x);
-                vertices.second.push_back(point.y);
-            }
-            vertices.first.push_back(NaN);
-            vertices.second.push_back(NaN);
-        };
-
-        generation_parameters p{};
-        p.flags.closed_contour = false;
-        p.index = 0;
-        p.num_active = activate_edges(level);
-
-        while (p.num_active) {
-            contour ctr = generate_contour(level, p);
-            if (!ctr.points.empty())
-                fn_push_contour(ctr);
-        }
-
+        contour_generator::vertices_list_type vertices;
+        generate_contours(level, vertices);
         return vertices;
     }
 
@@ -110,29 +87,38 @@ namespace matplot::detail {
         return std::pair<vertices_list_type, codes_list_type>();
     }
 
-    contour_generator::contour
-    contour_generator::generate_contour(double z,
-                                        generation_parameters &p) const {
-        if (!p.flags.closed_contour) {
-            for (; p.index < edges_.size(); ++p.index) {
-                edge &e = edges_[p.index];
-                if (e.flags.on_boundary && e.flags.active)
-                    return trace_contour(z, p.num_active, e);
-            }
+    void contour_generator::generate_contours(double z, contour_generator::vertices_list_type &vertices) const {
+        auto fn_push_contour = [&vertices](const contour& c) {
+          if(c.points.empty())
+              return;
 
-            p.flags.closed_contour = true;
-            p.index = 0;
+          vertices.first.reserve(vertices.first.size() + c.points.size() + 1);
+          vertices.second.reserve(vertices.second.size() + c.points.size() + 1);
+
+          for (auto point : c.points) {
+              vertices.first.push_back(point.x);
+              vertices.second.push_back(point.y);
+          }
+          vertices.first.push_back(NaN);
+          vertices.second.push_back(NaN);
+        };
+
+        size_t num_active = activate_edges(z);
+
+        /* first look for contours that end on a boundary */
+        for(auto & e : edges_) {
+            if(e.flags.on_boundary && e.flags.active)
+                fn_push_contour(trace_contour(z, num_active, e));
         }
 
-        if (p.flags.closed_contour) {
-            for (; p.index < edges_.size(); ++p.index) {
-                edge &e = edges_[p.index];
-                if (!e.flags.on_boundary && e.flags.active)
-                    return trace_contour(z, p.num_active, e);
+        /* lastly look for closed contours */
+        for(auto & e : edges_) {
+            if(e.flags.active) {
+                /* shouldn't have any left on a boundary */
+                assert(!e.flags.on_boundary);
+                fn_push_contour(trace_contour(z, num_active, e));
             }
         }
-
-        return contour();
     }
 
     void contour_generator::generate_edges_and_triangles() {
