@@ -477,101 +477,6 @@ namespace matplot {
         return ss.str();
     }
 
-    /// If a line is lower (true) or upper level (false)
-    /// We have to know if it's lower or upper level
-    /// to decide its color.
-    bool contours::is_lower_level(const contours::line_segment &l) {
-        // The parent non-hole is not always the lower or upper level.
-        // That depends on whether the function is increasing
-        // or decreasing on that region.
-        // lower level <-> higher values on the left
-        // upper level <-> higher values on the right
-
-        // Find limits
-        double _xmax = xmax();
-        double _xmin = xmin();
-        double _ymax = ymax();
-        double _ymin = ymin();
-
-        // Take two points - outside the border when possible
-        auto is_on_border = [=](double x1, double x2, double y1, double y2) {
-            return (x1 <= _xmin || x1 >= _xmax || x2 <= _xmin || x2 >= _xmax ||
-                    y1 <= _ymin || y1 >= _ymax || y2 <= _ymin || y2 >= _ymax);
-        };
-
-        double x1 = l.x[0], x2 = l.x[1];
-        double y1 = l.y[0], y2 = l.y[1];
-
-        size_t ii = 0;
-        while (is_on_border(x1, x2, y1, y2) && ii < l.x.size() - 1) {
-            ++ii;
-            x1 = l.x[ii];
-            x2 = l.x[ii + 1];
-            y1 = l.y[ii];
-            y2 = l.y[ii + 1];
-        }
-
-        double avg_x = 0.5 * (x1 + x2);
-        double avg_y = 0.5 * (y1 + y2);
-        bool x_is_increasing = x2 > x1;
-        bool y_is_increasing = y2 > y1;
-
-        // look for the grid position of (x > x1, y > y1) - NE
-        auto it_y =
-            std::find_if(Y_data_.begin(), Y_data_.end(),
-                         [&](const auto &y_row) { return y_row[0] > avg_y; });
-        auto it_x = std::find_if(
-            X_data_[0].begin(), X_data_[0].end(),
-            [&](const double &x_row_value) { return x_row_value > avg_x; });
-        size_t n_row = it_y - Y_data_.begin();
-        size_t n_col = it_x - X_data_[0].begin();
-
-        // look at the left
-        // If x is increasing, the left is in the north
-        // - Do nothing because we are already at a position where y > avg_y
-        // If x is not increasing, the left is in the south
-        // - Try to reduce the n_row (our current grid position is NE)
-        if (!x_is_increasing && n_row > 0) {
-            n_row--;
-        }
-        // If y is increasing, the left is in the west
-        // - Try to reduce the n_col (our current grid position is NE)
-        // If y is not increasing, the left is in the east
-        // - Do nothing because we are already at a position where x > avg_x
-        if (y_is_increasing && n_col > 0) {
-            n_col--;
-        }
-
-        // Find the opposite grid position to compare whether higher
-        // values are on the left or on the right
-        // The logic is the same
-        size_t opposite_row = n_row;
-        size_t opposite_col = n_col;
-
-        if (x_is_increasing && opposite_row > 0) {
-            opposite_row--;
-        } else if (!x_is_increasing && (opposite_row < Y_data_.size() - 1)) {
-            opposite_row++;
-        }
-
-        if (y_is_increasing && opposite_col < X_data_[0].size() - 1) {
-            opposite_col++;
-        } else if (!y_is_increasing && opposite_col > 0) {
-            opposite_col--;
-        }
-
-        // if it increases
-        bool higher_values_on_left =
-            Z_data_[n_row][n_col] > Z_data_[opposite_row][opposite_col];
-        if (higher_values_on_left) {
-            // lower level
-            return true;
-        } else {
-            // else, upper level
-            return false;
-        }
-    }
-
     /// Generate points to close a polygon if not closed yet
     ///
     /// Some polygons might not be closed yet.
@@ -1571,6 +1476,7 @@ namespace matplot {
             }
             l.update_b_box();
             l.flags.is_child = false;
+            l.flags.is_lower = true;
 
             ulc.lower.emplace_back(&filled_lines_.emplace_back(std::move(l)));
         }
@@ -1584,6 +1490,7 @@ namespace matplot {
             }
             l.update_b_box();
             l.flags.is_child = false;
+            l.flags.is_lower = false;
 
             ulc.upper.emplace_back(&filled_lines_.emplace_back(std::move(l)));
         }

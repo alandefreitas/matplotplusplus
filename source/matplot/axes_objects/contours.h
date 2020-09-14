@@ -153,6 +153,7 @@ namespace matplot {
         struct line_segment {
             struct {
                 bool is_child : 1;
+                bool is_lower : 1;
             } flags;
             size_t line_index;
             struct b_box_type {
@@ -186,7 +187,9 @@ namespace matplot {
 
         void make_sure_data_is_preprocessed();
         void clear_preprocessed_data();
-        bool is_lower_level(const line_segment& l);
+        static bool is_lower_level(const line_segment& l) noexcept {
+            return l.flags.is_lower;
+        }
         std::pair<vector_1d, vector_1d>
         fill_border_jump(double start_x, double start_y, double end_x,
                          double end_y, double x_min, double x_max, double y_min,
