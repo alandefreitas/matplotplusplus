@@ -117,6 +117,8 @@ namespace matplot::detail {
         for(auto & e : edges_) {
             if(e.flags.on_boundary && e.flags.active)
                 fn_push_contour(trace_contour(z, num_active, e));
+            if(num_active == 0)
+                break;
         }
 
         /* lastly look for closed contours */
@@ -126,6 +128,8 @@ namespace matplot::detail {
                 assert(!e.flags.on_boundary);
                 fn_push_contour(trace_contour(z, num_active, e));
             }
+            if(num_active == 0)
+                break;
         }
     }
 
