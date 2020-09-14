@@ -107,10 +107,7 @@ namespace matplot::detail {
 
         using vertices_list_type = std::pair<vector_1d, vector_1d>;
         vertices_list_type create_contour(double level) const;
-
-        using codes_list_type = std::vector<unsigned char>;
-        std::pair<vertices_list_type, codes_list_type>
-        create_filled_contour(double lower_level, double upper_level) const;
+        vertices_list_type create_filled_contour(double lower_level, double upper_level) const;
 
       private:
         struct generation_parameters {

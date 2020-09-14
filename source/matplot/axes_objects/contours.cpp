@@ -21,14 +21,16 @@ namespace matplot {
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z),
           line_spec_(this, line_spec) {
         initialize_preprocessed_data();
-        contour_generator_ = detail::contour_generator(X_data_, Y_data_, Z_data_);
+        contour_generator_ =
+            detail::contour_generator(X_data_, Y_data_, Z_data_);
     }
 
     contours::contours(class axes_type *parent, const vector_2d &Z,
                        std::string_view line_spec)
         : axes_object(parent), Z_data_(Z), line_spec_(this, line_spec) {
         initialize_preprocessed_data();
-        contour_generator_ = detail::contour_generator(X_data_, Y_data_, Z_data_);
+        contour_generator_ =
+            detail::contour_generator(X_data_, Y_data_, Z_data_);
     }
 
     std::string contours::set_variables_string() {
@@ -60,14 +62,9 @@ namespace matplot {
             // We plot background only if one of the levels is below zmin
             bool plot_background = lower_levels[0] < zmin_;
             if (plot_background) {
-                auto &largest_segment_with_children = line_segments_[0];
-                auto &largest_segment =
-                    std::get<0>(largest_segment_with_children);
-                size_t line_index = std::get<0>(largest_segment);
-                size_t segment_begin = std::get<1>(largest_segment);
-                size_t segment_end = std::get<2>(largest_segment);
-                bool parent_is_lower_level =
-                    is_lower_level(line_index, segment_begin, segment_end);
+                auto &largest_segment = *filled_line_parents_[0];
+                auto line_index = largest_segment.line_index;
+                bool parent_is_lower_level = is_lower_level(largest_segment);
                 auto previous_color = line_spec_.color();
                 bool previous_color_manual = line_spec_.user_color();
                 if (parent_is_lower_level) {
@@ -101,20 +98,14 @@ namespace matplot {
             }
 
             // Other curves
-            for (size_t i = 0; i < line_segments_.size(); ++i) {
+            for (size_t i = 0; i < filled_line_parents_.size(); ++i) {
                 if (i != 0 || plot_background) {
                     ss << ",";
                 }
-                parent_and_children_type &parent_and_children_segment =
-                    line_segments_[i];
-                line_segment_type &parent_segment =
-                    std::get<0>(parent_and_children_segment);
-                size_t line_index = std::get<0>(parent_segment);
-                size_t segment_begin = std::get<1>(parent_segment);
-                size_t segment_end = std::get<2>(parent_segment);
+                auto &parent_segment = *filled_line_parents_[i];
+                size_t line_index = parent_segment.line_index;
 
-                bool is_ll =
-                    is_lower_level(line_index, segment_begin, segment_end);
+                bool is_ll = is_lower_level(parent_segment);
                 double segment_z_level =
                     is_ll ? lower_levels[line_index] : upper_levels[line_index];
 
@@ -135,31 +126,25 @@ namespace matplot {
                 line_spec_.user_color(previous_color_manual);
 
                 // create filledcurves for the children
-                std::vector<line_segment_type> &children_segments =
-                    std::get<1>(parent_and_children_segment);
-                for (size_t j = 0; j < children_segments.size(); ++j) {
+                for (size_t j = 0; j < parent_segment.children.size(); ++j) {
                     ss << ",";
-                    line_segment_type &child_segment = children_segments[j];
-                    line_index = std::get<0>(child_segment);
-                    segment_begin = std::get<1>(child_segment);
-                    segment_end = std::get<2>(child_segment);
+                    auto &child_segment = *parent_segment.children[j];
+                    line_index = child_segment.line_index;
                     // upper level
                     // might need to fix that later:
                     // children is not always the upper level
                     // it might be the other way around
                     // we need to check which is clockwise before deciding on
                     // that
-                    bool is_ll =
-                        is_lower_level(line_index, segment_begin, segment_end);
-                    double segment_z_level = is_ll ? lower_levels[line_index]
-                                                   : upper_levels[line_index];
+                    is_ll = is_lower_level(child_segment);
+                    segment_z_level = is_ll ? lower_levels[line_index]
+                                            : upper_levels[line_index];
 
                     line_spec_.color(parent_->colormap_interpolation(
                         segment_z_level, contour_min_level, contour_max_level));
-                    std::string ls =
-                        " '-' with filledcurve " +
-                        line_spec_.plot_string(
-                            line_spec::style_to_plot::plot_line_only, false);
+                    ls = " '-' with filledcurve " +
+                         line_spec_.plot_string(
+                             line_spec::style_to_plot::plot_line_only, false);
                     ls = std::regex_replace(
                         ls, std::regex(" linecolor rgb +[^ ]+ "),
                         " linecolor palette ");
@@ -269,7 +254,6 @@ namespace matplot {
             levels_.clear();
         }
         lines_.clear();
-        codes_.clear();
     }
 
     std::vector<double> contours::determine_contour_levels(double z_min,
@@ -408,7 +392,8 @@ namespace matplot {
         _levels = levels_;
 
         // Extend minimum beyond zmin (for filled plots)
-        const bool log = parent_->z_axis().scale() == axis_type::axis_scale::log;
+        const bool log =
+            parent_->z_axis().scale() == axis_type::axis_scale::log;
         if (extend_ == extend_option::both || extend_ == extend_option::min) {
             double lower = log ? 1e-250 : -1e250;
             _levels.insert(_levels.begin(), lower);
@@ -495,8 +480,7 @@ namespace matplot {
     /// If a line is lower (true) or upper level (false)
     /// We have to know if it's lower or upper level
     /// to decide its color.
-    bool contours::is_lower_level(size_t line_index, size_t segment_begin,
-                                  size_t segment_end) {
+    bool contours::is_lower_level(const contours::line_segment &l) {
         // The parent non-hole is not always the lower or upper level.
         // That depends on whether the function is increasing
         // or decreasing on that region.
@@ -510,22 +494,23 @@ namespace matplot {
         double _ymin = ymin();
 
         // Take two points - outside the border when possible
-        double x1 = filled_lines_[line_index].first[segment_begin];
-        double x2 = filled_lines_[line_index].first[segment_begin + 1];
-        double y1 = filled_lines_[line_index].second[segment_begin];
-        double y2 = filled_lines_[line_index].second[segment_begin + 1];
-        auto is_on_border = [&]() {
+        auto is_on_border = [=](double x1, double x2, double y1, double y2) {
             return (x1 <= _xmin || x1 >= _xmax || x2 <= _xmin || x2 >= _xmax ||
                     y1 <= _ymin || y1 >= _ymax || y2 <= _ymin || y2 >= _ymax);
         };
-        size_t sample_begin = segment_begin;
-        while (is_on_border() && sample_begin < segment_end - 1) {
-            ++sample_begin;
-            x1 = filled_lines_[line_index].first[sample_begin];
-            x2 = filled_lines_[line_index].first[sample_begin + 1];
-            y1 = filled_lines_[line_index].second[sample_begin];
-            y2 = filled_lines_[line_index].second[sample_begin + 1];
+
+        double x1 = l.x[0], x2 = l.x[1];
+        double y1 = l.y[0], y2 = l.y[1];
+
+        size_t ii = 0;
+        while (is_on_border(x1, x2, y1, y2) && ii < l.x.size() - 1) {
+            ++ii;
+            x1 = l.x[ii];
+            x2 = l.x[ii + 1];
+            y1 = l.y[ii];
+            y2 = l.y[ii + 1];
         }
+
         double avg_x = 0.5 * (x1 + x2);
         double avg_y = 0.5 * (y1 + y2);
         bool x_is_increasing = x2 > x1;
@@ -724,7 +709,7 @@ namespace matplot {
         double _xmin = xmin();
         double _ymax = ymax();
         double _ymin = ymin();
-        auto is_border_jump = [&](double x1, double y1, double x2, double y2) {
+        auto is_border_jump = [=](double x1, double y1, double x2, double y2) {
             constexpr uint8_t NONE = 0;
             constexpr uint8_t NORTH = 1;
             constexpr uint8_t SOUTH = 2;
@@ -768,15 +753,10 @@ namespace matplot {
             bool plot_background = _levels[0] < zmin_;
             if (plot_background) {
                 // find background polygon level
-                auto &largest_segment_with_children = line_segments_[0];
-                auto &largest_segment =
-                    std::get<0>(largest_segment_with_children);
-                size_t line_index = std::get<0>(largest_segment);
+                auto &largest_segment = *filled_line_parents_[0];
+                size_t line_index = largest_segment.line_index;
                 size_t level_index = line_index > 0 ? line_index - 1 : 0;
-                size_t segment_begin = std::get<1>(largest_segment);
-                size_t segment_end = std::get<2>(largest_segment);
-                bool parent_is_lower_level =
-                    is_lower_level(line_index, segment_begin, segment_end);
+                bool parent_is_lower_level = is_lower_level(largest_segment);
                 double background_z_level = parent_is_lower_level
                                                 ? lower_levels[level_index]
                                                 : upper_levels[level_index];
@@ -794,29 +774,25 @@ namespace matplot {
                 ss << "    e\n";
             }
 
-            for (size_t i = 0; i < line_segments_.size(); ++i) {
+            for (size_t i = 0; i < filled_line_parents_.size(); ++i) {
                 // Send data for parent polygon
-                auto &parent_and_children = line_segments_[i];
-                auto &parent_segment = std::get<0>(parent_and_children);
-                size_t line_index = std::get<0>(parent_segment);
-                size_t begin_index = std::get<1>(parent_segment);
-                size_t end_index = std::get<2>(parent_segment);
-                for (size_t j = begin_index; j < end_index; ++j) {
-                    double x = filled_lines_[line_index].first[j];
-                    double y = filled_lines_[line_index].second[j];
+                auto &parent_segment = *filled_line_parents_[i];
+                size_t line_index = parent_segment.line_index;
+                for (size_t j = 0; j < parent_segment.x.size(); ++j) {
+                    double x = parent_segment.x[j];
+                    double y = parent_segment.y[j];
                     // z = palette value
-                    bool is_ll =
-                        is_lower_level(line_index, begin_index, end_index);
+                    bool is_ll = is_lower_level(parent_segment);
                     double segment_z_level = is_ll ? lower_levels[line_index]
                                                    : upper_levels[line_index];
                     ss << "    " << x << "  " << y << "  " << segment_z_level
                        << "\n";
 
                     // work-around for edge cases
-                    bool is_one_before_last = j == end_index - 2;
+                    bool is_one_before_last = j == parent_segment.x.size() - 2;
                     if (is_one_before_last) {
-                        double next_x = filled_lines_[line_index].first[j + 1];
-                        double next_y = filled_lines_[line_index].second[j + 1];
+                        double next_x = parent_segment.x[j + 1];
+                        double next_y = parent_segment.y[j + 1];
                         bool is_jump_to_border =
                             (next_x <= _xmin) || (next_x >= _xmax) ||
                             (next_y <= _ymin) || (next_y >= _ymax);
@@ -858,29 +834,23 @@ namespace matplot {
                 }
                 ss << "    e\n";
                 // Send data for child/hole polygons
-                auto &child_segments = std::get<1>(parent_and_children);
-                for (size_t j = 0; j < child_segments.size(); ++j) {
-                    auto &child_segment = child_segments[j];
-                    size_t child_line_index = std::get<0>(child_segment);
-                    size_t child_begin_index = std::get<1>(child_segment);
-                    size_t child_end_index = std::get<2>(child_segment);
-                    for (size_t k = child_begin_index; k < child_end_index;
+                for (size_t j = 0; j < parent_segment.children.size(); ++j) {
+                    auto &child_segment = *parent_segment.children[j];
+                    size_t child_line_index = child_segment.line_index;
+                    for (size_t k = 0; k < child_segment.x.size();
                          ++k) {
-                        double x = filled_lines_[child_line_index].first[k];
-                        double y = filled_lines_[child_line_index].second[k];
+                        double x = child_segment.x[k];
+                        double y = child_segment.y[k];
                         bool is_ll =
-                            is_lower_level(child_line_index, child_begin_index,
-                                           child_end_index);
+                            is_lower_level(child_segment);
                         double segment_z_level =
                             is_ll ? lower_levels[child_line_index]
                                   : upper_levels[child_line_index];
                         ss << "    " << x << "  " << y << "  "
                            << segment_z_level << "\n";
-                        if (k != child_end_index - 1) {
-                            double next_x =
-                                filled_lines_[child_line_index].first[k + 1];
-                            double next_y =
-                                filled_lines_[child_line_index].second[k + 1];
+                        if (k != child_segment.x.size() - 1) {
+                            double next_x = child_segment.x[k + 1];
+                            double next_y = child_segment.y[k + 1];
                             if (is_border_jump(x, y, next_x, next_y)) {
                                 auto [xs, ys] = fill_border_jump(
                                     x, y, next_x, next_y, _xmin, _xmax, _ymin,
@@ -1583,105 +1553,110 @@ namespace matplot {
         std::tie(X_data_, Y_data_) = meshgrid(x_1d, y_1d);
     }
 
+    contours::lower_and_upper_contours
+    contours::insert_lower_and_upper_contours(size_t line_index, double z_lower,
+                                              double z_upper) {
+        lower_and_upper_contours ulc;
+
+        auto vertices =
+            contour_generator_.create_filled_contour(z_lower, z_upper);
+
+        size_t ii = 0;
+        for (; !std::isnan(vertices.first[ii]); ++ii) {
+            line_segment l;
+            l.line_index = line_index;
+            for (; !std::isnan(vertices.first[ii]); ++ii) {
+                l.x.push_back(vertices.first[ii]);
+                l.y.push_back(vertices.second[ii]);
+            }
+            l.update_b_box();
+            l.flags.is_child = false;
+
+            ulc.lower.emplace_back(&filled_lines_.emplace_back(std::move(l)));
+        }
+
+        for (++ii; ii < vertices.first.size(); ++ii) {
+            line_segment l;
+            l.line_index = line_index;
+            for (; !std::isnan(vertices.first[ii]); ++ii) {
+                l.x.push_back(vertices.first[ii]);
+                l.y.push_back(vertices.second[ii]);
+            }
+            l.update_b_box();
+            l.flags.is_child = false;
+
+            ulc.upper.emplace_back(&filled_lines_.emplace_back(std::move(l)));
+        }
+
+        return ulc;
+    }
+
     void contours::process_all_segs_and_all_kinds() {
         lines_.clear();
-        codes_.clear();
         if (filled_) {
+            filled_lines_.clear();
+            filled_line_parents_.clear();
+
             auto [lowers, uppers] = get_lowers_and_uppers();
             for (size_t i = 0; i < lowers.size(); ++i) {
-                double level = lowers[i];
-                double level_upper = uppers[i];
-                auto [vertices, kinds] =
-                    contour_generator_.create_filled_contour(level,
-                                                             level_upper);
-                filled_lines_.emplace_back(vertices);
-                codes_.emplace_back(kinds);
-            }
-            // Identify line segments
-            line_segments_.clear();
-            for (size_t i = 0; i < filled_lines_.size(); ++i) {
-                parent_and_children_type cur;
-                line_segment_type &cur_parent = std::get<0>(cur);
-                line_segment_type cur_child;
-                bool is_parent = true;
-                std::get<0>(cur_parent) = i;
-                std::get<1>(cur_parent) = 0;
-                size_t j = 0;
-                while (j < filled_lines_[i].first.size()) {
-                    if (std::isfinite(filled_lines_[i].first[j])) {
-                        ++j;
-                    } else {
-                        // Nan indicates and end of segment
-                        if (is_parent) {
-                            std::get<2>(cur_parent) = j;
-                        } else {
-                            std::get<2>(cur_child) = j;
-                            std::get<1>(cur).emplace_back(cur_child);
-                        }
-                        // Two nans in a row indicate a new parent
-                        bool only_one_nan =
-                            std::isfinite(filled_lines_[i].first[j + 1]);
-                        if (only_one_nan) {
-                            is_parent = false;
-                            ++j;
-                            // start new child
-                            std::get<0>(cur_child) = i;
-                            std::get<1>(cur_child) = j;
-                        } else {
-                            is_parent = true;
-                            // emplace parent and its children
-                            line_segments_.emplace_back(cur);
-                            std::get<1>(cur).clear();
-                            ++j;
-                            while (!std::isfinite(filled_lines_[i].first[j])) {
-                                ++j;
-                            }
-                            // start new parent
-                            std::get<0>(cur_parent) = i;
-                            std::get<1>(cur_parent) = j;
+                auto [lower, upper] =
+                    insert_lower_and_upper_contours(i, lowers[i], uppers[i]);
+
+                auto fn_relate_parent_child = [](line_segment &parent,
+                                                 line_segment &child) {
+                    /* each child can only have one parent so we
+                     * can't have set this flag before */
+                    assert(!child.flags.is_child);
+
+                    /* child can't have children of its own */
+                    assert(child.children.empty());
+
+                    parent.children.push_back(&child);
+                };
+
+                /* find parent-child hierarchy */
+                for (auto p_u_line : upper) {
+                    auto &u_line = *p_u_line;
+                    for (auto p_l_line : lower) {
+                        auto &l_line = *p_l_line;
+
+                        if (u_line.b_box.contains(l_line.b_box)) {
+                            fn_relate_parent_child(u_line, l_line);
+                        } else if (l_line.b_box.contains(u_line.b_box)) {
+                            fn_relate_parent_child(l_line, u_line);
+
+                            /* have already found a parent of u_line so
+                             * we terminate inner loop*/
+                            break;
                         }
                     }
                 }
+
+                auto fn_is_not_child = [](const line_segment *l) -> bool {
+                    return !l->flags.is_child;
+                };
+
+                std::copy_if(upper.begin(), upper.end(),
+                             std::back_inserter(filled_line_parents_),
+                             fn_is_not_child);
+                std::copy_if(lower.begin(), lower.end(),
+                             std::back_inserter(filled_line_parents_),
+                             fn_is_not_child);
             }
-            // calculate the bounding rectangle of each parent
-            for (auto &parent_and_children : line_segments_) {
-                line_segment_type &parent_segment =
-                    std::get<0>(parent_and_children);
-                size_t line_idx = std::get<0>(parent_segment);
-                size_t start_idx = std::get<1>(parent_segment);
-                size_t end_idx = std::get<2>(parent_segment);
-                double ax_max = filled_lines_[line_idx].first[0];
-                double ax_min = filled_lines_[line_idx].first[0];
-                double ay_max = filled_lines_[line_idx].second[0];
-                double ay_min = filled_lines_[line_idx].second[0];
-                for (size_t i = start_idx; i < end_idx; ++i) {
-                    double x = filled_lines_[line_idx].first[i];
-                    double y = filled_lines_[line_idx].second[i];
-                    if (x > ax_max) {
-                        ax_max = x;
-                    }
-                    if (x < ax_min) {
-                        ax_min = x;
-                    }
-                    if (y > ay_max) {
-                        ay_max = y;
-                    }
-                    if (y < ay_min) {
-                        ay_min = y;
-                    }
-                }
-                double area = (ax_max - ax_min) * (ay_max - ay_min);
-                std::get<2>(parent_and_children) = area;
-            }
+
             // Sort line segments by their bounding rectangle areas
             // We plot the largest ones first because if A is inside B,
             // B's bounding rectangle will be larger. We plot B before A,
             // because the fillcolors of B cannot be in front of A, which
             // is more internal.
-            std::sort(line_segments_.begin(), line_segments_.end(),
-                      [&](const parent_and_children_type &a,
-                          const parent_and_children_type &b) {
-                          return std::get<2>(a) > std::get<2>(b);
+            std::sort(filled_line_parents_.begin(), filled_line_parents_.end(),
+                      [](const line_segment *l1, const line_segment *l2) {
+                          double a1 = l1->b_box.area(), a2 = l2->b_box.area();
+
+                          if (a1 == a2)
+                              return l1 < l2;
+                          else
+                              return a1 > a2;
                       });
         }
         // Generate normal lines

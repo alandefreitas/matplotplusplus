@@ -80,11 +80,19 @@ namespace matplot::detail {
         return vertices;
     }
 
-    std::pair<contour_generator::vertices_list_type,
-              contour_generator::codes_list_type>
+    contour_generator::vertices_list_type
     contour_generator::create_filled_contour(double lower_level,
                                              double upper_level) const {
-        return std::pair<vertices_list_type, codes_list_type>();
+        contour_generator::vertices_list_type vertices;
+        generate_contours(lower_level, vertices);
+
+        /* to demarcate upper contour lines and lower contour lines */
+        vertices.first.push_back(NaN);
+        vertices.second.push_back(NaN);
+
+        generate_contours(upper_level, vertices);
+
+        return vertices;
     }
 
     void contour_generator::generate_contours(double z, contour_generator::vertices_list_type &vertices) const {

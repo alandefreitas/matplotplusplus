@@ -60,7 +60,7 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        contours(const axes_handle &parent, Args&&... args)
+        contours(const axes_handle &parent, Args &&... args)
             : contours(parent.get(), std::forward<Args>(args)...) {}
 
       public /* mandatory virtual functions */:
@@ -149,10 +149,44 @@ namespace matplot {
         }
 
       protected:
+        /// Segments of filled contours
+        struct line_segment {
+            struct {
+                bool is_child : 1;
+            } flags;
+            size_t line_index;
+            struct b_box_type {
+                double x_min, x_max, y_min, y_max;
+
+                [[nodiscard]] double area() const noexcept {
+                    return (x_max - x_min) * (y_max - y_min);
+                }
+
+                [[nodiscard]] bool
+                contains(const b_box_type &b) const noexcept {
+                    return (x_min < b.x_min) && (x_max > b.x_max) &&
+                           (y_min < b.y_min) && (y_max > b.y_max);
+                }
+            } b_box;
+            std::vector<double> x, y;
+            std::vector<const line_segment*> children;
+
+            void update_b_box() noexcept {
+                assert(!x.empty() && !y.empty());
+
+                auto [x_min, x_max] = std::minmax_element(x.begin(), x.end());
+                b_box.x_min = *x_min;
+                b_box.x_max = *x_max;
+
+                auto [y_min, y_max] = std::minmax_element(y.begin(), y.end());
+                b_box.y_min = *y_min;
+                b_box.y_max = *y_max;
+            }
+        };
+
         void make_sure_data_is_preprocessed();
         void clear_preprocessed_data();
-        bool is_lower_level(size_t line_index, size_t segment_begin,
-                            size_t segment_end);
+        bool is_lower_level(const line_segment& l);
         std::pair<vector_1d, vector_1d>
         fill_border_jump(double start_x, double start_y, double end_x,
                          double end_y, double x_min, double x_max, double y_min,
@@ -213,16 +247,12 @@ namespace matplot {
         /// the closed polygons of filled plots are not good enough
         /// to represent everything.
         /// Also, this makes it much easier to label the unfilled lines.
-        std::vector<detail::contour_generator::vertices_list_type> filled_lines_;
-
-        /// These codes indicate what's happening in a filled line
-        /// Starting a polygon, closing a polygon, or middle of a polygon
-        std::vector<detail::contour_generator::codes_list_type> codes_;
+        std::list<line_segment> filled_lines_;
+        std::vector<const line_segment*> filled_line_parents_;
 
         /// Object with the algorithm to generate contour lines
         detail::contour_generator contour_generator_;
 
-        /// Segments of filled contours
         using level_index_type = size_t;
         using begin_index_type = size_t;
         using end_index_type = size_t;
@@ -232,9 +262,16 @@ namespace matplot {
         using parent_and_children_type =
             std::tuple<line_segment_type, std::vector<line_segment_type>,
                        area_type>;
-        std::vector<parent_and_children_type> line_segments_;
 
       protected:
+        /// For `process_all_segs_and_all_kinds`
+        struct lower_and_upper_contours {
+            std::vector<line_segment*> lower, upper;
+        };
+        lower_and_upper_contours
+        insert_lower_and_upper_contours(size_t line_index, double z_lower,
+                                        double z_upper);
+
         /// Line style
         class line_spec line_spec_;
 
