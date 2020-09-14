@@ -162,6 +162,14 @@ else()
     message("Not including the high resolution maps for geoplots")
 endif()
 
+if (BUILD_WITH_PEDANTIC_WARNINGS)
+    if (MSVC)
+        target_compile_options(matplot PRIVATE /W4 /WX)
+    else ()
+        target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
+    endif ()
+endif ()
+
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
     # This is an example of what an OpenGL backend *could* look like.
@@ -219,19 +227,27 @@ endif()
 
 
 # Install
-if(MASTER_PROJECT)
+if (BUILD_INSTALLER)
+    # Install targets
     install(TARGETS matplot
         EXPORT Matplot++Targets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        )
+
+    # Install headers
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-        FILES_MATCHING PATTERN "*.h")
-    install(FILES ${FS_COMPAT_HEADER} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+        FILES_MATCHING PATTERN "*.h"
+        )
+    install(FILES ${FS_COMPAT_HEADER}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        )
 
-
+    # Install cmake script
     install(EXPORT Matplot++Targets
         FILE Matplot++Targets.cmake
         NAMESPACE Matplot++::
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
+        )
 endif()
