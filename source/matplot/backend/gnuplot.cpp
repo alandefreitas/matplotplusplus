@@ -3,7 +3,7 @@
 //
 
 #include "gnuplot.h"
-#include <filesystem>
+#include <matplot/std_filesystem.h>
 #include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
@@ -71,6 +71,12 @@ namespace matplot::backend {
 
     const std::string &gnuplot::output_format() { return terminal_; }
 
+#ifdef STRING_VIEW_CONSTEXPR_BUG
+#define SV_CONSTEXPR
+#else
+#define SV_CONSTEXPR constexpr
+#endif
+
     bool gnuplot::output(const std::string &filename) {
         if (filename.empty()) {
             output_ = filename;
@@ -79,12 +85,11 @@ namespace matplot::backend {
         }
 
         // look at the extension
-        namespace fs = std::filesystem;
         fs::path p{filename};
         std::string ext = p.extension().string();
 
         // check terminal for that extension
-        constexpr auto exts = extension_terminal();
+        SV_CONSTEXPR auto exts = extension_terminal();
         auto it = std::find_if(exts.begin(), exts.end(),
                                [&](const auto &e) { return e.first == ext; });
 
@@ -115,7 +120,7 @@ namespace matplot::backend {
         }
 
         // Check if file format is valid
-        constexpr auto exts = extension_terminal();
+        SV_CONSTEXPR auto exts = extension_terminal();
         auto it = std::find_if(exts.begin(), exts.end(), [&](const auto &e) {
             return e.second == format;
         });
@@ -127,7 +132,6 @@ namespace matplot::backend {
         }
 
         // Create file if it does not exist
-        namespace fs = std::filesystem;
         fs::path p{filename};
         if (!p.parent_path().empty() && !fs::exists(p.parent_path())) {
             fs::create_directory(p.parent_path());
@@ -306,7 +310,7 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_title_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "qt", "aqua", "caca", "canvas", "windows", "wxt", "x11"};
         return std::find(std::begin(whitelist), std::end(whitelist), t) !=
                std::end(whitelist);
@@ -316,7 +320,7 @@ namespace matplot::backend {
         // Terminals that have the size option *in the way we expect it to work*
         // This includes only the size option with {width, height} and not
         // the size option for cropping or scaling
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "qt",      "aqua",     "caca",    "canvas", "eepic",
             "emf",     "gif",      "jpeg",    "pbm",    "png",
             "sixelgd", "tkcanvas", "windows", "wxt",    "svg"};
@@ -325,13 +329,13 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_position_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {"qt", "windows", "wxt"};
+        SV_CONSTEXPR std::string_view whitelist[] = {"qt", "windows", "wxt"};
         return std::find(std::begin(whitelist), std::end(whitelist), t) !=
                std::end(whitelist);
     }
 
     bool gnuplot::terminal_has_enhanced_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "canvas",     "postscript", "qt",       "aqua",     "caca",
             "canvas",     "dumb",       "emf",      "enhanced", "jpeg",
             "pdf",        "pdfcairo",   "pm",       "png",      "pngcairo",
@@ -342,7 +346,7 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_color_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "postscript", "aifm",     "caca",     "cairolatex", "context",
             "corel",      "eepic",    "emf",      "epscairo",   "epslatex",
             "fig",        "lua tikz", "mif",      "mp",         "pbm",
@@ -357,7 +361,7 @@ namespace matplot::backend {
         // and terminals for which we want to use only the default fonts
         // We prefer a blacklist because it's better to get a warning
         // in a false positive than remove the fonts in a false negative.
-        constexpr std::string_view blacklist[] = {
+        SV_CONSTEXPR std::string_view blacklist[] = {
             "dxf",      "eepic",   "emtex",   "hpgl",    "latex",
             "mf",       "pcl5",    "pslatex", "pstex",   "pstricks",
             "qms",      "tek40xx", "tek410x", "texdraw", "tkcanvas",

@@ -1,4 +1,23 @@
-find_package(Filesystem REQUIRED)
+find_package(Filesystem REQUIRED COMPONENTS Final Experimental)
+
+# generate filesystem compatibility header
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/matplot)
+set(FS_COMPAT_HEADER ${CMAKE_CURRENT_BINARY_DIR}/matplot/std_filesystem.h)
+
+if(CXX_FILESYSTEM_IS_EXPERIMENTAL)
+    set(STD_FS_INCLUDE "experimental/filesystem")
+    set(STD_FS_NAMESPACE "std::experimental::filesystem")
+else()
+    set(STD_FS_INCLUDE "filesystem")
+    set(STD_FS_NAMESPACE "std::filesystem")
+endif()
+
+file(GENERATE OUTPUT ${FS_COMPAT_HEADER}
+    CONTENT "#include <${STD_FS_INCLUDE}>
+namespace matplot
+{
+namespace fs = ${STD_FS_NAMESPACE};
+}")
 
 add_library(matplot
         matplot.h
@@ -83,12 +102,14 @@ add_library(matplot
         freestanding/histcounts.h
         freestanding/histcounts.cpp
         freestanding/plot.h
+
+        ${FS_COMPAT_HEADER}
 )
 
 target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
+           $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
 target_link_libraries(matplot
     PRIVATE cimg nodesoup std::filesystem)
 
@@ -102,7 +123,17 @@ if(MSVC)
     target_compile_options(matplot PUBLIC /wd4305)
     # Fix compile error caused by utf8 character in line_spec.cpp
     target_compile_options(matplot PUBLIC /utf-8)
+
 endif()
+
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    if(${CMAKE_CXX_COMPILER_VERSION} VERSION_LESS 7.3)
+        # In GCC<7.3, std::string_view(const char*) is not properly constexpr.
+        # See https://github.com/seqan/seqan3/issues/1202
+        target_compile_definitions(matplot PRIVATE STRING_VIEW_CONSTEXPR_BUG=1)
+    endif()
+endif()
+
 
 include(CheckSymbolExists)
 
@@ -123,21 +154,13 @@ endif()
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
-endif ()
+endif()
 
 if (BUILD_HIGH_RESOLUTION_WORLD_MAP)
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_HIGH_RESOLUTION_WORLD_MAP)
-else ()
+else()
     message("Not including the high resolution maps for geoplots")
-endif ()
-
-if (BUILD_WITH_PEDANTIC_WARNINGS)
-    if (MSVC)
-        target_compile_options(matplot PRIVATE /W4 /WX)
-    else ()
-        target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
-    endif ()
-endif ()
+endif()
 
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
@@ -183,7 +206,7 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
         CPMAddPackage(NAME glad GIT_REPOSITORY https://github.com/Dav1dde/glad GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9 VERSION 0.1.33)
     endif()
 
-    find_package(glfw3 REQUIRED)
+    find_package(glfw3 REQUIRED CONFIG)
 
     add_library(matplot_opengl
             backend/opengl_embed.h
@@ -196,24 +219,19 @@ endif()
 
 
 # Install
-if (BUILD_INSTALLER)
-    # Install targets
+if(MASTER_PROJECT)
     install(TARGETS matplot
-            EXPORT Matplot++Targets
-            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            )
-
-    # Install headers
+        EXPORT Matplot++Targets
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
     install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-            FILES_MATCHING PATTERN "*.h"
-            )
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        FILES_MATCHING PATTERN "*.h")
+    install(FILES ${FS_COMPAT_HEADER} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-    # Install cmake script
+
     install(EXPORT Matplot++Targets
-            FILE Matplot++Targets.cmake
-            NAMESPACE Matplot++::
-            DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
-            )
+        FILE Matplot++Targets.cmake
+        NAMESPACE Matplot++::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 endif()
