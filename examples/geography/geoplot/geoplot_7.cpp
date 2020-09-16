@@ -8,7 +8,7 @@ class americas_trip_solver {
   public:
     americas_trip_solver(const vector<double> &lat, const vector<double> &lon,
                          const vector<string> &names, axes_handle ax);
-    void run(int iterations = 100);
+    void run(size_t iterations = 100);
 
   private:
     void setup_axes();
@@ -45,7 +45,7 @@ americas_trip_solver::americas_trip_solver(const vector<double> &lat,
     setup_axes();
 }
 
-void americas_trip_solver::run(int iterations) {
+void americas_trip_solver::run(size_t iterations) {
     for (size_t i = 0; i < iterations; ++i) {
         setup_starting_point(i);
         iteration();

@@ -42,8 +42,8 @@ generate_data() {
     std::vector<std::vector<double>> X(17, std::vector<double>(17, 0.));
     std::vector<std::vector<double>> Y(17, std::vector<double>(17, 0.));
     std::vector<std::vector<double>> Z(17, std::vector<double>(17, 0.));
-    for (size_t i = 0; i < n + 1; ++i) {
-        for (size_t j = 0; j < n + 1; ++j) {
+    for (int i = 0; i < n + 1; ++i) {
+        for (int j = 0; j < n + 1; ++j) {
             X[i][j] = cosphi[i] * costheta[j];
             Y[i][j] = cosphi[i] * sintheta[j];
             Z[i][j] = sinphi[i];
