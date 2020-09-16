@@ -68,6 +68,8 @@ if (BUILD_INSTALLER)
     # https://cliutils.gitlab.io/modern-cmake/chapters/install/installing.html
     # Set variable where the cmake config is
     set(CONFIG_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+    message("CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}")
+    message("CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}")
 
     # Create Matplot++ConfigVersion.cmake and install it
     write_basic_package_version_file(
