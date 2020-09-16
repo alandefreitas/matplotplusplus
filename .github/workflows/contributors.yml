@@ -21,6 +21,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          imageSize: 100
-          columnsPerRow: 6
+          image_size: 100
+          columns_per_row: 6
 
