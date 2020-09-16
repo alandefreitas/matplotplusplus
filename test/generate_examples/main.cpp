@@ -374,18 +374,22 @@ int main() {
                 cmd += " && ";
                 cmd += exe_str;
                 cout << cmd << endl;
-                system(cmd.c_str());
+                int r = system(cmd.c_str());
+                if (r != 0) {
+                    std::cerr << "Could not execute " << cmd << std::endl;
+                }
 
                 // Move the figures to the documentation directory
                 fs::path figure_origin_svg = p.parent_path() / "example.svg";
                 if (fs::exists(figure_origin_svg)) {
                     if (!fs::exists(figure_destination_svg.parent_path())) {
-                        fs::create_directories(figure_destination_svg.parent_path());
+                        fs::create_directories(
+                            figure_destination_svg.parent_path());
                     }
                     fs::rename(figure_origin_svg, figure_destination_svg);
                 } else {
-                    cout << "Could not find " << figure_origin_svg.filename() << " for "
-                              << executable.filename() << endl;
+                    cout << "Could not find " << figure_origin_svg.filename()
+                         << " for " << executable.filename() << endl;
                 }
             }
 
