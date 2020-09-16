@@ -20,7 +20,9 @@ namespace matplot {
         always_hide_labels_ = false;
         x_ = y_ = 1;
         parent_->y_axis().reverse(true);
-        std::tie(h_, w_) = size(matrices_[0]);
+        auto [hi, wi] = size(matrices_[0]);
+        h_ = static_cast<double>(hi);
+        w_ = static_cast<double>(wi);
     }
 
     matrix::matrix(class axes_type *parent,
@@ -38,7 +40,9 @@ namespace matplot {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_, w_) = size(matrices_[0]);
+        auto [hi, wi] = size(matrices_[0]);
+        h_ = static_cast<double>(hi);
+        w_ = static_cast<double>(wi);
     }
 
     matrix::matrix(class axes_type *parent, const image_channel_t &gray_image)
@@ -47,7 +51,9 @@ namespace matplot {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_, w_) = size(matrices_[0]);
+        auto [hi, wi] = size(matrices_[0]);
+        h_ = static_cast<double>(hi);
+        w_ = static_cast<double>(wi);
     }
 
     matrix::matrix(class axes_type *parent, const image_channel_t &red_channel,
@@ -67,7 +73,9 @@ namespace matplot {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_, w_) = size(matrices_[0]);
+        auto [hi, wi] = size(matrices_[0]);
+        h_ = static_cast<double>(hi);
+        w_ = static_cast<double>(wi);
     }
 
     /// Constructor for all channels at once
@@ -76,7 +84,9 @@ namespace matplot {
         parent_->y_axis().reverse(true);
         always_hide_labels_ = true;
         x_ = y_ = 1;
-        std::tie(h_, w_) = size(matrices_[0]);
+        auto [hi, wi] = size(matrices_[0]);
+        h_ = static_cast<double>(hi);
+        w_ = static_cast<double>(wi);
     }
 
     std::string matrix::plot_string() {

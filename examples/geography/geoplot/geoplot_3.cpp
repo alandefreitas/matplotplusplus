@@ -8,7 +8,7 @@ int main() {
     auto [lon_star, lat_star] = greedy_tsp(lon, lat);
     geoplot(lat_star, lon_star)
         ->marker("o")
-        .marker_colors(iota(1, names.size()));
+        .marker_colors(iota(1., static_cast<double>(names.size())));
     text(lon, lat, names);
 
     show();

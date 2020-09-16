@@ -41,6 +41,8 @@ namespace matplot {
 
         axes_type(figure_handle parent, std::array<float, 4> position);
 
+        virtual ~axes_type() = default;
+
       public /* functions that operate the axes */:
         /// Plot parent figure
         void draw();
@@ -2457,7 +2459,7 @@ namespace matplot {
                              const IterableIterables<T2> &Y,
                              const IterableIterables<T3> &Z,
                              const IterableValues<T4> &c = {}) {
-            return fence(to_vector_2d(X), to_vector_2d(X), to_vector_2d(X),
+            return fence(to_vector_2d(X), to_vector_2d(Y), to_vector_2d(Z),
                          to_vector_1d(c));
         }
 
@@ -2767,15 +2769,15 @@ namespace matplot {
         bool axes_aspect_ratio_auto_{true};
 
         // text
-        std::optional<float> font_size_{10};
+        std::optional<float> font_size_{10.f};
         std::optional<std::string> font_{"Helvetica"};
         std::string font_weight_{"normal"};
 
         // title text
-        std::string title_{""};
+        std::string title_;
         bool title_visible_{false};
         bool title_enhanced_{true};
-        float title_font_size_multiplier_{1.1};
+        float title_font_size_multiplier_{1.1f};
         std::string title_font_weight_{"bold"};
         color_array title_color_{0, 0, 0, 0};
 

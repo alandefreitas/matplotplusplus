@@ -865,12 +865,12 @@ namespace matplot {
     }
 
     inline auto line(double x1, double y1, double x2, double y2) {
-        return gca()->line(x1, x1, x2, y2);
+        return gca()->line(x1, y1, x2, y2);
     }
 
     inline auto line(axes_handle ax, double x1, double y1, double x2,
                      double y2) {
-        return ax->line(x1, x1, x2, y2);
+        return ax->line(x1, y1, x2, y2);
     }
 
     template <class T1, class... Args>

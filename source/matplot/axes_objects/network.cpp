@@ -19,8 +19,8 @@ namespace matplot {
                      const std::vector<std::pair<size_t, size_t>> &edges,
                      const vector_1d &weights, size_t n_vertices,
                      std::string_view line_spec)
-        : axes_object(parent), edges_(edges), weights_(weights),
-          n_vertices_(n_vertices), line_spec_(this, line_spec) {
+        : axes_object(parent), line_spec_(this, line_spec), edges_(edges),
+          n_vertices_(n_vertices), weights_(weights) {
         line_spec_.marker_face(true);
     }
 
@@ -262,11 +262,14 @@ namespace matplot {
             case layout::automatic: {
                 size_t n_edges = edges_.size();
                 size_t n_vert = n_vertices();
+                // We used a simple benchmark to determine these values
+                // As long as kawai is not slower than force, we use kawai
                 if (n_vert < 100 && n_edges < 1000) {
                     process_kawai_layout();
                 } else {
                     process_force_layout();
                 }
+                break;
             }
             case layout::kawai:
                 process_kawai_layout();
@@ -310,11 +313,13 @@ namespace matplot {
         y_data_.clear();
         z_data_.clear();
         size_t n = n_vertices();
-        unsigned seed =
-            std::chrono::system_clock::now().time_since_epoch().count();
+        unsigned seed = static_cast<unsigned>(
+            std::chrono::system_clock::now().time_since_epoch().count());
         std::mt19937 g(seed);
-        int width = parent_->width() * parent_->parent()->width();
-        int height = parent_->height() * parent_->parent()->height();
+        int width =
+            static_cast<int>(parent_->width() * parent_->parent()->width());
+        int height =
+            static_cast<int>(parent_->height() * parent_->parent()->height());
         std::uniform_real_distribution<double> dx(0, width);
         std::uniform_real_distribution<double> dy(0, height);
         for (size_t i = 0; i < n; ++i) {
@@ -338,8 +343,10 @@ namespace matplot {
         if (k == -1.0) {
             k = 15.0;
         }
-        int width = parent_->width() * parent_->parent()->width();
-        int height = parent_->height() * parent_->parent()->height();
+        int width =
+            static_cast<int>(parent_->width() * parent_->parent()->width());
+        int height =
+            static_cast<int>(parent_->height() * parent_->parent()->height());
         int iters_count = layout_iterations_;
         if (iters_count == -1) {
             iters_count = 300;
@@ -377,8 +384,10 @@ namespace matplot {
         if (k == -1.0) {
             k = 300.0;
         }
-        int width = parent_->width() * parent_->parent()->width();
-        int height = parent_->height() * parent_->parent()->height();
+        int width =
+            static_cast<int>(parent_->width() * parent_->parent()->width());
+        int height =
+            static_cast<int>(parent_->height() * parent_->parent()->height());
         nodesoup::iter_callback_t cback = nullptr;
         std::vector<nodesoup::Point2D> positions =
             nodesoup::kamada_kawai(g, width, height, k, energy_threshold_);
@@ -392,7 +401,7 @@ namespace matplot {
         maybe_update_graph_layout();
         if (x_data_.empty()) {
             if (!y_data_.empty()) {
-                return y_data_.size() - 1;
+                return static_cast<double>(y_data_.size() - 1);
             } else {
                 return axes_object::xmax();
             }
@@ -532,8 +541,10 @@ namespace matplot {
 
     class network &
     network::marker_size(const std::vector<double> &size_vector) {
-        std::vector<float> size_vector_float(size_vector.begin(),
-                                             size_vector.end());
+        std::vector<float> size_vector_float(size_vector.size());
+        std::transform(size_vector.begin(), size_vector.end(),
+                       size_vector_float.begin(),
+                       [](const double &x) { return static_cast<float>(x); });
         marker_size(size_vector_float);
         return *this;
     }

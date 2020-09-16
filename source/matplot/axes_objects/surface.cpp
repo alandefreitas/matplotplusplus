@@ -16,8 +16,8 @@ namespace matplot {
                      const vector_2d &Y, const vector_2d &Z, const vector_2d &C,
                      std::string_view line_spec)
         : axes_object(parent), X_data_(X), Y_data_(Y), Z_data_(Z), C_data_(C),
-          line_spec_(this, line_spec), contour_line_spec_(this, ""),
-          is_parametric_(false) {
+          is_parametric_(false), line_spec_(this, line_spec),
+          contour_line_spec_(this, "") {
         zmin_ = Z_data_[0][0];
         zmax_ = Z_data_[0][0];
         for (size_t i = 0; i < Z_data_.size(); ++i) {
@@ -220,7 +220,8 @@ namespace matplot {
                         } else {
                             ss << " linecolor rgb '"
                                << to_string(parent_->colormap_interpolation(
-                                      i, 0., n_contour_lines))
+                                      static_cast<double>(i), 0.,
+                                      static_cast<double>(n_contour_lines)))
                                << "'";
                         }
                     } else {
@@ -406,7 +407,7 @@ namespace matplot {
                 ss << "\n";
             }
             // each row is an isoline
-            for (long i = Y_data_.size() - 1; i >= 0; --i) {
+            for (int i = Y_data_.size() - 1; i >= 0; --i) {
                 // open row curtain or waterfall
                 if (curtain_ || waterfall_) {
                     send_point(ss, X_data_[i][0], Y_data_[i][0], zmin_,
@@ -766,7 +767,7 @@ namespace matplot {
         return *this;
     }
 
-    const float surface::font_size() const {
+    float surface::font_size() const {
         if (font_size_) {
             return *font_size_;
         } else {

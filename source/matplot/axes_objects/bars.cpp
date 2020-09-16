@@ -22,7 +22,8 @@ namespace matplot {
         if (parent_->children().empty()) {
             parent_->x_axis().limits({0, double(ys_[0].size() + 1)});
             if (ys_[0].size() <= 15) {
-                parent_->x_axis().tick_values(iota(1, ys_[0].size()));
+                parent_->x_axis().tick_values(
+                    iota(1., static_cast<double>(ys_[0].size())));
             }
         }
         if (parent_->y_axis().limits_mode_auto()) {
@@ -122,7 +123,7 @@ namespace matplot {
     }
 
     double bars::range_for_cluster() {
-        double min_x_diff = x_minimum_difference();
+        // double min_x_diff = x_minimum_difference();
         const size_t n_bar_groups = ys_.size();
         // space taken by the cluster in the x axis
         return bar_width_ / n_bar_groups;
@@ -161,7 +162,7 @@ namespace matplot {
         if (!x_.empty()) {
             return *std::max_element(x_.begin(), x_.end());
         } else {
-            return ys_[0].size() + 1;
+            return static_cast<double>(ys_[0].size() + 1);
         }
     }
 
@@ -169,7 +170,7 @@ namespace matplot {
         if (!x_.empty()) {
             return *std::min_element(x_.begin(), x_.end());
         } else {
-            return ys_[0].size() + 1;
+            return static_cast<double>(ys_[0].size() + 1);
         }
     }
 

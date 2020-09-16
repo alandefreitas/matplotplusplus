@@ -13,7 +13,7 @@ namespace matplot::backend {
     class gnuplot : public backend_interface {
       public:
         gnuplot();
-        ~gnuplot();
+        virtual ~gnuplot();
         bool is_interactive() override;
         const std::string &output() override;
         const std::string &output_format() override;

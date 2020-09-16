@@ -88,7 +88,7 @@ namespace matplot {
             face_color_ = parent_->get_color_and_bump();
             edge_color_ = face_color_;
             manual_face_color_ = true;
-            face_color_[0] = 0.6 + 0.4 * face_color_[0];
+            face_color_[0] = 0.6f + 0.4f * face_color_[0];
             edge_color_[0] /= 2.;
             edge_color_[1] /= 2.;
             edge_color_[2] /= 2.;

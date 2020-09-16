@@ -145,7 +145,7 @@ namespace matplot {
         // Style
         bool box_{true};
         line_spec box_line_{"k-"};
-        color_array color_{0., 1, 1, 1};
+        // color_array color_{0., 1, 1, 1};
         bool vertical_{true};
         bool label_after_sample_{true};
         bool invert_{false};

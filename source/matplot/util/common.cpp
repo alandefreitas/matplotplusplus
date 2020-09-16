@@ -13,7 +13,17 @@
 #include <set>
 #include <string>
 
+// Allow the warnings related to the bundled CImg
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4458)
+#pragma warning(disable : 4456)
+#pragma warning(disable : 4702)
+#endif
 #include <CImg.h>
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 #ifdef _WIN32
 #include <windows.h>
@@ -58,7 +68,8 @@ namespace matplot {
         }
         std::array<char, 128> buffer{};
         std::string result;
-        while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+        while (fgets(buffer.data(), static_cast<int>(buffer.size()),
+                     pipe.get()) != nullptr) {
             result += buffer.data();
         }
         return result;
@@ -586,12 +597,12 @@ namespace matplot {
 
     image_channels_t
     cimg2channels(const cimg_library::CImg<unsigned char> &cimg_image) {
-        const size_t n_channels = cimg_image.spectrum();
+        const int n_channels = cimg_image.spectrum();
         const size_t height = cimg_image.height();
         const size_t width = cimg_image.width();
         image_channels_t img(n_channels,
                              image_channel_t(height, image_row_t(width, 0)));
-        for (size_t channel = 0; channel < n_channels; ++channel) {
+        for (int channel = 0; channel < n_channels; ++channel) {
             for (int i = 0; i < cimg_image.height(); ++i) {
                 for (int j = 0; j < cimg_image.width(); ++j) {
                     img[channel][i][j] =
@@ -604,11 +615,13 @@ namespace matplot {
 
     cimg_library::CImg<unsigned char> channels2cimg(const image_channels_t &A) {
         cimg_library::CImg<unsigned char> cimg_image(
-            A[0].size(), A[0][0].size(), 1, A.size());
-        const size_t n_channels = A.size();
-        const size_t height = A[0].size();
-        const size_t width = A[0][0].size();
-        for (size_t channel = 0; channel < n_channels; ++channel) {
+            static_cast<unsigned int>(A[0].size()),
+            static_cast<unsigned int>(A[0][0].size()), 1U,
+            static_cast<unsigned int>(A.size()));
+        const int n_channels = static_cast<int>(A.size());
+        // const size_t height = A[0].size();
+        // const size_t width = A[0][0].size();
+        for (int channel = 0; channel < n_channels; ++channel) {
             for (int i = 0; i < cimg_image.height(); ++i) {
                 for (int j = 0; j < cimg_image.width(); ++j) {
                     cimg_image.operator()(j, i, 0, channel) = A[channel][i][j];
@@ -658,7 +671,8 @@ namespace matplot {
             interpolation_type = 6;
             break;
         }
-        cimg_image.resize(width, height, 1, A.size(), interpolation_type);
+        cimg_image.resize(static_cast<int>(width), static_cast<int>(height), 1,
+                          static_cast<int>(A.size()), interpolation_type);
         return cimg2channels(cimg_image);
     }
 
@@ -740,22 +754,24 @@ namespace matplot {
         if (image.size() < 4) {
             image.emplace_back(image_channel_t(h, image_row_t(w, 255)));
         }
-        double center_x = w / 2;
-        double center_y = h / 2;
+        double center_x = static_cast<double>(w) / 2;
+        double center_y = static_cast<double>(h) / 2;
         double radius_sq = pow(min(h / 2, w / 2) * min_radius, 2);
         double max_t1 = pow(static_cast<double>(h) - center_y, 2);
         double max_t2 = pow(static_cast<double>(w) - center_x, 2);
         double max_t_minus_radius = (max_t1 + max_t2) - radius_sq;
         auto &alpha_channel = image[3];
-        for (int i = 0; i < h; ++i) {
-            for (int j = 0; j < w; ++j) {
+        for (size_t i = 0; i < h; ++i) {
+            for (size_t j = 0; j < w; ++j) {
                 double t1 = pow(static_cast<double>(i) - center_y, 2);
                 double t2 = pow(static_cast<double>(j) - center_x, 2);
                 if (t1 + t2 > radius_sq) {
                     double norm_dist_from_r =
                         ((t1 + t2) - radius_sq) / max_t_minus_radius;
                     norm_dist_from_r = pow(norm_dist_from_r, exponent);
-                    alpha_channel[i][j] = 255 * (1. - norm_dist_from_r);
+                    alpha_channel[i][j] = static_cast<
+                        std::decay_t<decltype(alpha_channel[i][j])>>(
+                        255. * (1. - norm_dist_from_r));
                 }
             }
         }
@@ -788,7 +804,7 @@ namespace matplot {
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
               const std::vector<std::string> &black_list,
-              std::string_view delimiters, size_t max_cloud_size) {
+              size_t max_cloud_size) {
         // count the frequency of each token
         const bool bl_sorted =
             std::is_sorted(black_list.begin(), black_list.end());
@@ -836,8 +852,8 @@ namespace matplot {
     wordcount(std::string_view text,
               const std::vector<std::string> &black_list,
               std::string_view delimiters, size_t max_cloud_size) {
-        auto tokens = tokenize(text);
-        return wordcount(tokens, black_list, delimiters, max_cloud_size);
+        auto tokens = tokenize(text, delimiters);
+        return wordcount(tokens, black_list, max_cloud_size);
     }
 
     ticks_results calcticks(double limits_min, double limits_max,
@@ -856,7 +872,7 @@ namespace matplot {
         constexpr size_t initMaxTicks = 11;
         // Multiplier for textSize for vertical orientation when scale is 'log',
         // to account for labels using exponential notation.
-        constexpr double vertExpScale = 1.3;
+        // constexpr double vertExpScale = 1.3;
 
         // Maximum number of characters in label string
         // Determines numerical precision displayed by the labels,
@@ -941,25 +957,25 @@ namespace matplot {
         }
 
         // Shrink nice limits that are outside of original limits
-        for (size_t idx = 0; idx < lLims.size(); ++idx) {
-            if (lLims[idx] < limits_min - 10 * eps(limits_min)) {
-                nTicks[idx] = nTicks[idx] - 1;
-                lLims[idx] = lLims[idx] + niceInts[idx];
+        for (size_t idx2 = 0; idx2 < lLims.size(); ++idx2) {
+            if (lLims[idx2] < limits_min - 10 * eps(limits_min)) {
+                nTicks[idx2] = nTicks[idx2] - 1;
+                lLims[idx2] = lLims[idx2] + niceInts[idx2];
             }
-            if (uLims[idx] > limits_max + 10 * eps(limits_min)) {
-                nTicks[idx] = nTicks[idx] - 1;
-                uLims[idx] = uLims[idx] - niceInts[idx];
+            if (uLims[idx2] > limits_max + 10 * eps(limits_min)) {
+                nTicks[idx2] = nTicks[idx2] - 1;
+                uLims[idx2] = uLims[idx2] - niceInts[idx2];
             }
         }
 
         // Set values that are almost exactly the original limits to be the
         // original limit value.
-        for (size_t idx = 0; idx < lLims.size(); ++idx) {
-            if (std::abs(lLims[idx] - limits_min) < 10 * eps(limits_min)) {
-                lLims[idx] = limits_min;
+        for (size_t idx2 = 0; idx2 < lLims.size(); ++idx2) {
+            if (std::abs(lLims[idx2] - limits_min) < 10 * eps(limits_min)) {
+                lLims[idx2] = limits_min;
             }
-            if (std::abs(uLims[idx] - limits_max) < 10 * eps(limits_max)) {
-                uLims[idx] = limits_max;
+            if (std::abs(uLims[idx2] - limits_max) < 10 * eps(limits_max)) {
+                uLims[idx2] = limits_max;
             }
         }
 
@@ -993,8 +1009,8 @@ namespace matplot {
                 return max(y + 1, 1.) + ((x < 0) ? (1 - x) : 0.);
             });
         for (size_t i = 0; i < labelChars.size(); ++i) {
-            if (labelChars[i] > maxChars - 1) {
-                labelChars[i] = maxChars - 1;
+            if (labelChars[i] > static_cast<double>(maxChars - 1)) {
+                labelChars[i] = static_cast<double>(maxChars - 1);
             }
         }
 
@@ -1056,8 +1072,9 @@ namespace matplot {
                 return text_size * labelChars;
             });
         } else {
-            labelSize = transform(labelChars,
-                                  [&](double labelChars) { return text_size; });
+            labelSize = std::vector<double>(labelChars.size(), text_size);
+            // labelSize = transform(labelChars, [&](double labelChars) { return
+            // text_size; });
         }
         // Choose the best interval
         // Maximum number of ticks without overlapping labels
@@ -1166,8 +1183,9 @@ namespace matplot {
             // Exponential using 'nice' notation w/ separate exponent string:
             // Label: '1.23'  scaleStr: 'x 10^34'
             // Determine maximum number of decimals and set formatting string
-            int n = max(1., min(max(0., static_cast<double>(maxChars) - 3),
-                                decMax_d - decInt));
+            int n = static_cast<int>(
+                max(1., min(max(0., static_cast<double>(maxChars - 3)),
+                            decMax_d - decInt)));
             std::string fStr = "%." + num2str(n) + 'f';
             // Normalize the ticks to the correct scale and create the labels
             std::vector<double> normTicks = transform(
@@ -1196,8 +1214,9 @@ namespace matplot {
         } else if (isExp[bestIdx]) {
             // Exponential using 'ugly' notation: '-2.34e+301'
             // Determine maximum number of decimals and set formatting string
-            int n = max(0., min(max(0., static_cast<double>(maxChars) - 7),
-                                decMax_d - decInt));
+            int n = static_cast<int>(
+                max(0., min(max(0., static_cast<double>(maxChars) - 7),
+                            decMax_d - decInt)));
             std::string fStr = "%." + num2str(n) + "e";
             // Create tick labels
             std::vector<std::string> tickLabels(ticks.size());
@@ -1218,9 +1237,9 @@ namespace matplot {
         } else {
             // Normal (fixed point) notation
             // Determine maximum number of decimals and set formatting string
-            int n = max(
-                0., min(-decInt,
-                        max(0., static_cast<double>(maxChars) - 3) - decMax_d));
+            int n = static_cast<int>(max(
+                0., min(-decInt, max(0., static_cast<double>(maxChars) - 3) -
+                                     decMax_d)));
             std::string fStr = "%." + num2str(n) + "f";
 
             // Create tick labels

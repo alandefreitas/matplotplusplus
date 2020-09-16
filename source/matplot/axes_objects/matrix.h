@@ -51,8 +51,10 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        matrix(const axes_handle &parent, Args&&... args)
+        matrix(const axes_handle &parent, Args &&... args)
             : matrix(parent.get(), std::forward<Args>(args)...) {}
+
+        virtual ~matrix() = default;
 
       public /* mandatory virtual functions */:
         // std::string set_variables_string() override;

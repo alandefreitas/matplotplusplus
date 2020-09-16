@@ -109,8 +109,9 @@ namespace matplot {
                     // theta = edge_end             rho = bin_value
                     // theta = edge_end             rho = 0
                     ss << "    " << bin_edges_[i] << "  " << 0 << "\n";
-                    auto arc_between_edges = linspace(
-                        bin_edges_[i], bin_edges_[i + 1], ceil(points_per_bin));
+                    auto arc_between_edges =
+                        linspace(bin_edges_[i], bin_edges_[i + 1],
+                                 static_cast<size_t>(ceil(points_per_bin)));
                     for (size_t j = 0; j < arc_between_edges.size(); ++j) {
                         ss << "    " << arc_between_edges[j] << "  "
                            << values_[i] << "\n";
@@ -123,8 +124,9 @@ namespace matplot {
                     // theta = edge_begin           rho = bin_value
                     // theta = edge_end             rho = bin_value
                     // theta = edge_end             rho = next bin value
-                    auto arc_between_edges = linspace(
-                        bin_edges_[i], bin_edges_[i + 1], ceil(points_per_bin));
+                    auto arc_between_edges =
+                        linspace(bin_edges_[i], bin_edges_[i + 1],
+                                 static_cast<size_t>(ceil(points_per_bin)));
                     for (size_t j = 0; j < arc_between_edges.size(); ++j) {
                         ss << "    " << arc_between_edges[j] << "  "
                            << values_[i] << "\n";
@@ -189,7 +191,7 @@ namespace matplot {
             face_color_ = parent_->get_color_and_bump();
             manual_face_color_ = true;
             // add the default alpha 0.4 we need for histograms
-            face_color_[0] = 0.4 + 0.6 * face_color_[0];
+            face_color_[0] = 0.4f + 0.6f * face_color_[0];
         }
         if (stairs_only_ && !manual_edge_color_) {
             if (manual_face_color_) {
@@ -243,9 +245,9 @@ namespace matplot {
                         left_edge = minx;
                     }
                 }
-                bin_edges_ = transform(iota(0, nbins), [&](double x) {
-                    return left_edge + x * bin_width_;
-                });
+                bin_edges_ = transform(
+                    iota(0., static_cast<double>(nbins)),
+                    [&](double x) { return left_edge + x * bin_width_; });
                 break;
             }
             case binning_mode_type::use_fixed_edges: {
@@ -307,7 +309,7 @@ namespace matplot {
                     double p_10 = pow(10, floor(log10(ul - ll)));
                     bin_width = p_10 * ceil(ll / p_10);
                 }
-                n_bins_actual = nbins;
+                n_bins_actual = static_cast<double>(nbins);
                 right_edge = std::min(
                     std::max(left_edge + n_bins_actual * bin_width, xmax),
                     std::numeric_limits<double>::max());
@@ -321,11 +323,12 @@ namespace matplot {
             left_edge = floor(2 * (xmin - bin_range / 4)) / 2;
             right_edge = ceil(2 * (xmax + bin_range / 4)) / 2;
             bin_width = (right_edge - left_edge) / nbins;
-            n_bins_actual = nbins;
+            n_bins_actual = static_cast<double>(nbins);
         }
 
         if (!std::isfinite(bin_width)) {
-            return linspace(left_edge, right_edge, n_bins_actual + 1);
+            return linspace(left_edge, right_edge,
+                            static_cast<size_t>(n_bins_actual + 1));
         } else {
             std::vector<double> edges;
             edges.emplace_back(left_edge);
@@ -379,8 +382,8 @@ namespace matplot {
         double bin_width = 1.0;
         bool iqr_not_too_small = n > 1;
         if (iqr_not_too_small) {
-            size_t q1_index = n * 0.25;
-            size_t q3_index = n * 0.75;
+            size_t q1_index = static_cast<size_t>(n * 0.25);
+            size_t q3_index = n - static_cast<size_t>(n * 0.25);
             auto x_copy = x;
             std::nth_element(x_copy.begin(), x_copy.begin() + q1_index,
                              x_copy.end());
@@ -451,7 +454,8 @@ namespace matplot {
     std::vector<double> histogram::sqrt_rule(const std::vector<double> &x,
                                              double minx, double maxx,
                                              bool hard_limits) {
-        size_t nbins = std::max(ceil(log2(x.size()) + 1.), 1.);
+        size_t nbins =
+            static_cast<size_t>(std::max(ceil(log2(x.size()) + 1.), 1.));
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
             if (std::isfinite(binwidth)) {
@@ -467,7 +471,8 @@ namespace matplot {
     std::vector<double> histogram::sturges_rule(const std::vector<double> &x,
                                                 double minx, double maxx,
                                                 bool hard_limits) {
-        size_t nbins = std::max(ceil(log2(x.size()) + 1.), 1.);
+        size_t nbins =
+            static_cast<size_t>(std::max(ceil(log2(x.size()) + 1.), 1.));
         if (!hard_limits) {
             double binwidth = (maxx - minx) / nbins;
             if (std::isfinite(binwidth)) {
@@ -543,7 +548,7 @@ namespace matplot {
         switch (normalization_algorithm) {
         case normalization::count:
             for (size_t i = 0; i < bin_count.size(); ++i) {
-                values[i] = bin_count[i];
+                values[i] = static_cast<double>(bin_count[i]);
             }
             break;
         case normalization::count_density:
@@ -553,7 +558,7 @@ namespace matplot {
             }
             break;
         case normalization::cummulative_count:
-            values[0] = bin_count[0];
+            values[0] = static_cast<double>(bin_count[0]);
             for (size_t i = 1; i < bin_count.size(); ++i) {
                 values[i] = bin_count[i] + values[i - 1];
             }

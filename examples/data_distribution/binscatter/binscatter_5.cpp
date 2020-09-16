@@ -12,8 +12,8 @@ int main() {
     f->y_position(100);
     f->quiet_mode(true);
 
-    auto x = randn(1e4, 0, 1);
-    auto y = randn(1e4, 0, 1);
+    auto x = randn(10000, 0., 1.);
+    auto y = randn(10000, 0., 1.);
 
     subplot(2, 3, 0);
     scatter(x, y);

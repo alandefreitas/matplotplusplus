@@ -14,18 +14,18 @@ namespace matplot {
 
     line::line(class axes_type *parent, const std::vector<double> &y_data,
                std::string_view line_spec)
-        : axes_object(parent), y_data_(y_data), line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data) {}
 
     line::line(class axes_type *parent, const std::vector<double> &x_data,
                const std::vector<double> &y_data, std::string_view line_spec)
-        : axes_object(parent), x_data_(x_data), y_data_(y_data),
-          line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data) {}
 
     line::line(class axes_type *parent, const std::vector<double> &x_data,
                const std::vector<double> &y_data,
                const std::vector<double> &z_data, std::string_view line_spec)
-        : axes_object(parent), x_data_(x_data), y_data_(y_data),
-          z_data_(z_data), line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data), z_data_(z_data) {}
 
     std::vector<line_spec::style_to_plot> line::styles_to_plot() {
         std::vector<line_spec::style_to_plot> result;
@@ -153,15 +153,13 @@ namespace matplot {
 
     std::string line::data_string() {
         const bool markers_are_automatic = marker_indices_.empty();
-        const bool has_line_and_marker =
-            line_spec_.has_line() && line_spec_.has_non_custom_marker();
-        const bool can_plot_together =
-            markers_are_automatic &&
-            line_spec_.can_plot_line_and_marker_together() &&
-            has_line_and_marker;
-        const bool needs_to_plot_twice =
-            !can_plot_together && has_line_and_marker;
-        size_t repetitions = 1 + needs_to_plot_twice;
+        // const bool has_line_and_marker = line_spec_.has_line() &&
+        // line_spec_.has_non_custom_marker(); const bool can_plot_together =
+        // markers_are_automatic &&
+        // line_spec_.can_plot_line_and_marker_together() &&
+        // has_line_and_marker; const bool needs_to_plot_twice =
+        // !can_plot_together && has_line_and_marker; size_t repetitions = 1 +
+        // needs_to_plot_twice;
         const bool x_is_manual = !x_data_.empty();
 
         std::stringstream ss;
@@ -242,7 +240,7 @@ namespace matplot {
         if (!is_polar()) {
             if (x_data_.empty()) {
                 if (!y_data_.empty()) {
-                    return y_data_.size() - 1;
+                    return static_cast<double>(y_data_.size() - 1);
                 } else {
                     return axes_object::xmax();
                 }
@@ -436,8 +434,10 @@ namespace matplot {
     }
 
     class line &line::marker_size(const std::vector<double> &size_vector) {
-        std::vector<float> size_vector_float(size_vector.begin(),
-                                             size_vector.end());
+        std::vector<float> size_vector_float(size_vector.size());
+        std::transform(size_vector.begin(), size_vector.end(),
+                       size_vector_float.begin(),
+                       [](const double &x) { return static_cast<float>(x); });
         marker_size(size_vector_float);
         return *this;
     }

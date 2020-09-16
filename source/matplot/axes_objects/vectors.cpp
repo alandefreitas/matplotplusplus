@@ -14,28 +14,28 @@ namespace matplot {
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &v_data,
                      std::string_view line_spec)
-        : axes_object(parent), v_data_(v_data), line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), v_data_(v_data) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      std::string_view line_spec)
-        : axes_object(parent), u_data_(u_data), v_data_(v_data),
-          line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), u_data_(u_data),
+          v_data_(v_data) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
                      std::string_view line_spec)
-        : axes_object(parent), u_data_(u_data), v_data_(v_data),
-          w_data_(w_data), line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), u_data_(u_data),
+          v_data_(v_data), w_data_(w_data) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      std::string_view line_spec)
-        : axes_object(parent), x_data_(x_data), y_data_(y_data),
-          u_data_(u_data), v_data_(v_data), line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data), u_data_(u_data), v_data_(v_data) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
@@ -44,9 +44,9 @@ namespace matplot {
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
                      std::string_view line_spec)
-        : axes_object(parent), x_data_(x_data), y_data_(y_data),
-          z_data_(z_data), u_data_(u_data), v_data_(v_data), w_data_(w_data),
-          line_spec_(this, line_spec) {}
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data), z_data_(z_data), u_data_(u_data), v_data_(v_data),
+          w_data_(w_data) {}
 
     std::string vectors::plot_string() {
         maybe_update_line_spec();
@@ -332,8 +332,10 @@ namespace matplot {
 
     class vectors &
     vectors::marker_size(const std::vector<double> &size_vector) {
-        std::vector<float> size_vector_float(size_vector.begin(),
-                                             size_vector.end());
+        std::vector<float> size_vector_float(size_vector.size());
+        std::transform(size_vector.begin(), size_vector.end(),
+                       size_vector_float.begin(),
+                       [](const double &x) { return static_cast<float>(x); });
         marker_size(size_vector_float);
         return *this;
     }

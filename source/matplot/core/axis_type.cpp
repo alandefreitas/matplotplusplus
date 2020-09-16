@@ -21,8 +21,9 @@ namespace matplot {
     axis_type::axis_type(class axes_type *parent, double min, double max)
         : axis_type(parent, min, max, true) {}
 
-    axis_type::axis_type(class axes_type *parent, double min, double max, bool visible)
-        : parent_(parent), limits_({min, max}), visible_(visible) {}
+    axis_type::axis_type(class axes_type *parent, double min, double max,
+                         bool visible)
+        : limits_({min, max}), visible_(visible), parent_(parent) {}
 
     void axis_type::touch() { parent_->touch(); }
 

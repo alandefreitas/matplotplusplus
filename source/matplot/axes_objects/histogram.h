@@ -62,6 +62,7 @@ namespace matplot {
         histogram(const axes_handle &parent, Args&&... args)
             : histogram(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~histogram() = default;
       public /* xlim object virtual functions */:
         // std::string set_variables_string() override;
         std::string plot_string() override;

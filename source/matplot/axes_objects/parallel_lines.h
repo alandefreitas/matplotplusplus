@@ -28,6 +28,7 @@ namespace matplot {
         parallel_lines(const axes_handle &parent, Args&&... args)
             : parallel_lines(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~parallel_lines() = default;
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;

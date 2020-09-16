@@ -31,6 +31,7 @@ namespace matplot {
         circles(const axes_handle &parent, Args&&... args)
             : circles(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~circles() = default;
       public /* mandatory virtual functions */:
         // std::string set_variables_string() override;
         std::string plot_string() override;

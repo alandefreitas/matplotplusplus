@@ -162,9 +162,9 @@ namespace matplot {
         float unit_x = x / norm;
         float unit_y = y / norm;
         float unit_z = z / norm;
-        float az = atan2(unit_x, -unit_y) * 180 / pi;
-        float el =
-            atan2(unit_z, sqrt(pow(unit_x, 2) + pow(unit_y, 2))) * 180 / pi;
+        float az = atan2(unit_x, -unit_y) * 180.f / static_cast<float>(pi);
+        float el = atan2(unit_z, sqrt(pow(unit_x, 2) + pow(unit_y, 2.f))) *
+                   180.f / static_cast<float>(pi);
         view(ax, az, el);
         return std::make_pair(az, el);
     }
@@ -554,14 +554,14 @@ namespace matplot {
         }
     }
 
-    void axis(keyword_automatic_type automatic) {
+    void axis(keyword_automatic_type automatic_keywork) {
         axes_handle ax = gca();
-        ax->limits_mode(automatic);
+        ax->limits_mode(automatic_keywork);
     }
 
-    void axis(keyword_manual_type manual) {
+    void axis(keyword_manual_type manual_keyword) {
         axes_handle ax = gca();
-        ax->limits_mode(manual);
+        ax->limits_mode(manual_keyword);
     }
 
     void axis(keyword_ij_type) {
@@ -630,13 +630,15 @@ namespace matplot {
         if (w > h) {
             double old_width = ax->width();
             double new_width = h / ax->parent()->width();
-            ax->width(new_width);
-            ax->x_origin(ax->x_origin() + (old_width - new_width) / 2.);
+            ax->width(static_cast<float>(new_width));
+            ax->x_origin(ax->x_origin() +
+                         (static_cast<float>(old_width - new_width)) / 2.f);
         } else if (h > w) {
             double old_height = ax->height();
             double new_height = h / ax->parent()->height();
-            ax->height(new_height);
-            ax->y_origin(ax->y_origin() + (old_height - new_height) / 2.);
+            ax->height(static_cast<float>(new_height));
+            ax->y_origin(ax->y_origin() +
+                         (static_cast<float>(old_height - new_height)) / 2.f);
         }
     }
 

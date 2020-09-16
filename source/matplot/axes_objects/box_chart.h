@@ -45,6 +45,7 @@ namespace matplot {
         box_chart(const axes_handle &parent, Args&&... args)
             : box_chart(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~box_chart() = default;
       public /* xlim object virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;

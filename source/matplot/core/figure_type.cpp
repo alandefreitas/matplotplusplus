@@ -18,8 +18,7 @@ namespace matplot {
     figure_type::figure_type(size_t index) : figure_type(index, true) {}
 
     figure_type::figure_type(size_t index, bool quiet_mode)
-        : number_(index), quiet_mode_(quiet_mode) {
-    }
+        : quiet_mode_(quiet_mode), number_(index) {}
 
 #ifdef MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES
     figure_type::~figure_type() { save("example.svg", "svg"); }
@@ -389,8 +388,8 @@ namespace matplot {
         }
         if (max_row == rows - 1) {
             subplot_inset[3] =
-                std::max(0., 1. - axes_type::default_axes_position[1] -
-                                 axes_type::default_axes_position[3]);
+                std::max(0.f, 1.f - axes_type::default_axes_position[1] -
+                                  axes_type::default_axes_position[3]);
             outer_pos[3] = 1 - outer_pos[1];
         }
         std::array<float, 4> position = {
@@ -483,8 +482,8 @@ namespace matplot {
         }
         if (max_row == rows - 1) {
             subplot_inset[3] =
-                std::max(0., 1. - axes_type::default_axes_position[1] -
-                                 axes_type::default_axes_position[3]);
+                std::max(0.f, 1.f - axes_type::default_axes_position[1] -
+                                  axes_type::default_axes_position[3]);
             outer_pos[3] = 1 - outer_pos[1];
         }
         std::array<float, 4> position = {

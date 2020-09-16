@@ -11,7 +11,7 @@ int main() {
     f->x_position(200);
     f->y_position(100);
 
-    auto x = randn(1e6, 0, 1);
+    auto x = randn(1000000, 0., 1.);
     auto y = transform(x, [](double x) { return 2 * x + randn(0, 1); });
 
     bin_scatter_style b = bin_scatter_style::automatic;

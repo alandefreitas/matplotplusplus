@@ -17,16 +17,20 @@ else()
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/layout.cpp
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/layout.hpp
       ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/src/nodesoup.cpp
-      ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
-      )
+          ${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include/nodesoup.hpp
+          )
   set_target_properties(nodesoup PROPERTIES
-      CXX_VISIBILITY_PRESET     "hidden")
+          CXX_VISIBILITY_PRESET "hidden")
   target_include_directories(nodesoup
-      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>)
+          PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/nodesoup/include>)
 
   # Hackfix to support MSVC standard library
   # https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
   target_compile_definitions(nodesoup PRIVATE _USE_MATH_DEFINES)
+
+  if (${BUILD_SHARED_LIBS})
+    set_target_properties(nodesoup PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+  endif ()
 endif()
 
 # Install (only necessary for static lib build)

@@ -13,15 +13,15 @@ namespace matplot {
                                  const function_type &function,
                                  std::array<double, 2> x_range,
                                  std::string_view line_spec)
-        : line(parent, {}, line_spec), fn_x_(function), t_range_(x_range) {}
+        : line(parent, {}, line_spec), t_range_(x_range), fn_x_(function) {}
 
     function_line::function_line(class axes_type *parent,
                                  const function_type &function_x,
                                  const function_type &function_y,
                                  std::array<double, 2> t_range,
                                  std::string_view line_spec)
-        : line(parent, {}, line_spec), fn_x_(function_x), fn_y_(function_y),
-          t_range_(t_range) {}
+        : line(parent, {}, line_spec), t_range_(t_range), fn_x_(function_x),
+          fn_y_(function_y) {}
 
     function_line::function_line(class axes_type *parent,
                                  const function_type &function_x,
@@ -29,8 +29,8 @@ namespace matplot {
                                  const function_type &function_z,
                                  std::array<double, 2> t_range,
                                  std::string_view line_spec)
-        : line(parent, {}, line_spec), fn_x_(function_x), fn_y_(function_y),
-          fn_z_(function_z), t_range_(t_range) {}
+        : line(parent, {}, line_spec), t_range_(t_range), fn_x_(function_x),
+          fn_y_(function_y), fn_z_(function_z) {}
 
     std::string function_line::plot_string() {
         make_sure_data_is_preprocessed();

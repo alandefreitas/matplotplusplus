@@ -51,7 +51,7 @@ namespace matplot {
 
     template <class T>
     std::string num2str(Arithmetic<T> num, const std::string &format) {
-        constexpr size_t max_buffer_size = 100;
+        constexpr int max_buffer_size = 100;
         char buffer[max_buffer_size];
         int cx = snprintf(buffer, max_buffer_size, format.c_str(), num);
         if (cx >= 0 && cx < max_buffer_size) {
@@ -176,8 +176,11 @@ namespace matplot {
             return v;
         } else {
             using std::begin, std::end;
-
-            return vector_1d(begin(v), end(v));
+            vector_1d r(v.size());
+            std::transform(v.begin(), v.end(), r.begin(), [](const auto &x) {
+                return static_cast<double>(x);
+            });
+            return r;
         }
     }
 
@@ -342,7 +345,7 @@ namespace matplot {
     std::tuple<vector_2d, vector_2d, vector_2d> peaks(size_t N = 49);
 
     template <class T1, class T2> struct pair_hash {
-        std::size_t operator()(const std::pair<int, int> &p) const {
+        std::size_t operator()(const std::pair<T1, T2> &p) const {
             std::size_t h1 = std::hash<T1>()(p.first);
             std::size_t h2 = std::hash<T2>()(p.second);
             return h1 ^ h2;
@@ -427,7 +430,6 @@ namespace matplot {
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
               const std::vector<std::string> &black_list,
-              std::string_view delimiters = " ',\n\r\t\".!?:;",
               size_t max_cloud_size = 100);
 
     std::pair<std::vector<std::string>, std::vector<size_t>>

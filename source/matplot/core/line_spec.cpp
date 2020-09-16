@@ -279,7 +279,7 @@ namespace matplot {
 
     const std::array<float, 4> &line_spec::color() const { return color_; }
 
-    const float line_spec::alpha() const { return color_[0]; }
+    float line_spec::alpha() const { return color_[0]; }
 
     void line_spec::color(const std::array<float, 3> &color) {
         color_ = {0, color[0], color[1], color[2]};
@@ -433,7 +433,7 @@ namespace matplot {
         return marker_color_;
     }
 
-    const float line_spec::marker_alpha() const { return marker_color_[0]; }
+    float line_spec::marker_alpha() const { return marker_color_[0]; }
 
     void line_spec::marker_color(const std::array<float, 3> &color) {
         marker_color(std::array<float, 4>({0, color[0], color[1], color[2]}));

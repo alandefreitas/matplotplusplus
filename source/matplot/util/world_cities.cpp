@@ -777,7 +777,9 @@ namespace matplot {
             double min_distance = 0;
             size_t min_distance_idx = 0;
             for (size_t i = 0; i < x.size(); ++i) {
-                bool not_there_yet = std::none_of(route_idx.begin(), route_idx.end(), [i](int idx){ return idx == i; });
+                bool not_there_yet =
+                    std::none_of(route_idx.begin(), route_idx.end(),
+                                 [i](size_t idx) { return idx == i; });
                 if (not_there_yet) {
                     double x2 = x[route_idx.back()];
                     double y2 = y[route_idx.back()];
@@ -808,7 +810,9 @@ namespace matplot {
             double min_distance = 0;
             size_t min_distance_idx = 0;
             for (size_t i = 0; i < x.size(); ++i) {
-                bool not_there_yet = std::none_of(route_idx.begin(), route_idx.end(), [i](int idx){ return idx == i; });
+                bool not_there_yet =
+                    std::none_of(route_idx.begin(), route_idx.end(),
+                                 [i](size_t idx) { return idx == i; });
                 if (not_there_yet) {
                     double x2 = x[route_idx.back()];
                     double y2 = y[route_idx.back()];

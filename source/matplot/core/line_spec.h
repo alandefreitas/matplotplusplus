@@ -97,7 +97,7 @@ namespace matplot {
         void touch();
 
         [[nodiscard]] const std::array<float, 4> &color() const;
-        [[nodiscard]] const float alpha() const;
+        [[nodiscard]] float alpha() const;
         void color(const std::array<float, 3> &color);
         void color(const std::array<float, 4> &color);
         void color(std::initializer_list<float> color);
@@ -126,7 +126,7 @@ namespace matplot {
         void marker_size(float marker_size);
 
         const std::array<float, 4> &marker_color() const;
-        const float marker_alpha() const;
+        float marker_alpha() const;
         void marker_color(const std::array<float, 3> &color);
         void marker_color(const std::array<float, 4> &color);
         void marker_color(std::initializer_list<float> color);

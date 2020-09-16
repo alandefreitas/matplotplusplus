@@ -122,7 +122,7 @@ double americas_trip_solver::tour_distance(const vector<size_t> &tour) {
 void americas_trip_solver::draw() {
     vector<double> sorted_lat;
     vector<double> sorted_lon;
-    for (const int &idx : best_tour_) {
+    for (const size_t &idx : best_tour_) {
         sorted_lat.emplace_back(lat_[idx]);
         sorted_lon.emplace_back(lon_[idx]);
     }

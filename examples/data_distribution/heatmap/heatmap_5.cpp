@@ -18,9 +18,9 @@ int main() {
          "Severe Storm", "Thunder Storm", "Unknown", "Wind", "Winter Storm"});
     xlabel(ax, "Region");
     ylabel(ax, "Cause");
-    double w = ax->width();
-    ax->width(w * 0.85);
-    ax->x_origin(ax->x_origin() + w * 0.1);
+    float w = ax->width();
+    ax->width(w * 0.85f);
+    ax->x_origin(ax->x_origin() + w * 0.1f);
 
     show();
     return 0;

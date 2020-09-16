@@ -197,7 +197,7 @@ namespace matplot {
         auto plotmatrix(const std::vector<std::vector<double>> &X,
                         std::string_view line_spec = "of",
                         bool histogram_on_diagonals = false) {
-            return this->plotmatrix(X, X, line_spec, true);
+            return this->plotmatrix(X, X, line_spec, histogram_on_diagonals);
         }
 
       public /* figure properties */:

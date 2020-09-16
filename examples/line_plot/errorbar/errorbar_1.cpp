@@ -6,7 +6,7 @@ int main() {
 
     std::vector<double> x = iota(0, 10, 100);
     std::vector<double> y = {20, 30, 45, 40, 60, 65, 80, 75, 95, 90};
-    std::vector<double> err(10, y.size());
+    std::vector<double> err(y.size(), 10.);
     errorbar(x, y, err);
     axis({0, 100, 0, 110});
     show();

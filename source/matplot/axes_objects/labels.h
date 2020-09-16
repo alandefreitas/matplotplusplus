@@ -37,6 +37,7 @@ namespace matplot {
         labels(const axes_handle &parent, Args&&... args)
             : labels(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~labels() = default;
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;

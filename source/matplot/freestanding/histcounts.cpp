@@ -91,9 +91,10 @@ namespace matplot {
         case histogram::normalization::cummulative_count:
             for (size_t i = 0; i < bin_count.size(); ++i) {
                 if (i == 0) {
-                    values[0][0] = bin_count[0][0];
+                    values[0][0] = static_cast<double>(bin_count[0][0]);
                 } else {
-                    values[i][0] = bin_count[i][0] + values[i - 1][0];
+                    values[i][0] =
+                        static_cast<double>(bin_count[i][0]) + values[i - 1][0];
                 }
                 double line_sum = values[i][0];
                 for (size_t j = 1; j < bin_count[0].size(); ++j) {
@@ -110,11 +111,10 @@ namespace matplot {
         case histogram::normalization::probability:
             for (size_t i = 0; i < bin_count.size(); ++i) {
                 for (size_t j = 0; j < bin_count[0].size(); ++j) {
-                    const double x_bin_width_i =
-                        xbin_edges[i + 1] - xbin_edges[i];
-                    const double y_bin_width_i =
-                        ybin_edges[j + 1] - ybin_edges[j];
-                    // const double bin_area_i = x_bin_width_i*y_bin_width_i;
+                    // const double x_bin_width_i = xbin_edges[i + 1] -
+                    // xbin_edges[i]; const double y_bin_width_i = ybin_edges[j
+                    // + 1] - ybin_edges[j]; const double bin_area_i =
+                    // x_bin_width_i*y_bin_width_i;
                     values[i][j] =
                         static_cast<double>(bin_count[i][j]) / data_size;
                 }
@@ -136,7 +136,8 @@ namespace matplot {
         case histogram::normalization::cdf:
             for (size_t i = 0; i < bin_count.size(); ++i) {
                 if (i == 0) {
-                    values[0][0] = bin_count[0][0] / data_size;
+                    values[0][0] =
+                        static_cast<double>(bin_count[0][0] / data_size);
                 } else {
                     values[i][0] =
                         bin_count[i][0] / data_size + values[i - 1][0];

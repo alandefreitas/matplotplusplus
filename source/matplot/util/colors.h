@@ -60,7 +60,7 @@ namespace matplot {
 
     constexpr std::array<float, 4> default_color(size_t index) {
         constexpr size_t num_default_colors = 7;
-        size_t color_index = index % 7;
+        size_t color_index = index % num_default_colors;
         switch (color_index) {
         case 0:
             return {0, 0, 0.4470, 0.7410};

@@ -32,8 +32,10 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        bars(const axes_handle &parent, Args&&... args)
+        bars(const axes_handle &parent, Args &&... args)
             : bars(parent.get(), std::forward<Args>(args)...) {}
+
+        virtual ~bars() = default;
 
       public /* xlim object virtual functions */:
         // std::string set_variables_string() override;

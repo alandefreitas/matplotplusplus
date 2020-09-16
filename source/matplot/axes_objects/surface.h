@@ -41,6 +41,7 @@ namespace matplot {
         surface(const axes_handle &parent, Args&&... args)
             : surface(parent.get(), std::forward<Args>(args)...) {}
 
+        virtual ~surface() = default;
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;
         std::string plot_string() override;
@@ -114,7 +115,7 @@ namespace matplot {
         bool contour_text() const;
         class surface &contour_text(bool contour_text);
 
-        const float font_size() const;
+        float font_size() const;
         class surface &font_size(const float &font_size);
 
         const std::string font() const;

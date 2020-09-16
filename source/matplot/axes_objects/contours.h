@@ -60,8 +60,10 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        contours(const axes_handle &parent, Args&&... args)
+        contours(const axes_handle &parent, Args &&... args)
             : contours(parent.get(), std::forward<Args>(args)...) {}
+
+        virtual ~contours() = default;
 
       public /* mandatory virtual functions */:
         std::string set_variables_string() override;
@@ -103,7 +105,7 @@ namespace matplot {
         bool contour_text() const;
         class contours &contour_text(bool contour_text);
 
-        const float font_size() const;
+        float font_size() const;
         class contours &font_size(const float &font_size);
 
         const std::string font() const;

@@ -114,8 +114,12 @@ namespace matplot {
                 for (size_t i = 0; i < colormap_.size(); ++i) {
                     if (colormap_[i].size() == 4) {
                         std::array<double, 4> c = to_array<4>(colormap_[i]);
-                        std::array<float, 4> c2;
-                        std::copy(c.begin(), c.end(), c2.begin());
+                        std::array<float, 4> c2{};
+                        std::transform(c.begin(), c.end(), c2.begin(),
+                                       [](const double &x) {
+                                           return static_cast<float>(x);
+                                       });
+                        // std::copy(c.begin(), c.end(), c2.begin());
                         ss << "    " << i << "   \"" << to_string(c2) << "\"";
                     } else {
                         ss << "    " << i << "   " << colormap_[i][0] << " "
@@ -1154,9 +1158,9 @@ namespace matplot {
 
     axes_type::axes_type(class figure_type *parent,
                          std::array<float, 4> position)
-        : parent_(parent), position_(position), x_axis_(this, -10, +10, true),
-          x2_axis_(this, inf, inf, false), y_axis_(this, inf, inf, true),
-          y2_axis_(this, inf, inf, false), z_axis_(this, inf, inf, true) {
+        : x_axis_(this, -10, +10, true), x2_axis_(this, inf, inf, false),
+          y_axis_(this, inf, inf, true), y2_axis_(this, inf, inf, false),
+          z_axis_(this, inf, inf, true), position_(position), parent_(parent) {
         grid_line_style_.color({0.85, 0.15, 0.15, 0.15});
         minor_grid_line_style_.color({0.9, 0.1, 0.1, 0.1});
         t_axis_.tick_label_format_ = "%gº";
@@ -1665,21 +1669,21 @@ namespace matplot {
         touch();
     }
 
-    void axes_type::limits_mode(keyword_automatic_type automatic) {
+    void axes_type::limits_mode(keyword_automatic_type) {
         limits_mode_automatic(true);
         touch();
     }
 
-    void axes_type::limits_mode(keyword_manual_type manual) {
+    void axes_type::limits_mode(keyword_manual_type) {
         limits_mode_automatic(false);
         touch();
     }
 
-    void axes_type::limits_mode_automatic(bool automatic) {
-        x_axis_.limits_mode_auto(automatic);
-        y_axis_.limits_mode_auto(automatic);
-        y2_axis_.limits_mode_auto(automatic);
-        z_axis_.limits_mode_auto(automatic);
+    void axes_type::limits_mode_automatic(bool v) {
+        x_axis_.limits_mode_auto(v);
+        y_axis_.limits_mode_auto(v);
+        y2_axis_.limits_mode_auto(v);
+        z_axis_.limits_mode_auto(v);
         touch();
     }
 
@@ -1688,11 +1692,11 @@ namespace matplot {
                y2_axis_.limits_mode_auto() && z_axis_.limits_mode_auto();
     }
 
-    void axes_type::limits_mode_manual(bool manual) {
-        x_axis_.limits_mode_auto(!manual);
-        y_axis_.limits_mode_auto(!manual);
-        y2_axis_.limits_mode_auto(!manual);
-        z_axis_.limits_mode_auto(!manual);
+    void axes_type::limits_mode_manual(bool v) {
+        x_axis_.limits_mode_auto(!v);
+        y_axis_.limits_mode_auto(!v);
+        y2_axis_.limits_mode_auto(!v);
+        z_axis_.limits_mode_auto(!v);
         touch();
     }
 
@@ -2224,7 +2228,7 @@ namespace matplot {
 
     const std::string &axes_type::cblabel() const { return cb_axis_.label(); }
 
-    void axes_type::cblabel(std::string_view str) { cb_axis_.label(); }
+    void axes_type::cblabel(std::string_view str) { cb_axis_.label(str); }
 
     const std::string &axes_type::cbtickformat() const {
         return cb_axis_.tick_label_format();
@@ -2247,10 +2251,12 @@ namespace matplot {
     }
 
     void axes_type::cbticklabels(const std::vector<std::string> &labels) {
-        cb_axis_.ticklabels();
+        cb_axis_.ticklabels(labels);
     }
 
-    void axes_type::cbtickangle(double degrees) { cb_axis_.tickangle(); }
+    void axes_type::cbtickangle(double degrees) {
+        cb_axis_.tickangle(static_cast<float>(degrees));
+    }
 
     double axes_type::cbtickangle() { return cb_axis_.tickangle(); }
 
@@ -2771,7 +2777,7 @@ namespace matplot {
             }
         }
         std::vector<double> fixed_edges =
-            iota(0.5, 1, 0.5 + category_indexes.size());
+            iota(0.5, 1., 0.5 + category_indexes.size());
         histogram_handle l = std::make_shared<class histogram>(
             this, numeric_data, fixed_edges, normalization_alg);
         this->emplace_object(l);
@@ -3154,9 +3160,11 @@ namespace matplot {
 
         auto [h, w] = size(m);
         this->ylim({1, static_cast<double>(h + 1)});
-        this->y_axis().tick_values(iota(1, h));
+        this->y_axis().tick_values(
+            iota(static_cast<double>(1), static_cast<double>(h)));
         this->xlim({1, static_cast<double>(w + 1)});
-        this->x_axis().tick_values(iota(1, w));
+        this->x_axis().tick_values(
+            iota(static_cast<double>(1), static_cast<double>(w)));
         this->y_axis().reverse(false);
         this->box(true);
         this->grid(true);
@@ -3241,7 +3249,8 @@ namespace matplot {
         }
 
         // pie colors
-        std::vector<double> color = iota(1, x.size());
+        std::vector<double> color =
+            iota(static_cast<double>(1), static_cast<double>(x.size()));
 
         // create circles in the xlim
         circles_handle pie = std::make_shared<class circles>(
@@ -3253,7 +3262,7 @@ namespace matplot {
         // t=0:0.01:2*pi;
         // x = r * cos(t);
         // y = r * sin(t);
-        bool r = this->next_plot_replace();
+        // bool r = this->next_plot_replace();
         this->next_plot_replace(false);
         std::vector<double> label_x(x.size());
         std::vector<double> label_y(x.size());
@@ -3467,9 +3476,10 @@ namespace matplot {
     axes_type::wordcloud(const std::vector<std::string> &words,
                          const std::vector<size_t> &sizes,
                          const std::vector<double> &custom_colors) {
-        return this->wordcloud(words,
-                               std::vector<double>(sizes.begin(), sizes.end()),
-                               custom_colors);
+        std::vector<double> sizes_d(sizes.size());
+        std::transform(sizes.begin(), sizes.end(), sizes_d.begin(),
+                       [](const size_t &s) { return static_cast<double>(s); });
+        return this->wordcloud(words, sizes_d, custom_colors);
     }
 
     labels_handle
@@ -3536,7 +3546,8 @@ namespace matplot {
         this->y_axis().limits({0, total_y});
 
         // set ticks
-        this->x_axis().tick_values(iota(1, largest_y.size()));
+        this->x_axis().tick_values(
+            iota(1., static_cast<double>(largest_y.size())));
         this->x_axis().ticklabels(x_ticklabels);
         this->x_axis().limits({0.5, double(x_ticklabels.size()) + 0.5});
 
@@ -3566,7 +3577,8 @@ namespace matplot {
                                 std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
-        line_handle l = this->stem(iota(1, y.size()), y, line_spec);
+        line_handle l =
+            this->stem(iota(1., static_cast<double>(y.size())), y, line_spec);
         l->impulse(true);
         this->x_axis().zero_axis(true);
 
@@ -3632,8 +3644,8 @@ namespace matplot {
     /// Stem 3d - Automatic x and y
     line_handle axes_type::stem3(const std::vector<double> &z,
                                  std::string_view line_spec) {
-        return this->stem3(iota(1, z.size()), std::vector<double>(z.size(), 1.),
-                           z, line_spec);
+        return this->stem3(iota(1., static_cast<double>(z.size())),
+                           std::vector<double>(z.size(), 1.), z, line_spec);
     }
 
     /// Stem 3d - Automatic x and y - Many Zs
@@ -3644,9 +3656,9 @@ namespace matplot {
         std::vector<double> y;
         std::vector<double> z;
         for (size_t i = 0; i < Z.size(); ++i) {
-            auto tmp_x = iota(1, Z[i].size());
+            auto tmp_x = iota(1., static_cast<double>(Z[i].size()));
             x.insert(x.end(), tmp_x.begin(), tmp_x.end());
-            std::vector<double> tmp_y(Z[i].size(), i);
+            std::vector<double> tmp_y(Z[i].size(), static_cast<double>(i));
             y.insert(y.end(), tmp_y.begin(), tmp_y.end());
             z.insert(z.end(), Z[i].begin(), Z[i].end());
         }
@@ -3682,7 +3694,7 @@ namespace matplot {
             std::vector<double>(), colors);
         h->line_width(1.);
         auto fc = this->get_color_and_bump();
-        const double alpha = fc[0];
+        // const double alpha = fc[0];
         const double opacity = (1 - fc[0]);
         const double new_opacity = opacity * 0.7;
         const double new_alpha = 1 - new_opacity;
@@ -3980,14 +3992,10 @@ namespace matplot {
     }
 
     /// \brief Make x/y/z-axis limits automatic
-    void axes_type::axis(keyword_automatic_type automatic) {
-        this->limits_mode(automatic);
-    }
+    void axes_type::axis(keyword_automatic_type v) { this->limits_mode(v); }
 
     /// \brief Make x/y/z-axis limits manual
-    void axes_type::axis(keyword_manual_type manual) {
-        this->limits_mode(manual);
-    }
+    void axes_type::axis(keyword_manual_type v) { this->limits_mode(v); }
 
     /// \brief Reverse y-axis
     void axes_type::axis(keyword_ij_type) { this->y_axis().reverse(true); }
@@ -4564,7 +4572,7 @@ namespace matplot {
                                     std::unique(z_copy.begin(), z_copy.end())));
         std::vector<double> z_diff(z_copy.size());
         std::adjacent_difference(z_copy.begin(), z_copy.end(), z_diff.begin());
-        auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
+        // auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
         double w_max = *std::max_element(v.begin(), v.end());
         double z_max = ydiffmin != z_diff.end() ? *ydiffmin : w_max;
 
@@ -4612,8 +4620,8 @@ namespace matplot {
                                       double scale,
                                       std::string_view line_spec) {
         auto [n, m] = size(z);
-        vector_1d x = iota(1, m);
-        vector_1d y = iota(1, n);
+        vector_1d x = iota(1., static_cast<double>(m));
+        vector_1d y = iota(1., static_cast<double>(n));
         auto [xx, yy] = meshgrid(x, y);
         return this->quiver3(xx, yy, z, u, v, w, scale, line_spec);
     }
@@ -4681,8 +4689,7 @@ namespace matplot {
                                     const std::array<double, 4> &xy_range,
                                     double mesh_density) {
         return this->fmesh(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]},
-                           static_cast<size_t>(mesh_density));
+                           {xy_range[2], xy_range[3]}, mesh_density);
     }
 
     /// Lambda function mesh - Parametric
@@ -4693,8 +4700,7 @@ namespace matplot {
                                     const std::array<double, 4> &uv_range,
                                     double mesh_density) {
         return this->fmesh(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]},
-                           static_cast<size_t>(mesh_density));
+                           {uv_range[2], uv_range[3]}, mesh_density);
     }
 
     /// Function mesh
@@ -4702,8 +4708,7 @@ namespace matplot {
     surface_handle axes_type::fmesh(fcontour_function_type fn,
                                     const std::array<double, 2> &xy_range,
                                     double mesh_density) {
-        return this->fmesh(fn, xy_range, xy_range,
-                           static_cast<size_t>(mesh_density));
+        return this->fmesh(fn, xy_range, xy_range, mesh_density);
     }
 
     /// Function mesh
@@ -4713,8 +4718,7 @@ namespace matplot {
                                     fcontour_function_type funz,
                                     const std::array<double, 2> &uv_range,
                                     double mesh_density) {
-        return this->fmesh(funx, funy, funz, uv_range, uv_range,
-                           static_cast<size_t>(mesh_density));
+        return this->fmesh(funx, funy, funz, uv_range, uv_range, mesh_density);
     }
 
     // z = f(x,y)
@@ -4770,8 +4774,7 @@ namespace matplot {
                                     std::string_view line_spec,
                                     double mesh_density) {
         return this->fsurf(fn, {xy_range[0], xy_range[1]},
-                           {xy_range[2], xy_range[3]}, line_spec,
-                           static_cast<size_t>(mesh_density));
+                           {xy_range[2], xy_range[3]}, line_spec, mesh_density);
     }
 
     /// Parametric / Both ranges in the same array size 4
@@ -4782,8 +4785,7 @@ namespace matplot {
                                     std::string_view line_spec,
                                     double mesh_density) {
         return this->fsurf(funx, funy, funz, {uv_range[0], uv_range[1]},
-                           {uv_range[2], uv_range[3]}, line_spec,
-                           static_cast<size_t>(mesh_density));
+                           {uv_range[2], uv_range[3]}, line_spec, mesh_density);
     }
 
     /// Function surf
@@ -4792,8 +4794,7 @@ namespace matplot {
                                     const std::array<double, 2> &xy_range,
                                     std::string_view line_spec,
                                     double mesh_density) {
-        return this->fsurf(fn, xy_range, xy_range, line_spec,
-                           static_cast<size_t>(mesh_density));
+        return this->fsurf(fn, xy_range, xy_range, line_spec, mesh_density);
     }
 
     /// Function surf
@@ -4805,7 +4806,7 @@ namespace matplot {
                                     std::string_view line_spec,
                                     double mesh_density) {
         return this->fsurf(funx, funy, funz, uv_range, uv_range, line_spec,
-                           static_cast<size_t>(mesh_density));
+                           mesh_density);
     }
 
     /// Mesh - Core function
@@ -5317,7 +5318,8 @@ namespace matplot {
         box_chart_handle l =
             std::make_shared<class box_chart>(this, y_data, x_data);
         this->emplace_object(l);
-        this->x_axis().tick_values(iota(1, 1, data.size()));
+        this->x_axis().tick_values(
+            iota(1., 1., static_cast<double>(data.size())));
         return l;
     }
 
@@ -5346,13 +5348,14 @@ namespace matplot {
                 group_indexes.emplace_back(it->second);
             } else {
                 // put in the set and get number
-                double group_num = category_indexes.size() + 1;
+                double group_num =
+                    static_cast<double>(category_indexes.size()) + 1.;
                 category_indexes[group] = group_num;
                 group_indexes.emplace_back(group_num);
             }
         }
         box_chart_handle h = this->boxplot(y_data, group_indexes);
-        this->xticks(iota(1, category_indexes.size()));
+        this->xticks(iota(1., static_cast<double>(category_indexes.size())));
 
         std::vector<std::string> unique_categories(category_indexes.size());
         for (const auto &[category, index] : category_indexes) {

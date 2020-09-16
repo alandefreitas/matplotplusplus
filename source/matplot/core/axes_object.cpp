@@ -20,7 +20,7 @@ namespace matplot {
         }
     }
 
-    axes_object::axes_object(axes_handle parent) : axes_object(parent.get()){};
+    axes_object::axes_object(axes_handle parent) : axes_object(parent.get()) {}
 
     const class axes_type *axes_object::parent() const { return parent_; }
 

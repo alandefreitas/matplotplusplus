@@ -5,8 +5,9 @@
 #ifndef MATPLOTPLUSPLUS_OPENGL_H
 #define MATPLOTPLUSPLUS_OPENGL_H
 
-#include <thread>
 #include <matplot/backend/opengl_embed.h>
+#include <mutex>
+#include <thread>
 
 namespace matplot::backend {
     class opengl : public opengl_embed {

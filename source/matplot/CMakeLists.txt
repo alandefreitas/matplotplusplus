@@ -136,6 +136,12 @@ if (BUILD_WITH_PEDANTIC_WARNINGS)
         target_compile_options(matplot PRIVATE /W4 /WX)
     else ()
         target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
+        # Allow the warnings related to the bundled CImg
+        if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+            target_compile_options(matplot PRIVATE -Wno-null-pointer-arithmetic -Wno-char-subscripts)
+        elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+            target_compile_options(matplot PRIVATE -Wno-error=class-memaccess -Wno-class-memaccess)
+        endif ()
     endif ()
 endif ()
 
@@ -173,25 +179,35 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
 
     # https://github.com/Dav1dde/glad
     find_package(GLAD QUIET)
-    if (GLAD_FOUND)
-        add_library(glad INTERFACE)
-        target_include_directories(glad INTERFACE ${GLAD_INCLUDE_PATH})
-        target_link_libraries(glad INTERFACE ${GLAD_LIBRARIES})
-    else()
-        # Only if not found, to avoid ODR violations
+    if (NOT GLAD_FOUND AND NOT TARGET glad)
+        # Use CPM only if not found, to avoid ODR violations
         # find_package(GLAD REQUIRE) would suffice if it worked well
         CPMAddPackage(NAME glad GIT_REPOSITORY https://github.com/Dav1dde/glad GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9 VERSION 0.1.33)
-    endif()
+    else ()
+        # FindGLAD does not usually create a target, so we create an interface target
+        if (NOT TARGET glad)
+            add_library(glad INTERFACE)
+            target_include_directories(glad INTERFACE ${GLAD_INCLUDE_PATH})
+            target_link_libraries(glad INTERFACE ${GLAD_LIBRARIES})
+        endif ()
+    endif ()
 
+    # https://github.com/glfw/glfw
     find_package(glfw3 REQUIRED)
+    if (NOT GLFW3_FOUND AND NOT TARGET glfw)
+        # Use CPM only if not found, to avoid ODR violations
+        # find_package(glfw3 REQUIRE) would suffice if it worked well
+        CPMAddPackage(NAME glfw3 GIT_REPOSITORY https://github.com/glfw/glfw VERSION 3.3.2 GIT_TAG 3.3.2 OPTIONS "GLFW_BUILD_DOCS OFF" "GLFW_BUILD_EXAMPLES OFF" "GLFW_BUILD_TESTS OFF" "GLFW_INSTALL OFF")
+    endif ()
 
     add_library(matplot_opengl
             backend/opengl_embed.h
             backend/opengl_embed.cpp
             backend/opengl.h
-            backend/opengl.cpp)
+            backend/opengl.cpp
+            )
     target_include_directories(matplot_opengl PUBLIC matplot)
-    target_link_libraries(matplot_opengl PUBLIC matplot glad glfw)
+    target_link_libraries(matplot_opengl PUBLIC matplot glad glfw ${CMAKE_DL_LIBS})
 endif()
 
 
