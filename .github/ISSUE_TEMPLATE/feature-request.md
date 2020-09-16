@@ -15,6 +15,7 @@ assignees: ''
 - [ ] *enhancement - plot categories*
 
 **The problem**
+<!--Please be civil. This is an environment for collaboration.-->
 
 **The solution I'd like**
 

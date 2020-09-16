@@ -16,6 +16,7 @@ assignees: ''
 - [ ] *bug - logic error*
 
 **Describe the bug**
+<!--Please be civil. This is an environment for collaboration.-->
 
 **Steps to Reproduce**
 

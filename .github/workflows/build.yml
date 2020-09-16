@@ -2,8 +2,9 @@ name: Matplotplusplus
 
 on: 
   push:
-    paths-ignore: 
+    paths-ignore:
       - '**.md'
+      - 'README.md'
       - '.github/**'
       - '!.github/workflows/build.yml'
       - 'documentation/**'
@@ -11,8 +12,9 @@ on:
       - '.gitignore'
       - 'LICENSE'
   pull_request:
-    paths-ignore: 
+    paths-ignore:
       - '**.md'
+      - 'README.md'
       - '.github/**'
       - '!.github/workflows/build.yml'
       - 'documentation/**'
@@ -36,6 +38,7 @@ jobs:
             cmake_extra_args: -G "Visual Studio 16 2019" -A Win32,
             sudocmd: "",
             artifact_name: "Windows x86",
+            cores: 2,
           }
           - {
             name: "Windows/2019/Static/X64/Release",
@@ -44,6 +47,7 @@ jobs:
             cmake_extra_args: -G "Visual Studio 16 2019" -A x64 -DCMAKE_CXX_FLAGS="/O2",
             sudocmd: "",
             artifact_name: "Windows x64",
+            cores: 2,
           }
           - {
             name: "Ubuntu/18.04/Static/X64/Release",
@@ -52,6 +56,7 @@ jobs:
             cmake_extra_args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8  -DCMAKE_CXX_FLAGS=\"-O2\"",
             sudocmd: "sudo",
             artifact_name: "Linux",
+            cores: 2,
           }
           - {
             name: "MacOSX/10.15/Static/X64/Release",
@@ -60,6 +65,7 @@ jobs:
             cmake_extra_args: "-DCMAKE_CXX_FLAGS=\"-O2\"",
             sudocmd: "sudo",
             artifact_name: "MacOSX",
+            cores: 4,
           }
     steps:
       - uses: actions/checkout@v2
@@ -71,10 +77,10 @@ jobs:
           cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
       - name: Build
         working-directory: ./build
-        run: cmake --build . -j 2 --config ${{ matrix.config.config }}
+        run: cmake --build . -j ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
       - name: Test
         working-directory: ./build
-        run: ctest -j 2 -C Release
+        run: ctest -j ${{ matrix.config.cores }} -C ${{ matrix.config.config }}
       - name: Install
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} cmake --install .
