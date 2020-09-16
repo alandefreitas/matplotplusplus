@@ -102,6 +102,8 @@ if(MSVC)
     target_compile_options(matplot PUBLIC /wd4305)
     # Fix compile error caused by utf8 character in line_spec.cpp
     target_compile_options(matplot PUBLIC /utf-8)
+    # Allow exceptions
+    target_compile_options(matplot PRIVATE /EHsc)
 endif()
 
 include(CheckSymbolExists)
@@ -137,10 +139,12 @@ if (BUILD_WITH_PEDANTIC_WARNINGS)
     else ()
         target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
         # Allow the warnings related to the bundled CImg
-        if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
             target_compile_options(matplot PRIVATE -Wno-null-pointer-arithmetic -Wno-char-subscripts)
         elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
             target_compile_options(matplot PRIVATE -Wno-error=class-memaccess -Wno-class-memaccess)
+        else ()
+            message(ERROR "Cannot disable the relevant warnings for ${CMAKE_CXX_COMPILER_ID}")
         endif ()
     endif ()
 endif ()
