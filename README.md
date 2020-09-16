@@ -1617,15 +1617,17 @@ tiledlayout(rows, cols);
 nexttile();
 ```
 
-Our tiling functions are convenience shortcuts for the subplot functions. If there is no room for the next tile, we automatically rearrange the axes and increase the number of subplot rows or columns to fit the next tile. Use subplots for more control over the subplots. 
+<details>
+    <summary>See result</summary>
 
 [![example_tiledlayout_1](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
-
-<details>
-    <summary>More examples</summary>
+    
+More examples:
     
 [![example_tiledlayout_2](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)  [![example_tiledlayout_3](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)  [![example_tiledlayout_4](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)  [![example_tiledlayout_5](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)  [![example_tiledlayout_6](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)  [![example_tiledlayout_7](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)  [![example_tiledlayout_8](documentation/examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
 </details>
+
+Our tiling functions are convenience shortcuts for the subplot functions. If there is no room for the next tile, we automatically rearrange the axes and increase the number of subplot rows or columns to fit the next tile. Use subplots for more control over the subplots. 
   
 #### Colormaps
 
@@ -2026,11 +2028,20 @@ Get the binary package from the [release section](https://github.com/alandefreit
 
 If you need a more recent version of Matplot++, you can download the [binary packages from the CI artifacts](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush) or build the library [from the source files](#build-from-source). 
 
-Once the package is installed, you can link your C++ program to the library and include the directories where you installed Matplot++. Unless you changed the default options, the library is likely to be in `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows).
+Once the package is installed, you can link your C++ program to the library and include the directories where you installed Matplot++. Unless you changed the default options, the library is likely to be in `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows). The installer will try to find the directory where you usually keep your  libraries but that's not always perfect.
 
 If you are using CMake, you can then find Matplot++ with the usual `find_package` command:
 
 ```cmake
+find_package(Matplot++ REQUIRED)
+# ...
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+CMake should be able to locate the `matplot++-config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows). Otherwise, you need to include your installation directory in `CMAKE_MODULE_PATH` first: 
+
+```cmake
+list(APPEND CMAKE_MODULE_PATH put/your/installation/directory/here)
 find_package(Matplot++ REQUIRED)
 # ...
 target_link_libraries(my_target PUBLIC matplot)
@@ -2148,7 +2159,7 @@ Check your CMake version:
 cmake --version
 ```
 
-If it's older than CMake 3.14, update it
+If it's older than CMake 3.14, update it with
 
 ```bash
 sudo brew upgrade cmake
@@ -2186,7 +2197,7 @@ If you're using the Gnuplot installer, make sure you mark the option "Add applic
 
 </details>
 
-It will also look for these *optional* dependencies for manipulating images:
+The build script will also look for these *optional* dependencies for manipulating images:
 
 * JPEG
 * TIFF
@@ -2204,22 +2215,49 @@ There are two dependencies in [`source/3rd_party`](source/3rd_party). These depe
 
 You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
-There's an extra target `matplot_opengl` with the experimental OpenGL backend. You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
 * OpenGL
 * GLAD
 * GLFW3
 
+<details>
+    <summary>Instructions: Linux/Ubuntu/GCC</summary>
+
+```bash
+sudo apt-get install libglfw3-dev
+```
+
+</details>
+
+<details>
+    <summary>Instructions: Mac Os/Clang</summary>
+
+Download GLFW3 from https://www.glfw.org
+
+</details>
+
+<details>
+    <summary>Instructions: Windows/MSVC</summary>
+
+Download GLFW3 from https://www.glfw.org
+
+</details>
+
 You can see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
 #### Build the Examples
 
+This will build the examples in the `build/examples` directory:
+
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
 cmake --build . -j 2 --config Release
 ```
+
+On windows, replace `-O2` with `/O2`.
 
 #### Installing Matplot++ from Source
 
@@ -2228,27 +2266,27 @@ This will install Matplot++ on your system:
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
 cmake --build . -j 2 --config Release
 cmake --install .
 ```
 
-You might need `sudo` for this last command.
+On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
 
 #### Building the packages
 
-This will create packages you can use to install Matplot++ on your system:
+This will create the binary packages you can use to install Matplot++ on your system:
 
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
 cmake --build . -j 2 --config Release
 cmake --install .
 cpack .
 ```
 
-You might need `sudo` for this last command.
+On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
 
 ### CMake targets
 
@@ -2387,6 +2425,15 @@ There are many ways in which you can contribute to this library:
 * Writing algorithms for new plot categories <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22enhancement+-+plot+categories%22) </sup>
 * Finding bugs in general <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+error%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+warning%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+error%22), [4](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+warning%22) </sup>
 * Whatever idea seems interesting to you
+
+If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DBUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DBUILD_WITH_PEDANTIC_WARNINGS=ON`).
+
+<details>
+    <summary>Example: CLion</summary>
+    
+![CLion Settings with Pedantic Mode](./documentation/img/pedantic_clion.png)
+    
+</details>
 
 ### Contributors
 
