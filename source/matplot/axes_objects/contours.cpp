@@ -1561,7 +1561,7 @@ namespace matplot {
                           double a1 = l1->b_box.area(), a2 = l2->b_box.area();
 
                           if (a1 == a2)
-                              return l1 < l2;
+                              return l1->line_index < l2->line_index;
                           else
                               return a1 > a2;
                       });
