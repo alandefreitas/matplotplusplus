@@ -2006,7 +2006,7 @@ Any object that has the functions `begin` and `end` are considered iterable rang
 These conversions also work on ranges of ranges:
 
 ```cpp
-vector<set<int>> Y = {{6,3,8,2,5},{6,3,5,8,2}};
+vector<set<int>> Y = { {6, 3, 8, 2, 5}, {6, 3, 5, 8, 2} };
 plot(Y);
 ```
 
