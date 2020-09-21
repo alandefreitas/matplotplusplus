@@ -4,7 +4,7 @@ Data visualization can help programmers and scientists identify trends in their 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<details markdown="1">
+<details>
 <summary>Table of Contents</summary>
 
 - [Gallery](#gallery)
