@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Matplot++ Q&A 🙏
+    url: https://github.com/alandefreitas/matplotplusplus/discussions/new?category_id=31250560
+    about: Please ask and answer questions here. Let's find out what's going on first.
+  - name: Matplot++ Ideas 💡
+    url: https://github.com/alandefreitas/matplotplusplus/discussions/new?category_id=31250561
+    about: Please discuss informal enhancement proposals here before creating an issue.
