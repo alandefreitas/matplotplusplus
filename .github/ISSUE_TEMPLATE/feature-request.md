@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Improvement Proposal
+about: For formal improvement proposals. For discussing new ideas, please use "Matplot++ Ideas 💡" link below.
 title: ''
 labels: 
 assignees: ''
