@@ -1458,10 +1458,10 @@ namespace matplot {
         std::tie(X_data_, Y_data_) = meshgrid(x_1d, y_1d);
     }
 
-    contours::lower_and_upper_contours
-    contours::insert_lower_and_upper_contours(size_t line_index, double z_lower,
+    contours::filled_contours
+    contours::insert_contours(size_t line_index, double z_lower,
                                               double z_upper) {
-        lower_and_upper_contours ulc;
+        filled_contours ulc;
 
         auto vertices =
             contour_generator_.create_filled_contour(z_lower, z_upper);
@@ -1477,8 +1477,24 @@ namespace matplot {
             l.update_b_box();
             l.flags.is_child = false;
             l.flags.is_lower = true;
+            l.flags.is_boundary_crossing = false;
 
-            ulc.lower.emplace_back(&filled_lines_.emplace_back(std::move(l)));
+            ulc.closed.emplace_back(&filled_lines_.emplace_back(std::move(l)));
+        }
+
+        for (++ii; !std::isnan(vertices.first[ii]); ++ii) {
+            line_segment l;
+            l.line_index = line_index;
+            for (; !std::isnan(vertices.first[ii]); ++ii) {
+                l.x.push_back(vertices.first[ii]);
+                l.y.push_back(vertices.second[ii]);
+            }
+            l.update_b_box();
+            l.flags.is_child = false;
+            l.flags.is_lower = false;
+            l.flags.is_boundary_crossing = false;
+
+            ulc.closed.emplace_back(&filled_lines_.emplace_back(std::move(l)));
         }
 
         for (++ii; ii < vertices.first.size(); ++ii) {
@@ -1490,15 +1506,19 @@ namespace matplot {
             }
             l.update_b_box();
             l.flags.is_child = false;
-            l.flags.is_lower = false;
+            l.flags.is_boundary_crossing = true;
 
-            ulc.upper.emplace_back(&filled_lines_.emplace_back(std::move(l)));
+            ulc.boundary.emplace_back(&filled_lines_.emplace_back(std::move(l)));
         }
 
         return ulc;
     }
 
     void contours::process_all_segs_and_all_kinds() {
+        auto fn_segment_area_compare = [](line_segment* l1, line_segment* l2) {
+          return l1->b_box.area() < l2->b_box.area();
+        };
+
         lines_.clear();
         if (filled_) {
             filled_lines_.clear();
@@ -1506,8 +1526,7 @@ namespace matplot {
 
             auto [lowers, uppers] = get_lowers_and_uppers();
             for (size_t i = 0; i < lowers.size(); ++i) {
-                auto [lower, upper] =
-                    insert_lower_and_upper_contours(i, lowers[i], uppers[i]);
+                auto [closed, boundary] = insert_contours(i, lowers[i], uppers[i]);
 
                 auto fn_relate_parent_child = [](line_segment &parent,
                                                  line_segment &child) {
@@ -1515,26 +1534,31 @@ namespace matplot {
                      * can't have set this flag before */
                     assert(!child.flags.is_child);
 
-                    /* child can't have children of its own */
-                    assert(child.children.empty());
-
+                    child.flags.is_child = true;
                     parent.children.push_back(&child);
                 };
 
+                std::sort(closed.begin(), closed.end(), fn_segment_area_compare);
+                std::sort(boundary.begin(), boundary.end(), fn_segment_area_compare);
+
+
                 /* find parent-child hierarchy */
-                for (auto p_u_line : upper) {
-                    auto &u_line = *p_u_line;
-                    for (auto p_l_line : lower) {
-                        auto &l_line = *p_l_line;
-
-                        if (u_line.b_box.contains(l_line.b_box)) {
-                            fn_relate_parent_child(u_line, l_line);
-                        } else if (l_line.b_box.contains(u_line.b_box)) {
-                            fn_relate_parent_child(l_line, u_line);
-
-                            /* have already found a parent of u_line so
-                             * we terminate inner loop*/
+                for(size_t ii = 0; ii < closed.size(); ++ii) {
+                    bool is_child = false;
+                    for(size_t jj = ii + 1; jj < closed.size(); ++jj) {
+                        if(closed[jj]->b_box.contains(closed[ii]->b_box)) {
+                            fn_relate_parent_child(*closed[jj], *closed[ii]);
+                            is_child = true;
                             break;
+                        }
+                    }
+
+                    if(!is_child) {
+                        for(auto* l : boundary) {
+                            if(l->b_box.contains(closed[ii]->b_box)) {
+                                fn_relate_parent_child(*l, *closed[ii]);
+                                break;
+                            }
                         }
                     }
                 }
@@ -1543,12 +1567,10 @@ namespace matplot {
                     return !l->flags.is_child;
                 };
 
-                std::copy_if(upper.begin(), upper.end(),
+                std::copy_if(closed.begin(), closed.end(),
                              std::back_inserter(filled_line_parents_),
                              fn_is_not_child);
-                std::copy_if(lower.begin(), lower.end(),
-                             std::back_inserter(filled_line_parents_),
-                             fn_is_not_child);
+                filled_line_parents_.insert(filled_line_parents_.end(), boundary.begin(), boundary.end());
             }
 
             // Sort line segments by their bounding rectangle areas

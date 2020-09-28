@@ -73,6 +73,8 @@ namespace matplot::detail {
     };
 
     class contour_generator {
+        struct edge;
+
         struct contour {
             struct point {
                 double x, y;
@@ -80,6 +82,7 @@ namespace matplot::detail {
 
             bool closed;
             std::vector<point> points;
+            edge* boundary_edges[2]{};
         };
 
         struct triangle;
@@ -177,6 +180,7 @@ namespace matplot::detail {
         }
         size_t activate_edges(double z) const noexcept;
         void generate_contours(double z, vertices_list_type& vertices) const;
+        void generate_filled_contours(double z_lower, double z_upper, vertices_list_type& vertices) const;
 
         contour::point contour_point(double z, const edge &e) const noexcept {
             /* test if t is out of interval [0:1]

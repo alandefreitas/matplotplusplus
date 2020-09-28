@@ -154,6 +154,7 @@ namespace matplot {
             struct {
                 bool is_child : 1;
                 bool is_lower : 1;
+                bool is_boundary_crossing : 1;
             } flags;
             size_t line_index;
             struct b_box_type {
@@ -268,11 +269,11 @@ namespace matplot {
 
       protected:
         /// For `process_all_segs_and_all_kinds`
-        struct lower_and_upper_contours {
-            std::vector<line_segment*> lower, upper;
+        struct filled_contours {
+            std::vector<line_segment*> closed, boundary;
         };
-        lower_and_upper_contours
-        insert_lower_and_upper_contours(size_t line_index, double z_lower,
+        filled_contours
+        insert_contours(size_t line_index, double z_lower,
                                         double z_upper);
 
         /// Line style
