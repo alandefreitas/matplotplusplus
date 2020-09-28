@@ -22,6 +22,12 @@
 #include <set>
 
 namespace {
+    constexpr double k_Epsilon = 1e-5;
+
+    inline bool fuzzy_equals(double d1, double d2, double unit = 1.0) noexcept {
+        return std::abs(d1 - d2) < unit * k_Epsilon;
+    }
+
     struct point_2d {
         double x, y;
 
@@ -81,16 +87,26 @@ namespace {
 
       public:
         rect_splitter(double x_min, double x_max, double y_min, double y_max)
-            : x_min_(x_min), x_max_(x_max), y_min_(y_min), y_max_(y_max) {}
+            : x_min_(x_min), x_max_(x_max), unit_x_(std::abs(x_max_ - x_min_)),
+              y_min_(y_min), y_max_(y_max), unit_y_(std::abs(y_max_ - y_min_)) {
+        }
 
         void init(const std::vector<contour_line_segment> &segments) {
-            auto fn_validate_adjacent_junctions = [this](const junction& j1, const junction& j2) {
-                const auto* p_j1 = &j1, *p_j2 = &j2;
-                if(junction_point_compare(j2.p, j1.p))
+            auto fn_validate_junction_on_region = [this](const junction &j) {
+                return fuzzy_equals(j.p.x, x_min_, unit_x_) ||
+                       fuzzy_equals(j.p.x, x_max_, unit_x_) ||
+                       fuzzy_equals(j.p.y, y_min_, unit_y_) ||
+                       fuzzy_equals(j.p.y, y_max_, unit_y_);
+            };
+            auto fn_validate_adjacent_junctions = [this](const junction &j1,
+                                                         const junction &j2) {
+                const auto *p_j1 = &j1, *p_j2 = &j2;
+                if (junction_point_compare(j2.p, j1.p))
                     std::swap(p_j1, p_j2);
 
                 return p_j1->flags.is_corner || p_j2->flags.is_corner ||
-                       (p_j1->flags.filled_forward == p_j2->flags.filled_backward);
+                       (p_j1->flags.filled_forward ==
+                        p_j2->flags.filled_backward);
             };
 
             {
@@ -134,6 +150,9 @@ namespace {
                     j2.flags.is_corner = false;
                     j2.flags.passed_count = 0;
 
+                    /* check that we are actually on the boundary */
+                    assert(fn_validate_junction_on_region(j1));
+                    assert(fn_validate_junction_on_region(j2));
                     s.insert({j1, j2});
                 }
 
@@ -147,7 +166,11 @@ namespace {
             for (size_t ii = 0; ii < junctions_.size() - 1; ++ii) {
                 junctions_[ii].j[1] = &junctions_[ii + 1];
                 junctions_[ii + 1].j[0] = &junctions_[ii];
-                assert(fn_validate_adjacent_junctions(junctions_[ii], junctions_[ii + 1]));
+
+                /* check that adjacent points specify a consistent region
+                 * (whether filled or unfilled) */
+                assert(fn_validate_adjacent_junctions(junctions_[ii],
+                                                      junctions_[ii + 1]));
             }
 
             /* build segment connections */
@@ -244,16 +267,17 @@ namespace {
         }
 
         [[nodiscard]] order boundary_order(const point_2d &p) const {
-            if (p.y >= y_max_) {
+            if (fuzzy_equals(p.y, y_max_, unit_y_)) {
                 return eUpper;
-            } else if (p.x >= x_max_) {
+            } else if (fuzzy_equals(p.x, x_max_, unit_x_)) {
                 return eRight;
-            } else if (p.y <= y_min_) {
+            } else if (fuzzy_equals(p.y, y_min_, unit_y_)) {
                 return eBottom;
-            } else if (p.x <= x_min_) {
+            } else if (fuzzy_equals(p.x, x_min_, unit_x_)) {
                 return eLeft;
             } else {
-                throw std::logic_error("contour point is not on region boundary");
+                throw std::logic_error(
+                    "contour point is not on region boundary");
             }
         }
         [[nodiscard]] bool
@@ -276,7 +300,7 @@ namespace {
             }
         }
 
-        double x_min_, x_max_, y_min_, y_max_;
+        double x_min_, x_max_, unit_x_, y_min_, y_max_, unit_y_;
         std::vector<junction> junctions_;
         std::vector<segment> segments_;
     };
@@ -284,8 +308,6 @@ namespace {
 
 namespace matplot::detail {
     namespace {
-        constexpr double k_Epsilon = 1e-5;
-
         inline array_2d<double> to_array_2d(const vector_2d &v) {
             array_2d<double> a(v.size(), !v.empty() ? v[0].size() : 0);
 
@@ -632,11 +654,8 @@ namespace matplot::detail {
         };
 
         auto fn_fuzzy_equals = [this](contour::point p1, contour::point p2) {
-            double unit_x = std::abs(x_max_ - x_min_),
-                   unit_y = std::abs(y_max_ - y_min_);
-
-            return ((std::abs(p1.x - p2.x) < unit_x * k_Epsilon) &&
-                    (std::abs(p1.y - p2.y) < unit_y * k_Epsilon));
+            return fuzzy_equals(p1.x, p2.x, std::abs(x_max_ - x_min_)) &&
+                   fuzzy_equals(p1.y, p2.y, std::abs(y_max_ - y_min_));
         };
 
         assert(e.t[0] || e.t[1]);
