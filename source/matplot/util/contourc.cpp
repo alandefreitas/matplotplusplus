@@ -84,6 +84,15 @@ namespace {
             : x_min_(x_min), x_max_(x_max), y_min_(y_min), y_max_(y_max) {}
 
         void init(const std::vector<contour_line_segment> &segments) {
+            auto fn_validate_adjacent_junctions = [this](const junction& j1, const junction& j2) {
+                const auto* p_j1 = &j1, *p_j2 = &j2;
+                if(junction_point_compare(j2.p, j1.p))
+                    std::swap(p_j1, p_j2);
+
+                return p_j1->flags.is_corner || p_j2->flags.is_corner ||
+                       (p_j1->flags.filled_forward == p_j2->flags.filled_backward);
+            };
+
             {
                 auto fn_check_filled_dir =
                     [this](const contour_line_segment::edge &e, junction &j) {
@@ -138,6 +147,7 @@ namespace {
             for (size_t ii = 0; ii < junctions_.size() - 1; ++ii) {
                 junctions_[ii].j[1] = &junctions_[ii + 1];
                 junctions_[ii + 1].j[0] = &junctions_[ii];
+                assert(fn_validate_adjacent_junctions(junctions_[ii], junctions_[ii + 1]));
             }
 
             /* build segment connections */
@@ -196,11 +206,11 @@ namespace {
                     }
 
                     if (!j->flags.is_corner) {
-//                        assert(!is_filled_check ||
-//                               is_filled == j->flags.filled_forward);
+                        assert(!is_filled_check ||
+                               is_filled == j->flags.filled_forward);
                         is_filled = j->flags.filled_forward;
-//                        assert(j->j[1]->flags.is_corner ||
-//                               is_filled == j->j[1]->flags.filled_backward);
+                        assert(j->j[1]->flags.is_corner ||
+                               is_filled == j->j[1]->flags.filled_backward);
                         is_filled_check = true;
                     }
 
@@ -233,7 +243,7 @@ namespace {
             return &(*it);
         }
 
-        [[nodiscard]] order boundary_order(const point_2d &p) const noexcept {
+        [[nodiscard]] order boundary_order(const point_2d &p) const {
             if (p.y >= y_max_) {
                 return eUpper;
             } else if (p.x >= x_max_) {
@@ -243,7 +253,7 @@ namespace {
             } else if (p.x <= x_min_) {
                 return eLeft;
             } else {
-                assert(false);
+                throw std::logic_error("contour point is not on region boundary");
             }
         }
         [[nodiscard]] bool
@@ -255,11 +265,11 @@ namespace {
                 case eUpper:
                     return j1.x < j2.x;
                 case eRight:
-                    return j1.y < j2.y;
+                    return j2.y < j1.y;
                 case eBottom:
                     return j2.x < j1.x;
                 case eLeft:
-                    return j2.y < j1.y;
+                    return j1.y < j2.y;
                 }
             } else {
                 return o1 < o2;
