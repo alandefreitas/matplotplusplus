@@ -171,7 +171,7 @@ namespace matplot {
                 }
             } b_box;
             std::vector<double> x, y;
-            std::vector<const line_segment*> children;
+            std::vector<const line_segment *> children;
 
             void update_b_box() noexcept {
                 assert(!x.empty() && !y.empty());
@@ -188,7 +188,7 @@ namespace matplot {
 
         void make_sure_data_is_preprocessed();
         void clear_preprocessed_data();
-        static bool is_lower_level(const line_segment& l) noexcept {
+        static bool is_lower_level(const line_segment &l) noexcept {
             return l.flags.is_lower;
         }
         std::pair<vector_1d, vector_1d>
@@ -252,7 +252,7 @@ namespace matplot {
         /// to represent everything.
         /// Also, this makes it much easier to label the unfilled lines.
         std::list<line_segment> filled_lines_;
-        std::vector<const line_segment*> filled_line_parents_;
+        std::vector<const line_segment *> filled_line_parents_;
 
         /// Object with the algorithm to generate contour lines
         detail::contour_generator contour_generator_;
@@ -270,10 +270,9 @@ namespace matplot {
       protected:
         /// For `process_all_segs_and_all_kinds`
         struct filled_contours {
-            std::vector<line_segment*> closed, boundary;
+            std::vector<line_segment *> closed, boundary;
         };
-        filled_contours
-        insert_contours(size_t line_index, double z_lower,
+        filled_contours insert_contours(size_t line_index, double z_lower,
                                         double z_upper);
 
         /// Line style

@@ -82,7 +82,7 @@ namespace matplot::detail {
 
             bool closed;
             std::vector<point> points;
-            edge* boundary_edges[2]{};
+            edge *boundary_edges[2]{};
         };
 
         struct triangle;
@@ -110,7 +110,8 @@ namespace matplot::detail {
 
         using vertices_list_type = std::pair<vector_1d, vector_1d>;
         vertices_list_type create_contour(double level) const;
-        vertices_list_type create_filled_contour(double lower_level, double upper_level) const;
+        vertices_list_type create_filled_contour(double lower_level,
+                                                 double upper_level) const;
 
       private:
         struct generation_parameters {
@@ -179,8 +180,9 @@ namespace matplot::detail {
             return e.flags.active;
         }
         size_t activate_edges(double z) const noexcept;
-        void generate_contours(double z, vertices_list_type& vertices) const;
-        void generate_filled_contours(double z_lower, double z_upper, vertices_list_type& vertices) const;
+        void generate_contours(double z, vertices_list_type &vertices) const;
+        void generate_filled_contours(double z_lower, double z_upper,
+                                      vertices_list_type &vertices) const;
 
         contour::point contour_point(double z, const edge &e) const noexcept {
             /* test if t is out of interval [0:1]

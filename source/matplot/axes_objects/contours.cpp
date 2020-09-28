@@ -110,7 +110,7 @@ namespace matplot {
 
                 if (filled) {
                     double ll = lower_levels[line_index],
-                        ul = upper_levels[line_index];
+                           ul = upper_levels[line_index];
 
                     double segment_z_level;
                     if (ll < zmin_ && ul < zmax_)
