@@ -2035,7 +2035,7 @@ If you are using CMake, you can then find Matplot++ with the usual `find_package
 ```cmake
 find_package(Matplot++ REQUIRED)
 # ...
-target_link_libraries(my_target PUBLIC matplot)
+target_link_libraries(my_target PUBLIC Matplot++::matplot)
 ```
 
 CMake should be able to locate the `matplot++-config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows). Otherwise, you need to include your installation directory in `CMAKE_MODULE_PATH` first: 
@@ -2044,7 +2044,7 @@ CMake should be able to locate the `matplot++-config.cmake` script automatically
 list(APPEND CMAKE_MODULE_PATH put/your/installation/directory/here)
 find_package(Matplot++ REQUIRED)
 # ...
-target_link_libraries(my_target PUBLIC matplot)
+target_link_libraries(my_target PUBLIC Matplot++::matplot)
 ```
 
 ### Build from Source
