@@ -90,5 +90,9 @@ jobs:
       - name: Archive Packages
         uses: actions/upload-artifact@v2
         with:
-          name: Binary Package ${{ matrix.config.artifact_name }}
-          path: build/matplotplusplus-1.?.?-*.*
+          name: Binary Packages ${{ matrix.config.artifact_name }}
+          path: build/matplotplusplus-?.?.?-*.*
+      - name: Archive Installer Packages as is
+        uses: kittaakos/upload-artifact-as-is@v0
+        with:
+          path: build/matplotplusplus-?.?.?-*.*
