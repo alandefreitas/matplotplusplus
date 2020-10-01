@@ -13,3 +13,6 @@ has_toc: false
 
 - [View](camera/view.md)
 - [Lighting](camera/lighting.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

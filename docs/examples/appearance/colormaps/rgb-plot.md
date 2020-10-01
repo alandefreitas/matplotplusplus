@@ -16,12 +16,15 @@ rgbplot(colors);
 
 See result
 
-[![example_rgbplot_1](rgbplot/rgbplot_1.svg)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
+[![example_rgbplot_1](rgbplot/rgbplot_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
 
 More examples:
     
-[![example_rgbplot_2](rgbplot/rgbplot_2_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
+[![example_rgbplot_2](rgbplot/rgbplot_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
   
 
 
 
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

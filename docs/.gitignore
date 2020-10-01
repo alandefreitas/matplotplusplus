@@ -1,3 +1,4 @@
 _site
 .jekyll-metadata
 Gemfile.lock
+!integration/build-from-source

@@ -27,3 +27,6 @@ The rectangle object can have a border curvature from $0$ to $1$. We can also an
   
 
 
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -17,3 +17,6 @@ has_toc: false
 - [Y Label](labels/y-label.md)
 - [Z Label](labels/z-label.md)
 - [Legend](labels/legend.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

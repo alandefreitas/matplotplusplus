@@ -5,6 +5,8 @@
 [![Documentation](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Documentation)](https://alandefreitas.github.io/matplotplusplus/)
 [![Discussions](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Discussions)](https://github.com/alandefreitas/matplotplusplus/discussions)
 
+![](docs/img/matplotcover.png)
+
 Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. **Matplot++** is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.
 
 <!-- https://github.com/bradvin/social-share-urls -->
@@ -1966,25 +1968,25 @@ A more complete example of the reactive mode would be:
 
 ```cpp
 // Reactive mode
-auto f = gcf(false);
+auto f = figure(false);
 auto ax = f->gca();
 auto p = ax->plot(ax, x, y);   // draws once
 p->color("red").line_width(2); // draws twice more
-wait();                        // pause console
+show();                        // pause console
 ```
 
-For convenience, the examples in Section [Examples](#examples) use the reactive mode. The `wait` function pauses the console until the user interacts with the plot window. If the backend is based on process pipes, because these are unidirectional, closing the window is not enough to resume. The user needs to use the console to unblock execution. A similar example is quiet mode would be
+For convenience, the examples in Section [Examples](#examples) use the reactive mode. The `show` function pauses the console until the user interacts with the plot window. If the backend is based on process pipes, because these are unidirectional, closing the window is not enough to resume. The user needs to use the console to unblock execution. A similar example is quiet mode would be
 
 ```cpp
 // Quiet mode
-auto f = gcf(true);
+auto f = figure(true);
 auto ax = f->gca();
 auto p = ax->plot(x,y);        // does not draw
 p->color("red").line_width(2); // does not draw
 f->show();                     // draw only once and pause console
 ```
 
-In this example, the figure is only updated once. The user could replace the `show` function with the `draw` function, but the window would close as soon as execution completes. It is important to use `wait()` and `show()` with caution. These functions are meant for some particular executables so that an interactive plot does not close before the user can see it. It is probably unreasonable to call these functions inside a library because the user would have to manually interfere with the execution to continue.
+In this example, the figure is only updated once. The user could replace the `show` function with the `draw` function, but the window would close as soon as execution completes. It is important to use `show()` with caution. These functions are meant for some particular executables so that an interactive plot does not close before the user can see it. It is probably unreasonable to call these functions inside a library because the user would have to manually interfere with the execution to continue.
 
 ### Method Chaining
 
@@ -2032,11 +2034,12 @@ Unfortunately, because of how templated functions work, one exception is initial
 ### Common Utilities
 
 The headers `common.h` and `colors.h` include a number of utilities we use in our examples. These include naive functions to generate and manipulate vectors and strings; handle RGBA color arrays; convert points to and from polar coordinates; read files to strings; write strings to files; calculate gradients; read, write, and manipulate images; and generate vectors with random numbers. Although some of these functions might be helpful, most functions only operate on `vector<double>` and they are not intended to be a library of utilities. The sole purpose of these algorithms is to simplify the examples.
- 
+
+<!-- START mdsplit-ignore --> 
 ## Motivation and Details
 
 If you are interested in understanding how the library works, you can read the details in the complete [article](docs/README.md). It describes the relationship between its main objects, the backend interface, how to create new plot categories, limitations, and compares this library with similar alternatives. 
-
+<!-- END mdsplit-ignore -->
 ## Integration
 
 ### Binary Packages

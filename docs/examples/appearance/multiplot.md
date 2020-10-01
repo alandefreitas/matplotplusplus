@@ -16,3 +16,6 @@ has_toc: false
 - [Color Order](multiplot/color-order.md)
 - [Subplots](multiplot/subplots.md)
 - [Tiled Layout](multiplot/tiled-layout.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

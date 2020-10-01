@@ -15,3 +15,6 @@ has_toc: false
 - [Colormap](colormaps/colormap.md)
 - [Color Bar](colormaps/color-bar.md)
 - [RGB Plot](colormaps/rgb-plot.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

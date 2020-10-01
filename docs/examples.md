@@ -131,3 +131,6 @@ The examples assume we are in the `matplot` namespace. Use these examples to und
 - [Exporting](examples/exporting.md)
   - [Saving (Manually)](examples/exporting/saving-manually.md)
   - [Saving (Programatically)](examples/exporting/saving-programatically.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

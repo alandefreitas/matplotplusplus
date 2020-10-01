@@ -118,3 +118,6 @@ has_toc: false
 * Zakai A (2011). "Emscripten: an LLVM-to-JavaScript compiler." In Proceedings of the ACM international conference companion on Object oriented programming systems languages and applications companion, pp. 301-312.
 
 
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

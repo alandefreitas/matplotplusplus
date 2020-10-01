@@ -14,3 +14,6 @@ has_toc: false
 - [Method Chaining](coding-styles/method-chaining.md)
 - [Ranges](coding-styles/ranges.md)
 - [Common Utilities](coding-styles/common-utilities.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -8,7 +8,7 @@ has_toc: false
 ---
 # Geography
 
-[Geoplot](geography/geoplot.md) | [Geoscatter Plot](geography/geoscatter-plot.md) | [Geobubble](geography/geobubble.md) | [Geodensity Plot](geography/geodensity-plot.md)
+[Geoplot]() | [Geoscatter Plot](#geoscatter-plot) | [Geobubble]() | [Geodensity Plot](#geodensity-plot)
  
 
 
@@ -16,3 +16,6 @@ has_toc: false
 - [Geoscatter Plot](geography/geoscatter-plot.md)
 - [Geobubble](geography/geobubble.md)
 - [Geodensity Plot](geography/geodensity-plot.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

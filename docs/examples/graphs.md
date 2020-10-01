@@ -8,9 +8,12 @@ has_toc: false
 ---
 # Graphs
 
-[Undirected Graph](graphs/undirected-graph.md) | [Directed Graph](graphs/directed-graph.md)
+[Undirected Graph]() | [Directed Graph](#directed-graph)
  
 
 
 - [Undirected Graph](graphs/undirected-graph.md)
 - [Directed Graph](graphs/directed-graph.md)
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

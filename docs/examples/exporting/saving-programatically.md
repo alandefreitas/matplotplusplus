@@ -51,7 +51,7 @@ The first option (`save(filename)`) infers the appropriate file format from the 
 
 See result
 
- ![Barchart as SVG file](../../img/barchart.svg)
+ ![Barchart as SVG file](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/img/barchart.svg)
 
  
  Exporting the image with
@@ -104,10 +104,13 @@ See result
 
 See result
 
- ![Barchart - Latex](../../img/barchart.png) 
+ ![Barchart - Latex](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/img/barchart.png) 
 
   
  This exports the image in a format in which the labels are replaced by latex text so that the plot fits the rest of the document.
 
 
 
+
+
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

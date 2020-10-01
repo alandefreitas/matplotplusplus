@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Documentation
-nav_exclude: true
+title: White Paper
+nav_exclude: false
 ---
 # Matplot++: A C++ Graphics Library for Data Visualization
 
