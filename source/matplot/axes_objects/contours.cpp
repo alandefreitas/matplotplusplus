@@ -1019,9 +1019,12 @@ namespace matplot {
                 } else {
                     // Skip the next nans separating parents and children
                     // to avoid extra useless empty lines in case there is
-                    // more than one nan
-                    while (is_separator(lines_[i].first[j + 1],
-                                        lines_[i].second[j + 1])) {
+                    // more than one nan (with out-of-bounds check if we
+                    // have a corner case then the lines_ has one or more
+                    // nans at end of the underlying storage)
+                    while (j + 1 < lines_[i].first.size() &&
+                           is_separator(lines_[i].first[j + 1],
+                           lines_[i].second[j + 1])) {
                         ++j;
                     }
                     // Include an empty line to indicate this polygon or line
