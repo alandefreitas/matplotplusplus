@@ -3,7 +3,7 @@ layout: default
 title: Documentation
 nav_exclude: true
 ---
-# **Matplot++**
+# Matplot++: A C++ Graphics Library for Data Visualization
 
 Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers.
 
