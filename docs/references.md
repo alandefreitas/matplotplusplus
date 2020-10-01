@@ -1,7 +1,7 @@
 ---
 layout: default
 title: References
-nav_order: 8
+nav_order: 7
 has_children: false
 has_toc: false
 ---

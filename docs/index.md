@@ -160,7 +160,6 @@ Data visualization can help programmers and scientists identify trends in their 
   - [Method Chaining](coding-styles/method-chaining.md)
   - [Ranges](coding-styles/ranges.md)
   - [Common Utilities](coding-styles/common-utilities.md)
-- [Motivation and Details](motivation-and-details.md)
 - [Integration](integration.md)
   - [Binary Packages](integration/binary-packages.md)
   - [Build from Source](integration/build-from-source.md)
