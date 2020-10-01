@@ -1,0 +1,24 @@
+---
+layout: default
+title: Line
+nav_order: 8
+has_children: false
+parent: Annotations
+grand_parent: Examples
+has_toc: false
+---
+# Line
+
+```cpp
+line(x1, y1, x2, y2);
+```
+
+
+See result
+
+[![e../../../examples/annotations/line/line_1.cppmples/annotations/line/line_1.cpp)
+
+
+
+
+
