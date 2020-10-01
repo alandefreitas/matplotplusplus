@@ -16,11 +16,11 @@ box(on);
 
 See result
 
-[![e../../../../examples/appearance/axis/box/box_1.cpp/appearance/axis/box/box_1.cpp)
+[![example_box_1](box/box_1.png)](../../../../examples/appearance/axis/box/box_1.cpp)
 
 More examples:
     
-[![e..../../../../examples/appearance/axis/box/box_3.cppis/box/box_2.cpp)  [![example_box_3](docs/examples/appearance/axis/box/box_3_thumb.png)](examples/appearance/axis/box/box_3.cpp)
+[![example_box_2](box/box_2_thumb.png)](../../../../examples/appearance/axis/box/box_2.cpp)  [![example_box_3](box/box_3_thumb.png)](../../../../examples/appearance/axis/box/box_3.cpp)
 
   
 

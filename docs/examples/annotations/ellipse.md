@@ -16,7 +16,7 @@ ellipse(x, y, w, h);
 
 See result
 
-[![e../../../examples/annotations/ellipse/ellipse_1.cppexamples/annotations/ellipse/ellipse_1.cpp)
+[![example_ellipse_1](ellipse/ellipse_1.svg)](../../../examples/annotations/ellipse/ellipse_1.cpp)
 
 
 

@@ -16,11 +16,11 @@ axis({xmin, xmax, ymin, ymax});
 
 See result
 
-[![e../../../../examples/appearance/axis/axis/axis_1.cpps/appearance/axis/axis/axis_1.cpp)
+[![example_axis_1](axis/axis_1.svg)](../../../../examples/appearance/axis/axis/axis_1.cpp)
 
 More examples:
     
-[![e............../../../../examples/appearance/axis/axis/axis_8.cpples/appearance/axis/axis/axis_3.cpp)  [![example_axis_4](docs/examples/appearance/axis/axis/axis_4_thumb.png)](examples/appearance/axis/axis/axis_4.cpp)  [![example_axis_5](docs/examples/appearance/axis/axis/axis_5_thumb.png)](examples/appearance/axis/axis/axis_5.cpp)  [![example_axis_6](docs/examples/appearance/axis/axis/axis_6_thumb.png)](examples/appearance/axis/axis/axis_6.cpp)  [![example_axis_7](docs/examples/appearance/axis/axis/axis_7_thumb.png)](examples/appearance/axis/axis/axis_7.cpp)  [![example_axis_8](docs/examples/appearance/axis/axis/axis_8_thumb.png)](examples/appearance/axis/axis/axis_8.cpp)
+[![example_axis_2](axis/axis_2_thumb.png)](../../../../examples/appearance/axis/axis/axis_2.cpp)  [![example_axis_3](axis/axis_3_thumb.png)](../../../../examples/appearance/axis/axis/axis_3.cpp)  [![example_axis_4](axis/axis_4_thumb.png)](../../../../examples/appearance/axis/axis/axis_4.cpp)  [![example_axis_5](axis/axis_5_thumb.png)](../../../../examples/appearance/axis/axis/axis_5.cpp)  [![example_axis_6](axis/axis_6_thumb.png)](../../../../examples/appearance/axis/axis/axis_6.cpp)  [![example_axis_7](axis/axis_7_thumb.png)](../../../../examples/appearance/axis/axis/axis_7.cpp)  [![example_axis_8](axis/axis_8_thumb.png)](../../../../examples/appearance/axis/axis/axis_8.cpp)
 
   
 

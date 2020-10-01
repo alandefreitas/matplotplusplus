@@ -16,11 +16,11 @@ yticklabels(ystrs);
 
 See result
 
-[![e../../../../examples/appearance/grid/yticklabels/yticklabels_1.cppexamples/appearance/grid/yticklabels/yticklabels_1.cpp)
+[![example_yticklabels_1](yticklabels/yticklabels_1.svg)](../../../../examples/appearance/grid/yticklabels/yticklabels_1.cpp)
 
 More examples:
     
-[![e....../../../../examples/appearance/grid/yticklabels/yticklabels_4.cpppngyticklabels_2.cpp)  [![example_yticklabels_3](docs/examples/appearance/grid/yticklabels/yticklabels_3_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)  [![example_yticklabels_4](docs/examples/appearance/grid/yticklabels/yticklabels_4_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
+[![example_yticklabels_2](yticklabels/yticklabels_2_thumb.png)](../../../../examples/appearance/grid/yticklabels/yticklabels_2.cpp)  [![example_yticklabels_3](yticklabels/yticklabels_3_thumb.png)](../../../../examples/appearance/grid/yticklabels/yticklabels_3.cpp)  [![example_yticklabels_4](yticklabels/yticklabels_4_thumb.png)](../../../../examples/appearance/grid/yticklabels/yticklabels_4.cpp)
 
   
 

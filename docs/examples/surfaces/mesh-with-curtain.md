@@ -16,11 +16,11 @@ meshz(X, Y, Z);
 
 See result
 
-[![e../../../examples/surfaces/meshz/meshz_1.cpp(examples/surfaces/meshz/meshz_1.cpp)
+[![example_meshz_1](meshz/meshz_1.png)](../../../examples/surfaces/meshz/meshz_1.cpp)
 
 More examples:
     
-[![e..../../../examples/surfaces/meshz/meshz_3.cpp.pngaces/meshz/meshz_2.cpp)  [![example_meshz_3](docs/examples/surfaces/meshz/meshz_3_thumb.png)](examples/surfaces/meshz/meshz_3.cpp)
+[![example_meshz_2](meshz/meshz_2_thumb.png)](../../../examples/surfaces/meshz/meshz_2.cpp)  [![example_meshz_3](meshz/meshz_3_thumb.png)](../../../examples/surfaces/meshz/meshz_3.cpp)
 
   
 

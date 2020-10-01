@@ -16,11 +16,11 @@ ribbon(X, Y, Z);
 
 See result
 
-[![e../../../examples/surfaces/ribbon/ribbon_1.cpp](examples/surfaces/ribbon/ribbon_1.cpp)
+[![example_ribbon_1](ribbon/ribbon_1.png)](../../../examples/surfaces/ribbon/ribbon_1.cpp)
 
 More examples:
     
-[![e....../../../examples/surfaces/ribbon/ribbon_4.cppb.pngon_2.cpp)  [![example_ribbon_3](docs/examples/surfaces/ribbon/ribbon_3_thumb.png)](examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](docs/examples/surfaces/ribbon/ribbon_4_thumb.png)](examples/surfaces/ribbon/ribbon_4.cpp)
+[![example_ribbon_2](ribbon/ribbon_2_thumb.png)](../../../examples/surfaces/ribbon/ribbon_2.cpp)  [![example_ribbon_3](ribbon/ribbon_3_thumb.png)](../../../examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](ribbon/ribbon_4_thumb.png)](../../../examples/surfaces/ribbon/ribbon_4.cpp)
   
 
 

@@ -24,11 +24,11 @@ save(filename, fileformat);
 
 See result
     
-[![e../../../examples/exporting/save/save_1.cppxamples/exporting/save/save_1.cpp)
+[![example_save_1](save/save_1.png)](../../../examples/exporting/save/save_1.cpp)
 
 More examples:
     
-[![e............../../../examples/exporting/save/save_8.cppngng)](examples/exporting/save/save_3.cpp)  [![example_save_4](docs/examples/exporting/save/save_4_thumb.png)](examples/exporting/save/save_4.cpp)  [![example_save_5](docs/examples/exporting/save/save_5_thumb.png)](examples/exporting/save/save_5.cpp)  [![example_save_6](docs/examples/exporting/save/save_6_thumb.png)](examples/exporting/save/save_6.cpp)  [![example_save_7](docs/examples/exporting/save/save_7_thumb.png)](examples/exporting/save/save_7.cpp)  [![example_save_8](docs/examples/exporting/save/save_8_thumb.png)](examples/exporting/save/save_8.cpp)
+[![example_save_2](save/save_2_thumb.png)](../../../examples/exporting/save/save_2.cpp)  [![example_save_3](save/save_3_thumb.png)](../../../examples/exporting/save/save_3.cpp)  [![example_save_4](save/save_4_thumb.png)](../../../examples/exporting/save/save_4.cpp)  [![example_save_5](save/save_5_thumb.png)](../../../examples/exporting/save/save_5.cpp)  [![example_save_6](save/save_6_thumb.png)](../../../examples/exporting/save/save_6.cpp)  [![example_save_7](save/save_7_thumb.png)](../../../examples/exporting/save/save_7.cpp)  [![example_save_8](save/save_8_thumb.png)](../../../examples/exporting/save/save_8.cpp)
  
 
 The first option (`save(filename)`) infers the appropriate file format from the filename extension. In both cases (`save(filename)` and `save(filename,fileformat)`), this function temporarily changes the backend to a non-interactive backend appropriate to draw the figure. A different backend is used for each format and, depending on the format, the final image does not necessarily match what is on the interactive plot window. The reason is that some file formats purposefully do not include the same features.

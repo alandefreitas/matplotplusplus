@@ -16,11 +16,11 @@ grid(on);
 
 See result
 
-[![e../../../../examples/appearance/grid/grid/grid_1.cpps/appearance/grid/grid/grid_1.cpp)
+[![example_grid_1](grid/grid_1.svg)](../../../../examples/appearance/grid/grid/grid_1.cpp)
 
 More examples:
     
-[![e....../../../../examples/appearance/grid/grid/grid_4.cpp  [![example_grid_3](docs/examples/appearance/grid/grid/grid_3_thumb.png)](examples/appearance/grid/grid/grid_3.cpp)  [![example_grid_4](docs/examples/appearance/grid/grid/grid_4_thumb.png)](examples/appearance/grid/grid/grid_4.cpp)
+[![example_grid_2](grid/grid_2_thumb.png)](../../../../examples/appearance/grid/grid/grid_2.cpp)  [![example_grid_3](grid/grid_3_thumb.png)](../../../../examples/appearance/grid/grid/grid_3.cpp)  [![example_grid_4](grid/grid_4_thumb.png)](../../../../examples/appearance/grid/grid/grid_4.cpp)
 
   
 

@@ -16,11 +16,11 @@ ylabel(str);
 
 See result
 
-[![e../../../../examples/appearance/labels/ylabel/ylabel_1.cpps/appearance/labels/ylabel/ylabel_1.cpp)
+[![example_ylabel_1](ylabel/ylabel_1.svg)](../../../../examples/appearance/labels/ylabel/ylabel_1.cpp)
 
 More examples:
     
-[![e............../../../../examples/appearance/labels/ylabel/ylabel_8.cppmples/appearance/labels/ylabel/ylabel_3.cpp)  [![example_ylabel_4](docs/examples/appearance/labels/ylabel/ylabel_4_thumb.png)](examples/appearance/labels/ylabel/ylabel_4.cpp)  [![example_ylabel_5](docs/examples/appearance/labels/ylabel/ylabel_5_thumb.png)](examples/appearance/labels/ylabel/ylabel_5.cpp)  [![example_ylabel_6](docs/examples/appearance/labels/ylabel/ylabel_6_thumb.png)](examples/appearance/labels/ylabel/ylabel_6.cpp)  [![example_ylabel_7](docs/examples/appearance/labels/ylabel/ylabel_7_thumb.png)](examples/appearance/labels/ylabel/ylabel_7.cpp)  [![example_ylabel_8](docs/examples/appearance/labels/ylabel/ylabel_8_thumb.png)](examples/appearance/labels/ylabel/ylabel_8.cpp)
+[![example_ylabel_2](ylabel/ylabel_2_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_2.cpp)  [![example_ylabel_3](ylabel/ylabel_3_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_3.cpp)  [![example_ylabel_4](ylabel/ylabel_4_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_4.cpp)  [![example_ylabel_5](ylabel/ylabel_5_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_5.cpp)  [![example_ylabel_6](ylabel/ylabel_6_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_6.cpp)  [![example_ylabel_7](ylabel/ylabel_7_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_7.cpp)  [![example_ylabel_8](ylabel/ylabel_8_thumb.png)](../../../../examples/appearance/labels/ylabel/ylabel_8.cpp)
 
   
 

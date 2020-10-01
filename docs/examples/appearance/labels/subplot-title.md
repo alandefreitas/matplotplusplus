@@ -16,11 +16,11 @@ sgtitle(str);
 
 See result
 
-[![e../../../../examples/appearance/labels/sgtitle/sgtitle_1.cppes/appearance/labels/sgtitle/sgtitle_1.cpp)
+[![example_sgtitle_1](sgtitle/sgtitle_1.png)](../../../../examples/appearance/labels/sgtitle/sgtitle_1.cpp)
 
 More examples:
     
-[![e../../../../examples/appearance/labels/sgtitle/sgtitle_2.cppexamples/appearance/labels/sgtitle/sgtitle_2.cpp)
+[![example_sgtitle_2](sgtitle/sgtitle_2_thumb.png)](../../../../examples/appearance/labels/sgtitle/sgtitle_2.cpp)
 
   
 

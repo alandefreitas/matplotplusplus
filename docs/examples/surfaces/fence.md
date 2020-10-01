@@ -16,11 +16,11 @@ fence(X, Y, Z);
 
 See result
 
-[![e../../../examples/surfaces/fence/fence_1.cpp(examples/surfaces/fence/fence_1.cpp)
+[![example_fence_1](fence/fence_1.png)](../../../examples/surfaces/fence/fence_1.cpp)
 
 More examples:
     
-[![e..../../../examples/surfaces/fence/fence_3.cpp.pngaces/fence/fence_2.cpp)  [![example_fence_3](docs/examples/surfaces/fence/fence_3_thumb.png)](examples/surfaces/fence/fence_3.cpp)
+[![example_fence_2](fence/fence_2_thumb.png)](../../../examples/surfaces/fence/fence_2.cpp)  [![example_fence_3](fence/fence_3_thumb.png)](../../../examples/surfaces/fence/fence_3.cpp)
 
   
 

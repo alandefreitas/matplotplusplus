@@ -16,11 +16,11 @@ polarplot(theta, rho);
 
 See result
 
-[![e../../../examples/polar_plots/polarplot/polarplot_1.cppolarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
+[![example_polarplot_1](../polar_plots/polarplot/polarplot_1.svg)](../../../examples/polar_plots/polarplot/polarplot_1.cpp)
 
 More examples:
     
-[![e............../../../examples/polar_plots/polarplot/polarplot_8.cppolarplot_8_thumb.pngpolarplot/polarplot_2.cpp)  [![example_polarplot_3](docs/examples/polar_plots/polarplot/polarplot_3_thumb.png)](examples/polar_plots/polarplot/polarplot_3.cpp)  [![example_polarplot_4](docs/examples/polar_plots/polarplot/polarplot_4_thumb.png)](examples/polar_plots/polarplot/polarplot_4.cpp)  [![example_polarplot_5](docs/examples/polar_plots/polarplot/polarplot_5_thumb.png)](examples/polar_plots/polarplot/polarplot_5.cpp)  [![example_polarplot_6](docs/examples/polar_plots/polarplot/polarplot_6_thumb.png)](examples/polar_plots/polarplot/polarplot_6.cpp)  [![example_polarplot_7](docs/examples/polar_plots/polarplot/polarplot_7_thumb.png)](examples/polar_plots/polarplot/polarplot_7.cpp)  [![example_polarplot_8](docs/examples/polar_plots/polarplot/polarplot_8_thumb.png)](examples/polar_plots/polarplot/polarplot_8.cpp)
+[![example_polarplot_2](../polar_plots/polarplot/polarplot_2_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_2.cpp)  [![example_polarplot_3](../polar_plots/polarplot/polarplot_3_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_3.cpp)  [![example_polarplot_4](../polar_plots/polarplot/polarplot_4_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_4.cpp)  [![example_polarplot_5](../polar_plots/polarplot/polarplot_5_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_5.cpp)  [![example_polarplot_6](../polar_plots/polarplot/polarplot_6_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_6.cpp)  [![example_polarplot_7](../polar_plots/polarplot/polarplot_7_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_7.cpp)  [![example_polarplot_8](../polar_plots/polarplot/polarplot_8_thumb.png)](../../../examples/polar_plots/polarplot/polarplot_8.cpp)
 
   
 By emplacing a polar plot in the `axes`, the `axes` move to a polar mode, where we use the $r$ and $t$ axis instead of the $x$ and $y$ axis.

@@ -16,11 +16,11 @@ parallelplot(X);
 
 See result
 
-[![e../../../examples/data_distribution/parallelplot/parallelplot_1.cpparallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
+[![example_parallelplot_1](../data_distribution/parallelplot/parallelplot_1.svg)](../../../examples/data_distribution/parallelplot/parallelplot_1.cpp)
 
 More examples:
     
-[![e..../../../examples/data_distribution/parallelplot/parallelplot_3.cpparallelplot_3_thumb.pngxamples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](docs/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
+[![example_parallelplot_2](../data_distribution/parallelplot/parallelplot_2_thumb.png)](../../../examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](../data_distribution/parallelplot/parallelplot_3_thumb.png)](../../../examples/data_distribution/parallelplot/parallelplot_3.cpp)
   
 
 The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data. 

@@ -16,11 +16,11 @@ boxplot(data);
 
 See result
     
-[![e../../../examples/data_distribution/boxplot/boxplot_1.cppoxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
+[![example_boxplot_1](../data_distribution/boxplot/boxplot_1.svg)](../../../examples/data_distribution/boxplot/boxplot_1.cpp)
 
 More examples:
     
-[![e..../../../examples/data_distribution/boxplot/boxplot_3.cppoxplot_3_thumb.pngxamples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](docs/examples/data_distribution/boxplot/boxplot_3_thumb.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
+[![example_boxplot_2](../data_distribution/boxplot/boxplot_2_thumb.png)](../../../examples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](../data_distribution/boxplot/boxplot_3_thumb.png)](../../../examples/data_distribution/boxplot/boxplot_3.cpp)
   
 
 

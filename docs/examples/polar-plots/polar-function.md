@@ -16,11 +16,11 @@ ezpolar(fn);
 
 See result
 
-[![e../../../examples/polar_plots/ezpolar/ezpolar_1.cppzpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
+[![example_ezpolar_1](../polar_plots/ezpolar/ezpolar_1.svg)](../../../examples/polar_plots/ezpolar/ezpolar_1.cpp)
 
 More examples:
     
-[![e../../../examples/polar_plots/ezpolar/ezpolar_2.cppzpolar_2_thumb.png)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
+[![example_ezpolar_2](../polar_plots/ezpolar/ezpolar_2_thumb.png)](../../../examples/polar_plots/ezpolar/ezpolar_2.cpp)
   
 
 

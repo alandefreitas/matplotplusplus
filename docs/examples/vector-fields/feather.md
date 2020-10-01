@@ -16,7 +16,7 @@ feather(u, v);
 
 See result
 
-[![e../../../examples/vector_fields/feather/feather_1.cppeather_1.svg)](examples/vector_fields/feather/feather_1.cpp)
+[![example_feather_1](../vector_fields/feather/feather_1.svg)](../../../examples/vector_fields/feather/feather_1.cpp)
 
 
 

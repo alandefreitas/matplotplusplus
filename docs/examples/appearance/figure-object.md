@@ -16,11 +16,11 @@ figure();
 
 See result
 
-[![e../../../examples/appearance/figure/figure_1.cppexamples/appearance/figure/figure_1.cpp)
+[![example_figure_1](figure/figure_1.svg)](../../../examples/appearance/figure/figure_1.cpp)
 
 More examples:
     
-[![e..../../../examples/appearance/figure/figure_3.cpppngance/figure/figure_2.cpp)  [![example_figure_3](docs/examples/appearance/figure/figure_3_thumb.png)](examples/appearance/figure/figure_3.cpp)
+[![example_figure_2](figure/figure_2_thumb.png)](../../../examples/appearance/figure/figure_2.cpp)  [![example_figure_3](figure/figure_3_thumb.png)](../../../examples/appearance/figure/figure_3.cpp)
 
   
 

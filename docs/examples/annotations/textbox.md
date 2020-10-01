@@ -16,7 +16,7 @@ textbox(x, y, w, h, str);
 
 See result
 
-[![e../../../examples/annotations/textbox/textbox_1.cppexamples/annotations/textbox/textbox_1.cpp)
+[![example_textbox_1](textbox/textbox_1.svg)](../../../examples/annotations/textbox/textbox_1.cpp)
 
 
 

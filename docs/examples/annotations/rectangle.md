@@ -16,11 +16,11 @@ rectangle(x, y, w, h);
 
 See result
 
-[![e../../../examples/annotations/rectangle/rectangle_1.cpp](examples/annotations/rectangle/rectangle_1.cpp)
+[![example_rectangle_1](rectangle/rectangle_1.svg)](../../../examples/annotations/rectangle/rectangle_1.cpp)
 
 More examples:
     
-[![e......../../../examples/annotations/rectangle/rectangle_5.cppb.pngample_rectangle_3](docs/examples/annotations/rectangle/rectangle_3_thumb.png)](examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](docs/examples/annotations/rectangle/rectangle_4_thumb.png)](examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](docs/examples/annotations/rectangle/rectangle_5_thumb.png)](examples/annotations/rectangle/rectangle_5.cpp)
+[![example_rectangle_2](rectangle/rectangle_2_thumb.png)](../../../examples/annotations/rectangle/rectangle_2.cpp)  [![example_rectangle_3](rectangle/rectangle_3_thumb.png)](../../../examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](rectangle/rectangle_4_thumb.png)](../../../examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](rectangle/rectangle_5_thumb.png)](../../../examples/annotations/rectangle/rectangle_5.cpp)
   
 
 The rectangle object can have a border curvature from $0$ to $1$. We can also annotate with text, arrows, polygons, and lines.

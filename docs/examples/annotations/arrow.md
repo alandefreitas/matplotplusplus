@@ -16,11 +16,11 @@ arrow(x1, y1, x2, y2);
 
 See result
 
-[![e../../../examples/annotations/arrow/arrow_1.cppamples/annotations/arrow/arrow_1.cpp)
+[![example_arrow_1](arrow/arrow_1.svg)](../../../examples/annotations/arrow/arrow_1.cpp)
 
 More examples:
     
-[![e../../../examples/annotations/arrow/arrow_2.cppg)](examples/annotations/arrow/arrow_2.cpp)
+[![example_arrow_2](arrow/arrow_2_thumb.png)](../../../examples/annotations/arrow/arrow_2.cpp)
 
   
 

@@ -16,11 +16,11 @@ legend({str1,str2,str3});
 
 See result
 
-[![e../../../../examples/appearance/labels/legend/legend_1.cpps/appearance/labels/legend/legend_1.cpp)
+[![example_legend_1](legend/legend_1.svg)](../../../../examples/appearance/labels/legend/legend_1.cpp)
 
 More examples:
     
-[![e............../../../../examples/appearance/labels/legend/legend_8.cppmples/appearance/labels/legend/legend_3.cpp)  [![example_legend_4](docs/examples/appearance/labels/legend/legend_4_thumb.png)](examples/appearance/labels/legend/legend_4.cpp)  [![example_legend_5](docs/examples/appearance/labels/legend/legend_5_thumb.png)](examples/appearance/labels/legend/legend_5.cpp)  [![example_legend_6](docs/examples/appearance/labels/legend/legend_6_thumb.png)](examples/appearance/labels/legend/legend_6.cpp)  [![example_legend_7](docs/examples/appearance/labels/legend/legend_7_thumb.png)](examples/appearance/labels/legend/legend_7.cpp)  [![example_legend_8](docs/examples/appearance/labels/legend/legend_8_thumb.png)](examples/appearance/labels/legend/legend_8.cpp)
+[![example_legend_2](legend/legend_2_thumb.png)](../../../../examples/appearance/labels/legend/legend_2.cpp)  [![example_legend_3](legend/legend_3_thumb.png)](../../../../examples/appearance/labels/legend/legend_3.cpp)  [![example_legend_4](legend/legend_4_thumb.png)](../../../../examples/appearance/labels/legend/legend_4.cpp)  [![example_legend_5](legend/legend_5_thumb.png)](../../../../examples/appearance/labels/legend/legend_5.cpp)  [![example_legend_6](legend/legend_6_thumb.png)](../../../../examples/appearance/labels/legend/legend_6.cpp)  [![example_legend_7](legend/legend_7_thumb.png)](../../../../examples/appearance/labels/legend/legend_7.cpp)  [![example_legend_8](legend/legend_8_thumb.png)](../../../../examples/appearance/labels/legend/legend_8.cpp)
 
   
 

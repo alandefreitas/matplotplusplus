@@ -16,11 +16,11 @@ geobubble(lat,lon,sizes);
 
 See result
 
-[![e../../../examples/geography/geobubble/geobubble_1.cppg)](examples/geography/geobubble/geobubble_1.cpp)
+[![example_geobubble_1](geobubble/geobubble_1.png)](../../../examples/geography/geobubble/geobubble_1.cpp)
 
 More examples:
     
-[![e../../../examples/geography/geobubble/geobubble_2.cppumb.png)](examples/geography/geobubble/geobubble_2.cpp)
+[![example_geobubble_2](geobubble/geobubble_2_thumb.png)](../../../examples/geography/geobubble/geobubble_2.cpp)
 
   
 

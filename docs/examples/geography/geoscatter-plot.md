@@ -16,11 +16,11 @@ geoscatter(lat,lon);
 
 See result
 
-[![e../../../examples/geography/geoscatter/geoscatter_1.cppng)](examples/geography/geoscatter/geoscatter_1.cpp)
+[![example_geoscatter_1](geoscatter/geoscatter_1.png)](../../../examples/geography/geoscatter/geoscatter_1.cpp)
 
 More examples:
     
-[![e../../../examples/geography/geoscatter/geoscatter_2.cpphumb.png)](examples/geography/geoscatter/geoscatter_2.cpp)
+[![example_geoscatter_2](geoscatter/geoscatter_2_thumb.png)](../../../examples/geography/geoscatter/geoscatter_2.cpp)
 
   
 

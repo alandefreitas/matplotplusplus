@@ -16,11 +16,11 @@ xticklabels(xstrs);
 
 See result
 
-[![e../../../../examples/appearance/grid/xticklabels/xticklabels_1.cppexamples/appearance/grid/xticklabels/xticklabels_1.cpp)
+[![example_xticklabels_1](xticklabels/xticklabels_1.svg)](../../../../examples/appearance/grid/xticklabels/xticklabels_1.cpp)
 
 More examples:
     
-[![e....../../../../examples/appearance/grid/xticklabels/xticklabels_4.cpppngxticklabels_2.cpp)  [![example_xticklabels_3](docs/examples/appearance/grid/xticklabels/xticklabels_3_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)  [![example_xticklabels_4](docs/examples/appearance/grid/xticklabels/xticklabels_4_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
+[![example_xticklabels_2](xticklabels/xticklabels_2_thumb.png)](../../../../examples/appearance/grid/xticklabels/xticklabels_2.cpp)  [![example_xticklabels_3](xticklabels/xticklabels_3_thumb.png)](../../../../examples/appearance/grid/xticklabels/xticklabels_3.cpp)  [![example_xticklabels_4](xticklabels/xticklabels_4_thumb.png)](../../../../examples/appearance/grid/xticklabels/xticklabels_4.cpp)
 
   
 

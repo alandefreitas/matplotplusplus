@@ -16,11 +16,11 @@ imshow(image);
 
 See result
 
-[![e../../../examples/images/imshow/imshow_1.cppg)](examples/images/imshow/imshow_1.cpp)
+[![example_imshow_1](imshow/imshow_1.png)](../../../examples/images/imshow/imshow_1.cpp)
 
 More examples:
     
-[![e..................../../../examples/images/imshow/imshow_11.cpphumb.pngmshow/imshow_3.cpp)  [![example_imshow_4](docs/examples/images/imshow/imshow_4_thumb.png)](examples/images/imshow/imshow_4.cpp)  [![example_imshow_5](docs/examples/images/imshow/imshow_5_thumb.png)](examples/images/imshow/imshow_5.cpp)  [![example_imshow_6](docs/examples/images/imshow/imshow_6_thumb.png)](examples/images/imshow/imshow_6.cpp)  [![example_imshow_7](docs/examples/images/imshow/imshow_7_thumb.png)](examples/images/imshow/imshow_7.cpp)  [![example_imshow_8](docs/examples/images/imshow/imshow_8_thumb.png)](examples/images/imshow/imshow_8.cpp)  [![example_imshow_9](docs/examples/images/imshow/imshow_9_thumb.png)](examples/images/imshow/imshow_9.cpp)  [![example_imshow_10](docs/examples/images/imshow/imshow_10_thumb.png)](examples/images/imshow/imshow_10.cpp)  [![example_imshow_11](docs/examples/images/imshow/imshow_11_thumb.png)](examples/images/imshow/imshow_11.cpp)
+[![example_imshow_2](imshow/imshow_2_thumb.png)](../../../examples/images/imshow/imshow_2.cpp)  [![example_imshow_3](imshow/imshow_3_thumb.png)](../../../examples/images/imshow/imshow_3.cpp)  [![example_imshow_4](imshow/imshow_4_thumb.png)](../../../examples/images/imshow/imshow_4.cpp)  [![example_imshow_5](imshow/imshow_5_thumb.png)](../../../examples/images/imshow/imshow_5.cpp)  [![example_imshow_6](imshow/imshow_6_thumb.png)](../../../examples/images/imshow/imshow_6.cpp)  [![example_imshow_7](imshow/imshow_7_thumb.png)](../../../examples/images/imshow/imshow_7.cpp)  [![example_imshow_8](imshow/imshow_8_thumb.png)](../../../examples/images/imshow/imshow_8.cpp)  [![example_imshow_9](imshow/imshow_9_thumb.png)](../../../examples/images/imshow/imshow_9.cpp)  [![example_imshow_10](imshow/imshow_10_thumb.png)](../../../examples/images/imshow/imshow_10.cpp)  [![example_imshow_11](imshow/imshow_11_thumb.png)](../../../examples/images/imshow/imshow_11.cpp)
 
 
 These subcategories depend on the `matrix` class. The `matrix` class can have up to four matrices. If it has only one matrix, it is represented with a colormap. If it has three matrices, they represent the red, green, and blue channels. If it has four matrices, the fourth matrix represents an alpha channel to control the transparency of each pixel.

@@ -16,11 +16,11 @@ scatter(x,y,z);
 
 See result
     
-[![e../../../examples/data_distribution/scatter3/scatter3_1.cppcatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
+[![example_scatter3_1](../data_distribution/scatter3/scatter3_1.svg)](../../../examples/data_distribution/scatter3/scatter3_1.cpp)
 
 More examples:
     
-[![e........../../../examples/data_distribution/scatter3/scatter3_6.cppcatter3_6_thumb.png_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](docs/examples/data_distribution/scatter3/scatter3_3_thumb.png)](examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](docs/examples/data_distribution/scatter3/scatter3_4_thumb.png)](examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](docs/examples/data_distribution/scatter3/scatter3_5_thumb.png)](examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](docs/examples/data_distribution/scatter3/scatter3_6_thumb.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
+[![example_scatter3_2](../data_distribution/scatter3/scatter3_2_thumb.png)](../../../examples/data_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](../data_distribution/scatter3/scatter3_3_thumb.png)](../../../examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](../data_distribution/scatter3/scatter3_4_thumb.png)](../../../examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](../data_distribution/scatter3/scatter3_5_thumb.png)](../../../examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](../data_distribution/scatter3/scatter3_6_thumb.png)](../../../examples/data_distribution/scatter3/scatter3_6.cpp)
   
 
 

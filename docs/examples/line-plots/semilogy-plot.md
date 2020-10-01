@@ -16,7 +16,7 @@ semilogy(x,y);
 
 See result
     
-[![e../../../examples/line_plot/semilogy/semilogy_1.cppemilogy_1.svg)](examples/line_plot/semilogy/semilogy_1.cpp)
+[![example_semilogy_1](../line_plot/semilogy/semilogy_1.svg)](../../../examples/line_plot/semilogy/semilogy_1.cpp)
 
 
 

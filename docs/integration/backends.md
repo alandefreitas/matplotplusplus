@@ -8,7 +8,7 @@ has_toc: false
 ---
 # Backends
 
-Coming up with new backends is a continuous process. See the complete [article](../README.md) for a description of t../../source/matplot/backend/backend_interf../../source/matplot/backend/gnuplo../README.md#backendscurrent def../../source/matplot/backend pipe](source/matplot/back../../test/backends/ogl_main.cpps involved in possible [new backends](docs/README.md#backends). See the directory [`source/matplot/backend`](source/matplot/backend) for some examples. Also, have a look at this example [`test/backends/main.cpp`](test/backends/ogl_main.cpp). 
+Coming up with new backends is a continuous process. See the complete [article](../README.md) for a description of the [backend interface](../../source/matplot/backend/backend_interface.h), a description of the current default backend ([Gnuplot pipe](../../source/matplot/backend/gnuplot.h)), and what's involved in possible [new backends](../README.md#backends). See the directory [`source/matplot/backend`](../../source/matplot/backend) for some examples. Also, have a look at this example [`test/backends/main.cpp`](../../test/backends/ogl_main.cpp). 
 
 If you're in a hurry, here is a summary of the backends we have and the backends we have been considering or working on:
 

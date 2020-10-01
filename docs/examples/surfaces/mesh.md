@@ -16,11 +16,11 @@ mesh(X, Y, Z);
 
 See result
 
-[![e../../../examples/surfaces/mesh/mesh_1.cppexamples/surfaces/mesh/mesh_1.cpp)
+[![example_mesh_1](mesh/mesh_1.png)](../../../examples/surfaces/mesh/mesh_1.cpp)
 
 More examples:
     
-[![e....../../../examples/surfaces/mesh/mesh_4.cpppng.cpp)  [![example_mesh_3](docs/examples/surfaces/mesh/mesh_3_thumb.png)](examples/surfaces/mesh/mesh_3.cpp)  [![example_mesh_4](docs/examples/surfaces/mesh/mesh_4_thumb.png)](examples/surfaces/mesh/mesh_4.cpp)
+[![example_mesh_2](mesh/mesh_2_thumb.png)](../../../examples/surfaces/mesh/mesh_2.cpp)  [![example_mesh_3](mesh/mesh_3_thumb.png)](../../../examples/surfaces/mesh/mesh_3.cpp)  [![example_mesh_4](mesh/mesh_4_thumb.png)](../../../examples/surfaces/mesh/mesh_4.cpp)
 
   
 

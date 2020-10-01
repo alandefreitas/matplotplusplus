@@ -16,11 +16,11 @@ rgbplot(colors);
 
 See result
 
-[![e../../../../examples/appearance/colormaps/rgbplot/rgbplot_1.cppappearance/colormaps/rgbplot/rgbplot_1.cpp)
+[![example_rgbplot_1](rgbplot/rgbplot_1.svg)](../../../../examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
 
 More examples:
     
-[![e../../../../examples/appearance/colormaps/rgbplot/rgbplot_2.cppmples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
+[![example_rgbplot_2](rgbplot/rgbplot_2_thumb.png)](../../../../examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
   
 
 

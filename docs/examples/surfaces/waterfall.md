@@ -16,11 +16,11 @@ waterfall(X, Y, Z);
 
 See result
 
-[![e../../../examples/surfaces/waterfall/waterfall_1.cppng)](examples/surfaces/waterfall/waterfall_1.cpp)
+[![example_waterfall_1](waterfall/waterfall_1.png)](../../../examples/surfaces/waterfall/waterfall_1.cpp)
 
 More examples:
     
-[![e..../../../examples/surfaces/waterfall/waterfall_3.cpphumb.pngaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](docs/examples/surfaces/waterfall/waterfall_3_thumb.png)](examples/surfaces/waterfall/waterfall_3.cpp)
+[![example_waterfall_2](waterfall/waterfall_2_thumb.png)](../../../examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](waterfall/waterfall_3_thumb.png)](../../../examples/surfaces/waterfall/waterfall_3.cpp)
 
   
 

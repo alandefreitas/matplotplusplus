@@ -16,11 +16,11 @@ xlabel(str);
 
 See result
 
-[![e../../../../examples/appearance/labels/xlabel/xlabel_1.cpps/appearance/labels/xlabel/xlabel_1.cpp)
+[![example_xlabel_1](xlabel/xlabel_1.svg)](../../../../examples/appearance/labels/xlabel/xlabel_1.cpp)
 
 More examples:
     
-[![e............../../../../examples/appearance/labels/xlabel/xlabel_8.cppmples/appearance/labels/xlabel/xlabel_3.cpp)  [![example_xlabel_4](docs/examples/appearance/labels/xlabel/xlabel_4_thumb.png)](examples/appearance/labels/xlabel/xlabel_4.cpp)  [![example_xlabel_5](docs/examples/appearance/labels/xlabel/xlabel_5_thumb.png)](examples/appearance/labels/xlabel/xlabel_5.cpp)  [![example_xlabel_6](docs/examples/appearance/labels/xlabel/xlabel_6_thumb.png)](examples/appearance/labels/xlabel/xlabel_6.cpp)  [![example_xlabel_7](docs/examples/appearance/labels/xlabel/xlabel_7_thumb.png)](examples/appearance/labels/xlabel/xlabel_7.cpp)  [![example_xlabel_8](docs/examples/appearance/labels/xlabel/xlabel_8_thumb.png)](examples/appearance/labels/xlabel/xlabel_8.cpp)
+[![example_xlabel_2](xlabel/xlabel_2_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_2.cpp)  [![example_xlabel_3](xlabel/xlabel_3_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_3.cpp)  [![example_xlabel_4](xlabel/xlabel_4_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_4.cpp)  [![example_xlabel_5](xlabel/xlabel_5_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_5.cpp)  [![example_xlabel_6](xlabel/xlabel_6_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_6.cpp)  [![example_xlabel_7](xlabel/xlabel_7_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_7.cpp)  [![example_xlabel_8](xlabel/xlabel_8_thumb.png)](../../../../examples/appearance/labels/xlabel/xlabel_8.cpp)
 
   
 

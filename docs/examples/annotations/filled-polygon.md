@@ -16,7 +16,7 @@ polygon(x0, y0, color);
 
 See result
 
-[![e../../../examples/annotations/fill/fill_1.cppmples/annotations/fill/fill_1.cpp)
+[![example_fill_1](fill/fill_1.svg)](../../../examples/annotations/fill/fill_1.cpp)
 
 
 

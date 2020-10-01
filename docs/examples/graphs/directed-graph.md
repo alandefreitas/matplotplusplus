@@ -16,11 +16,11 @@ digraph(edges);
 
 See result
 
-[![e../../../examples/graphs/digraph/digraph_1.cppvg)](examples/graphs/digraph/digraph_1.cpp)
+[![example_digraph_1](digraph/digraph_1.svg)](../../../examples/graphs/digraph/digraph_1.cpp)
 
 More examples:
     
-[![e..../../../examples/graphs/digraph/digraph_3.cpphumb.pngaphs/digraph/digraph_2.cpp)  [![example_digraph_3](docs/examples/graphs/digraph/digraph_3_thumb.png)](examples/graphs/digraph/digraph_3.cpp)
+[![example_digraph_2](digraph/digraph_2_thumb.png)](../../../examples/graphs/digraph/digraph_2.cpp)  [![example_digraph_3](digraph/digraph_3_thumb.png)](../../../examples/graphs/digraph/digraph_3.cpp)
   
 
 

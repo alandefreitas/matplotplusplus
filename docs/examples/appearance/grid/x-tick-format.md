@@ -16,11 +16,11 @@ xtickformat(fmtstr);
 
 See result
 
-[![e../../../../examples/appearance/grid/xtickformat/xtickformat_1.cppexamples/appearance/grid/xtickformat/xtickformat_1.cpp)
+[![example_xtickformat_1](xtickformat/xtickformat_1.svg)](../../../../examples/appearance/grid/xtickformat/xtickformat_1.cpp)
 
 More examples:
     
-[![e......../../../../examples/appearance/grid/xtickformat/xtickformat_5.cpppng[![example_xtickformat_3](docs/examples/appearance/grid/xtickformat/xtickformat_3_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)  [![example_xtickformat_4](docs/examples/appearance/grid/xtickformat/xtickformat_4_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)  [![example_xtickformat_5](docs/examples/appearance/grid/xtickformat/xtickformat_5_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
+[![example_xtickformat_2](xtickformat/xtickformat_2_thumb.png)](../../../../examples/appearance/grid/xtickformat/xtickformat_2.cpp)  [![example_xtickformat_3](xtickformat/xtickformat_3_thumb.png)](../../../../examples/appearance/grid/xtickformat/xtickformat_3.cpp)  [![example_xtickformat_4](xtickformat/xtickformat_4_thumb.png)](../../../../examples/appearance/grid/xtickformat/xtickformat_4.cpp)  [![example_xtickformat_5](xtickformat/xtickformat_5_thumb.png)](../../../../examples/appearance/grid/xtickformat/xtickformat_5.cpp)
 
   
 

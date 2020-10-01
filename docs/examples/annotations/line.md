@@ -16,7 +16,7 @@ line(x1, y1, x2, y2);
 
 See result
 
-[![e../../../examples/annotations/line/line_1.cppmples/annotations/line/line_1.cpp)
+[![example_line_1](line/line_1.svg)](../../../examples/annotations/line/line_1.cpp)
 
 
 

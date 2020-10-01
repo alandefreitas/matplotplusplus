@@ -16,11 +16,11 @@ ytickangle(ang);
 
 See result
 
-[![e../../../../examples/appearance/grid/ytickangle/ytickangle_1.cppxamples/appearance/grid/ytickangle/ytickangle_1.cpp)
+[![example_ytickangle_1](ytickangle/ytickangle_1.svg)](../../../../examples/appearance/grid/ytickangle/ytickangle_1.cpp)
 
 More examples:
     
-[![e..../../../../examples/appearance/grid/ytickangle/ytickangle_3.cppngce/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](docs/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
+[![example_ytickangle_2](ytickangle/ytickangle_2_thumb.png)](../../../../examples/appearance/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](ytickangle/ytickangle_3_thumb.png)](../../../../examples/appearance/grid/ytickangle/ytickangle_3.cpp)
 
   
 

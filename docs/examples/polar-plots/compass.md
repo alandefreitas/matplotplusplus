@@ -16,11 +16,11 @@ compass(u, v);
 
 See result
 
-[![e../../../examples/polar_plots/compass/compass_1.cppompass_1.svg)](examples/polar_plots/compass/compass_1.cpp)
+[![example_compass_1](../polar_plots/compass/compass_1.svg)](../../../examples/polar_plots/compass/compass_1.cpp)
 
 More examples:
     
-[![e../../../examples/polar_plots/compass/compass_2.cppompass_2_thumb.png)](examples/polar_plots/compass/compass_2.cpp)
+[![example_compass_2](../polar_plots/compass/compass_2_thumb.png)](../../../examples/polar_plots/compass/compass_2.cpp)
 
   
 

@@ -16,11 +16,11 @@ graph(edges);
 
 See result
 
-[![e../../../examples/graphs/graph/graph_1.cpp)](examples/graphs/graph/graph_1.cpp)
+[![example_graph_1](graph/graph_1.svg)](../../../examples/graphs/graph/graph_1.cpp)
 
 More examples:
     
-[![e......../../../examples/graphs/graph/graph_5.cppmb.pngexample_graph_3](docs/examples/graphs/graph/graph_3_thumb.png)](examples/graphs/graph/graph_3.cpp)  [![example_graph_4](docs/examples/graphs/graph/graph_4_thumb.png)](examples/graphs/graph/graph_4.cpp)  [![example_graph_5](docs/examples/graphs/graph/graph_5_thumb.png)](examples/graphs/graph/graph_5.cpp)
+[![example_graph_2](graph/graph_2_thumb.png)](../../../examples/graphs/graph/graph_2.cpp)  [![example_graph_3](graph/graph_3_thumb.png)](../../../examples/graphs/graph/graph_3.cpp)  [![example_graph_4](graph/graph_4_thumb.png)](../../../examples/graphs/graph/graph_4.cpp)  [![example_graph_5](graph/graph_5_thumb.png)](../../../examples/graphs/graph/graph_5.cpp)
   
 
 All these subcategories depend on the `network` class. Graphs are abstract structures that represent objects and relationships between these objects. The objects are represented as vertices and the relationships are depicted as edges.

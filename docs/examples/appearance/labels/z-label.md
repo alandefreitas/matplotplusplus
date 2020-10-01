@@ -16,11 +16,11 @@ zlabel(str);
 
 See result
 
-[![e../../../../examples/appearance/labels/zlabel/zlabel_1.cpps/appearance/labels/zlabel/zlabel_1.cpp)
+[![example_zlabel_1](zlabel/zlabel_1.png)](../../../../examples/appearance/labels/zlabel/zlabel_1.cpp)
 
 More examples:
     
-[![e..../../../../examples/appearance/labels/zlabel/zlabel_3.cppels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](docs/examples/appearance/labels/zlabel/zlabel_3_thumb.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
+[![example_zlabel_2](zlabel/zlabel_2_thumb.png)](../../../../examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](zlabel/zlabel_3_thumb.png)](../../../../examples/appearance/labels/zlabel/zlabel_3.cpp)
 
   
 

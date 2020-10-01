@@ -16,7 +16,7 @@ semilogx(x,y);
 
 See result
     
-[![e../../../examples/line_plot/semilogx/semilogx_1.cppemilogx_1.svg)](examples/line_plot/semilogx/semilogx_1.cpp)
+[![example_semilogx_1](../line_plot/semilogx/semilogx_1.svg)](../../../examples/line_plot/semilogx/semilogx_1.cpp)
 
 
 
