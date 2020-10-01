@@ -16,11 +16,11 @@ meshc(X, Y, Z);
 
 See result
 
-[![example_meshc_1](meshc/meshc_1.png)](../../../examples/surfaces/meshc/meshc_1.cpp)
+[![example_meshc_1](meshc/meshc_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/meshc/meshc_1.cpp)
 
 More examples:
     
-[![example_meshc_2](meshc/meshc_2_thumb.png)](../../../examples/surfaces/meshc/meshc_2.cpp)  [![example_meshc_3](meshc/meshc_3_thumb.png)](../../../examples/surfaces/meshc/meshc_3.cpp)
+[![example_meshc_2](meshc/meshc_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/meshc/meshc_2.cpp)  [![example_meshc_3](meshc/meshc_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/meshc/meshc_3.cpp)
 
   
 

@@ -16,7 +16,7 @@ fplot(fn, spec_str);
 
 See result
 
-[![example_line_spec_1](line_spec/line_spec_1.svg)](../../../examples/appearance/line_spec/line_spec_1.cpp)
+[![example_line_spec_1](line_spec/line_spec_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/line_spec/line_spec_1.cpp)
 
 
 

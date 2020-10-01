@@ -16,11 +16,11 @@ xtickangle(ang);
 
 See result
 
-[![example_xtickangle_1](xtickangle/xtickangle_1.svg)](../../../../examples/appearance/grid/xtickangle/xtickangle_1.cpp)
+[![example_xtickangle_1](xtickangle/xtickangle_1.svg)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/grid/xtickangle/xtickangle_1.cpp)
 
 More examples:
     
-[![example_xtickangle_2](xtickangle/xtickangle_2_thumb.png)](../../../../examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](xtickangle/xtickangle_3_thumb.png)](../../../../examples/appearance/grid/xtickangle/xtickangle_3.cpp)
+[![example_xtickangle_2](xtickangle/xtickangle_2_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](xtickangle/xtickangle_3_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/grid/xtickangle/xtickangle_3.cpp)
 
   
 

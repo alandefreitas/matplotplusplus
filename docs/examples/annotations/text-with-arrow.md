@@ -16,11 +16,11 @@ textarrow(x1, y1, x2, y2, str);
 
 See result
 
-[![example_textarrow_1](textarrow/textarrow_1.svg)](../../../examples/annotations/textarrow/textarrow_1.cpp)
+[![example_textarrow_1](textarrow/textarrow_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/textarrow/textarrow_1.cpp)
 
 More examples:
     
-[![example_textarrow_2](textarrow/textarrow_2_thumb.png)](../../../examples/annotations/textarrow/textarrow_2.cpp)
+[![example_textarrow_2](textarrow/textarrow_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/textarrow/textarrow_2.cpp)
 
   
 

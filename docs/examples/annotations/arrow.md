@@ -16,11 +16,11 @@ arrow(x1, y1, x2, y2);
 
 See result
 
-[![example_arrow_1](arrow/arrow_1.svg)](../../../examples/annotations/arrow/arrow_1.cpp)
+[![example_arrow_1](arrow/arrow_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/arrow/arrow_1.cpp)
 
 More examples:
     
-[![example_arrow_2](arrow/arrow_2_thumb.png)](../../../examples/annotations/arrow/arrow_2.cpp)
+[![example_arrow_2](arrow/arrow_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/arrow/arrow_2.cpp)
 
   
 

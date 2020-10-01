@@ -16,11 +16,11 @@ figure();
 
 See result
 
-[![example_figure_1](figure/figure_1.svg)](../../../examples/appearance/figure/figure_1.cpp)
+[![example_figure_1](figure/figure_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/figure/figure_1.cpp)
 
 More examples:
     
-[![example_figure_2](figure/figure_2_thumb.png)](../../../examples/appearance/figure/figure_2.cpp)  [![example_figure_3](figure/figure_3_thumb.png)](../../../examples/appearance/figure/figure_3.cpp)
+[![example_figure_2](figure/figure_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/figure/figure_2.cpp)  [![example_figure_3](figure/figure_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/figure/figure_3.cpp)
 
   
 

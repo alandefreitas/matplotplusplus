@@ -16,11 +16,11 @@ quiver(x, y, u, v);
 
 See result
 
-[![example_quiver_1](../vector_fields/quiver/quiver_1.svg)](../../../examples/vector_fields/quiver/quiver_1.cpp)
+[![example_quiver_1](../vector_fields/quiver/quiver_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/quiver/quiver_1.cpp)
 
 More examples:
     
-[![example_quiver_2](../vector_fields/quiver/quiver_2_thumb.png)](../../../examples/vector_fields/quiver/quiver_2.cpp)  [![example_quiver_3](../vector_fields/quiver/quiver_3_thumb.png)](../../../examples/vector_fields/quiver/quiver_3.cpp)  [![example_quiver_4](../vector_fields/quiver/quiver_4_thumb.png)](../../../examples/vector_fields/quiver/quiver_4.cpp)
+[![example_quiver_2](../vector_fields/quiver/quiver_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/quiver/quiver_2.cpp)  [![example_quiver_3](../vector_fields/quiver/quiver_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/quiver/quiver_3.cpp)  [![example_quiver_4](../vector_fields/quiver/quiver_4_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/quiver/quiver_4.cpp)
 
 
 All these subcategories depend on the `vectors` object type. In a two-dimensional plot, for each value of $x$ and $y$ with the position of a vector, it also requires the value of $u$ and $v$ indicating its direction and magnitude. In a three-dimensional plot, the direction and magnitude are defined by $u$, $v$, and $w$.

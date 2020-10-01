@@ -16,11 +16,11 @@ geoplot(lat,lon);
 
 See result
 
-[![example_geoplot_1](geoplot/geoplot_1.png)](../../../examples/geography/geoplot/geoplot_1.cpp)
+[![example_geoplot_1](geoplot/geoplot_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_1.cpp)
 
 More examples:
     
-[![example_geoplot_2](geoplot/geoplot_2_thumb.png)](../../../examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](geoplot/geoplot_3_thumb.png)](../../../examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](geoplot/geoplot_4_thumb.png)](../../../examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](geoplot/geoplot_5_thumb.png)](../../../examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](geoplot/geoplot_6_thumb.png)](../../../examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](geoplot/geoplot_7_thumb.png)](../../../examples/geography/geoplot/geoplot_7.cpp)
+[![example_geoplot_2](geoplot/geoplot_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](geoplot/geoplot_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](geoplot/geoplot_4_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](geoplot/geoplot_5_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](geoplot/geoplot_6_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](geoplot/geoplot_7_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoplot/geoplot_7.cpp)
   
 
 For the first geography plot, **Matplot++** calls `geoplot()`, which creates a filled polygon with the world map. This first plot receives the tag `"map"` so that subsequent geography plots recognize there is no need to recreate this world map.

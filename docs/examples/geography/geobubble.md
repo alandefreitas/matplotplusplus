@@ -16,11 +16,11 @@ geobubble(lat,lon,sizes);
 
 See result
 
-[![example_geobubble_1](geobubble/geobubble_1.png)](../../../examples/geography/geobubble/geobubble_1.cpp)
+[![example_geobubble_1](geobubble/geobubble_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geobubble/geobubble_1.cpp)
 
 More examples:
     
-[![example_geobubble_2](geobubble/geobubble_2_thumb.png)](../../../examples/geography/geobubble/geobubble_2.cpp)
+[![example_geobubble_2](geobubble/geobubble_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geobubble/geobubble_2.cpp)
 
   
 

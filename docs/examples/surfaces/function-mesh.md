@@ -16,11 +16,11 @@ fmesh(fn);
 
 See result
 
-[![example_fmesh_1](fmesh/fmesh_1.png)](../../../examples/surfaces/fmesh/fmesh_1.cpp)
+[![example_fmesh_1](fmesh/fmesh_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/fmesh/fmesh_1.cpp)
 
 More examples:
     
-[![example_fmesh_2](fmesh/fmesh_2_thumb.png)](../../../examples/surfaces/fmesh/fmesh_2.cpp)  [![example_fmesh_3](fmesh/fmesh_3_thumb.png)](../../../examples/surfaces/fmesh/fmesh_3.cpp)  [![example_fmesh_4](fmesh/fmesh_4_thumb.png)](../../../examples/surfaces/fmesh/fmesh_4.cpp)
+[![example_fmesh_2](fmesh/fmesh_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/fmesh/fmesh_2.cpp)  [![example_fmesh_3](fmesh/fmesh_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/fmesh/fmesh_3.cpp)  [![example_fmesh_4](fmesh/fmesh_4_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/fmesh/fmesh_4.cpp)
 
   
 

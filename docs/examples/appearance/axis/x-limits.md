@@ -16,11 +16,11 @@ xlim({xmin,xmax});
 
 See result
 
-[![example_xlim_1](xlim/xlim_1.svg)](../../../../examples/appearance/axis/xlim/xlim_1.cpp)
+[![example_xlim_1](xlim/xlim_1.svg)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_1.cpp)
 
 More examples:
     
-[![example_xlim_2](xlim/xlim_2_thumb.png)](../../../../examples/appearance/axis/xlim/xlim_2.cpp)  [![example_xlim_3](xlim/xlim_3_thumb.png)](../../../../examples/appearance/axis/xlim/xlim_3.cpp)  [![example_xlim_4](xlim/xlim_4_thumb.png)](../../../../examples/appearance/axis/xlim/xlim_4.cpp)  [![example_xlim_5](xlim/xlim_5_thumb.png)](../../../../examples/appearance/axis/xlim/xlim_5.cpp)  [![example_xlim_6](xlim/xlim_6_thumb.png)](../../../../examples/appearance/axis/xlim/xlim_6.cpp)
+[![example_xlim_2](xlim/xlim_2_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_2.cpp)  [![example_xlim_3](xlim/xlim_3_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_3.cpp)  [![example_xlim_4](xlim/xlim_4_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_4.cpp)  [![example_xlim_5](xlim/xlim_5_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_5.cpp)  [![example_xlim_6](xlim/xlim_6_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axis/xlim/xlim_6.cpp)
 
   
 

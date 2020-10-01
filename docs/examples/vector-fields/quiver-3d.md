@@ -16,7 +16,7 @@ quiver3(Z, U, V, W);
 
 See result
 
-[![example_quiver3_1](../vector_fields/quiver3/quiver3_1.svg)](../../../examples/vector_fields/quiver3/quiver3_1.cpp)
+[![example_quiver3_1](../vector_fields/quiver3/quiver3_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/quiver3/quiver3_1.cpp)
 
 
 

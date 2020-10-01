@@ -16,7 +16,7 @@ geodensityplot(lat, lon);
 
 See result
 
-[![example_geodensityplot_1](geodensityplot/geodensityplot_1.png)](../../../examples/geography/geodensityplot/geodensityplot_1.cpp)
+[![example_geodensityplot_1](geodensityplot/geodensityplot_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geodensityplot/geodensityplot_1.cpp)
 
 
 

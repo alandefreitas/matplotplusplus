@@ -16,11 +16,11 @@ geoscatter(lat,lon);
 
 See result
 
-[![example_geoscatter_1](geoscatter/geoscatter_1.png)](../../../examples/geography/geoscatter/geoscatter_1.cpp)
+[![example_geoscatter_1](geoscatter/geoscatter_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoscatter/geoscatter_1.cpp)
 
 More examples:
     
-[![example_geoscatter_2](geoscatter/geoscatter_2_thumb.png)](../../../examples/geography/geoscatter/geoscatter_2.cpp)
+[![example_geoscatter_2](geoscatter/geoscatter_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/geography/geoscatter/geoscatter_2.cpp)
 
   
 

@@ -16,11 +16,11 @@ cla();
 
 See result
 
-[![example_cla_1](cla/cla_1.svg)](../../../examples/appearance/cla/cla_1.cpp)
+[![example_cla_1](cla/cla_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/cla/cla_1.cpp)
 
 More examples:
     
-[![example_cla_2](cla/cla_2_thumb.png)](../../../examples/appearance/cla/cla_2.cpp)  [![example_cla_3](cla/cla_3_thumb.png)](../../../examples/appearance/cla/cla_3.cpp)
+[![example_cla_2](cla/cla_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/cla/cla_2.cpp)  [![example_cla_3](cla/cla_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/cla/cla_3.cpp)
   
 
 

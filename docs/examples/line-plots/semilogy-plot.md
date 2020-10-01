@@ -16,7 +16,7 @@ semilogy(x,y);
 
 See result
     
-[![example_semilogy_1](../line_plot/semilogy/semilogy_1.svg)](../../../examples/line_plot/semilogy/semilogy_1.cpp)
+[![example_semilogy_1](../line_plot/semilogy/semilogy_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/semilogy/semilogy_1.cpp)
 
 
 

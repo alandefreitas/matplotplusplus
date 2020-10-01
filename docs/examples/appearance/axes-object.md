@@ -16,11 +16,11 @@ auto ax1 = gca();
 
 See result
 
-[![example_axes_1](axes/axes_1.svg)](../../../examples/appearance/axes/axes_1.cpp)
+[![example_axes_1](axes/axes_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axes/axes_1.cpp)
 
 More examples:
     
-[![example_axes_2](axes/axes_2_thumb.png)](../../../examples/appearance/axes/axes_2.cpp)  [![example_axes_3](axes/axes_3_thumb.png)](../../../examples/appearance/axes/axes_3.cpp)
+[![example_axes_2](axes/axes_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axes/axes_2.cpp)  [![example_axes_3](axes/axes_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/axes/axes_3.cpp)
   
 
 

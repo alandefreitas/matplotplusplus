@@ -16,11 +16,11 @@ fplot(fxy);
 
 See result
     
-[![example_fimplicit_1](../line_plot/fimplicit/fimplicit_1.svg)](../../../examples/line_plot/fimplicit/fimplicit_1.cpp)
+[![example_fimplicit_1](../line_plot/fimplicit/fimplicit_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/fimplicit/fimplicit_1.cpp)
 
 More examples:
     
-[![example_fimplicit_2](../line_plot/fimplicit/fimplicit_2_thumb.png)](../../../examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](../line_plot/fimplicit/fimplicit_3_thumb.png)](../../../examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](../line_plot/fimplicit/fimplicit_4_thumb.png)](../../../examples/line_plot/fimplicit/fimplicit_4.cpp)
+[![example_fimplicit_2](../line_plot/fimplicit/fimplicit_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](../line_plot/fimplicit/fimplicit_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](../line_plot/fimplicit/fimplicit_4_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/fimplicit/fimplicit_4.cpp)
   
 
 

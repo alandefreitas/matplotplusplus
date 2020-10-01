@@ -16,7 +16,7 @@ ellipse(x, y, w, h);
 
 See result
 
-[![example_ellipse_1](ellipse/ellipse_1.svg)](../../../examples/annotations/ellipse/ellipse_1.cpp)
+[![example_ellipse_1](ellipse/ellipse_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/ellipse/ellipse_1.cpp)
 
 
 

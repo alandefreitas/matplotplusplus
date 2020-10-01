@@ -16,7 +16,7 @@ polygon(x0, y0, color);
 
 See result
 
-[![example_fill_1](fill/fill_1.svg)](../../../examples/annotations/fill/fill_1.cpp)
+[![example_fill_1](fill/fill_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/annotations/fill/fill_1.cpp)
 
 
 

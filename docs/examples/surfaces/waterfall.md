@@ -16,11 +16,11 @@ waterfall(X, Y, Z);
 
 See result
 
-[![example_waterfall_1](waterfall/waterfall_1.png)](../../../examples/surfaces/waterfall/waterfall_1.cpp)
+[![example_waterfall_1](waterfall/waterfall_1.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/waterfall/waterfall_1.cpp)
 
 More examples:
     
-[![example_waterfall_2](waterfall/waterfall_2_thumb.png)](../../../examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](waterfall/waterfall_3_thumb.png)](../../../examples/surfaces/waterfall/waterfall_3.cpp)
+[![example_waterfall_2](waterfall/waterfall_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](waterfall/waterfall_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/surfaces/waterfall/waterfall_3.cpp)
 
   
 

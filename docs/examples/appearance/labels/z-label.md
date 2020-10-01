@@ -16,11 +16,11 @@ zlabel(str);
 
 See result
 
-[![example_zlabel_1](zlabel/zlabel_1.png)](../../../../examples/appearance/labels/zlabel/zlabel_1.cpp)
+[![example_zlabel_1](zlabel/zlabel_1.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/labels/zlabel/zlabel_1.cpp)
 
 More examples:
     
-[![example_zlabel_2](zlabel/zlabel_2_thumb.png)](../../../../examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](zlabel/zlabel_3_thumb.png)](../../../../examples/appearance/labels/zlabel/zlabel_3.cpp)
+[![example_zlabel_2](zlabel/zlabel_2_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](zlabel/zlabel_3_thumb.png)](../https://github.com/alandefreitas/matplotplusplus/blob/master/examples/appearance/labels/zlabel/zlabel_3.cpp)
 
   
 
