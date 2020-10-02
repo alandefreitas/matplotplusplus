@@ -23,7 +23,7 @@ CPMAddPackage(
     GITHUB_REPOSITORY alandefreitas/matplotplusplus
     GIT_TAG origin/master # or whatever tag you want
 )
-# CMake with Automatic Download
+# ...
 target_link_libraries(my_target PUBLIC matplot)
 ```
 
