@@ -1,13 +1,21 @@
 # Matplot++
 
+> A C++ Graphics Library for Data Visualization
+
+[![Matplot++](docs/img/matplotcover.png)](https://alandefreitas.github.io/matplotplusplus/)
+
+<br/>
+
+Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. **Matplot++** is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.
+
+<br/>
+
 [![Build Status](https://img.shields.io/github/workflow/status/alandefreitas/matplotplusplus/Matplotplusplus?event=push&label=Build&logo=Github-Actions)](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush)
 [![Latest Release](https://img.shields.io/github/release/alandefreitas/matplotplusplus.svg?label=Download)](https://GitHub.com/alandefreitas/matplotplusplus/releases/)
 [![Documentation](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Documentation)](https://alandefreitas.github.io/matplotplusplus/)
 [![Discussions](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Discussions)](https://github.com/alandefreitas/matplotplusplus/discussions)
 
-![](docs/img/matplotcover.png)
-
-Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. **Matplot++** is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.
+<br/>
 
 <!-- https://github.com/bradvin/social-share-urls -->
 [![Facebook](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Share+on+Facebook&logo=facebook)](https://www.facebook.com/sharer/sharer.php?t=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization&u=https://github.com/alandefreitas/matplotplusplus/)
@@ -20,6 +28,8 @@ Data visualization can help programmers and scientists identify trends in their 
 [![Line.me](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Share+on+Line.me&logo=line)](https://lineit.line.me/share/ui?url=https://github.com/alandefreitas/matplotplusplus/&text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization)
 [![Telegram.me](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Share+on+Telegram.me&logo=telegram)](https://telegram.me/share/url?url=https://github.com/alandefreitas/matplotplusplus/&text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization)
 [![HackerNews](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Share+on+HackerNews&logo=y-combinator)](https://news.ycombinator.com/submitlink?u=https://github.com/alandefreitas/matplotplusplus/&t=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization)
+
+<br/>
 
 <!-- https://gist.github.com/jbroadway/2836900 -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
