@@ -77,7 +77,7 @@ sudo apt upgrade cmake
 
 or download the most recent version from [cmake.org](https://cmake.org/).
 
-[Later]() when running CMake, make sure you are using GCC-8 or higher by appending the following options:
+[Later](build-the-examples.md) when running CMake, make sure you are using GCC-8 or higher by appending the following options:
 
 ```bash
 -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
@@ -173,7 +173,7 @@ There are two dependencies in [`source/3rd_party`](https://github.com/alandefrei
 
 You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
-There's an extra target `matplot_opengl` with the experimental [OpenGL backend](). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](../backends.md). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
 * OpenGL
 * GLAD

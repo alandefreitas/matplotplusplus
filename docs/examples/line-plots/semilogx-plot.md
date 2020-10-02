@@ -16,7 +16,7 @@ semilogx(x,y);
 
 See result
     
-[![example_semilogx_1](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/examples/line_plot/semilogx/semilogx_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/semilogx/semilogx_1.cpp)
+[![example_semilogx_1](../line_plot/semilogx/semilogx_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/line_plot/semilogx/semilogx_1.cpp)
 
 
 

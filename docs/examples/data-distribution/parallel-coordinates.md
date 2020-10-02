@@ -16,11 +16,11 @@ parallelplot(X);
 
 See result
 
-[![example_parallelplot_1](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/examples/data_distribution/parallelplot/parallelplot_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_1.cpp)
+[![example_parallelplot_1](../data_distribution/parallelplot/parallelplot_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_1.cpp)
 
 More examples:
     
-[![example_parallelplot_2](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_3.cpp)
+[![example_parallelplot_2](../data_distribution/parallelplot/parallelplot_2_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](../data_distribution/parallelplot/parallelplot_3_thumb.png)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/data_distribution/parallelplot/parallelplot_3.cpp)
   
 
 The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data. 

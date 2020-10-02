@@ -11,7 +11,7 @@ has_toc: false
 There are also two modes for figures: reactive (or interactive) mode and quiet mode. Figures in reactive mode are updated whenever any of their child objects change. This happens through the `touch` function, that gets called on any child object when it changes its appearance. This creates an interactive mode in which figures are updated as soon as we adjust their properties. If we combine interactive figures with free-standing functions, we have a "Matlab-like style" for plots. This is a coding pattern where the figure registry works as a stream for plots.
 The problem with this coding style is that the user might unnecessarily create useless intermediary plots.
 
-Figures in quiet mode are updated by calling the functions `draw()` or `show()` (Section [Reactive Figures]()). Unless these functions are called, nothing changes in the figure. The combination of the object-oriented coding style and quiet mode is the "OO-Matplotlib-like style" for plots. This is a coding style in which the user explicitly decides when the plot is shown or updated. This is beneficial to applications that cannot waste computational resources on intermediary figures that might not be valuable to the application.
+Figures in quiet mode are updated by calling the functions `draw()` or `show()` (Section [Reactive Figures](reactive-figures.md)). Unless these functions are called, nothing changes in the figure. The combination of the object-oriented coding style and quiet mode is the "OO-Matplotlib-like style" for plots. This is a coding style in which the user explicitly decides when the plot is shown or updated. This is beneficial to applications that cannot waste computational resources on intermediary figures that might not be valuable to the application.
 
 We generally use free-standing functions with reactive mode and the object-oriented interface with quiet mode. By default, new figures are in reactive mode, unless it is using an non-interactive backend. One can turn this reactive mode on and off with:
 
@@ -31,7 +31,7 @@ p->color("red").line_width(2); // draws twice more
 show();                        // pause console
 ```
 
-For convenience, the examples in Section [Examples]() use the reactive mode. The `show` function pauses the console until the user interacts with the plot window. If the backend is based on process pipes, because these are unidirectional, closing the window is not enough to resume. The user needs to use the console to unblock execution. A similar example is quiet mode would be
+For convenience, the examples in Section [Examples](../examples.md) use the reactive mode. The `show` function pauses the console until the user interacts with the plot window. If the backend is based on process pipes, because these are unidirectional, closing the window is not enough to resume. The user needs to use the console to unblock execution. A similar example is quiet mode would be
 
 ```cpp
 // Quiet mode

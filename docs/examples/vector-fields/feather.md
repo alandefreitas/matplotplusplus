@@ -16,7 +16,7 @@ feather(u, v);
 
 See result
 
-[![example_feather_1](https://github.com/alandefreitas/matplotplusplus/blob/master/docs/examples/vector_fields/feather/feather_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/feather/feather_1.cpp)
+[![example_feather_1](../vector_fields/feather/feather_1.svg)](https://github.com/alandefreitas/matplotplusplus/blob/master/examples/vector_fields/feather/feather_1.cpp)
 
 
 
