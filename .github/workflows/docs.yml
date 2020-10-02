@@ -1,0 +1,47 @@
+name: Docs Generator
+
+on:
+  push:
+    paths:
+      - 'README.md'
+      - '.github/workflows/docs.yml'
+
+jobs:
+  generateDOC:
+    name: Docs Generator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/toc-generator@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_HEADER_LEVEL: 3
+          FOLDING: true
+      - name: Download mdsplit
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download-mdsplit
+        with:
+          file-url: 'https://github.com/alandefreitas/mdsplit/releases/download/v0.0.1/Executable.Linux.zip'
+          file-name: 'mdsplit.zip'
+          location: '.'
+      - name: Unzip mdsplit
+        run: |
+          unzip mdsplit.zip
+          rm -f mdsplit.zip
+          sudo chmod +x mdsplit
+          ls
+      - name: Generate Docs
+        run: ./mdsplit -r alandefreitas/matplotplusplus
+      - name: Commit Docs
+        run: |
+          git fetch
+          git add docs
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update Docs" -a
+        continue-on-error: true
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        if: ${{ success() }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
