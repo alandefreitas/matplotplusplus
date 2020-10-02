@@ -28,5 +28,4 @@ Binned scatter plots use variations of the histogram algorithms of the previous 
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -28,5 +28,4 @@ The function `polarhistogram` distributes the data into the number of bins provi
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

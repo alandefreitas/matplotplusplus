@@ -28,5 +28,4 @@ Scatter plots also depend on the `line` object. As the line object can represent
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

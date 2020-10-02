@@ -23,5 +23,4 @@ On windows, replace `-O2` with `/O2`.
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

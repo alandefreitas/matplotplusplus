@@ -8,7 +8,6 @@ has_toc: false
 # Integration
 
 
-
 - [Binary Packages](integration/binary-packages.md)
 - [Build from Source](integration/build-from-source.md)
   - [Dependencies](integration/build-from-source/dependencies.md)

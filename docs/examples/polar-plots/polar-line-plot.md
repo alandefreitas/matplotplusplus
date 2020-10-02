@@ -32,5 +32,4 @@ Aside from this conversion, these plot subcategories are analogous to line plots
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

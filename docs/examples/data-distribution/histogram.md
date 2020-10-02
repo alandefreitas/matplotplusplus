@@ -28,5 +28,4 @@ The `histogram` object creates the histogram edges and bins when the `draw` func
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

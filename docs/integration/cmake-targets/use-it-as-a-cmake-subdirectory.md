@@ -45,5 +45,4 @@ However, it's always recommended to look for Matplot++ with `find_package` befor
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

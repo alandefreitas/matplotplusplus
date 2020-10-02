@@ -11,7 +11,6 @@ has_toc: false
 [Image Show](images/image-show.md) | [Image Matrix](images/image-matrix.md) | [Scaled Image](images/scaled-image.md)
  
 
-
 - [Image Show](images/image-show.md)
 - [Image Matrix](images/image-matrix.md)
 - [Scaled Image](images/scaled-image.md)

@@ -28,5 +28,4 @@ The `stair` object renders the line with stairs between data points to denote di
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

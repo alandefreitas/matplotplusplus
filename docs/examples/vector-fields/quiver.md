@@ -31,5 +31,4 @@ A quiver plot (or velocity plot) shows a grid of vectors whose direction and mag
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

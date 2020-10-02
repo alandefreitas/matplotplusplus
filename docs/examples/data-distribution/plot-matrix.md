@@ -28,5 +28,4 @@ The Plot Matrix subcategory is a combination of histograms and scatter plots. It
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

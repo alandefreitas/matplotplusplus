@@ -28,5 +28,4 @@ Instead of storing data points, the objects `function line` and `string function
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

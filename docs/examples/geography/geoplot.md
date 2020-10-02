@@ -38,5 +38,4 @@ The function `world_cities` returns a list of major world cities. Its parameters
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

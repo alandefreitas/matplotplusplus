@@ -22,7 +22,6 @@ has_toc: false
 As a convenience, the `colors.h` header contains many functions to generate colors from strings and vice-versa. 
 
 
-
 - [Labels](appearance/labels.md)
   - [Title](appearance/labels/title.md)
   - [Subplot Title](appearance/labels/subplot-title.md)

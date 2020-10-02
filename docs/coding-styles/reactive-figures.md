@@ -47,5 +47,4 @@ In this example, the figure is only updated once. The user could replace the `sh
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -10,7 +10,6 @@ has_toc: false
 The examples assume we are in the `matplot` namespace. Use these examples to understand how to quickly use the library for data visualization. If you are interested in understanding how the library works, you can later read the details in the complete [article](README.md). 
 
 
-
 - [Line Plots](examples/line-plots.md)
   - [Line Plot](examples/line-plots/line-plot.md)
   - [Line Plot 3D](examples/line-plots/line-plot-3d.md)

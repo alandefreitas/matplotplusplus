@@ -10,7 +10,6 @@ has_toc: false
 # Grid
 
 
-
 - [Grid Background](grid/grid-background.md)
 - [X Ticks](grid/x-ticks.md)
 - [Y Ticks](grid/y-ticks.md)

@@ -13,5 +13,4 @@ The headers `common.h` and `colors.h` include a number of utilities we use in ou
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

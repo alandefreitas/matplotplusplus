@@ -8,7 +8,6 @@ has_toc: false
 # Coding styles
 
 
-
 - [Member vs. Free-standing Functions](coding-styles/member-vs-free-standing-functions.md)
 - [Reactive figures](coding-styles/reactive-figures.md)
 - [Method Chaining](coding-styles/method-chaining.md)

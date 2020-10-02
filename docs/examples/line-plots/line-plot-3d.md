@@ -32,5 +32,4 @@ plot3(x,y)->line_width(2).color("red");
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -52,5 +52,4 @@ To adhere to free-standing functions, we could create two versions of `my_functi
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

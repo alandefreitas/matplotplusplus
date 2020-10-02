@@ -11,7 +11,6 @@ has_toc: false
 [Contour](contour-plots/contour.md) | [Filled Contour](contour-plots/filled-contour.md) | [Function Contour](contour-plots/function-contour.md)
  
 
-
 - [Contour](contour-plots/contour.md)
 - [Filled Contour](contour-plots/filled-contour.md)
 - [Function Contour](contour-plots/function-contour.md)

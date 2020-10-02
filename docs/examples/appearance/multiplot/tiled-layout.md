@@ -29,5 +29,4 @@ Our tiling functions are convenience shortcuts for the subplot functions. If the
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

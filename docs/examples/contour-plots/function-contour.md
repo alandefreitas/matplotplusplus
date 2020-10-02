@@ -28,5 +28,4 @@ By default, the function `fcontour` will generate 9 contour lines from a lambda 
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

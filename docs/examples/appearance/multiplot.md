@@ -10,7 +10,6 @@ has_toc: false
 # Multiplot
 
 
-
 - [Hold](multiplot/hold.md)
 - [YY-axis](multiplot/yy-axis.md)
 - [Color Order](multiplot/color-order.md)

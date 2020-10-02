@@ -11,7 +11,6 @@ has_toc: false
 [Geoplot](geography/geoplot.md) | [Geoscatter Plot](geography/geoscatter-plot.md) | [Geobubble](geography/geobubble.md) | [Geodensity Plot](geography/geodensity-plot.md)
  
 
-
 - [Geoplot](geography/geoplot.md)
 - [Geoscatter Plot](geography/geoscatter-plot.md)
 - [Geobubble](geography/geobubble.md)

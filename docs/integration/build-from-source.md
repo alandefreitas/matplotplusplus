@@ -9,7 +9,6 @@ has_toc: false
 # Build from Source
 
 
-
 - [Dependencies](build-from-source/dependencies.md)
 - [Build the Examples](build-from-source/build-the-examples.md)
 - [Installing Matplot++ from Source](build-from-source/installing-matplot-from-source.md)

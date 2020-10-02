@@ -30,5 +30,4 @@ If you need Pareto *fronts* rather than Pareto *charts*, we refer to [Scatter Pl
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

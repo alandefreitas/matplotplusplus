@@ -14,5 +14,4 @@ The interactive plot window has a widget to save the current figure. Because thi
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

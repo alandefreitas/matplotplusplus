@@ -11,7 +11,6 @@ has_toc: false
 [Polar Line Plot](polar-plots/polar-line-plot.md) | [Polar Scatter Plot](polar-plots/polar-scatter-plot.md) | [Polar Histogram](polar-plots/polar-histogram.md) | [Compass](polar-plots/compass.md) | [Polar Function](polar-plots/polar-function.md)
  
 
-
 - [Polar Line Plot](polar-plots/polar-line-plot.md)
 - [Polar Scatter Plot](polar-plots/polar-scatter-plot.md)
 - [Polar Histogram](polar-plots/polar-histogram.md)

@@ -11,7 +11,6 @@ has_toc: false
 [Undirected Graph](graphs/undirected-graph.md) | [Directed Graph](graphs/directed-graph.md)
  
 
-
 - [Undirected Graph](graphs/undirected-graph.md)
 - [Directed Graph](graphs/directed-graph.md)
 

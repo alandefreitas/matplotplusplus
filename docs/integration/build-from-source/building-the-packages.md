@@ -25,5 +25,4 @@ On windows, replace `-O2` with `/O2`. You might need `sudo` for this last comman
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

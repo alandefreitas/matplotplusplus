@@ -30,5 +30,4 @@ By default, the colors and the sizes depend on the word frequencies. We can cust
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

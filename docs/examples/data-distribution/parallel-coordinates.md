@@ -28,5 +28,4 @@ The function `parallelplot` creates a plot with Parallel Coordinates. In this ty
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

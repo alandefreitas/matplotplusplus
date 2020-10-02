@@ -32,5 +32,4 @@ We use the CImg library to load and save images. CImg can handle many common ima
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -27,7 +27,6 @@ Example: CLion
 
 
 
-
 - [Contributors](contributing/contributors.md)
 
 

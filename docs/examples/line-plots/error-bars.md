@@ -28,5 +28,4 @@ The `error bar` object includes extra lines to represent error around data point
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

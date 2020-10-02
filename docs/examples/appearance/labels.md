@@ -10,7 +10,6 @@ has_toc: false
 # Labels
 
 
-
 - [Title](labels/title.md)
 - [Subplot Title](labels/subplot-title.md)
 - [X Label](labels/x-label.md)

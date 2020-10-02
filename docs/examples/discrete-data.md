@@ -11,7 +11,6 @@ has_toc: false
 [Bar Plot](discrete-data/bar-plot.md) | [Pareto Chart](discrete-data/pareto-chart.md) | [Stem Plot](discrete-data/stem-plot.md) | [Stem Plot 3D](discrete-data/stem-plot-3d.md)
  
 
-
 - [Bar Plot](discrete-data/bar-plot.md)
 - [Pareto Chart](discrete-data/pareto-chart.md)
 - [Stem Plot](discrete-data/stem-plot.md)

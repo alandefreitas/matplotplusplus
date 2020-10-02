@@ -34,5 +34,4 @@ target_link_libraries(my_target PUBLIC Matplot++::matplot)
 
 
 
-
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->
