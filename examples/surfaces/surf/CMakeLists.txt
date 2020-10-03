@@ -15,3 +15,6 @@ target_link_libraries(example_surf_5 PUBLIC matplot)
 
 add_executable(example_surf_6 surf_6.cpp)
 target_link_libraries(example_surf_6 PUBLIC matplot)
+
+add_executable(example_surf_7 surf_7.cpp)
+target_link_libraries(example_surf_7 PUBLIC matplot)
