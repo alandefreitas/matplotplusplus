@@ -29,7 +29,7 @@ has_toc: false
         <a href="https://github.com/lacc97">
             <img src="https://avatars1.githubusercontent.com/u/23489037?v=4" width="100;" alt="lacc97"/>
             <br />
-            <sub><b>Luis Cáceres</b></sub>
+            <sub><b>Luis CC!ceres</b></sub>
         </a>
     </td>
     <td align="center">
@@ -51,6 +51,21 @@ has_toc: false
             <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
             <br />
             <sub><b>Dimitrij Mijoski</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/actions-user">
+            <img src="https://avatars1.githubusercontent.com/u/65916846?v=4" width="100;" alt="actions-user"/>
+            <br />
+            <sub><b>actions-user</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/leha-bot">
+            <img src="https://avatars1.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+            <br />
+            <sub><b>Alex</b></sub>
         </a>
     </td></tr>
 </table>
