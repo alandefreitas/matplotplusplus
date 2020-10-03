@@ -39,3 +39,6 @@ target_link_libraries(example_histogram_13 PUBLIC matplot)
 
 add_executable(example_histogram_14 histogram_14.cpp)
 target_link_libraries(example_histogram_14 PUBLIC matplot)
+
+add_executable(example_histogram_15 histogram_15.cpp)
+target_link_libraries(example_histogram_15 PUBLIC matplot)
