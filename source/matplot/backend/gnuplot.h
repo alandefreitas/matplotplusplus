@@ -8,6 +8,7 @@
 #include <array>
 #include <chrono>
 #include <matplot/backend/backend_interface.h>
+#include <tuple>
 
 namespace matplot::backend {
     class gnuplot : public backend_interface {
@@ -43,7 +44,7 @@ namespace matplot::backend {
 
         /// Identify the default terminal type in the system
         static std::string default_terminal_type();
-        static std::pair<int, int> gnuplot_version();
+        static std::tuple<int, int, int> gnuplot_version();
         static bool terminal_has_title_option(const std::string &t);
         static bool terminal_has_size_option(const std::string &t);
         static bool terminal_has_position_option(const std::string &t);

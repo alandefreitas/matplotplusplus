@@ -667,8 +667,8 @@ namespace matplot {
         // Gnuplot version needs to be 5.2.6+ for keyentry
         bool ok = true;
         if (parent_->backend_->consumes_gnuplot_commands()) {
-            std::pair<int, int> v = backend::gnuplot::gnuplot_version();
-            if (v.first < 5 || v.second < 2) {
+            if (backend::gnuplot::gnuplot_version() <
+                std::tuple<int, int, int>{5, 2, 6}) {
                 ok = false;
             }
         }
@@ -798,7 +798,7 @@ namespace matplot {
                 } else if (is_3d()) {
                     auto v = backend::gnuplot::gnuplot_version();
                     const bool has_wall_option =
-                        v.first > 5 || (v.first == 5 && v.second >= 5);
+                        v < std::tuple<int, int, int>{5, 5, 0};
                     if (has_wall_option) {
                         run_command("set wall z0 fs transparent solid 0.5 "
                                     "border -1 fc 'slategray'");
@@ -884,8 +884,9 @@ namespace matplot {
             static bool msg_shown_once = false;
             // Gnuplot version needs to be 5.2.6+ for keyentry
             if (parent_->backend_->consumes_gnuplot_commands()) {
-                std::pair<int, int> v = backend::gnuplot::gnuplot_version();
-                if (v.first < 5 || v.second < 2) {
+                std::tuple<int, int, int> v =
+                    backend::gnuplot::gnuplot_version();
+                if (v < std::tuple<int, int, int>{5, 2, 6}) {
                     if (!msg_shown_once) {
                         std::cerr
                             << "You need gnuplot 5.2.6+ to include legends"

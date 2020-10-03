@@ -271,10 +271,10 @@ namespace matplot::backend {
         return terminal_type;
     }
 
-    std::pair<int, int> gnuplot::gnuplot_version() {
-        static std::pair<int, int> version{0, 0};
+    std::tuple<int, int, int> gnuplot::gnuplot_version() {
+        static std::tuple<int, int, int> version{0, 0, 0};
         const bool dont_know_gnuplot_version_yet =
-            version == std::pair<int, int>({0, 0});
+            version == std::tuple<int, int, int>({0, 0, 0});
         if (dont_know_gnuplot_version_yet) {
             std::string version_str =
                 run_and_get_output("gnuplot --version 2>&1");
@@ -286,20 +286,30 @@ namespace matplot::backend {
                 version_str,
                 std::regex("[^]*gnuplot \\d+\\.(\\d+) patchlevel \\d+ *"),
                 "$1");
+            std::string version_patch = std::regex_replace(
+                version_str,
+                std::regex("[^]*gnuplot \\d+\\.\\d+ patchlevel (\\d+) *"),
+                "$1");
             try {
-                version.first = std::stoi(version_major);
+                std::get<0>(version) = std::stoi(version_major);
             } catch (...) {
-                version.first = 0;
+                std::get<0>(version) = 0;
             }
             try {
-                version.second = std::stoi(version_minor);
+                std::get<1>(version) = std::stoi(version_minor);
             } catch (...) {
-                version.second = 0;
+                std::get<1>(version) = 0;
+            }
+            try {
+                std::get<2>(version) = std::stoi(version_patch);
+            } catch (...) {
+                std::get<2>(version) = 0;
             }
             const bool still_dont_know_gnuplot_version =
-                version == std::pair<int, int>({0, 0});
+                version == std::tuple<int, int, int>({0, 0, 0});
             if (still_dont_know_gnuplot_version) {
-                version = std::pair<int, int>({5, 2});
+                // assume it's 5.2.6 by convention
+                version = std::tuple<int, int, int>({5, 2, 6});
             }
         }
         return version;

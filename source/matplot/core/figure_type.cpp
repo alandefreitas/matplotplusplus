@@ -629,7 +629,7 @@ namespace matplot {
         // with a rectangle workaround, which does not work well for 3d.
         static const auto v = backend::gnuplot::gnuplot_version();
         const bool has_wall_option =
-            v.first > 5 || (v.first == 5 && v.second >= 5);
+            std::get<0>(v) > 5 || (std::get<0>(v) == 5 && std::get<1>(v) >= 5);
         // So we only plot the default background if it's not 3d or version is
         // higher than 5.5. Otherwise, gnuplot won't be able to set the axes
         // colors.
