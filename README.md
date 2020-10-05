@@ -2495,17 +2495,17 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/xnorpx">
-            <img src="https://avatars2.githubusercontent.com/u/302709?v=4" width="100;" alt="xnorpx"/>
-            <br />
-            <sub><b>Marcus Asteborg</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/actions-user">
             <img src="https://avatars1.githubusercontent.com/u/65916846?v=4" width="100;" alt="actions-user"/>
             <br />
             <sub><b>Actions-user</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/xnorpx">
+            <img src="https://avatars2.githubusercontent.com/u/302709?v=4" width="100;" alt="xnorpx"/>
+            <br />
+            <sub><b>Marcus Asteborg</b></sub>
         </a>
     </td>
     <td align="center">
