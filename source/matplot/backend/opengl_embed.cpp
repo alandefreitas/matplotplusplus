@@ -194,7 +194,7 @@ namespace matplot::backend {
         // Set the vertex attributes pointers
         int vertex_attribute_location = 0;
         size_t stride = 2 * sizeof(float);
-        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, stride, (void *)0);
+        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, static_cast<GLsizei>(stride), (void *)0);
         glEnableVertexAttribArray(0);
 
         // Set the color attribute pointers
@@ -223,12 +223,12 @@ namespace matplot::backend {
         if (vertexColorLocation == -1) {
             throw std::runtime_error("can't find uniform location");
         }
-        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.-color[0]);
+        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.f-color[0]);
 
         // Bind element buffer
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, nullptr);
 
         // Unbind our vertex array
         glBindVertexArray(0);
@@ -239,7 +239,7 @@ namespace matplot::backend {
     }
 
     void opengl_embed::draw_background(const std::array<float, 4> &color) {
-        glClearColor(color[1], color[2], color[3], 1. - color[0]);
+        glClearColor(color[1], color[2], color[3], 1.f - color[0]);
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
@@ -273,7 +273,7 @@ namespace matplot::backend {
         // Set the vertex attributes pointers
         int vertex_attribute_location = 0;
         size_t stride = 2 * sizeof(float);
-        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, stride, (void *)0);
+        glVertexAttribPointer(vertex_attribute_location, 2, GL_FLOAT, GL_FALSE, static_cast<GLsizei>(stride), (void *)0);
         glEnableVertexAttribArray(0);
 
         // Activate our shader program
@@ -297,11 +297,11 @@ namespace matplot::backend {
         if (vertexColorLocation == -1) {
             throw std::runtime_error("can't find uniform location");
         }
-        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.-color[0]);
+        glUniform4f(vertexColorLocation, color[1], color[2], color[3], 1.f-color[0]);
 
         // Bind element buffer
         glBindVertexArray(VAO);
-        glDrawArrays(GL_LINE_STRIP, 0, x.size());
+        glDrawArrays(GL_LINE_STRIP, 0, static_cast<GLsizei>(x.size()));
 
         // Unbind our vertex array
         glBindVertexArray(0);
