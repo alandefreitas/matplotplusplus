@@ -12,8 +12,8 @@ int main() {
 
     auto x = randn(1000000, 0., 1.);
     auto y = transform(x, [](double x) { return 2 * x + randn(0, 1); });
-    std::vector x_line(x.begin(), x.begin() + 1000);
-    std::vector y_line(y.begin(), y.begin() + 1000);
+    std::vector<double> x_line(x.begin(), x.begin() + 1000);
+    std::vector<double> y_line(y.begin(), y.begin() + 1000);
 
     subplot(2, 3, 0);
     scatter(x_line, y_line);
