@@ -95,6 +95,11 @@ target_link_libraries(matplot
 # https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
 target_compile_features(matplot PUBLIC cxx_std_17)
 
+# Definition to find the proper filesystem library
+if (CXX_FILESYSTEM_IS_EXPERIMENTAL)
+    target_compile_definitions(matplot PRIVATE CXX_FILESYSTEM_IS_EXPERIMENTAL)
+endif()
+
 # Hacks to support MSVC
 if(MSVC)
     # World maps require this option because there is so much in the file
@@ -197,7 +202,7 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     endif ()
 
     # https://github.com/glfw/glfw
-    find_package(glfw3 REQUIRED)
+    find_package(glfw3 QUIET)
     if (NOT GLFW3_FOUND AND NOT TARGET glfw)
         # Use CPM only if not found, to avoid ODR violations
         # find_package(glfw3 REQUIRE) would suffice if it worked well
