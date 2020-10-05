@@ -15,3 +15,6 @@ target_link_libraries(example_scatter3_5 PUBLIC matplot)
 
 add_executable(example_scatter3_6 scatter3_6.cpp)
 target_link_libraries(example_scatter3_6 PUBLIC matplot)
+
+add_executable(example_scatter3_7 scatter3_7.cpp)
+target_link_libraries(example_scatter3_7 PUBLIC matplot)
