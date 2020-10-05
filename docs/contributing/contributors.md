@@ -40,25 +40,25 @@ has_toc: false
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/actions-user">
+            <img src="https://avatars1.githubusercontent.com/u/65916846?v=4" width="100;" alt="actions-user"/>
+            <br />
+            <sub><b>Actions-user</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/sammi">
             <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
             <br />
             <sub><b>Sammi</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/dimztimz">
             <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
             <br />
             <sub><b>Dimitrij Mijoski</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/actions-user">
-            <img src="https://avatars1.githubusercontent.com/u/65916846?v=4" width="100;" alt="actions-user"/>
-            <br />
-            <sub><b>actions-user</b></sub>
         </a>
     </td>
     <td align="center">
