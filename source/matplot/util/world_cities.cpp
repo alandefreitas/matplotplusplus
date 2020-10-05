@@ -851,7 +851,7 @@ namespace matplot {
         auto x_line = x;
         auto y_line = y;
         auto names_line = names;
-        for (int i = pos_to_remove.size() - 1; i >= 0; --i) {
+        for (size_t i = pos_to_remove.size() - 1; i >= 0; --i) {
             x_line.erase(x_line.begin() + pos_to_remove[i]);
             y_line.erase(y_line.begin() + pos_to_remove[i]);
             names_line.erase(names_line.begin() + pos_to_remove[i]);

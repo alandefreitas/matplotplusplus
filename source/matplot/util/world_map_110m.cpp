@@ -10528,7 +10528,7 @@ namespace matplot {
                 -84.472517999202552,
                 -84.71338
         };
-        return std::make_pair(std::vector(std::begin(x), std::end(x)), std::vector(std::begin(y), std::end(y)));
+        return std::make_pair(std::vector<double>(std::begin(x), std::end(x)), std::vector<double>(std::begin(y), std::end(y)));
 	}
 
     std::pair<std::vector<double>, std::vector<double>>& world_map_110m() {

@@ -123703,7 +123703,7 @@ std::numeric_limits<double>::quiet_NaN(),
 -84.268359375000017,
 -84.3515625,
 };
-        return std::make_pair(std::vector(std::begin(x), std::end(x)), std::vector(std::begin(y), std::end(y)));
+        return std::make_pair(std::vector<double>(std::begin(x), std::end(x)), std::vector<double>(std::begin(y), std::end(y)));
 	}
 
     std::pair<std::vector<double>, std::vector<double>>& world_map_50m() {
