@@ -1,8 +1,14 @@
 # Build directories
 build
+cmake-build-*
 cmake-build-debug
 cmake-build-release
-cmake-build-*
+cmake-build-debug-gcc
+cmake-build-release-gcc
+cmake-build-debug-msvc
+cmake-build-release-msvc
+cmake-build-debug-*
+cmake-build-release-*
 build*/
 out
 
