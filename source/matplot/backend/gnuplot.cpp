@@ -3,12 +3,17 @@
 //
 
 #include "gnuplot.h"
+#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
+#include <experimental/filesystem>
+#else
 #include <filesystem>
+#endif
 #include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
 #include <regex>
 #include <thread>
+#include <cstdlib>
 
 #ifdef MATPLOT_HAS_FBUFSIZE
 
@@ -31,14 +36,32 @@ namespace matplot::backend {
     bool gnuplot::consumes_gnuplot_commands() { return true; }
 
     gnuplot::gnuplot() {
-        // List terminal types
-        terminal_ = default_terminal_type();
+        // 1st option: terminal in GNUTERM environment variable
+        const char *environment_terminal = std::getenv("GNUTERM");
+        if (environment_terminal) {
+            if (terminal_is_available(environment_terminal)) {
+                terminal_ = environment_terminal;
+            }
+#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) || defined(__CYGWIN__)
+        } else if (terminal_is_available("wxt")) {
+            // 2nd option: wxt on windows, even if not default
+            terminal_ = "wxt";
+#endif
+        } else if (terminal_is_available("qt")) {
+            // 3rd option: qt
+            terminal_ = "qt";
+        } else {
+            // 4rd option: default terminal type
+            terminal_ = default_terminal_type();
+        }
+
         // Open the gnuplot pipe_
         if constexpr (windows_should_persist_by_default) {
             pipe_ = POPEN("gnuplot --persist", "w");
         } else {
             pipe_ = POPEN("gnuplot", "w");
         }
+
         // Check if everything is OK
         if (!pipe_) {
             std::cerr << "Opening the gnuplot pipe_ failed!" << std::endl;
@@ -71,6 +94,12 @@ namespace matplot::backend {
 
     const std::string &gnuplot::output_format() { return terminal_; }
 
+#ifdef STRING_VIEW_CONSTEXPR_BUG
+#define SV_CONSTEXPR
+#else
+#define SV_CONSTEXPR constexpr
+#endif
+
     bool gnuplot::output(const std::string &filename) {
         if (filename.empty()) {
             output_ = filename;
@@ -79,12 +108,17 @@ namespace matplot::backend {
         }
 
         // look at the extension
+#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
+        namespace fs = std::experimental::filesystem;
+#else
         namespace fs = std::filesystem;
+#endif
+
         fs::path p{filename};
         std::string ext = p.extension().string();
 
         // check terminal for that extension
-        constexpr auto exts = extension_terminal();
+        SV_CONSTEXPR auto exts = extension_terminal();
         auto it = std::find_if(exts.begin(), exts.end(),
                                [&](const auto &e) { return e.first == ext; });
 
@@ -115,7 +149,7 @@ namespace matplot::backend {
         }
 
         // Check if file format is valid
-        constexpr auto exts = extension_terminal();
+        SV_CONSTEXPR auto exts = extension_terminal();
         auto it = std::find_if(exts.begin(), exts.end(), [&](const auto &e) {
             return e.second == format;
         });
@@ -127,7 +161,11 @@ namespace matplot::backend {
         }
 
         // Create file if it does not exist
+#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
+        namespace fs = std::experimental::filesystem;
+#else
         namespace fs = std::filesystem;
+#endif
         fs::path p{filename};
         if (!p.parent_path().empty() && !fs::exists(p.parent_path())) {
             fs::create_directory(p.parent_path());
@@ -271,6 +309,11 @@ namespace matplot::backend {
         return terminal_type;
     }
 
+    bool gnuplot::terminal_is_available(std::string_view term) {
+        std::string msg = run_and_get_output("gnuplot -e \"set terminal " + std::string(term.data()) + "\" 2>&1");
+        return msg.empty();
+    }
+
     std::tuple<int, int, int> gnuplot::gnuplot_version() {
         static std::tuple<int, int, int> version{0, 0, 0};
         const bool dont_know_gnuplot_version_yet =
@@ -316,7 +359,7 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_title_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "qt", "aqua", "caca", "canvas", "windows", "wxt", "x11"};
         return std::find(std::begin(whitelist), std::end(whitelist), t) !=
                std::end(whitelist);
@@ -326,7 +369,7 @@ namespace matplot::backend {
         // Terminals that have the size option *in the way we expect it to work*
         // This includes only the size option with {width, height} and not
         // the size option for cropping or scaling
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "qt",      "aqua",     "caca",    "canvas", "eepic",
             "emf",     "gif",      "jpeg",    "pbm",    "png",
             "sixelgd", "tkcanvas", "windows", "wxt",    "svg"};
@@ -335,13 +378,13 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_position_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {"qt", "windows", "wxt"};
+        SV_CONSTEXPR std::string_view whitelist[] = {"qt", "windows", "wxt"};
         return std::find(std::begin(whitelist), std::end(whitelist), t) !=
                std::end(whitelist);
     }
 
     bool gnuplot::terminal_has_enhanced_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "canvas",     "postscript", "qt",       "aqua",     "caca",
             "canvas",     "dumb",       "emf",      "enhanced", "jpeg",
             "pdf",        "pdfcairo",   "pm",       "png",      "pngcairo",
@@ -352,7 +395,7 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_has_color_option(const std::string &t) {
-        constexpr std::string_view whitelist[] = {
+        SV_CONSTEXPR std::string_view whitelist[] = {
             "postscript", "aifm",     "caca",     "cairolatex", "context",
             "corel",      "eepic",    "emf",      "epscairo",   "epslatex",
             "fig",        "lua tikz", "mif",      "mp",         "pbm",
@@ -367,7 +410,7 @@ namespace matplot::backend {
         // and terminals for which we want to use only the default fonts
         // We prefer a blacklist because it's better to get a warning
         // in a false positive than remove the fonts in a false negative.
-        constexpr std::string_view blacklist[] = {
+        SV_CONSTEXPR std::string_view blacklist[] = {
             "dxf",      "eepic",   "emtex",   "hpgl",    "latex",
             "mf",       "pcl5",    "pslatex", "pstex",   "pstricks",
             "qms",      "tek40xx", "tek410x", "texdraw", "tkcanvas",
