@@ -79,4 +79,10 @@ namespace matplot {
         return h;
     }
 
+    figure_handle gcf(bool quiet) {
+        figure_handle h = gcf();
+        h->quiet_mode(quiet);
+        return h;
+    }
+
 } // namespace matplot

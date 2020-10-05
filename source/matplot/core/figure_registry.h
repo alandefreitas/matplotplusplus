@@ -37,6 +37,10 @@ namespace matplot {
 
     /// \brief Get the current figure
     figure_handle gcf();
+
+    /// \brief Get current figure in quiet mode
+    figure_handle gcf(bool quiet);
+
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_FIGURE_REGISTRY_H
