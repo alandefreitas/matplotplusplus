@@ -407,7 +407,7 @@ namespace matplot {
                 ss << "\n";
             }
             // each row is an isoline
-            for (int i = Y_data_.size() - 1; i >= 0; --i) {
+            for (size_t i = Y_data_.size() - 1; i >= 0; --i) {
                 // open row curtain or waterfall
                 if (curtain_ || waterfall_) {
                     send_point(ss, X_data_[i][0], Y_data_[i][0], zmin_,
