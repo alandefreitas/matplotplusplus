@@ -285,7 +285,7 @@ namespace matplot {
         void run_multiplot_command();
 
       private:
-        std::string generate_window_title() const;
+        [[nodiscard]] std::string generate_window_title() const;
 
       private:
         // The default backend for this figure

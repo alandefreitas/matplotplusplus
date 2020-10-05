@@ -18,7 +18,13 @@ namespace matplot {
     figure_type::figure_type(size_t index) : figure_type(index, true) {}
 
     figure_type::figure_type(size_t index, bool quiet_mode)
-        : quiet_mode_(quiet_mode), number_(index) {}
+        : quiet_mode_(quiet_mode), number_(index) {
+#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) || defined(__CYGWIN__)
+        // On windows, Helvetica will fallback to Sans anyway
+        // So we avoid this warning by setting it to Sans already
+        font_ = "Sans";
+#endif
+    }
 
 #ifdef MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES
     figure_type::~figure_type() { save("example.svg", "svg"); }
