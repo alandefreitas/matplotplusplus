@@ -1630,6 +1630,11 @@ namespace matplot {
                             std::get<2>(cur_child) = j;
                             std::get<1>(cur).emplace_back(cur_child);
                         }
+                        // check for bounds before accessing value and
+                        // break while loop if fails.
+                        if (j + 1 >= filled_lines_[i].first.size()) {
+                            break;
+                        }
                         // Two nans in a row indicate a new parent
                         bool only_one_nan =
                             std::isfinite(filled_lines_[i].first[j + 1]);
@@ -1645,7 +1650,8 @@ namespace matplot {
                             line_segments_.emplace_back(cur);
                             std::get<1>(cur).clear();
                             ++j;
-                            while (!std::isfinite(filled_lines_[i].first[j])) {
+                            while (j < filled_lines_[i].first.size() &&
+                                   !std::isfinite(filled_lines_[i].first[j])) {
                                 ++j;
                             }
                             // start new parent
