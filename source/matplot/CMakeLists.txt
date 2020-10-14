@@ -154,6 +154,27 @@ if (BUILD_WITH_PEDANTIC_WARNINGS)
     endif ()
 endif ()
 
+if (BUILD_WITH_SANITIZERS)
+    # enable only supported sanitizers and another diagnostic tools
+    # NB: these flags should be PUBLIC to allow deteting all errors at early stages.
+    if (MSVC)
+        # ASan is supported since Visual Studio 2019 16.4 (_MSC_VER == 1924)
+	# https://devblogs.microsoft.com/cppblog/addresssanitizer-asan-for-windows-with-msvc/
+	# but autolinking is available since Visual Studio 2019 16.8, and it is not supported by CMake yet
+	# (it should set the <EnableASAN>true</EnableASAN> in vcxproj.
+	# if (MSVC_VERSION GREATER_EQUAL 1924)
+	#    target_compile_options(matplot PUBLIC /fsanitize=address)
+	    # TODO: link proper library depending on runtime (/MT, /MD, /MTd, /MDd and architecture)
+        # endif()
+	# this flag is supported since msvc 2012
+	# https://www.microsoft.com/security/blog/2012/06/06/warnings-sdl-and-improving-uninitialized-variable-detection/
+        target_compile_options(matplot PUBLIC /sdl)
+    else()
+        target_compile_options(matplot PUBLIC "-fsanitize=address,leak,undefined")
+	target_link_options(matplot PUBLIC "-fsanitize=address,leak,undefined")
+    endif()
+endif()
+
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
     # This is an example of what an OpenGL backend *could* look like.
