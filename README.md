@@ -2080,6 +2080,18 @@ find_package(Matplot++ REQUIRED)
 target_link_libraries(my_target PUBLIC Matplot++::matplot)
 ```
 
+### Package managers
+
+#### Homebrew
+
+Mac users can install Matplot++ with [Homebrew](https://brew.sh):
+
+```bash
+brew install matplotplusplus
+```
+
+This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).  
+
 ### Build from Source
 
 #### Dependencies
