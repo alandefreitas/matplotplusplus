@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Build from Source
-nav_order: 2
+nav_order: 3
 has_children: true
 parent: Integration
 has_toc: false

@@ -9,6 +9,8 @@ has_toc: false
 
 
 - [Binary Packages](integration/binary-packages.md)
+- [Package managers](integration/package-managers.md)
+  - [Homebrew](integration/package-managers/homebrew.md)
 - [Build from Source](integration/build-from-source.md)
   - [Dependencies](integration/build-from-source/dependencies.md)
   - [Build the Examples](integration/build-from-source/build-the-examples.md)

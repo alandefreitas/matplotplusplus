@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CMake targets
-nav_order: 3
+nav_order: 4
 has_children: true
 parent: Integration
 has_toc: false
