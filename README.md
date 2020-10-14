@@ -2542,6 +2542,13 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
             <br />
             <sub><b>Alex</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ankane">
+            <img src="https://avatars3.githubusercontent.com/u/220358?v=4" width="100;" alt="ankane"/>
+            <br />
+            <sub><b>Andrew Kane</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,ankane -end -->
