@@ -61,6 +61,7 @@ Data visualization can help programmers and scientists identify trends in their 
 - [Motivation and Details](#motivation-and-details)
 - [Integration](#integration)
   - [Binary Packages](#binary-packages)
+  - [Package managers](#package-managers)
   - [Build from Source](#build-from-source)
   - [CMake targets](#cmake-targets)
   - [Other build systems](#other-build-systems)
