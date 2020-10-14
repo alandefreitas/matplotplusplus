@@ -6,15 +6,16 @@
 #define MATPLOTPLUSPLUS_COMMON_H
 
 #include <algorithm>
+#include <cctype>
 #include <complex>
 #include <functional>
 #include <map>
 #include <matplot/util/concepts.h>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
-#include <cctype>
 
 namespace matplot {
     bool iequals(std::string_view str1, std::string_view str2);
@@ -503,6 +504,85 @@ namespace matplot {
                             bool separateExp = true, bool log = false);
 
     double distance(double x1, double y1, double x2, double y2);
+
+    /// \brief Simple read-only 2d view for vector_2d.
+    /// It could iterates over all vector's elements and get value using
+    /// only one index (offset).
+    class vector_2d_view {
+        using vector_2d = matplot::vector_2d;
+        const vector_2d &_vec;
+        const std::size_t _sz;
+
+        /// \brief Helper method for determining the whole array size.
+        /// Required for caching inner vector's size.
+        std::size_t calculate_size(const vector_2d &vec) {
+            return std::accumulate(
+                vec.begin(), vec.end(), (std::size_t)(0),
+                [](auto cnt, const auto &vec) { return cnt + vec.size(); });
+        }
+
+      public:
+        static const double &get_element_from_offset(const vector_2d &vec,
+                                                     std::size_t offset) {
+            std::size_t row_size = vec[0].size();
+            std::size_t cur_row = offset / row_size;
+            std::size_t cur_column = offset % row_size;
+            return vec[cur_row][cur_column];
+        }
+
+        static vector_2d_view from_vector_2d(const vector_2d &vec) {
+            return vector_2d_view(vec);
+        }
+        std::size_t size() const { return _sz; }
+        vector_2d_view(const vector_2d &vec)
+            : _vec(vec), _sz(calculate_size(vec)) {}
+
+        double operator()(std::size_t i, std::size_t j) {
+            return _vec.at(i).at(j);
+        }
+        friend class iterator;
+
+        class iterator {
+            vector_2d_view *const _vec;
+            std::size_t _row_offset;
+            std::size_t _col_offset;
+
+            static bool is_empty_iterator(const iterator &it) {
+                return it._vec == nullptr;
+            }
+            static bool is_end_iterator(const iterator &it) {
+                return is_empty_iterator(it) ||
+                       it._row_offset * it._col_offset >= it._vec->size();
+            }
+
+          public:
+            iterator(vector_2d_view *const vec)
+                : _vec(vec), _row_offset(0), _col_offset(0) {}
+
+            bool operator==(const iterator &it) const {
+                return is_end_iterator(it)
+                           ? is_end_iterator(*this)
+                           : it._vec == _vec && it._row_offset == _row_offset &&
+                                 it._col_offset == _col_offset;
+            }
+
+            auto operator*() const { return (*_vec)(_row_offset, _col_offset); }
+
+            iterator &operator++() {
+                _col_offset++;
+                if (_col_offset >= _vec->_vec.at(_row_offset).size()) {
+                    _col_offset = 0;
+                    _row_offset++;
+                }
+                return *this;
+            }
+
+            // iterator traits
+            using value_type = double;
+        };
+        iterator begin() { return iterator{this}; }
+        iterator end() { return iterator{nullptr}; }
+    };
 
 } // namespace matplot
 
