@@ -2483,7 +2483,7 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
 
 ### Contributors
 
-<!-- readme: collaborators,contributors -start --> 
+<!-- readme: collaborators,contributors,ankane -start --> 
 <table>
 <tr>
     <td align="center">
@@ -2544,7 +2544,7 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
         </a>
     </td></tr>
 </table>
-<!-- readme: collaborators,contributors -end -->
+<!-- readme: collaborators,contributors,ankane -end -->
 
 ## References
 
