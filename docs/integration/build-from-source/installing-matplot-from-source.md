@@ -14,7 +14,7 @@ This will install Matplot++ on your system:
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
 cmake --build . -j 2 --config Release
 cmake --install .
 ```
