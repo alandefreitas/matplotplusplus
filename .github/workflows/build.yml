@@ -1,6 +1,6 @@
 name: Matplotplusplus
 
-on: 
+on:
   push:
     paths-ignore:
       - '**.md'
@@ -21,7 +21,7 @@ on:
       - '.clang-format'
       - '.gitignore'
       - 'LICENSE'
-        
+
 jobs:
   Build:
     name: ${{ matrix.config.name }}
