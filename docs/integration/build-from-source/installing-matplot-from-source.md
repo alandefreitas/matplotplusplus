@@ -24,7 +24,7 @@ On windows, replace `-O2` with `/O2`. You might need `sudo` for this last comman
 To uninstall Matplot++ from your system:
 
 ```bash
-cmake --uninstall .
+make uninstall
 ```
 
 

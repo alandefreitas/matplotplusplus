@@ -106,4 +106,4 @@ jobs:
           path: build/matplotplusplus-?.?.?-*.*
       - name: Uninstall
         working-directory: ./build
-        run: ${{ matrix.config.sudocmd }} cmake --uninstall .
+        run: ${{ matrix.config.sudocmd }} make uninstall
