@@ -2319,6 +2319,12 @@ cmake --install .
 
 On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
 
+To uninstall Matplot++ from your system:
+
+```bash
+make uninstall
+```
+
 #### Building the packages
 
 This will create the binary packages you can use to install Matplot++ on your system:
