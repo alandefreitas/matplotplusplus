@@ -84,6 +84,10 @@ jobs:
       - name: Install
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} cmake --install .
+      - name: Uninstall
+        if: matrix.config.os != 'windows-2019'
+        working-directory: ./build
+        run: ${{ matrix.config.sudocmd }} make uninstall
       - name: Integration Test
         working-directory: ./test/integration
         run: |
@@ -104,7 +108,3 @@ jobs:
         uses: kittaakos/upload-artifact-as-is@v0
         with:
           path: build/matplotplusplus-?.?.?-*.*
-      - name: Uninstall
-        if: matrix.config.os != 'windows-2019'
-        working-directory: ./build
-        run: ${{ matrix.config.sudocmd }} make uninstall
