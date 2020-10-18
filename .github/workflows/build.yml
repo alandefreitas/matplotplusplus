@@ -105,5 +105,6 @@ jobs:
         with:
           path: build/matplotplusplus-?.?.?-*.*
       - name: Uninstall
+        if: matrix.config.os != 'windows-2019'
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} make uninstall
