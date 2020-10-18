@@ -1,4 +1,4 @@
-find_package(Filesystem REQUIRED)
+find_package(Filesystem COMPONENTS Final Experimental REQUIRED)
 
 add_library(matplot
         matplot.h
