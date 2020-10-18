@@ -2549,6 +2549,13 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
             <br />
             <sub><b>Andrew Kane</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/acxz">
+            <img src="https://avatars2.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
+            <br />
+            <sub><b>Akash Patel</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,ankane -end -->
