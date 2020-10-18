@@ -1188,13 +1188,16 @@ namespace matplot {
 
     XY QuadContourGenerator::get_point_xy(long point) const {
         assert(point >= 0 && point < _n && "Point index out of bounds.");
-        return XY(_x[0].data()[static_cast<size_t>(point)],
-                  _y[0].data()[static_cast<size_t>(point)]);
+        return XY(vector_2d_view::get_element_from_offset(
+                      _x, static_cast<size_t>(point)),
+                  vector_2d_view::get_element_from_offset(
+                      _y, static_cast<size_t>(point)));
     }
 
     const double &QuadContourGenerator::get_point_z(long point) const {
         assert(point >= 0 && point < _n && "Point index out of bounds.");
-        return _z[0].data()[static_cast<size_t>(point)];
+        return vector_2d_view::get_element_from_offset(
+            _z, static_cast<size_t>(point));
     }
 
     Edge
@@ -1305,9 +1308,10 @@ namespace matplot {
             (_corner_mask
                  ? MASK_EXISTS | MASK_BOUNDARY_S | MASK_BOUNDARY_W
                  : MASK_EXISTS_QUAD | MASK_BOUNDARY_S | MASK_BOUNDARY_W);
-
+        auto z_view = vector_2d_view::from_vector_2d(_z);
         if (two_levels) {
-            const double *z_ptr = _z[0].data();
+
+            auto z_ptr = z_view.begin();
             for (long quad = 0; quad < _n; ++quad, ++z_ptr) {
                 _cache[quad] &= keep_mask;
                 if (*z_ptr > upper_level)
@@ -1316,7 +1320,7 @@ namespace matplot {
                     _cache[quad] |= MASK_Z_LEVEL_1;
             }
         } else {
-            const double *z_ptr = _z[0].data();
+            auto z_ptr = z_view.begin();
             for (long quad = 0; quad < _n; ++quad, ++z_ptr) {
                 _cache[quad] &= keep_mask;
                 if (*z_ptr > lower_level)
