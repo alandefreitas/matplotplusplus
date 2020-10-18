@@ -26,6 +26,8 @@ Example: CLion
     
 
 
+If contributing to the documentation, please edit [`README.md`](https://github.com/alandefreitas/matplotplusplus/blob/master/README.md) directly, as the files in [`./docs`](.) are automatically generated with [mdsplit](https://github.com/alandefreitas/mdsplit).
+
 
 - [Contributors](contributing/contributors.md)
 
