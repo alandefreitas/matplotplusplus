@@ -36,8 +36,8 @@ jobs:
         run: |
           git fetch
           git add docs
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "alandefreitas@gmail.com"
+          git config --local user.name "Alan R R Freitas"
           git commit -m "Update Docs" -a
         continue-on-error: true
       - name: Push changes
