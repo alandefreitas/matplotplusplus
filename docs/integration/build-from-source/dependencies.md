@@ -149,7 +149,7 @@ Instructions: Windows/MSVC
 * Make sure you have a recent version of [Visual Studio](https://visualstudio.microsoft.com)
 * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
 * Download CMake from [https://cmake.org/download/](https://cmake.org/download/) and install it
-* Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it
+* Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it (if Matplot++ examples don't display with no console errors and gnuplot running, try to re-install with wxt terminal).
 
 If you're using the Gnuplot installer, make sure you mark the option "Add application directory to your PATH environment variable".
 
