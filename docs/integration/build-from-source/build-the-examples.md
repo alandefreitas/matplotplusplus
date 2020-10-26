@@ -13,7 +13,7 @@ This will build the examples in the `build/examples` directory:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
 cmake --build . -j 2 --config Release
 ```
