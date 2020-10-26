@@ -15,12 +15,12 @@ jobs:
           MAX_HEADER_LEVEL: 3
           FOLDING: true
       - name: Update Contributors
-          uses: akhilmhdh/contributors-readme-action@v2.0.1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            image_size: 100
-            columns_per_row: 6
+        uses: akhilmhdh/contributors-readme-action@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          image_size: 100
+          columns_per_row: 6
       - name: Download mdsplit
         uses: carlosperate/download-file-action@v1.0.3
         id: download-mdsplit
