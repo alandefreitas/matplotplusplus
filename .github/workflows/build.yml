@@ -3,21 +3,23 @@ name: Matplotplusplus
 on: 
   push:
     paths:
+      - '**.c'
       - '**.cpp'
       - '**.h'
+      - '**.hpp'
       - '**.cmake'
       - '**/CMakeLists.txt'
       - '.github/workflows/build.yml'
-      - '**.yml'
   pull_request:
     paths:
+      - '**.c'
       - '**.cpp'
       - '**.h'
+      - '**.hpp'
       - '**.cmake'
       - '**/CMakeLists.txt'
       - '.github/workflows/build.yml'
-      - '**.yml'
-        
+
 jobs:
   Build:
     name: ${{ matrix.config.name }}
