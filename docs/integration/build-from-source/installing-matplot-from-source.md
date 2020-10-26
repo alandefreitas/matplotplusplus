@@ -15,11 +15,13 @@ This will install Matplot++ on your system:
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
-cmake --build . -j 2 --config Release
+cmake --build . --parallel 2 --config Release
 cmake --install .
 ```
 
-On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
+* Replace `--parallel 2` with `--parallel <number of cores in your machine>` 
+* On Windows, replace `-O2` with `/O2` 
+* On Linux, you might need `sudo` for this last command
 
 
 
