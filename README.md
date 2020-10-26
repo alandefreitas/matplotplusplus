@@ -2317,7 +2317,7 @@ This will build the examples in the `build/examples` directory:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
 cmake --build . -j 2 --config Release
 ```
@@ -2330,7 +2330,7 @@ This will install Matplot++ on your system:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
 cmake --build . -j 2 --config Release
 cmake --install .
@@ -2344,7 +2344,7 @@ This will create the binary packages you can use to install Matplot++ on your sy
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
 cmake --build . -j 2 --config Release
 cmake --install .
@@ -2352,6 +2352,8 @@ cpack .
 ```
 
 On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
+
+
 
 ### CMake targets
 
