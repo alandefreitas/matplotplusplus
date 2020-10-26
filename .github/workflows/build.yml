@@ -2,25 +2,21 @@ name: Matplotplusplus
 
 on: 
   push:
-    paths-ignore:
-      - '**.md'
-      - 'README.md'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'documentation/**'
-      - '.clang-format'
-      - '.gitignore'
-      - 'LICENSE'
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/build.yml'
+      - '**.yml'
   pull_request:
-    paths-ignore:
-      - '**.md'
-      - 'README.md'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'documentation/**'
-      - '.clang-format'
-      - '.gitignore'
-      - 'LICENSE'
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/build.yml'
+      - '**.yml'
         
 jobs:
   Build:
