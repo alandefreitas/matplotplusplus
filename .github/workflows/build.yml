@@ -83,9 +83,8 @@ jobs:
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} cmake --install .
       - name: Uninstall
-        if: matrix.config.os != 'windows-2019'
         working-directory: ./build
-        run: ${{ matrix.config.sudocmd }} make uninstall
+        run: ${{ matrix.config.sudocmd }} cmake --build . --target uninstall
       - name: Integration Test
         working-directory: ./test/integration
         run: |

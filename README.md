@@ -2345,7 +2345,7 @@ cmake --install .
 To uninstall Matplot++ from your system:
 
 ```bash
-make uninstall
+cmake --build . --target uninstall
 ```
 
 #### Building the packages
