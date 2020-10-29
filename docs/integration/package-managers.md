@@ -10,6 +10,7 @@ has_toc: false
 
 
 - [Homebrew](package-managers/homebrew.md)
+- [Arch Linux](package-managers/arch-linux.md)
 
 
 <!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->

@@ -1,10 +1,6 @@
 name: Docs Generator
 
-on:
-  push:
-    paths:
-      - 'README.md'
-      - '.github/workflows/docs.yml'
+on: push
 
 jobs:
   generateDOC:
@@ -12,11 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/toc-generator@v2
+      - name: Update Table of Contents
+        uses: technote-space/toc-generator@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAX_HEADER_LEVEL: 3
           FOLDING: true
+      - name: Update Contributors
+        uses: akhilmhdh/contributors-readme-action@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          image_size: 100
+          columns_per_row: 6
       - name: Download mdsplit
         uses: carlosperate/download-file-action@v1.0.3
         id: download-mdsplit
@@ -36,12 +40,13 @@ jobs:
         run: |
           git fetch
           git add docs
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "alandefreitas@gmail.com"
+          git config --local user.name "Alan R R Freitas"
           git commit -m "Update Docs" -a
         continue-on-error: true
       - name: Push changes
         uses: ad-m/github-push-action@master
+        continue-on-error: true
         if: ${{ success() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

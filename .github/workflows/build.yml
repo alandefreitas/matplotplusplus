@@ -2,25 +2,23 @@ name: Matplotplusplus
 
 on:
   push:
-    paths-ignore:
-      - '**.md'
-      - 'README.md'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'documentation/**'
-      - '.clang-format'
-      - '.gitignore'
-      - 'LICENSE'
+    paths:
+      - '**.c'
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/build.yml'
   pull_request:
-    paths-ignore:
-      - '**.md'
-      - 'README.md'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'documentation/**'
-      - '.clang-format'
-      - '.gitignore'
-      - 'LICENSE'
+    paths:
+      - '**.c'
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/build.yml'
 
 jobs:
   Build:
@@ -77,10 +75,10 @@ jobs:
           cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
       - name: Build
         working-directory: ./build
-        run: cmake --build . -j ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
+        run: cmake --build . --parallel ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
       - name: Test
         working-directory: ./build
-        run: ctest -j ${{ matrix.config.cores }} -C ${{ matrix.config.config }}
+        run: ctest --parallel ${{ matrix.config.cores }} -C ${{ matrix.config.config }}
       - name: Install
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} cmake --install .
@@ -94,7 +92,7 @@ jobs:
           mkdir build
           cd build
           cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }}
-          cmake --build . -j ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
+          cmake --build . --parallel ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
         continue-on-error: true
       - name: Create packages
         working-directory: ./build

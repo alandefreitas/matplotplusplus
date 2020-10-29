@@ -2093,6 +2093,25 @@ brew install matplotplusplus
 
 This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).  
 
+#### Arch Linux
+
+Matplot++ is available in the Arch User Repository
+([AUR](https://wiki.archlinux.org/index.php/Arch_User_Repository)) as
+[`matplotplusplus`](https://aur.archlinux.org/packages/matplotplusplus/).
+
+Note you can manually install the package by following the instructions on the
+[Arch Wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
+or use an [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers) like
+[`yay`](https://aur.archlinux.org/packages/yay/)
+(recommended for ease of install).
+
+```bash
+yay -S matplotplusplus
+```
+
+To discuss any issues related to this package refer to the comments section on
+the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matplotplusplus/).
+
 ### Build from Source
 
 #### Dependencies
@@ -2237,7 +2256,7 @@ or download the latest version from [www.gnuplot.info](www.gnuplot.info). If you
 * Make sure you have a recent version of [Visual Studio](https://visualstudio.microsoft.com)
 * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
 * Download CMake from [https://cmake.org/download/](https://cmake.org/download/) and install it
-* Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it
+* Download Gnuplot from [www.gnuplot.info](www.gnuplot.info) and install it (if Matplot++ examples don't display with no console errors and gnuplot running, try to re-install with wxt terminal).
 
 If you're using the Gnuplot installer, make sure you mark the option "Add application directory to your PATH environment variable".
 
@@ -2298,12 +2317,14 @@ This will build the examples in the `build/examples` directory:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-cmake --build . -j 2 --config Release
+cmake --build . --parallel 2 --config Release
 ```
 
-On windows, replace `-O2` with `/O2`.
+* Replace `--parallel 2` with `--parallel <number of cores in your machine>`
+* On Windows, replace `-O2` with `/O2` 
+* On Linux, you might need `sudo` for this last command
 
 #### Installing Matplot++ from Source
 
@@ -2311,13 +2332,15 @@ This will install Matplot++ on your system:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
-cmake --build . -j 2 --config Release
+cmake --build . --parallel 2 --config Release
 cmake --install .
 ```
 
-On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
+* Replace `--parallel 2` with `--parallel <number of cores in your machine>` 
+* On Windows, replace `-O2` with `/O2` 
+* On Linux, you might need `sudo` for this last command
 
 To uninstall Matplot++ from your system:
 
@@ -2331,14 +2354,16 @@ This will create the binary packages you can use to install Matplot++ on your sy
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
-cmake --build . -j 2 --config Release
+cmake --build . --parallel 2 --config Release
 cmake --install .
 cpack .
 ```
 
-On windows, replace `-O2` with `/O2`. You might need `sudo` for this last command.
+* Replace `--parallel 2` with `--parallel <number of cores in your machine>`
+* On Windows, replace `-O2` with `/O2` 
+* On Linux, you might need `sudo` for this last command
 
 ### CMake targets
 
@@ -2487,6 +2512,8 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
     
 </details>
 
+If contributing to the documentation, please edit [`README.md`](README.md) directly, as the files in [`./docs`](./docs) are automatically generated with [mdsplit](https://github.com/alandefreitas/mdsplit).
+
 ### Contributors
 
 <!-- readme: collaborators,contributors,ankane -start --> 
@@ -2528,13 +2555,27 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/madronalabs">
+            <img src="https://avatars3.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
+            <br />
+            <sub><b>Randy Jones</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/sammi">
             <img src="https://avatars0.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
             <br />
             <sub><b>Sammi</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/leha-bot">
+            <img src="https://avatars1.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+            <br />
+            <sub><b>Alex</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/dimztimz">
             <img src="https://avatars0.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
@@ -2543,10 +2584,17 @@ If contributing with code, please leave the OpenGL backend and pedantic mode ON 
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/leha-bot">
-            <img src="https://avatars1.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+        <a href="https://github.com/MaBnt">
+            <img src="https://avatars2.githubusercontent.com/u/28400222?v=4" width="100;" alt="MaBnt"/>
             <br />
-            <sub><b>Alex</b></sub>
+            <sub><b>MaBnt</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/acxz">
+            <img src="https://avatars2.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
+            <br />
+            <sub><b>Akash Patel</b></sub>
         </a>
     </td>
     <td align="center">

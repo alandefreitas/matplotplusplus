@@ -13,12 +13,14 @@ This will build the examples in the `build/examples` directory:
 
 ```bash
 mkdir build
-cmake -version
+cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-cmake --build . -j 2 --config Release
+cmake --build . --parallel 2 --config Release
 ```
 
-On windows, replace `-O2` with `/O2`.
+* Replace `--parallel 2` with `--parallel <number of cores in your machine>`
+* On Windows, replace `-O2` with `/O2` 
+* On Linux, you might need `sudo` for this last command
 
 
 
