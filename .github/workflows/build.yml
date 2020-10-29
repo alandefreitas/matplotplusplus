@@ -82,9 +82,6 @@ jobs:
       - name: Install
         working-directory: ./build
         run: ${{ matrix.config.sudocmd }} cmake --install .
-      - name: Uninstall
-        working-directory: ./build
-        run: ${{ matrix.config.sudocmd }} cmake --build . --target uninstall
       - name: Integration Test
         working-directory: ./test/integration
         run: |
@@ -105,3 +102,6 @@ jobs:
         uses: kittaakos/upload-artifact-as-is@v0
         with:
           path: build/matplotplusplus-?.?.?-*.*
+      - name: Uninstall
+        working-directory: ./build
+        run: ${{ matrix.config.sudocmd }} cmake --build . --target uninstall
