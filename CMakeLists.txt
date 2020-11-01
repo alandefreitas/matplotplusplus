@@ -24,6 +24,15 @@ else ()
 endif ()
 set(MATPLOT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
+# Check if we are in debug mode
+if(CMAKE_BUILD_TYPE MATCHES DEBUG)
+    set(DEBUG_MODE ON)
+    set(NOT_DEBUG_MODE OFF)
+else()
+    set(DEBUG_MODE OFF)
+    set(NOT_DEBUG_MODE ON)
+endif()
+
 #######################################################
 ### Options                                         ###
 #######################################################
@@ -36,9 +45,9 @@ option(BUILD_PACKAGE "Build package" ${MASTER_PROJECT})
 # How to build
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
-option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass wait() commands and save figures as .svg at destruction" OFF)
+option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass show() commands and save figures as .svg at destruction" OFF)
 option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
-option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." OFF)
+option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." ${DEBUG_MODE})
 option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
 
 # Where to find dependencies
