@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Other build systems
-nav_order: 5
+nav_order: 6
 has_children: false
 parent: Integration
 has_toc: false

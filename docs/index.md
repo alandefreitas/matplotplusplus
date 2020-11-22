@@ -171,6 +171,7 @@ Data visualization can help programmers and scientists identify trends in their 
   - [Common Utilities](coding-styles/common-utilities.md)
 - [Integration](integration.md)
   - [Binary Packages](integration/binary-packages.md)
+  - [Finding the Library](integration/finding-the-library.md)
   - [Package managers](integration/package-managers.md)
     - [Homebrew](integration/package-managers/homebrew.md)
     - [Arch Linux](integration/package-managers/arch-linux.md)

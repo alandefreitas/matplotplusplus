@@ -9,6 +9,7 @@ has_toc: false
 
 
 - [Binary Packages](integration/binary-packages.md)
+- [Finding the Library](integration/finding-the-library.md)
 - [Package managers](integration/package-managers.md)
   - [Homebrew](integration/package-managers/homebrew.md)
   - [Arch Linux](integration/package-managers/arch-linux.md)
