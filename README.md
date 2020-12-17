@@ -2586,12 +2586,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/kaffehalv">
+            <img src="https://avatars1.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
+            <br />
+            <sub><b>Niclas Wall Wennerdal</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars2.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
             <sub><b>Akash Patel</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ankane">
             <img src="https://avatars3.githubusercontent.com/u/220358?v=4" width="100;" alt="ankane"/>
