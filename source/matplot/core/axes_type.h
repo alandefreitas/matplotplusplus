@@ -2789,7 +2789,7 @@ namespace matplot {
             default_color(3), default_color(4), default_color(5),
             default_color(6)};
         size_t colororder_index_{0};
-        std::vector<std::vector<double>> colormap_{palette::default_map()};
+        std::vector<std::vector<double>> colormap_ = {palette::default_map()};
         size_t max_colors_{0}; // limit number of colors in the colormap
 
         // complete box around the axes
