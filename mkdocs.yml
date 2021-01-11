@@ -1,0 +1,50 @@
+site_name: Matplot++
+site_url: https://alandefreitas.github.io/matplotplusplus/
+repo_url: https://github.com/alandefreitas/matplotplusplus
+repo_name: alandefreitas/matplotplusplus
+
+site_description: "Matplot++: A C++ Graphics Library for Data Visualization"
+
+theme:
+  name: material
+  palette:
+    scheme: preference
+  features:
+    # - navigation.instant # this doesn't work well with pymdownx.arithmatex
+    # - navigation.sections
+    - toc.integrate
+    - header.autohide
+  icon:
+    repo: fontawesome/brands/git-alt
+
+edit_uri: ""
+
+plugins:
+  - search
+  - awesome-pages
+
+google_analytics:
+  - G-88KYKYY74F
+  - auto
+
+copyright: Copyright &copy; 2020 Alan Freitas
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      use_pygments: true
+      linenums: true
+      linenums_style: pymdownx.inline
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - meta
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
