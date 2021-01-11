@@ -3,7 +3,7 @@
 #######################################################
 # Project information
 cmake_minimum_required(VERSION 3.14)
-project(matplotplusplus VERSION 1.0.1)
+project(matplotplusplus VERSION 1.0.2)
 set(CMAKE_CXX_STANDARD 17)
 
 # CMake dependencies for installer
