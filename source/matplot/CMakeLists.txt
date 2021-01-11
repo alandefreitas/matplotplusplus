@@ -84,6 +84,7 @@ add_library(matplot
         freestanding/histcounts.cpp
         freestanding/plot.h
 )
+add_library(Matplot++::matplot ALIAS matplot)
 
 target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
