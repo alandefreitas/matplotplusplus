@@ -48,6 +48,8 @@ Data visualization can help programmers and scientists identify trends in their 
 <details>
 <summary>Table of Contents</summary>
 
+  - [
+](#)
 - [Gallery](#gallery)
 - [Line Plots](#line-plots)
   - [Line Plot](#line-plot)
