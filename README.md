@@ -195,6 +195,15 @@ plot(x,y);
 
 Where `x` and `y` are are any value ranges.
 
+<!-- START mdsplit-ignore -->
+<h3>
+
+[READ THE DOCUMENTATION TO SEE THESE EXAMPLES](https://alandefreitas.github.io/matplotplusplus/)
+
+</h3>
+<!-- END mdsplit-ignore -->
+
+
 === "Plot"
 
     [![example_plot_1](docs/examples/line_plot/plot/plot_1.svg)](examples/line_plot/plot/plot_1.cpp)
@@ -9332,6 +9341,8 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,ankane -end -->
+
+We would also like to thank [The Icculus Microgrant](https://icculus.org/microgrant2020).
 
 ## References
 
