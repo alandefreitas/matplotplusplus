@@ -198,7 +198,7 @@ Where `x` and `y` are are any value ranges.
 <!-- START mdsplit-ignore -->
 <h3>
 
-[READ THE DOCUMENTATION TO SEE THESE EXAMPLES](https://alandefreitas.github.io/matplotplusplus/)
+[READ THE DOCUMENTATION TO SEE THESE EXAMPLES WITH THE IMAGES](https://alandefreitas.github.io/matplotplusplus/)
 
 </h3>
 <!-- END mdsplit-ignore -->
@@ -9205,9 +9205,18 @@ You can also create the binary packages to install Matplot++ on other systems:
     cpack .
     ```
 
-## Contributing
+## Community
+
+### Getting involved
+
+* After getting started with this library, please complete this [survey](http://www.alandefreitas.com/survey/alandefreitas/matplotplusplus) to let us know how we can improve your experience.
+* Discussions are concentrated on our GitHub [discussions](https://github.com/alandefreitas/matplotplusplus/discussions) page. Don't refrain from asking questions and proposing ideas. If this library helps you create something interesting, please divulge it with the community.
+* If you are a programmer with good ideas, please [share](https://github.com/alandefreitas/matplotplusplus/discussions/new) these ideas with us.
+* Academic collaboration is more than welcome. It'd be great to see this library help people write lots and lots of academic papers.
 
 ### Ideas and Roadmap
+
+Feel free to contribute with new features to this library. For complex features and changes, consider [getting feedback](https://github.com/alandefreitas/matplotplusplus/discussions/new) from the community first. Contributing to an existing code base with its own conventions might seem intricate at first but please don't let that discourage you from sharing your ideas.
 
 There are many ways in which you can contribute to this library:
 
@@ -9219,7 +9228,7 @@ There are many ways in which you can contribute to this library:
 * Finding bugs in general <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+error%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+warning%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+error%22), [4](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+warning%22) </sup>
 * Whatever idea seems interesting to you
 
-Contributions in which we are not interested:
+The only thing we ask you is to make sure your contribution is not destructive. Some contributions in which we are not interested are:
 
 * "I don't like this optional feature so I removed/deprecated it"
 * "I removed this feature to support older versions of C++" but have not provided an equivalent alternative
@@ -9228,7 +9237,7 @@ Contributions in which we are not interested:
 
 In doubt, please open a [discussion](https://github.com/alandefreitas/matplotplusplus/discussions) first
 
-### Guidelines
+### Contributing Guidelines
 
 If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DBUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DBUILD_WITH_PEDANTIC_WARNINGS=ON`), use [cppcheck](http://cppcheck.sourceforge.net/), and [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 
