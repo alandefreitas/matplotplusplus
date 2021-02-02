@@ -150,9 +150,10 @@ Data visualization can help programmers and scientists identify trends in their 
 - [Integration](#integration)
   - [CMake](#cmake)
   - [Install](#install)
-- [Contributing](#contributing)
+- [Community](#community)
+  - [Getting involved](#getting-involved)
   - [Ideas and Roadmap](#ideas-and-roadmap)
-  - [Guidelines](#guidelines)
+  - [Contributing Guidelines](#contributing-guidelines)
   - [Contributors](#contributors)
 - [References](#references)
 
