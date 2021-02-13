@@ -7,15 +7,17 @@ site_description: "Matplot++: A C++ Graphics Library for Data Visualization"
 
 theme:
   name: material
+  custom_dir: docs/overrides
   palette:
     scheme: preference
   features:
     # - navigation.instant # this doesn't work well with pymdownx.arithmatex
-    # - navigation.sections
+    # - navigation.sections # problems on github pages
     - toc.integrate
-    - header.autohide
+    # - header.autohide # problems on mobile
   icon:
     repo: fontawesome/brands/git-alt
+    logo: fontawesome/solid/code
 
 edit_uri: ""
 

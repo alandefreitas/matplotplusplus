@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+<!-- Content footer -->
+<footer class="tx-content__footer md-typeset" style="margin-top: 70px;">
+    <a href="{{ config.repo_url }}" title="{{ config.site_name }}" class="md-button" target="_blank">
+        ⭐️ Star {{ config.site_name }}
+    </a>
+    <a href="https://www.patreon.com/modernhpc" title="{{ config.site_name }}" class="md-button" target="_blank">
+        ❤️ Contribute to {{ config.site_name }}
+    </a>
+</footer>
+{% endblock %}
