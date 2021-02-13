@@ -164,6 +164,7 @@ Data visualization can help programmers and scientists identify trends in their 
 
 <!-- START mdsplit-ignore -->
 <!-- Only leave the complete gallery in the docs -->
+
 ## Gallery
 
 [![example_plot_1](docs/examples/line_plot/plot/plot_1_thumb.png)](docs/COMPLETE_GALLERY.md#plot_1) [![example_plot3_1](docs/examples/line_plot/plot3/plot3_1_thumb.png)](docs/COMPLETE_GALLERY.md#plot3_1) [![example_stairs_1](docs/examples/line_plot/stairs/stairs_1_thumb.png)](docs/COMPLETE_GALLERY.md#stairs_1) [![example_errorbar_1](docs/examples/line_plot/errorbar/errorbar_1_thumb.png)](docs/COMPLETE_GALLERY.md#errorbar_1) [![example_area_1](docs/examples/line_plot/area/area_1_thumb.png)](docs/COMPLETE_GALLERY.md#area_1) [![example_loglog_1](docs/examples/line_plot/loglog/loglog_1_thumb.png)](docs/COMPLETE_GALLERY.md#loglog_1) [![example_fplot_1](docs/examples/line_plot/fplot/fplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#fplot_1) [![example_fimplicit_1](docs/examples/line_plot/fimplicit/fimplicit_1_thumb.png)](docs/COMPLETE_GALLERY.md#fimplicit_1)  [![example_histogram_1](docs/examples/data_distribution/histogram/histogram_1_thumb.png)](docs/COMPLETE_GALLERY.md#histogram_1) [![example_boxplot_1](docs/examples/data_distribution/boxplot/boxplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#boxplot_1) [![example_scatter_1](docs/examples/data_distribution/scatter/scatter_1_thumb.png)](docs/COMPLETE_GALLERY.md#scatter_1) [![example_scatter3_1](docs/examples/data_distribution/scatter3/scatter3_1_thumb.png)](docs/COMPLETE_GALLERY.md#scatter3_1) [![example_binscatter_1](docs/examples/data_distribution/binscatter/binscatter_1_thumb.png)](docs/COMPLETE_GALLERY.md#binscatter_1)  [![example_plotmatrix_1](docs/examples/data_distribution/plotmatrix/plotmatrix_1_thumb.png)](docs/COMPLETE_GALLERY.md#plotmatrix_1)  [![example_parallelplot_1](docs/examples/data_distribution/parallelplot/parallelplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#parallelplot_1)  [![example_pie_1](docs/examples/data_distribution/pie/pie_1_thumb.png)](docs/COMPLETE_GALLERY.md#pie_1)  [![example_heatmap_1](docs/examples/data_distribution/heatmap/heatmap_1_thumb.png)](docs/COMPLETE_GALLERY.md#heatmap_1)  [![example_wordcloud_1](docs/examples/data_distribution/wordcloud/wordcloud_1_thumb.png)](docs/COMPLETE_GALLERY.md#wordcloud_1)  [![example_bar_1](docs/examples/discrete_data/bar/bar_1_thumb.png)](docs/COMPLETE_GALLERY.md#bar_1)  [![example_pareto_1](docs/examples/discrete_data/pareto/pareto_1_thumb.png)](docs/COMPLETE_GALLERY.md#pareto_1)  [![example_stem_1](docs/examples/discrete_data/stem/stem_1_thumb.png)](docs/COMPLETE_GALLERY.md#stem_1)  [![example_stem3_1](docs/examples/discrete_data/stem3/stem3_1_thumb.png)](docs/COMPLETE_GALLERY.md#stem3_1)  [![example_geoplot_1](docs/examples/geography/geoplot/geoplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#geoplot_1)  [![example_geoscatter_1](docs/examples/geography/geoscatter/geoscatter_1_thumb.png)](docs/COMPLETE_GALLERY.md#geoscatter_1)  [![example_geobubble_1](docs/examples/geography/geobubble/geobubble_1_thumb.png)](docs/COMPLETE_GALLERY.md#geobubble_1)  [![example_geodensityplot_1](docs/examples/geography/geodensityplot/geodensityplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#geodensityplot_1)  [![example_polarplot_1](docs/examples/polar_plots/polarplot/polarplot_1_thumb.png)](docs/COMPLETE_GALLERY.md#polarplot_1)  [![example_polarscatter_1](docs/examples/polar_plots/polarscatter/polarscatter_1_thumb.png)](docs/COMPLETE_GALLERY.md#polarscatter_1)  [![example_polarhistogram_1](docs/examples/polar_plots/polarhistogram/polarhistogram_1_thumb.png)](docs/COMPLETE_GALLERY.md#polarhistogram_1)  [![example_compass_1](docs/examples/polar_plots/compass/compass_1_thumb.png)](docs/COMPLETE_GALLERY.md#compass_1)  [![example_ezpolar_1](docs/examples/polar_plots/ezpolar/ezpolar_1_thumb.png)](docs/COMPLETE_GALLERY.md#ezpolar_1)  [![example_contour_1](docs/examples/contour_plots/contour/contour_1_thumb.png)](docs/COMPLETE_GALLERY.md#contour_1)  [![example_contourf_1](docs/examples/contour_plots/contourf/contourf_1_thumb.png)](docs/COMPLETE_GALLERY.md#contourf_1)  [![example_fcontour_1](docs/examples/contour_plots/fcontour/fcontour_1_thumb.png)](docs/COMPLETE_GALLERY.md#fcontour_1)  [![example_feather_1](docs/examples/vector_fields/feather/feather_1_thumb.png)](docs/COMPLETE_GALLERY.md#feather_1)  [![example_quiver_1](docs/examples/vector_fields/quiver/quiver_1_thumb.png)](docs/COMPLETE_GALLERY.md#quiver_1)  [![example_surf_1](docs/examples/surfaces/surf/surf_1_thumb.png)](docs/COMPLETE_GALLERY.md#surf_1)  [![example_surfc_1](docs/examples/surfaces/surfc/surfc_1_thumb.png)](docs/COMPLETE_GALLERY.md#surfc_1)  [![example_mesh_1](docs/examples/surfaces/mesh/mesh_1_thumb.png)](docs/COMPLETE_GALLERY.md#mesh_1)  [![example_meshc_1](docs/examples/surfaces/meshc/meshc_1_thumb.png)](docs/COMPLETE_GALLERY.md#meshc_1)  [![example_meshz_1](docs/examples/surfaces/meshz/meshz_1_thumb.png)](docs/COMPLETE_GALLERY.md#meshz_1)  [![example_fsurf_1](docs/examples/surfaces/fsurf/fsurf_1_thumb.png)](docs/COMPLETE_GALLERY.md#fsurf_1)  [![example_fmesh_1](docs/examples/surfaces/fmesh/fmesh_1_thumb.png)](docs/COMPLETE_GALLERY.md#fmesh_1)  [![example_waterfall_1](docs/examples/surfaces/waterfall/waterfall_1_thumb.png)](docs/COMPLETE_GALLERY.md#waterfall_1)  [![example_fence_1](docs/examples/surfaces/fence/fence_1_thumb.png)](docs/COMPLETE_GALLERY.md#fence_1)  [![example_ribbon_1](docs/examples/surfaces/ribbon/ribbon_1_thumb.png)](docs/COMPLETE_GALLERY.md#ribbon_1)  [![example_graph_1](docs/examples/graphs/graph/graph_1_thumb.png)](docs/COMPLETE_GALLERY.md#graph_1)  [![example_digraph_1](docs/examples/graphs/digraph/digraph_1_thumb.png)](docs/COMPLETE_GALLERY.md#digraph_1)  [![example_imshow_1](docs/examples/images/imshow/imshow_1_thumb.png)](docs/COMPLETE_GALLERY.md#imshow_1)  [![example_image_1](docs/examples/images/image/image_1_thumb.png)](docs/COMPLETE_GALLERY.md#image_1)  [![example_imagesc_1](docs/examples/images/imagesc/imagesc_1_thumb.png)](docs/COMPLETE_GALLERY.md#imagesc_1)
@@ -180,14 +181,581 @@ Data visualization can help programmers and scientists identify trends in their 
 </details>
 <!-- END mdsplit-ignore -->
 
+## Integration
 
-## Line Plots
+### CMake
+
+#### Embed as subdirectory
+
+You can use Matplot++ directly in CMake projects as a subproject, without installing it. This is convenient if you are experimenting with this library for the first time or don't expect your users to have Matplot++ installed on their systems.
+
+Check if you have [Cmake](http://cmake.org) 3.14+ installed:
+
+```bash
+cmake --version
+```
+
+Clone the whole project
+
+```bash
+git clone https://github.com/alandefreitas/matplotplusplus/
+```
+
+and add the subdirectory to your CMake project:
+
+```cmake
+add_subdirectory(matplotplusplus)
+```
+
+When creating your executable, link the library to the targets you want:
+
+```cmake
+add_executable(my_target main.cpp)
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+Add this header to your source files:
+
+```cpp
+#include <matplot/matplot.h>
+```
+
+However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
+
+#### Embed with automatic download
+
+`FetchContent` is a CMake command that can automatically download the Matplot++ repository. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
+
+```bash
+cmake --version
+```
+
+Include FetchContent in your CMake build script:
+
+```cmake
+include(FetchContent)
+```
+
+Declare the source for the contents:
+
+```cmake
+FetchContent_Declare(matplotplusplus
+        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus
+        GIT_TAG origin/master # or whatever tag you want
+```
+
+Let CMake download the repository and include it as a subdirectory.
+
+```cmake
+FetchContent_GetProperties(matplotplusplus)
+if(NOT matplotplusplus_POPULATED)
+    FetchContent_Populate(matplotplusplus)
+    add_subdirectory(${matplotplusplus_SOURCE_DIR} ${matplotplusplus_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+```
+
+When creating your executable, link the library to the targets you want:
+
+```
+add_executable(my_target main.cpp)
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+Then add this header to your source files:
+
+```cpp
+#include <matplot/matplot.h>
+```   
+
+However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
+
+#### Embed with CPM.cmake
+
+[CPM.cmake](https://github.com/TheLartians/CPM.cmake) is a nice wrapper around the CMake `FetchContent` function.
+
+Check if you have [Cmake](http://cmake.org) 3.14+ installed:
+
+```bash
+cmake --version
+```
+
+Install [CPM.cmake](https://github.com/TheLartians/CPM.cmake) and then use this command to add Matplot++ to your build script:
+
+```cmake
+CPMAddPackage(
+    NAME matplotplusplus
+    GITHUB_REPOSITORY alandefreitas/matplotplusplus
+    GIT_TAG origin/master # or whatever tag you want
+)
+# ...
+target_link_libraries(my_target PUBLIC matplot)
+```
+
+Then add this header to your source files:
+
+```cpp
+#include <matplot/matplot.h>
+```   
+
+However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
+
+You can use:
+
+```cmake
+option(CPM_USE_LOCAL_PACKAGES "Try `find_package` before downloading dependencies" ON)
+```
+
+in your build script to let CPM.cmake do that for you.
+
+#### Find as External Package
+
+If you have the library installed on your system, you can call `find_package()` from your CMake build script.
+
+```cmake
+find_package(Matplot++ REQUIRED)
+```
+
+When creating your executable, link the library to the targets you want:
+
+```cmake
+add_executable(my_target main.cpp)
+target_link_libraries(my_target PUBLIC Matplot++::matplot)
+```
+
+Then add this header to your source files:
+
+```cpp
+#include <matplot/matplot.h>
+```
+
+You can see a complete example in [`test/integration/CMakeLists.txt`](test/integration/CMakeLists.txt).
+
+CMake should be able to locate the `matplot++-config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS). Unfortunately, there is no easy default directory for `find_package` on Windows.
+
+!!! warning "Default directories"
+
+    By default, the library is likely to be in `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows). The installer will try to find the directory where you usually keep your libraries but that's not always perfect.
+
+!!! warning "Finding packages on Windows"
+
+    Unfortunately, CMake does not have a single default directory for packages on Windows like `/usr/local/lib`. If CMake cannot find Matplot++ on Windows or if you installed the library outside the default directory on Linux/Mac OS, there are a few [options](https://stackoverflow.com/questions/21314893/what-is-the-default-search-path-for-find-package-in-windows-using-cmake):
+
+    * **Environment Variables**: The most reliable way to set this default directory is through environment variables. You can create an environment variable `MATPLOTPP_DIR` and then add `$ENV{MATPLOTPP_DIR}` to the `HINTS` section of the `find_package` command. This tends to be more convenient than requiring the path on the command line every time. Starting with version 3.12, CMake now implicitly considers the `<PackageName>_Root` environment variable a HINT for every `find_package` call.
+    * **Package Registry**: CMake offers the [Package Registry](https://cmake.org/cmake/help/v3.5/manual/cmake-packages.7.html#package-registry) as an alternative mechanism for finding package locations. CMake maintains a list of package information in the Windows registry under `HKEY_CURRENT_USER\Software\Kitware\CMake\Packages\`.
+    * **Append CMAKE_MODULE_PATH**: You can append more directories to [`CMAKE_MODULE_PATH`](https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_PATH.html) with something like `list(APPEND CMAKE_MODULE_PATH "C:\\Program Files\\matplotplusplus 1.0.1")`. `CMAKE_MODULE_PATH` is a list of search paths for CMake modules to be loaded by the `include()` or `find_package()` commands.
+    * **Set the DIR variable directly**: Directly set the `Matplot++_DIR` variable with something like `set(Matplot++_DIR "C:\\Program Files\\matplotplusplus 1.0.1\\lib\\cmake\\Matplot++")`. This might be good enough for small local projects but it is hard-coding the directory in your build script. When your library gets out of your local environment, you need to choose one of the other options above (better) or make this variable an option and require the user to provide the directory on the command line every time (worse).
+
+#### Supporting Both
+
+It's often useful to let your build script download Matplot++ when find_package fails. If using CPM.cmake, you can set the `CPM_USE_LOCAL_PACKAGES` option to try to `find_package(Matplot++)` before download Matplot++.
+
+If using FetchContent, you can use the following pattern:
+
+```cmake
+find_package(Matplot++ QUIET)
+if(NOT Matplot++_FOUND)
+    # Put your FetchContent or CPM.cmake script here
+endif()
+```
+
+### Install
+
+#### Binary Packages
+
+Get the binary package from the [release section](https://github.com/alandefreitas/matplotplusplus/releases). These binaries refer to the last release version of Matplot++.
+
+If you need a more recent version of Matplot++, you can download the [binary packages from the CI artifacts](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush) or build the library [from the source files](#build-from-source).
+
+#### Package Managers
+
+##### Homebrew
+
+Mac users can install Matplot++ with [Homebrew](https://brew.sh):
+
+```bash
+brew install matplotplusplus
+```
+
+This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).
+
+##### Arch Linux
+
+Matplot++ is available in the Arch User Repository
+([AUR](https://wiki.archlinux.org/index.php/Arch_User_Repository)) as
+[`matplotplusplus`](https://aur.archlinux.org/packages/matplotplusplus/).
+
+Note you can manually install the package by following the instructions on the
+[Arch Wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
+or use an [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers) like
+[`yay`](https://aur.archlinux.org/packages/yay/)
+(recommended for ease of install).
+
+```bash
+yay -S matplotplusplus
+```
+
+To discuss any issues related to this package refer to the comments section on
+the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matplotplusplus/).
+
+#### Build from Source
+
+##### Dependencies
+
+**C++17**
+
+Make sure your C++ compiler supports C++17:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    g++ --version
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    clang --version
+    ```
+
+=== "Windows + MSVC"
+
+    !!! warning ""
+        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
+        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
+
+The output should be something like:
+
+=== "Ubuntu + GCC"
+
+    ```console
+    g++-8 (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0
+    ```
+
+=== "Mac Os + Clang"
+
+    ```console
+    Apple clang version 11.0.0 (clang-1100.0.33.8)
+    ```
+
+=== "Windows + MSVC"
+
+    !!! warning ""
+        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
+        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
+
+
+If you need to update your compiler:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    # install GCC-8
+    sudo apt update
+    sudo apt install gcc-8
+    sudo apt install g++-8
+    ```
+
+    To update to any other version, like GCC-9 or GCC-10:
+    
+    ```bash
+    sudo apt install build-essential
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt install g++-10
+    ```
+
+    Once you installed a newer version of GCC, you can link it to `update-alternatives`. For instance, if you have GCC-7 and GCC-10, you can link them with:
+
+    ```bash
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
+    ```
+
+    You can now use `update-alternatives` to set your default `gcc` and `g++` to a more recent version:
+
+    ```bash
+    update-alternatives --config g++
+    update-alternatives --config gcc
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    # download clang
+    curl --output clang.tar.xz -L https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-apple-darwin.tar.xz
+    mkdir clang
+    tar -xvJf clang.tar.xz -C clang
+
+    # copy files to /usr/local
+    cd clang/clang+llvm-11.0.0-x86_64-apple-darwin
+    sudo cp -R * /usr/local/
+
+    # update default compiler
+    export CXX=/usr/local/bin/clang++
+    ```
+
+=== "Windows + MSVC"
+
+    !!! warning ""
+        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
+        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
+
+**CMake 3.14+**
+
+Also check your CMake version is at least 3.14+:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    cmake --version
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    cmake --version
+    ```
+
+=== "Windows + MSVC"
+
+    ```bash
+    cmake --version
+    ```
+
+If CMake is not installed or its version is older than CMake 3.14, update it with
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    sudo apt upgrade cmake
+    ```
+
+    !!! warning ""
+        Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
+
+=== "Mac Os + Clang"
+
+    ```bash
+    sudo brew upgrade cmake
+    ```
+
+    !!! warning "Homebrew"
+        If this command fails because you don't have [Homebrew](https://brew.sh) on your computer, you can install it with
+
+        ```bash
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        ```
+
+        or you can follow the instructions in [https://brew.sh](https://brew.sh).
+
+    
+    !!! warning ""
+        Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
+
+=== "Windows + MSVC"
+
+    !!! warning ""
+        Download the most recent version from [cmake.org](https://cmake.org/).
+
+**Gnuplot 5.2.6+**
+
+Install Gnuplot 5.2.6+ (Required at runtime)
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    sudo apt update
+    sudo apt install gnuplot
+    ```
+
+    !!! note ""
+        Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
+
+
+=== "Mac Os + Clang"
+
+    ```bash
+    sudo brew install gnuplot
+    ```
+
+    !!! note ""
+        Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
+
+=== "Windows + MSVC"
+
+    !!! warning ""
+        Download Gnuplot from [www.gnuplot.info](http://www.gnuplot.info) and install it.
+
+        If you're using the Gnuplot installer, make sure you mark the option "Add application directory to your PATH environment variable"
+
+    !!! warning "Windows Gnuplot Terminals"
+
+        If the Matplot++ examples don't display without console errors and gnuplot running, try to re-install Gnuplot with the wxt terminal.
+
+**Optional Dependencies**
+
+The build script will also look for these *optional* dependencies for manipulating images:
+
+* JPEG
+* TIFF
+* ZLIB
+* PNG
+* LAPACK
+* BLAS
+* FFTW
+* OpenCV
+
+**Embedded dependencies**
+
+There are two dependencies in [`source/3rd_party`](source/3rd_party). These dependencies are bundled, so you don't have to worry about them:
+
+* olvb/nodesoup
+* dtschump/CImg
+
+You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
+
+**OpenGL dependencies**
+
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+
+* OpenGL
+* GLAD
+* GLFW3
+
+If these dependencies are not found, the build script will download them. In any case, you can install these dependencies with:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    sudo apt-get install libglfw3-dev
+    ```
+
+=== "Mac Os + Clang"
+
+    !!! note ""
+        Download GLFW3 from https://www.glfw.org
+
+=== "Windows + MSVC"
+
+    !!! note ""
+        Download GLFW3 from https://www.glfw.org
+
+You can also see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
+
+##### Build and install
+
+**Building Examples**
+
+This will build the examples in the `build/examples` directory:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
+    sudo cmake --build . --parallel 2 --config Release
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
+    cmake --build . --parallel 2 --config Release
+    ```
+
+=== "Windows + MSVC"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2"
+    cmake --build . --parallel 2 --config Release
+    ```
+
+!!! hint "Parallel Build"
+Replace `--parallel 2` with `--parallel <number of cores in your machine>`
+
+!!! note "Setting C++ Compiler"
+
+    If your C++ compiler that supports C++17 is not your default compiler, make sure you provide CMake with the compiler location with the DCMAKE_C_COMPILER and DCMAKE_CXX_COMPILER options. For instance:
+
+    ```bash
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
+    ```
+
+**Installing**
+
+You can 1) use `-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    sudo cmake --build . --parallel 2 --config Release
+    sudo cmake --install .
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    cmake --build . --parallel 2 --config Release
+    cmake --install .
+    ```
+
+=== "Windows + MSVC"
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    cmake --build . --parallel 2 --config Release
+    cmake --install .
+    ```
+
+!!! hint "Parallel Build"
+Replace `--parallel 2` with `--parallel <number of cores in your machine>`
+
+**Create packages**
+
+You can also create the binary packages to install Matplot++ on other systems:
+
+=== "Ubuntu + GCC"
+
+    ```bash
+    sudo cpack .
+    ```
+
+=== "Mac Os + Clang"
+
+    ```bash
+    cpack .
+    ```
+
+=== "Windows + MSVC"
+
+    ```bash
+    cpack .
+    ```
+
+## Plot Types
+
+### Line Plots
 
 <!-- START mdsplit-ignore -->
 [Line Plot](#line-plot) | [Line Plot 3D](#line-plot-3d) | [Stairs](#stairs) | [Error Bars](#error-bars) | [Area](#area) | [Loglog Plot](#loglog-plot) | [Semilogx Plot](#semilogx-plot) | [Semilogy Plot](#semilogy-plot) | [Function Plot](#function-plot) | [Function Plot 3D](#function-plot-3d) | [Implicit function](#implicit-function)
 <!-- END mdsplit-ignore -->
 
-### Line Plot
+#### Line Plot
 
 !!! tip
     Use these examples to understand how to quickly use the library for data visualization. If you are interested in understanding how the library works, you can later read the details in the complete [article](docs/white-paper.md).
@@ -357,7 +925,7 @@ Where `x` and `y` are are any value ranges.
     --8<-- "examples/line_plot/plot/plot_12.cpp"
     ```
 
-### Line Plot 3D
+#### Line Plot 3D
 
 ```cpp
 plot3(x,y);
@@ -470,7 +1038,7 @@ plot3(x,y);
     --8<-- "examples/line_plot/plot3/plot3_10.cpp"
     ```
 
-### Stairs
+#### Stairs
 
 ```cpp
 stairs(x,y);
@@ -584,7 +1152,7 @@ More examples:
     ```
 
 
-### Error Bars
+#### Error Bars
 
 ```cpp
 errorbar(x,y,err);
@@ -709,7 +1277,7 @@ More examples:
 
 The `error bar` object includes extra lines to represent error around data points. Log plots are utility functions that adjust the x or y axes to a logarithmic scale. 
 
-### Area
+#### Area
 
 ```cpp
 area(Y);
@@ -771,7 +1339,7 @@ More examples:
     --8<-- "examples/line_plot/area/area_4.cpp"
     ```
 
-### Loglog Plot
+#### Loglog Plot
 
 ```cpp
 loglog(x,y);
@@ -883,7 +1451,7 @@ More examples:
     ```
 
 
-### Semilogx Plot
+#### Semilogx Plot
 
 ```cpp
 semilogx(x,y);
@@ -907,7 +1475,7 @@ semilogx(x,y);
     --8<-- "examples/line_plot/semilogx/semilogx_1.cpp"
     ```
 
-### Semilogy Plot
+#### Semilogy Plot
 
 ```cpp
 semilogy(x,y);
@@ -931,7 +1499,7 @@ semilogy(x,y);
     --8<-- "examples/line_plot/semilogy/semilogy_1.cpp"
     ```
 
-### Function Plot
+#### Function Plot
 
 ```cpp
 fplot(fx);
@@ -1015,7 +1583,7 @@ More examples:
 
 Instead of storing data points, the objects `function line` and `string function` store a function as a lambda function or as a string with an expression. These objects use lazy evaluation to generate absolute data points. The data is generated only when the `draw` function is called.
 
-### Function Plot 3D
+#### Function Plot 3D
 
 ```cpp
 fplot(fxy);
@@ -1086,7 +1654,7 @@ More examples:
     --8<-- "examples/line_plot/fplot3/fplot3_5.cpp"
     ```
 
-### Implicit function
+#### Implicit function
 
 ```cpp
 fplot(fxy);
@@ -1148,13 +1716,13 @@ More examples:
     --8<-- "examples/line_plot/fimplicit/fimplicit_4.cpp"
     ```
 
-## Data Distribution
+### Data Distribution
 
 <!-- START mdsplit-ignore -->
 [Histogram](#histogram) | [Boxplot](#boxplot) | [Scatter Plot](#scatter-plot) | [Scatter Plot 3D](#scatter-plot-3d) | [Binned Scatter Plots](#binned-scatter-plots) | [Plot Matrix](#plot-matrix) | [Parallel Coordinates](#parallel-coordinates) | [Pie Chart](#pie-chart) | [Heatmap](#heatmap) | [Word Cloud](#word-cloud)
 <!-- END mdsplit-ignore -->
 
-### Histogram
+#### Histogram
 
 The `histogram` object creates the histogram edges and bins when the `draw` function is called for the first time with lazy evaluation. Lazy evaluation avoids calculating edges unnecessarily in case the user changes the object parameters before calling `draw`. This object includes several algorithms for automatically delimiting the edges and bins for the histograms.
 
@@ -1308,7 +1876,7 @@ More examples:
     --8<-- "examples/data_distribution/histogram/histogram_14.cpp"
     ```
 
-### Boxplot
+#### Boxplot
 
 ```cpp
 boxplot(data);
@@ -1362,7 +1930,7 @@ More examples:
 
 
 
-### Scatter Plot
+#### Scatter Plot
 
 ```cpp
 scatter(x,y);
@@ -1476,7 +2044,7 @@ More examples:
 
 Scatter plots also depend on the `line` object. As the line object can represent lines with markers, the `scatter` function simply creates markers without the lines.
 
-### Scatter Plot 3D
+#### Scatter Plot 3D
 
 ```cpp
 scatter(x,y,z);
@@ -1566,7 +2134,7 @@ More examples:
 
 
 
-### Binned Scatter Plots
+#### Binned Scatter Plots
 
 ```cpp
 binscatter(x,y);
@@ -1669,7 +2237,7 @@ More examples:
 
 Binned scatter plots use variations of the histogram algorithms of the previous section as an extra step to place all the data into two-dimensional bins that can be represented with varying colors or sizes. This is useful when there are so many data points that a scatter plot would be impractical for visualizing the data.
 
-### Plot Matrix
+#### Plot Matrix
 
 ```cpp
 plotmatrix(X);
@@ -1738,7 +2306,7 @@ More examples:
 
 The Plot Matrix subcategory is a combination of histograms and scatter plots. It creates a matrix of `axes` objects on the `figure` and creates a scatter plot for each pair of data sets.
  
-### Parallel Coordinates
+#### Parallel Coordinates
 
 ```cpp
 parallelplot(X);
@@ -1796,7 +2364,7 @@ More examples:
 
 The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data. 
 
-### Pie Chart
+#### Pie Chart
 
 ```cpp
 pie(x);
@@ -1886,7 +2454,7 @@ More examples:
 
 
 
-### Heatmap
+#### Heatmap
 
 ```cpp
 heatmap(data);
@@ -1986,7 +2554,7 @@ More examples:
 
 
 
-### Word Cloud
+#### Word Cloud
 
 ```cpp
 wordcloud(text, black_list);
@@ -2058,13 +2626,13 @@ Word clouds are generated from text or pairs of words and their frequency. After
 
 By default, the colors and the sizes depend on the word frequencies. We can customize the colors by passing a third parameter to the `wordcloud` function.
 
-## Discrete Data
+### Discrete Data
 
 <!-- START mdsplit-ignore -->
 [Bar Plot](#bar-plot) | [Pareto Chart](#pareto-chart) | [Stem Plot](#stem-plot) | [Stem Plot 3D](#stem-plot-3d)
 <!-- END mdsplit-ignore -->
 
-### Bar Plot
+#### Bar Plot
 
 ```cpp
 bar(y);
@@ -2233,7 +2801,7 @@ More examples:
 
 
 
-### Pareto Chart
+#### Pareto Chart
 
 ```cpp
 pareto(y);
@@ -2304,7 +2872,7 @@ Pareto Charts are a type of chart that uses both <img src="https://render.github
 
 If you need Pareto *fronts* rather than Pareto *charts*, we refer to [Scatter Plots](#scatter-plot) for two-dimensional fronts, [Plot matrices](#plot-matrix) for three-dimensional fronts, or [Parallel Coordinate Plots](#parallel-coordinates) for many-objective fronts. These plot subcategories are described in Section [Data Distribution](#data-distribution). If you also need a tool to calculate these fronts efficiently, we refer to the [Pareto Front Library](https://github.com/alandefreitas/pareto-front).
 
-### Stem Plot
+#### Stem Plot
 
 ```cpp
 stem(Y);
@@ -2428,7 +2996,7 @@ More examples:
 
 
 
-### Stem Plot 3D
+#### Stem Plot 3D
 
 ```cpp
 stem3(z);
@@ -2575,13 +3143,13 @@ More examples:
 
 
 
-## Geography
+### Geography
 
 <!-- START mdsplit-ignore -->
 [Geoplot](#geoplot) | [Geoscatter Plot](#geoscatter-plot) | [Geobubble](#geobubble) | [Geodensity Plot](#geodensity-plot)
 <!-- END mdsplit-ignore -->
 
-### Geoplot
+#### Geoplot
 
 ```cpp
 geoplot(lat,lon);
@@ -2695,7 +3263,7 @@ If the you are not interested in geographic plots, the build script includes an 
 
 The function `world_cities` returns a list of major world cities. Its parameters define the minimum distances between cities in the <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=y"> axes. The `greedy_tsp` function is a naive greedy algorithm to find a route between these cities as a Traveling Salesman Problem (TSP). We use the `geoplot` function to draw this route. Note that we use method chaining to define some further plot properties. Finally, the `text` function includes the city names in the map.
 
-### Geoscatter Plot
+#### Geoscatter Plot
 
 ```cpp
 geoscatter(lat,lon);
@@ -2738,7 +3306,7 @@ More examples:
     ```
 
   
-### Geobubble
+#### Geobubble
 
 ```cpp
 geobubble(lat,lon,sizes);
@@ -2782,7 +3350,7 @@ More examples:
 
 
   
-### Geodensity Plot
+#### Geodensity Plot
 
 ```cpp
 geodensityplot(lat, lon);
@@ -2806,13 +3374,13 @@ geodensityplot(lat, lon);
     --8<-- "examples/geography/geodensityplot/geodensityplot_1.cpp"
     ```
 
-## Polar Plots
+### Polar Plots
 
 <!-- START mdsplit-ignore -->
 [Polar Line Plot](#polar-line-plot) | [Polar Scatter Plot](#polar-scatter-plot) | [Polar Histogram](#polar-histogram) | [Compass](#compass) | [Polar Function](#polar-function)
 <!-- END mdsplit-ignore -->
 
-### Polar Line Plot
+#### Polar Line Plot
 
 ```cpp
 polarplot(theta, rho);
@@ -2931,7 +3499,7 @@ From the backend point of view, these axes are an abstraction to the user. The d
 
 Aside from this conversion, these plot subcategories are analogous to line plots, scatter plots, histograms, quiver plots, and line functions. 
   
-### Polar Scatter Plot
+#### Polar Scatter Plot
 
 ```cpp
 polarscatter(theta, rho);
@@ -3021,7 +3589,7 @@ More examples:
 
 
   
-### Polar Histogram
+#### Polar Histogram
 
 ```cpp
 polarhistogram(theta, 6);
@@ -3102,7 +3670,7 @@ More examples:
 
 The function `polarhistogram` distributes the data into the number of bins provided as its second parameter.
   
-### Compass
+#### Compass
 
 ```cpp
 compass(u, v);
@@ -3147,7 +3715,7 @@ More examples:
 
 
   
-### Polar Function
+#### Polar Function
 
 ```cpp
 ezpolar(fn);
@@ -3190,13 +3758,13 @@ More examples:
     ```
 
 
-## Contour Plots
+### Contour Plots
 
 <!-- START mdsplit-ignore -->
 [Contour](#contour) | [Filled Contour](#filled-contour) | [Function Contour](#function-contour)
 <!-- END mdsplit-ignore -->
 
-### Contour
+#### Contour
 
 ```cpp
 contour(X, Y, Z);
@@ -3320,7 +3888,7 @@ Filled contours are closed polygons for pairs of contour levels. Some polygons f
 
 Once we find the quads with the contour line, the line is generated by interpolating the <img src="https://render.githubusercontent.com/render/math?math=z"> values around that quad.
   
-### Filled Contour
+#### Filled Contour
 
 ```cpp
 contourf(X, Y, Z);
@@ -3410,7 +3978,7 @@ More examples:
 
 
   
-### Function Contour
+#### Function Contour
 
 ```cpp
 fcontour(f);
@@ -3560,13 +4128,13 @@ More examples:
 
 By default, the function `fcontour` will generate 9 contour lines from a lambda function. The functions `contour` and `contourf`, on the other hand, plot contour lines and filled contour lines from a grid of data points for <img src="https://render.githubusercontent.com/render/math?math=x">, <img src="https://render.githubusercontent.com/render/math?math=y">, and <img src="https://render.githubusercontent.com/render/math?math=z">.
 
-## Vector Fields
+### Vector Fields
 
 <!-- START mdsplit-ignore -->
 [Feather](#feather) | [Quiver](#quiver) | [Quiver 3D](#quiver-3d)
 <!-- END mdsplit-ignore -->
 
-### Quiver
+#### Quiver
 
 ```cpp
 quiver(x, y, u, v);
@@ -3639,7 +4207,7 @@ All these subcategories depend on the `vectors` object type. In a two-dimensiona
 
 A quiver plot (or velocity plot) shows a grid of vectors whose direction and magnitude are scaled to prevent the overlap between vectors in subsequent quads. 
 
-### Quiver 3D
+#### Quiver 3D
 
 ```cpp
 quiver3(Z, U, V, W);
@@ -3663,7 +4231,7 @@ quiver3(Z, U, V, W);
     --8<-- "examples/vector_fields/quiver3/quiver3_1.cpp"
     ```
 
-### Feather
+#### Feather
 
 ```cpp
 feather(u, v);
@@ -3688,13 +4256,13 @@ feather(u, v);
     ```
 
 
-## Surfaces
+### Surfaces
 
 <!-- START mdsplit-ignore -->
 [Surface](#surface) | [Surface with Contour](#surface-with-contour) | [Mesh](#mesh) | [Mesh with Contour](#mesh-with-contour) | [Mesh with Curtain](#mesh-with-curtain) | [Function Surface](#function-surface) | [Function Mesh](#function-mesh) | [Waterfall](#waterfall) | [Fence](#fence) | [Ribbon](#ribbon)
 <!-- END mdsplit-ignore -->
 
-### Surface
+#### Surface
 
 ```cpp
 surf(X, Y, Z);
@@ -3783,7 +4351,7 @@ More examples:
 
 
   
-### Surface with Contour
+#### Surface with Contour
 
 ```cpp
 surfc(X, Y, Z);
@@ -3849,7 +4417,7 @@ More examples:
 
 
 
-### Mesh
+#### Mesh
 
 ```cpp
 mesh(X, Y, Z);
@@ -3915,7 +4483,7 @@ More examples:
 
 
   
-### Mesh with Contour
+#### Mesh with Contour
 
 ```cpp
 meshc(X, Y, Z);
@@ -3969,7 +4537,7 @@ More examples:
 
 
 
-### Mesh with Curtain
+#### Mesh with Curtain
 
 ```cpp
 meshz(X, Y, Z);
@@ -4024,7 +4592,7 @@ More examples:
 
 
   
-### Function Surface
+#### Function Surface
 
 ```cpp
 fsurf(fn);
@@ -4137,7 +4705,7 @@ More examples:
 
 
   
-### Function Mesh
+#### Function Mesh
 
 ```cpp
 fmesh(fn);
@@ -4204,7 +4772,7 @@ More examples:
 
 
   
-### Waterfall
+#### Waterfall
 
 ```cpp
 waterfall(X, Y, Z);
@@ -4258,7 +4826,7 @@ More examples:
 
 
   
-### Fence
+#### Fence
 
 ```cpp
 fence(X, Y, Z);
@@ -4313,7 +4881,7 @@ More examples:
 
 
   
-### Ribbon
+#### Ribbon
 
 ```cpp
 ribbon(X, Y, Z);
@@ -4375,13 +4943,13 @@ More examples:
 
 
 
-## Graphs
+### Graphs
 
 <!-- START mdsplit-ignore -->
 [Undirected Graph](#undirected-graph) | [Directed Graph](#directed-graph)
 <!-- END mdsplit-ignore -->
 
-### Undirected Graph
+#### Undirected Graph
 
 ```cpp
 graph(edges);
@@ -4464,7 +5032,7 @@ In an abstract graph, the vertices have no specific position in space. Mathemati
 
 The implementation of the Kamada Kawai and Fruchterman-Reingold algorithms depend on the NodeSoup library. The automatic layout uses the Kamada Kawai algorithm for small graphs and the Fruchterman-Reingold algorithm for larger graphs.
 
-### Directed Graph
+#### Directed Graph
 
 ```cpp
 digraph(edges);
@@ -4518,13 +5086,13 @@ More examples:
 
 
 
-## Images
+### Images
 
 <!-- START mdsplit-ignore -->
 [Image Show](#image-show) | [Image Matrix](#image-matrix) | [Scaled Image](#scaled-image)
 <!-- END mdsplit-ignore -->
 
-### Image Show
+#### Image Show
 
 ```cpp
 imshow(image);
@@ -4676,7 +5244,7 @@ We use the CImg library to load and save images. CImg can handle many common ima
 
 **Matplot++** includes a few convenience functions to manipulate matrices with images: `imread`, `rgb2gray`, `gray2rgb`, `imresize`, and `imwrite`. All these functions work with lists of matrices. 
 
-### Image Matrix
+#### Image Matrix
 
 ```cpp
 image(C);
@@ -4753,7 +5321,7 @@ More examples:
 
 
 
-### Scaled Image
+#### Scaled Image
 
 ```cpp
 imagesc(C);
@@ -8642,575 +9210,9 @@ If you're in a hurry, here is a summary of the backends we have and the backends
 
 If you are interested in understanding how the library works, you can read the details in the complete [article](docs/white-paper.md). It describes the relationship between its main objects, the backend interface, how to create new plot categories, its limitations, and compares this library with similar alternatives.
 
-## Integration
-
-### CMake
-
-#### Embed as subdirectory
-
-You can use Matplot++ directly in CMake projects as a subproject, without installing it. This is convenient if you are experimenting with this library for the first time or don't expect your users to have Matplot++ installed on their systems.
-
-Check if you have [Cmake](http://cmake.org) 3.14+ installed:
-
-```bash
-cmake --version
-```
-
-Clone the whole project
-
-```bash
-git clone https://github.com/alandefreitas/matplotplusplus/
-```
-
-and add the subdirectory to your CMake project:
-
-```cmake
-add_subdirectory(matplotplusplus)
-```
-
-When creating your executable, link the library to the targets you want:
-
-```cmake
-add_executable(my_target main.cpp)
-target_link_libraries(my_target PUBLIC matplot)
-```
-
-Add this header to your source files:
-
-```cpp
-#include <matplot/matplot.h>
-```
-
-However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
-
-#### Embed with automatic download
-
-`FetchContent` is a CMake command that can automatically download the Matplot++ repository. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
-
-```bash
-cmake --version
-```
-
-Include FetchContent in your CMake build script:
-
-```cmake
-include(FetchContent)
-```
-
-Declare the source for the contents:
-
-```cmake
-FetchContent_Declare(matplotplusplus
-        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus
-        GIT_TAG origin/master # or whatever tag you want
-```
-
-Let CMake download the repository and include it as a subdirectory.
-
-```cmake
-FetchContent_GetProperties(matplotplusplus)
-if(NOT matplotplusplus_POPULATED)
-    FetchContent_Populate(matplotplusplus)
-    add_subdirectory(${matplotplusplus_SOURCE_DIR} ${matplotplusplus_BINARY_DIR} EXCLUDE_FROM_ALL)
-endif()
-```
-
-When creating your executable, link the library to the targets you want:
-
-```
-add_executable(my_target main.cpp)
-target_link_libraries(my_target PUBLIC matplot)
-```
-
-Then add this header to your source files:
-
-```cpp
-#include <matplot/matplot.h>
-```   
-
-However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
-
-#### Embed with CPM.cmake
-
-[CPM.cmake](https://github.com/TheLartians/CPM.cmake) is a nice wrapper around the CMake `FetchContent` function. 
-
-Check if you have [Cmake](http://cmake.org) 3.14+ installed:
-
-```bash
-cmake --version
-```
-
-Install [CPM.cmake](https://github.com/TheLartians/CPM.cmake) and then use this command to add Matplot++ to your build script:
-
-```cmake
-CPMAddPackage(
-    NAME matplotplusplus
-    GITHUB_REPOSITORY alandefreitas/matplotplusplus
-    GIT_TAG origin/master # or whatever tag you want
-)
-# ...
-target_link_libraries(my_target PUBLIC matplot)
-```
-
-Then add this header to your source files:
-
-```cpp
-#include <matplot/matplot.h>
-```   
-
-However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule). 
-
-You can use:
-
-```cmake
-option(CPM_USE_LOCAL_PACKAGES "Try `find_package` before downloading dependencies" ON)
-```
-
-in your build script to let CPM.cmake do that for you.
-
-#### Find as External Package
-
-If you have the library installed on your system, you can call `find_package()` from your CMake build script.
-
-```cmake
-find_package(Matplot++ REQUIRED)
-```
-
-When creating your executable, link the library to the targets you want:
-
-```cmake
-add_executable(my_target main.cpp)
-target_link_libraries(my_target PUBLIC Matplot++::matplot)
-```
-
-Then add this header to your source files:
-
-```cpp
-#include <matplot/matplot.h>
-```
-
-You can see a complete example in [`test/integration/CMakeLists.txt`](test/integration/CMakeLists.txt).
-
-CMake should be able to locate the `matplot++-config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS). Unfortunately, there is no easy default directory for `find_package` on Windows.
-
-!!! warning "Default directories"
-
-    By default, the library is likely to be in `/usr/local/` (Linux / Mac OS) or `C:/Program Files/` (Windows). The installer will try to find the directory where you usually keep your libraries but that's not always perfect.
-
-!!! warning "Finding packages on Windows"
-
-    Unfortunately, CMake does not have a single default directory for packages on Windows like `/usr/local/lib`. If CMake cannot find Matplot++ on Windows or if you installed the library outside the default directory on Linux/Mac OS, there are a few [options](https://stackoverflow.com/questions/21314893/what-is-the-default-search-path-for-find-package-in-windows-using-cmake):
-
-    * **Environment Variables**: The most reliable way to set this default directory is through environment variables. You can create an environment variable `MATPLOTPP_DIR` and then add `$ENV{MATPLOTPP_DIR}` to the `HINTS` section of the `find_package` command. This tends to be more convenient than requiring the path on the command line every time. Starting with version 3.12, CMake now implicitly considers the `<PackageName>_Root` environment variable a HINT for every `find_package` call.
-    * **Package Registry**: CMake offers the [Package Registry](https://cmake.org/cmake/help/v3.5/manual/cmake-packages.7.html#package-registry) as an alternative mechanism for finding package locations. CMake maintains a list of package information in the Windows registry under `HKEY_CURRENT_USER\Software\Kitware\CMake\Packages\`.
-    * **Append CMAKE_MODULE_PATH**: You can append more directories to [`CMAKE_MODULE_PATH`](https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_PATH.html) with something like `list(APPEND CMAKE_MODULE_PATH "C:\\Program Files\\matplotplusplus 1.0.1")`. `CMAKE_MODULE_PATH` is a list of search paths for CMake modules to be loaded by the `include()` or `find_package()` commands.
-    * **Set the DIR variable directly**: Directly set the `Matplot++_DIR` variable with something like `set(Matplot++_DIR "C:\\Program Files\\matplotplusplus 1.0.1\\lib\\cmake\\Matplot++")`. This might be good enough for small local projects but it is hard-coding the directory in your build script. When your library gets out of your local environment, you need to choose one of the other options above (better) or make this variable an option and require the user to provide the directory on the command line every time (worse).
-
-#### Supporting Both
-
-It's often useful to let your build script download Matplot++ when find_package fails. If using CPM.cmake, you can set the `CPM_USE_LOCAL_PACKAGES` option to try to `find_package(Matplot++)` before download Matplot++.
-
-If using FetchContent, you can use the following pattern:
-
-```cmake
-find_package(Matplot++ QUIET)
-if(NOT Matplot++_FOUND)
-    # Put your FetchContent or CPM.cmake script here
-endif()
-```
-
-### Install
-
-#### Binary Packages
-
-Get the binary package from the [release section](https://github.com/alandefreitas/matplotplusplus/releases). These binaries refer to the last release version of Matplot++. 
-
-If you need a more recent version of Matplot++, you can download the [binary packages from the CI artifacts](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush) or build the library [from the source files](#build-from-source). 
-
-#### Package Managers
-
-##### Homebrew
-
-Mac users can install Matplot++ with [Homebrew](https://brew.sh):
-
-```bash
-brew install matplotplusplus
-```
-
-This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).
-
-##### Arch Linux
-
-Matplot++ is available in the Arch User Repository
-([AUR](https://wiki.archlinux.org/index.php/Arch_User_Repository)) as
-[`matplotplusplus`](https://aur.archlinux.org/packages/matplotplusplus/).
-
-Note you can manually install the package by following the instructions on the
-[Arch Wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
-or use an [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers) like
-[`yay`](https://aur.archlinux.org/packages/yay/)
-(recommended for ease of install).
-
-```bash
-yay -S matplotplusplus
-```
-
-To discuss any issues related to this package refer to the comments section on
-the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matplotplusplus/).
-
-#### Build from Source
-
-##### Dependencies
-
-**C++17**
-
-Make sure your C++ compiler supports C++17:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    g++ --version
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    clang --version
-    ```
-
-=== "Windows + MSVC"
-
-    !!! warning ""
-        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
-        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
-
-The output should be something like:
-
-=== "Ubuntu + GCC"
-
-    ```console
-    g++-8 (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0
-    ```
-
-=== "Mac Os + Clang"
-
-    ```console
-    Apple clang version 11.0.0 (clang-1100.0.33.8)
-    ```
-
-=== "Windows + MSVC"
-
-    !!! warning ""
-        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
-        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
-
-
-If you need to update your compiler: 
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    # install GCC-8
-    sudo apt update
-    sudo apt install gcc-8
-    sudo apt install g++-8
-    ```
-
-    To update to any other version, like GCC-9 or GCC-10:
-    
-    ```bash
-    sudo apt install build-essential
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt install g++-10
-    ```
-
-    Once you installed a newer version of GCC, you can link it to `update-alternatives`. For instance, if you have GCC-7 and GCC-10, you can link them with:
-
-    ```bash
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
-    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
-    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
-    ```
-
-    You can now use `update-alternatives` to set your default `gcc` and `g++` to a more recent version:
-
-    ```bash
-    update-alternatives --config g++
-    update-alternatives --config gcc
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    # download clang
-    curl --output clang.tar.xz -L https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-apple-darwin.tar.xz
-    mkdir clang
-    tar -xvJf clang.tar.xz -C clang
-
-    # copy files to /usr/local
-    cd clang/clang+llvm-11.0.0-x86_64-apple-darwin
-    sudo cp -R * /usr/local/
-
-    # update default compiler
-    export CXX=/usr/local/bin/clang++
-    ```
-
-=== "Windows + MSVC"
-
-    !!! warning ""
-        * Visit the [Visual Studio](https://visualstudio.microsoft.com) website
-        * Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win) and install it
-
-**CMake 3.14+**
-
-Also check your CMake version is at least 3.14+:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    cmake --version
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    cmake --version
-    ```
-
-=== "Windows + MSVC"
-
-    ```bash
-    cmake --version
-    ```
-
-If CMake is not installed or its version is older than CMake 3.14, update it with
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    sudo apt upgrade cmake
-    ```
-
-    !!! warning ""
-        Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
-
-=== "Mac Os + Clang"
-
-    ```bash
-    sudo brew upgrade cmake
-    ```
-
-    !!! warning "Homebrew"
-        If this command fails because you don't have [Homebrew](https://brew.sh) on your computer, you can install it with
-
-        ```bash
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        ```
-
-        or you can follow the instructions in [https://brew.sh](https://brew.sh).
-
-    
-    !!! warning ""
-        Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
-
-=== "Windows + MSVC"
-
-    !!! warning ""
-        Download the most recent version from [cmake.org](https://cmake.org/).
-
-**Gnuplot 5.2.6+**
-
-Install Gnuplot 5.2.6+ (Required at runtime)
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    sudo apt update
-    sudo apt install gnuplot
-    ```
-
-    !!! note ""
-        Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
-
-
-=== "Mac Os + Clang"
-
-    ```bash
-    sudo brew install gnuplot
-    ```
-
-    !!! note ""
-        Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
-
-=== "Windows + MSVC"
-
-    !!! warning ""
-        Download Gnuplot from [www.gnuplot.info](http://www.gnuplot.info) and install it.
-
-        If you're using the Gnuplot installer, make sure you mark the option "Add application directory to your PATH environment variable"
-
-    !!! warning "Windows Gnuplot Terminals"
-
-        If the Matplot++ examples don't display without console errors and gnuplot running, try to re-install Gnuplot with the wxt terminal.
-
-**Optional Dependencies**
-
-The build script will also look for these *optional* dependencies for manipulating images:
-
-* JPEG
-* TIFF
-* ZLIB
-* PNG
-* LAPACK
-* BLAS
-* FFTW
-* OpenCV
-
-**Embedded dependencies**
-
-There are two dependencies in [`source/3rd_party`](source/3rd_party). These dependencies are bundled, so you don't have to worry about them:
- 
-* olvb/nodesoup
-* dtschump/CImg
-
-You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
-
-**OpenGL dependencies**
-
-There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
-
-* OpenGL
-* GLAD
-* GLFW3
-
-If these dependencies are not found, the build script will download them. In any case, you can install these dependencies with:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    sudo apt-get install libglfw3-dev
-    ```
-
-=== "Mac Os + Clang"
-
-    !!! note ""
-        Download GLFW3 from https://www.glfw.org
-
-=== "Windows + MSVC"
-
-    !!! note ""
-        Download GLFW3 from https://www.glfw.org
-
-You can also see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
-
-##### Build and install
-
-**Building Examples**
-
-This will build the examples in the `build/examples` directory:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-    sudo cmake --build . --parallel 2 --config Release
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-    cmake --build . --parallel 2 --config Release
-    ```
-
-=== "Windows + MSVC"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2"
-    cmake --build . --parallel 2 --config Release
-    ```
-
-!!! hint "Parallel Build"
-    Replace `--parallel 2` with `--parallel <number of cores in your machine>`
-
-!!! note "Setting C++ Compiler"
-
-    If your C++ compiler that supports C++17 is not your default compiler, make sure you provide CMake with the compiler location with the DCMAKE_C_COMPILER and DCMAKE_CXX_COMPILER options. For instance:
-
-    ```bash
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
-    ```
-
-**Installing**
-
-You can 1) use `-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
-    sudo cmake --build . --parallel 2 --config Release
-    sudo cmake --install .
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
-    cmake --build . --parallel 2 --config Release
-    cmake --install .
-    ```
-
-=== "Windows + MSVC"
-
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
-    cmake --build . --parallel 2 --config Release
-    cmake --install .
-    ```
-
-!!! hint "Parallel Build"
-    Replace `--parallel 2` with `--parallel <number of cores in your machine>`
-
-**Create packages**
-
-You can also create the binary packages to install Matplot++ on other systems:
-
-=== "Ubuntu + GCC"
-
-    ```bash
-    sudo cpack .
-    ```
-
-=== "Mac Os + Clang"
-
-    ```bash
-    cpack .
-    ```
-
-=== "Windows + MSVC"
-
-    ```bash
-    cpack .
-    ```
-
 ## Community
 
-### Getting involved
+### Get Involved
 
 * After getting started with this library, please complete this [survey](http://www.alandefreitas.com/survey/alandefreitas/matplotplusplus) to let us know how we can improve your experience.
 * Discussions are concentrated on our GitHub [discussions](https://github.com/alandefreitas/matplotplusplus/discussions) page. Don't refrain from asking questions and proposing ideas. If this library helps you create something interesting, please divulge it with the community.
