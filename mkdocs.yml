@@ -10,11 +10,6 @@ theme:
   custom_dir: docs/overrides
   palette:
     scheme: preference
-  features:
-    # - navigation.instant # this doesn't work well with pymdownx.arithmatex
-    # - navigation.sections # problems on github pages
-    - toc.integrate
-    # - header.autohide # problems on mobile
   icon:
     repo: fontawesome/brands/git-alt
     logo: fontawesome/solid/code
@@ -29,7 +24,7 @@ google_analytics:
   - UA-109858331-2
   - auto
 
-copyright: Copyright &copy; 2020 Alan Freitas
+copyright: Copyright &copy; Alan Freitas
 
 markdown_extensions:
   - admonition
@@ -49,4 +44,4 @@ markdown_extensions:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  # - javascripts/config.js # for extra javascript
+  - https://media.ethicalads.io/media/client/ethicalads.min.js
