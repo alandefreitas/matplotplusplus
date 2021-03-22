@@ -132,7 +132,7 @@ namespace matplot {
         float tickangle_{0};
         std::vector<std::string> ticklabels_;
         bool ticklabels_mode_{true};
-        std::array<float, 4> color_{0, 0.15, 0.15, 0.15};
+        std::array<float, 4> color_{0, 0.15f, 0.15f, 0.15f};
         float tick_length_{0.75};
 
         // minor tics

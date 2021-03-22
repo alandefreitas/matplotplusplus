@@ -24,11 +24,11 @@ namespace matplot {
     class axes_type : public std::enable_shared_from_this<class axes_type> {
       public:
         // {left bottom right top}
-        static constexpr std::array<float, 4> default_subplot_inset{.2, .18,
-                                                                    .04, .1};
+        static constexpr std::array<float, 4> default_subplot_inset{.2f, .18f,
+                                                                    .04f, .1f};
         // {x, y, width, height}
-        static constexpr std::array<float, 4> default_axes_position{.13, .11,
-                                                                    .775, .815};
+        static constexpr std::array<float, 4> default_axes_position{.13f, .11f,
+                                                                    .775f, .815f};
 
       public:
         axes_type();
@@ -2783,7 +2783,7 @@ namespace matplot {
 
         // colors for children object
         std::array<float, 4> color_{0, 1.0, 1.0, 1.0};
-        std::array<float, 4> color_outside_{0, 0.97, 0.97, 0.97};
+        std::array<float, 4> color_outside_{0, 0.97f, 0.97f, 0.97f};
         std::vector<std::array<float, 4>> colororder_{
             default_color(0), default_color(1), default_color(2),
             default_color(3), default_color(4), default_color(5),

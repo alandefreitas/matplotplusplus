@@ -214,7 +214,7 @@ namespace matplot {
         size_t norm_{2};
         bool hidden3d_{false};
         bool depthorder_{false};
-        float face_alpha_{.95};
+        float face_alpha_{.95f};
         class line_spec line_spec_;
         bool lighting_{false};
         float primary_{-1.};

@@ -63,21 +63,21 @@ namespace matplot {
         size_t color_index = index % num_default_colors;
         switch (color_index) {
         case 0:
-            return {0, 0, 0.4470, 0.7410};
+            return {0, 0, 0.447f, 0.741f};
         case 1:
-            return {0, 0.8500, 0.3250, 0.0980};
+            return {0, 0.85f, 0.325f, 0.098f};
         case 2:
-            return {0, 0.9290, 0.6940, 0.1250};
+            return {0, 0.929f, 0.694f, 0.125f};
         case 3:
-            return {0, 0.4940, 0.1840, 0.5560};
+            return {0, 0.494f, 0.184f, 0.556f};
         case 4:
-            return {0, 0.4660, 0.6740, 0.1880};
+            return {0, 0.466f, 0.674f, 0.188f};
         case 5:
-            return {0, 0.3010, 0.7450, 0.9330};
+            return {0, 0.301f, 0.745f, 0.933f};
         case 6:
-            return {0, 0.6350, 0.0780, 0.1840};
+            return {0, 0.635f, 0.078f, 0.184f};
         default:
-            return {0, 0.0, 0.0, 0.0};
+            return {};
         }
     }
 

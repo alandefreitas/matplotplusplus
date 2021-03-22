@@ -159,7 +159,7 @@ namespace matplot {
         // linewidth 3 linetype 4 unset label
       private:
         // Line
-        std::array<float, 4> color_{0, 0, 0.4470, 0.7410};
+        std::array<float, 4> color_{0, 0, 0.447f, 0.741f};
         // Did the user provide a color or is the color just a placeholder
         bool user_color_{false};
         enum line_style line_style_ { line_style::none };
@@ -167,13 +167,13 @@ namespace matplot {
 
         // Marker
         enum marker_style marker_style_ { marker_style::none };
-        std::array<float, 4> marker_color_{0, 0, 0.4470, 0.7410};
+        std::array<float, 4> marker_color_{0, 0, 0.447f, 0.741f};
         bool marker_user_color_{false};
         std::string custom_marker_{""};
         float marker_size_{6};
 
         // Marker face
-        std::array<float, 4> marker_face_color_{0, 0.84, 1., 1.};
+        std::array<float, 4> marker_face_color_{0, 0.84f, 1., 1.};
         bool marker_face_user_color_{false};
         bool marker_face_ = false;
 

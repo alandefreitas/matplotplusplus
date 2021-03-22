@@ -297,11 +297,11 @@ namespace matplot {
         std::string name_;
         std::string title_;
         color_array title_color_{0, 0, 0, 0};
-        float title_font_size_multiplier_{1.4};
+        float title_font_size_multiplier_{1.4f};
         size_t number_{1};
         bool number_title_{true};
         // ARGB
-        color_array color_{0., 0.9400, 0.9400, 0.9400};
+        color_array color_{0., 0.94f, 0.94f, 0.94f};
         bool custom_color_{false}; // was this color defined by the user
         std::string font_{"Helvetica"};
         float font_size_{10.};
