@@ -126,7 +126,7 @@ namespace matplot {
         std::vector<double> x_data_;
 
         // color and style
-        color_array face_color_{{0.4, 0, 0, 0}};
+        color_array face_color_{{0.4f, 0, 0, 0}};
         bool manual_face_color_{false};
         color_array edge_color_{0, 0, 0, 0};
         float edge_width_{0.5};

@@ -104,14 +104,14 @@ namespace matplot {
         std::vector<std::vector<double>> ys_;
 
         // color and style
-        std::vector<color_array> face_colors_{{0.4, 0, 0, 0}};
+        std::vector<color_array> face_colors_{{0.4f, 0, 0, 0}};
         bool manual_face_color_{false};
         color_array edge_color_{0, 0, 0, 0};
         line_spec edge_style_{"-"};
         float line_width_{0.5};
         bool vertical_orientation_{true};
-        float bar_width_{0.8};
-        float cluster_width_{0.8};
+        float bar_width_{0.8f};
+        float cluster_width_{0.8f};
 
         // True if visible
         bool visible_{true};

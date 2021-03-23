@@ -126,10 +126,10 @@ namespace matplot {
         std::string labels_data_string();
 
         inline double x_width() {
-            return (w_ - 1) / (matrices_[0][0].size() - 1);
+            return (w_ - 1) / static_cast<double>(matrices_[0][0].size() - 1);
         }
 
-        inline double y_width() { return (h_ - 1) / (matrices_[0].size() - 1); }
+        inline double y_width() { return (h_ - 1) / static_cast<double>(matrices_[0].size() - 1); }
 
       protected:
         // Main matrix
