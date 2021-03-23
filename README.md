@@ -9264,6 +9264,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/avocadoboi">
+            <img src="https://avatars.githubusercontent.com/u/24738592?v=4" width="100;" alt="avocadoboi"/>
+            <br />
+            <sub><b>Björn Sundin</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/dimztimz">
             <img src="https://avatars.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
             <br />
@@ -9283,15 +9290,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Niclas Wall Wennerdal</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
             <sub><b>Akash Patel</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ankane">
             <img src="https://avatars3.githubusercontent.com/u/220358?v=4" width="100;" alt="ankane"/>
