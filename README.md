@@ -9267,7 +9267,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/avocadoboi">
             <img src="https://avatars.githubusercontent.com/u/24738592?v=4" width="100;" alt="avocadoboi"/>
             <br />
-            <sub><b>Björn Sundin</b></sub>
+            <sub><b>BjC6rn Sundin</b></sub>
         </a>
     </td>
     <td align="center">
@@ -9297,6 +9297,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
             <sub><b>Akash Patel</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/myd7349">
+            <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
+            <br />
+            <sub><b>myd7349</b></sub>
         </a>
     </td>
     <td align="center">
