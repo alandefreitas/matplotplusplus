@@ -9242,13 +9242,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Zengit123">
+            <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="Zengit123"/>
+            <br />
+            <sub><b>Zengit</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
             <br />
             <sub><b>Randy Jones</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/sammi">
             <img src="https://avatars.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
@@ -9283,15 +9290,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>MaBnt</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/kaffehalv">
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
             <br />
             <sub><b>Niclas Wall Wennerdal</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
@@ -9303,7 +9310,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/myd7349">
             <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
             <br />
-            <sub><b>myd7349</b></sub>
+            <sub><b>Myd7349</b></sub>
         </a>
     </td>
     <td align="center">
