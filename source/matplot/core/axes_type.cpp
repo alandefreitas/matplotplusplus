@@ -47,6 +47,7 @@ namespace matplot {
         if (next_plot_replace_) {
             children_.clear();
             colororder_index_ = 0;
+            axes_type::clear();
         }
         children_.push_back(obj);
         touch();
@@ -2214,6 +2215,9 @@ namespace matplot {
         y_axis_.limits_mode_auto(true);
         y2_axis_.limits_mode_auto(true);
         z_axis_.limits_mode_auto(true);
+        axes_type::x_axis().reverse(false);
+        axes_type::y_axis().reverse(false);
+        minor_grid(false);
         touch();
     }
 
@@ -2318,8 +2322,6 @@ namespace matplot {
     line_handle axes_type::plot(const std::vector<double> &x,
                                 const std::vector<double> &y,
                                 std::string_view line_spec) {
-        this->y_axis().reverse(false);
-        this->minor_grid(false);
         axes_silencer s{this};
         line_handle l = std::make_shared<class line>(this, x, y, line_spec);
         this->emplace_object(l);
@@ -2328,8 +2330,6 @@ namespace matplot {
 
     line_handle axes_type::plot(const std::vector<double> &y,
                                 std::string_view line_spec) {
-        this->y_axis().reverse(false);
-        this->minor_grid(false);
         axes_silencer s{this};
         line_handle l = std::make_shared<class line>(this, y, line_spec);
         this->emplace_object(l);
