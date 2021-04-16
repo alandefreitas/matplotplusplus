@@ -47,7 +47,6 @@ namespace matplot {
         if (next_plot_replace_) {
             children_.clear();
             colororder_index_ = 0;
-            axes_type::clear();
         }
         children_.push_back(obj);
         touch();
