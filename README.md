@@ -129,6 +129,47 @@ Data visualization can help programmers and scientists identify trends in their 
 
 ## Integration
 
+### Package Managers
+
+#### Vcpkg
+
+Vcpkg users can install Matplot++ with the [matplotplusplus](https://github.com/microsoft/vcpkg/tree/master/ports/matplotplusplus) port:
+
+```bash
+vcpkg install matplotplusplus
+```
+
+This formula is a [contribution](https://github.com/microsoft/vcpkg/pull/13725) to [vcpkg](https://github.com/microsoft/vcpkg) by [@myd7349](https://github.com/myd7349).
+
+#### Homebrew
+
+Mac users can install Matplot++ with [Homebrew](https://brew.sh):
+
+```bash
+brew install matplotplusplus
+```
+
+This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).
+
+#### Arch Linux
+
+Matplot++ is available in the Arch User Repository
+([AUR](https://wiki.archlinux.org/index.php/Arch_User_Repository)) as
+[`matplotplusplus`](https://aur.archlinux.org/packages/matplotplusplus/).
+
+Note you can manually install the package by following the instructions on the
+[Arch Wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
+or use an [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers) like
+[`yay`](https://aur.archlinux.org/packages/yay/)
+(recommended for ease of install).
+
+```bash
+yay -S matplotplusplus
+```
+
+To discuss any issues related to this package refer to the comments section on
+the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matplotplusplus/).
+
 ### CMake
 
 #### Embed as subdirectory
@@ -311,37 +352,6 @@ endif()
 Get the binary package from the [release section](https://github.com/alandefreitas/matplotplusplus/releases). These binaries refer to the last release version of Matplot++.
 
 If you need a more recent version of Matplot++, you can download the [binary packages from the CI artifacts](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush) or build the library [from the source files](#build-from-source).
-
-#### Package Managers
-
-##### Homebrew
-
-Mac users can install Matplot++ with [Homebrew](https://brew.sh):
-
-```bash
-brew install matplotplusplus
-```
-
-This formula is a [contribution](https://github.com/Homebrew/homebrew-core/pull/62577) to [Homebrew](https://github.com/Homebrew/homebrew-core) by [Andrew Kane](https://github.com/ankane).
-
-##### Arch Linux
-
-Matplot++ is available in the Arch User Repository
-([AUR](https://wiki.archlinux.org/index.php/Arch_User_Repository)) as
-[`matplotplusplus`](https://aur.archlinux.org/packages/matplotplusplus/).
-
-Note you can manually install the package by following the instructions on the
-[Arch Wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages)
-or use an [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers) like
-[`yay`](https://aur.archlinux.org/packages/yay/)
-(recommended for ease of install).
-
-```bash
-yay -S matplotplusplus
-```
-
-To discuss any issues related to this package refer to the comments section on
-the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matplotplusplus/).
 
 #### Build from Source
 
