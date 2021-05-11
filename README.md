@@ -52,6 +52,7 @@ Data visualization can help programmers and scientists identify trends in their 
 ](#)
 - [Gallery](#gallery)
 - [Integration](#integration)
+  - [Package Managers](#package-managers)
   - [CMake](#cmake)
   - [Install](#install)
 - [Plot Types](#plot-types)
