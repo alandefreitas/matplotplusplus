@@ -2214,6 +2214,9 @@ namespace matplot {
         y_axis_.limits_mode_auto(true);
         y2_axis_.limits_mode_auto(true);
         z_axis_.limits_mode_auto(true);
+        axes_type::x_axis().reverse(false);
+        axes_type::y_axis().reverse(false);
+        minor_grid(false);
         touch();
     }
 

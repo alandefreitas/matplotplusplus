@@ -80,7 +80,7 @@ namespace matplot {
         std::vector<double> y_positive_delta_{};
 
         bool filled_curve_{false};
-        float filled_curve_alpha_{0.90};
+        float filled_curve_alpha_{0.9f};
 
         float cap_size_{3.};
     };
