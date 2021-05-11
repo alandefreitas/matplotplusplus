@@ -82,6 +82,15 @@ namespace matplot {
     }
 
     namespace palette {
+        /*
+         * \see
+         * - https://doi.org/10.1179%2Fcaj.1996.33.2.79
+         * - https://bids.github.io/colormap/
+         * - https://dx.doi.org/10.1371/journal.pone.0199239
+         * - https://dx.doi.org/10.5670/oceanog.2016.66
+         * - https://dx.doi.org/10.1071/aseg2015ab107
+         * - https://zenodo.org/record/4153113
+         */
         std::vector<std::vector<double>> accent(size_t n = 8);
         std::vector<std::vector<double>> blues(size_t n = 8);
         std::vector<std::vector<double>> brbg(size_t n = 8);
