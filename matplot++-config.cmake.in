@@ -6,7 +6,7 @@ if(NOT ${MATPLOT_BUILT_SHARED})
 
     list(APPEND CMAKE_MODULE_PATH ${MATPLOT_CONFIG_INSTALL_DIR})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
-    find_dependency(Filesystem)
+    find_dependency(Filesystem COMPONENTS Experimental Final)
     list(POP_BACK CMAKE_MODULE_PATH)
 endif()
 

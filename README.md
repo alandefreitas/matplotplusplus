@@ -9300,6 +9300,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/solosuper">
+            <img src="https://avatars.githubusercontent.com/u/11663739?v=4" width="100;" alt="solosuper"/>
+            <br />
+            <sub><b>Solo Super</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
