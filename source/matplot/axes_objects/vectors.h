@@ -48,6 +48,15 @@ namespace matplot {
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
+            const std::vector<double> &y_data,
+            const std::vector<double> &z_data,
+            const std::vector<double> &u_data,
+            const std::vector<double> &v_data,
+            const std::vector<double> &w_data,
+            const std::vector<double> &m_data,
+            std::string_view line_spec = "");
+
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
@@ -102,6 +111,9 @@ namespace matplot {
 
         bool visible() const;
         class vectors &visible(bool visible);
+        
+        bool norm() const;
+        class vectors &norm(bool normalize);
 
       public /* getters and setters bypassing the line_spec */:
         float line_width() const;
@@ -194,6 +206,9 @@ namespace matplot {
         std::vector<double> v_data_{};
         std::vector<double> w_data_{};
 
+        /// Vector magnitude
+        std::vector<double> m_data_{};
+
         /// Positions at which we want markers to appear
         std::vector<size_t> marker_indices_{};
         std::vector<float> marker_sizes_{};
@@ -213,7 +228,10 @@ namespace matplot {
 
         /// True if visible
         bool visible_{true};
-    };
+
+        /// True if vectors are normalized
+        bool normalize_{false};
+};
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_VECTORS_H

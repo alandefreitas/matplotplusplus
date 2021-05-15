@@ -48,12 +48,30 @@ namespace matplot {
           x_data_(x_data), z_data_(z_data), u_data_(u_data), v_data_(v_data),
           w_data_(w_data) {}
 
+    vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
+                     const std::vector<double> &y_data,
+                     const std::vector<double> &z_data,
+                     const std::vector<double> &u_data,
+                     const std::vector<double> &v_data,
+                     const std::vector<double> &w_data,
+                     const std::vector<double> &m_data,
+                     std::string_view line_spec)
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data), z_data_(z_data), u_data_(u_data), v_data_(v_data),
+          w_data_(w_data), m_data_(m_data) {}
+
     std::string vectors::plot_string() {
         maybe_update_line_spec();
         std::stringstream ss;
-        ss << " '-' with vectors " +
-                  line_spec_.plot_string(
-                      line_spec::style_to_plot::plot_line_only, false);
+        ss << " '-' with vectors";
+        if (!line_spec_.user_color()) {
+            ss << " linecolor palette ";
+        } else {
+            ss << " linecolor rgb \'" << to_string(line_spec_.color()) << "\'";
+        }
+
+        ss << " linewidth " << line_spec_.line_width();
+
         if (use_y2_) {
             ss << " xlim x1y2";
         }
@@ -79,6 +97,7 @@ namespace matplot {
                 double u_value = u_data_.size() > i ? u_data_[i] : 0;
                 double v_value = v_data_.size() > i ? v_data_[i] : 0;
                 double w_value = w_data_.size() > i ? w_data_[i] : 0;
+                double m_value = m_data_.size() > i ? m_data_[i] : 0;
 
                 bool is_end_of_series =
                     !std::isfinite(x_value) || !std::isfinite(y_value) ||
@@ -97,6 +116,15 @@ namespace matplot {
                     ss << "  " << 0.0;
                 }
 
+                if (normalize_ && m_value != 0) {
+                    double length = sqrt(u_value * u_value + v_value * v_value +
+                                         w_value * w_value);
+                    double scale = length / m_value;
+                    u_value *= scale / length;
+                    v_value *= scale / length;
+                    w_value *= scale / length;
+                }
+
                 ss << "  " << u_value;
                 ss << "  " << v_value;
                 if (is_3d()) {
@@ -104,6 +132,8 @@ namespace matplot {
                 } else if (parent_->is_3d()) {
                     ss << "  " << 0.0;
                 }
+
+                ss << " " << m_value;
 
                 ss << "\n";
             }
@@ -123,13 +153,8 @@ namespace matplot {
     }
 
     void vectors::maybe_update_line_spec() {
-        if (line_spec_.has_line() && !line_spec_.user_color()) {
-            // if user didn't set the color, get color from xlim
-            auto c = parent_->get_color_and_bump();
-            line_spec_.color(c);
-        } else if (line_spec_.has_non_custom_marker() &&
-                   !line_spec_.user_color() &&
-                   !line_spec_.marker_user_color()) {
+        if (line_spec_.has_non_custom_marker() && !line_spec_.user_color() &&
+            !line_spec_.marker_user_color()) {
             auto c = parent_->get_color_and_bump();
             line_spec_.marker_color(c);
         }
@@ -395,6 +420,14 @@ namespace matplot {
 
     class vectors &vectors::polar(bool polar) {
         polar_ = polar;
+        touch();
+        return *this;
+    }
+
+    bool vectors::norm() const { return normalize_; }
+
+    class vectors &vectors::norm(bool normalize) {
+        normalize_ = normalize;
         touch();
         return *this;
     }
