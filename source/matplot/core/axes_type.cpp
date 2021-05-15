@@ -4631,14 +4631,14 @@ namespace matplot {
                       w, [&](double w) { return (w / w_max) * scale * z_max; })
                 : w;
         std::vector<double> m;
-        m.reserve(u.size());
         for (int i = 0; i < u.size(); i++) {
-            double mag = sqrt(u[i] * u[i] + v[i] * v[i] + w[i] * w[i]);
+            double mag = sqrt((u[i] * u[i]) + (v[i] * v[i]) + (w[i] * w[i]));
             m.emplace_back(mag);
         }
 
         vectors_handle l = std::make_shared<class vectors>(
             this, x, y, z, u_scaled, v_scaled, w_scaled, m, line_spec);
+        l->scale(scale);
         this->emplace_object(l);
 
         return l;

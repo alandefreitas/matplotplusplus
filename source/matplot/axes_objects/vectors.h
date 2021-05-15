@@ -115,6 +115,9 @@ namespace matplot {
         bool normalize() const;
         class vectors &normalize(bool normalize);
 
+        double scale() const;
+        class vectors &scale(double scale);
+
       public /* getters and setters bypassing the line_spec */:
         float line_width() const;
         class vectors &line_width(float line_width);
@@ -213,6 +216,9 @@ namespace matplot {
         std::vector<size_t> marker_indices_{};
         std::vector<float> marker_sizes_{};
         std::vector<double> marker_colors_{};
+
+        /// Scale of vectors
+        double scale_{1};
 
         /// Draw line as impulse
         bool impulse_{false};

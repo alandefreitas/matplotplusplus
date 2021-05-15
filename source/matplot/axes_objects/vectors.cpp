@@ -117,12 +117,12 @@ namespace matplot {
                 }
 
                 if (normalize_ && m_value != 0) {
-                    double length = sqrt(u_value * u_value + v_value * v_value +
+                    double mag = sqrt(u_value * u_value + v_value * v_value +
                                          w_value * w_value);
-                    double scale = length / m_value;
-                    u_value *= scale / length;
-                    v_value *= scale / length;
-                    w_value *= scale / length;
+                    double scale = mag / m_value;
+                    u_value *= scale / mag;
+                    v_value *= scale / mag;
+                    w_value *= scale / mag;
                 }
 
                 ss << "  " << u_value;
@@ -430,6 +430,14 @@ namespace matplot {
         normalize_ = normalize;
         touch();
         return *this;
+    }
+
+    double vectors::scale() const { return scale_; }
+    
+    class vectors &vectors::scale(double scale) {
+      scale_ = scale;
+      touch();
+      return *this;
     }
 
 } // namespace matplot
