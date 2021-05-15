@@ -112,8 +112,8 @@ namespace matplot {
         bool visible() const;
         class vectors &visible(bool visible);
         
-        bool norm() const;
-        class vectors &norm(bool normalize);
+        bool normalize() const;
+        class vectors &normalize(bool normalize);
 
       public /* getters and setters bypassing the line_spec */:
         float line_width() const;

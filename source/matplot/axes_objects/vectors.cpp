@@ -424,9 +424,9 @@ namespace matplot {
         return *this;
     }
 
-    bool vectors::norm() const { return normalize_; }
+    bool vectors::normalize() const { return normalize_; }
 
-    class vectors &vectors::norm(bool normalize) {
+    class vectors &vectors::normalize(bool normalize) {
         normalize_ = normalize;
         touch();
         return *this;
