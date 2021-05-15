@@ -119,10 +119,9 @@ namespace matplot {
                 if (normalize_ && m_value != 0) {
                     double mag = sqrt(u_value * u_value + v_value * v_value +
                                          w_value * w_value);
-                    double scale = mag / m_value;
-                    u_value *= scale / mag;
-                    v_value *= scale / mag;
-                    w_value *= scale / mag;
+                    u_value *= scale_ / mag;
+                    v_value *= scale_ / mag;
+                    w_value *= scale_ / mag;
                 }
 
                 ss << "  " << u_value;
