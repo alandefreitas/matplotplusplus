@@ -4525,7 +4525,8 @@ namespace matplot {
     vectors_handle axes_type::quiver(const std::vector<double> &x,
                                      const std::vector<double> &y,
                                      const std::vector<double> &u,
-                                     const std::vector<double> &v, double scale,
+                                     const std::vector<double> &v,
+                                     const std::vector<double> &m, double scale,
                                      std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
@@ -4560,10 +4561,10 @@ namespace matplot {
                       v, [&](double v) { return (v / v_max) * scale * y_max; })
                 : v;
 
-        vectors_handle l = std::make_shared<class vectors>(this, x, y, u_scaled,
-                                                           v_scaled, line_spec);
+        vectors_handle l = std::make_shared<class vectors>(
+            this, x, y, u_scaled, v_scaled, m, line_spec);
+        l->scale(scale);
         this->emplace_object(l);
-
         return l;
     }
 
@@ -4577,12 +4578,23 @@ namespace matplot {
                             scale, line_spec);
     }
 
+    /// Quiver - x,y,u,v with magnitude
+    vectors_handle axes_type::quiver(const std::vector<double> &x,
+                                     const std::vector<double> &y,
+                                     const std::vector<double> &u,
+                                     const std::vector<double> &v, double scale,
+                                     std::string_view line_spec) {
+        return this->quiver(x, y, u, v, std::vector<double>{}, scale,
+                            line_spec);
+    }
+
     /// Quiver 3d - Core function
     vectors_handle axes_type::quiver3(
         const std::vector<double> &x, const std::vector<double> &y,
         const std::vector<double> &z, const std::vector<double> &u,
         const std::vector<double> &v, const std::vector<double> &w,
-        double scale, std::string_view line_spec) {
+        const std::vector<double> &m, double scale,
+        std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
         auto x_copy = x;
@@ -4605,15 +4617,15 @@ namespace matplot {
         double v_max = *std::max_element(v.begin(), v.end());
         double y_max = ydiffmin != y_diff.end() ? *ydiffmin : v_max;
 
-        auto z_copy = y;
+        auto z_copy = z;
         std::sort(z_copy.begin(), z_copy.end());
         z_copy.resize(std::distance(z_copy.begin(),
                                     std::unique(z_copy.begin(), z_copy.end())));
         std::vector<double> z_diff(z_copy.size());
         std::adjacent_difference(z_copy.begin(), z_copy.end(), z_diff.begin());
-        // auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
-        double w_max = *std::max_element(v.begin(), v.end());
-        double z_max = ydiffmin != z_diff.end() ? *ydiffmin : w_max;
+        auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
+        double w_max = *std::max_element(w.begin(), w.end());
+        double z_max = zdiffmin != z_diff.end() ? *zdiffmin : w_max;
 
         auto u_scaled =
             (scale != 0.)
@@ -4630,11 +4642,6 @@ namespace matplot {
                 ? transform(
                       w, [&](double w) { return (w / w_max) * scale * z_max; })
                 : w;
-        std::vector<double> m;
-        for (int i = 0; i < u.size(); i++) {
-            double mag = sqrt((u[i] * u[i]) + (v[i] * v[i]) + (w[i] * w[i]));
-            m.emplace_back(mag);
-        }
 
         vectors_handle l = std::make_shared<class vectors>(
             this, x, y, z, u_scaled, v_scaled, w_scaled, m, line_spec);
@@ -4669,6 +4676,17 @@ namespace matplot {
         vector_1d y = iota(1., static_cast<double>(n));
         auto [xx, yy] = meshgrid(x, y);
         return this->quiver3(xx, yy, z, u, v, w, scale, line_spec);
+    }
+
+    /// Quiver 3d - magnitude included
+    vectors_handle axes_type::quiver3(
+        const std::vector<double> &x, const std::vector<double> &y,
+        const std::vector<double> &z, const std::vector<double> &u,
+        const std::vector<double> &v, const std::vector<double> &w,
+        double scale, std::string_view line_spec) {
+        auto l = this->quiver3(x, y, z, u, v, w, std::vector<double>{}, scale,
+                               line_spec);
+        return l;
     }
 
     /// Fence - Core function

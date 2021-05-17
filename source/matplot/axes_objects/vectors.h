@@ -42,6 +42,13 @@ namespace matplot {
 
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
+                const std::vector<double> &u_data,
+                const std::vector<double> &v_data,
+                const std::vector<double> &m_data,
+                std::string_view line_spec = "");
+
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
+                const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
@@ -49,18 +56,18 @@ namespace matplot {
                 std::string_view line_spec = "");
 
         vectors(class axes_type *parent, const std::vector<double> &x_data,
-            const std::vector<double> &y_data,
-            const std::vector<double> &z_data,
-            const std::vector<double> &u_data,
-            const std::vector<double> &v_data,
-            const std::vector<double> &w_data,
-            const std::vector<double> &m_data,
-            std::string_view line_spec = "");
+                const std::vector<double> &y_data,
+                const std::vector<double> &z_data,
+                const std::vector<double> &u_data,
+                const std::vector<double> &v_data,
+                const std::vector<double> &w_data,
+                const std::vector<double> &m_data,
+                std::string_view line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        vectors(const axes_handle &parent, Args&&... args)
+        vectors(const axes_handle &parent, Args &&...args)
             : vectors(parent.get(), std::forward<Args>(args)...) {}
 
         virtual ~vectors() = default;
@@ -90,6 +97,9 @@ namespace matplot {
         const std::vector<double> &z_data() const;
         class vectors &z_data(const std::vector<double> &z_data);
 
+        const std::vector<double> &m_data() const;
+        class vectors &m_data(const std::vector<double> &m_data);
+
         const std::vector<size_t> &marker_indices() const;
         class vectors &
         marker_indices(const std::vector<size_t> &marker_indices);
@@ -111,7 +121,7 @@ namespace matplot {
 
         bool visible() const;
         class vectors &visible(bool visible);
-        
+
         bool normalize() const;
         class vectors &normalize(bool normalize);
 
@@ -237,7 +247,7 @@ namespace matplot {
 
         /// True if vectors are normalized
         bool normalize_{false};
-};
+    };
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_VECTORS_H

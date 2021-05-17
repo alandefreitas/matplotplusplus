@@ -39,6 +39,15 @@ namespace matplot {
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
+                     const std::vector<double> &u_data,
+                     const std::vector<double> &v_data,
+                     const std::vector<double> &m_data,
+                     std::string_view line_spec)
+        : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
+          x_data_(x_data), u_data_(u_data), v_data_(v_data), m_data_(m_data) {}
+
+    vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
+                     const std::vector<double> &y_data,
                      const std::vector<double> &z_data,
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
@@ -116,9 +125,9 @@ namespace matplot {
                     ss << "  " << 0.0;
                 }
 
-                if (normalize_ && m_value != 0) {
+                if (normalize_) {
                     double mag = sqrt(u_value * u_value + v_value * v_value +
-                                         w_value * w_value);
+                                      w_value * w_value);
                     u_value *= scale_ / mag;
                     v_value *= scale_ / mag;
                     w_value *= scale_ / mag;
@@ -131,8 +140,9 @@ namespace matplot {
                 } else if (parent_->is_3d()) {
                     ss << "  " << 0.0;
                 }
-
-                ss << " " << m_value;
+                if (!m_data_.empty()) {
+                    ss << " " << m_value;
+                }
 
                 ss << "\n";
             }
@@ -152,8 +162,12 @@ namespace matplot {
     }
 
     void vectors::maybe_update_line_spec() {
-        if (line_spec_.has_non_custom_marker() && !line_spec_.user_color() &&
-            !line_spec_.marker_user_color()) {
+        if (!line_spec_.user_color() && m_data_.empty()) {
+            auto c = parent_->get_color_and_bump();
+            line_spec_.color(c);
+        } else if (line_spec_.has_non_custom_marker() &&
+                   !line_spec_.user_color() &&
+                   !line_spec_.marker_user_color()) {
             auto c = parent_->get_color_and_bump();
             line_spec_.marker_color(c);
         }
@@ -307,6 +321,14 @@ namespace matplot {
         return *this;
     }
 
+    const std::vector<double> &vectors::m_data() const { return m_data_; }
+
+    class vectors &vectors::m_data(const std::vector<double> &m_data) {
+        m_data_ = m_data;
+        touch();
+        return *this;
+    }
+
     const std::vector<size_t> &vectors::marker_indices() const {
         return marker_indices_;
     }
@@ -432,11 +454,11 @@ namespace matplot {
     }
 
     double vectors::scale() const { return scale_; }
-    
+
     class vectors &vectors::scale(double scale) {
-      scale_ = scale;
-      touch();
-      return *this;
+        scale_ = scale;
+        touch();
+        return *this;
     }
 
 } // namespace matplot
