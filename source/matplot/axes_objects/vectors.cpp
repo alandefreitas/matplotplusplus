@@ -72,14 +72,14 @@ namespace matplot {
     std::string vectors::plot_string() {
         maybe_update_line_spec();
         std::stringstream ss;
-        ss << " '-' with vectors";
-        if (!line_spec_.user_color()) {
-            ss << " linecolor palette ";
+        ss << " '-' with vectors ";
+        if (!m_data_.empty()) {
+            ss << "linecolor palette ";
+            ss << "linewidth " << line_spec_.line_width();
         } else {
-            ss << " linecolor rgb \'" << to_string(line_spec_.color()) << "\'";
+            ss << line_spec_.plot_string(
+                line_spec::style_to_plot::plot_line_only, false);
         }
-
-        ss << " linewidth " << line_spec_.line_width();
 
         if (use_y2_) {
             ss << " xlim x1y2";
