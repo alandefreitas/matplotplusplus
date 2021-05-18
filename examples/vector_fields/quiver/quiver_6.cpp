@@ -14,6 +14,7 @@ int main() {
 
     quiver(x, y, u, v, m, 0.2)->normalize(true).line_width(1.5);
 
+    colormap(palette::jet());
     show();
     return 0;
 }
