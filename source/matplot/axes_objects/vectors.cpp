@@ -72,10 +72,27 @@ namespace matplot {
     std::string vectors::plot_string() {
         maybe_update_line_spec();
         std::stringstream ss;
-        ss << " '-' with vectors ";
+        ss << " '-' with vectors";
         if (!m_data_.empty()) {
-            ss << "linecolor palette ";
-            ss << "linewidth " << line_spec_.line_width();
+            ss << " linecolor palette";
+            ss << " linewidth " << line_spec_.line_width();
+            
+            switch (line_spec_.line_style()) {
+            case line_spec::line_style::solid_line:
+                ss << " dashtype 1";
+                break;
+            case line_spec::line_style::dashed_line:
+                ss << " dashtype '--'";
+                break;
+            case line_spec::line_style::dotted_line:
+                ss << " dashtype '.'";
+                break;
+            case line_spec::line_style::dash_dot_line:
+                ss << " dashtype '-.'";
+                break;
+            default:
+                break;
+            }
         } else {
             ss << line_spec_.plot_string(
                 line_spec::style_to_plot::plot_line_only, false);
