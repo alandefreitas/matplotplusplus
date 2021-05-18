@@ -12,7 +12,7 @@ int main() {
     contour(x, y, z);
     hold(on);
 
-    quiver(x, y, dx, dy, 1, "b");
+    quiver(x, y, dx, dy);
     hold(off);
 
     show();

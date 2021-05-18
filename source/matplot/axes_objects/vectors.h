@@ -97,9 +97,6 @@ namespace matplot {
         const std::vector<double> &z_data() const;
         class vectors &z_data(const std::vector<double> &z_data);
 
-        const std::vector<double> &m_data() const;
-        class vectors &m_data(const std::vector<double> &m_data);
-
         const std::vector<size_t> &marker_indices() const;
         class vectors &
         marker_indices(const std::vector<size_t> &marker_indices);

@@ -321,14 +321,6 @@ namespace matplot {
         return *this;
     }
 
-    const std::vector<double> &vectors::m_data() const { return m_data_; }
-
-    class vectors &vectors::m_data(const std::vector<double> &m_data) {
-        m_data_ = m_data;
-        touch();
-        return *this;
-    }
-
     const std::vector<size_t> &vectors::marker_indices() const {
         return marker_indices_;
     }
