@@ -45,12 +45,12 @@ namespace matplot {
                 const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
-        /// \brief Create 2D vectors with custom origin and magnitude colors
+        /// \brief Create 2D vectors with custom origin and colors
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
-                const std::vector<double> &m_data,
+                const std::vector<double> &c_data,
                 std::string_view line_spec = "");
 
         /// \brief Create 3D vectors with custom origin
@@ -62,14 +62,14 @@ namespace matplot {
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
-        /// \brief Create 3D vectors with custom origin and magnitude colors
+        /// \brief Create 3D vectors with custom origin and colors
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::vector<double> &w_data,
-                const std::vector<double> &m_data,
+                const std::vector<double> &c_data,
                 std::string_view line_spec = "");
 
         /// If we receive an axes_handle, we can convert it to a raw
@@ -224,8 +224,8 @@ namespace matplot {
         std::vector<double> v_data_{};
         std::vector<double> w_data_{};
 
-        /// Vector magnitude
-        std::vector<double> m_data_{};
+        /// Vector color mapping values 
+        std::vector<double> c_data_{};
 
         /// Positions at which we want markers to appear
         std::vector<size_t> marker_indices_{};

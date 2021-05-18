@@ -4526,7 +4526,7 @@ namespace matplot {
                                      const std::vector<double> &y,
                                      const std::vector<double> &u,
                                      const std::vector<double> &v,
-                                     const std::vector<double> &m, double scale,
+                                     const std::vector<double> &c, double scale,
                                      std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
@@ -4562,7 +4562,7 @@ namespace matplot {
                 : v;
 
         vectors_handle l = std::make_shared<class vectors>(
-            this, x, y, u_scaled, v_scaled, m, line_spec);
+            this, x, y, u_scaled, v_scaled, c, line_spec);
         l->scale(scale);
         this->emplace_object(l);
         return l;
@@ -4573,14 +4573,14 @@ namespace matplot {
                                      const std::vector<std::vector<double>> &y,
                                      const std::vector<std::vector<double>> &u,
                                      const std::vector<std::vector<double>> &v,
-                                     const std::vector<std::vector<double>> &m,
+                                     const std::vector<std::vector<double>> &c,
                                      double scale, std::string_view line_spec) {
         return this->quiver(flatten(x), flatten(y), flatten(u), flatten(v),
-                            (m.empty()) ? std::vector<double>{} : flatten(m),
+                            (c.empty()) ? std::vector<double>{} : flatten(c),
                             scale, line_spec);
     }
 
-    /// Quiver - 2d x,y,u,v with no magnitude
+    /// Quiver - 2d x,y,u,v with no color mapping 
     vectors_handle axes_type::quiver(const std::vector<std::vector<double>> &x,
                                      const std::vector<std::vector<double>> &y,
                                      const std::vector<std::vector<double>> &u,
@@ -4590,7 +4590,7 @@ namespace matplot {
                             scale, line_spec);
     }
 
-    /// Quiver - x,y,u,v with magnitude
+    /// Quiver - x,y,u,v 
     vectors_handle axes_type::quiver(const std::vector<double> &x,
                                      const std::vector<double> &y,
                                      const std::vector<double> &u,
@@ -4605,7 +4605,7 @@ namespace matplot {
         const std::vector<double> &x, const std::vector<double> &y,
         const std::vector<double> &z, const std::vector<double> &u,
         const std::vector<double> &v, const std::vector<double> &w,
-        const std::vector<double> &m, double scale,
+        const std::vector<double> &c, double scale,
         std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
@@ -4656,7 +4656,7 @@ namespace matplot {
                 : w;
 
         vectors_handle l = std::make_shared<class vectors>(
-            this, x, y, z, u_scaled, v_scaled, w_scaled, m, line_spec);
+            this, x, y, z, u_scaled, v_scaled, w_scaled, c, line_spec);
         l->scale(scale);
         this->emplace_object(l);
 
@@ -4670,16 +4670,16 @@ namespace matplot {
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
                                       const std::vector<std::vector<double>> &w,
-                                      const std::vector<std::vector<double>> &m,
+                                      const std::vector<std::vector<double>> &c,
                                       double scale,
                                       std::string_view line_spec) {
         return this->quiver3(flatten(x), flatten(y), flatten(z), flatten(u),
                              flatten(v), flatten(w),
-                             (m.empty()) ? std::vector<double>{} : flatten(m),
+                             (c.empty()) ? std::vector<double>{} : flatten(c),
                              scale, line_spec);
     }
 
-    /// Quiver 3d - 2d vectors with no magnitude
+    /// Quiver 3d - 2d vectors with no color mapping
     vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &x,
                                       const std::vector<std::vector<double>> &y,
                                       const std::vector<std::vector<double>> &z,
@@ -4697,17 +4697,17 @@ namespace matplot {
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
                                       const std::vector<std::vector<double>> &w,
-                                      const std::vector<std::vector<double>> &m,
+                                      const std::vector<std::vector<double>> &c,
                                       double scale,
                                       std::string_view line_spec) {
         auto [n, p] = size(z);
         vector_1d x = iota(1., static_cast<double>(p));
         vector_1d y = iota(1., static_cast<double>(n));
         auto [xx, yy] = meshgrid(x, y);
-        return this->quiver3(xx, yy, z, u, v, w, m, scale, line_spec);
+        return this->quiver3(xx, yy, z, u, v, w, c, scale, line_spec);
     }
 
-    /// Quiver 3d - Automatic x and y - 2d vectors no magnitude
+    /// Quiver 3d - Automatic x and y - 2d vectors no color mapping
     vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &z,
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
@@ -4718,7 +4718,7 @@ namespace matplot {
                              scale, line_spec);
     }
 
-    /// Quiver 3d - no magnitude
+    /// Quiver 3d - no color mapping
     vectors_handle axes_type::quiver3(
         const std::vector<double> &x, const std::vector<double> &y,
         const std::vector<double> &z, const std::vector<double> &u,
