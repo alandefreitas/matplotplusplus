@@ -17,29 +17,35 @@ namespace matplot {
     class axes_type;
     class vectors : public axes_object {
       public:
+        /// \brief Create empty vectors
         explicit vectors(class axes_type *parent);
 
+        /// \brief Create 2D vectors with fixed origin and incremental u
         /// Origin xy = (0,0), u = {1,...n}, v = {v_data}
         vectors(class axes_type *parent, const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with fixed origin
         /// Origin xy = (0,0), u = {u_data}, v = {v_data}
         vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 3D vectors with fixed origin
         /// Origin xy = (0,0,0), u = {u_data}, v = {v_data}, w = {w_data}
         vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with custom origin
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with custom origin and magnitude colors
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &u_data,
@@ -47,6 +53,7 @@ namespace matplot {
                 const std::vector<double> &m_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 3D vectors with custom origin
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
@@ -55,6 +62,7 @@ namespace matplot {
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 3D vectors with custom origin and magnitude colors
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
