@@ -4573,8 +4573,20 @@ namespace matplot {
                                      const std::vector<std::vector<double>> &y,
                                      const std::vector<std::vector<double>> &u,
                                      const std::vector<std::vector<double>> &v,
+                                     const std::vector<std::vector<double>> &m,
                                      double scale, std::string_view line_spec) {
         return this->quiver(flatten(x), flatten(y), flatten(u), flatten(v),
+                            (m.empty()) ? std::vector<double>{} : flatten(m),
+                            scale, line_spec);
+    }
+
+    /// Quiver - 2d x,y,u,v with no magnitude
+    vectors_handle axes_type::quiver(const std::vector<std::vector<double>> &x,
+                                     const std::vector<std::vector<double>> &y,
+                                     const std::vector<std::vector<double>> &u,
+                                     const std::vector<std::vector<double>> &v,
+                                     double scale, std::string_view line_spec) {
+        return this->quiver(x, y, u, v, std::vector<std::vector<double>>{},
                             scale, line_spec);
     }
 
@@ -4658,6 +4670,22 @@ namespace matplot {
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
                                       const std::vector<std::vector<double>> &w,
+                                      const std::vector<std::vector<double>> &m,
+                                      double scale,
+                                      std::string_view line_spec) {
+        return this->quiver3(flatten(x), flatten(y), flatten(z), flatten(u),
+                             flatten(v), flatten(w),
+                             (m.empty()) ? std::vector<double>{} : flatten(m),
+                             scale, line_spec);
+    }
+
+    /// Quiver 3d - 2d vectors with no magnitude
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &x,
+                                      const std::vector<std::vector<double>> &y,
+                                      const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
                                       double scale,
                                       std::string_view line_spec) {
         return this->quiver3(flatten(x), flatten(y), flatten(z), flatten(u),
@@ -4669,16 +4697,28 @@ namespace matplot {
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
                                       const std::vector<std::vector<double>> &w,
+                                      const std::vector<std::vector<double>> &m,
                                       double scale,
                                       std::string_view line_spec) {
-        auto [n, m] = size(z);
-        vector_1d x = iota(1., static_cast<double>(m));
+        auto [n, p] = size(z);
+        vector_1d x = iota(1., static_cast<double>(p));
         vector_1d y = iota(1., static_cast<double>(n));
         auto [xx, yy] = meshgrid(x, y);
-        return this->quiver3(xx, yy, z, u, v, w, scale, line_spec);
+        return this->quiver3(xx, yy, z, u, v, w, m, scale, line_spec);
     }
 
-    /// Quiver 3d - magnitude included
+    /// Quiver 3d - Automatic x and y - 2d vectors no magnitude
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
+                                      double scale,
+                                      std::string_view line_spec) {
+        return this->quiver3(z, u, v, w, std::vector<std::vector<double>>{},
+                             scale, line_spec);
+    }
+
+    /// Quiver 3d - no magnitude
     vectors_handle axes_type::quiver3(
         const std::vector<double> &x, const std::vector<double> &y,
         const std::vector<double> &z, const std::vector<double> &u,

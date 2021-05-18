@@ -1417,6 +1417,15 @@ namespace matplot {
                               const std::vector<std::vector<double>> &y,
                               const std::vector<std::vector<double>> &u,
                               const std::vector<std::vector<double>> &v,
+                              const std::vector<std::vector<double>> &m,
+                              double scale = 1.0,
+                              std::string_view line_spec = "");
+
+        /// Quiver - 2d x,y,u,v with no magnitude
+        vectors_handle quiver(const std::vector<std::vector<double>> &x,
+                              const std::vector<std::vector<double>> &y,
+                              const std::vector<std::vector<double>> &u,
+                              const std::vector<std::vector<double>> &v,
                               double scale = 1.0,
                               std::string_view line_spec = "");
 
@@ -1442,6 +1451,17 @@ namespace matplot {
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
                                const std::vector<std::vector<double>> &w,
+                               const std::vector<std::vector<double>> &m,
+                               double scale = 1.0,
+                               std::string_view line_spec = "");
+
+        /// Quiver 3d - 2d vectors no magnitude
+        vectors_handle quiver3(const std::vector<std::vector<double>> &x,
+                               const std::vector<std::vector<double>> &y,
+                               const std::vector<std::vector<double>> &z,
+                               const std::vector<std::vector<double>> &u,
+                               const std::vector<std::vector<double>> &v,
+                               const std::vector<std::vector<double>> &w,
                                double scale = 1.0,
                                std::string_view line_spec = "");
 
@@ -1450,10 +1470,19 @@ namespace matplot {
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
                                const std::vector<std::vector<double>> &w,
+                               const std::vector<std::vector<double>> &m,
                                double scale = 1.0,
                                std::string_view line_spec = "");
 
-        /// Quiver 3d - no magnitude included
+        /// Quiver 3d - Automatic x and y - 2d vectors no magnitude
+        vectors_handle quiver3(const std::vector<std::vector<double>> &z,
+                               const std::vector<std::vector<double>> &u,
+                               const std::vector<std::vector<double>> &v,
+                               const std::vector<std::vector<double>> &w,
+                               double scale = 1.0,
+                               std::string_view line_spec = "");
+
+        /// Quiver 3d - no magnitude
         vectors_handle
         quiver3(const std::vector<double> &x, const std::vector<double> &y,
                 const std::vector<double> &z, const std::vector<double> &u,
