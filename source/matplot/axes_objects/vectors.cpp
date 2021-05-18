@@ -143,7 +143,7 @@ namespace matplot {
                 }
 
                 if (normalize_) {
-                    double mag = sqrt(u_value * u_value + v_value * v_value +
+                    double mag = std::sqrt(u_value * u_value + v_value * v_value +
                                       w_value * w_value);
                     u_value *= scale_ / mag;
                     v_value *= scale_ / mag;
