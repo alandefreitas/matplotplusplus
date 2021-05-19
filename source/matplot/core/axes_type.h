@@ -27,8 +27,8 @@ namespace matplot {
         static constexpr std::array<float, 4> default_subplot_inset{.2f, .18f,
                                                                     .04f, .1f};
         // {x, y, width, height}
-        static constexpr std::array<float, 4> default_axes_position{.13f, .11f,
-                                                                    .775f, .815f};
+        static constexpr std::array<float, 4> default_axes_position{
+            .13f, .11f, .775f, .815f};
 
       public:
         axes_type();
@@ -664,13 +664,14 @@ namespace matplot {
         /// is a divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &x, const std::vector<double> &y,
-                  std::string_view line_spec, Args&&... args) {
+                  std::string_view line_spec, Args &&...args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot(x, y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot(std::forward<Args>(args)...));
+            std::vector<line_handle> result_b =
+                vectorize(this->plot(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -689,7 +690,7 @@ namespace matplot {
         /// divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &x, const std::vector<double> &y,
-                  const std::vector<double> &x2, Args&&... args) {
+                  const std::vector<double> &x2, Args &&...args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a = vectorize(this->plot(x, y));
             bool p = this->next_plot_replace();
@@ -714,13 +715,14 @@ namespace matplot {
         /// is a divider between plots
         template <class... Args>
         auto plot(const std::vector<double> &y, std::string_view line_spec,
-                  Args&&... args) {
+                  Args &&...args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot(y, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot(std::forward<Args>(args)...));
+            std::vector<line_handle> result_b =
+                vectorize(this->plot(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -768,13 +770,14 @@ namespace matplot {
         template <class... Args>
         auto plot3(const std::vector<double> &x, const std::vector<double> &y,
                    const std::vector<double> &z, std::string_view line_spec,
-                   Args&&... args) {
+                   Args &&...args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a =
                 vectorize(this->plot3(x, y, z, line_spec));
             bool p = this->next_plot_replace();
             this->next_plot_replace(false);
-            std::vector<line_handle> result_b = vectorize(this->plot3(std::forward<Args>(args)...));
+            std::vector<line_handle> result_b =
+                vectorize(this->plot3(std::forward<Args>(args)...));
             this->next_plot_replace(p);
             result.insert(result.end(), result_a.begin(), result_a.end());
             result.insert(result.end(), result_b.begin(), result_b.end());
@@ -790,7 +793,7 @@ namespace matplot {
         template <class... Args>
         auto plot3(const std::vector<double> &x, const std::vector<double> &y,
                    const std::vector<double> &z, const std::vector<double> &x2,
-                   Args&&... args) {
+                   Args &&...args) {
             std::vector<line_handle> result;
             std::vector<line_handle> result_a = vectorize(this->plot3(x, y, z));
             bool p = this->next_plot_replace();
@@ -837,7 +840,7 @@ namespace matplot {
         /// This function represents case 1a
         template <class... Args>
         auto stairs(const std::vector<double> &x, const std::vector<double> &y,
-                    std::string_view line_spec, Args&&... args) {
+                    std::string_view line_spec, Args &&...args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a =
                 vectorize(this->stairs(x, y, line_spec));
@@ -859,7 +862,7 @@ namespace matplot {
         /// This function represents case 1b
         template <class... Args>
         auto stairs(const std::vector<double> &x, const std::vector<double> &y,
-                    const std::vector<double> &x2, Args&&... args) {
+                    const std::vector<double> &x2, Args &&...args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a = vectorize(this->stairs(x, y));
             bool p = this->next_plot_replace();
@@ -880,7 +883,7 @@ namespace matplot {
         /// This function represents case 2
         template <class... Args>
         auto stairs(const std::vector<double> &y, std::string_view line_spec,
-                    Args&&... args) {
+                    Args &&...args) {
             std::vector<stair_handle> result;
             std::vector<stair_handle> result_a =
                 vectorize(this->stairs(y, line_spec));
@@ -1206,8 +1209,7 @@ namespace matplot {
         std::vector<line_handle>
         stem3(const std::vector<std::vector<double>> &X,
               const std::vector<std::vector<double>> &Y,
-              const std::vector<double> &z,
-              std::string_view line_spec = "-o");
+              const std::vector<double> &z, std::string_view line_spec = "-o");
 
         /// Stem 3d - Automatic x and y
         line_handle stem3(const std::vector<double> &z,
@@ -1406,7 +1408,8 @@ namespace matplot {
         vectors_handle quiver(const std::vector<double> &x,
                               const std::vector<double> &y,
                               const std::vector<double> &u,
-                              const std::vector<double> &v, double scale = 1.0,
+                              const std::vector<double> &v,
+                              const std::vector<double> &c, double scale = 1.0,
                               std::string_view line_spec = "");
 
         /// Quiver - 2d x,y,u,v
@@ -1414,7 +1417,23 @@ namespace matplot {
                               const std::vector<std::vector<double>> &y,
                               const std::vector<std::vector<double>> &u,
                               const std::vector<std::vector<double>> &v,
+                              const std::vector<std::vector<double>> &c,
                               double scale = 1.0,
+                              std::string_view line_spec = "");
+
+        /// Quiver - 2d x,y,u,v with no color mapping
+        vectors_handle quiver(const std::vector<std::vector<double>> &x,
+                              const std::vector<std::vector<double>> &y,
+                              const std::vector<std::vector<double>> &u,
+                              const std::vector<std::vector<double>> &v,
+                              double scale = 1.0,
+                              std::string_view line_spec = "");
+
+        /// Quiver - x,y,u,v with no color mapping
+        vectors_handle quiver(const std::vector<double> &x,
+                              const std::vector<double> &y,
+                              const std::vector<double> &u,
+                              const std::vector<double> &v, double scale = 1.0,
                               std::string_view line_spec = "");
 
         /// Quiver 3d - Core function
@@ -1422,9 +1441,21 @@ namespace matplot {
         quiver3(const std::vector<double> &x, const std::vector<double> &y,
                 const std::vector<double> &z, const std::vector<double> &u,
                 const std::vector<double> &v, const std::vector<double> &w,
-                double scale = 1.0, std::string_view line_spec = "");
+                const std::vector<double> &c, double scale = 1.0,
+                std::string_view line_spec = "");
 
         /// Quiver 3d - 2d vectors
+        vectors_handle quiver3(const std::vector<std::vector<double>> &x,
+                               const std::vector<std::vector<double>> &y,
+                               const std::vector<std::vector<double>> &z,
+                               const std::vector<std::vector<double>> &u,
+                               const std::vector<std::vector<double>> &v,
+                               const std::vector<std::vector<double>> &w,
+                               const std::vector<std::vector<double>> &c,
+                               double scale = 1.0,
+                               std::string_view line_spec = "");
+
+        /// Quiver 3d - 2d vectors no color mapping
         vectors_handle quiver3(const std::vector<std::vector<double>> &x,
                                const std::vector<std::vector<double>> &y,
                                const std::vector<std::vector<double>> &z,
@@ -1439,8 +1470,24 @@ namespace matplot {
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
                                const std::vector<std::vector<double>> &w,
+                               const std::vector<std::vector<double>> &c,
                                double scale = 1.0,
                                std::string_view line_spec = "");
+
+        /// Quiver 3d - Automatic x and y - 2d vectors no color mapping
+        vectors_handle quiver3(const std::vector<std::vector<double>> &z,
+                               const std::vector<std::vector<double>> &u,
+                               const std::vector<std::vector<double>> &v,
+                               const std::vector<std::vector<double>> &w,
+                               double scale = 1.0,
+                               std::string_view line_spec = "");
+
+        /// Quiver 3d - no color mapping
+        vectors_handle
+        quiver3(const std::vector<double> &x, const std::vector<double> &y,
+                const std::vector<double> &z, const std::vector<double> &u,
+                const std::vector<double> &v, const std::vector<double> &w,
+                double scale = 1.0, std::string_view line_spec = "");
 
         /// Fence - Core function
         surface_handle fence(const std::vector<std::vector<double>> &X,
@@ -1505,8 +1552,8 @@ namespace matplot {
         surface_handle
         fsurf(fcontour_function_type funx, fcontour_function_type funy,
               fcontour_function_type funz, const std::array<double, 2> &u_range,
-              const std::array<double, 2> &v_range, std::string_view line_spec = "",
-              double mesh_density = 40);
+              const std::array<double, 2> &v_range,
+              std::string_view line_spec = "", double mesh_density = 40);
 
         /// Function surf
         /// Grid / Both ranges in the same array size 4
@@ -1689,8 +1736,7 @@ namespace matplot {
 
         /// Annotate plot with same text at many positions
         labels_handle text(const std::vector<double> &x,
-                           const std::vector<double> &y,
-                           std::string_view str);
+                           const std::vector<double> &y, std::string_view str);
 
         /// Annotate plot with arrow
         vectors_handle arrow(double x1, double y1, double x2, double y2);
@@ -1736,21 +1782,23 @@ namespace matplot {
 
         template <class T1, class T2, class... Args>
         auto plot(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                  std::string_view line_spec, Args&&... args) {
-            return plot(to_vector_1d(x), to_vector_1d(y), line_spec, std::forward<Args>(args)...);
+                  std::string_view line_spec, Args &&...args) {
+            return plot(to_vector_1d(x), to_vector_1d(y), line_spec,
+                        std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3, class... Args>
         auto plot(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                  const IterableValues<T3> &x2, Args&&... args) {
+                  const IterableValues<T3> &x2, Args &&...args) {
             return plot(to_vector_1d(x), to_vector_1d(y), to_vector_1d(x2),
                         std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto plot(const IterableValues<T1> &y, std::string_view line_spec,
-                  Args&&... args) {
-            return plot(to_vector_1d(y), line_spec, std::forward<Args>(args)...);
+                  Args &&...args) {
+            return plot(to_vector_1d(y), line_spec,
+                        std::forward<Args>(args)...);
         }
 
         template <class T1, class T2>
@@ -1791,8 +1839,7 @@ namespace matplot {
         template <class T1, class T2, class T3>
         std::enable_if_t<is_iterable_iterable_v<T3>, std::vector<line_handle>>
         plot3(const IterableIterables<T1> &X, const IterableIterables<T2> &Y,
-              const IterableIterables<T3> &Z,
-              std::string_view line_spec = "") {
+              const IterableIterables<T3> &Z, std::string_view line_spec = "") {
             return plot3(to_vector_2d(X), to_vector_2d(Y), to_vector_2d(Z),
                          line_spec);
         }
@@ -1800,7 +1847,7 @@ namespace matplot {
         template <class T1, class T2, class T3, class... Args>
         auto plot3(const IterableValues<T1> &x, const IterableValues<T2> &y,
                    const IterableValues<T3> &z, std::string_view line_spec,
-                   Args&&... args) {
+                   Args &&...args) {
             return plot3(to_vector_1d(x), to_vector_1d(y), to_vector_1d(z),
                          line_spec, std::forward<Args>(args)...);
         }
@@ -1808,15 +1855,16 @@ namespace matplot {
         template <class T1, class T2, class T3, class T4, class... Args>
         auto plot3(const IterableValues<T1> &x, const IterableValues<T2> &y,
                    const IterableValues<T3> &z, const IterableValues<T4> &x2,
-                   Args&&... args) {
+                   Args &&...args) {
             return plot3(to_vector_1d(x), to_vector_1d(y), to_vector_1d(z),
                          to_vector_1d(x2), std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto plot3(const IterableValues<T1> &z, std::string_view line_spec,
-                   Args&&... args) {
-            return plot3(to_vector_1d(z), line_spec, std::forward<Args>(args)...);
+                   Args &&...args) {
+            return plot3(to_vector_1d(z), line_spec,
+                         std::forward<Args>(args)...);
         }
 
         template <class T1, class T2>
@@ -1854,21 +1902,23 @@ namespace matplot {
 
         template <class T1, class T2, class... Args>
         auto stairs(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                    std::string_view line_spec, Args&&... args) {
-            return stairs(to_vector_1d(x), to_vector_1d(y), line_spec, std::forward<Args>(args)...);
+                    std::string_view line_spec, Args &&...args) {
+            return stairs(to_vector_1d(x), to_vector_1d(y), line_spec,
+                          std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3, class... Args>
         auto stairs(const IterableValues<T1> &x, const IterableValues<T2> &y,
-                    const IterableValues<T3> &x2, Args&&... args) {
+                    const IterableValues<T3> &x2, Args &&...args) {
             return stairs(to_vector_1d(x), to_vector_1d(y), to_vector_1d(x2),
                           std::forward<Args>(args)...);
         }
 
         template <class T1, class... Args>
         auto stairs(const IterableValues<T1> &y, std::string_view line_spec,
-                    Args&&... args) {
-            return stairs(to_vector_1d(y), line_spec, std::forward<Args>(args)...);
+                    Args &&...args) {
+            return stairs(to_vector_1d(y), line_spec,
+                          std::forward<Args>(args)...);
         }
 
         template <class T1, class T2, class T3>
@@ -2209,19 +2259,17 @@ namespace matplot {
         }
 
         template <class T1, class T2, class T3>
-        line_handle stem3(const IterableValues<T1> &x,
-                          const IterableValues<T2> &y,
-                          const IterableValues<T3> &z,
-                          std::string_view line_spec = "-o") {
+        line_handle
+        stem3(const IterableValues<T1> &x, const IterableValues<T2> &y,
+              const IterableValues<T3> &z, std::string_view line_spec = "-o") {
             return stem3(to_vector_1d(x), to_vector_1d(y), to_vector_1d(z),
                          line_spec);
         }
 
         template <class T1, class T2, class T3>
-        std::vector<line_handle> stem3(const IterableIterables<T1> &X,
-                                       const IterableIterables<T2> &Y,
-                                       const IterableValues<T3> &z,
-                                       std::string_view line_spec = "-o") {
+        std::vector<line_handle>
+        stem3(const IterableIterables<T1> &X, const IterableIterables<T2> &Y,
+              const IterableValues<T3> &z, std::string_view line_spec = "-o") {
             return stem3(to_vector_2d(X), to_vector_2d(Y), to_vector_1d(z),
                          line_spec);
         }
@@ -2500,10 +2548,11 @@ namespace matplot {
         }
 
         template <class T1, class T2, class T3, class T4>
-        surface_handle
-        surf(const IterableIterables<T1> &X, const IterableIterables<T2> &Y,
-             const IterableIterables<T3> &Z,
-             const IterableIterables<T4> &C = {}, std::string_view line_spec = "") {
+        surface_handle surf(const IterableIterables<T1> &X,
+                            const IterableIterables<T2> &Y,
+                            const IterableIterables<T3> &Z,
+                            const IterableIterables<T4> &C = {},
+                            std::string_view line_spec = "") {
             return IterableIterables<T1>(to_vector_2d(X), to_vector_2d(Y),
                                          to_vector_2d(Z), to_vector_2d(C),
                                          line_spec);
@@ -2615,8 +2664,7 @@ namespace matplot {
 
         template <class T1, class T2>
         labels_handle text(const IterableValues<T1> &x,
-                           const IterableValues<T2> &y,
-                           std::string_view str) {
+                           const IterableValues<T2> &y, std::string_view str) {
             return text(to_vector_1d(x), to_vector_1d(y), str);
         }
 
@@ -2629,7 +2677,7 @@ namespace matplot {
 
       public /* template variants of plot functions above  */:
         /// Loglog is a line plot variant with log on both x and y axes
-        template <class... Args> auto loglog(Args&&... args) {
+        template <class... Args> auto loglog(Args &&...args) {
             auto h = this->plot(std::forward<Args>(args)...);
             this->x_axis().scale(axis_type::axis_scale::log);
             this->y_axis().scale(axis_type::axis_scale::log);
@@ -2637,44 +2685,44 @@ namespace matplot {
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
-        template <class... Args> auto semilogx(Args&&... args) {
+        template <class... Args> auto semilogx(Args &&...args) {
             auto h = this->plot(std::forward<Args>(args)...);
             this->x_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// Semilogx is a plot variant with log scale on the x axis
-        template <class... Args> auto semilogy(Args&&... args) {
+        template <class... Args> auto semilogy(Args &&...args) {
             auto h = this->plot(std::forward<Args>(args)...);
             this->y_axis().scale(axis_type::axis_scale::log);
             return h;
         }
 
         /// If the user tries to use boxchart instead of boxplot, it also works
-        template <class T1, class... Args> auto boxchart(Args&&... args) {
+        template <class T1, class... Args> auto boxchart(Args &&...args) {
             return boxplot(std::forward<Args>(args)...);
         }
 
         /// The function hist2 is equivalent to binscatter (usually with a
         /// heatmap)
-        template <class... Args> auto hist2(Args&&... args) {
+        template <class... Args> auto hist2(Args &&...args) {
             return binscatter(std::forward<Args>(args)...);
         }
 
         /// Directed graph
-        template <class... Args> auto digraph(Args&&... args) {
+        template <class... Args> auto digraph(Args &&...args) {
             auto l = graph(std::forward<Args>(args)...);
             l->directed(true);
             return l;
         }
 
         /// Show array as image and scale the colorbar
-        template <class... Args> auto imagesc(Args&&... args) {
+        template <class... Args> auto imagesc(Args &&...args) {
             return image(std::forward<Args>(args)..., true);
         }
 
         /// Show array as image and scale the colorbar
-        template <class... Args> auto polygon(Args&&... args) {
+        template <class... Args> auto polygon(Args &&...args) {
             return fill(std::forward<Args>(args)...);
         }
 
@@ -2685,7 +2733,8 @@ namespace matplot {
       private /* run gnuplot commands */:
         void run_colormap_command();
         void run_position_margin_command();
-        std::tuple<double,double,double,double,double,double> calculate_margins();
+        std::tuple<double, double, double, double, double, double>
+        calculate_margins();
         void run_title_command();
         void run_box_command();
         void run_grid_command();
@@ -2715,8 +2764,8 @@ namespace matplot {
          * position on screen.
          */
         void draw_path(const std::vector<double> &x,
-                                 const std::vector<double> &y,
-                                 const std::array<float, 4> &color);
+                       const std::vector<double> &y,
+                       const std::array<float, 4> &color);
 
       private /* members */:
         // axes

@@ -136,8 +136,8 @@ namespace matplot {
                 // are the max_color appropriate interpolations in
                 // the original colormap
                 for (size_t i = 0; i < max_colors_; ++i) {
-                    color_array c =
-                        colormap_interpolation(static_cast<double>(i), 0., max_colors_ - 1.);
+                    color_array c = colormap_interpolation(
+                        static_cast<double>(i), 0., max_colors_ - 1.);
                     ss << "    " << i << "   " << c[0 + 1] << " " << c[1 + 1]
                        << " " << c[2 + 1];
                     if (i != max_colors_ - 1 || max_colors_ == 1) {
@@ -238,7 +238,8 @@ namespace matplot {
         const double tmargin =
             y + height() - height() * tmargin_multiplier - colorbar_tmargin;
 
-        return std::make_tuple(bg_width, bg_height,lmargin,rmargin,bmargin,tmargin);
+        return std::make_tuple(bg_width, bg_height, lmargin, rmargin, bmargin,
+                               tmargin);
     }
 
     void axes_type::run_position_margin_command() {
@@ -282,7 +283,8 @@ namespace matplot {
             z_minor_grid_ = z_axis().scale() == axis_type::axis_scale::log;
         }
         if (!r_user_grid_) {
-            r_grid_ = r_axis().scale() == axis_type::axis_scale::log || is_polar();
+            r_grid_ =
+                r_axis().scale() == axis_type::axis_scale::log || is_polar();
             r_minor_grid_ = r_axis().scale() == axis_type::axis_scale::log;
         }
 
@@ -420,7 +422,8 @@ namespace matplot {
         if (is_polar()) {
             run_command("set polar");
         }
-        auto set_or_unset_axis = [this](class axis_type &ax, std::string axis_name,
+        auto set_or_unset_axis = [this](class axis_type &ax,
+                                        std::string axis_name,
                                         bool minor_ticks = false) {
             // cb is the only axis we don't unset if tics are empty
             if (ax.visible() && !ax.tick_values().empty()) {
@@ -805,16 +808,14 @@ namespace matplot {
                         const bool has_wall_option =
                             v < std::tuple<int, int, int>{5, 5, 0};
                         if (has_wall_option) {
-                            run_command("set object 2 rectangle from graph 0,0 to "
-                                        "graph 1,1 behind fillcolor rgb \"" +
-                                        to_string(parent_->color()) +
+                            run_command("set object 2 rectangle from graph 0,0
+    to " "graph 1,1 behind fillcolor rgb \"" + to_string(parent_->color()) +
                                         "\" fillstyle solid 1.0 noborder");
                             run_command("set wall z0 fs transparent solid 0.5 "
-                                        "border -1 fc rgb '" + to_string(color()) + "'");
-                            run_command("set wall x0 fs transparent solid 0.5 "
-                                        "border -1 fc rgb '" + to_string(color()) + "'");
-                            run_command("set wall y1 fs transparent solid 0.5 "
-    "border -1 fc rgb '" + to_string(color()) + "'");
+                                        "border -1 fc rgb '" +
+    to_string(color()) + "'"); run_command("set wall x0 fs transparent solid 0.5
+    " "border -1 fc rgb '" + to_string(color()) + "'"); run_command("set wall y1
+    fs transparent solid 0.5 " "border -1 fc rgb '" + to_string(color()) + "'");
                         }
                         */
                 } else if (is_polar()) {
@@ -1017,11 +1018,14 @@ namespace matplot {
         if (x_axis_.tick_values_manual()) {
             cx = x_axis_.tick_values();
         } else {
-            ticks_results xticks_results = calcticks(xlimits[0], xlimits[1], true, 1.25, true, false);
+            ticks_results xticks_results =
+                calcticks(xlimits[0], xlimits[1], true, 1.25, true, false);
             cx = xticks_results.ticks;
         }
         // clamp values outside x limits
-        cx = transform(cx, [&](double x) { return std::clamp(x,xlimits[0],xlimits[1]); });
+        cx = transform(cx, [&](double x) {
+            return std::clamp(x, xlimits[0], xlimits[1]);
+        });
 
         // convert x values to viewport range
         double viewport_xmin = lm * view_width;
@@ -1045,13 +1049,23 @@ namespace matplot {
         // to the largest of x and y viewport size.
         // This unit makes the tick sizes look the same on x and y
         // while still proportional to the axes object.
-        double tick_length_multiplier = std::max(viewport_xrange, viewport_yrange) * 0.015;
+        double tick_length_multiplier =
+            std::max(viewport_xrange, viewport_yrange) * 0.015;
 
         // draw a path for each x tick
-        double xtick_length_multiplier = std::min(tick_length_multiplier, viewport_xrange);
+        double xtick_length_multiplier =
+            std::min(tick_length_multiplier, viewport_xrange);
         for (auto &v : cx) {
-            parent_->backend_->draw_path({v,v}, {viewport_ymin, viewport_ymin + x_axis_.tick_length() * xtick_length_multiplier},x_axis_.color_);
-            parent_->backend_->draw_path({v,v}, {viewport_ymax, viewport_ymax - x_axis_.tick_length() * xtick_length_multiplier},x_axis_.color_);
+            parent_->backend_->draw_path(
+                {v, v},
+                {viewport_ymin, viewport_ymin + x_axis_.tick_length() *
+                                                    xtick_length_multiplier},
+                x_axis_.color_);
+            parent_->backend_->draw_path(
+                {v, v},
+                {viewport_ymax, viewport_ymax - x_axis_.tick_length() *
+                                                    xtick_length_multiplier},
+                x_axis_.color_);
         }
 
         // to draw the y axis we
@@ -1061,11 +1075,14 @@ namespace matplot {
         if (y_axis_.tick_values_manual()) {
             cy = y_axis_.tick_values();
         } else {
-            ticks_results yticks_results = calcticks(ylimits[0], ylimits[1], false, 1.25, true, false);
+            ticks_results yticks_results =
+                calcticks(ylimits[0], ylimits[1], false, 1.25, true, false);
             cy = yticks_results.ticks;
         }
         // clamp values outside x limits
-        cy = transform(cy, [&](double x) { return std::clamp(x,ylimits[0],ylimits[1]); });
+        cy = transform(cy, [&](double x) {
+            return std::clamp(x, ylimits[0], ylimits[1]);
+        });
 
         // convert y values to viewport range
         auto yrange = ylimits[1] - ylimits[0];
@@ -1077,10 +1094,17 @@ namespace matplot {
         }
 
         // draw a path for each y tick
-        double ytick_length_multiplier = std::min(tick_length_multiplier, viewport_yrange);
+        double ytick_length_multiplier =
+            std::min(tick_length_multiplier, viewport_yrange);
         for (auto &v : cy) {
-            parent_->backend_->draw_path({viewport_xmin, viewport_xmin + y_axis_.tick_length() * ytick_length_multiplier}, {v,v}, y_axis_.color_);
-            parent_->backend_->draw_path({viewport_xmax, viewport_xmax - y_axis_.tick_length() * ytick_length_multiplier}, {v,v}, y_axis_.color_);
+            parent_->backend_->draw_path(
+                {viewport_xmin, viewport_xmin + y_axis_.tick_length() *
+                                                    ytick_length_multiplier},
+                {v, v}, y_axis_.color_);
+            parent_->backend_->draw_path(
+                {viewport_xmax, viewport_xmax - y_axis_.tick_length() *
+                                                    ytick_length_multiplier},
+                {v, v}, y_axis_.color_);
         }
     }
 
@@ -1920,7 +1944,8 @@ namespace matplot {
     }
 
     void axes_type::color_box_log_scale(bool v) {
-        cb_axis_.scale(v ? axis_type::axis_scale::log : axis_type::axis_scale::linear);
+        cb_axis_.scale(v ? axis_type::axis_scale::log
+                         : axis_type::axis_scale::linear);
         touch();
     }
 
@@ -2400,8 +2425,7 @@ namespace matplot {
     std::vector<line_handle>
     axes_type::plot3(const std::vector<std::vector<double>> &X,
                      const std::vector<std::vector<double>> &Y,
-                     const std::vector<double> &z,
-                     std::string_view line_spec) {
+                     const std::vector<double> &z, std::string_view line_spec) {
         axes_silencer s{this};
         auto it_x = X.begin();
         auto it_y = Y.begin();
@@ -2587,16 +2611,16 @@ namespace matplot {
                     double base_value, bool stacked,
                     std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, base_value, stacked,
-                          line_spec);
+        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y,
+                          base_value, stacked, line_spec);
     }
 
     std::vector<filled_area_handle>
     axes_type::area(const std::vector<std::vector<double>> &Y, bool stacked,
                     std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
-        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y, 0., stacked,
-                          line_spec);
+        return this->area(iota(1., static_cast<double>(Y.begin()->size())), Y,
+                          0., stacked, line_spec);
     }
 
     filled_area_handle axes_type::area(const std::vector<double> &y,
@@ -2785,7 +2809,8 @@ namespace matplot {
             if (it != category_indexes.end()) {
                 numeric_data.emplace_back(it->second);
             } else {
-                double category_num = static_cast<double>(category_indexes.size()) + 1;
+                double category_num =
+                    static_cast<double>(category_indexes.size()) + 1;
                 category_indexes[category] = category_num;
                 numeric_data.emplace_back(category_num);
             }
@@ -2845,7 +2870,8 @@ namespace matplot {
         }
 
         // stats for jitter style
-        double n_squares = static_cast<double>(values.size() * values[0].size());
+        double n_squares =
+            static_cast<double>(values.size() * values[0].size());
         double avg_square_value = sum_values / n_squares;
         double n_point_per_plot = 500.;
         double avg_pts_per_square = n_point_per_plot / n_squares;
@@ -2887,8 +2913,8 @@ namespace matplot {
                         double integer_part = floor(n_expected_points_in_bin);
                         double fractional_part =
                             n_expected_points_in_bin - integer_part;
-                        size_t n_points_in_bin =
-                            static_cast<size_t>(integer_part + (rand(0, 1) < fractional_part));
+                        size_t n_points_in_bin = static_cast<size_t>(
+                            integer_part + (rand(0, 1) < fractional_part));
                         for (size_t k = 0; k < n_points_in_bin; ++k) {
                             bin_x.emplace_back(
                                 rand(edges_x[i], edges_x[i + 1]));
@@ -3645,8 +3671,7 @@ namespace matplot {
     std::vector<line_handle>
     axes_type::stem3(const std::vector<std::vector<double>> &X,
                      const std::vector<std::vector<double>> &Y,
-                     const std::vector<double> &z,
-                     std::string_view line_spec) {
+                     const std::vector<double> &z, std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
         auto hs = this->plot3(X, Y, z, line_spec);
         for (auto &h : hs) {
@@ -4079,7 +4104,8 @@ namespace matplot {
             double old_height = this->height();
             double new_height = h / this->parent()->height();
             this->height(static_cast<float>(new_height));
-            this->y_origin(this->y_origin() + static_cast<float>(old_height - new_height) / 2.f);
+            this->y_origin(this->y_origin() +
+                           static_cast<float>(old_height - new_height) / 2.f);
         }
     }
 
@@ -4401,8 +4427,8 @@ namespace matplot {
     axes_type::contourf(const std::vector<std::vector<double>> &X,
                         const std::vector<std::vector<double>> &Y,
                         const std::vector<std::vector<double>> &Z,
-                        std::vector<double> levels,
-                        std::string_view line_spec, size_t n_levels) {
+                        std::vector<double> levels, std::string_view line_spec,
+                        size_t n_levels) {
         axes_silencer temp_silencer_{this};
 
         contours_handle l = this->contour(X, Y, Z, levels, line_spec, n_levels);
@@ -4499,7 +4525,8 @@ namespace matplot {
     vectors_handle axes_type::quiver(const std::vector<double> &x,
                                      const std::vector<double> &y,
                                      const std::vector<double> &u,
-                                     const std::vector<double> &v, double scale,
+                                     const std::vector<double> &v,
+                                     const std::vector<double> &c, double scale,
                                      std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
@@ -4534,10 +4561,10 @@ namespace matplot {
                       v, [&](double v) { return (v / v_max) * scale * y_max; })
                 : v;
 
-        vectors_handle l = std::make_shared<class vectors>(this, x, y, u_scaled,
-                                                           v_scaled, line_spec);
+        vectors_handle l = std::make_shared<class vectors>(
+            this, x, y, u_scaled, v_scaled, c, line_spec);
+        l->scale(scale);
         this->emplace_object(l);
-
         return l;
     }
 
@@ -4546,10 +4573,31 @@ namespace matplot {
                                      const std::vector<std::vector<double>> &y,
                                      const std::vector<std::vector<double>> &u,
                                      const std::vector<std::vector<double>> &v,
-                                     double scale,
-                                     std::string_view line_spec) {
+                                     const std::vector<std::vector<double>> &c,
+                                     double scale, std::string_view line_spec) {
         return this->quiver(flatten(x), flatten(y), flatten(u), flatten(v),
+                            (c.empty()) ? std::vector<double>{} : flatten(c),
                             scale, line_spec);
+    }
+
+    /// Quiver - 2d x,y,u,v with no color mapping 
+    vectors_handle axes_type::quiver(const std::vector<std::vector<double>> &x,
+                                     const std::vector<std::vector<double>> &y,
+                                     const std::vector<std::vector<double>> &u,
+                                     const std::vector<std::vector<double>> &v,
+                                     double scale, std::string_view line_spec) {
+        return this->quiver(x, y, u, v, std::vector<std::vector<double>>{},
+                            scale, line_spec);
+    }
+
+    /// Quiver - x,y,u,v 
+    vectors_handle axes_type::quiver(const std::vector<double> &x,
+                                     const std::vector<double> &y,
+                                     const std::vector<double> &u,
+                                     const std::vector<double> &v, double scale,
+                                     std::string_view line_spec) {
+        return this->quiver(x, y, u, v, std::vector<double>{}, scale,
+                            line_spec);
     }
 
     /// Quiver 3d - Core function
@@ -4557,7 +4605,8 @@ namespace matplot {
         const std::vector<double> &x, const std::vector<double> &y,
         const std::vector<double> &z, const std::vector<double> &u,
         const std::vector<double> &v, const std::vector<double> &w,
-        double scale, std::string_view line_spec) {
+        const std::vector<double> &c, double scale,
+        std::string_view line_spec) {
         axes_silencer temp_silencer_{this};
 
         auto x_copy = x;
@@ -4580,15 +4629,15 @@ namespace matplot {
         double v_max = *std::max_element(v.begin(), v.end());
         double y_max = ydiffmin != y_diff.end() ? *ydiffmin : v_max;
 
-        auto z_copy = y;
+        auto z_copy = z;
         std::sort(z_copy.begin(), z_copy.end());
         z_copy.resize(std::distance(z_copy.begin(),
                                     std::unique(z_copy.begin(), z_copy.end())));
         std::vector<double> z_diff(z_copy.size());
         std::adjacent_difference(z_copy.begin(), z_copy.end(), z_diff.begin());
-        // auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
-        double w_max = *std::max_element(v.begin(), v.end());
-        double z_max = ydiffmin != z_diff.end() ? *ydiffmin : w_max;
+        auto zdiffmin = std::min_element(z_diff.begin() + 1, z_diff.end());
+        double w_max = *std::max_element(w.begin(), w.end());
+        double z_max = zdiffmin != z_diff.end() ? *zdiffmin : w_max;
 
         auto u_scaled =
             (scale != 0.)
@@ -4607,13 +4656,30 @@ namespace matplot {
                 : w;
 
         vectors_handle l = std::make_shared<class vectors>(
-            this, x, y, z, u_scaled, v_scaled, w_scaled, line_spec);
+            this, x, y, z, u_scaled, v_scaled, w_scaled, c, line_spec);
+        l->scale(scale);
         this->emplace_object(l);
 
         return l;
     }
 
     /// Quiver 3d - 2d vectors
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &x,
+                                      const std::vector<std::vector<double>> &y,
+                                      const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
+                                      const std::vector<std::vector<double>> &c,
+                                      double scale,
+                                      std::string_view line_spec) {
+        return this->quiver3(flatten(x), flatten(y), flatten(z), flatten(u),
+                             flatten(v), flatten(w),
+                             (c.empty()) ? std::vector<double>{} : flatten(c),
+                             scale, line_spec);
+    }
+
+    /// Quiver 3d - 2d vectors with no color mapping
     vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &x,
                                       const std::vector<std::vector<double>> &y,
                                       const std::vector<std::vector<double>> &z,
@@ -4631,13 +4697,36 @@ namespace matplot {
                                       const std::vector<std::vector<double>> &u,
                                       const std::vector<std::vector<double>> &v,
                                       const std::vector<std::vector<double>> &w,
+                                      const std::vector<std::vector<double>> &c,
                                       double scale,
                                       std::string_view line_spec) {
-        auto [n, m] = size(z);
-        vector_1d x = iota(1., static_cast<double>(m));
+        auto [n, p] = size(z);
+        vector_1d x = iota(1., static_cast<double>(p));
         vector_1d y = iota(1., static_cast<double>(n));
         auto [xx, yy] = meshgrid(x, y);
-        return this->quiver3(xx, yy, z, u, v, w, scale, line_spec);
+        return this->quiver3(xx, yy, z, u, v, w, c, scale, line_spec);
+    }
+
+    /// Quiver 3d - Automatic x and y - 2d vectors no color mapping
+    vectors_handle axes_type::quiver3(const std::vector<std::vector<double>> &z,
+                                      const std::vector<std::vector<double>> &u,
+                                      const std::vector<std::vector<double>> &v,
+                                      const std::vector<std::vector<double>> &w,
+                                      double scale,
+                                      std::string_view line_spec) {
+        return this->quiver3(z, u, v, w, std::vector<std::vector<double>>{},
+                             scale, line_spec);
+    }
+
+    /// Quiver 3d - no color mapping
+    vectors_handle axes_type::quiver3(
+        const std::vector<double> &x, const std::vector<double> &y,
+        const std::vector<double> &z, const std::vector<double> &u,
+        const std::vector<double> &v, const std::vector<double> &w,
+        double scale, std::string_view line_spec) {
+        auto l = this->quiver3(x, y, z, u, v, w, std::vector<double>{}, scale,
+                               line_spec);
+        return l;
     }
 
     /// Fence - Core function
@@ -5150,13 +5239,15 @@ namespace matplot {
 
     /// Annotate plot with single text
     labels_handle axes_type::text(double x, double y, std::string_view str) {
-        return this->text(std::vector{x}, std::vector{y}, std::vector{std::string(str)});
+        return this->text(std::vector{x}, std::vector{y},
+                          std::vector{std::string(str)});
     }
 
     /// Annotate plot with same text at many positions
     labels_handle axes_type::text(const vector_1d &x, const vector_1d &y,
                                   std::string_view str) {
-        return this->text(x, y, std::vector<std::string>(x.size(), std::string(str)));
+        return this->text(x, y,
+                          std::vector<std::string>(x.size(), std::string(str)));
     }
 
     /// Annotate plot with arrow
@@ -5394,7 +5485,7 @@ namespace matplot {
         std::vector<double> cy = transform(
             y, [&](double y) { return std::clamp(y, ylimits[0], ylimits[1]); });
         // normalize
-        auto [w,h,lm,rm,bm,tm] = calculate_margins();
+        auto [w, h, lm, rm, bm, tm] = calculate_margins();
         double view_width = parent_->backend_->width();
         double view_xmin = lm * view_width;
         double view_xmax = rm * view_width;
@@ -5416,7 +5507,7 @@ namespace matplot {
             v += view_ymin;
         }
         // draw the normalized path to the backend
-        parent_->backend_->draw_path(cx,cy,color);
+        parent_->backend_->draw_path(cx, cy, color);
     }
 
 } // namespace matplot

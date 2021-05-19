@@ -17,29 +17,43 @@ namespace matplot {
     class axes_type;
     class vectors : public axes_object {
       public:
+        /// \brief Create empty vectors
         explicit vectors(class axes_type *parent);
 
+        /// \brief Create 2D vectors with fixed origin and incremental u
         /// Origin xy = (0,0), u = {1,...n}, v = {v_data}
         vectors(class axes_type *parent, const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with fixed origin
         /// Origin xy = (0,0), u = {u_data}, v = {v_data}
         vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 3D vectors with fixed origin
         /// Origin xy = (0,0,0), u = {u_data}, v = {v_data}, w = {w_data}
         vectors(class axes_type *parent, const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with custom origin
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &u_data,
                 const std::vector<double> &v_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 2D vectors with custom origin and colors
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
+                const std::vector<double> &y_data,
+                const std::vector<double> &u_data,
+                const std::vector<double> &v_data,
+                const std::vector<double> &c_data,
+                std::string_view line_spec = "");
+
+        /// \brief Create 3D vectors with custom origin
         vectors(class axes_type *parent, const std::vector<double> &x_data,
                 const std::vector<double> &y_data,
                 const std::vector<double> &z_data,
@@ -48,10 +62,20 @@ namespace matplot {
                 const std::vector<double> &w_data,
                 std::string_view line_spec = "");
 
+        /// \brief Create 3D vectors with custom origin and colors
+        vectors(class axes_type *parent, const std::vector<double> &x_data,
+                const std::vector<double> &y_data,
+                const std::vector<double> &z_data,
+                const std::vector<double> &u_data,
+                const std::vector<double> &v_data,
+                const std::vector<double> &w_data,
+                const std::vector<double> &c_data,
+                std::string_view line_spec = "");
+
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        vectors(const axes_handle &parent, Args&&... args)
+        vectors(const axes_handle &parent, Args &&...args)
             : vectors(parent.get(), std::forward<Args>(args)...) {}
 
         virtual ~vectors() = default;
@@ -102,6 +126,12 @@ namespace matplot {
 
         bool visible() const;
         class vectors &visible(bool visible);
+
+        bool normalize() const;
+        class vectors &normalize(bool normalize);
+
+        double scale() const;
+        class vectors &scale(double scale);
 
       public /* getters and setters bypassing the line_spec */:
         float line_width() const;
@@ -194,10 +224,16 @@ namespace matplot {
         std::vector<double> v_data_{};
         std::vector<double> w_data_{};
 
+        /// Vector color mapping values 
+        std::vector<double> c_data_{};
+
         /// Positions at which we want markers to appear
         std::vector<size_t> marker_indices_{};
         std::vector<float> marker_sizes_{};
         std::vector<double> marker_colors_{};
+
+        /// Scale of vectors
+        double scale_{1};
 
         /// Draw line as impulse
         bool impulse_{false};
@@ -213,6 +249,9 @@ namespace matplot {
 
         /// True if visible
         bool visible_{true};
+
+        /// True if vectors are normalized
+        bool normalize_{false};
     };
 } // namespace matplot
 

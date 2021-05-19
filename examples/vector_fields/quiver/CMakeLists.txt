@@ -14,4 +14,6 @@ add_executable(example_quiver_5 quiver_5.cpp)
 target_link_libraries(example_quiver_5 PUBLIC matplot)
 
 
+add_executable(example_quiver_6 quiver_6.cpp)
+target_link_libraries(example_quiver_6 PUBLIC matplot)
 
