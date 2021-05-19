@@ -9267,7 +9267,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/matthew-hennefarth">
             <img src="https://avatars.githubusercontent.com/u/27997339?v=4" width="100;" alt="matthew-hennefarth"/>
             <br />
-            <sub><b>matthew-hennefarth</b></sub>
+            <sub><b>Matthew-hennefarth</b></sub>
         </a>
     </td>
     <td align="center">
