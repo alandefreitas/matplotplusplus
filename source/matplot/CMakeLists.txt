@@ -90,8 +90,6 @@ target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-#target_link_libraries(matplot
-#    PRIVATE cimg nodesoup std::filesystem)
 target_link_libraries_system(matplot 
   PRIVATE cimg nodesoup std::filesystem)
 
