@@ -48,6 +48,7 @@ option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geo
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass show() commands and save figures as .svg at destruction" OFF)
 option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
 option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." ${DEBUG_MODE})
+option(BUILD_WITH_SANITIZERS, "Build with enabled Address, Leak and Undefine Behaviour Sanitizers (if supported)" ${BUILD_WITH_PEDANTIC_WARNINGS})
 option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
 
 # Where to find dependencies
