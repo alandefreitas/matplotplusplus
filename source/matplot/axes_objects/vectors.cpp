@@ -41,10 +41,10 @@ namespace matplot {
                      const std::vector<double> &y_data,
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
-                     const std::vector<double> &m_data,
+                     const std::vector<double> &c_data,
                      std::string_view line_spec)
         : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
-          x_data_(x_data), u_data_(u_data), v_data_(v_data), m_data_(m_data) {}
+          x_data_(x_data), u_data_(u_data), v_data_(v_data), c_data_(c_data) {}
 
     vectors::vectors(class axes_type *parent, const std::vector<double> &x_data,
                      const std::vector<double> &y_data,
@@ -63,20 +63,20 @@ namespace matplot {
                      const std::vector<double> &u_data,
                      const std::vector<double> &v_data,
                      const std::vector<double> &w_data,
-                     const std::vector<double> &m_data,
+                     const std::vector<double> &c_data,
                      std::string_view line_spec)
         : axes_object(parent), line_spec_(this, line_spec), y_data_(y_data),
           x_data_(x_data), z_data_(z_data), u_data_(u_data), v_data_(v_data),
-          w_data_(w_data), m_data_(m_data) {}
+          w_data_(w_data), c_data_(c_data) {}
 
     std::string vectors::plot_string() {
         maybe_update_line_spec();
         std::stringstream ss;
         ss << " '-' with vectors";
-        if (!m_data_.empty()) {
+        if (!c_data_.empty()) {
             ss << " linecolor palette";
             ss << " linewidth " << line_spec_.line_width();
-            
+
             switch (line_spec_.line_style()) {
             case line_spec::line_style::solid_line:
                 ss << " dashtype 1";
@@ -123,7 +123,7 @@ namespace matplot {
                 double u_value = u_data_.size() > i ? u_data_[i] : 0;
                 double v_value = v_data_.size() > i ? v_data_[i] : 0;
                 double w_value = w_data_.size() > i ? w_data_[i] : 0;
-                double m_value = m_data_.size() > i ? m_data_[i] : 0;
+                double c_value = c_data_.size() > i ? c_data_[i] : 0;
 
                 bool is_end_of_series =
                     !std::isfinite(x_value) || !std::isfinite(y_value) ||
@@ -143,11 +143,19 @@ namespace matplot {
                 }
 
                 if (normalize_) {
-                    double mag = sqrt(u_value * u_value + v_value * v_value +
-                                      w_value * w_value);
-                    u_value *= scale_ / mag;
-                    v_value *= scale_ / mag;
-                    w_value *= scale_ / mag;
+                    double mag =
+                        std::sqrt(u_value * u_value + v_value * v_value +
+                                  w_value * w_value);
+                    if (mag != 0.0) {
+                        u_value /= mag;
+                        v_value /= mag;
+                        w_value /= mag;
+                    }
+                    if (scale_ != 0.0) {
+                        u_value *= scale_;
+                        v_value *= scale_;
+                        w_value *= scale_;
+                    }
                 }
 
                 ss << "  " << u_value;
@@ -157,8 +165,8 @@ namespace matplot {
                 } else if (parent_->is_3d()) {
                     ss << "  " << 0.0;
                 }
-                if (!m_data_.empty()) {
-                    ss << " " << m_value;
+                if (!c_data_.empty()) {
+                    ss << " " << c_value;
                 }
 
                 ss << "\n";
@@ -179,7 +187,7 @@ namespace matplot {
     }
 
     void vectors::maybe_update_line_spec() {
-        if (!line_spec_.user_color() && m_data_.empty()) {
+        if (!line_spec_.user_color() && c_data_.empty()) {
             auto c = parent_->get_color_and_bump();
             line_spec_.color(c);
         } else if (line_spec_.has_non_custom_marker() &&

@@ -1409,7 +1409,7 @@ namespace matplot {
                               const std::vector<double> &y,
                               const std::vector<double> &u,
                               const std::vector<double> &v,
-                              const std::vector<double> &m, double scale = 1.0,
+                              const std::vector<double> &c, double scale = 1.0,
                               std::string_view line_spec = "");
 
         /// Quiver - 2d x,y,u,v
@@ -1417,11 +1417,11 @@ namespace matplot {
                               const std::vector<std::vector<double>> &y,
                               const std::vector<std::vector<double>> &u,
                               const std::vector<std::vector<double>> &v,
-                              const std::vector<std::vector<double>> &m,
+                              const std::vector<std::vector<double>> &c,
                               double scale = 1.0,
                               std::string_view line_spec = "");
 
-        /// Quiver - 2d x,y,u,v with no magnitude
+        /// Quiver - 2d x,y,u,v with no color mapping
         vectors_handle quiver(const std::vector<std::vector<double>> &x,
                               const std::vector<std::vector<double>> &y,
                               const std::vector<std::vector<double>> &u,
@@ -1429,7 +1429,7 @@ namespace matplot {
                               double scale = 1.0,
                               std::string_view line_spec = "");
 
-        /// Quiver - x,y,u,v with no magnitude
+        /// Quiver - x,y,u,v with no color mapping
         vectors_handle quiver(const std::vector<double> &x,
                               const std::vector<double> &y,
                               const std::vector<double> &u,
@@ -1441,7 +1441,7 @@ namespace matplot {
         quiver3(const std::vector<double> &x, const std::vector<double> &y,
                 const std::vector<double> &z, const std::vector<double> &u,
                 const std::vector<double> &v, const std::vector<double> &w,
-                const std::vector<double> &m, double scale = 1.0,
+                const std::vector<double> &c, double scale = 1.0,
                 std::string_view line_spec = "");
 
         /// Quiver 3d - 2d vectors
@@ -1451,11 +1451,11 @@ namespace matplot {
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
                                const std::vector<std::vector<double>> &w,
-                               const std::vector<std::vector<double>> &m,
+                               const std::vector<std::vector<double>> &c,
                                double scale = 1.0,
                                std::string_view line_spec = "");
 
-        /// Quiver 3d - 2d vectors no magnitude
+        /// Quiver 3d - 2d vectors no color mapping
         vectors_handle quiver3(const std::vector<std::vector<double>> &x,
                                const std::vector<std::vector<double>> &y,
                                const std::vector<std::vector<double>> &z,
@@ -1470,11 +1470,11 @@ namespace matplot {
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
                                const std::vector<std::vector<double>> &w,
-                               const std::vector<std::vector<double>> &m,
+                               const std::vector<std::vector<double>> &c,
                                double scale = 1.0,
                                std::string_view line_spec = "");
 
-        /// Quiver 3d - Automatic x and y - 2d vectors no magnitude
+        /// Quiver 3d - Automatic x and y - 2d vectors no color mapping
         vectors_handle quiver3(const std::vector<std::vector<double>> &z,
                                const std::vector<std::vector<double>> &u,
                                const std::vector<std::vector<double>> &v,
@@ -1482,7 +1482,7 @@ namespace matplot {
                                double scale = 1.0,
                                std::string_view line_spec = "");
 
-        /// Quiver 3d - no magnitude
+        /// Quiver 3d - no color mapping
         vectors_handle
         quiver3(const std::vector<double> &x, const std::vector<double> &y,
                 const std::vector<double> &z, const std::vector<double> &u,

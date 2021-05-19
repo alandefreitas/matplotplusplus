@@ -9264,6 +9264,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/matthew-hennefarth">
+            <img src="https://avatars.githubusercontent.com/u/27997339?v=4" width="100;" alt="matthew-hennefarth"/>
+            <br />
+            <sub><b>matthew-hennefarth</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/actions-user">
             <img src="https://avatars.githubusercontent.com/u/65916846?v=4" width="100;" alt="actions-user"/>
             <br />
@@ -9276,15 +9283,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Marcus Asteborg</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Zengit123">
             <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="Zengit123"/>
             <br />
             <sub><b>Zengit</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
@@ -9319,15 +9326,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Dimitrij Mijoski</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/MaBnt">
             <img src="https://avatars.githubusercontent.com/u/28400222?v=4" width="100;" alt="MaBnt"/>
             <br />
             <sub><b>MaBnt</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/kaffehalv">
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
