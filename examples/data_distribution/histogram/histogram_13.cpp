@@ -78,4 +78,4 @@ template <class T> void cout_vector_summary(const std::vector<T> &x) {
         std::cout << "...";
     }
     std::cout << "]" << std::endl;
-};
+}
