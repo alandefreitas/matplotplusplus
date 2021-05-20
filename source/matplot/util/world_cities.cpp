@@ -851,11 +851,13 @@ namespace matplot {
         auto x_line = x;
         auto y_line = y;
         auto names_line = names;
-        for (size_t i = pos_to_remove.size() - 1; i >= 0; --i) {
+        size_t i = pos_to_remove.size() - 1;
+        do {
             x_line.erase(x_line.begin() + pos_to_remove[i]);
             y_line.erase(y_line.begin() + pos_to_remove[i]);
             names_line.erase(names_line.begin() + pos_to_remove[i]);
-        }
+            --i;
+        } while (i > 0);
         return std::make_tuple(x_line,y_line,names_line);
     }
 }
