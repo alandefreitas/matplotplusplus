@@ -154,7 +154,7 @@ namespace matplot {
 
     template <size_t N, class T>
     inline std::array<T, N> to_array(const std::vector<T> &v) {
-        std::array<T, N> r;
+        std::array<T, N> r{};
         auto r_it = r.begin();
         auto v_it = v.begin();
         while (r_it != r.end() && v_it != v.end()) {
