@@ -1,5 +1,2 @@
-add_executable(example_ezpolar_1 ezpolar_1.cpp)
-target_link_libraries(example_ezpolar_1 PUBLIC matplot)
-
-add_executable(example_ezpolar_2 ezpolar_2.cpp)
-target_link_libraries(example_ezpolar_2 PUBLIC matplot)
+add_matplot_example(example_ezpolar_1 ezpolar_1.cpp)
+add_matplot_example(example_ezpolar_2 ezpolar_2.cpp)

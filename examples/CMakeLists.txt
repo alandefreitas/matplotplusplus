@@ -1,3 +1,9 @@
+macro(add_matplot_example TARGET_NAME)
+    add_executable(${TARGET_NAME} ${ARGN})
+    target_link_libraries(${TARGET_NAME} PRIVATE matplot)
+    maybe_target_pedantic_warnings(${TARGET_NAME})
+endmacro()
+
 add_subdirectory(line_plot)
 add_subdirectory(data_distribution)
 add_subdirectory(discrete_data)

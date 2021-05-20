@@ -13,7 +13,6 @@ int main() {
 
     for (size_t i = 0; i < 5; ++i) {
         std::this_thread::sleep_for(std::chrono::seconds(3));
-        size_t n_bins = fewerbins(h);
         title(num2str(h->num_bins()) + " bins");
     }
 

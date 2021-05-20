@@ -1,8 +1,3 @@
-add_executable(example_digraph_1 digraph_1.cpp)
-target_link_libraries(example_digraph_1 PUBLIC matplot)
-
-add_executable(example_digraph_2 digraph_2.cpp)
-target_link_libraries(example_digraph_2 PUBLIC matplot)
-
-add_executable(example_digraph_3 digraph_3.cpp)
-target_link_libraries(example_digraph_3 PUBLIC matplot)
+add_matplot_example(example_digraph_1 digraph_1.cpp)
+add_matplot_example(example_digraph_2 digraph_2.cpp)
+add_matplot_example(example_digraph_3 digraph_3.cpp)

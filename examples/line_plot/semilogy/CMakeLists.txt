@@ -1,2 +1,1 @@
-add_executable(example_semilogy_1 semilogy_1.cpp)
-target_link_libraries(example_semilogy_1 PUBLIC matplot)
+add_matplot_example(example_semilogy_1 semilogy_1.cpp)

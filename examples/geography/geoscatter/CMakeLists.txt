@@ -1,5 +1,2 @@
-add_executable(example_geoscatter_1 geoscatter_1.cpp)
-target_link_libraries(example_geoscatter_1 PUBLIC matplot)
-
-add_executable(example_geoscatter_2 geoscatter_2.cpp)
-target_link_libraries(example_geoscatter_2 PUBLIC matplot)
+add_matplot_example(example_geoscatter_1 geoscatter_1.cpp)
+add_matplot_example(example_geoscatter_2 geoscatter_2.cpp)

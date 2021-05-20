@@ -1,14 +1,4 @@
-add_executable(example_xticklabels_1 xticklabels_1.cpp)
-target_link_libraries(example_xticklabels_1 PUBLIC matplot)
-
-add_executable(example_xticklabels_2 xticklabels_2.cpp)
-target_link_libraries(example_xticklabels_2 PUBLIC matplot)
-
-add_executable(example_xticklabels_3 xticklabels_3.cpp)
-target_link_libraries(example_xticklabels_3 PUBLIC matplot)
-
-add_executable(example_xticklabels_4 xticklabels_4.cpp)
-target_link_libraries(example_xticklabels_4 PUBLIC matplot)
-
-
-
+add_matplot_example(example_xticklabels_1 xticklabels_1.cpp)
+add_matplot_example(example_xticklabels_2 xticklabels_2.cpp)
+add_matplot_example(example_xticklabels_3 xticklabels_3.cpp)
+add_matplot_example(example_xticklabels_4 xticklabels_4.cpp)

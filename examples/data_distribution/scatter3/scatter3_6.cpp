@@ -35,10 +35,10 @@ generate_data() {
     auto cosphi = transform(phi, [](double x) { return cos(x); });
     cosphi.front() = 0;
     cosphi.back() = 0;
-    auto sintheta = transform(theta, [n](double x) { return sin(x); });
+    auto sintheta = transform(theta, [](double x) { return sin(x); });
     sintheta.front() = 0;
     sintheta.back() = 0;
-    auto costheta = transform(theta, [n](double x) { return cos(x); });
+    auto costheta = transform(theta, [](double x) { return cos(x); });
     std::vector<std::vector<double>> X(17, std::vector<double>(17, 0.));
     std::vector<std::vector<double>> Y(17, std::vector<double>(17, 0.));
     std::vector<std::vector<double>> Z(17, std::vector<double>(17, 0.));
