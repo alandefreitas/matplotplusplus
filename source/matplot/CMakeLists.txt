@@ -1,5 +1,8 @@
 find_package(Filesystem REQUIRED COMPONENTS Experimental Final)
 
+#######################################################
+### Library                                         ###
+#######################################################
 add_library(matplot
         matplot.h
 
@@ -84,77 +87,91 @@ add_library(matplot
         freestanding/histcounts.cpp
         freestanding/plot.h
 )
+
+# Target alias
 add_library(Matplot++::matplot ALIAS matplot)
 
+# Include dirs
 target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-target_link_libraries_system(matplot 
+# Dependencies
+target_link_libraries_system(matplot
   PRIVATE cimg nodesoup std::filesystem)
 
+# Required compiler features required
 # https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
 target_compile_features(matplot PUBLIC cxx_std_17)
 
-# Definition to find the proper filesystem library
+#######################################################
+### Compiler options                                ###
+#######################################################
+# Support MSVC
+target_bigobj_options(matplot)
+target_exception_options(matplot)
+target_utf8_options(matplot)
+target_disable_minmax(matplot)
+
+# Warnings
+maybe_target_pedantic_warnings(matplot)
+target_msvc_compile_options(matplot PRIVATE /wd4305)
+
+#######################################################
+### Definitions                                     ###
+#######################################################
+# Use experimental filesystem if std::filesystem is not available yet
 if (CXX_FILESYSTEM_IS_EXPERIMENTAL)
     target_compile_definitions(matplot PRIVATE CXX_FILESYSTEM_IS_EXPERIMENTAL)
 endif()
 
-# Hacks to support MSVC
-if(MSVC)
-    # World maps require this option because there is so much in the file
-    target_compile_options(matplot PRIVATE /bigobj)
-    target_compile_options(matplot PUBLIC /wd4305)
-    # Fix compile error caused by utf8 character in line_spec.cpp
-    target_compile_options(matplot PUBLIC /utf-8)
-    # Allow exceptions
-    target_compile_options(matplot PRIVATE /EHsc)
-endif()
-
-include(CheckSymbolExists)
-
 # Some hack to not depend on FILE* internals
 # https://github.com/alandefreitas/matplotplusplus/issues/4
+include(CheckSymbolExists)
 check_symbol_exists(__fbufsize "stdio_ext.h" HAVE_FBUFSIZE)
 if (HAVE_FBUFSIZE)
     target_compile_definitions(matplot PRIVATE MATPLOT_HAS_FBUFSIZE)
 endif()
 
-# Another hack to check for min in Windows.h
-# http://www.suodenjoki.dk/us/archive/2010/min-max.htm
-check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
-if (HAVE_WINDOWS_MINMAX)
-    target_compile_definitions(matplot PUBLIC NOMINMAX)
-endif()
-
+# Build for documentation
 if (BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
 endif ()
 
+# Include high-resolution world map in the binary
 if (BUILD_HIGH_RESOLUTION_WORLD_MAP)
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_HIGH_RESOLUTION_WORLD_MAP)
 else ()
     message("Not including the high resolution maps for geoplots")
 endif ()
 
-if (BUILD_WITH_PEDANTIC_WARNINGS)
-    if (MSVC)
-        target_compile_options(matplot PRIVATE /W4 /WX)
-    else ()
-        target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
-        # Allow the warnings related to the bundled CImg
-        if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
-            target_compile_options(matplot PRIVATE -Wno-null-pointer-arithmetic -Wno-char-subscripts)
-        elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-            target_compile_options(matplot PRIVATE -Wno-error=class-memaccess -Wno-class-memaccess)
-        else ()
-            message(ERROR "Cannot disable the relevant warnings for ${CMAKE_CXX_COMPILER_ID}")
-        endif ()
-    endif ()
-endif ()
+#######################################################
+### Library options                                 ###
+#######################################################
 
+# Maybe add pedantic warning
+
+
+#if (BUILD_WITH_PEDANTIC_WARNINGS)
+#    if (MSVC)
+#        target_compile_options(matplot PRIVATE /W4 /WX)
+#    else ()
+#        target_compile_options(matplot PRIVATE -Wall -Wextra -pedantic -Werror)
+#        # Allow the warnings related to the bundled CImg
+#        if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+#            target_compile_options(matplot PRIVATE -Wno-null-pointer-arithmetic -Wno-char-subscripts)
+#        elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+#            target_compile_options(matplot PRIVATE -Wno-error=class-memaccess -Wno-class-memaccess)
+#        else ()
+#            message(ERROR "Cannot disable the relevant warnings for ${CMAKE_CXX_COMPILER_ID}")
+#        endif ()
+#    endif ()
+#endif ()
+
+#######################################################
+### Experimental OpenGL backend                     ###
+#######################################################
 if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
     # This is an example of what an OpenGL backend *could* look like.
@@ -192,7 +209,8 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     if (NOT GLAD_FOUND AND NOT TARGET glad)
         # Use CPM only if not found, to avoid ODR violations
         # find_package(GLAD REQUIRE) would suffice if it worked well
-        CPMAddPackage(NAME glad GIT_REPOSITORY https://github.com/Dav1dde/glad GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9 VERSION 0.1.33)
+        FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9)
+        FetchContent_MakeAvailable(glad)        
     else ()
         # FindGLAD does not usually create a target, so we create an interface target
         if (NOT TARGET glad)
@@ -207,7 +225,8 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     if (NOT GLFW3_FOUND AND NOT TARGET glfw)
         # Use CPM only if not found, to avoid ODR violations
         # find_package(glfw3 REQUIRE) would suffice if it worked well
-        CPMAddPackage(NAME glfw3 GIT_REPOSITORY https://github.com/glfw/glfw VERSION 3.3.2 GIT_TAG 3.3.2 OPTIONS "GLFW_BUILD_DOCS OFF" "GLFW_BUILD_EXAMPLES OFF" "GLFW_BUILD_TESTS OFF" "GLFW_INSTALL OFF")
+        FetchContent_Declare(glfw3 GIT_REPOSITORY https://github.com/glfw/glfw.git GIT_TAG 3.3.2)
+        FetchContent_MakeAvailable(glfw3)
     endif ()
 
     add_library(matplot_opengl
@@ -220,8 +239,9 @@ if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     target_link_libraries(matplot_opengl PUBLIC matplot glad glfw ${CMAKE_DL_LIBS})
 endif()
 
-
-# Install
+#######################################################
+### Installer                                       ###
+#######################################################
 if (BUILD_INSTALLER)
     # Install targets
     install(TARGETS matplot
