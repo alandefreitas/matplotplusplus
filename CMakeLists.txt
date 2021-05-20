@@ -5,40 +5,35 @@
 cmake_minimum_required(VERSION 3.14)
 project(matplotplusplus VERSION 1.0.2)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
+set(MATPLOT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(MATPLOT_VERSION ${CMAKE_PROJECT_VERSION})
 
+#######################################################
+### CMake Functions                                 ###
+#######################################################
 # CMake dependencies for installer
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
 
-# To find or download packages
+# Append ./cmake directory to our include paths for the find_package scripts
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-message("CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
-option(CPM_USE_LOCAL_PACKAGES "Try `find_package` before downloading dependencies" ON)
-include(cmake/CPM.cmake)
 
-# Check if this is a master project or a subdirectory of another project
-if (${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
-    set(MASTER_PROJECT ON)
-else ()
-    set(MASTER_PROJECT OFF)
-endif ()
-set(MATPLOT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+# Functions to find or download packages if we can't find_package
+include(FetchContent)
 
-# Check if we are in debug mode
-if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-    set(DEBUG_MODE ON)
-    set(NOT_DEBUG_MODE OFF)
-else()
-    set(DEBUG_MODE OFF)
-    set(NOT_DEBUG_MODE ON)
-endif()
-
-# Function to link external libraries as system libraries
-include (cmake/LinkExternalLibraries.cmake)
+# Our custom cmake functions
+include(cmake/functions.cmake)
 
 #######################################################
-### Options                                         ###
+### Declare options                                 ###
 #######################################################
+# Set variables with project properties
+set_master_project_booleans() # detect if master project / dev mode
+set_debug_booleans() # detect if debug
+set_optimization_flags() # detect and set default optimization flags
+set_compiler_booleans() # detect compiler
+
 # What to build
 option(BUILD_EXAMPLES "Build examples" ${MASTER_PROJECT})
 option(BUILD_TESTS "Build tests" ${MASTER_PROJECT})
@@ -46,16 +41,55 @@ option(BUILD_INSTALLER "Build installer target" ${MASTER_PROJECT})
 option(BUILD_PACKAGE "Build package" ${MASTER_PROJECT})
 
 # How to build
+option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." ${DEBUG_MODE})
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_WITH_SANITIZERS "Use pedantic warnings." ${DEBUG_MODE})
+
+# MSVC hacks
+option(BUILD_WITH_MSVC_HACKS "Accept utf-8 in MSVC by default." ON)
+option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
+option(BUILD_WITH_EXCEPTIONS "Add compiler flags to use exceptions." ON)
+
+# Features
 option(BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
 option(BUILD_FOR_DOCUMENTATION_IMAGES "Bypass show() commands and save figures as .svg at destruction" OFF)
 option(BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
-option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." ${DEBUG_MODE})
-option(BUILD_WITH_UTF8 "Accept utf-8 in MSVC by default." ON)
 
 # Where to find dependencies
 option(WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
 option(WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OFF)
+
+#######################################################
+### Apply global options                            ###
+#######################################################
+# In development, we can set some options for all targets
+if (MASTER_PROJECT)
+    # Maybe add sanitizers to all targets
+    if (BUILD_WITH_SANITIZERS AND NOT EMSCRIPTEN)
+        add_sanitizers()
+    endif ()
+
+    # Allow exceptions in MSVC
+    if (MSVC AND BUILD_WITH_EXCEPTIONS)
+        add_compile_options(/EHsc)
+    endif ()
+
+    # Allow utf-8 in MSVC
+    if (BUILD_WITH_UTF8 AND MSVC)
+        set(CMAKE_CXX_FLAGS "/utf-8")
+    endif ()
+
+    # MSVC hack to disable windows min/max
+    # http://www.suodenjoki.dk/us/archive/2010/min-max.htm
+    if (BUILD_WITH_MSVC_HACKS)
+        # Check for min in Windows.h
+        include(CheckSymbolExists)
+        check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+        if (HAVE_WINDOWS_MINMAX)
+            add_compile_definitions(NOMINMAX)
+        endif ()
+    endif ()
+endif()
 
 #######################################################
 ### Libraries                                       ###
@@ -63,14 +97,19 @@ option(WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OF
 add_subdirectory(source)
 
 #######################################################
-### Examples and tests                              ###
+### Tests                                           ###
+#######################################################
+if (BUILD_TESTS)
+    include(CTest)
+    enable_testing()
+    add_subdirectory(test)
+endif ()
+
+#######################################################
+### Examples                                        ###
 #######################################################
 if (BUILD_EXAMPLES)
     add_subdirectory(examples)
-endif ()
-
-if (BUILD_TESTS)
-    add_subdirectory(test)
 endif ()
 
 #######################################################
