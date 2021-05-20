@@ -33,14 +33,14 @@ namespace matplot {
     std::array<float, 4> to_array(matplot::color c);
 
     template <class T> std::array<float, 4> to_array(std::vector<T> c) {
-        std::array<float, 4> r;
+        std::array<float, 4> r{0.f, 0.f, 0.f, 0.f};
         if (c.size() == 1) {
-            r[0] = 0;
+            r[0] = 0.f;
             r[1] = static_cast<float>(c[0]);
             r[2] = static_cast<float>(c[0]);
             r[3] = static_cast<float>(c[0]);
         } else if (c.size() == 3) {
-            r[0] = 0;
+            r[0] = 0.f;
             r[1] = static_cast<float>(c[0]);
             r[2] = static_cast<float>(c[1]);
             r[3] = static_cast<float>(c[2]);

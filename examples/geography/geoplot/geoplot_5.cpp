@@ -19,10 +19,10 @@ int main() {
     text(lon_anchorage, lat_anchorage, "Anchorage");
     text(lon_seattle, lat_seattle, "Seattle");
 
-    color_array terrain = {0., 0.71, 0.65, 0.59};
+    color_array terrain = {0.f, 0.71f, 0.65f, 0.59f};
     geoplot()->color(terrain);
 
-    color_array blue_water = {0., 0.4, 0.61, 0.76};
+    color_array blue_water = {0.f, 0.4f, 0.61f, 0.76f};
     gca()->color(blue_water);
 
     show();

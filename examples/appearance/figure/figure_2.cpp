@@ -14,8 +14,8 @@ int main() {
     h->font_size(40);
     h->title("My experiment");
 
-    constexpr double pi = 3.14;
-    axis({-pi, pi, -1.5, +1.5});
+    constexpr float pi_f = 3.14f;
+    axis({-pi_f, pi_f, -1.5f, +1.5f});
     fplot("cos(x)");
     h->draw();
     show();

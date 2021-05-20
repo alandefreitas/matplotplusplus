@@ -162,8 +162,8 @@ namespace matplot {
         float unit_x = x / norm;
         float unit_y = y / norm;
         float unit_z = z / norm;
-        float az = atan2(unit_x, -unit_y) * 180.f / static_cast<float>(pi);
-        float el = atan2(unit_z, sqrt(pow(unit_x, 2) + pow(unit_y, 2.f))) *
+        float az = std::atan2(unit_x, -unit_y) * 180.f / static_cast<float>(pi);
+        float el = std::atan2(unit_z, sqrt(std::pow(unit_x, 2.f) + std::pow(unit_y, 2.f))) *
                    180.f / static_cast<float>(pi);
         view(ax, az, el);
         return std::make_pair(az, el);
@@ -624,8 +624,8 @@ namespace matplot {
 
     void axis(axes_handle ax, keyword_square_type) {
         axis(ax, equal);
-        double w = ax->width() * ax->parent()->width();
-        double h = ax->height() * ax->parent()->height();
+        float w = ax->width() * ax->parent()->width();
+        float h = ax->height() * ax->parent()->height();
         // make w = h
         if (w > h) {
             double old_width = ax->width();

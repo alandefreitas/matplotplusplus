@@ -10,7 +10,7 @@ int main() {
         r1, r2, [](double x, double y) { return atan2(x - .5, 2 * (y - .5)); });
     auto h = polarhistogram(theta, 25);
     h->face_color("red");
-    h->face_alpha(1. - 0.3);
+    h->face_alpha(1.f - 0.3f);
 
     show();
     return 0;

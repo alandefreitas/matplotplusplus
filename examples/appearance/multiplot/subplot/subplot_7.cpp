@@ -13,7 +13,7 @@ int main() {
 
     subplot(ax[1]);
     auto p = fplot("sin(x)");
-    p->line_spec().color({0.1, 0.5, 0.1});
+    p->line_spec().color({0.1f, 0.5f, 0.1f});
     p->line_spec().line_width(2);
     title("Second subplot");
     axis({0, 50, -1, 1});

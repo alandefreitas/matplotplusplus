@@ -37,8 +37,17 @@ namespace matplot::backend {
 
     gnuplot::gnuplot() {
         // 1st option: terminal in GNUTERM environment variable
-        const char *environment_terminal = std::getenv("GNUTERM");
-        if (environment_terminal) {
+#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) ||              \
+    defined(__CYGWIN__)
+        char *environment_terminal;
+        size_t len;
+        errno_t err = _dupenv_s(&environment_terminal, &len, "GNUTERM");
+        const bool env_found = err == 0 && environment_terminal != nullptr;
+#else
+        char *environment_terminal = std::getenv("GNUTERM");
+        bool env_found = environment_terminal != nullptr;
+#endif
+        if (env_found) {
             if (terminal_is_available(environment_terminal)) {
                 terminal_ = environment_terminal;
             }

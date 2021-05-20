@@ -206,8 +206,8 @@ namespace matplot {
                 }
             } else if (cbw > cbh) {
                 // north/south
-                double south_margin = cby + cbh;
-                double north_margin = 1. - cby;
+                float south_margin = cby + cbh;
+                float north_margin = 1.f - cby;
                 if (south_margin <= north_margin) {
                     // south
                     colorbar_bmargin = south_margin + extra_for_ticks;
@@ -217,8 +217,8 @@ namespace matplot {
                 }
             } else {
                 // west/east
-                double east_margin = cbx + cbw;
-                double west_margin = 1. - cbx;
+                float east_margin = cbx + cbw;
+                float west_margin = 1.f - cbx;
                 if (east_margin <= west_margin) {
                     // east
                     colorbar_rmargin = east_margin + extra_for_ticks;
@@ -1196,8 +1196,8 @@ namespace matplot {
         : x_axis_(this, -10, +10, true), x2_axis_(this, inf, inf, false),
           y_axis_(this, inf, inf, true), y2_axis_(this, inf, inf, false),
           z_axis_(this, inf, inf, true), position_(position), parent_(parent) {
-        grid_line_style_.color({0.85, 0.15, 0.15, 0.15});
-        minor_grid_line_style_.color({0.9, 0.1, 0.1, 0.1});
+        grid_line_style_.color({0.85f, 0.15f, 0.15f, 0.15f});
+        minor_grid_line_style_.color({0.9f, 0.1f, 0.1f, 0.1f});
         t_axis_.tick_label_format_ = "%gº";
         t_axis_.tick_values_ = iota(0, 30, 330);
         t_axis_.tick_values_automatic_ = false;
@@ -2827,7 +2827,7 @@ namespace matplot {
             unique_categories[static_cast<size_t>(round(index) - 1)] = category;
         }
         this->x_axis().ticklabels(unique_categories);
-        l->bar_width(0.9);
+        l->bar_width(0.9f);
         this->x_axis().limits(
             {0.5, static_cast<double>(category_indexes.size()) + 0.5});
         return l;
@@ -2937,7 +2937,7 @@ namespace matplot {
         case bin_scatter_style::point_size: {
             s = this->scatter(bin_x, bin_y, point_sizes);
             auto c = s->marker_color();
-            c[0] = 0.2;
+            c[0] = 0.2f;
             s->marker_color(c);
             s->marker_face(true);
             r = s;
@@ -3734,10 +3734,10 @@ namespace matplot {
         h->line_width(1.);
         auto fc = this->get_color_and_bump();
         // const double alpha = fc[0];
-        const double opacity = (1 - fc[0]);
-        const double new_opacity = opacity * 0.7;
-        const double new_alpha = 1 - new_opacity;
-        fc[0] = static_cast<float>(new_alpha);
+        const float opacity = (1.f - fc[0]);
+        const float new_opacity = opacity * 0.7f;
+        const float new_alpha = 1 - new_opacity;
+        fc[0] = new_alpha;
         h->face_color(fc);
         h->line_color(to_array("white"));
         this->emplace_object(h);
@@ -3822,10 +3822,10 @@ namespace matplot {
         auto [x, y] = world_map_110m();
         line_handle a = this->plot(x, y);
         a->tag("map");
-        color_array land_color = {0, 0.9294, 0.9294, 0.9294};
+        color_array land_color = {0.f, 0.9294f, 0.9294f, 0.9294f};
         a->color(land_color);
         a->fill(true);
-        color_array bg = {0, 0.7882, 0.7882, 0.7882};
+        color_array bg = {0.f, 0.7882f, 0.7882f, 0.7882f};
         this->color(bg);
 
         this->x_axis().geographic(true);
@@ -3877,8 +3877,8 @@ namespace matplot {
             double latitude_kms = 111.12 * std::abs(latitude[1] - latitude[0]);
             double longitude_kms =
                 111.12 * std::abs(longitude[1] - longitude[0]);
-            double w_pixels = this->width() * this->parent()->width();
-            double h_pixels = this->height() * this->parent()->height();
+            float w_pixels = this->width() * this->parent()->width();
+            float h_pixels = this->height() * this->parent()->height();
             double w_km_per_pixel = longitude_kms / w_pixels;
             double h_km_per_pixel = latitude_kms / h_pixels;
             double min_km_per_pixel = std::min(w_km_per_pixel, h_km_per_pixel);
@@ -4091,8 +4091,8 @@ namespace matplot {
     /// \brief Make x/y-axis square with ratio 1 by changing the axes size
     void axes_type::axis(keyword_square_type) {
         axis(equal);
-        double w = this->width() * this->parent()->width();
-        double h = this->height() * this->parent()->height();
+        float w = this->width() * this->parent()->width();
+        float h = this->height() * this->parent()->height();
         // make w = h
         if (w > h) {
             double old_width = this->width();

@@ -12,8 +12,8 @@ int main() {
     double sz = 6;
 
     auto l = scatter(x, y, sz);
-    l->marker_color({0, .5, .5});
-    l->marker_face_color({0, .7, .7});
+    l->marker_color({0.f, .5f, .5f});
+    l->marker_face_color({0.f, .7f, .7f});
 
     show();
     return 0;

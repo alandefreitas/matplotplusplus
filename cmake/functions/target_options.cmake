@@ -64,14 +64,33 @@ function(target_utf8_options TARGET_NAME)
     target_msvc_compile_options(${TARGET_NAME} PRIVATE /utf-8)
 endfunction()
 
-# @brief Enable utf-8 for the target
+# @brief Disable minmax for target
 function(target_disable_minmax TARGET_NAME)
+    message("Checking if min exists for ${TARGET_NAME}")
     if (MSVC)
         # Another hack to check for min in Windows.h
         # http://www.suodenjoki.dk/us/archive/2010/min-max.htm
-        check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+        include(CheckSymbolExists)
+        message("Looking in WinDef.h")
+        check_symbol_exists(min "WinDef.h" HAVE_WINDOWS_MINMAX)
+        if (NOT HAVE_WINDOWS_MINMAX)
+            message("Looking in Windows.h")
+            check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+        endif()
         if (HAVE_WINDOWS_MINMAX)
             target_compile_definitions(${TARGET_NAME} PUBLIC NOMINMAX)
+        else()
+            message("MINMAX not found")
         endif()
+    else()
+        message("Compiler is not MSVC")
     endif()
+endfunction()
+
+# @brief Disable minmax for target
+# This forces the NOMINMAX definition without even looking for
+# min in WinDef.h. This is necessary because the solution
+# based on check_symbol_exists hasn't been enough.
+function(target_nominmax_definition TARGET_NAME)
+    target_compile_definitions(${TARGET_NAME} PUBLIC NOMINMAX)
 endfunction()

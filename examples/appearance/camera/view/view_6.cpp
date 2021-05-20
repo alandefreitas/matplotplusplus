@@ -10,7 +10,7 @@ int main() {
 
     gcf()->width(gcf()->width() * 2);
     subplot(1, 2, 0);
-    fsurf(ackley)->lighting(true).primary(0.7).specular(0.9);
+    fsurf(ackley)->lighting(true).primary(0.7f).specular(0.9f);
     subplot(1, 2, 1);
     fsurf(ackley);
     rotate(20, 30);

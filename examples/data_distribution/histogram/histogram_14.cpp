@@ -50,7 +50,7 @@ int main() {
     enum histogram::binning_algorithm alg =
         histogram::binning_algorithm::automatic;
     const size_t n_bins = 200;
-    const double hist_alpha = 0.7;
+    const float hist_alpha = 0.7f;
     std::default_random_engine r;
     std::mt19937 generator(r());
 

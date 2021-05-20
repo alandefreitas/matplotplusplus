@@ -6,11 +6,11 @@
 
 int main() {
     using namespace matplot;
-    subplot({0.1, 0.3, 0.3, 0.3});
+    subplot({0.1f, 0.3f, 0.3f, 0.3f});
     fplot("sin(x)");
     title("First Subplot");
 
-    subplot({0.5, 0.15, 0.4, 0.7});
+    subplot({0.5f, 0.15f, 0.4f, 0.7f});
     fplot("cos(x)");
     title("Second Subplot");
 
