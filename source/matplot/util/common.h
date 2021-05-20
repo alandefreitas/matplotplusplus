@@ -141,7 +141,7 @@ namespace matplot {
 
     template <size_t N, class T>
     inline std::array<T, N> to_array(std::initializer_list<T> il) {
-        std::array<T, N> r;
+        std::array<T, N> r{};
         auto r_it = r.begin();
         auto il_it = il.begin();
         while (r_it != r.end() && il_it != il.end()) {
