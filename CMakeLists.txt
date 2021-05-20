@@ -33,6 +33,9 @@ else()
     set(NOT_DEBUG_MODE ON)
 endif()
 
+# Function to link external libraries as system libraries
+include (cmake/LinkExternalLibraries.cmake)
+
 #######################################################
 ### Options                                         ###
 #######################################################
