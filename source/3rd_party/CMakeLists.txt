@@ -57,8 +57,6 @@ else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
 endif()
 target_include_directories(cimg INTERFACE $<BUILD_INTERFACE:${CIMG_INCLUDE_DIR}>)
-target_compile_options(cimg INTERFACE -Wno-deprecated-declarations)
-
 
 find_package(PkgConfig)
 
