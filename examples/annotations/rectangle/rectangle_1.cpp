@@ -12,7 +12,7 @@ int main() {
 
     auto r2 = rectangle(6.5, 4.5, 1, 1);
     r2->fill(true);
-    r2->color({0.8, 0, 0, 1});
+    r2->color({0.8f, 0.f, 0.f, 1.f});
 
     show();
     return 0;

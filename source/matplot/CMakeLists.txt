@@ -115,7 +115,6 @@ target_disable_minmax(matplot)
 
 # Warnings
 maybe_target_pedantic_warnings(matplot)
-target_msvc_compile_options(matplot PRIVATE /wd4305)
 
 #######################################################
 ### Definitions                                     ###

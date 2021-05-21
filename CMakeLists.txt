@@ -3,7 +3,7 @@
 #######################################################
 # Project information
 cmake_minimum_required(VERSION 3.14)
-project(matplotplusplus VERSION 1.0.2)
+project(matplotplusplus VERSION 1.1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
 set(MATPLOT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})

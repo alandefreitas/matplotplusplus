@@ -6,8 +6,8 @@
 
 int main() {
     using namespace matplot;
-    auto ax1 = axes({0.1, 0.1, 0.7, 0.7});
-    auto ax2 = axes({0.65, 0.65, 0.28, 0.28});
+    auto ax1 = axes({0.1f, 0.1f, 0.7f, 0.7f});
+    auto ax2 = axes({0.65f, 0.65f, 0.28f, 0.28f});
 
     auto [X, Y, Z] = peaks(20);
     contour(ax1, X, Y, Z);

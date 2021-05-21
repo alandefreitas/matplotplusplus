@@ -8,7 +8,7 @@ int main() {
     using namespace matplot;
 
     auto ax_1 = axes();
-    auto ax_2 = axes({0.4, 0.4, 0.45, 0.45});
+    auto ax_2 = axes({0.4f, 0.4f, 0.45f, 0.45f});
 
     std::vector<int> stars = n_stars();
 
@@ -21,7 +21,7 @@ int main() {
     axes(ax_2);
     title(num2str(size_t(stars.size() * 0.1)) + " to " + num2str(stars.size()) +
           " Most Popular C++ Repositories");
-    stars.erase(stars.begin(), stars.begin() + stars.size() * 0.1);
+    stars.erase(stars.begin(), stars.begin() + static_cast<size_t>(stars.size() * 0.1));
     hist(stars);
 
     show();

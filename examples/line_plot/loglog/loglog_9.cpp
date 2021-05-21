@@ -10,7 +10,7 @@ int main() {
         transform(x, [](auto x) { return 1. / pow(10, x); });
     auto lg = loglog(x, y1, x, y2);
     lg[0]->line_width(2);
-    lg[1]->color({0.4, 0, 1});
+    lg[1]->color({0.4f, 0.f, 1.f});
 
     show();
     return 0;

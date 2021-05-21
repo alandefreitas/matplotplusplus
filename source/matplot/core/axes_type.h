@@ -1598,11 +1598,9 @@ namespace matplot {
             } else if (xy_range.size() == 4) {
                 return fsurf(fn, to_array<4>(xy_range), line_spec,
                              mesh_density);
-            } else {
-                std::invalid_argument(
-                    "fsurf: xy_range needs to have size 2 or 4");
             }
-            return nullptr;
+            throw std::invalid_argument(
+                    "fsurf: xy_range needs to have size 2 or 4");
         }
 
         /// Function surf
@@ -1619,11 +1617,9 @@ namespace matplot {
             } else if (uv_range.size() == 4) {
                 return fsurf(funx, funy, funz, to_array<4>(uv_range), line_spec,
                              mesh_density);
-            } else {
-                std::invalid_argument(
-                    "fsurf: uv_range needs to have size 2 or 4");
             }
-            return nullptr;
+            throw std::invalid_argument(
+                    "fsurf: uv_range needs to have size 2 or 4");
         }
 
         /// Mesh - Core function

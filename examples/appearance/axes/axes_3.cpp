@@ -6,8 +6,8 @@
 
 int main() {
     using namespace matplot;
-    auto ax1 = axes({0.1, 0.1, 0.6, 0.6});
-    auto ax2 = axes({0.35, 0.35, 0.6, 0.6});
+    auto ax1 = axes({0.1f, 0.1f, 0.6f, 0.6f});
+    auto ax2 = axes({0.35f, 0.35f, 0.6f, 0.6f});
 
     ax1->box(true);
     ax2->box(true);
