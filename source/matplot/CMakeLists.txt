@@ -107,11 +107,13 @@ target_compile_features(matplot PUBLIC cxx_std_17)
 #######################################################
 ### Compiler options                                ###
 #######################################################
+message("Setting matplotplusplus compiler options")
+
 # Support MSVC
 target_bigobj_options(matplot)
 target_exception_options(matplot)
 target_utf8_options(matplot)
-target_disable_minmax(matplot)
+target_nominmax_definition(matplot)
 
 # Warnings
 maybe_target_pedantic_warnings(matplot)
