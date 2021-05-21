@@ -64,6 +64,7 @@ option(WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OF
 #######################################################
 # In development, we can set some options for all targets
 if (MASTER_PROJECT)
+    message("Setting global options")
     # Maybe add sanitizers to all targets
     if (BUILD_WITH_SANITIZERS AND NOT EMSCRIPTEN)
         add_sanitizers()
@@ -81,13 +82,16 @@ if (MASTER_PROJECT)
 
     # MSVC hack to disable windows min/max
     # http://www.suodenjoki.dk/us/archive/2010/min-max.htm
-    if (BUILD_WITH_MSVC_HACKS)
+    if (MSVC AND BUILD_WITH_MSVC_HACKS)
         # Check for min in Windows.h
-        include(CheckSymbolExists)
-        check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
-        if (HAVE_WINDOWS_MINMAX)
-            add_compile_definitions(NOMINMAX)
-        endif ()
+        # include(CheckSymbolExists)
+        # check_symbol_exists(min "WinDef.h" HAVE_WINDOWS_MINMAX)
+        # if (NOT HAVE_WINDOWS_MINMAX)
+        #     check_symbol_exists(min "Windows.h" HAVE_WINDOWS_MINMAX)
+        # endif ()
+        # if (HAVE_WINDOWS_MINMAX)
+        add_compile_definitions(NOMINMAX)
+        # endif ()
     endif ()
 endif()
 
