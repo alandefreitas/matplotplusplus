@@ -37,7 +37,7 @@ namespace matplot::backend {
 
     gnuplot::gnuplot() {
         // 1st option: terminal in GNUTERM environment variable
-#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) ||              \
+#if defined(_MSC_VER) ||              \
     defined(__CYGWIN__)
         char *environment_terminal;
         size_t len;
