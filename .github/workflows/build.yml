@@ -30,7 +30,7 @@ jobs:
         config:
           # see: https://github.com/actions/virtual-environments
           - {
-            name: "Windows/2019/Static/X86/Release",
+            name: "Windows-MSVC/2019/Static/X86/Release",
             os: windows-2019,
             config: Release,
             cmake_extra_args: -G "Visual Studio 16 2019" -A Win32,
@@ -39,10 +39,19 @@ jobs:
             cores: 2,
           }
           - {
-            name: "Windows/2019/Static/X64/Release",
+            name: "Windows-MSVC/2019/Static/X64/Release",
             os: windows-2019,
             config: Release,
             cmake_extra_args: -G "Visual Studio 16 2019" -A x64 -DCMAKE_CXX_FLAGS="/O2",
+            sudocmd: "",
+            artifact_name: "Windows x64",
+            cores: 2,
+          }
+          - {
+            name: "Windows-MinGW/2019/Static/X64/Release",
+            os: windows-2019,
+            config: Release,
+            cmake_extra_args: -G "CodeBlocks - MinGW Makefiles",
             sudocmd: "",
             artifact_name: "Windows x64",
             cores: 2,
