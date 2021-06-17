@@ -51,7 +51,7 @@ jobs:
             name: "Windows-MinGW/2019/Static/X64/Release",
             os: windows-2019,
             config: Release,
-            cmake_extra_args: -G "CodeBlocks - MinGW Makefiles",
+            cmake_extra_args: "-G \"CodeBlocks - MinGW Makefiles\" -DCMAKE_C_COMPILER=C:/msys64/mingw64/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/msys64/mingw64/bin/g++.exe -DCMAKE_CXX_FLAGS=\"-lstdc++fs -std=c++17\"",
             sudocmd: "",
             artifact_name: "Windows x64",
             cores: 2,
