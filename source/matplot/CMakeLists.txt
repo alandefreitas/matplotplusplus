@@ -1,4 +1,6 @@
+if(NOT MINGW)
 find_package(Filesystem REQUIRED COMPONENTS Experimental Final)
+endif()
 
 #######################################################
 ### Library                                         ###
@@ -97,8 +99,13 @@ target_include_directories(matplot
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # Dependencies
+if(NOT MINGW)
 target_link_libraries_system(matplot
   PRIVATE cimg nodesoup std::filesystem)
+else()
+target_link_libraries_system(matplot
+  PRIVATE cimg nodesoup)
+endif()
 
 # Required compiler features required
 # https://cmake.org/cmake/help/v3.14/manual/cmake-compile-features.7.html#requiring-language-standards
@@ -122,10 +129,11 @@ maybe_target_pedantic_warnings(matplot)
 ### Definitions                                     ###
 #######################################################
 # Use experimental filesystem if std::filesystem is not available yet
-if (CXX_FILESYSTEM_IS_EXPERIMENTAL)
-    target_compile_definitions(matplot PRIVATE CXX_FILESYSTEM_IS_EXPERIMENTAL)
+if(NOT MINGW)
+    if (CXX_FILESYSTEM_IS_EXPERIMENTAL)
+      target_compile_definitions(matplot PRIVATE CXX_FILESYSTEM_IS_EXPERIMENTAL)
+    endif()
 endif()
-
 # Some hack to not depend on FILE* internals
 # https://github.com/alandefreitas/matplotplusplus/issues/4
 include(CheckSymbolExists)
