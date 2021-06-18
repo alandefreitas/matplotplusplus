@@ -9278,13 +9278,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/rath3t">
+            <img src="https://avatars.githubusercontent.com/u/10537464?v=4" width="100;" alt="rath3t"/>
+            <br />
+            <sub><b>Rath3t</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/xnorpx">
             <img src="https://avatars.githubusercontent.com/u/302709?v=4" width="100;" alt="xnorpx"/>
             <br />
             <sub><b>Marcus Asteborg</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Zengit123">
             <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="Zengit123"/>
@@ -9311,13 +9318,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
             <br />
             <sub><b>Alex</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/rath3t">
-            <img src="https://avatars.githubusercontent.com/u/10537464?v=4" width="100;" alt="rath3t"/>
-            <br />
-            <sub><b>rath3t</b></sub>
         </a>
     </td>
     <td align="center">
