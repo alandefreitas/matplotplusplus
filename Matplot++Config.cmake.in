@@ -1,14 +1,24 @@
 @PACKAGE_INIT@
 
+# How this Matplot++ installation was built
 set(MATPLOT_BUILT_SHARED "@BUILD_SHARED_LIBS@")
+set(MATPLOT_BUILT_CXX_COMPILER_ID "@CMAKE_CXX_COMPILER_ID@")
+set(MATPLOT_BUILT_CXX_COMPILER_VERSION "@CMAKE_CXX_COMPILER_VERSION@")
+
+# Check if it matches the current toolchain
+if (NOT CMAKE_CXX_COMPILER_VERSION STREQUAL MATPLOT_BUILT_CXX_COMPILER_ID)
+    message(WARNING "This installation of Matplot++ was built with ${MATPLOT_BUILT_CXX_COMPILER_ID}.")
+endif()
+
+# Find dependencies
 if(NOT ${MATPLOT_BUILT_SHARED})
     include(CMakeFindDependencyMacro)
-
     list(APPEND CMAKE_MODULE_PATH ${MATPLOT_CONFIG_INSTALL_DIR})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
     find_dependency(Filesystem COMPONENTS Experimental Final)
     list(POP_BACK CMAKE_MODULE_PATH)
 endif()
 
+# Create imported targets
 include("${CMAKE_CURRENT_LIST_DIR}/Matplot++Targets.cmake")
 check_required_components(Matplot++)
