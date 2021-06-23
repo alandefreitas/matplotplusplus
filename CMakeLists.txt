@@ -3,9 +3,7 @@
 #######################################################
 # Project information
 cmake_minimum_required(VERSION 3.14)
-project(matplotplusplus VERSION 1.1.0)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_C_STANDARD 11)
+project(Matplot++ VERSION 1.1.0)
 set(MATPLOT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(MATPLOT_VERSION ${CMAKE_PROJECT_VERSION})
 
@@ -130,16 +128,22 @@ if (BUILD_INSTALLER)
     write_basic_package_version_file(
             Matplot++ConfigVersion.cmake
             VERSION ${PACKAGE_VERSION}
-            COMPATIBILITY AnyNewerVersion
+            COMPATIBILITY SameMajorVersion
     )
 
-    # Create matplot++-config.cmake from matplot++-config.cmake.in
-    configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/matplot++-config.cmake.in
-            ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
-            INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
+    # Install the file Matplot++ConfigVersion.cmake
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++ConfigVersion.cmake
+            DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 
-    # Install the file matplot++-config.cmake
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/matplot++-config.cmake
+    # Create Matplot++Config.cmake from Matplot++Config.cmake.in
+    configure_package_config_file(
+            ${CMAKE_CURRENT_SOURCE_DIR}/Matplot++Config.cmake.in # input file
+            ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake    # output file
+            INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
+    )
+
+    # Install the file Matplot++Config.cmake
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 
     # Install cmake to find filesystem as a dependency
