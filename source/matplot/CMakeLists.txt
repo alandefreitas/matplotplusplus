@@ -90,8 +90,9 @@ add_library(matplot
         freestanding/plot.h
 )
 
-# Target alias
+# Target aliases
 add_library(Matplot++::matplot ALIAS matplot)
+add_library(Matplot++::matplot++ ALIAS matplot)
 
 # Include dirs
 target_include_directories(matplot
