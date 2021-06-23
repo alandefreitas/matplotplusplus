@@ -1,0 +1,2673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Matplot++: A C++ Graphics Library for Data Visualization">
+      
+      
+      
+      
+        <link rel="canonical" href="https://alandefreitas.github.io/matplotplusplus/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Home - Matplot++</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-109858331-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#matplot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Matplot++" class="md-header__button md-logo" aria-label="Matplot++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Matplot++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/alandefreitas/matplotplusplus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alandefreitas/matplotplusplus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+    <!-- Main navigation -->
+    
+        
+        <div
+                class="md-sidebar md-sidebar--primary"
+                data-md-component="sidebar" data-md-type="navigation"
+                
+        >
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Matplot++" class="md-nav__button md-logo" aria-label="Matplot++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    Matplot++
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/alandefreitas/matplotplusplus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alandefreitas/matplotplusplus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Integration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Package Managers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Package Managers" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Package Managers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/package-managers/vcpkg/" class="md-nav__link">
+        Vcpkg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/package-managers/homebrew/" class="md-nav__link">
+        Homebrew
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/package-managers/arch-linux/" class="md-nav__link">
+        Arch Linux
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        CMake
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CMake" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          CMake
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/cmake/embed-as-subdirectory/" class="md-nav__link">
+        Embed as subdirectory
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/cmake/embed-with-automatic-download/" class="md-nav__link">
+        Embed with automatic download
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/cmake/embed-with-cpmcmake/" class="md-nav__link">
+        Embed with CPM.cmake
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/cmake/find-as-external-package/" class="md-nav__link">
+        Find as External Package
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/cmake/supporting-both/" class="md-nav__link">
+        Supporting Both
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Install
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Install" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Install
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/install/binary-packages/" class="md-nav__link">
+        Binary Packages
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" type="checkbox" id="__nav_2_3_2" >
+      
+      <label class="md-nav__link" for="__nav_2_3_2">
+        Build from Source
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Build from Source" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Build from Source
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/install/build-from-source/dependencies/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="integration/install/build-from-source/build-and-install/" class="md-nav__link">
+        Build and install
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Plot Types
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plot Types" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plot Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Line Plots
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Line Plots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Line Plots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/line-plot/" class="md-nav__link">
+        Line Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/line-plot-3d/" class="md-nav__link">
+        Line Plot 3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/stairs/" class="md-nav__link">
+        Stairs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/error-bars/" class="md-nav__link">
+        Error Bars
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/area/" class="md-nav__link">
+        Area
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/loglog-plot/" class="md-nav__link">
+        Loglog Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/semilogx-plot/" class="md-nav__link">
+        Semilogx Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/semilogy-plot/" class="md-nav__link">
+        Semilogy Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/function-plot/" class="md-nav__link">
+        Function Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/function-plot-3d/" class="md-nav__link">
+        Function Plot 3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/line-plots/implicit-function/" class="md-nav__link">
+        Implicit function
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Data Distribution
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data Distribution" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data Distribution
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/histogram/" class="md-nav__link">
+        Histogram
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/boxplot/" class="md-nav__link">
+        Boxplot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/scatter-plot/" class="md-nav__link">
+        Scatter Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/scatter-plot-3d/" class="md-nav__link">
+        Scatter Plot 3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/binned-scatter-plots/" class="md-nav__link">
+        Binned Scatter Plots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/plot-matrix/" class="md-nav__link">
+        Plot Matrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/parallel-coordinates/" class="md-nav__link">
+        Parallel Coordinates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/pie-chart/" class="md-nav__link">
+        Pie Chart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/heatmap/" class="md-nav__link">
+        Heatmap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/data-distribution/word-cloud/" class="md-nav__link">
+        Word Cloud
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Discrete Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Discrete Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Discrete Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/discrete-data/bar-plot/" class="md-nav__link">
+        Bar Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/discrete-data/pareto-chart/" class="md-nav__link">
+        Pareto Chart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/discrete-data/stem-plot/" class="md-nav__link">
+        Stem Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/discrete-data/stem-plot-3d/" class="md-nav__link">
+        Stem Plot 3D
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Geography
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Geography" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Geography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/geography/geoplot/" class="md-nav__link">
+        Geoplot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/geography/geoscatter-plot/" class="md-nav__link">
+        Geoscatter Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/geography/geobubble/" class="md-nav__link">
+        Geobubble
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/geography/geodensity-plot/" class="md-nav__link">
+        Geodensity Plot
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        Polar Plots
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Polar Plots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Polar Plots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/polar-plots/polar-line-plot/" class="md-nav__link">
+        Polar Line Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/polar-plots/polar-scatter-plot/" class="md-nav__link">
+        Polar Scatter Plot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/polar-plots/polar-histogram/" class="md-nav__link">
+        Polar Histogram
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/polar-plots/compass/" class="md-nav__link">
+        Compass
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/polar-plots/polar-function/" class="md-nav__link">
+        Polar Function
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        Contour Plots
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Contour Plots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Contour Plots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/contour-plots/contour/" class="md-nav__link">
+        Contour
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/contour-plots/filled-contour/" class="md-nav__link">
+        Filled Contour
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/contour-plots/function-contour/" class="md-nav__link">
+        Function Contour
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        Vector Fields
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Vector Fields" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Vector Fields
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/vector-fields/quiver/" class="md-nav__link">
+        Quiver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/vector-fields/quiver-3d/" class="md-nav__link">
+        Quiver 3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/vector-fields/feather/" class="md-nav__link">
+        Feather
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      <label class="md-nav__link" for="__nav_3_8">
+        Surfaces
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Surfaces" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Surfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/surface/" class="md-nav__link">
+        Surface
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/surface-with-contour/" class="md-nav__link">
+        Surface with Contour
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/mesh/" class="md-nav__link">
+        Mesh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/mesh-with-contour/" class="md-nav__link">
+        Mesh with Contour
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/mesh-with-curtain/" class="md-nav__link">
+        Mesh with Curtain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/function-surface/" class="md-nav__link">
+        Function Surface
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/function-mesh/" class="md-nav__link">
+        Function Mesh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/waterfall/" class="md-nav__link">
+        Waterfall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/fence/" class="md-nav__link">
+        Fence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/surfaces/ribbon/" class="md-nav__link">
+        Ribbon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_9" type="checkbox" id="__nav_3_9" >
+      
+      <label class="md-nav__link" for="__nav_3_9">
+        Graphs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graphs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_9">
+          <span class="md-nav__icon md-icon"></span>
+          Graphs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/graphs/undirected-graph/" class="md-nav__link">
+        Undirected Graph
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/graphs/directed-graph/" class="md-nav__link">
+        Directed Graph
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      <label class="md-nav__link" for="__nav_3_10">
+        Images
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Images" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          Images
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/images/image-show/" class="md-nav__link">
+        Image Show
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/images/image-matrix/" class="md-nav__link">
+        Image Matrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plot-types/images/scaled-image/" class="md-nav__link">
+        Scaled Image
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Annotations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Annotations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Annotations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/text-with-arrow/" class="md-nav__link">
+        Text with Arrow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/rectangle/" class="md-nav__link">
+        Rectangle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/filled-polygon/" class="md-nav__link">
+        Filled Polygon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/ellipse/" class="md-nav__link">
+        Ellipse
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/textbox/" class="md-nav__link">
+        Textbox
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/arrow/" class="md-nav__link">
+        Arrow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/line/" class="md-nav__link">
+        Line
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Appearance
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Appearance" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appearance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Labels
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Labels" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Labels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/title/" class="md-nav__link">
+        Title
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/subplot-title/" class="md-nav__link">
+        Subplot Title
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/x-label/" class="md-nav__link">
+        X Label
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/y-label/" class="md-nav__link">
+        Y Label
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/z-label/" class="md-nav__link">
+        Z Label
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/labels/legend/" class="md-nav__link">
+        Legend
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Axis
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Axis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Axis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axis/x-limits/" class="md-nav__link">
+        X Limits
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axis/y-limits/" class="md-nav__link">
+        Y Limits
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axis/z-limits/" class="md-nav__link">
+        Z Limits
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axis/adjust-axis/" class="md-nav__link">
+        Adjust Axis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axis/box/" class="md-nav__link">
+        Box
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Grid
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Grid" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Grid
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/grid-background/" class="md-nav__link">
+        Grid Background
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/x-ticks/" class="md-nav__link">
+        X Ticks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/y-ticks/" class="md-nav__link">
+        Y Ticks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/z-ticks/" class="md-nav__link">
+        Z Ticks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/x-tick-labels/" class="md-nav__link">
+        X Tick Labels
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/y-tick-labels/" class="md-nav__link">
+        Y Tick Labels
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/x-tick-format/" class="md-nav__link">
+        X Tick Format
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/y-tick-format/" class="md-nav__link">
+        Y Tick Format
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/z-tick-format/" class="md-nav__link">
+        Z Tick Format
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/x-tick-angle/" class="md-nav__link">
+        X Tick Angle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/grid/y-tick-angle/" class="md-nav__link">
+        Y Tick Angle
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Multiplot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Multiplot" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Multiplot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/multiplot/hold/" class="md-nav__link">
+        Hold
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/multiplot/yy-axis/" class="md-nav__link">
+        YY-axis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/multiplot/color-order/" class="md-nav__link">
+        Color Order
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/multiplot/subplots/" class="md-nav__link">
+        Subplots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/multiplot/tiled-layout/" class="md-nav__link">
+        Tiled Layout
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      <label class="md-nav__link" for="__nav_5_5">
+        Colormaps
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Colormaps" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Colormaps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/colormaps/colormap/" class="md-nav__link">
+        Colormap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/colormaps/color-bar/" class="md-nav__link">
+        Color Bar
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/colormaps/rgb-plot/" class="md-nav__link">
+        RGB Plot
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" >
+      
+      <label class="md-nav__link" for="__nav_5_6">
+        Camera
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Camera" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Camera
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/camera/view/" class="md-nav__link">
+        View
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/camera/lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/figure-object/" class="md-nav__link">
+        Figure Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/line-specs/" class="md-nav__link">
+        Line Specs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/axes-object/" class="md-nav__link">
+        Axes Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="appearance/clear-axes/" class="md-nav__link">
+        Clear Axes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Exporting
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Exporting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Exporting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exporting/saving-manually/" class="md-nav__link">
+        Saving (Manually)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exporting/saving-programatically/" class="md-nav__link">
+        Saving (Programatically)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Coding styles
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Coding styles" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Coding styles
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/member-vs-free-standing-functions/" class="md-nav__link">
+        Member vs. Free-standing Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/reactive-vs-quiet-figures/" class="md-nav__link">
+        Reactive vs. Quiet Figures
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/method-chaining/" class="md-nav__link">
+        Method Chaining
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/ranges/" class="md-nav__link">
+        Ranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/common-utilities/" class="md-nav__link">
+        Common Utilities
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/backends/" class="md-nav__link">
+        Backends
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coding-styles/motivation-and-details/" class="md-nav__link">
+        Motivation and Details
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Community
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="community/get-involved/" class="md-nav__link">
+        Get Involved
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="community/ideas-and-roadmap/" class="md-nav__link">
+        Ideas and Roadmap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="community/contributing-guidelines/" class="md-nav__link">
+        Contributing Guidelines
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="community/contributors/" class="md-nav__link">
+        Contributors
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references/" class="md-nav__link">
+        References
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Table of contents: never hidden -->
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+        <div data-ea-publisher="alandefreitas-com" data-ea-type="image"></div>
+        <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+            </div>
+        </div>
+    </div>
+
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+                
+                
+                <h1 id="matplot">Matplot++</h1>
+<blockquote>
+<p>A C++ Graphics Library for Data Visualization</p>
+</blockquote>
+<p><a href="https://alandefreitas.github.io/matplotplusplus/"><img alt="Matplot++" src="img/matplotcover.png" /></a></p>
+<p><br/></p>
+<p>Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers. Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization. Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages. <strong>Matplot++</strong> is a graphics library for data visualization that provides interactive plotting, means for exporting plots in high-quality formats for scientific publications, a compact syntax consistent with similar libraries, dozens of plot categories with specialized algorithms, multiple coding styles, and supports generic backends.</p>
+<p><br/></p>
+<p><a href="https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush"><img alt="Build Status" src="https://img.shields.io/github/workflow/status/alandefreitas/matplotplusplus/Matplotplusplus?event=push&amp;label=Build&amp;logo=Github-Actions" /></a>
+<a href="https://GitHub.com/alandefreitas/matplotplusplus/releases/"><img alt="Latest Release" src="https://img.shields.io/github/release/alandefreitas/matplotplusplus.svg?label=Download" /></a>
+<a href="https://alandefreitas.github.io/matplotplusplus/"><img alt="Documentation" src="https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Documentation" /></a>
+<a href="https://github.com/alandefreitas/matplotplusplus/discussions"><img alt="Discussions" src="https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Discussions" /></a></p>
+<p><br/></p>
+<!-- https://github.com/bradvin/social-share-urls -->
+<p><a href="https://www.facebook.com/sharer/sharer.php?t=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization&amp;u=https://github.com/alandefreitas/matplotplusplus/"><img alt="Facebook" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+Facebook&amp;logo=facebook" /></a>
+<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/alandefreitas/matplotplusplus/&amp;title=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization&amp;summary=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="QZone" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+QZone&amp;logo=qzone" /></a>
+<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/alandefreitas/matplotplusplus/&amp;title=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization&amp;summary=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="Weibo" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+Weibo&amp;logo=sina-weibo" /></a>
+<a href="http://www.reddit.com/submit?url=https://github.com/alandefreitas/matplotplusplus/&amp;title=MatplotPP:%20A%20CPP%20Graphics%20Library%20for%20Data%20Visualization"><img alt="Reddit" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+Reddit&amp;logo=reddit" /></a>
+<a href="https://twitter.com/intent/tweet?text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization&amp;url=https://github.com/alandefreitas/matplotplusplus/&amp;hashtags=DataVisualization,DataScience,Matplot,DataAnalysis,Charts,ChartingLibrary,Graphics,ScientificComputing,ScientificVisualization,Graphs,Plots,ContourPlots,PolarPlots"><img alt="Twitter" src="https://img.shields.io/twitter/url/http/shields.io.svg?label=Share+on+Twitter&amp;style=social" /></a>
+<a href="https://www.linkedin.com/shareArticle?mini=false&amp;url=https://github.com/alandefreitas/matplotplusplus/&amp;title=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="LinkedIn" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+LinkedIn&amp;logo=linkedin" /></a>
+<a href="https://api.whatsapp.com/send?text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization:+https://github.com/alandefreitas/matplotplusplus/"><img alt="WhatsApp" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+WhatsApp&amp;logo=whatsapp" /></a>
+<a href="https://lineit.line.me/share/ui?url=https://github.com/alandefreitas/matplotplusplus/&amp;text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="Line.me" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+Line.me&amp;logo=line" /></a>
+<a href="https://telegram.me/share/url?url=https://github.com/alandefreitas/matplotplusplus/&amp;text=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="Telegram.me" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+Telegram.me&amp;logo=telegram" /></a>
+<a href="https://news.ycombinator.com/submitlink?u=https://github.com/alandefreitas/matplotplusplus/&amp;t=Matplot%2B%2B:%20A%20C%2B%2B%20Graphics%20Library%20for%20Data%20Visualization"><img alt="HackerNews" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&amp;label=Share+on+HackerNews&amp;logo=y-combinator" /></a></p>
+<p><br/></p>
+<p><a href="COMPLETE_GALLERY/#plot_1"><img alt="example_plot_1" src="examples/line_plot/plot/plot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_2"><img alt="example_plot_2" src="examples/line_plot/plot/plot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_3"><img alt="example_plot_3" src="examples/line_plot/plot/plot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_4"><img alt="example_plot_4" src="examples/line_plot/plot/plot_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_5"><img alt="example_plot_5" src="examples/line_plot/plot/plot_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_6"><img alt="example_plot_6" src="examples/line_plot/plot/plot_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_7"><img alt="example_plot_7" src="examples/line_plot/plot/plot_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_8"><img alt="example_plot_8" src="examples/line_plot/plot/plot_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_9"><img alt="example_plot_9" src="examples/line_plot/plot/plot_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_10"><img alt="example_plot_10" src="examples/line_plot/plot/plot_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_11"><img alt="example_plot_11" src="examples/line_plot/plot/plot_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot_12"><img alt="example_plot_12" src="examples/line_plot/plot/plot_12_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_1"><img alt="example_plot3_1" src="examples/line_plot/plot3/plot3_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_2"><img alt="example_plot3_2" src="examples/line_plot/plot3/plot3_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_3"><img alt="example_plot3_3" src="examples/line_plot/plot3/plot3_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_4"><img alt="example_plot3_4" src="examples/line_plot/plot3/plot3_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_5"><img alt="example_plot3_5" src="examples/line_plot/plot3/plot3_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_6"><img alt="example_plot3_6" src="examples/line_plot/plot3/plot3_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_7"><img alt="example_plot3_7" src="examples/line_plot/plot3/plot3_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_8"><img alt="example_plot3_8" src="examples/line_plot/plot3/plot3_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_9"><img alt="example_plot3_9" src="examples/line_plot/plot3/plot3_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plot3_10"><img alt="example_plot3_10" src="examples/line_plot/plot3/plot3_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_1"><img alt="example_stairs_1" src="examples/line_plot/stairs/stairs_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_2"><img alt="example_stairs_2" src="examples/line_plot/stairs/stairs_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_3"><img alt="example_stairs_3" src="examples/line_plot/stairs/stairs_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_4"><img alt="example_stairs_4" src="examples/line_plot/stairs/stairs_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_5"><img alt="example_stairs_5" src="examples/line_plot/stairs/stairs_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_6"><img alt="example_stairs_6" src="examples/line_plot/stairs/stairs_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_7"><img alt="example_stairs_7" src="examples/line_plot/stairs/stairs_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_8"><img alt="example_stairs_8" src="examples/line_plot/stairs/stairs_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_9"><img alt="example_stairs_9" src="examples/line_plot/stairs/stairs_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stairs_10"><img alt="example_stairs_10" src="examples/line_plot/stairs/stairs_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_1"><img alt="example_errorbar_1" src="examples/line_plot/errorbar/errorbar_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_2"><img alt="example_errorbar_2" src="examples/line_plot/errorbar/errorbar_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_3"><img alt="example_errorbar_3" src="examples/line_plot/errorbar/errorbar_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_4"><img alt="example_errorbar_4" src="examples/line_plot/errorbar/errorbar_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_5"><img alt="example_errorbar_5" src="examples/line_plot/errorbar/errorbar_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_6"><img alt="example_errorbar_6" src="examples/line_plot/errorbar/errorbar_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_7"><img alt="example_errorbar_7" src="examples/line_plot/errorbar/errorbar_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_8"><img alt="example_errorbar_8" src="examples/line_plot/errorbar/errorbar_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_9"><img alt="example_errorbar_9" src="examples/line_plot/errorbar/errorbar_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#errorbar_10"><img alt="example_errorbar_10" src="examples/line_plot/errorbar/errorbar_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#area_1"><img alt="example_area_1" src="examples/line_plot/area/area_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#area_2"><img alt="example_area_2" src="examples/line_plot/area/area_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#area_3"><img alt="example_area_3" src="examples/line_plot/area/area_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#area_4"><img alt="example_area_4" src="examples/line_plot/area/area_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_1"><img alt="example_loglog_1" src="examples/line_plot/loglog/loglog_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_2"><img alt="example_loglog_2" src="examples/line_plot/loglog/loglog_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_3"><img alt="example_loglog_3" src="examples/line_plot/loglog/loglog_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_4"><img alt="example_loglog_4" src="examples/line_plot/loglog/loglog_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_5"><img alt="example_loglog_5" src="examples/line_plot/loglog/loglog_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_6"><img alt="example_loglog_6" src="examples/line_plot/loglog/loglog_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_7"><img alt="example_loglog_7" src="examples/line_plot/loglog/loglog_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_8"><img alt="example_loglog_8" src="examples/line_plot/loglog/loglog_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#loglog_9"><img alt="example_loglog_9" src="examples/line_plot/loglog/loglog_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#semilogx_1"><img alt="example_semilogx_1" src="examples/line_plot/semilogx/semilogx_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#semilogy_1"><img alt="example_semilogy_1" src="examples/line_plot/semilogy/semilogy_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_1"><img alt="example_fplot_1" src="examples/line_plot/fplot/fplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_2"><img alt="example_fplot_2" src="examples/line_plot/fplot/fplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_3"><img alt="example_fplot_3" src="examples/line_plot/fplot/fplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_4"><img alt="example_fplot_4" src="examples/line_plot/fplot/fplot_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_5"><img alt="example_fplot_5" src="examples/line_plot/fplot/fplot_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot_6"><img alt="example_fplot_6" src="examples/line_plot/fplot/fplot_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot3_1"><img alt="example_fplot3_1" src="examples/line_plot/fplot3/fplot3_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot3_2"><img alt="example_fplot3_2" src="examples/line_plot/fplot3/fplot3_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot3_3"><img alt="example_fplot3_3" src="examples/line_plot/fplot3/fplot3_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot3_4"><img alt="example_fplot3_4" src="examples/line_plot/fplot3/fplot3_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fplot3_5"><img alt="example_fplot3_5" src="examples/line_plot/fplot3/fplot3_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fimplicit_1"><img alt="example_fimplicit_1" src="examples/line_plot/fimplicit/fimplicit_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fimplicit_2"><img alt="example_fimplicit_2" src="examples/line_plot/fimplicit/fimplicit_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fimplicit_3"><img alt="example_fimplicit_3" src="examples/line_plot/fimplicit/fimplicit_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fimplicit_4"><img alt="example_fimplicit_4" src="examples/line_plot/fimplicit/fimplicit_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_1"><img alt="example_histogram_1" src="examples/data_distribution/histogram/histogram_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_2"><img alt="example_histogram_2" src="examples/data_distribution/histogram/histogram_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_3"><img alt="example_histogram_3" src="examples/data_distribution/histogram/histogram_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_4"><img alt="example_histogram_4" src="examples/data_distribution/histogram/histogram_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_5"><img alt="example_histogram_5" src="examples/data_distribution/histogram/histogram_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_6"><img alt="example_histogram_6" src="examples/data_distribution/histogram/histogram_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_7"><img alt="example_histogram_7" src="examples/data_distribution/histogram/histogram_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_8"><img alt="example_histogram_8" src="examples/data_distribution/histogram/histogram_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_9"><img alt="example_histogram_9" src="examples/data_distribution/histogram/histogram_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_10"><img alt="example_histogram_10" src="examples/data_distribution/histogram/histogram_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_11"><img alt="example_histogram_11" src="examples/data_distribution/histogram/histogram_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_12"><img alt="example_histogram_12" src="examples/data_distribution/histogram/histogram_12_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#histogram_14"><img alt="example_histogram_14" src="examples/data_distribution/histogram/histogram_14_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#boxplot_1"><img alt="example_boxplot_1" src="examples/data_distribution/boxplot/boxplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#boxplot_2"><img alt="example_boxplot_2" src="examples/data_distribution/boxplot/boxplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#boxplot_3"><img alt="example_boxplot_3" src="examples/data_distribution/boxplot/boxplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_1"><img alt="example_scatter_1" src="examples/data_distribution/scatter/scatter_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_2"><img alt="example_scatter_2" src="examples/data_distribution/scatter/scatter_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_3"><img alt="example_scatter_3" src="examples/data_distribution/scatter/scatter_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_4"><img alt="example_scatter_4" src="examples/data_distribution/scatter/scatter_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_5"><img alt="example_scatter_5" src="examples/data_distribution/scatter/scatter_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_6"><img alt="example_scatter_6" src="examples/data_distribution/scatter/scatter_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_7"><img alt="example_scatter_7" src="examples/data_distribution/scatter/scatter_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter_8"><img alt="example_scatter_8" src="examples/data_distribution/scatter/scatter_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_1"><img alt="example_scatter3_1" src="examples/data_distribution/scatter3/scatter3_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_2"><img alt="example_scatter3_2" src="examples/data_distribution/scatter3/scatter3_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_3"><img alt="example_scatter3_3" src="examples/data_distribution/scatter3/scatter3_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_4"><img alt="example_scatter3_4" src="examples/data_distribution/scatter3/scatter3_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_5"><img alt="example_scatter3_5" src="examples/data_distribution/scatter3/scatter3_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#scatter3_6"><img alt="example_scatter3_6" src="examples/data_distribution/scatter3/scatter3_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_1"><img alt="example_binscatter_1" src="examples/data_distribution/binscatter/binscatter_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_2"><img alt="example_binscatter_2" src="examples/data_distribution/binscatter/binscatter_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_3"><img alt="example_binscatter_3" src="examples/data_distribution/binscatter/binscatter_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_4"><img alt="example_binscatter_4" src="examples/data_distribution/binscatter/binscatter_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_5"><img alt="example_binscatter_5" src="examples/data_distribution/binscatter/binscatter_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_6"><img alt="example_binscatter_6" src="examples/data_distribution/binscatter/binscatter_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#binscatter_7"><img alt="example_binscatter_7" src="examples/data_distribution/binscatter/binscatter_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plotmatrix_1"><img alt="example_plotmatrix_1" src="examples/data_distribution/plotmatrix/plotmatrix_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plotmatrix_2"><img alt="example_plotmatrix_2" src="examples/data_distribution/plotmatrix/plotmatrix_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plotmatrix_3"><img alt="example_plotmatrix_3" src="examples/data_distribution/plotmatrix/plotmatrix_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#plotmatrix_4"><img alt="example_plotmatrix_4" src="examples/data_distribution/plotmatrix/plotmatrix_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#parallelplot_1"><img alt="example_parallelplot_1" src="examples/data_distribution/parallelplot/parallelplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#parallelplot_2"><img alt="example_parallelplot_2" src="examples/data_distribution/parallelplot/parallelplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#parallelplot_3"><img alt="example_parallelplot_3" src="examples/data_distribution/parallelplot/parallelplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_1"><img alt="example_pie_1" src="examples/data_distribution/pie/pie_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_2"><img alt="example_pie_2" src="examples/data_distribution/pie/pie_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_3"><img alt="example_pie_3" src="examples/data_distribution/pie/pie_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_4"><img alt="example_pie_4" src="examples/data_distribution/pie/pie_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_5"><img alt="example_pie_5" src="examples/data_distribution/pie/pie_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pie_6"><img alt="example_pie_6" src="examples/data_distribution/pie/pie_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_1"><img alt="example_heatmap_1" src="examples/data_distribution/heatmap/heatmap_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_2"><img alt="example_heatmap_2" src="examples/data_distribution/heatmap/heatmap_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_3"><img alt="example_heatmap_3" src="examples/data_distribution/heatmap/heatmap_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_4"><img alt="example_heatmap_4" src="examples/data_distribution/heatmap/heatmap_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_5"><img alt="example_heatmap_5" src="examples/data_distribution/heatmap/heatmap_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_6"><img alt="example_heatmap_6" src="examples/data_distribution/heatmap/heatmap_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#heatmap_7"><img alt="example_heatmap_7" src="examples/data_distribution/heatmap/heatmap_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#wordcloud_1"><img alt="example_wordcloud_1" src="examples/data_distribution/wordcloud/wordcloud_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#wordcloud_3"><img alt="example_wordcloud_3" src="examples/data_distribution/wordcloud/wordcloud_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#wordcloud_4"><img alt="example_wordcloud_4" src="examples/data_distribution/wordcloud/wordcloud_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#wordcloud_4"><img alt="example_wordcloud_4" src="examples/data_distribution/wordcloud/wordcloud_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_1"><img alt="example_bar_1" src="examples/discrete_data/bar/bar_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_2"><img alt="example_bar_2" src="examples/discrete_data/bar/bar_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_3"><img alt="example_bar_3" src="examples/discrete_data/bar/bar_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_4"><img alt="example_bar_4" src="examples/discrete_data/bar/bar_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_5"><img alt="example_bar_5" src="examples/discrete_data/bar/bar_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_6"><img alt="example_bar_6" src="examples/discrete_data/bar/bar_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_7"><img alt="example_bar_7" src="examples/discrete_data/bar/bar_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_8"><img alt="example_bar_8" src="examples/discrete_data/bar/bar_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_9"><img alt="example_bar_9" src="examples/discrete_data/bar/bar_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_10"><img alt="example_bar_10" src="examples/discrete_data/bar/bar_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_11"><img alt="example_bar_11" src="examples/discrete_data/bar/bar_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_12"><img alt="example_bar_12" src="examples/discrete_data/bar/bar_12_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#bar_13"><img alt="example_bar_13" src="examples/discrete_data/bar/bar_13_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pareto_1"><img alt="example_pareto_1" src="examples/discrete_data/pareto/pareto_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pareto_2"><img alt="example_pareto_2" src="examples/discrete_data/pareto/pareto_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pareto_3"><img alt="example_pareto_3" src="examples/discrete_data/pareto/pareto_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#pareto_4"><img alt="example_pareto_4" src="examples/discrete_data/pareto/pareto_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_1"><img alt="example_stem_1" src="examples/discrete_data/stem/stem_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_2"><img alt="example_stem_2" src="examples/discrete_data/stem/stem_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_3"><img alt="example_stem_3" src="examples/discrete_data/stem/stem_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_4"><img alt="example_stem_4" src="examples/discrete_data/stem/stem_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_5"><img alt="example_stem_5" src="examples/discrete_data/stem/stem_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_6"><img alt="example_stem_6" src="examples/discrete_data/stem/stem_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_7"><img alt="example_stem_7" src="examples/discrete_data/stem/stem_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_8"><img alt="example_stem_8" src="examples/discrete_data/stem/stem_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem_9"><img alt="example_stem_9" src="examples/discrete_data/stem/stem_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_1"><img alt="example_stem3_1" src="examples/discrete_data/stem3/stem3_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_2"><img alt="example_stem3_2" src="examples/discrete_data/stem3/stem3_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_3"><img alt="example_stem3_3" src="examples/discrete_data/stem3/stem3_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_4"><img alt="example_stem3_4" src="examples/discrete_data/stem3/stem3_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_5"><img alt="example_stem3_5" src="examples/discrete_data/stem3/stem3_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_6"><img alt="example_stem3_6" src="examples/discrete_data/stem3/stem3_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_7"><img alt="example_stem3_7" src="examples/discrete_data/stem3/stem3_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_8"><img alt="example_stem3_8" src="examples/discrete_data/stem3/stem3_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_9"><img alt="example_stem3_9" src="examples/discrete_data/stem3/stem3_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_10"><img alt="example_stem3_10" src="examples/discrete_data/stem3/stem3_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#stem3_11"><img alt="example_stem3_11" src="examples/discrete_data/stem3/stem3_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_1"><img alt="example_geoplot_1" src="examples/geography/geoplot/geoplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_2"><img alt="example_geoplot_2" src="examples/geography/geoplot/geoplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_3"><img alt="example_geoplot_3" src="examples/geography/geoplot/geoplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_4"><img alt="example_geoplot_4" src="examples/geography/geoplot/geoplot_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_5"><img alt="example_geoplot_5" src="examples/geography/geoplot/geoplot_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_6"><img alt="example_geoplot_6" src="examples/geography/geoplot/geoplot_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoplot_7"><img alt="example_geoplot_7" src="examples/geography/geoplot/geoplot_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoscatter_1"><img alt="example_geoscatter_1" src="examples/geography/geoscatter/geoscatter_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geoscatter_2"><img alt="example_geoscatter_2" src="examples/geography/geoscatter/geoscatter_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geobubble_1"><img alt="example_geobubble_1" src="examples/geography/geobubble/geobubble_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geobubble_2"><img alt="example_geobubble_2" src="examples/geography/geobubble/geobubble_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#geodensityplot_1"><img alt="example_geodensityplot_1" src="examples/geography/geodensityplot/geodensityplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_1"><img alt="example_polarplot_1" src="examples/polar_plots/polarplot/polarplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_2"><img alt="example_polarplot_2" src="examples/polar_plots/polarplot/polarplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_3"><img alt="example_polarplot_3" src="examples/polar_plots/polarplot/polarplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_4"><img alt="example_polarplot_4" src="examples/polar_plots/polarplot/polarplot_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_5"><img alt="example_polarplot_5" src="examples/polar_plots/polarplot/polarplot_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_6"><img alt="example_polarplot_6" src="examples/polar_plots/polarplot/polarplot_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_7"><img alt="example_polarplot_7" src="examples/polar_plots/polarplot/polarplot_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarplot_8"><img alt="example_polarplot_8" src="examples/polar_plots/polarplot/polarplot_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_1"><img alt="example_polarscatter_1" src="examples/polar_plots/polarscatter/polarscatter_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_2"><img alt="example_polarscatter_2" src="examples/polar_plots/polarscatter/polarscatter_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_3"><img alt="example_polarscatter_3" src="examples/polar_plots/polarscatter/polarscatter_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_4"><img alt="example_polarscatter_4" src="examples/polar_plots/polarscatter/polarscatter_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_5"><img alt="example_polarscatter_5" src="examples/polar_plots/polarscatter/polarscatter_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarscatter_6"><img alt="example_polarscatter_6" src="examples/polar_plots/polarscatter/polarscatter_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarhistogram_1"><img alt="example_polarhistogram_1" src="examples/polar_plots/polarhistogram/polarhistogram_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarhistogram_2"><img alt="example_polarhistogram_2" src="examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarhistogram_3"><img alt="example_polarhistogram_3" src="examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarhistogram_4"><img alt="example_polarhistogram_4" src="examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#polarhistogram_5"><img alt="example_polarhistogram_5" src="examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#compass_1"><img alt="example_compass_1" src="examples/polar_plots/compass/compass_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#compass_2"><img alt="example_compass_2" src="examples/polar_plots/compass/compass_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ezpolar_1"><img alt="example_ezpolar_1" src="examples/polar_plots/ezpolar/ezpolar_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ezpolar_2"><img alt="example_ezpolar_2" src="examples/polar_plots/ezpolar/ezpolar_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_1"><img alt="example_contour_1" src="examples/contour_plots/contour/contour_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_2"><img alt="example_contour_2" src="examples/contour_plots/contour/contour_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_3"><img alt="example_contour_3" src="examples/contour_plots/contour/contour_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_4"><img alt="example_contour_4" src="examples/contour_plots/contour/contour_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_5"><img alt="example_contour_5" src="examples/contour_plots/contour/contour_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_6"><img alt="example_contour_6" src="examples/contour_plots/contour/contour_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_7"><img alt="example_contour_7" src="examples/contour_plots/contour/contour_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contour_8"><img alt="example_contour_8" src="examples/contour_plots/contour/contour_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_1"><img alt="example_contourf_1" src="examples/contour_plots/contourf/contourf_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_2"><img alt="example_contourf_2" src="examples/contour_plots/contourf/contourf_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_3"><img alt="example_contourf_3" src="examples/contour_plots/contourf/contourf_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_4"><img alt="example_contourf_4" src="examples/contour_plots/contourf/contourf_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_5"><img alt="example_contourf_5" src="examples/contour_plots/contourf/contourf_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#contourf_6"><img alt="example_contourf_6" src="examples/contour_plots/contourf/contourf_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_1"><img alt="example_fcontour_1" src="examples/contour_plots/fcontour/fcontour_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_2"><img alt="example_fcontour_2" src="examples/contour_plots/fcontour/fcontour_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_3"><img alt="example_fcontour_3" src="examples/contour_plots/fcontour/fcontour_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_4"><img alt="example_fcontour_4" src="examples/contour_plots/fcontour/fcontour_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_5"><img alt="example_fcontour_5" src="examples/contour_plots/fcontour/fcontour_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_6"><img alt="example_fcontour_6" src="examples/contour_plots/fcontour/fcontour_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_7"><img alt="example_fcontour_7" src="examples/contour_plots/fcontour/fcontour_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_8"><img alt="example_fcontour_8" src="examples/contour_plots/fcontour/fcontour_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_9"><img alt="example_fcontour_9" src="examples/contour_plots/fcontour/fcontour_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_10"><img alt="example_fcontour_10" src="examples/contour_plots/fcontour/fcontour_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fcontour_11"><img alt="example_fcontour_11" src="examples/contour_plots/fcontour/fcontour_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#feather_1"><img alt="example_feather_1" src="examples/vector_fields/feather/feather_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_1"><img alt="example_quiver_1" src="examples/vector_fields/quiver/quiver_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_2"><img alt="example_quiver_2" src="examples/vector_fields/quiver/quiver_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_3"><img alt="example_quiver_3" src="examples/vector_fields/quiver/quiver_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_4"><img alt="example_quiver_4" src="examples/vector_fields/quiver/quiver_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_5"><img alt="example_quiver_5" src="examples/vector_fields/quiver/quiver_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver_6"><img alt="example_quiver_6" src="examples/vector_fields/quiver/quiver_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver3_1"><img alt="example_quiver3_1" src="examples/vector_fields/quiver3/quiver3_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#quiver3_2"><img alt="example_quiver3_2" src="examples/vector_fields/quiver3/quiver3_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_1"><img alt="example_surf_1" src="examples/surfaces/surf/surf_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_2"><img alt="example_surf_2" src="examples/surfaces/surf/surf_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_3"><img alt="example_surf_3" src="examples/surfaces/surf/surf_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_4"><img alt="example_surf_4" src="examples/surfaces/surf/surf_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_5"><img alt="example_surf_5" src="examples/surfaces/surf/surf_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surf_6"><img alt="example_surf_6" src="examples/surfaces/surf/surf_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surfc_1"><img alt="example_surfc_1" src="examples/surfaces/surfc/surfc_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surfc_2"><img alt="example_surfc_2" src="examples/surfaces/surfc/surfc_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surfc_3"><img alt="example_surfc_3" src="examples/surfaces/surfc/surfc_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#surfc_4"><img alt="example_surfc_4" src="examples/surfaces/surfc/surfc_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#mesh_1"><img alt="example_mesh_1" src="examples/surfaces/mesh/mesh_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#mesh_2"><img alt="example_mesh_2" src="examples/surfaces/mesh/mesh_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#mesh_3"><img alt="example_mesh_3" src="examples/surfaces/mesh/mesh_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#mesh_4"><img alt="example_mesh_4" src="examples/surfaces/mesh/mesh_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshc_1"><img alt="example_meshc_1" src="examples/surfaces/meshc/meshc_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshc_2"><img alt="example_meshc_2" src="examples/surfaces/meshc/meshc_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshc_3"><img alt="example_meshc_3" src="examples/surfaces/meshc/meshc_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshz_1"><img alt="example_meshz_1" src="examples/surfaces/meshz/meshz_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshz_2"><img alt="example_meshz_2" src="examples/surfaces/meshz/meshz_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#meshz_3"><img alt="example_meshz_3" src="examples/surfaces/meshz/meshz_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_1"><img alt="example_fsurf_1" src="examples/surfaces/fsurf/fsurf_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_2"><img alt="example_fsurf_2" src="examples/surfaces/fsurf/fsurf_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_3"><img alt="example_fsurf_3" src="examples/surfaces/fsurf/fsurf_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_4"><img alt="example_fsurf_4" src="examples/surfaces/fsurf/fsurf_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_5"><img alt="example_fsurf_5" src="examples/surfaces/fsurf/fsurf_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_6"><img alt="example_fsurf_6" src="examples/surfaces/fsurf/fsurf_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_7"><img alt="example_fsurf_7" src="examples/surfaces/fsurf/fsurf_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fsurf_8"><img alt="example_fsurf_8" src="examples/surfaces/fsurf/fsurf_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fmesh_1"><img alt="example_fmesh_1" src="examples/surfaces/fmesh/fmesh_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fmesh_2"><img alt="example_fmesh_2" src="examples/surfaces/fmesh/fmesh_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fmesh_3"><img alt="example_fmesh_3" src="examples/surfaces/fmesh/fmesh_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fmesh_4"><img alt="example_fmesh_4" src="examples/surfaces/fmesh/fmesh_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#waterfall_1"><img alt="example_waterfall_1" src="examples/surfaces/waterfall/waterfall_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#waterfall_2"><img alt="example_waterfall_2" src="examples/surfaces/waterfall/waterfall_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#waterfall_3"><img alt="example_waterfall_3" src="examples/surfaces/waterfall/waterfall_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fence_1"><img alt="example_fence_1" src="examples/surfaces/fence/fence_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fence_2"><img alt="example_fence_2" src="examples/surfaces/fence/fence_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fence_3"><img alt="example_fence_3" src="examples/surfaces/fence/fence_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ribbon_1"><img alt="example_ribbon_1" src="examples/surfaces/ribbon/ribbon_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ribbon_2"><img alt="example_ribbon_2" src="examples/surfaces/ribbon/ribbon_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ribbon_3"><img alt="example_ribbon_3" src="examples/surfaces/ribbon/ribbon_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ribbon_4"><img alt="example_ribbon_4" src="examples/surfaces/ribbon/ribbon_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_1"><img alt="example_graph_1" src="examples/graphs/graph/graph_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_2"><img alt="example_graph_2" src="examples/graphs/graph/graph_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_3"><img alt="example_graph_3" src="examples/graphs/graph/graph_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_4"><img alt="example_graph_4" src="examples/graphs/graph/graph_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_5"><img alt="example_graph_5" src="examples/graphs/graph/graph_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#graph_6"><img alt="example_graph_6" src="examples/graphs/graph/graph_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#digraph_1"><img alt="example_digraph_1" src="examples/graphs/digraph/digraph_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#digraph_2"><img alt="example_digraph_2" src="examples/graphs/digraph/digraph_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#digraph_3"><img alt="example_digraph_3" src="examples/graphs/digraph/digraph_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_1"><img alt="example_imshow_1" src="examples/images/imshow/imshow_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_2"><img alt="example_imshow_2" src="examples/images/imshow/imshow_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_3"><img alt="example_imshow_3" src="examples/images/imshow/imshow_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_4"><img alt="example_imshow_4" src="examples/images/imshow/imshow_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_5"><img alt="example_imshow_5" src="examples/images/imshow/imshow_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_6"><img alt="example_imshow_6" src="examples/images/imshow/imshow_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_7"><img alt="example_imshow_7" src="examples/images/imshow/imshow_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_8"><img alt="example_imshow_8" src="examples/images/imshow/imshow_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_9"><img alt="example_imshow_9" src="examples/images/imshow/imshow_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_10"><img alt="example_imshow_10" src="examples/images/imshow/imshow_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imshow_11"><img alt="example_imshow_11" src="examples/images/imshow/imshow_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#image_1"><img alt="example_image_1" src="examples/images/image/image_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#image_2"><img alt="example_image_2" src="examples/images/image/image_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#image_3"><img alt="example_image_3" src="examples/images/image/image_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#image_4"><img alt="example_image_4" src="examples/images/image/image_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#image_5"><img alt="example_image_5" src="examples/images/image/image_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imagesc_1"><img alt="example_imagesc_1" src="examples/images/imagesc/imagesc_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imagesc_2"><img alt="example_imagesc_2" src="examples/images/imagesc/imagesc_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imagesc_3"><img alt="example_imagesc_3" src="examples/images/imagesc/imagesc_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#imagesc_4"><img alt="example_imagesc_4" src="examples/images/imagesc/imagesc_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_1"><img alt="example_text_1" src="examples/annotations/text/text_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_2"><img alt="example_text_2" src="examples/annotations/text/text_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_3"><img alt="example_text_3" src="examples/annotations/text/text_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_4"><img alt="example_text_4" src="examples/annotations/text/text_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_5"><img alt="example_text_5" src="examples/annotations/text/text_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_6"><img alt="example_text_6" src="examples/annotations/text/text_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_7"><img alt="example_text_7" src="examples/annotations/text/text_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#text_8"><img alt="example_text_8" src="examples/annotations/text/text_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#textarrow_1"><img alt="example_textarrow_1" src="examples/annotations/textarrow/textarrow_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#textarrow_2"><img alt="example_textarrow_2" src="examples/annotations/textarrow/textarrow_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rectangle_1"><img alt="example_rectangle_1" src="examples/annotations/rectangle/rectangle_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rectangle_2"><img alt="example_rectangle_2" src="examples/annotations/rectangle/rectangle_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rectangle_3"><img alt="example_rectangle_3" src="examples/annotations/rectangle/rectangle_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rectangle_4"><img alt="example_rectangle_4" src="examples/annotations/rectangle/rectangle_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rectangle_5"><img alt="example_rectangle_5" src="examples/annotations/rectangle/rectangle_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#fill_1"><img alt="example_fill_1" src="examples/annotations/fill/fill_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ellipse_1"><img alt="example_ellipse_1" src="examples/annotations/ellipse/ellipse_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#textbox_1"><img alt="example_textbox_1" src="examples/annotations/textbox/textbox_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#arrow_1"><img alt="example_arrow_1" src="examples/annotations/arrow/arrow_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#arrow_2"><img alt="example_arrow_2" src="examples/annotations/arrow/arrow_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#line_1"><img alt="example_line_1" src="examples/annotations/line/line_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_1"><img alt="example_title_1" src="examples/appearance/labels/title/title_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_2"><img alt="example_title_2" src="examples/appearance/labels/title/title_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_3"><img alt="example_title_3" src="examples/appearance/labels/title/title_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_4"><img alt="example_title_4" src="examples/appearance/labels/title/title_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_5"><img alt="example_title_5" src="examples/appearance/labels/title/title_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_6"><img alt="example_title_6" src="examples/appearance/labels/title/title_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_7"><img alt="example_title_7" src="examples/appearance/labels/title/title_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#title_8"><img alt="example_title_8" src="examples/appearance/labels/title/title_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#sgtitle_1"><img alt="example_sgtitle_1" src="examples/appearance/labels/sgtitle/sgtitle_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#sgtitle_2"><img alt="example_sgtitle_2" src="examples/appearance/labels/sgtitle/sgtitle_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_1"><img alt="example_xlabel_1" src="examples/appearance/labels/xlabel/xlabel_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_2"><img alt="example_xlabel_2" src="examples/appearance/labels/xlabel/xlabel_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_3"><img alt="example_xlabel_3" src="examples/appearance/labels/xlabel/xlabel_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_4"><img alt="example_xlabel_4" src="examples/appearance/labels/xlabel/xlabel_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_5"><img alt="example_xlabel_5" src="examples/appearance/labels/xlabel/xlabel_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_6"><img alt="example_xlabel_6" src="examples/appearance/labels/xlabel/xlabel_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_7"><img alt="example_xlabel_7" src="examples/appearance/labels/xlabel/xlabel_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlabel_8"><img alt="example_xlabel_8" src="examples/appearance/labels/xlabel/xlabel_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_1"><img alt="example_ylabel_1" src="examples/appearance/labels/ylabel/ylabel_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_2"><img alt="example_ylabel_2" src="examples/appearance/labels/ylabel/ylabel_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_3"><img alt="example_ylabel_3" src="examples/appearance/labels/ylabel/ylabel_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_4"><img alt="example_ylabel_4" src="examples/appearance/labels/ylabel/ylabel_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_5"><img alt="example_ylabel_5" src="examples/appearance/labels/ylabel/ylabel_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_6"><img alt="example_ylabel_6" src="examples/appearance/labels/ylabel/ylabel_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_7"><img alt="example_ylabel_7" src="examples/appearance/labels/ylabel/ylabel_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylabel_8"><img alt="example_ylabel_8" src="examples/appearance/labels/ylabel/ylabel_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlabel_1"><img alt="example_zlabel_1" src="examples/appearance/labels/zlabel/zlabel_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlabel_2"><img alt="example_zlabel_2" src="examples/appearance/labels/zlabel/zlabel_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlabel_3"><img alt="example_zlabel_3" src="examples/appearance/labels/zlabel/zlabel_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_1"><img alt="example_legend_1" src="examples/appearance/labels/legend/legend_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_2"><img alt="example_legend_2" src="examples/appearance/labels/legend/legend_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_3"><img alt="example_legend_3" src="examples/appearance/labels/legend/legend_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_4"><img alt="example_legend_4" src="examples/appearance/labels/legend/legend_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_5"><img alt="example_legend_5" src="examples/appearance/labels/legend/legend_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_6"><img alt="example_legend_6" src="examples/appearance/labels/legend/legend_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_7"><img alt="example_legend_7" src="examples/appearance/labels/legend/legend_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_8"><img alt="example_legend_8" src="examples/appearance/labels/legend/legend_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#legend_9"><img alt="example_legend_9" src="examples/appearance/labels/legend/legend_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_1"><img alt="example_xlim_1" src="examples/appearance/axis/xlim/xlim_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_2"><img alt="example_xlim_2" src="examples/appearance/axis/xlim/xlim_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_3"><img alt="example_xlim_3" src="examples/appearance/axis/xlim/xlim_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_4"><img alt="example_xlim_4" src="examples/appearance/axis/xlim/xlim_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_5"><img alt="example_xlim_5" src="examples/appearance/axis/xlim/xlim_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xlim_6"><img alt="example_xlim_6" src="examples/appearance/axis/xlim/xlim_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_1"><img alt="example_ylim_1" src="examples/appearance/axis/ylim/ylim_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_2"><img alt="example_ylim_2" src="examples/appearance/axis/ylim/ylim_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_3"><img alt="example_ylim_3" src="examples/appearance/axis/ylim/ylim_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_4"><img alt="example_ylim_4" src="examples/appearance/axis/ylim/ylim_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_5"><img alt="example_ylim_5" src="examples/appearance/axis/ylim/ylim_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ylim_6"><img alt="example_ylim_6" src="examples/appearance/axis/ylim/ylim_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_1"><img alt="example_zlim_1" src="examples/appearance/axis/zlim/zlim_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_2"><img alt="example_zlim_2" src="examples/appearance/axis/zlim/zlim_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_3"><img alt="example_zlim_3" src="examples/appearance/axis/zlim/zlim_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_4"><img alt="example_zlim_4" src="examples/appearance/axis/zlim/zlim_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_5"><img alt="example_zlim_5" src="examples/appearance/axis/zlim/zlim_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zlim_6"><img alt="example_zlim_6" src="examples/appearance/axis/zlim/zlim_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_1"><img alt="example_axis_1" src="examples/appearance/axis/axis/axis_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_2"><img alt="example_axis_2" src="examples/appearance/axis/axis/axis_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_3"><img alt="example_axis_3" src="examples/appearance/axis/axis/axis_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_4"><img alt="example_axis_4" src="examples/appearance/axis/axis/axis_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_5"><img alt="example_axis_5" src="examples/appearance/axis/axis/axis_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_6"><img alt="example_axis_6" src="examples/appearance/axis/axis/axis_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_7"><img alt="example_axis_7" src="examples/appearance/axis/axis/axis_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axis_8"><img alt="example_axis_8" src="examples/appearance/axis/axis/axis_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#box_1"><img alt="example_box_1" src="examples/appearance/axis/box/box_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#box_2"><img alt="example_box_2" src="examples/appearance/axis/box/box_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#box_3"><img alt="example_box_3" src="examples/appearance/axis/box/box_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#grid_1"><img alt="example_grid_1" src="examples/appearance/grid/grid/grid_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#grid_2"><img alt="example_grid_2" src="examples/appearance/grid/grid/grid_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#grid_3"><img alt="example_grid_3" src="examples/appearance/grid/grid/grid_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#grid_4"><img alt="example_grid_4" src="examples/appearance/grid/grid/grid_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_1"><img alt="example_xticks_1" src="examples/appearance/grid/xticks/xticks_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_2"><img alt="example_xticks_2" src="examples/appearance/grid/xticks/xticks_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_3"><img alt="example_xticks_3" src="examples/appearance/grid/xticks/xticks_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_4"><img alt="example_xticks_4" src="examples/appearance/grid/xticks/xticks_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_5"><img alt="example_xticks_5" src="examples/appearance/grid/xticks/xticks_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_6"><img alt="example_xticks_6" src="examples/appearance/grid/xticks/xticks_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_7"><img alt="example_xticks_7" src="examples/appearance/grid/xticks/xticks_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticks_8"><img alt="example_xticks_8" src="examples/appearance/grid/xticks/xticks_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_1"><img alt="example_yticks_1" src="examples/appearance/grid/yticks/yticks_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_2"><img alt="example_yticks_2" src="examples/appearance/grid/yticks/yticks_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_3"><img alt="example_yticks_3" src="examples/appearance/grid/yticks/yticks_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_4"><img alt="example_yticks_4" src="examples/appearance/grid/yticks/yticks_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_5"><img alt="example_yticks_5" src="examples/appearance/grid/yticks/yticks_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_6"><img alt="example_yticks_6" src="examples/appearance/grid/yticks/yticks_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_7"><img alt="example_yticks_7" src="examples/appearance/grid/yticks/yticks_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticks_8"><img alt="example_yticks_8" src="examples/appearance/grid/yticks/yticks_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_1"><img alt="example_zticks_1" src="examples/appearance/grid/zticks/zticks_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_2"><img alt="example_zticks_2" src="examples/appearance/grid/zticks/zticks_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_3"><img alt="example_zticks_3" src="examples/appearance/grid/zticks/zticks_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_4"><img alt="example_zticks_4" src="examples/appearance/grid/zticks/zticks_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_5"><img alt="example_zticks_5" src="examples/appearance/grid/zticks/zticks_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#zticks_6"><img alt="example_zticks_6" src="examples/appearance/grid/zticks/zticks_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticklabels_1"><img alt="example_xticklabels_1" src="examples/appearance/grid/xticklabels/xticklabels_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticklabels_2"><img alt="example_xticklabels_2" src="examples/appearance/grid/xticklabels/xticklabels_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticklabels_3"><img alt="example_xticklabels_3" src="examples/appearance/grid/xticklabels/xticklabels_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xticklabels_4"><img alt="example_xticklabels_4" src="examples/appearance/grid/xticklabels/xticklabels_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticklabels_1"><img alt="example_yticklabels_1" src="examples/appearance/grid/yticklabels/yticklabels_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticklabels_2"><img alt="example_yticklabels_2" src="examples/appearance/grid/yticklabels/yticklabels_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticklabels_3"><img alt="example_yticklabels_3" src="examples/appearance/grid/yticklabels/yticklabels_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yticklabels_4"><img alt="example_yticklabels_4" src="examples/appearance/grid/yticklabels/yticklabels_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickformat_1"><img alt="example_xtickformat_1" src="examples/appearance/grid/xtickformat/xtickformat_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickformat_2"><img alt="example_xtickformat_2" src="examples/appearance/grid/xtickformat/xtickformat_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickformat_3"><img alt="example_xtickformat_3" src="examples/appearance/grid/xtickformat/xtickformat_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickformat_4"><img alt="example_xtickformat_4" src="examples/appearance/grid/xtickformat/xtickformat_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickformat_5"><img alt="example_xtickformat_5" src="examples/appearance/grid/xtickformat/xtickformat_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickformat_1"><img alt="example_ytickformat_1" src="examples/appearance/grid/ytickformat/ytickformat_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickformat_2"><img alt="example_ytickformat_2" src="examples/appearance/grid/ytickformat/ytickformat_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickformat_3"><img alt="example_ytickformat_3" src="examples/appearance/grid/ytickformat/ytickformat_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickformat_4"><img alt="example_ytickformat_4" src="examples/appearance/grid/ytickformat/ytickformat_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickformat_5"><img alt="example_ytickformat_5" src="examples/appearance/grid/ytickformat/ytickformat_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ztickformat_1"><img alt="example_ztickformat_1" src="examples/appearance/grid/ztickformat/ztickformat_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ztickformat_2"><img alt="example_ztickformat_2" src="examples/appearance/grid/ztickformat/ztickformat_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ztickformat_3"><img alt="example_ztickformat_3" src="examples/appearance/grid/ztickformat/ztickformat_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ztickformat_4"><img alt="example_ztickformat_4" src="examples/appearance/grid/ztickformat/ztickformat_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ztickformat_5"><img alt="example_ztickformat_5" src="examples/appearance/grid/ztickformat/ztickformat_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickangle_1"><img alt="example_xtickangle_1" src="examples/appearance/grid/xtickangle/xtickangle_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickangle_2"><img alt="example_xtickangle_2" src="examples/appearance/grid/xtickangle/xtickangle_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#xtickangle_3"><img alt="example_xtickangle_3" src="examples/appearance/grid/xtickangle/xtickangle_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickangle_1"><img alt="example_ytickangle_1" src="examples/appearance/grid/ytickangle/ytickangle_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickangle_2"><img alt="example_ytickangle_2" src="examples/appearance/grid/ytickangle/ytickangle_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#ytickangle_3"><img alt="example_ytickangle_3" src="examples/appearance/grid/ytickangle/ytickangle_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#hold_1"><img alt="example_hold_1" src="examples/appearance/multiplot/hold/hold_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#hold_2"><img alt="example_hold_2" src="examples/appearance/multiplot/hold/hold_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#hold_3"><img alt="example_hold_3" src="examples/appearance/multiplot/hold/hold_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#hold_4"><img alt="example_hold_4" src="examples/appearance/multiplot/hold/hold_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_1"><img alt="example_yyaxis_1" src="examples/appearance/multiplot/yyaxis/yyaxis_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_2"><img alt="example_yyaxis_2" src="examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_3"><img alt="example_yyaxis_3" src="examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_4"><img alt="example_yyaxis_4" src="examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_5"><img alt="example_yyaxis_5" src="examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_6"><img alt="example_yyaxis_6" src="examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#yyaxis_7"><img alt="example_yyaxis_7" src="examples/appearance/multiplot/yyaxis/yyaxis_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_1"><img alt="example_colororder_1" src="examples/appearance/multiplot/colororder/colororder_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_2"><img alt="example_colororder_2" src="examples/appearance/multiplot/colororder/colororder_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_3"><img alt="example_colororder_3" src="examples/appearance/multiplot/colororder/colororder_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_4"><img alt="example_colororder_4" src="examples/appearance/multiplot/colororder/colororder_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_5"><img alt="example_colororder_5" src="examples/appearance/multiplot/colororder/colororder_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_6"><img alt="example_colororder_6" src="examples/appearance/multiplot/colororder/colororder_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colororder_7"><img alt="example_colororder_7" src="examples/appearance/multiplot/colororder/colororder_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_1"><img alt="example_subplot_1" src="examples/appearance/multiplot/subplot/subplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_2"><img alt="example_subplot_2" src="examples/appearance/multiplot/subplot/subplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_3"><img alt="example_subplot_3" src="examples/appearance/multiplot/subplot/subplot_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_4"><img alt="example_subplot_4" src="examples/appearance/multiplot/subplot/subplot_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_5"><img alt="example_subplot_5" src="examples/appearance/multiplot/subplot/subplot_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_6"><img alt="example_subplot_6" src="examples/appearance/multiplot/subplot/subplot_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_7"><img alt="example_subplot_7" src="examples/appearance/multiplot/subplot/subplot_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_8"><img alt="example_subplot_8" src="examples/appearance/multiplot/subplot/subplot_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_9"><img alt="example_subplot_9" src="examples/appearance/multiplot/subplot/subplot_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_10"><img alt="example_subplot_10" src="examples/appearance/multiplot/subplot/subplot_10_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_11"><img alt="example_subplot_11" src="examples/appearance/multiplot/subplot/subplot_11_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_12"><img alt="example_subplot_12" src="examples/appearance/multiplot/subplot/subplot_12_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#subplot_13"><img alt="example_subplot_13" src="examples/appearance/multiplot/subplot/subplot_13_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_1"><img alt="example_tiledlayout_1" src="examples/appearance/multiplot/tiledlayout/tiledlayout_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_2"><img alt="example_tiledlayout_2" src="examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_3"><img alt="example_tiledlayout_3" src="examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_4"><img alt="example_tiledlayout_4" src="examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_5"><img alt="example_tiledlayout_5" src="examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_6"><img alt="example_tiledlayout_6" src="examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_7"><img alt="example_tiledlayout_7" src="examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#tiledlayout_8"><img alt="example_tiledlayout_8" src="examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_1"><img alt="example_colormap_1" src="examples/appearance/colormaps/colormap/colormap_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_2"><img alt="example_colormap_2" src="examples/appearance/colormaps/colormap/colormap_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_3"><img alt="example_colormap_3" src="examples/appearance/colormaps/colormap/colormap_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_4"><img alt="example_colormap_4" src="examples/appearance/colormaps/colormap/colormap_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_5"><img alt="example_colormap_5" src="examples/appearance/colormaps/colormap/colormap_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_6"><img alt="example_colormap_6" src="examples/appearance/colormaps/colormap/colormap_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_7"><img alt="example_colormap_7" src="examples/appearance/colormaps/colormap/colormap_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_8"><img alt="example_colormap_8" src="examples/appearance/colormaps/colormap/colormap_8_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colormap_9"><img alt="example_colormap_9" src="examples/appearance/colormaps/colormap/colormap_9_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_1"><img alt="example_colorbar_1" src="examples/appearance/colormaps/colorbar/colorbar_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_2"><img alt="example_colorbar_2" src="examples/appearance/colormaps/colorbar/colorbar_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_3"><img alt="example_colorbar_3" src="examples/appearance/colormaps/colorbar/colorbar_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_4"><img alt="example_colorbar_4" src="examples/appearance/colormaps/colorbar/colorbar_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_5"><img alt="example_colorbar_5" src="examples/appearance/colormaps/colorbar/colorbar_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_6"><img alt="example_colorbar_6" src="examples/appearance/colormaps/colorbar/colorbar_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#colorbar_7"><img alt="example_colorbar_7" src="examples/appearance/colormaps/colorbar/colorbar_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rgbplot_1"><img alt="example_rgbplot_1" src="examples/appearance/colormaps/rgbplot/rgbplot_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#rgbplot_2"><img alt="example_rgbplot_2" src="examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_1"><img alt="example_view_1" src="examples/appearance/camera/view/view_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_2"><img alt="example_view_2" src="examples/appearance/camera/view/view_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_3"><img alt="example_view_3" src="examples/appearance/camera/view/view_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_4"><img alt="example_view_4" src="examples/appearance/camera/view/view_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_5"><img alt="example_view_5" src="examples/appearance/camera/view/view_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#view_6"><img alt="example_view_6" src="examples/appearance/camera/view/view_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_1"><img alt="example_lighting_1" src="examples/appearance/camera/lighting/lighting_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_2"><img alt="example_lighting_2" src="examples/appearance/camera/lighting/lighting_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_3"><img alt="example_lighting_3" src="examples/appearance/camera/lighting/lighting_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_4"><img alt="example_lighting_4" src="examples/appearance/camera/lighting/lighting_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_5"><img alt="example_lighting_5" src="examples/appearance/camera/lighting/lighting_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#lighting_6"><img alt="example_lighting_6" src="examples/appearance/camera/lighting/lighting_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#figure_1"><img alt="example_figure_1" src="examples/appearance/figure/figure_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#figure_2"><img alt="example_figure_2" src="examples/appearance/figure/figure_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#figure_3"><img alt="example_figure_3" src="examples/appearance/figure/figure_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#line_spec_1"><img alt="example_line_spec_1" src="examples/appearance/line_spec/line_spec_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axes_1"><img alt="example_axes_1" src="examples/appearance/axes/axes_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axes_2"><img alt="example_axes_2" src="examples/appearance/axes/axes_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axes_3"><img alt="example_axes_3" src="examples/appearance/axes/axes_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#axes_4"><img alt="example_axes_4" src="examples/appearance/axes/axes_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#cla_1"><img alt="example_cla_1" src="examples/appearance/cla/cla_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#cla_2"><img alt="example_cla_2" src="examples/appearance/cla/cla_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#cla_3"><img alt="example_cla_3" src="examples/appearance/cla/cla_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_1"><img alt="example_save_1" src="examples/exporting/save/save_1_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_2"><img alt="example_save_2" src="examples/exporting/save/save_2_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_3"><img alt="example_save_3" src="examples/exporting/save/save_3_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_4"><img alt="example_save_4" src="examples/exporting/save/save_4_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_5"><img alt="example_save_5" src="examples/exporting/save/save_5_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_6"><img alt="example_save_6" src="examples/exporting/save/save_6_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_7"><img alt="example_save_7" src="examples/exporting/save/save_7_thumb.png" /></a>  <a href="COMPLETE_GALLERY/#save_8"><img alt="example_save_8" src="examples/exporting/save/save_8_thumb.png" /></a></p>
+<!-- Generated with mdsplit: https://github.com/alandefreitas/mdsplit -->
+                
+                  
+                
+              
+    <!-- Content footer -->
+    <footer class="tx-content__footer md-typeset" style="margin-top: 70px;">
+        <a href="https://github.com/alandefreitas/matplotplusplus" title="Matplot++" class="md-button" target="_blank">
+            ⭐️ Star Matplot++
+        </a>
+        <a href="https://www.patreon.com/modernhpc" title="Matplot++" class="md-button" target="_blank">
+            ❤️ Contribute to Matplot++
+        </a>
+    </footer>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <div class="md-footer-nav">
+        <nav
+                class="md-footer-nav__inner md-grid"
+                aria-label="Footer"
+        >
+
+            <!-- Link to previous page -->
+            
+
+            <!-- Link to next page -->
+            
+            <a
+                    href="integration/package-managers/vcpkg/"
+                    class="md-footer-nav__link md-footer-nav__link--next"
+                    rel="next"
+            >
+                <div class="md-footer-nav__title">
+                    <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                        Vcpkg
+                    </div>
+                </div>
+                <div class="md-footer-nav__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+                </div>
+            </a>
+            
+        </nav>
+    </div>
+    
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                <div class="md-footer-copyright__highlight">
+                    Copyright &copy; Alan Freitas
+                </div>
+                
+                Made with
+                <a
+                        href="https://alandefreitas.github.io/mdsplit/"
+                        target="_blank" rel="noopener"
+                >
+                    <code style="background-color: #323232;">mdsplit</code>
+                </a>
+                and
+                <a
+                        href="https://squidfunk.github.io/mkdocs-material/"
+                        target="_blank" rel="noopener"
+                >
+                    Material for MkDocs
+                </a>
+            </div>
+
+            <!-- Social links -->
+            
+        </div>
+    </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+      
+    
+  </body>
+</html>
