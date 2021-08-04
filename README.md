@@ -318,7 +318,7 @@ Then add this header to your source files:
 
 You can see a complete example in [`test/integration/CMakeLists.txt`](test/integration/CMakeLists.txt).
 
-CMake should be able to locate the `matplot++-config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS). Unfortunately, there is no easy default directory for `find_package` on Windows.
+CMake should be able to locate the `Matplot++Config.cmake` script automatically if you installed the library under `/usr/local/` (Linux / Mac OS). Unfortunately, there is no easy default directory for `find_package` on Windows.
 
 !!! warning "Default directories"
 
