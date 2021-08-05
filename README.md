@@ -9300,6 +9300,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/leha-bot">
+            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+            <br />
+            <sub><b>Alex</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
             <br />
@@ -9311,13 +9318,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
             <br />
             <sub><b>Sammi</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/leha-bot">
-            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
-            <br />
-            <sub><b>Alex</b></sub>
         </a>
     </td>
     <td align="center">
