@@ -70,8 +70,9 @@ namespace matplot {
             if (title_enhanced_ && iequals(title_font_weight_, "italic")) {
                 cmd += "}";
             }
+             cmd += "\"";
             if (parent_->backend_->supports_fonts()) {
-                cmd += "\" font \"" + escape(font()) + "," +
+                cmd += " font \"" + escape(font()) + "," +
                        std::to_string(unsigned(font_size() *
                                                title_font_size_multiplier_)) +
                        "\"";
