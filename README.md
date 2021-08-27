@@ -9278,13 +9278,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/leha-bot">
+            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+            <br />
+            <sub><b>Alex</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/rath3t">
             <img src="https://avatars.githubusercontent.com/u/10537464?v=4" width="100;" alt="rath3t"/>
             <br />
             <sub><b>Rath3t</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/xnorpx">
             <img src="https://avatars.githubusercontent.com/u/302709?v=4" width="100;" alt="xnorpx"/>
@@ -9297,13 +9304,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="Zengit123"/>
             <br />
             <sub><b>Zengit</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/leha-bot">
-            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
-            <br />
-            <sub><b>Alex</b></sub>
         </a>
     </td>
     <td align="center">
@@ -9343,6 +9343,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Morwenn">
+            <img src="https://avatars.githubusercontent.com/u/1164683?v=4" width="100;" alt="Morwenn"/>
+            <br />
+            <sub><b>Morwenn</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/kaffehalv">
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
             <br />
@@ -9362,15 +9369,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Akash Patel</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/myd7349">
             <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
             <br />
             <sub><b>Myd7349</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ankane">
             <img src="https://avatars3.githubusercontent.com/u/220358?v=4" width="100;" alt="ankane"/>
