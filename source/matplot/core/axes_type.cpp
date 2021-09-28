@@ -2132,7 +2132,7 @@ namespace matplot {
     }
 
     std::array<double, 2> axes_type::ylim() const {
-        if (x_axis_.limits_mode_auto()) {
+        if (y_axis_.limits_mode_auto()) {
             auto [xmin, xmax, ymin, ymax] = this->child_limits();
             return std::array<double, 2>{ymin, ymax};
         } else {
