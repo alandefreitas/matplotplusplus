@@ -9372,6 +9372,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/eagle-dai">
+            <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
+            <br />
+            <sub><b>eagle-dai</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/myd7349">
             <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
             <br />
