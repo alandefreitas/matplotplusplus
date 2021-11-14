@@ -256,6 +256,7 @@ if (BUILD_INSTALLER)
     # Install targets
     install(TARGETS matplot
             EXPORT Matplot++Targets
+	    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
             ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
             )
