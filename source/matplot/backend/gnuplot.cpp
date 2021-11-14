@@ -37,8 +37,7 @@ namespace matplot::backend {
 
     gnuplot::gnuplot() {
         // 1st option: terminal in GNUTERM environment variable
-#if defined(_MSC_VER) ||              \
-    defined(__CYGWIN__)
+#if defined(_MSC_VER)
         char *environment_terminal;
         size_t len;
         errno_t err = _dupenv_s(&environment_terminal, &len, "GNUTERM");
@@ -51,7 +50,7 @@ namespace matplot::backend {
             if (terminal_is_available(environment_terminal)) {
                 terminal_ = environment_terminal;
             }
-#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) || defined(__CYGWIN__)
+#if defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__)
         } else if (terminal_is_available("wxt")) {
             // 2nd option: wxt on windows, even if not default
             terminal_ = "wxt";
