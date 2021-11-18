@@ -9360,7 +9360,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/gitplcc">
             <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
             <br />
-            <sub><b>gitplcc</b></sub>
+            <sub><b>Gitplcc</b></sub>
         </a>
     </td>
     <td align="center">
