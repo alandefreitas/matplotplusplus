@@ -9300,10 +9300,10 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Zengit123">
-            <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="Zengit123"/>
+        <a href="https://github.com/edvinsmineikis">
+            <img src="https://avatars.githubusercontent.com/u/13079947?v=4" width="100;" alt="edvinsmineikis"/>
             <br />
-            <sub><b>Zengit</b></sub>
+            <sub><b>Edvins Mineikis</b></sub>
         </a>
     </td>
     <td align="center">
@@ -9357,25 +9357,32 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/gitplcc">
+            <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
+            <br />
+            <sub><b>gitplcc</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/solosuper">
             <img src="https://avatars.githubusercontent.com/u/11663739?v=4" width="100;" alt="solosuper"/>
             <br />
             <sub><b>Solo Super</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
             <sub><b>Akash Patel</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/eagle-dai">
             <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
             <br />
-            <sub><b>eagle-dai</b></sub>
+            <sub><b>Eagle-dai</b></sub>
         </a>
     </td>
     <td align="center">
