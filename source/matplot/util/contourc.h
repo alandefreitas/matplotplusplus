@@ -167,7 +167,7 @@ namespace matplot {
 
     // Edge of a quad including diagonal edges of masked quads if _corner_mask
     // true.
-    typedef enum {
+    enum class Edge {
         // Listing values here so easier to check for debug purposes.
         Edge_None = -1,
         Edge_E = 0,
@@ -179,7 +179,7 @@ namespace matplot {
         Edge_NW = 5,
         Edge_SW = 6,
         Edge_SE = 7
-    } Edge;
+    };
 
     // Combination of a quad and an edge of that quad.
     // An invalid quad edge has quad of -1.
@@ -341,14 +341,14 @@ namespace matplot {
       private:
         // Typedef for following either a boundary of the domain or the
         // interior; clearer than using a boolean.
-        typedef enum { Boundary, Interior } BoundaryOrInterior;
+        enum class BoundaryOrInterior { Boundary, Interior };
 
         // Typedef for direction of movement from one quad to the next.
-        typedef enum { Dir_Right = -1, Dir_Straight = 0, Dir_Left = +1 } Dir;
+        enum class Dir { Dir_Right = -1, Dir_Straight = 0, Dir_Left = +1 };
 
         // Typedef for a polygon being a hole or not; clearer than using a
         // boolean.
-        typedef enum { NotHole, Hole } HoleOrNot;
+        enum class HoleOrNot { NotHole, Hole };
 
         // Append a C++ ContourLine to the end of a python list.  Used for line
         // contours where each ContourLine is converted to a separate numpy
