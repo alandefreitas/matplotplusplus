@@ -18,6 +18,7 @@
 #include <cassert>
 #include <matplot/axes_objects/contours.h>
 #include <matplot/util/contourc.h>
+#include <type_traits>
 
 namespace matplot {
 
@@ -34,7 +35,7 @@ namespace matplot {
 
 // CacheItem masks, only accessed directly to set.  To read, use accessors
 // detailed below.  1 and 2 refer to level indices (lower and upper).
-#define MASK_Z_LEVEL 0x0003 // Combines the following two.
+#define MASK_Z_LEVEL 0x0003   // Combines the following two.
 #define MASK_Z_LEVEL_1 0x0001 // z > lower_level.
 #define MASK_Z_LEVEL_2 0x0002 // z > upper_level.
 #define MASK_VISITED_1 0x0004 // Algorithm has visited this quad.
@@ -51,7 +52,7 @@ namespace matplot {
 // _corner_mask is true.  Only one of EXISTS_QUAD or EXISTS_??_CORNER is ever
 // set per quad, hence not using unique bits for each; care is needed when
 // testing for these flags as they overlap.
-#define MASK_EXISTS_QUAD 0x1000 // All of quad exists (is not masked).
+#define MASK_EXISTS_QUAD 0x1000      // All of quad exists (is not masked).
 #define MASK_EXISTS_SW_CORNER 0x2000 // SW corner exists, NE corner is masked.
 #define MASK_EXISTS_SE_CORNER 0x3000
 #define MASK_EXISTS_NW_CORNER 0x4000
@@ -59,8 +60,8 @@ namespace matplot {
 #define MASK_EXISTS 0x7000 // Combines all 5 EXISTS masks.
 
 // The following are only needed for filled contours.
-#define MASK_VISITED_S 0x10000 // Algorithm has visited S boundary.
-#define MASK_VISITED_W 0x20000 // Algorithm has visited W boundary.
+#define MASK_VISITED_S 0x10000      // Algorithm has visited S boundary.
+#define MASK_VISITED_W 0x20000      // Algorithm has visited W boundary.
 #define MASK_VISITED_CORNER 0x40000 // Algorithm has visited corner edge.
 
 // Accessors for various CacheItem masks.  li is shorthand for level_index.
@@ -107,7 +108,7 @@ namespace matplot {
     (EXISTS_QUAD(quad) || EXISTS_NW_CORNER(quad) || EXISTS_NE_CORNER(quad))
     // Note that EXISTS_NE_CORNER(quad) is equivalent to BOUNDARY_SW(quad), etc.
 
-    QuadEdge::QuadEdge() : quad(-1), edge(Edge_None) {}
+    QuadEdge::QuadEdge() : quad(-1), edge(Edge::Edge_None) {}
 
     QuadEdge::QuadEdge(long quad_, Edge edge_) : quad(quad_), edge(edge_) {}
 
@@ -127,10 +128,12 @@ namespace matplot {
     }
 
     std::ostream &operator<<(std::ostream &os, const QuadEdge &quad_edge) {
-        return os << quad_edge.quad << ' ' << quad_edge.edge;
+        return os << quad_edge.quad << ' '
+                  << static_cast<std::underlying_type<Edge>::type>(
+                         quad_edge.edge);
     }
 
-    XY::XY() {}
+    XY::XY() : x(0), y(0) {}
 
     XY::XY(const double &x_, const double &y_) : x(x_), y(y_) {}
 
@@ -525,40 +528,44 @@ namespace matplot {
                         continue;
 
                     if (BOUNDARY_S(quad) && Z_SW >= 1 && Z_SE < 1 &&
-                        start_line(vertices_list, quad, Edge_S, level))
+                        start_line(vertices_list, quad, Edge::Edge_S, level))
                         continue;
 
                     if (BOUNDARY_W(quad) && Z_NW >= 1 && Z_SW < 1 &&
-                        start_line(vertices_list, quad, Edge_W, level))
+                        start_line(vertices_list, quad, Edge::Edge_W, level))
                         continue;
 
                     if (BOUNDARY_N(quad) && Z_NE >= 1 && Z_NW < 1 &&
-                        start_line(vertices_list, quad, Edge_N, level))
+                        start_line(vertices_list, quad, Edge::Edge_N, level))
                         continue;
 
                     if (BOUNDARY_E(quad) && Z_SE >= 1 && Z_NE < 1 &&
-                        start_line(vertices_list, quad, Edge_E, level))
+                        start_line(vertices_list, quad, Edge::Edge_E, level))
                         continue;
 
                     if (_corner_mask) {
                         // Equates to NE boundary.
                         if (EXISTS_SW_CORNER(quad) && Z_SE >= 1 && Z_NW < 1 &&
-                            start_line(vertices_list, quad, Edge_NE, level))
+                            start_line(vertices_list, quad, Edge::Edge_NE,
+                                       level))
                             continue;
 
                         // Equates to NW boundary.
                         if (EXISTS_SE_CORNER(quad) && Z_NE >= 1 && Z_SW < 1 &&
-                            start_line(vertices_list, quad, Edge_NW, level))
+                            start_line(vertices_list, quad, Edge::Edge_NW,
+                                       level))
                             continue;
 
                         // Equates to SE boundary.
                         if (EXISTS_NW_CORNER(quad) && Z_SW >= 1 && Z_NE < 1 &&
-                            start_line(vertices_list, quad, Edge_SE, level))
+                            start_line(vertices_list, quad, Edge::Edge_SE,
+                                       level))
                             continue;
 
                         // Equates to SW boundary.
                         if (EXISTS_NE_CORNER(quad) && Z_NW >= 1 && Z_SE < 1 &&
-                            start_line(vertices_list, quad, Edge_SW, level))
+                            start_line(vertices_list, quad, Edge::Edge_SW,
+                                       level))
                             continue;
                     }
                 }
@@ -578,7 +585,7 @@ namespace matplot {
                         continue;
 
                     Edge start_edge = get_start_edge(quad, 1);
-                    if (start_edge == Edge_None)
+                    if (start_edge == Edge::Edge_None)
                         continue;
 
                     QuadEdge quad_edge(quad, start_edge);
@@ -587,7 +594,7 @@ namespace matplot {
                     // To obtain output identical to that produced by legacy
                     // code, sometimes need to ignore the first point and add it
                     // on the end instead.
-                    bool ignore_first = (start_edge == Edge_N);
+                    bool ignore_first = (start_edge == Edge::Edge_N);
                     follow_interior(contour_line, quad_edge, 1, level,
                                     !ignore_first, &start_quad_edge, 1, false);
                     if (ignore_first && !contour_line.empty())
@@ -659,7 +666,7 @@ namespace matplot {
                                          const double &level) {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
         return interp(get_edge_point_index(quad_edge, true),
                       get_edge_point_index(quad_edge, false), level);
     }
@@ -670,13 +677,13 @@ namespace matplot {
         unsigned int level_index, const QuadEdge &start_quad_edge) {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
         assert(is_edge_a_boundary(quad_edge) && "Not a boundary edge");
         assert((level_index == 1 || level_index == 2) &&
                "level index must be 1 or 2");
         assert(start_quad_edge.quad >= 0 && start_quad_edge.quad < _n &&
                "Start quad index out of bounds");
-        assert(start_quad_edge.edge != Edge_None && "Invalid start edge");
+        assert(start_quad_edge.edge != Edge::Edge_None && "Invalid start edge");
 
         // Only called for filled contours, so always updates _parent_cache.
         unsigned int end_level = 0;
@@ -719,26 +726,26 @@ namespace matplot {
                 break;
 
             switch (quad_edge.edge) {
-            case Edge_E:
+            case Edge::Edge_E:
                 assert(!VISITED_W(quad + 1) && "Already visited");
                 _cache[quad + 1] |= MASK_VISITED_W;
                 break;
-            case Edge_N:
+            case Edge::Edge_N:
                 assert(!VISITED_S(quad + _nx) && "Already visited");
                 _cache[quad + _nx] |= MASK_VISITED_S;
                 break;
-            case Edge_W:
+            case Edge::Edge_W:
                 assert(!VISITED_W(quad) && "Already visited");
                 _cache[quad] |= MASK_VISITED_W;
                 break;
-            case Edge_S:
+            case Edge::Edge_S:
                 assert(!VISITED_S(quad) && "Already visited");
                 _cache[quad] |= MASK_VISITED_S;
                 break;
-            case Edge_NE:
-            case Edge_NW:
-            case Edge_SW:
-            case Edge_SE:
+            case Edge::Edge_NE:
+            case Edge::Edge_NW:
+            case Edge::Edge_SW:
+            case Edge::Edge_SE:
                 assert(!VISITED_CORNER(quad) && "Already visited");
                 _cache[quad] |= MASK_VISITED_CORNER;
                 break;
@@ -759,17 +766,17 @@ namespace matplot {
             // Just moved to new quad edge, so label parent of start of quad
             // edge.
             switch (quad_edge.edge) {
-            case Edge_W:
-            case Edge_SW:
-            case Edge_S:
-            case Edge_SE:
+            case Edge::Edge_W:
+            case Edge::Edge_SW:
+            case Edge::Edge_S:
+            case Edge::Edge_SE:
                 if (!EXISTS_SE_CORNER(quad))
                     _parent_cache.set_parent(quad, contour_line);
                 break;
-            case Edge_E:
-            case Edge_NE:
-            case Edge_N:
-            case Edge_NW:
+            case Edge::Edge_E:
+            case Edge::Edge_NE:
+            case Edge::Edge_N:
+            case Edge::Edge_NW:
                 if (!EXISTS_SW_CORNER(quad))
                     _parent_cache.set_parent(quad + 1, contour_line);
                 break;
@@ -795,13 +802,14 @@ namespace matplot {
         bool set_parents) {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds.");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
         assert((level_index == 1 || level_index == 2) &&
                "level index must be 1 or 2");
         assert((start_quad_edge == 0 ||
                 (start_quad_edge->quad >= 0 && start_quad_edge->quad < _n)) &&
                "Start quad index out of bounds.");
-        assert((start_quad_edge == 0 || start_quad_edge->edge != Edge_None) &&
+        assert((start_quad_edge == 0 ||
+                start_quad_edge->edge != Edge::Edge_None) &&
                "Invalid start edge");
         assert((start_level_index == 1 || start_level_index == 2) &&
                "start level index must be 1 or 2");
@@ -816,7 +824,7 @@ namespace matplot {
             (level_index == 1 ? MASK_VISITED_1 : MASK_VISITED_2);
         CacheItem saddle_mask =
             (level_index == 1 ? MASK_SADDLE_1 : MASK_SADDLE_2);
-        Dir dir = Dir_Straight;
+        Dir dir = Dir::Dir_Straight;
 
         while (true) {
             assert(!EXISTS_NONE(quad) && "Quad does not exist");
@@ -829,39 +837,40 @@ namespace matplot {
 
             if (_cache[quad] & saddle_mask) {
                 // Already identified as a saddle quad, so direction is easy.
-                dir = (SADDLE_LEFT(quad, level_index) ? Dir_Left : Dir_Right);
+                dir = (SADDLE_LEFT(quad, level_index) ? Dir::Dir_Left
+                                                      : Dir::Dir_Right);
                 _cache[quad] |= visited_mask;
             } else if (EXISTS_ANY_CORNER(quad)) {
                 // Need z-level of point opposite the entry edge, as that
                 // determines whether contour turns left or right.
                 long point_opposite = -1;
                 switch (edge) {
-                case Edge_E:
+                case Edge::Edge_E:
                     point_opposite =
                         (EXISTS_SE_CORNER(quad) ? POINT_SW : POINT_NW);
                     break;
-                case Edge_N:
+                case Edge::Edge_N:
                     point_opposite =
                         (EXISTS_NW_CORNER(quad) ? POINT_SW : POINT_SE);
                     break;
-                case Edge_W:
+                case Edge::Edge_W:
                     point_opposite =
                         (EXISTS_SW_CORNER(quad) ? POINT_SE : POINT_NE);
                     break;
-                case Edge_S:
+                case Edge::Edge_S:
                     point_opposite =
                         (EXISTS_SW_CORNER(quad) ? POINT_NW : POINT_NE);
                     break;
-                case Edge_NE:
+                case Edge::Edge_NE:
                     point_opposite = POINT_SW;
                     break;
-                case Edge_NW:
+                case Edge::Edge_NW:
                     point_opposite = POINT_SE;
                     break;
-                case Edge_SW:
+                case Edge::Edge_SW:
                     point_opposite = POINT_NE;
                     break;
-                case Edge_SE:
+                case Edge::Edge_SE:
                     point_opposite = POINT_NW;
                     break;
                 default:
@@ -876,27 +885,27 @@ namespace matplot {
                 // does below.
                 if ((Z_LEVEL(point_opposite) >= level_index) ^
                     (level_index == 2))
-                    dir = Dir_Right;
+                    dir = Dir::Dir_Right;
                 else
-                    dir = Dir_Left;
+                    dir = Dir::Dir_Left;
                 _cache[quad] |= visited_mask;
             } else {
                 // Calculate configuration of this quad.
                 long point_left = -1, point_right = -1;
                 switch (edge) {
-                case Edge_E:
+                case Edge::Edge_E:
                     point_left = POINT_SW;
                     point_right = POINT_NW;
                     break;
-                case Edge_N:
+                case Edge::Edge_N:
                     point_left = POINT_SE;
                     point_right = POINT_SW;
                     break;
-                case Edge_W:
+                case Edge::Edge_W:
                     point_left = POINT_NE;
                     point_right = POINT_SE;
                     break;
-                case Edge_S:
+                case Edge::Edge_S:
                     point_left = POINT_NW;
                     point_right = POINT_NE;
                     break;
@@ -925,13 +934,13 @@ namespace matplot {
                     _cache[quad] |=
                         (level_index == 1 ? MASK_SADDLE_1 : MASK_SADDLE_2);
                     if ((zmid > level) ^ (level_index == 2)) {
-                        dir = Dir_Right;
+                        dir = Dir::Dir_Right;
                     } else {
-                        dir = Dir_Left;
+                        dir = Dir::Dir_Left;
                         _cache[quad] |= (level_index == 1 ? MASK_SADDLE_LEFT_1
                                                           : MASK_SADDLE_LEFT_2);
                     }
-                    if (edge == Edge_N || edge == Edge_E) {
+                    if (edge == Edge::Edge_N || edge == Edge::Edge_E) {
                         // Next visit to this quad must start on S or W.
                         _cache[quad] |=
                             (level_index == 1 ? MASK_SADDLE_START_SW_1
@@ -939,9 +948,9 @@ namespace matplot {
                     }
                 } else {
                     // Normal (non-saddle) quad.
-                    dir = (config == 0
-                               ? Dir_Left
-                               : (config == 3 ? Dir_Right : Dir_Straight));
+                    dir = (config == 0 ? Dir::Dir_Left
+                                       : (config == 3 ? Dir::Dir_Right
+                                                      : Dir::Dir_Straight));
                     _cache[quad] |= visited_mask;
                 }
             }
@@ -950,9 +959,9 @@ namespace matplot {
             edge = get_exit_edge(quad_edge, dir);
 
             if (set_parents) {
-                if (edge == Edge_E)
+                if (edge == Edge::Edge_E)
                     _parent_cache.set_parent(quad + 1, contour_line);
-                else if (edge == Edge_W)
+                else if (edge == Edge::Edge_W)
                     _parent_cache.set_parent(quad, contour_line);
             }
 
@@ -1012,37 +1021,37 @@ namespace matplot {
             point1 = POINT_SE;
             point2 = POINT_SW;
             point3 = POINT_NW;
-            edge12 = Edge_S;
-            edge23 = Edge_W;
-            edge31 = Edge_NE;
+            edge12 = Edge::Edge_S;
+            edge23 = Edge::Edge_W;
+            edge31 = Edge::Edge_NE;
             break;
         case MASK_EXISTS_SE_CORNER:
             point1 = POINT_NE;
             point2 = POINT_SE;
             point3 = POINT_SW;
-            edge12 = Edge_E;
-            edge23 = Edge_S;
-            edge31 = Edge_NW;
+            edge12 = Edge::Edge_E;
+            edge23 = Edge::Edge_S;
+            edge31 = Edge::Edge_NW;
             break;
         case MASK_EXISTS_NW_CORNER:
             point1 = POINT_SW;
             point2 = POINT_NW;
             point3 = POINT_NE;
-            edge12 = Edge_W;
-            edge23 = Edge_N;
-            edge31 = Edge_SE;
+            edge12 = Edge::Edge_W;
+            edge23 = Edge::Edge_N;
+            edge31 = Edge::Edge_SE;
             break;
         case MASK_EXISTS_NE_CORNER:
             point1 = POINT_NW;
             point2 = POINT_NE;
             point3 = POINT_SE;
-            edge12 = Edge_N;
-            edge23 = Edge_E;
-            edge31 = Edge_SW;
+            edge12 = Edge::Edge_N;
+            edge23 = Edge::Edge_E;
+            edge31 = Edge::Edge_SW;
             break;
         default:
             assert(0 && "Invalid EXISTS for quad");
-            return Edge_None;
+            return Edge::Edge_None;
         }
 
         unsigned int config = (Z_LEVEL(point1) >= level_index) << 2 |
@@ -1057,7 +1066,7 @@ namespace matplot {
 
         switch (config) {
         case 0:
-            return Edge_None;
+            return Edge::Edge_None;
         case 1:
             return edge23;
         case 2:
@@ -1071,10 +1080,10 @@ namespace matplot {
         case 6:
             return edge31;
         case 7:
-            return Edge_None;
+            return Edge::Edge_None;
         default:
             assert(0 && "Invalid config");
-            return Edge_None;
+            return Edge::Edge_None;
         }
     }
 
@@ -1082,7 +1091,7 @@ namespace matplot {
                                                     bool start) const {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
 
         // Edges are ordered anticlockwise around their quad, as indicated by
         // directions of arrows in diagrams below.
@@ -1100,21 +1109,21 @@ namespace matplot {
         //
         const long &quad = quad_edge.quad;
         switch (quad_edge.edge) {
-        case Edge_E:
+        case Edge::Edge_E:
             return (start ? POINT_SE : POINT_NE);
-        case Edge_N:
+        case Edge::Edge_N:
             return (start ? POINT_NE : POINT_NW);
-        case Edge_W:
+        case Edge::Edge_W:
             return (start ? POINT_NW : POINT_SW);
-        case Edge_S:
+        case Edge::Edge_S:
             return (start ? POINT_SW : POINT_SE);
-        case Edge_NE:
+        case Edge::Edge_NE:
             return (start ? POINT_SE : POINT_NW);
-        case Edge_NW:
+        case Edge::Edge_NW:
             return (start ? POINT_NE : POINT_SW);
-        case Edge_SW:
+        case Edge::Edge_SW:
             return (start ? POINT_NW : POINT_SE);
-        case Edge_SE:
+        case Edge::Edge_SE:
             return (start ? POINT_SW : POINT_NE);
         default:
             assert(0 && "Invalid edge");
@@ -1126,7 +1135,7 @@ namespace matplot {
                                              Dir dir) const {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
 
         const long &quad = quad_edge.quad;
         const Edge &edge = quad_edge.edge;
@@ -1135,53 +1144,69 @@ namespace matplot {
             // triangle, entered via one edge so the other two edges are the
             // left and right ones.
             switch (edge) {
-            case Edge_E:
-                return (EXISTS_SE_CORNER(quad)
-                            ? (dir == Dir_Left ? Edge_S : Edge_NW)
-                            : (dir == Dir_Right ? Edge_N : Edge_SW));
-            case Edge_N:
-                return (EXISTS_NW_CORNER(quad)
-                            ? (dir == Dir_Right ? Edge_W : Edge_SE)
-                            : (dir == Dir_Left ? Edge_E : Edge_SW));
-            case Edge_W:
-                return (EXISTS_SW_CORNER(quad)
-                            ? (dir == Dir_Right ? Edge_S : Edge_NE)
-                            : (dir == Dir_Left ? Edge_N : Edge_SE));
-            case Edge_S:
-                return (EXISTS_SW_CORNER(quad)
-                            ? (dir == Dir_Left ? Edge_W : Edge_NE)
-                            : (dir == Dir_Right ? Edge_E : Edge_NW));
-            case Edge_NE:
-                return (dir == Dir_Left ? Edge_S : Edge_W);
-            case Edge_NW:
-                return (dir == Dir_Left ? Edge_E : Edge_S);
-            case Edge_SW:
-                return (dir == Dir_Left ? Edge_N : Edge_E);
-            case Edge_SE:
-                return (dir == Dir_Left ? Edge_W : Edge_N);
+            case Edge::Edge_E:
+                return (
+                    EXISTS_SE_CORNER(quad)
+                        ? (dir == Dir::Dir_Left ? Edge::Edge_S : Edge::Edge_NW)
+                        : (dir == Dir::Dir_Right ? Edge::Edge_N
+                                                 : Edge::Edge_SW));
+            case Edge::Edge_N:
+                return (
+                    EXISTS_NW_CORNER(quad)
+                        ? (dir == Dir::Dir_Right ? Edge::Edge_W : Edge::Edge_SE)
+                        : (dir == Dir::Dir_Left ? Edge::Edge_E
+                                                : Edge::Edge_SW));
+            case Edge::Edge_W:
+                return (
+                    EXISTS_SW_CORNER(quad)
+                        ? (dir == Dir::Dir_Right ? Edge::Edge_S : Edge::Edge_NE)
+                        : (dir == Dir::Dir_Left ? Edge::Edge_N
+                                                : Edge::Edge_SE));
+            case Edge::Edge_S:
+                return (
+                    EXISTS_SW_CORNER(quad)
+                        ? (dir == Dir::Dir_Left ? Edge::Edge_W : Edge::Edge_NE)
+                        : (dir == Dir::Dir_Right ? Edge::Edge_E
+                                                 : Edge::Edge_NW));
+            case Edge::Edge_NE:
+                return (dir == Dir::Dir_Left ? Edge::Edge_S : Edge::Edge_W);
+            case Edge::Edge_NW:
+                return (dir == Dir::Dir_Left ? Edge::Edge_E : Edge::Edge_S);
+            case Edge::Edge_SW:
+                return (dir == Dir::Dir_Left ? Edge::Edge_N : Edge::Edge_E);
+            case Edge::Edge_SE:
+                return (dir == Dir::Dir_Left ? Edge::Edge_W : Edge::Edge_N);
             default:
                 assert(0 && "Invalid edge");
-                return Edge_None;
+                return Edge::Edge_None;
             }
         } else {
             // A full quad has four edges, entered via one edge so that other
             // three edges correspond to left, straight and right directions.
             switch (edge) {
-            case Edge_E:
-                return (dir == Dir_Left ? Edge_S
-                                        : (dir == Dir_Right ? Edge_N : Edge_W));
-            case Edge_N:
-                return (dir == Dir_Left ? Edge_E
-                                        : (dir == Dir_Right ? Edge_W : Edge_S));
-            case Edge_W:
-                return (dir == Dir_Left ? Edge_N
-                                        : (dir == Dir_Right ? Edge_S : Edge_E));
-            case Edge_S:
-                return (dir == Dir_Left ? Edge_W
-                                        : (dir == Dir_Right ? Edge_E : Edge_N));
+            case Edge::Edge_E:
+                return (dir == Dir::Dir_Left
+                            ? Edge::Edge_S
+                            : (dir == Dir::Dir_Right ? Edge::Edge_N
+                                                     : Edge::Edge_W));
+            case Edge::Edge_N:
+                return (dir == Dir::Dir_Left
+                            ? Edge::Edge_E
+                            : (dir == Dir::Dir_Right ? Edge::Edge_W
+                                                     : Edge::Edge_S));
+            case Edge::Edge_W:
+                return (dir == Dir::Dir_Left
+                            ? Edge::Edge_N
+                            : (dir == Dir::Dir_Right ? Edge::Edge_S
+                                                     : Edge::Edge_E));
+            case Edge::Edge_S:
+                return (dir == Dir::Dir_Left
+                            ? Edge::Edge_W
+                            : (dir == Dir::Dir_Right ? Edge::Edge_E
+                                                     : Edge::Edge_N));
             default:
                 assert(0 && "Invalid edge");
-                return Edge_None;
+                return Edge::Edge_None;
             }
         }
     }
@@ -1220,17 +1245,17 @@ namespace matplot {
 
         switch (config) {
         case 0:
-            return Edge_None;
+            return Edge::Edge_None;
         case 1:
-            return Edge_E;
+            return Edge::Edge_E;
         case 2:
-            return Edge_S;
+            return Edge::Edge_S;
         case 3:
-            return Edge_E;
+            return Edge::Edge_E;
         case 4:
-            return Edge_N;
+            return Edge::Edge_N;
         case 5:
-            return Edge_N;
+            return Edge::Edge_N;
         case 6:
             // If already identified as a saddle quad then the start edge is
             // read from the cache.  Otherwise return either valid start edge
@@ -1238,35 +1263,35 @@ namespace matplot {
             // up saddle bits in cache.
             if (!SADDLE(quad, level_index) ||
                 SADDLE_START_SW(quad, level_index))
-                return Edge_S;
+                return Edge::Edge_S;
             else
-                return Edge_N;
+                return Edge::Edge_N;
         case 7:
-            return Edge_N;
+            return Edge::Edge_N;
         case 8:
-            return Edge_W;
+            return Edge::Edge_W;
         case 9:
             // See comment for 6 above.
             if (!SADDLE(quad, level_index) ||
                 SADDLE_START_SW(quad, level_index))
-                return Edge_W;
+                return Edge::Edge_W;
             else
-                return Edge_E;
+                return Edge::Edge_E;
         case 10:
-            return Edge_S;
+            return Edge::Edge_S;
         case 11:
-            return Edge_E;
+            return Edge::Edge_E;
         case 12:
-            return Edge_W;
+            return Edge::Edge_W;
         case 13:
-            return Edge_W;
+            return Edge::Edge_W;
         case 14:
-            return Edge_S;
+            return Edge::Edge_S;
         case 15:
-            return Edge_None;
+            return Edge::Edge_None;
         default:
             assert(0 && "Invalid config");
-            return Edge_None;
+            return Edge::Edge_None;
         }
     }
 
@@ -1344,24 +1369,24 @@ namespace matplot {
     QuadContourGenerator::is_edge_a_boundary(const QuadEdge &quad_edge) const {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
 
         switch (quad_edge.edge) {
-        case Edge_E:
+        case Edge::Edge_E:
             return BOUNDARY_E(quad_edge.quad);
-        case Edge_N:
+        case Edge::Edge_N:
             return BOUNDARY_N(quad_edge.quad);
-        case Edge_W:
+        case Edge::Edge_W:
             return BOUNDARY_W(quad_edge.quad);
-        case Edge_S:
+        case Edge::Edge_S:
             return BOUNDARY_S(quad_edge.quad);
-        case Edge_NE:
+        case Edge::Edge_NE:
             return EXISTS_SW_CORNER(quad_edge.quad);
-        case Edge_NW:
+        case Edge::Edge_NW:
             return EXISTS_SE_CORNER(quad_edge.quad);
-        case Edge_SW:
+        case Edge::Edge_SW:
             return EXISTS_NE_CORNER(quad_edge.quad);
-        case Edge_SE:
+        case Edge::Edge_SE:
             return EXISTS_NW_CORNER(quad_edge.quad);
         default:
             assert(0 && "Invalid edge");
@@ -1387,28 +1412,28 @@ namespace matplot {
         // on, etc, until can move. First determine which edge to attempt first.
         int index = 0;
         switch (edge) {
-        case Edge_E:
+        case Edge::Edge_E:
             index = 0;
             break;
-        case Edge_SE:
+        case Edge::Edge_SE:
             index = 1;
             break;
-        case Edge_S:
+        case Edge::Edge_S:
             index = 2;
             break;
-        case Edge_SW:
+        case Edge::Edge_SW:
             index = 3;
             break;
-        case Edge_W:
+        case Edge::Edge_W:
             index = 4;
             break;
-        case Edge_NW:
+        case Edge::Edge_NW:
             index = 5;
             break;
-        case Edge_N:
+        case Edge::Edge_N:
             index = 6;
             break;
-        case Edge_NE:
+        case Edge::Edge_NE:
             index = 7;
             break;
         default:
@@ -1429,54 +1454,54 @@ namespace matplot {
                 if (EXISTS_SE_CORNER(quad - _nx -
                                      1)) { // Equivalent to BOUNDARY_NW
                     quad -= _nx + 1;
-                    edge = Edge_NW;
+                    edge = Edge::Edge_NW;
                     return;
                 }
                 break;
             case 1:
                 if (BOUNDARY_N(quad - _nx - 1)) {
                     quad -= _nx + 1;
-                    edge = Edge_N;
+                    edge = Edge::Edge_N;
                     return;
                 }
                 break;
             case 2:
                 if (EXISTS_SW_CORNER(quad - 1)) { // Equivalent to BOUNDARY_NE
                     quad -= 1;
-                    edge = Edge_NE;
+                    edge = Edge::Edge_NE;
                     return;
                 }
                 break;
             case 3:
                 if (BOUNDARY_E(quad - 1)) {
                     quad -= 1;
-                    edge = Edge_E;
+                    edge = Edge::Edge_E;
                     return;
                 }
                 break;
             case 4:
                 if (EXISTS_NW_CORNER(quad)) { // Equivalent to BOUNDARY_SE
-                    edge = Edge_SE;
+                    edge = Edge::Edge_SE;
                     return;
                 }
                 break;
             case 5:
                 if (BOUNDARY_S(quad)) {
-                    edge = Edge_S;
+                    edge = Edge::Edge_S;
                     return;
                 }
                 break;
             case 6:
                 if (EXISTS_NE_CORNER(quad - _nx)) { // Equivalent to BOUNDARY_SW
                     quad -= _nx;
-                    edge = Edge_SW;
+                    edge = Edge::Edge_SW;
                     return;
                 }
                 break;
             case 7:
                 if (BOUNDARY_W(quad - _nx)) {
                     quad -= _nx;
-                    edge = Edge_W;
+                    edge = Edge::Edge_W;
                     return;
                 }
                 break;
@@ -1497,26 +1522,26 @@ namespace matplot {
     void QuadContourGenerator::move_to_next_quad(QuadEdge &quad_edge) const {
         assert(quad_edge.quad >= 0 && quad_edge.quad < _n &&
                "Quad index out of bounds");
-        assert(quad_edge.edge != Edge_None && "Invalid edge");
+        assert(quad_edge.edge != Edge::Edge_None && "Invalid edge");
 
         // Move from quad_edge.quad to the neighbouring quad in the direction
         // specified by quad_edge.edge.
         switch (quad_edge.edge) {
-        case Edge_E:
+        case Edge::Edge_E:
             quad_edge.quad += 1;
-            quad_edge.edge = Edge_W;
+            quad_edge.edge = Edge::Edge_W;
             break;
-        case Edge_N:
+        case Edge::Edge_N:
             quad_edge.quad += _nx;
-            quad_edge.edge = Edge_S;
+            quad_edge.edge = Edge::Edge_S;
             break;
-        case Edge_W:
+        case Edge::Edge_W:
             quad_edge.quad -= 1;
-            quad_edge.edge = Edge_E;
+            quad_edge.edge = Edge::Edge_E;
             break;
-        case Edge_S:
+        case Edge::Edge_S:
             quad_edge.quad -= _nx;
-            quad_edge.edge = Edge_N;
+            quad_edge.edge = Edge::Edge_N;
             break;
         default:
             assert(0 && "Invalid edge");
@@ -1539,27 +1564,27 @@ namespace matplot {
 
             // Lower-level start from S boundary into interior.
             if (!VISITED_S(quad) && Z_SW >= 1 && Z_SE == 0)
-                contour.push_back(start_filled(quad, Edge_S, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_S, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from S boundary into interior.
             if (!VISITED_S(quad) && Z_SW < 2 && Z_SE == 2)
-                contour.push_back(start_filled(quad, Edge_S, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_S, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start following S boundary from W to E.
             if (!VISITED_S(quad) && Z_SW <= 1 && Z_SE == 1)
-                contour.push_back(start_filled(quad, Edge_S, 1, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_S, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
 
             // Upper-level start following S boundary from W to E.
             if (!VISITED_S(quad) && Z_SW == 2 && Z_SE == 1)
-                contour.push_back(start_filled(quad, Edge_S, 2, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_S, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
         }
 
         // Possible starts from W boundary.
@@ -1567,27 +1592,27 @@ namespace matplot {
 
             // Lower-level start from W boundary into interior.
             if (!VISITED_W(quad) && Z_NW >= 1 && Z_SW == 0)
-                contour.push_back(start_filled(quad, Edge_W, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_W, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from W boundary into interior.
             if (!VISITED_W(quad) && Z_NW < 2 && Z_SW == 2)
-                contour.push_back(start_filled(quad, Edge_W, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_W, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start following W boundary from N to S.
             if (!VISITED_W(quad) && Z_NW <= 1 && Z_SW == 1)
-                contour.push_back(start_filled(quad, Edge_W, 1, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_W, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
 
             // Upper-level start following W boundary from N to S.
             if (!VISITED_W(quad) && Z_NW == 2 && Z_SW == 1)
-                contour.push_back(start_filled(quad, Edge_W, 2, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_W, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
         }
 
         // Possible starts from NE boundary.
@@ -1595,85 +1620,90 @@ namespace matplot {
 
             // Lower-level start following NE boundary from SE to NW, hole.
             if (!VISITED_CORNER(quad) && Z_NW == 1 && Z_SE == 1)
-                contour.push_back(start_filled(quad, Edge_NE, 1, Hole, Boundary,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_NE, 1, HoleOrNot::Hole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
         }
         // Possible starts from SE boundary.
         else if (EXISTS_NW_CORNER(quad)) { // i.e. BOUNDARY_SE
 
             // Lower-level start from N to SE.
             if (!VISITED(quad, 1) && Z_NW == 0 && Z_SW == 0 && Z_NE >= 1)
-                contour.push_back(start_filled(quad, Edge_N, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_N, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from SE to N, hole.
             if (!VISITED(quad, 2) && Z_NW < 2 && Z_SW < 2 && Z_NE == 2)
-                contour.push_back(start_filled(quad, Edge_SE, 2, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SE, 2, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from N to SE.
             if (!VISITED(quad, 2) && Z_NW == 2 && Z_SW == 2 && Z_NE < 2)
-                contour.push_back(start_filled(quad, Edge_N, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_N, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start from SE to N, hole.
             if (!VISITED(quad, 1) && Z_NW >= 1 && Z_SW >= 1 && Z_NE == 0)
-                contour.push_back(start_filled(quad, Edge_SE, 1, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SE, 1, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
         }
         // Possible starts from NW boundary.
         else if (EXISTS_SE_CORNER(quad)) { // i.e. BOUNDARY_NW
 
             // Lower-level start from NW to E.
             if (!VISITED(quad, 1) && Z_SW == 0 && Z_SE == 0 && Z_NE >= 1)
-                contour.push_back(start_filled(quad, Edge_NW, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_NW, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from E to NW, hole.
             if (!VISITED(quad, 2) && Z_SW < 2 && Z_SE < 2 && Z_NE == 2)
-                contour.push_back(start_filled(quad, Edge_E, 2, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_E, 2, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from NW to E.
             if (!VISITED(quad, 2) && Z_SW == 2 && Z_SE == 2 && Z_NE < 2)
-                contour.push_back(start_filled(quad, Edge_NW, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_NW, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start from E to NW, hole.
             if (!VISITED(quad, 1) && Z_SW >= 1 && Z_SE >= 1 && Z_NE == 0)
-                contour.push_back(start_filled(quad, Edge_E, 1, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_E, 1, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
         }
         // Possible starts from SW boundary.
         else if (EXISTS_NE_CORNER(quad)) { // i.e. BOUNDARY_SW
 
             // Lower-level start from SW boundary into interior.
             if (!VISITED_CORNER(quad) && Z_NW >= 1 && Z_SE == 0)
-                contour.push_back(start_filled(quad, Edge_SW, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SW, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from SW boundary into interior.
             if (!VISITED_CORNER(quad) && Z_NW < 2 && Z_SE == 2)
-                contour.push_back(start_filled(quad, Edge_SW, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SW, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start following SW boundary from NW to SE.
             if (!VISITED_CORNER(quad) && Z_NW <= 1 && Z_SE == 1)
-                contour.push_back(start_filled(quad, Edge_SW, 1, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SW, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
 
             // Upper-level start following SW boundary from NW to SE.
             if (!VISITED_CORNER(quad) && Z_NW == 2 && Z_SE == 1)
-                contour.push_back(start_filled(quad, Edge_SW, 2, NotHole,
-                                               Boundary, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_SW, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Boundary, lower_level, upper_level));
         }
 
         // A full (unmasked) quad can only have a start on the NE corner, i.e.
@@ -1692,36 +1722,40 @@ namespace matplot {
             // Lower-level start from N to E.
             if (!VISITED(quad, 1) && Z_NW == 0 && Z_SE == 0 && Z_NE >= 1 &&
                 (!SADDLE(quad, 1) || SADDLE_LEFT(quad, 1)))
-                contour.push_back(start_filled(quad, Edge_N, 1, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_N, 1, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from E to N, hole.
             if (!VISITED(quad, 2) && Z_NW < 2 && Z_SE < 2 && Z_NE == 2 &&
                 (!SADDLE(quad, 2) || !SADDLE_LEFT(quad, 2)))
-                contour.push_back(start_filled(quad, Edge_E, 2, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_E, 2, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Upper-level start from N to E.
             if (!VISITED(quad, 2) && Z_NW == 2 && Z_SE == 2 && Z_NE < 2 &&
                 (!SADDLE(quad, 2) || SADDLE_LEFT(quad, 2)))
-                contour.push_back(start_filled(quad, Edge_N, 2, NotHole,
-                                               Interior, lower_level,
-                                               upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_N, 2, HoleOrNot::NotHole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // Lower-level start from E to N, hole.
             if (!VISITED(quad, 1) && Z_NW >= 1 && Z_SE >= 1 && Z_NE == 0 &&
                 (!SADDLE(quad, 1) || !SADDLE_LEFT(quad, 1)))
-                contour.push_back(start_filled(quad, Edge_E, 1, Hole, Interior,
-                                               lower_level, upper_level));
+                contour.push_back(start_filled(
+                    quad, Edge::Edge_E, 1, HoleOrNot::Hole,
+                    BoundaryOrInterior::Interior, lower_level, upper_level));
 
             // All possible contours passing through the interior of this quad
             // should have already been created, so assert this.
             assert(
-                (VISITED(quad, 1) || get_start_edge(quad, 1) == Edge_None) &&
+                (VISITED(quad, 1) ||
+                 get_start_edge(quad, 1) == Edge::Edge_None) &&
                 "Found start of contour that should have already been created");
             assert(
-                (VISITED(quad, 2) || get_start_edge(quad, 2) == Edge_None) &&
+                (VISITED(quad, 2) ||
+                 get_start_edge(quad, 2) == Edge::Edge_None) &&
                 "Found start of contour that should have already been created");
         }
 
@@ -1730,8 +1764,9 @@ namespace matplot {
         // surrounding contour line.
         if (BOUNDARY_N(quad) && EXISTS_N_EDGE(quad) && !VISITED_S(quad + _nx) &&
             Z_NW == 1 && Z_NE == 1)
-            contour.push_back(start_filled(quad, Edge_N, 1, Hole, Boundary,
-                                           lower_level, upper_level));
+            contour.push_back(start_filled(
+                quad, Edge::Edge_N, 1, HoleOrNot::Hole,
+                BoundaryOrInterior::Boundary, lower_level, upper_level));
     }
 
     ContourLine *QuadContourGenerator::start_filled(
@@ -1739,12 +1774,13 @@ namespace matplot {
         HoleOrNot hole_or_not, BoundaryOrInterior boundary_or_interior,
         const double &lower_level, const double &upper_level) {
         assert(quad >= 0 && quad < _n && "Quad index out of bounds");
-        assert(edge != Edge_None && "Invalid edge");
+        assert(edge != Edge::Edge_None && "Invalid edge");
         assert((start_level_index == 1 || start_level_index == 2) &&
                "start level index must be 1 or 2");
 
-        ContourLine *contour_line = new ContourLine(hole_or_not == Hole);
-        if (hole_or_not == Hole) {
+        ContourLine *contour_line =
+            new ContourLine(hole_or_not == HoleOrNot::Hole);
+        if (hole_or_not == HoleOrNot::Hole) {
             // Find and set parent ContourLine.
             ContourLine *parent = _parent_cache.get_parent(quad + 1);
             assert(parent != 0 && "Failed to find parent ContourLine");
@@ -1760,7 +1796,7 @@ namespace matplot {
         // If starts on boundary, can only finish on boundary.
 
         while (true) {
-            if (boundary_or_interior == Interior) {
+            if (boundary_or_interior == BoundaryOrInterior::Interior) {
                 double level = (level_index == 1 ? lower_level : upper_level);
                 follow_interior(*contour_line, quad_edge, level_index, level,
                                 false, &start_quad_edge, start_level_index,
@@ -1772,14 +1808,14 @@ namespace matplot {
             }
 
             if (quad_edge == start_quad_edge &&
-                (boundary_or_interior == Boundary ||
+                (boundary_or_interior == BoundaryOrInterior::Boundary ||
                  level_index == start_level_index))
                 break;
 
-            if (boundary_or_interior == Boundary)
-                boundary_or_interior = Interior;
+            if (boundary_or_interior == BoundaryOrInterior::Boundary)
+                boundary_or_interior = BoundaryOrInterior::Interior;
             else
-                boundary_or_interior = Boundary;
+                boundary_or_interior = BoundaryOrInterior::Boundary;
         }
 
         return contour_line;
