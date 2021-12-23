@@ -9307,6 +9307,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/gitplcc">
+            <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
+            <br />
+            <sub><b>Gitplcc</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
             <br />
@@ -9319,15 +9326,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Sammi</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/avocadoboi">
             <img src="https://avatars.githubusercontent.com/u/24738592?v=4" width="100;" alt="avocadoboi"/>
             <br />
             <sub><b>BjC6rn Sundin</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/dimztimz">
             <img src="https://avatars.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
@@ -9354,13 +9361,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
             <br />
             <sub><b>Niclas Wall Wennerdal</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/gitplcc">
-            <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
-            <br />
-            <sub><b>Gitplcc</b></sub>
         </a>
     </td>
     <td align="center">
