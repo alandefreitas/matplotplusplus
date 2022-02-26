@@ -79,6 +79,8 @@ namespace matplot {
         const bool has_x_bar = !x_negative_delta_.empty();
         const bool has_xy_bar = has_y_bar && has_x_bar;
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         if (has_xy_bar) {
             for (size_t i = 0; i < y_data_.size(); ++i) {
                 ss << "    " << x_data_[i] << " " << y_data_[i] << " "

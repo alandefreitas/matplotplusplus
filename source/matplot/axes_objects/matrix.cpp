@@ -167,6 +167,8 @@ namespace matplot {
 
         // stream matrix
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         double x_width_ = x_width();
         double y_width_ = y_width();
         const auto &[cb_min, cb_max] = parent_->color_box_range();
@@ -273,6 +275,8 @@ namespace matplot {
 
     std::string matrix::image_data_string() {
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         auto [h, w] = size(matrices_[0]);
         double x_width_ = x_width();
         double y_width_ = y_width();

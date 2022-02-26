@@ -99,6 +99,8 @@ namespace matplot {
         if (any_obj_needs_colormap && !colormap_.empty() &&
             !children_.empty()) {
             std::stringstream ss;
+            ss.precision(5);
+            ss << std::fixed;
             // limit the number of colors in the palette
             // this is useful for contour plots
             if (max_colors_) {
@@ -524,6 +526,8 @@ namespace matplot {
 
             if (cb_axis_.visible()) {
                 std::stringstream ss;
+                ss.precision(5);
+                ss << std::fixed;
                 ss << "set colorbox";
                 if (!cb_axis_.reverse()) {
                     ss << " noinvert";
@@ -3309,6 +3313,8 @@ namespace matplot {
         std::vector<std::string> pie_labels(x.size());
         double theta_sum = 0.; // [0;2pi]
         std::stringstream stream;
+        stream.precision(5);
+        stream << std::fixed;
         for (size_t i = 0; i < x.size(); ++i) {
             if (labels.size() > i) {
                 stream << labels[i];
@@ -4580,7 +4586,7 @@ namespace matplot {
                             scale, line_spec);
     }
 
-    /// Quiver - 2d x,y,u,v with no color mapping 
+    /// Quiver - 2d x,y,u,v with no color mapping
     vectors_handle axes_type::quiver(const std::vector<std::vector<double>> &x,
                                      const std::vector<std::vector<double>> &y,
                                      const std::vector<std::vector<double>> &u,
@@ -4590,7 +4596,7 @@ namespace matplot {
                             scale, line_spec);
     }
 
-    /// Quiver - x,y,u,v 
+    /// Quiver - x,y,u,v
     vectors_handle axes_type::quiver(const std::vector<double> &x,
                                      const std::vector<double> &y,
                                      const std::vector<double> &u,

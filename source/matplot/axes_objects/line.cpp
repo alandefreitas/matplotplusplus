@@ -163,6 +163,8 @@ namespace matplot {
         const bool x_is_manual = !x_data_.empty();
 
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         for (const auto &style : styles_to_plot()) {
             if (visible_) {
                 const bool data_is_for_markers =
@@ -509,7 +511,7 @@ namespace matplot {
     void line::run_draw_commands() {
         // ask axes to draw the line
         maybe_update_line_spec();
-        parent_->draw_path(x_data_,y_data_,line_spec_.color());
+        parent_->draw_path(x_data_, y_data_, line_spec_.color());
     }
 
 } // namespace matplot

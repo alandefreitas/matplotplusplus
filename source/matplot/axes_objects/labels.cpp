@@ -98,6 +98,8 @@ namespace matplot {
             font_size_factor = (xrange_increase + yrange_increase) / 2.;
         }
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         const bool custom_sizes = !sizes_.empty();
         const bool custom_colors = !colors_.empty();
         for (size_t i = 0; i < labels_.size(); ++i) {

@@ -13,7 +13,8 @@ namespace matplot {
 
     axis_type::axis_type() : axis_type(nullptr, inf, inf) {}
 
-    axis_type::axis_type(class axes_type *parent) : axis_type(parent, inf, inf) {}
+    axis_type::axis_type(class axes_type *parent)
+        : axis_type(parent, inf, inf) {}
 
     axis_type::axis_type(class axes_type *parent, bool visible)
         : axis_type(parent, inf, inf, visible) {}
@@ -32,7 +33,7 @@ namespace matplot {
             return limits_;
         } else {
             if (!std::isfinite(limits_[0]) || !std::isfinite(limits_[1])) {
-                return {-10,+10};
+                return {-10, +10};
             } else {
                 return limits_;
             }
@@ -169,7 +170,9 @@ namespace matplot {
         return *this;
     }
 
-    bool axis_type::tick_values_automatic() const { return tick_values_automatic_; }
+    bool axis_type::tick_values_automatic() const {
+        return tick_values_automatic_;
+    }
 
     class axis_type &
     axis_type::tick_values_automatic(bool tick_values_automatic) {
@@ -178,7 +181,9 @@ namespace matplot {
         return *this;
     }
 
-    bool axis_type::tick_values_manual() const { return !tick_values_automatic_; }
+    bool axis_type::tick_values_manual() const {
+        return !tick_values_automatic_;
+    }
 
     class axis_type &axis_type::tick_values_manual(bool tick_values_manual) {
         tick_values_automatic_ = !tick_values_manual;
@@ -247,9 +252,17 @@ namespace matplot {
                 // So if there is no explicit label but there is
                 // a format we want to apply, we also need to explicitly
                 // create a label according to our format.
-                r += "\"" +
-                     escape(num2str(tick_values_[i], tick_label_format_)) +
-                     "\" ";
+                if (is_timestamp_) {
+                    char buff[20] = {0};
+                    time_t now = (time_t)tick_values_[i];
+                    strftime(buff, 20, tick_label_format_.c_str(),
+                             localtime(&now));
+                    r += "\"" + escape(std::string(buff)) + "\" ";
+                } else {
+                    r += "\"" +
+                         escape(num2str(tick_values_[i], tick_label_format_)) +
+                         "\" ";
+                }
             }
             r += num2str(tick_values_[i]);
             if (minor_ticks) {
@@ -343,6 +356,14 @@ namespace matplot {
 
     class axis_type &axis_type::label_color(const color_array &label_color) {
         label_color_ = label_color;
+        touch();
+        return *this;
+    }
+
+    bool axis_type::is_timestamp() const { return is_timestamp_; }
+
+    class axis_type &axis_type::is_timestamp(bool is_timestamp) {
+        is_timestamp_ = is_timestamp;
         touch();
         return *this;
     }

@@ -170,6 +170,8 @@ namespace matplot {
 
         const bool color_is_variable = !line_colors_.empty();
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         // for each point
         for (size_t i = 0; i < data_[0].size(); ++i) {
             // for each dimension

@@ -30,7 +30,7 @@ namespace matplot {
         /// If we receive an axes_handle, we can convert it to a raw
         /// pointer because there is no ownership involved here
         template <class... Args>
-        network(const axes_handle &parent, Args&&... args)
+        network(const axes_handle &parent, Args &&...args)
             : network(parent.get(), std::forward<Args>(args)...) {}
 
         virtual ~network() = default;
@@ -83,6 +83,8 @@ namespace matplot {
         network &edge_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
+            ss.precision(5);
+            ss << std::fixed;
             for (const auto &edge_label : e_labels) {
                 ss << "{/:Italic " << edge_label << " }";
                 str_labels.emplace_back(ss.str());
@@ -99,6 +101,8 @@ namespace matplot {
         network &node_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
+            ss.precision(5);
+            ss << std::fixed;
             for (const auto &edge_label : e_labels) {
                 ss << edge_label;
                 str_labels.emplace_back(ss.str());
