@@ -229,7 +229,7 @@ Declare the source for the contents:
 ```cmake
 FetchContent_Declare(matplotplusplus
         GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus
-        GIT_TAG origin/master # or whatever tag you want
+        GIT_TAG origin/master) # or whatever tag you want
 ```
 
 Let CMake download the repository and include it as a subdirectory.
