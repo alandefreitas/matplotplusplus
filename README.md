@@ -9329,6 +9329,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/aalbaali">
+            <img src="https://avatars.githubusercontent.com/u/36138453?v=4" width="100;" alt="aalbaali"/>
+            <br />
+            <sub><b>Amro Al-Baali</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/avocadoboi">
             <img src="https://avatars.githubusercontent.com/u/24738592?v=4" width="100;" alt="avocadoboi"/>
             <br />
@@ -9362,15 +9369,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Niclas Wall Wennerdal</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/solosuper">
             <img src="https://avatars.githubusercontent.com/u/11663739?v=4" width="100;" alt="solosuper"/>
             <br />
             <sub><b>Solo Super</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/acxz">
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
@@ -9396,7 +9403,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/wjdragon">
             <img src="https://avatars.githubusercontent.com/u/88807697?v=4" width="100;" alt="wjdragon"/>
             <br />
-            <sub><b>wjdragon</b></sub>
+            <sub><b>Wjdragon</b></sub>
         </a>
     </td>
     <td align="center">
