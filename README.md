@@ -9372,6 +9372,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/codeinred">
+            <img src="https://avatars.githubusercontent.com/u/36810712?v=4" width="100;" alt="codeinred"/>
+            <br />
+            <sub><b>Alecto Irene Perez</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/gitplcc">
             <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
             <br />
@@ -9384,20 +9391,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Randy Jones</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/sammi">
             <img src="https://avatars.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
             <br />
             <sub><b>Sammi</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/codeinred">
-            <img src="https://avatars.githubusercontent.com/u/36810712?v=4" width="100;" alt="codeinred"/>
-            <br />
-            <sub><b>Alecto Irene Perez</b></sub>
         </a>
     </td>
     <td align="center">
