@@ -210,6 +210,71 @@ Add this header to your source files:
 
 However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
 
+#### Install as a Package via CMake
+
+If you have CMake 3.21 or greater, you can use the `system` build preset to 
+build the package system-wide:
+
+```bash
+cmake --preset=system
+cmake --build --preset=system
+sudo cmake --install build/system
+```
+
+Alternatively, if the `CMAKE_PREFIX_PATH` environment variable is set to 
+`$HOME/.local`, then you can install it locally. This can be set in `/etc/profile` 
+or your shell config. This will not affect discovery of packages installed 
+system-wide.
+
+```bash
+export CMAKE_PREFIX_PATH="$HOME/.local"
+```
+
+This has the advantage of not
+requiring sudo, and matplotplusplus will be installed in `$HOME/.local`. 
+
+```bash
+cmake --preset=local
+cmake --build --preset=local
+cmake --install build/local
+```
+
+You can now use it from CMake with `find_package`:
+
+```cmake
+find_package(Matplot++ REQUIRED)
+
+target_link_libraries(<your target> Matplot++::matplot)
+```
+
+If you're using a version of CMake too old to support presets, then building with
+ the system preset is equivilant to:
+
+```bash
+cmake -B build/system         \
+    -DBUILD_EXAMPLES=OFF      \
+    -DBUILD_SHARED_LIBS=ON    \
+    -DBUILD_TESTS=OFF         \
+    -CMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+
+cmake --build build/system
+```
+
+While building with the local preset is equivilant to:
+
+```bash
+cmake -B build/local                      \
+    -DBUILD_EXAMPLES=OFF                  \
+    -DBUILD_SHARED_LIBS=ON                \
+    -DBUILD_TESTS=OFF                     \
+    -DCMAKE_BUILD_TYPE=Release            \
+    -DCMAKE_INSTALL_PREFIX="$HOME/.local" \
+    -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+
+cmake --build build/local
+```
+
 #### Embed with automatic download
 
 `FetchContent` is a CMake command that can automatically download the Matplot++ repository. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
