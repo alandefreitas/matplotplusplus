@@ -1,0 +1,62 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "dev",
+      "displayName": "Development Mode",
+      "description": "Build with warnings and debug symbols",
+      "binaryDir": "build",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "system",
+      "displayName": "Build for system installation",
+      "description": "Bulid for system installation (BUILD_EXAMPLES and BUILD_TESTS are OFF)",
+      "binaryDir": "${sourceDir}/build/system",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "BUILD_EXAMPLES": "OFF",
+        "BUILD_TESTS": "OFF",
+        "BUILD_SHARED_LIBS": "ON",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
+      }
+    },
+    {
+      "name": "local",
+      "displayName":"Build for installation in $HOME/.local",
+      "description": "Build for installaton in $HOME/.local",
+      "inherits": "system",
+      "binaryDir": "${sourceDir}/build/local",
+      "installDir": "$env{HOME}/.local"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "configuration": "RelWithDebInfo",
+      "jobs": 8
+    },
+    {
+      "name": "system",
+      "configurePreset": "system",
+      "configuration": "Release",
+      "jobs": 8
+    },
+    {
+      "name": "local",
+      "configurePreset": "local",
+      "configuration": "Release",
+      "jobs": 8
+    }
+  ]
+}
