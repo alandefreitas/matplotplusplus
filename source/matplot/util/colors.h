@@ -104,6 +104,7 @@ namespace matplot {
         std::vector<std::vector<double>> greys(size_t n = 8);
         std::vector<std::vector<double>> inferno(size_t n = 256);
         std::vector<std::vector<double>> jet(size_t n = 64);
+        std::vector<std::vector<double>> turbo(size_t n = 256);
         std::vector<std::vector<double>> magma(size_t n = 256);
         std::vector<std::vector<double>> oranges(size_t n = 8);
         std::vector<std::vector<double>> orrd(size_t n = 8);
