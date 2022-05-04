@@ -9458,6 +9458,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/diverger">
+            <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
+            <br />
+            <sub><b>diverger</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/eagle-dai">
             <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
             <br />
@@ -9470,15 +9477,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Myd7349</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/wjdragon">
             <img src="https://avatars.githubusercontent.com/u/88807697?v=4" width="100;" alt="wjdragon"/>
             <br />
             <sub><b>Wjdragon</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ankane">
             <img src="https://avatars3.githubusercontent.com/u/220358?v=4" width="100;" alt="ankane"/>
