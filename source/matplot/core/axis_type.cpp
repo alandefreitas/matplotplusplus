@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <ctime>
 #include <matplot/core/axes_type.h>
 #include <matplot/core/axis_type.h>
 #include <matplot/core/figure_type.h>
@@ -255,8 +256,9 @@ namespace matplot {
                 if (is_timestamp_) {
                     char buff[20] = {0};
                     time_t now = (time_t)tick_values_[i];
-                    strftime(buff, 20, tick_label_format_.c_str(),
-                             localtime(&now));
+                    struct tm buf;
+                    localtime_s(&buf, &now);
+                    strftime(buff, 20, tick_label_format_.c_str(), &buf);
                     r += "\"" + escape(std::string(buff)) + "\" ";
                 } else {
                     r += "\"" +
