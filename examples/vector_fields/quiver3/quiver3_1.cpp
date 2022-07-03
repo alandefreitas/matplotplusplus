@@ -16,7 +16,7 @@ int main() {
     auto V = get_v();
     auto W = get_w();
 
-    quiver3(Z, U, V, W);
+    quiver3(Z, U, V, W, 5);
     view(-35, 45);
 
     show();
