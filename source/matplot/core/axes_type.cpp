@@ -4551,15 +4551,23 @@ namespace matplot {
         double v_max = *std::max_element(v.begin(), v.end());
         double y_max = ydiffmin != y_diff.end() ? *ydiffmin : v_max;
 
+        // scale u, v with same ratio to retain direction
+        double mag_max = 1;
+        for (size_t i = 0; i < u.size(); ++i) {
+            double mag = sqrt(u[i] * u[i] + v[i] * v[i]);
+            mag_max = mag > mag_max ? mag : mag_max;
+        }
+        double val_max = std::min(x_max, y_max);
+
         auto u_scaled =
             (scale != 0.)
                 ? transform(
-                      u, [&](double u) { return (u / u_max) * scale * x_max; })
+                      u, [&](double u) { return (u / mag_max) * scale * val_max; })
                 : u;
         auto v_scaled =
             (scale != 0.)
                 ? transform(
-                      v, [&](double v) { return (v / v_max) * scale * y_max; })
+                      v, [&](double v) { return (v / mag_max) * scale * val_max; })
                 : v;
 
         vectors_handle l = std::make_shared<class vectors>(
@@ -4640,20 +4648,28 @@ namespace matplot {
         double w_max = *std::max_element(w.begin(), w.end());
         double z_max = zdiffmin != z_diff.end() ? *zdiffmin : w_max;
 
+        // scale u, v, w with same ratio to retain direction
+        double mag_max = 1;
+        for (size_t i = 0; i < u.size(); ++i) {
+            double mag = sqrt(u[i] * u[i] + v[i] * v[i] + w[i] * w[i]);
+            mag_max = mag > mag_max ? mag : mag_max;
+        }
+        double val_max = std::min(std::min(x_max, y_max), z_max);
+
         auto u_scaled =
             (scale != 0.)
                 ? transform(
-                      u, [&](double u) { return (u / u_max) * scale * x_max; })
+                      u, [&](double u) { return (u / mag_max) * scale * val_max; })
                 : u;
         auto v_scaled =
             (scale != 0.)
                 ? transform(
-                      v, [&](double v) { return (v / v_max) * scale * y_max; })
+                      v, [&](double v) { return (v / mag_max) * scale * val_max; })
                 : v;
         auto w_scaled =
             (scale != 0.)
                 ? transform(
-                      w, [&](double w) { return (w / w_max) * scale * z_max; })
+                      w, [&](double w) { return (w / mag_max) * scale * val_max; })
                 : w;
 
         vectors_handle l = std::make_shared<class vectors>(
