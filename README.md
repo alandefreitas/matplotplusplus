@@ -9401,6 +9401,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/acxz">
+            <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
+            <br />
+            <sub><b>Akash Patel</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/aalbaali">
             <img src="https://avatars.githubusercontent.com/u/36138453?v=4" width="100;" alt="aalbaali"/>
             <br />
@@ -9427,15 +9434,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>MaBnt</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Morwenn">
             <img src="https://avatars.githubusercontent.com/u/1164683?v=4" width="100;" alt="Morwenn"/>
             <br />
             <sub><b>Morwenn</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/kaffehalv">
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
@@ -9451,17 +9458,10 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/acxz">
-            <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
-            <br />
-            <sub><b>Akash Patel</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/diverger">
             <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
             <br />
-            <sub><b>diverger</b></sub>
+            <sub><b>Diverger</b></sub>
         </a>
     </td>
     <td align="center">
