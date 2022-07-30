@@ -9425,7 +9425,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/csernib">
             <img src="https://avatars.githubusercontent.com/u/26774231?v=4" width="100;" alt="csernib"/>
             <br />
-            <sub><b>Bálint Cserni</b></sub>
+            <sub><b>BC!lint Cserni</b></sub>
         </a>
     </td>
     <td align="center">
@@ -9465,20 +9465,27 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/TheGreatRambler">
+            <img src="https://avatars.githubusercontent.com/u/31906920?v=4" width="100;" alt="TheGreatRambler"/>
+            <br />
+            <sub><b>TheGreatRambler</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/diverger">
             <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
             <br />
             <sub><b>Diverger</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/eagle-dai">
             <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
             <br />
             <sub><b>Eagle-dai</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/myd7349">
             <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
