@@ -59,17 +59,17 @@ namespace matplot {
 
     std::string axes_object::unset_variables_string() { return ""; }
 
-    double axes_object::xmax() { return -10; }
+    double axes_object::xmin() { return -10; }
 
-    double axes_object::xmin() { return +10; }
+    double axes_object::xmax() { return +10; }
 
-    double axes_object::ymax() { return -10; }
+    double axes_object::ymin() { return -10; }
 
-    double axes_object::ymin() { return +10; }
+    double axes_object::ymax() { return +10; }
 
-    double axes_object::zmax() { return -10; }
+    double axes_object::zmin() { return -10; }
 
-    double axes_object::zmin() { return +10; }
+    double axes_object::zmax() { return +10; }
 
     enum axes_object::axes_category axes_object::axes_category() {
         return axes_category::two_dimensional;
