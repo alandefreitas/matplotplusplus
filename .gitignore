@@ -16,6 +16,7 @@ out
 .idea
 codealike.json
 .vs
+.vscode
 CMakeLists.txt.user
 CMakeSettings.json
 gh-md-toc

@@ -25,7 +25,8 @@ namespace matplot {
         explicit axis_type(class axes_type *parent);
         explicit axis_type(class axes_type *parent, bool visible);
         axis_type(class axes_type *parent, double min, double max);
-        axis_type(class axes_type *parent, double min, double max, bool visible);
+        axis_type(class axes_type *parent, double min, double max,
+                  bool visible);
 
       public:
         void touch();
@@ -106,6 +107,9 @@ namespace matplot {
             return *this;
         }
 
+        bool is_timestamp() const;
+        class axis_type &is_timestamp(bool is_timestamp);
+
         bool visible() const;
         class axis_type &visible(bool visible);
 
@@ -153,6 +157,8 @@ namespace matplot {
         std::string label_weight_{"normal"};
         float label_font_size_{11};
         color_array label_color_{0, 0, 0, 0};
+
+        bool is_timestamp_{false};
 
         // line
         float line_width_{0.5};

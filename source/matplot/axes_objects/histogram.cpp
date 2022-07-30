@@ -55,6 +55,8 @@ namespace matplot {
     std::string histogram::plot_string() {
         maybe_update_face_color();
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         if (!is_polar()) {
             if (!stairs_only_) {
                 ss << " '-' with boxes fillstyle solid";
@@ -87,6 +89,8 @@ namespace matplot {
     std::string histogram::data_string() {
         make_sure_data_is_preprocessed();
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         if (!is_polar()) {
             for (size_t i = 0; i < values_.size(); ++i) {
                 // <box center>    <box height>    <box width>
@@ -517,7 +521,8 @@ namespace matplot {
         case binning_algorithm::sqrt:
             return sqrt_rule(data, minx, maxx, hard_limits);
         }
-        throw std::logic_error("histogram::histrogram_edges: could not find the binning algorithm");
+        throw std::logic_error("histogram::histrogram_edges: could not find "
+                               "the binning algorithm");
     }
 
     std::vector<size_t>

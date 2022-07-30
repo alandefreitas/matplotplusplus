@@ -8,12 +8,12 @@
 #else
 #include <filesystem>
 #endif
+#include <cstdlib>
 #include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
 #include <regex>
 #include <thread>
-#include <cstdlib>
 
 #ifdef MATPLOT_HAS_FBUFSIZE
 
@@ -205,9 +205,15 @@ namespace matplot::backend {
             run_command("set terminal " + terminal_ + " position " +
                         num2str(position_[0]) + "," + num2str(position_[1]));
         }
-        if (terminal_has_size_option(terminal_)) {
-            run_command("set terminal " + terminal_ + " size " +
-                        num2str(position_[2]) + "," + num2str(position_[3]));
+        if (terminal_ == "dumb") {
+            run_command("set terminal dumb " + num2str(position_[2]) + " " +
+                        num2str(position_[3]));
+        } else {
+            if (terminal_has_size_option(terminal_)) {
+                run_command("set terminal " + terminal_ + " size " +
+                            num2str(position_[2]) + "," +
+                            num2str(position_[3]));
+            }
         }
     }
 
@@ -217,9 +223,15 @@ namespace matplot::backend {
             run_command("set terminal " + terminal_ + " position " +
                         num2str(position_[0]) + "," + num2str(position_[1]));
         }
-        if (terminal_has_size_option(terminal_)) {
-            run_command("set terminal " + terminal_ + " size " +
-                        num2str(position_[2]) + "," + num2str(position_[3]));
+        if (terminal_ == "dumb") {
+            run_command("set terminal dumb " + num2str(position_[2]) + " " +
+                        num2str(position_[3]));
+        } else {
+            if (terminal_has_size_option(terminal_)) {
+                run_command("set terminal " + terminal_ + " size " +
+                            num2str(position_[2]) + "," +
+                            num2str(position_[3]));
+            }
         }
     }
 
@@ -318,7 +330,9 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_is_available(std::string_view term) {
-        std::string msg = run_and_get_output("gnuplot -e \"set terminal " + std::string(term.data()) + "\" 2>&1");
+        std::string msg =
+            run_and_get_output("gnuplot -e \"set terminal " +
+                               std::string(term.data()) + "\" 2>&1");
         return msg.empty();
     }
 

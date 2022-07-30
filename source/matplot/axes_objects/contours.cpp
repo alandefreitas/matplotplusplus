@@ -50,6 +50,8 @@ namespace matplot {
         double contour_max_level = *max_it;
 
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         if (filled_) {
             auto [lower_levels, upper_levels] = get_lowers_and_uppers();
             // Command for background filled curve
@@ -413,7 +415,8 @@ namespace matplot {
         _levels = levels_;
 
         // Extend minimum beyond zmin (for filled plots)
-        const bool log = parent_->z_axis().scale() == axis_type::axis_scale::log;
+        const bool log =
+            parent_->z_axis().scale() == axis_type::axis_scale::log;
         if (extend_ == extend_option::both || extend_ == extend_option::min) {
             double lower = log ? 1e-250 : -1e250;
             _levels.insert(_levels.begin(), lower);
@@ -475,6 +478,8 @@ namespace matplot {
         double zmin = *min_level_it;
 
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         for (size_t i = 0; i < lines_.size(); ++i) {
             if (i != 0) {
                 ss << ",";
@@ -766,6 +771,8 @@ namespace matplot {
         auto [lower_levels, upper_levels] = get_lowers_and_uppers();
 
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         if (filled_) {
             // Plot the line segments
             // Create one filled curve for each segment of a contour.
@@ -1024,7 +1031,7 @@ namespace matplot {
                     // nans at end of the underlying storage)
                     while (j + 1 < lines_[i].first.size() &&
                            is_separator(lines_[i].first[j + 1],
-                           lines_[i].second[j + 1])) {
+                                        lines_[i].second[j + 1])) {
                         ++j;
                     }
                     // Include an empty line to indicate this polygon or line

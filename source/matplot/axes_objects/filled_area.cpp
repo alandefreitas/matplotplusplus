@@ -58,6 +58,8 @@ namespace matplot {
 
     std::string filled_area::data_string() {
         std::stringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
 
         std::vector<double> stacked_data;
         if (!stacked_) {

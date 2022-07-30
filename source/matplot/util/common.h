@@ -46,6 +46,8 @@ namespace matplot {
 
     template <class T> std::string num2str(Arithmetic<T> num) {
         std::ostringstream ss;
+        ss.precision(5);
+        ss << std::fixed;
         ss << num;
         return ss.str();
     }
@@ -108,7 +110,7 @@ namespace matplot {
         return val1 < val2 ? val1 : val2;
     }
 
-    template <typename T, typename... Ts> T min(T val1, T val2, Ts &&... vs) {
+    template <typename T, typename... Ts> T min(T val1, T val2, Ts &&...vs) {
         return val1 < val2 ? min(val1, std::forward<Ts>(vs)...)
                            : min(val2, std::forward<Ts>(vs)...);
     }
@@ -117,7 +119,7 @@ namespace matplot {
         return val1 > val2 ? val1 : val2;
     }
 
-    template <typename T, typename... Ts> T max(T val1, T val2, Ts &&... vs) {
+    template <typename T, typename... Ts> T max(T val1, T val2, Ts &&...vs) {
         return val1 > val2 ? max(val1, std::forward<Ts>(vs)...)
                            : max(val2, std::forward<Ts>(vs)...);
     }
@@ -201,7 +203,8 @@ namespace matplot {
     }
 
     template <class T>
-    detail::forward_or_copy<T, std::vector<vector_2d>> to_vector_3d(const T &v) {
+    detail::forward_or_copy<T, std::vector<vector_2d>>
+    to_vector_3d(const T &v) {
         if constexpr (std::is_same_v<T, std::vector<vector_2d>>) {
             return v;
         } else {
@@ -249,7 +252,7 @@ namespace matplot {
 
     template <class... Args>
     std::vector<double> concat(const std::vector<double> &a,
-                               const std::vector<double> &b, Args&&... args) {
+                               const std::vector<double> &b, Args &&...args) {
         std::vector<double> r = concat(a, b);
         return concat(r, std::forward<Args>(args)...);
     }
@@ -262,7 +265,7 @@ namespace matplot {
     }
 
     template <class Arg1, class... Args, class TUPLE>
-    void reorder_parameter_pack_in_tuple(TUPLE &t, Arg1 x, Args&&... args) {
+    void reorder_parameter_pack_in_tuple(TUPLE &t, Arg1 x, Args &&...args) {
         std::get<Arg1>(t) = x;
         reorder_parameter_pack_in_tuple(t, std::forward<Args>(args)...);
     }
@@ -426,7 +429,8 @@ namespace matplot {
     vector_2d transpose(const vector_2d &z);
 
     std::vector<std::string>
-    tokenize(std::string_view text, std::string_view delimiters = " ',\n\r\t\".!?:");
+    tokenize(std::string_view text,
+             std::string_view delimiters = " ',\n\r\t\".!?:");
 
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
@@ -434,8 +438,7 @@ namespace matplot {
               size_t max_cloud_size = 100);
 
     std::pair<std::vector<std::string>, std::vector<size_t>>
-    wordcount(std::string_view text,
-              const std::vector<std::string> &black_list,
+    wordcount(std::string_view text, const std::vector<std::string> &black_list,
               std::string_view delimiters = " ',\n\r\t\".!?:;",
               size_t max_cloud_size = 100);
 
