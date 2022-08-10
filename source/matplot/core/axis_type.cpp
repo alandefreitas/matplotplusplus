@@ -256,9 +256,13 @@ namespace matplot {
                 if (is_timestamp_) {
                     char buff[20] = {0};
                     time_t now = (time_t)tick_values_[i];
-                    struct tm* buf;
-                    buf = localtime(&now);
-                   strftime(buff, 20, tick_label_format_.c_str(), buf);
+                    struct tm buf;
+#if defined(__unix__)
+                    localtime_r(&now, &buf);
+#elif defined(__MSC_VER)
+                    localtime_s(&buf, &now)
+#endif
+                    strftime(buff, 20, tick_label_format_.c_str(), &buf);
                     r += "\"" + escape(std::string(buff)) + "\" ";
                 } else {
                     r += "\"" +
