@@ -259,8 +259,8 @@ namespace matplot {
                     struct tm buf;
 #if defined(__unix__)
                     localtime_r(&now, &buf);
-#elif defined(__MSC_VER)
-                    localtime_s(&buf, &now)
+#elif defined(_WIN32)
+                    localtime_s(&buf, &now);
 #endif
                     strftime(buff, 20, tick_label_format_.c_str(), &buf);
                     r += "\"" + escape(std::string(buff)) + "\" ";
