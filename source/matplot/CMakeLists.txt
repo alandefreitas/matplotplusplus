@@ -159,10 +159,6 @@ endif ()
 #######################################################
 ### Library options                                 ###
 #######################################################
-if(MSVC)
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-endif()
-
 # Maybe add pedantic warning
 
 
