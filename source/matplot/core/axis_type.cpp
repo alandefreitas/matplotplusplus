@@ -266,9 +266,9 @@ namespace matplot {
 #if defined(__unix__)
                     localtime_r(&now, &buf);
 #elif defined(_WIN32)
-                    localtime_s(&buf, &now)
+                    localtime_s(&buf, &now);
 #else
-                    buf = std::localtime(&now)
+                    buf = std::localtime(&now);
 #endif
                     strftime(buff, 20, tick_label_format_.c_str(), &buf);
                     r += "\"" + escape(std::string(buff)) + "\" ";
