@@ -9487,6 +9487,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/kwoodle">
+            <img src="https://avatars.githubusercontent.com/u/11303028?v=4" width="100;" alt="kwoodle"/>
+            <br />
+            <sub><b>kwoodle</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/myd7349">
             <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
             <br />
