@@ -3,7 +3,13 @@
 //
 
 #include <cmath>
+#if defined(__unix__)
+#include <time.h>
+#elif defined(_WIN32)
+#include <time.h>
+#else
 #include <ctime>
+#endif
 #include <matplot/core/axes_type.h>
 #include <matplot/core/axis_type.h>
 #include <matplot/core/figure_type.h>
@@ -257,7 +263,13 @@ namespace matplot {
                     char buff[20] = {0};
                     time_t now = (time_t)tick_values_[i];
                     struct tm buf;
+#if defined(__unix__)
+                    localtime_r(&now, &buf);
+#elif defined(_WIN32)
                     localtime_s(&buf, &now);
+#else
+                    buf = *std::localtime(&now);
+#endif
                     strftime(buff, 20, tick_label_format_.c_str(), &buf);
                     r += "\"" + escape(std::string(buff)) + "\" ";
                 } else {
