@@ -560,7 +560,7 @@ If CMake is not installed or its version is older than CMake 3.14, update it wit
 === "Mac Os + Clang"
 
     ```bash
-    sudo brew upgrade cmake
+    brew upgrade cmake
     ```
 
     !!! warning "Homebrew"
@@ -599,7 +599,7 @@ Install Gnuplot 5.2.6+ (Required at runtime)
 === "Mac Os + Clang"
 
     ```bash
-    sudo brew install gnuplot
+    brew install gnuplot
     ```
 
     !!! note ""
