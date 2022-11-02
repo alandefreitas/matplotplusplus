@@ -9437,6 +9437,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/saxbophone">
+            <img src="https://avatars.githubusercontent.com/u/8693463?v=4" width="100;" alt="saxbophone"/>
+            <br />
+            <sub><b>Joshua Saxby</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MaBnt">
             <img src="https://avatars.githubusercontent.com/u/28400222?v=4" width="100;" alt="MaBnt"/>
             <br />
@@ -9470,15 +9477,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>TheGreatRambler</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/diverger">
             <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
             <br />
             <sub><b>Diverger</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/eagle-dai">
             <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
@@ -9490,7 +9497,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/kwoodle">
             <img src="https://avatars.githubusercontent.com/u/11303028?v=4" width="100;" alt="kwoodle"/>
             <br />
-            <sub><b>kwoodle</b></sub>
+            <sub><b>Kwoodle</b></sub>
         </a>
     </td>
     <td align="center">
