@@ -252,10 +252,10 @@ If you're using a version of CMake too old to support presets, then building wit
 
 ```bash
 cmake -B build/system         \
-    -DBUILD_EXAMPLES=OFF      \
+    -DMatplot++_BUILD_EXAMPLES=OFF      \
     -DBUILD_SHARED_LIBS=ON    \
-    -DBUILD_TESTS=OFF         \
-    -CMAKE_BUILD_TYPE=Release \
+    -DMatplot++_BUILD_TESTS=OFF         \
+    -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
 
 cmake --build build/system
@@ -265,9 +265,9 @@ While building with the local preset is equivilant to:
 
 ```bash
 cmake -B build/local                      \
-    -DBUILD_EXAMPLES=OFF                  \
+    -DMatplot++_BUILD_EXAMPLES=OFF                  \
     -DBUILD_SHARED_LIBS=ON                \
-    -DBUILD_TESTS=OFF                     \
+    -DMatplot++_BUILD_TESTS=OFF                     \
     -DCMAKE_BUILD_TYPE=Release            \
     -DCMAKE_INSTALL_PREFIX="$HOME/.local" \
     -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
@@ -636,11 +636,11 @@ There are two dependencies in [`source/3rd_party`](source/3rd_party). These depe
 * olvb/nodesoup
 * dtschump/CImg
 
-You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
+You can define `Matplot++_WITH_SYSTEM_NODESOUP=ON` or `Matplot++_WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
 **OpenGL dependencies**
 
-There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `Matplot++_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
 * OpenGL
 * GLAD
@@ -712,14 +712,14 @@ Replace `--parallel 2` with `--parallel <number of cores in your machine>`
 
 **Installing**
 
-You can 1) use `-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
+You can 1) use `-DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
 
 === "Ubuntu + GCC"
 
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
     sudo cmake --build . --parallel 2 --config Release
     sudo cmake --install .
     ```
@@ -729,7 +729,7 @@ You can 1) use `-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF` to bypass the examples a
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
     cmake --build . --parallel 2 --config Release
     cmake --install .
     ```
@@ -739,7 +739,7 @@ You can 1) use `-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF` to bypass the examples a
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
     cmake --build . --parallel 2 --config Release
     cmake --install .
     ```
@@ -9291,7 +9291,7 @@ In doubt, please open a [discussion](https://github.com/alandefreitas/matplotplu
 
 ### Contributing Guidelines
 
-If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DBUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DBUILD_WITH_PEDANTIC_WARNINGS=ON`), use [cppcheck](http://cppcheck.sourceforge.net/), and [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
+If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DMatplot++_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DMatplot++_BUILD_WITH_PEDANTIC_WARNINGS=ON`), use [cppcheck](http://cppcheck.sourceforge.net/), and [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 
 <details>
     <summary>Example: CLion</summary>

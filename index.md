@@ -2266,7 +2266,7 @@ This will install Matplot++ on your system:
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF 
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
 cmake --build . -j 2 --config Release
 cmake --install .
 ```
@@ -2280,7 +2280,7 @@ This will create the binary packages you can use to install Matplot++ on your sy
 ```bash
 mkdir build
 cmake -version
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF
 cmake --build . -j 2 --config Release
 cmake --install .
 cpack .
@@ -2426,7 +2426,7 @@ There are many ways in which you can contribute to this library:
 * Finding bugs in general <sup>see [1](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+error%22), [2](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+compilation+warning%22), [3](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+error%22), [4](https://github.com/alandefreitas/matplotplusplus/issues?q=is%3Aopen+is%3Aissue+label%3A%22bug+-+runtime+warning%22) </sup>
 * Whatever idea seems interesting to you
 
-If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DBUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DBUILD_WITH_PEDANTIC_WARNINGS=ON`).
+If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DMatplot++_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DMatplot++_BUILD_WITH_PEDANTIC_WARNINGS=ON`).
 
 
 Example: CLion
