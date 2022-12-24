@@ -212,7 +212,7 @@ However, in larger projects, it's always recommended to look for Matplot++ with 
 
 #### Install as a Package via CMake
 
-If you have CMake 3.21 or greater, you can use the `system` build preset to 
+If you have CMake 3.21 or greater, you can use the `system` build preset to
 build the package system-wide:
 
 ```bash
@@ -221,9 +221,9 @@ cmake --build --preset=system
 sudo cmake --install build/system
 ```
 
-Alternatively, if the `CMAKE_PREFIX_PATH` environment variable is set to 
-`$HOME/.local`, then you can install it locally. This can be set in `/etc/profile` 
-or your shell config. This will not affect discovery of packages installed 
+Alternatively, if the `CMAKE_PREFIX_PATH` environment variable is set to
+`$HOME/.local`, then you can install it locally. This can be set in `/etc/profile`
+or your shell config. This will not affect discovery of packages installed
 system-wide.
 
 ```bash
@@ -231,7 +231,7 @@ export CMAKE_PREFIX_PATH="$HOME/.local"
 ```
 
 This has the advantage of not
-requiring sudo, and matplotplusplus will be installed in `$HOME/.local`. 
+requiring sudo, and matplotplusplus will be installed in `$HOME/.local`.
 
 ```bash
 cmake --preset=local
@@ -252,9 +252,9 @@ If you're using a version of CMake too old to support presets, then building wit
 
 ```bash
 cmake -B build/system         \
-    -DMatplot++_BUILD_EXAMPLES=OFF      \
-    -DBUILD_SHARED_LIBS=ON    \
-    -DMatplot++_BUILD_TESTS=OFF         \
+    -DMATPLOTPP_BUILD_EXAMPLES=OFF      \
+    -DMATPLOTPP_BUILD_SHARED_LIBS=ON    \
+    -DMATPLOTPP_BUILD_TESTS=OFF         \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
 
@@ -265,9 +265,9 @@ While building with the local preset is equivilant to:
 
 ```bash
 cmake -B build/local                      \
-    -DMatplot++_BUILD_EXAMPLES=OFF                  \
-    -DBUILD_SHARED_LIBS=ON                \
-    -DMatplot++_BUILD_TESTS=OFF                     \
+    -DMATPLOTPP_BUILD_EXAMPLES=OFF                  \
+    -DMATPLOTPP_BUILD_SHARED_LIBS=ON                \
+    -DMATPLOTPP_BUILD_TESTS=OFF                     \
     -DCMAKE_BUILD_TYPE=Release            \
     -DCMAKE_INSTALL_PREFIX="$HOME/.local" \
     -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
@@ -318,7 +318,7 @@ Then add this header to your source files:
 
 ```cpp
 #include <matplot/matplot.h>
-```   
+```
 
 However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
 
@@ -348,7 +348,7 @@ Then add this header to your source files:
 
 ```cpp
 #include <matplot/matplot.h>
-```   
+```
 
 However, in larger projects, it's always recommended to look for Matplot++ with `find_package` before including it as a subdirectory to avoid [ODR errors](https://en.wikipedia.org/wiki/One_Definition_Rule).
 
@@ -478,7 +478,7 @@ If you need to update your compiler:
     ```
 
     To update to any other version, like GCC-9 or GCC-10:
-    
+
     ```bash
     sudo apt install build-essential
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -572,7 +572,7 @@ If CMake is not installed or its version is older than CMake 3.14, update it wit
 
         or you can follow the instructions in [https://brew.sh](https://brew.sh).
 
-    
+
     !!! warning ""
         Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
 
@@ -636,11 +636,11 @@ There are two dependencies in [`source/3rd_party`](source/3rd_party). These depe
 * olvb/nodesoup
 * dtschump/CImg
 
-You can define `Matplot++_WITH_SYSTEM_NODESOUP=ON` or `Matplot++_WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
+You can define `MATPLOTPP_WITH_SYSTEM_NODESOUP=ON` or `MATPLOTPP_WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
 **OpenGL dependencies**
 
-There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `Matplot++_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
 * OpenGL
 * GLAD
@@ -712,14 +712,14 @@ Replace `--parallel 2` with `--parallel <number of cores in your machine>`
 
 **Installing**
 
-You can 1) use `-DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
+You can 1) use `-DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF` to bypass the examples and tests, and then 2) `cmake --install .` to install Matplot++ on your system:
 
 === "Ubuntu + GCC"
 
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
     sudo cmake --build . --parallel 2 --config Release
     sudo cmake --install .
     ```
@@ -729,7 +729,7 @@ You can 1) use `-DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF` to b
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
     cmake --build . --parallel 2 --config Release
     cmake --install .
     ```
@@ -739,7 +739,7 @@ You can 1) use `-DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF` to b
     ```bash
     mkdir build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DMatplot++_BUILD_EXAMPLES=OFF -DMatplot++_BUILD_TESTS=OFF 
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
     cmake --build . --parallel 2 --config Release
     cmake --install .
     ```
@@ -783,7 +783,7 @@ You can also create the binary packages to install Matplot++ on other systems:
     Use these examples to understand how to quickly use the library for data visualization. If you are interested in understanding how the library works, you can later read the details in the complete [article](docs/white-paper.md).
 
 ```cpp
-plot(x,y); 
+plot(x,y);
 ```
 
 Where `x` and `y` are are any value ranges.
@@ -810,9 +810,9 @@ Where `x` and `y` are are any value ranges.
 <!-- START mdsplit-ignore -->
 <details>
     <summary>More examples</summary>
-    
+
 [![example_plot_2](docs/examples/line_plot/plot/plot_2_thumb.png)](examples/line_plot/plot/plot_2.cpp)  [![example_plot_3](docs/examples/line_plot/plot/plot_3_thumb.png)](examples/line_plot/plot/plot_3.cpp)  [![example_plot_4](docs/examples/line_plot/plot/plot_4_thumb.png)](examples/line_plot/plot/plot_4.cpp)  [![example_plot_5](docs/examples/line_plot/plot/plot_5_thumb.png)](examples/line_plot/plot/plot_5.cpp)  [![example_plot_6](docs/examples/line_plot/plot/plot_6_thumb.png)](examples/line_plot/plot/plot_6.cpp)  [![example_plot_7](docs/examples/line_plot/plot/plot_7_thumb.png)](examples/line_plot/plot/plot_7.cpp)  [![example_plot_8](docs/examples/line_plot/plot/plot_8_thumb.png)](examples/line_plot/plot/plot_8.cpp)  [![example_plot_9](docs/examples/line_plot/plot/plot_9_thumb.png)](examples/line_plot/plot/plot_9.cpp)  [![example_plot_10](docs/examples/line_plot/plot/plot_10_thumb.png)](examples/line_plot/plot/plot_10.cpp)  [![example_plot_11](docs/examples/line_plot/plot/plot_11_thumb.png)](examples/line_plot/plot/plot_11.cpp)  [![example_plot_12](docs/examples/line_plot/plot/plot_12_thumb.png)](examples/line_plot/plot/plot_12.cpp)
-</details>  
+</details>
 <!-- END mdsplit-ignore -->
 
 !!! tip
@@ -973,7 +973,7 @@ plot3(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>More examples</summary>
-    
+
 [![example_plot3_2](docs/examples/line_plot/plot3/plot3_2_thumb.png)](examples/line_plot/plot3/plot3_2.cpp)  [![example_plot3_3](docs/examples/line_plot/plot3/plot3_3_thumb.png)](examples/line_plot/plot3/plot3_3.cpp)  [![example_plot3_4](docs/examples/line_plot/plot3/plot3_4_thumb.png)](examples/line_plot/plot3/plot3_4.cpp)  [![example_plot3_5](docs/examples/line_plot/plot3/plot3_5_thumb.png)](examples/line_plot/plot3/plot3_5.cpp)  [![example_plot3_7](docs/examples/line_plot/plot3/plot3_7_thumb.png)](examples/line_plot/plot3/plot3_7.cpp)  [![example_plot3_8](docs/examples/line_plot/plot3/plot3_8_thumb.png)](examples/line_plot/plot3/plot3_8.cpp)  [![example_plot3_9](docs/examples/line_plot/plot3/plot3_9_thumb.png)](examples/line_plot/plot3/plot3_9.cpp)  [![example_plot3_10](docs/examples/line_plot/plot3/plot3_10_thumb.png)](examples/line_plot/plot3/plot3_10.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1071,11 +1071,11 @@ The `stair` object renders the line with stairs between data points to denote di
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_stairs_1](docs/examples/line_plot/stairs/stairs_1.svg)](examples/line_plot/stairs/stairs_1.cpp)
 
 More examples:
-    
+
 [![example_stairs_2](docs/examples/line_plot/stairs/stairs_2_thumb.png)](examples/line_plot/stairs/stairs_2.cpp)  [![example_stairs_3](docs/examples/line_plot/stairs/stairs_3_thumb.png)](examples/line_plot/stairs/stairs_3.cpp)  [![example_stairs_4](docs/examples/line_plot/stairs/stairs_4_thumb.png)](examples/line_plot/stairs/stairs_4.cpp)  [![example_stairs_5](docs/examples/line_plot/stairs/stairs_5_thumb.png)](examples/line_plot/stairs/stairs_5.cpp)  [![example_stairs_6](docs/examples/line_plot/stairs/stairs_6_thumb.png)](examples/line_plot/stairs/stairs_6.cpp)  [![example_stairs_7](docs/examples/line_plot/stairs/stairs_7_thumb.png)](examples/line_plot/stairs/stairs_7.cpp)  [![example_stairs_8](docs/examples/line_plot/stairs/stairs_8_thumb.png)](examples/line_plot/stairs/stairs_8.cpp)  [![example_stairs_9](docs/examples/line_plot/stairs/stairs_9_thumb.png)](examples/line_plot/stairs/stairs_9.cpp)  [![example_stairs_10](docs/examples/line_plot/stairs/stairs_10_thumb.png)](examples/line_plot/stairs/stairs_10.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1183,11 +1183,11 @@ errorbar(x,y,err);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_errorbar_1](docs/examples/line_plot/errorbar/errorbar_1.svg)](examples/line_plot/errorbar/errorbar_1.cpp)
 
 More examples:
-    
+
 [![example_errorbar_2](docs/examples/line_plot/errorbar/errorbar_2_thumb.png)](examples/line_plot/errorbar/errorbar_2.cpp)  [![example_errorbar_3](docs/examples/line_plot/errorbar/errorbar_3_thumb.png)](examples/line_plot/errorbar/errorbar_3.cpp)  [![example_errorbar_4](docs/examples/line_plot/errorbar/errorbar_4_thumb.png)](examples/line_plot/errorbar/errorbar_4.cpp)  [![example_errorbar_5](docs/examples/line_plot/errorbar/errorbar_5_thumb.png)](examples/line_plot/errorbar/errorbar_5.cpp)  [![example_errorbar_6](docs/examples/line_plot/errorbar/errorbar_6_thumb.png)](examples/line_plot/errorbar/errorbar_6.cpp)  [![example_errorbar_7](docs/examples/line_plot/errorbar/errorbar_7_thumb.png)](examples/line_plot/errorbar/errorbar_7.cpp)  [![example_errorbar_8](docs/examples/line_plot/errorbar/errorbar_8_thumb.png)](examples/line_plot/errorbar/errorbar_8.cpp)  [![example_errorbar_9](docs/examples/line_plot/errorbar/errorbar_9_thumb.png)](examples/line_plot/errorbar/errorbar_9.cpp)  [![example_errorbar_10](docs/examples/line_plot/errorbar/errorbar_10_thumb.png)](examples/line_plot/errorbar/errorbar_10.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1297,7 +1297,7 @@ More examples:
     ```
 
 
-The `error bar` object includes extra lines to represent error around data points. Log plots are utility functions that adjust the x or y axes to a logarithmic scale. 
+The `error bar` object includes extra lines to represent error around data points. Log plots are utility functions that adjust the x or y axes to a logarithmic scale.
 
 #### Area
 
@@ -1308,11 +1308,11 @@ area(Y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_area_1](docs/examples/line_plot/area/area_1.svg)](examples/line_plot/area/area_1.cpp)
 
 More examples:
-    
+
 [![example_area_2](docs/examples/line_plot/area/area_2_thumb.png)](examples/line_plot/area/area_2.cpp)  [![example_area_3](docs/examples/line_plot/area/area_3_thumb.png)](examples/line_plot/area/area_3.cpp)  [![example_area_4](docs/examples/line_plot/area/area_4_thumb.png)](examples/line_plot/area/area_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1370,11 +1370,11 @@ loglog(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_loglog_1](docs/examples/line_plot/loglog/loglog_1.svg)](examples/line_plot/loglog/loglog_1.cpp)
 
 More examples:
-    
+
 [![example_loglog_2](docs/examples/line_plot/loglog/loglog_2_thumb.png)](examples/line_plot/loglog/loglog_2.cpp)  [![example_loglog_3](docs/examples/line_plot/loglog/loglog_3_thumb.png)](examples/line_plot/loglog/loglog_3.cpp)  [![example_loglog_4](docs/examples/line_plot/loglog/loglog_4_thumb.png)](examples/line_plot/loglog/loglog_4.cpp)  [![example_loglog_5](docs/examples/line_plot/loglog/loglog_5_thumb.png)](examples/line_plot/loglog/loglog_5.cpp)  [![example_loglog_6](docs/examples/line_plot/loglog/loglog_6_thumb.png)](examples/line_plot/loglog/loglog_6.cpp)  [![example_loglog_7](docs/examples/line_plot/loglog/loglog_7_thumb.png)](examples/line_plot/loglog/loglog_7.cpp)  [![example_loglog_8](docs/examples/line_plot/loglog/loglog_8_thumb.png)](examples/line_plot/loglog/loglog_8.cpp)  [![example_loglog_9](docs/examples/line_plot/loglog/loglog_9_thumb.png)](examples/line_plot/loglog/loglog_9.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1482,7 +1482,7 @@ semilogx(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_semilogx_1](docs/examples/line_plot/semilogx/semilogx_1.svg)](examples/line_plot/semilogx/semilogx_1.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1506,7 +1506,7 @@ semilogy(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_semilogy_1](docs/examples/line_plot/semilogy/semilogy_1.svg)](examples/line_plot/semilogy/semilogy_1.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1530,11 +1530,11 @@ fplot(fx);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_fplot_1](docs/examples/line_plot/fplot/fplot_1.svg)](examples/line_plot/fplot/fplot_1.cpp)
 
 More examples:
-    
+
 [![example_fplot_2](docs/examples/line_plot/fplot/fplot_2_thumb.png)](examples/line_plot/fplot/fplot_2.cpp)  [![example_fplot_3](docs/examples/line_plot/fplot/fplot_3_thumb.png)](examples/line_plot/fplot/fplot_3.cpp)  [![example_fplot_4](docs/examples/line_plot/fplot/fplot_4_thumb.png)](examples/line_plot/fplot/fplot_4.cpp)  [![example_fplot_5](docs/examples/line_plot/fplot/fplot_5_thumb.png)](examples/line_plot/fplot/fplot_5.cpp)  [![example_fplot_6](docs/examples/line_plot/fplot/fplot_6_thumb.png)](examples/line_plot/fplot/fplot_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1614,11 +1614,11 @@ fplot(fxy);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_fplot3_1](docs/examples/line_plot/fplot3/fplot3_1.svg)](examples/line_plot/fplot3/fplot3_1.cpp)
 
 More examples:
-    
+
 [![example_fplot3_2](docs/examples/line_plot/fplot3/fplot3_2_thumb.png)](examples/line_plot/fplot3/fplot3_2.cpp)  [![example_fplot3_3](docs/examples/line_plot/fplot3/fplot3_3_thumb.png)](examples/line_plot/fplot3/fplot3_3.cpp)  [![example_fplot3_4](docs/examples/line_plot/fplot3/fplot3_4_thumb.png)](examples/line_plot/fplot3/fplot3_4.cpp)  [![example_fplot3_5](docs/examples/line_plot/fplot3/fplot3_5_thumb.png)](examples/line_plot/fplot3/fplot3_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1685,11 +1685,11 @@ fplot(fxy);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_fimplicit_1](docs/examples/line_plot/fimplicit/fimplicit_1.svg)](examples/line_plot/fimplicit/fimplicit_1.cpp)
 
 More examples:
-    
+
 [![example_fimplicit_2](docs/examples/line_plot/fimplicit/fimplicit_2_thumb.png)](examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](docs/examples/line_plot/fimplicit/fimplicit_3_thumb.png)](examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](docs/examples/line_plot/fimplicit/fimplicit_4_thumb.png)](examples/line_plot/fimplicit/fimplicit_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1755,11 +1755,11 @@ hist(data);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_histogram_1](docs/examples/data_distribution/histogram/histogram_1.png)](examples/data_distribution/histogram/histogram_1.cpp)
 
 More examples:
-    
+
 [![example_histogram_2](docs/examples/data_distribution/histogram/histogram_2_thumb.png)](examples/data_distribution/histogram/histogram_2.cpp)  [![example_histogram_3](docs/examples/data_distribution/histogram/histogram_3_thumb.png)](examples/data_distribution/histogram/histogram_3.cpp)  [![example_histogram_4](docs/examples/data_distribution/histogram/histogram_4_thumb.png)](examples/data_distribution/histogram/histogram_4.cpp)  [![example_histogram_5](docs/examples/data_distribution/histogram/histogram_5_thumb.png)](examples/data_distribution/histogram/histogram_5.cpp)  [![example_histogram_6](docs/examples/data_distribution/histogram/histogram_6_thumb.png)](examples/data_distribution/histogram/histogram_6.cpp)  [![example_histogram_7](docs/examples/data_distribution/histogram/histogram_7_thumb.png)](examples/data_distribution/histogram/histogram_7.cpp)  [![example_histogram_8](docs/examples/data_distribution/histogram/histogram_8_thumb.png)](examples/data_distribution/histogram/histogram_8.cpp)  [![example_histogram_9](docs/examples/data_distribution/histogram/histogram_9_thumb.png)](examples/data_distribution/histogram/histogram_9.cpp)  [![example_histogram_10](docs/examples/data_distribution/histogram/histogram_10_thumb.png)](examples/data_distribution/histogram/histogram_10.cpp)  [![example_histogram_11](docs/examples/data_distribution/histogram/histogram_11_thumb.png)](examples/data_distribution/histogram/histogram_11.cpp)  [![example_histogram_12](docs/examples/data_distribution/histogram/histogram_12_thumb.png)](examples/data_distribution/histogram/histogram_12.cpp)  [![example_histogram_14](docs/examples/data_distribution/histogram/histogram_14_thumb.png)](examples/data_distribution/histogram/histogram_14.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1907,11 +1907,11 @@ boxplot(data);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_boxplot_1](docs/examples/data_distribution/boxplot/boxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
 
 More examples:
-    
+
 [![example_boxplot_2](docs/examples/data_distribution/boxplot/boxplot_2_thumb.png)](examples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](docs/examples/data_distribution/boxplot/boxplot_3_thumb.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -1961,11 +1961,11 @@ scatter(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_scatter_1](docs/examples/data_distribution/scatter/scatter_1.svg)](examples/data_distribution/scatter/scatter_1.cpp)
 
 More examples:
-    
+
 [![example_scatter_2](docs/examples/data_distribution/scatter/scatter_2_thumb.png)](examples/data_distribution/scatter/scatter_2.cpp)  [![example_scatter_3](docs/examples/data_distribution/scatter/scatter_3_thumb.png)](examples/data_distribution/scatter/scatter_3.cpp)  [![example_scatter_4](docs/examples/data_distribution/scatter/scatter_4_thumb.png)](examples/data_distribution/scatter/scatter_4.cpp)  [![example_scatter_5](docs/examples/data_distribution/scatter/scatter_5_thumb.png)](examples/data_distribution/scatter/scatter_5.cpp)  [![example_scatter_6](docs/examples/data_distribution/scatter/scatter_6_thumb.png)](examples/data_distribution/scatter/scatter_6.cpp)  [![example_scatter_7](docs/examples/data_distribution/scatter/scatter_7_thumb.png)](examples/data_distribution/scatter/scatter_7.cpp)  [![example_scatter_8](docs/examples/data_distribution/scatter/scatter_8_thumb.png)](examples/data_distribution/scatter/scatter_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2075,11 +2075,11 @@ scatter(x,y,z);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_scatter3_1](docs/examples/data_distribution/scatter3/scatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
 
 More examples:
-    
+
 [![example_scatter3_2](docs/examples/data_distribution/scatter3/scatter3_2_thumb.png)](examples/data_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](docs/examples/data_distribution/scatter3/scatter3_3_thumb.png)](examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](docs/examples/data_distribution/scatter3/scatter3_4_thumb.png)](examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](docs/examples/data_distribution/scatter3/scatter3_5_thumb.png)](examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](docs/examples/data_distribution/scatter3/scatter3_6_thumb.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2165,11 +2165,11 @@ binscatter(x,y);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_binscatter_1](docs/examples/data_distribution/binscatter/binscatter_1.png)](examples/data_distribution/binscatter/binscatter_1.cpp)
 
 More examples:
-    
+
 [![example_binscatter_2](docs/examples/data_distribution/binscatter/binscatter_2_thumb.png)](examples/data_distribution/binscatter/binscatter_2.cpp)  [![example_binscatter_3](docs/examples/data_distribution/binscatter/binscatter_3_thumb.png)](examples/data_distribution/binscatter/binscatter_3.cpp)  [![example_binscatter_4](docs/examples/data_distribution/binscatter/binscatter_4_thumb.png)](examples/data_distribution/binscatter/binscatter_4.cpp)  [![example_binscatter_5](docs/examples/data_distribution/binscatter/binscatter_5_thumb.png)](examples/data_distribution/binscatter/binscatter_5.cpp)  [![example_binscatter_6](docs/examples/data_distribution/binscatter/binscatter_6_thumb.png)](examples/data_distribution/binscatter/binscatter_6.cpp)  [![example_binscatter_7](docs/examples/data_distribution/binscatter/binscatter_7_thumb.png)](examples/data_distribution/binscatter/binscatter_7.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2268,11 +2268,11 @@ plotmatrix(X);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_plotmatrix_1](docs/examples/data_distribution/plotmatrix/plotmatrix_1.svg)](examples/data_distribution/plotmatrix/plotmatrix_1.cpp)
 
 More examples:
-    
+
 [![example_plotmatrix_2](docs/examples/data_distribution/plotmatrix/plotmatrix_2_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_2.cpp)  [![example_plotmatrix_3](docs/examples/data_distribution/plotmatrix/plotmatrix_3_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_3.cpp)  [![example_plotmatrix_4](docs/examples/data_distribution/plotmatrix/plotmatrix_4_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2327,7 +2327,7 @@ More examples:
 
 
 The Plot Matrix subcategory is a combination of histograms and scatter plots. It creates a matrix of `axes` objects on the `figure` and creates a scatter plot for each pair of data sets.
- 
+
 #### Parallel Coordinates
 
 ```cpp
@@ -2341,7 +2341,7 @@ parallelplot(X);
 [![example_parallelplot_1](docs/examples/data_distribution/parallelplot/parallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
 
 More examples:
-    
+
 [![example_parallelplot_2](docs/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](docs/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2384,7 +2384,7 @@ More examples:
 
 
 
-The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data. 
+The function `parallelplot` creates a plot with Parallel Coordinates. In this type of plot, a `parallel lines` object stores an arbitrary set of `axis` objects to represent multi-dimensional data.
 
 #### Pie Chart
 
@@ -2399,7 +2399,7 @@ pie(x);
 [![example_pie_1](docs/examples/data_distribution/pie/pie_1.svg)](examples/data_distribution/pie/pie_1.cpp)
 
 More examples:
-    
+
 [![example_pie_2](docs/examples/data_distribution/pie/pie_2_thumb.png)](examples/data_distribution/pie/pie_2.cpp)  [![example_pie_3](docs/examples/data_distribution/pie/pie_3_thumb.png)](examples/data_distribution/pie/pie_3.cpp)  [![example_pie_4](docs/examples/data_distribution/pie/pie_4_thumb.png)](examples/data_distribution/pie/pie_4.cpp)  [![example_pie_5](docs/examples/data_distribution/pie/pie_5_thumb.png)](examples/data_distribution/pie/pie_5.cpp)  [![example_pie_6](docs/examples/data_distribution/pie/pie_6_thumb.png)](examples/data_distribution/pie/pie_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2489,7 +2489,7 @@ heatmap(data);
 [![example_heatmap_1](docs/examples/data_distribution/heatmap/heatmap_1.png)](examples/data_distribution/heatmap/heatmap_1.cpp)
 
 More examples:
-    
+
 [![example_heatmap_2](docs/examples/data_distribution/heatmap/heatmap_2_thumb.png)](examples/data_distribution/heatmap/heatmap_2.cpp)  [![example_heatmap_3](docs/examples/data_distribution/heatmap/heatmap_3_thumb.png)](examples/data_distribution/heatmap/heatmap_3.cpp)  [![example_heatmap_4](docs/examples/data_distribution/heatmap/heatmap_4_thumb.png)](examples/data_distribution/heatmap/heatmap_4.cpp)  [![example_heatmap_5](docs/examples/data_distribution/heatmap/heatmap_5_thumb.png)](examples/data_distribution/heatmap/heatmap_5.cpp)  [![example_heatmap_6](docs/examples/data_distribution/heatmap/heatmap_6_thumb.png)](examples/data_distribution/heatmap/heatmap_6.cpp)  [![example_heatmap_7](docs/examples/data_distribution/heatmap/heatmap_7_thumb.png)](examples/data_distribution/heatmap/heatmap_7.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2589,7 +2589,7 @@ wordcloud(text, black_list);
 [![example_wordcloud_1](docs/examples/data_distribution/wordcloud/wordcloud_1.png)](examples/data_distribution/wordcloud/wordcloud_1.cpp)
 
 More examples:
-    
+
 [![example_wordcloud_3](docs/examples/data_distribution/wordcloud/wordcloud_3_thumb.png)](examples/data_distribution/wordcloud/wordcloud_3.cpp)  [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)  [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2667,7 +2667,7 @@ bar(y);
 [![example_bar_1](docs/examples/discrete_data/bar/bar_1.png)](examples/discrete_data/bar/bar_1.cpp)
 
 More examples:
-    
+
 [![example_bar_2](docs/examples/discrete_data/bar/bar_2_thumb.png)](examples/discrete_data/bar/bar_2.cpp)  [![example_bar_3](docs/examples/discrete_data/bar/bar_3_thumb.png)](examples/discrete_data/bar/bar_3.cpp)  [![example_bar_4](docs/examples/discrete_data/bar/bar_4_thumb.png)](examples/discrete_data/bar/bar_4.cpp)  [![example_bar_5](docs/examples/discrete_data/bar/bar_5_thumb.png)](examples/discrete_data/bar/bar_5.cpp)  [![example_bar_6](docs/examples/discrete_data/bar/bar_6_thumb.png)](examples/discrete_data/bar/bar_6.cpp)  [![example_bar_7](docs/examples/discrete_data/bar/bar_7_thumb.png)](examples/discrete_data/bar/bar_7.cpp)  [![example_bar_8](docs/examples/discrete_data/bar/bar_8_thumb.png)](examples/discrete_data/bar/bar_8.cpp)  [![example_bar_9](docs/examples/discrete_data/bar/bar_9_thumb.png)](examples/discrete_data/bar/bar_9.cpp)  [![example_bar_10](docs/examples/discrete_data/bar/bar_10_thumb.png)](examples/discrete_data/bar/bar_10.cpp)  [![example_bar_11](docs/examples/discrete_data/bar/bar_11_thumb.png)](examples/discrete_data/bar/bar_11.cpp)  [![example_bar_12](docs/examples/discrete_data/bar/bar_12_thumb.png)](examples/discrete_data/bar/bar_12.cpp)  [![example_bar_13](docs/examples/discrete_data/bar/bar_13_thumb.png)](examples/discrete_data/bar/bar_13.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2836,7 +2836,7 @@ pareto(y);
 [![example_pareto_1](docs/examples/discrete_data/pareto/pareto_1.svg)](examples/discrete_data/pareto/pareto_1.cpp)
 
 More examples:
-    
+
 [![example_pareto_2](docs/examples/discrete_data/pareto/pareto_2_thumb.png)](examples/discrete_data/pareto/pareto_2.cpp)  [![example_pareto_3](docs/examples/discrete_data/pareto/pareto_3_thumb.png)](examples/discrete_data/pareto/pareto_3.cpp) [![example_pareto_4](docs/examples/discrete_data/pareto/pareto_4_thumb.png)](examples/discrete_data/pareto/pareto_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -2907,7 +2907,7 @@ stem(Y);
 [![example_stem_1](docs/examples/discrete_data/stem/stem_1.svg)](examples/discrete_data/stem/stem_1.cpp)
 
 More examples:
-    
+
 [![example_stem_2](docs/examples/discrete_data/stem/stem_2_thumb.png)](examples/discrete_data/stem/stem_2.cpp)  [![example_stem_3](docs/examples/discrete_data/stem/stem_3_thumb.png)](examples/discrete_data/stem/stem_3.cpp)  [![example_stem_4](docs/examples/discrete_data/stem/stem_4_thumb.png)](examples/discrete_data/stem/stem_4.cpp)  [![example_stem_5](docs/examples/discrete_data/stem/stem_5_thumb.png)](examples/discrete_data/stem/stem_5.cpp)  [![example_stem_6](docs/examples/discrete_data/stem/stem_6_thumb.png)](examples/discrete_data/stem/stem_6.cpp)  [![example_stem_7](docs/examples/discrete_data/stem/stem_7_thumb.png)](examples/discrete_data/stem/stem_7.cpp)  [![example_stem_8](docs/examples/discrete_data/stem/stem_8_thumb.png)](examples/discrete_data/stem/stem_8.cpp)  [![example_stem_9](docs/examples/discrete_data/stem/stem_9_thumb.png)](examples/discrete_data/stem/stem_9.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3031,7 +3031,7 @@ stem3(z);
 [![example_stem3_1](docs/examples/discrete_data/stem3/stem3_1.svg)](examples/discrete_data/stem3/stem3_1.cpp)
 
 More examples:
-    
+
 [![example_stem3_2](docs/examples/discrete_data/stem3/stem3_2_thumb.png)](examples/discrete_data/stem3/stem3_2.cpp)  [![example_stem3_3](docs/examples/discrete_data/stem3/stem3_3_thumb.png)](examples/discrete_data/stem3/stem3_3.cpp)  [![example_stem3_4](docs/examples/discrete_data/stem3/stem3_4_thumb.png)](examples/discrete_data/stem3/stem3_4.cpp)  [![example_stem3_5](docs/examples/discrete_data/stem3/stem3_5_thumb.png)](examples/discrete_data/stem3/stem3_5.cpp)  [![example_stem3_6](docs/examples/discrete_data/stem3/stem3_6_thumb.png)](examples/discrete_data/stem3/stem3_6.cpp)  [![example_stem3_7](docs/examples/discrete_data/stem3/stem3_7_thumb.png)](examples/discrete_data/stem3/stem3_7.cpp)  [![example_stem3_8](docs/examples/discrete_data/stem3/stem3_8_thumb.png)](examples/discrete_data/stem3/stem3_8.cpp)  [![example_stem3_9](docs/examples/discrete_data/stem3/stem3_9_thumb.png)](examples/discrete_data/stem3/stem3_9.cpp)  [![example_stem3_10](docs/examples/discrete_data/stem3/stem3_10_thumb.png)](examples/discrete_data/stem3/stem3_10.cpp)  [![example_stem3_11](docs/examples/discrete_data/stem3/stem3_11_thumb.png)](examples/discrete_data/stem3/stem3_11.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3184,7 +3184,7 @@ geoplot(lat,lon);
 [![example_geoplot_1](docs/examples/geography/geoplot/geoplot_1.png)](examples/geography/geoplot/geoplot_1.cpp)
 
 More examples:
-    
+
 [![example_geoplot_2](docs/examples/geography/geoplot/geoplot_2_thumb.png)](examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](docs/examples/geography/geoplot/geoplot_3_thumb.png)](examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](docs/examples/geography/geoplot/geoplot_4_thumb.png)](examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](docs/examples/geography/geoplot/geoplot_5_thumb.png)](examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](docs/examples/geography/geoplot/geoplot_6_thumb.png)](examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](docs/examples/geography/geoplot/geoplot_7_thumb.png)](examples/geography/geoplot/geoplot_7.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3298,7 +3298,7 @@ geoscatter(lat,lon);
 [![example_geoscatter_1](docs/examples/geography/geoscatter/geoscatter_1.png)](examples/geography/geoscatter/geoscatter_1.cpp)
 
 More examples:
-    
+
 [![example_geoscatter_2](docs/examples/geography/geoscatter/geoscatter_2_thumb.png)](examples/geography/geoscatter/geoscatter_2.cpp)
 
 </details>
@@ -3327,7 +3327,7 @@ More examples:
     --8<-- "examples/geography/geoscatter/geoscatter_2.cpp"
     ```
 
-  
+
 #### Geobubble
 
 ```cpp
@@ -3341,7 +3341,7 @@ geobubble(lat,lon,sizes);
 [![example_geobubble_1](docs/examples/geography/geobubble/geobubble_1.png)](examples/geography/geobubble/geobubble_1.cpp)
 
 More examples:
-    
+
 [![example_geobubble_2](docs/examples/geography/geobubble/geobubble_2_thumb.png)](examples/geography/geobubble/geobubble_2.cpp)
 
 </details>
@@ -3371,7 +3371,7 @@ More examples:
     ```
 
 
-  
+
 #### Geodensity Plot
 
 ```cpp
@@ -3415,7 +3415,7 @@ polarplot(theta, rho);
 [![example_polarplot_1](docs/examples/polar_plots/polarplot/polarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
 
 More examples:
-    
+
 [![example_polarplot_2](docs/examples/polar_plots/polarplot/polarplot_2_thumb.png)](examples/polar_plots/polarplot/polarplot_2.cpp)  [![example_polarplot_3](docs/examples/polar_plots/polarplot/polarplot_3_thumb.png)](examples/polar_plots/polarplot/polarplot_3.cpp)  [![example_polarplot_4](docs/examples/polar_plots/polarplot/polarplot_4_thumb.png)](examples/polar_plots/polarplot/polarplot_4.cpp)  [![example_polarplot_5](docs/examples/polar_plots/polarplot/polarplot_5_thumb.png)](examples/polar_plots/polarplot/polarplot_5.cpp)  [![example_polarplot_6](docs/examples/polar_plots/polarplot/polarplot_6_thumb.png)](examples/polar_plots/polarplot/polarplot_6.cpp)  [![example_polarplot_7](docs/examples/polar_plots/polarplot/polarplot_7_thumb.png)](examples/polar_plots/polarplot/polarplot_7.cpp)  [![example_polarplot_8](docs/examples/polar_plots/polarplot/polarplot_8_thumb.png)](examples/polar_plots/polarplot/polarplot_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3519,8 +3519,8 @@ By emplacing a polar plot in the `axes`, the `axes` move to a polar mode, where 
 
 From the backend point of view, these axes are an abstraction to the user. The data points in the <img src="https://render.githubusercontent.com/render/math?math=r"> and <img src="https://render.githubusercontent.com/render/math?math=t"> axis are drawn by converting the positions from the polar coordinates <img src="https://render.githubusercontent.com/render/math?math=r"> and <img src="https://render.githubusercontent.com/render/math?math=t"> to the Cartesian coordinates <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=y"> with the relationships <img src="https://render.githubusercontent.com/render/math?math=x=r\cos{t}"> and <img src="https://render.githubusercontent.com/render/math?math=y=r\sin{t}">.
 
-Aside from this conversion, these plot subcategories are analogous to line plots, scatter plots, histograms, quiver plots, and line functions. 
-  
+Aside from this conversion, these plot subcategories are analogous to line plots, scatter plots, histograms, quiver plots, and line functions.
+
 #### Polar Scatter Plot
 
 ```cpp
@@ -3534,7 +3534,7 @@ polarscatter(theta, rho);
 [![example_polarscatter_1](docs/examples/polar_plots/polarscatter/polarscatter_1.svg)](examples/polar_plots/polarscatter/polarscatter_1.cpp)
 
 More examples:
-    
+
 [![example_polarscatter_2](docs/examples/polar_plots/polarscatter/polarscatter_2_thumb.png)](examples/polar_plots/polarscatter/polarscatter_2.cpp)  [![example_polarscatter_3](docs/examples/polar_plots/polarscatter/polarscatter_3_thumb.png)](examples/polar_plots/polarscatter/polarscatter_3.cpp)  [![example_polarscatter_4](docs/examples/polar_plots/polarscatter/polarscatter_4_thumb.png)](examples/polar_plots/polarscatter/polarscatter_4.cpp)  [![example_polarscatter_5](docs/examples/polar_plots/polarscatter/polarscatter_5_thumb.png)](examples/polar_plots/polarscatter/polarscatter_5.cpp)  [![example_polarscatter_6](docs/examples/polar_plots/polarscatter/polarscatter_6_thumb.png)](examples/polar_plots/polarscatter/polarscatter_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3610,7 +3610,7 @@ More examples:
 
 
 
-  
+
 #### Polar Histogram
 
 ```cpp
@@ -3624,7 +3624,7 @@ polarhistogram(theta, 6);
 [![example_polarhistogram_1](docs/examples/polar_plots/polarhistogram/polarhistogram_1.svg)](examples/polar_plots/polarhistogram/polarhistogram_1.cpp)
 
 More examples:
-    
+
 [![example_polarhistogram_2](docs/examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)  [![example_polarhistogram_3](docs/examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)  [![example_polarhistogram_4](docs/examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)  [![example_polarhistogram_5](docs/examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3691,7 +3691,7 @@ More examples:
 
 
 The function `polarhistogram` distributes the data into the number of bins provided as its second parameter.
-  
+
 #### Compass
 
 ```cpp
@@ -3705,7 +3705,7 @@ compass(u, v);
 [![example_compass_1](docs/examples/polar_plots/compass/compass_1.png)](examples/polar_plots/compass/compass_1.cpp)
 
 More examples:
-    
+
 [![example_compass_2](docs/examples/polar_plots/compass/compass_2_thumb.png)](examples/polar_plots/compass/compass_2.cpp)
 </details>
 
@@ -3736,7 +3736,7 @@ More examples:
 
 
 
-  
+
 #### Polar Function
 
 ```cpp
@@ -3750,7 +3750,7 @@ ezpolar(fn);
 [![example_ezpolar_1](docs/examples/polar_plots/ezpolar/ezpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
 
 More examples:
-    
+
 [![example_ezpolar_2](docs/examples/polar_plots/ezpolar/ezpolar_2_thumb.png)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
 
 </details>
@@ -3799,7 +3799,7 @@ contour(X, Y, Z);
 [![example_contour_1](docs/examples/contour_plots/contour/contour_1.svg)](examples/contour_plots/contour/contour_1.cpp)
 
 More examples:
-    
+
 [![example_contour_2](docs/examples/contour_plots/contour/contour_2_thumb.png)](examples/contour_plots/contour/contour_2.cpp)  [![example_contour_3](docs/examples/contour_plots/contour/contour_3_thumb.png)](examples/contour_plots/contour/contour_3.cpp)  [![example_contour_4](docs/examples/contour_plots/contour/contour_4_thumb.png)](examples/contour_plots/contour/contour_4.cpp)  [![example_contour_5](docs/examples/contour_plots/contour/contour_5_thumb.png)](examples/contour_plots/contour/contour_5.cpp)  [![example_contour_6](docs/examples/contour_plots/contour/contour_6_thumb.png)](examples/contour_plots/contour/contour_6.cpp)  [![example_contour_7](docs/examples/contour_plots/contour/contour_7_thumb.png)](examples/contour_plots/contour/contour_7.cpp)  [![example_contour_8](docs/examples/contour_plots/contour/contour_8_thumb.png)](examples/contour_plots/contour/contour_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3899,7 +3899,7 @@ More examples:
 
 
 
-  
+
 All these subcategories depend on the `contours` type. They also depend on lazy evaluation for generating the contour lines. When the function `draw` is called in the `contours` class, it preprocesses all contour lines for a three-dimensional function.
 
 Although it is relatively simple to show a heatmap with the values for the <img src="https://render.githubusercontent.com/render/math?math=z">-axis, calculating contour lines relative to the <img src="https://render.githubusercontent.com/render/math?math=yz">-axis is more complex than it might seem at first. We provide the function `contourc` for calculating contour lines. This function uses an adaptation of the algorithm adopted by Matplotlib.
@@ -3909,7 +3909,7 @@ The algorithm creates a quad grid defined by the <img src="https://render.github
 Filled contours are closed polygons for pairs of contour levels. Some polygons for filled contours might be holes inside other polygons. The algorithm needs to keep track of these relationships so that we can render the polygons in their accurate order. To avoid an extra step that identifies this relationship between the polygons, the sweeping algorithm already identifies which polygons are holes for each level.
 
 Once we find the quads with the contour line, the line is generated by interpolating the <img src="https://render.githubusercontent.com/render/math?math=z"> values around that quad.
-  
+
 #### Filled Contour
 
 ```cpp
@@ -3923,7 +3923,7 @@ contourf(X, Y, Z);
 [![example_contourf_1](docs/examples/contour_plots/contourf/contourf_1.svg)](examples/contour_plots/contourf/contourf_1.cpp)
 
 More examples:
-    
+
 [![example_contourf_2](docs/examples/contour_plots/contourf/contourf_2_thumb.png)](examples/contour_plots/contourf/contourf_2.cpp)  [![example_contourf_3](docs/examples/contour_plots/contourf/contourf_3_thumb.png)](examples/contour_plots/contourf/contourf_3.cpp)  [![example_contourf_4](docs/examples/contour_plots/contourf/contourf_4_thumb.png)](examples/contour_plots/contourf/contourf_4.cpp)  [![example_contourf_5](docs/examples/contour_plots/contourf/contourf_5_thumb.png)](examples/contour_plots/contourf/contourf_5.cpp)  [![example_contourf_6](docs/examples/contour_plots/contourf/contourf_6_thumb.png)](examples/contour_plots/contourf/contourf_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -3999,7 +3999,7 @@ More examples:
 
 
 
-  
+
 #### Function Contour
 
 ```cpp
@@ -4013,7 +4013,7 @@ fcontour(f);
 [![example_fcontour_1](docs/examples/contour_plots/fcontour/fcontour_1.svg)](examples/contour_plots/fcontour/fcontour_1.cpp)
 
 More examples:
-    
+
 [![example_fcontour_2](docs/examples/contour_plots/fcontour/fcontour_2_thumb.png)](examples/contour_plots/fcontour/fcontour_2.cpp)  [![example_fcontour_3](docs/examples/contour_plots/fcontour/fcontour_3_thumb.png)](examples/contour_plots/fcontour/fcontour_3.cpp)  [![example_fcontour_4](docs/examples/contour_plots/fcontour/fcontour_4_thumb.png)](examples/contour_plots/fcontour/fcontour_4.cpp)  [![example_fcontour_5](docs/examples/contour_plots/fcontour/fcontour_5_thumb.png)](examples/contour_plots/fcontour/fcontour_5.cpp)  [![example_fcontour_6](docs/examples/contour_plots/fcontour/fcontour_6_thumb.png)](examples/contour_plots/fcontour/fcontour_6.cpp)  [![example_fcontour_7](docs/examples/contour_plots/fcontour/fcontour_7_thumb.png)](examples/contour_plots/fcontour/fcontour_7.cpp)  [![example_fcontour_8](docs/examples/contour_plots/fcontour/fcontour_8_thumb.png)](examples/contour_plots/fcontour/fcontour_8.cpp)  [![example_fcontour_9](docs/examples/contour_plots/fcontour/fcontour_9_thumb.png)](examples/contour_plots/fcontour/fcontour_9.cpp)  [![example_fcontour_10](docs/examples/contour_plots/fcontour/fcontour_10_thumb.png)](examples/contour_plots/fcontour/fcontour_10.cpp)  [![example_fcontour_11](docs/examples/contour_plots/fcontour/fcontour_11_thumb.png)](examples/contour_plots/fcontour/fcontour_11.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4169,7 +4169,7 @@ quiver(x, y, u, v);
 [![example_quiver_1](docs/examples/vector_fields/quiver/quiver_1.svg)](examples/vector_fields/quiver/quiver_1.cpp)
 
 More examples:
-    
+
 [![example_quiver_2](docs/examples/vector_fields/quiver/quiver_2_thumb.png)](examples/vector_fields/quiver/quiver_2.cpp)  [![example_quiver_3](docs/examples/vector_fields/quiver/quiver_3_thumb.png)](examples/vector_fields/quiver/quiver_3.cpp)  [![example_quiver_4](docs/examples/vector_fields/quiver/quiver_4_thumb.png)](examples/vector_fields/quiver/quiver_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4239,7 +4239,7 @@ More examples:
 All these subcategories depend on the `vectors` object type. In a two-dimensional plot, for each value of <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=y"> with the position of a vector, it also requires the value of <img src="https://render.githubusercontent.com/render/math?math=u"> and <img src="https://render.githubusercontent.com/render/math?math=v"> indicating its direction and magnitude. In a three-dimensional plot, the direction and magnitude are defined by <img src="https://render.githubusercontent.com/render/math?math=u">, <img src="https://render.githubusercontent.com/render/math?math=v">, and <img src="https://render.githubusercontent.com/render/math?math=w">.
 
 
-A quiver plot (or velocity plot) shows a grid of vectors whose direction and magnitude are scaled to prevent the overlap between vectors in subsequent quads. 
+A quiver plot (or velocity plot) shows a grid of vectors whose direction and magnitude are scaled to prevent the overlap between vectors in subsequent quads.
 
 #### Quiver 3D
 
@@ -4322,7 +4322,7 @@ surf(X, Y, Z);
 [![example_surf_1](docs/examples/surfaces/surf/surf_1.png)](examples/surfaces/surf/surf_1.cpp)
 
 More examples:
-    
+
 [![example_surf_2](docs/examples/surfaces/surf/surf_2_thumb.png)](examples/surfaces/surf/surf_2.cpp)  [![example_surf_3](docs/examples/surfaces/surf/surf_3_thumb.png)](examples/surfaces/surf/surf_3.cpp)  [![example_surf_4](docs/examples/surfaces/surf/surf_4_thumb.png)](examples/surfaces/surf/surf_4.cpp)  [![example_surf_5](docs/examples/surfaces/surf/surf_5_thumb.png)](examples/surfaces/surf/surf_5.cpp)  [![example_surf_6](docs/examples/surfaces/surf/surf_6_thumb.png)](examples/surfaces/surf/surf_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4397,7 +4397,7 @@ More examples:
     ```
 
 
-  
+
 #### Surface with Contour
 
 ```cpp
@@ -4411,7 +4411,7 @@ surfc(X, Y, Z);
 [![example_surfc_1](docs/examples/surfaces/surfc/surfc_1.png)](examples/surfaces/surfc/surfc_1.cpp)
 
 More examples:
-    
+
 [![example_surfc_2](docs/examples/surfaces/surfc/surfc_2_thumb.png)](examples/surfaces/surfc/surfc_2.cpp)  [![example_surfc_3](docs/examples/surfaces/surfc/surfc_3_thumb.png)](examples/surfaces/surfc/surfc_3.cpp)  [![example_surfc_4](docs/examples/surfaces/surfc/surfc_4_thumb.png)](examples/surfaces/surfc/surfc_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4477,7 +4477,7 @@ mesh(X, Y, Z);
 [![example_mesh_1](docs/examples/surfaces/mesh/mesh_1.png)](examples/surfaces/mesh/mesh_1.cpp)
 
 More examples:
-    
+
 [![example_mesh_2](docs/examples/surfaces/mesh/mesh_2_thumb.png)](examples/surfaces/mesh/mesh_2.cpp)  [![example_mesh_3](docs/examples/surfaces/mesh/mesh_3_thumb.png)](examples/surfaces/mesh/mesh_3.cpp)  [![example_mesh_4](docs/examples/surfaces/mesh/mesh_4_thumb.png)](examples/surfaces/mesh/mesh_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4529,7 +4529,7 @@ More examples:
     ```
 
 
-  
+
 #### Mesh with Contour
 
 ```cpp
@@ -4543,7 +4543,7 @@ meshc(X, Y, Z);
 [![example_meshc_1](docs/examples/surfaces/meshc/meshc_1.png)](examples/surfaces/meshc/meshc_1.cpp)
 
 More examples:
-    
+
 [![example_meshc_2](docs/examples/surfaces/meshc/meshc_2_thumb.png)](examples/surfaces/meshc/meshc_2.cpp)  [![example_meshc_3](docs/examples/surfaces/meshc/meshc_3_thumb.png)](examples/surfaces/meshc/meshc_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4597,7 +4597,7 @@ meshz(X, Y, Z);
 [![example_meshz_1](docs/examples/surfaces/meshz/meshz_1.png)](examples/surfaces/meshz/meshz_1.cpp)
 
 More examples:
-    
+
 [![example_meshz_2](docs/examples/surfaces/meshz/meshz_2_thumb.png)](examples/surfaces/meshz/meshz_2.cpp)  [![example_meshz_3](docs/examples/surfaces/meshz/meshz_3_thumb.png)](examples/surfaces/meshz/meshz_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4638,7 +4638,7 @@ More examples:
 
 
 
-  
+
 #### Function Surface
 
 ```cpp
@@ -4652,7 +4652,7 @@ fsurf(fn);
 [![example_fsurf_1](docs/examples/surfaces/fsurf/fsurf_1.png)](examples/surfaces/fsurf/fsurf_1.cpp)
 
 More examples:
-    
+
 [![example_fsurf_2](docs/examples/surfaces/fsurf/fsurf_2_thumb.png)](examples/surfaces/fsurf/fsurf_2.cpp)  [![example_fsurf_3](docs/examples/surfaces/fsurf/fsurf_3_thumb.png)](examples/surfaces/fsurf/fsurf_3.cpp)  [![example_fsurf_4](docs/examples/surfaces/fsurf/fsurf_4_thumb.png)](examples/surfaces/fsurf/fsurf_4.cpp)  [![example_fsurf_5](docs/examples/surfaces/fsurf/fsurf_5_thumb.png)](examples/surfaces/fsurf/fsurf_5.cpp)  [![example_fsurf_6](docs/examples/surfaces/fsurf/fsurf_6_thumb.png)](examples/surfaces/fsurf/fsurf_6.cpp)  [![example_fsurf_7](docs/examples/surfaces/fsurf/fsurf_7_thumb.png)](examples/surfaces/fsurf/fsurf_7.cpp)  [![example_fsurf_8](docs/examples/surfaces/fsurf/fsurf_8_thumb.png)](examples/surfaces/fsurf/fsurf_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4751,7 +4751,7 @@ More examples:
 
 
 
-  
+
 #### Function Mesh
 
 ```cpp
@@ -4765,7 +4765,7 @@ fmesh(fn);
 [![example_fmesh_1](docs/examples/surfaces/fmesh/fmesh_1.png)](examples/surfaces/fmesh/fmesh_1.cpp)
 
 More examples:
-    
+
 [![example_fmesh_2](docs/examples/surfaces/fmesh/fmesh_2_thumb.png)](examples/surfaces/fmesh/fmesh_2.cpp)  [![example_fmesh_3](docs/examples/surfaces/fmesh/fmesh_3_thumb.png)](examples/surfaces/fmesh/fmesh_3.cpp)  [![example_fmesh_4](docs/examples/surfaces/fmesh/fmesh_4_thumb.png)](examples/surfaces/fmesh/fmesh_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4818,7 +4818,7 @@ More examples:
 
 
 
-  
+
 #### Waterfall
 
 ```cpp
@@ -4832,7 +4832,7 @@ waterfall(X, Y, Z);
 [![example_waterfall_1](docs/examples/surfaces/waterfall/waterfall_1.png)](examples/surfaces/waterfall/waterfall_1.cpp)
 
 More examples:
-    
+
 [![example_waterfall_2](docs/examples/surfaces/waterfall/waterfall_2_thumb.png)](examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](docs/examples/surfaces/waterfall/waterfall_3_thumb.png)](examples/surfaces/waterfall/waterfall_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4872,7 +4872,7 @@ More examples:
     ```
 
 
-  
+
 #### Fence
 
 ```cpp
@@ -4886,7 +4886,7 @@ fence(X, Y, Z);
 [![example_fence_1](docs/examples/surfaces/fence/fence_1.png)](examples/surfaces/fence/fence_1.cpp)
 
 More examples:
-    
+
 [![example_fence_2](docs/examples/surfaces/fence/fence_2_thumb.png)](examples/surfaces/fence/fence_2.cpp)  [![example_fence_3](docs/examples/surfaces/fence/fence_3_thumb.png)](examples/surfaces/fence/fence_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -4927,7 +4927,7 @@ More examples:
 
 
 
-  
+
 #### Ribbon
 
 ```cpp
@@ -4941,7 +4941,7 @@ ribbon(X, Y, Z);
 [![example_ribbon_1](docs/examples/surfaces/ribbon/ribbon_1.png)](examples/surfaces/ribbon/ribbon_1.cpp)
 
 More examples:
-    
+
 [![example_ribbon_2](docs/examples/surfaces/ribbon/ribbon_2_thumb.png)](examples/surfaces/ribbon/ribbon_2.cpp)  [![example_ribbon_3](docs/examples/surfaces/ribbon/ribbon_3_thumb.png)](examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](docs/examples/surfaces/ribbon/ribbon_4_thumb.png)](examples/surfaces/ribbon/ribbon_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5009,7 +5009,7 @@ graph(edges);
 [![example_graph_1](docs/examples/graphs/graph/graph_1.svg)](examples/graphs/graph/graph_1.cpp)
 
 More examples:
-    
+
 [![example_graph_2](docs/examples/graphs/graph/graph_2_thumb.png)](examples/graphs/graph/graph_2.cpp)  [![example_graph_3](docs/examples/graphs/graph/graph_3_thumb.png)](examples/graphs/graph/graph_3.cpp)  [![example_graph_4](docs/examples/graphs/graph/graph_4_thumb.png)](examples/graphs/graph/graph_4.cpp)  [![example_graph_5](docs/examples/graphs/graph/graph_5_thumb.png)](examples/graphs/graph/graph_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5092,7 +5092,7 @@ digraph(edges);
 [![example_digraph_1](docs/examples/graphs/digraph/digraph_1.svg)](examples/graphs/digraph/digraph_1.cpp)
 
 More examples:
-    
+
 [![example_digraph_2](docs/examples/graphs/digraph/digraph_2_thumb.png)](examples/graphs/digraph/digraph_2.cpp)  [![example_digraph_3](docs/examples/graphs/digraph/digraph_3_thumb.png)](examples/graphs/digraph/digraph_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5152,7 +5152,7 @@ imshow(image);
 [![example_imshow_1](docs/examples/images/imshow/imshow_1.png)](examples/images/imshow/imshow_1.cpp)
 
 More examples:
-    
+
 [![example_imshow_2](docs/examples/images/imshow/imshow_2_thumb.png)](examples/images/imshow/imshow_2.cpp)  [![example_imshow_3](docs/examples/images/imshow/imshow_3_thumb.png)](examples/images/imshow/imshow_3.cpp)  [![example_imshow_4](docs/examples/images/imshow/imshow_4_thumb.png)](examples/images/imshow/imshow_4.cpp)  [![example_imshow_5](docs/examples/images/imshow/imshow_5_thumb.png)](examples/images/imshow/imshow_5.cpp)  [![example_imshow_6](docs/examples/images/imshow/imshow_6_thumb.png)](examples/images/imshow/imshow_6.cpp)  [![example_imshow_7](docs/examples/images/imshow/imshow_7_thumb.png)](examples/images/imshow/imshow_7.cpp)  [![example_imshow_8](docs/examples/images/imshow/imshow_8_thumb.png)](examples/images/imshow/imshow_8.cpp)  [![example_imshow_9](docs/examples/images/imshow/imshow_9_thumb.png)](examples/images/imshow/imshow_9.cpp)  [![example_imshow_10](docs/examples/images/imshow/imshow_10_thumb.png)](examples/images/imshow/imshow_10.cpp)  [![example_imshow_11](docs/examples/images/imshow/imshow_11_thumb.png)](examples/images/imshow/imshow_11.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5289,7 +5289,7 @@ These subcategories depend on the `matrix` class. The `matrix` class can have up
 
 We use the CImg library to load and save images. CImg can handle many common image formats as long as it has access to the appropriate libraries. The **Matplot++** build script will look at compile-time for the following optional libraries: JPEG, TIFF, ZLIB, PNG, LAPACK, BLAS, OpenCV, X11, fftw3, OpenEXR, and Magick++. The build script will attempt to link all libraries from this list to **Matplot++**.
 
-**Matplot++** includes a few convenience functions to manipulate matrices with images: `imread`, `rgb2gray`, `gray2rgb`, `imresize`, and `imwrite`. All these functions work with lists of matrices. 
+**Matplot++** includes a few convenience functions to manipulate matrices with images: `imread`, `rgb2gray`, `gray2rgb`, `imresize`, and `imwrite`. All these functions work with lists of matrices.
 
 #### Image Matrix
 
@@ -5304,7 +5304,7 @@ image(C);
 [![example_image_1](docs/examples/images/image/image_1.png)](examples/images/image/image_1.cpp)
 
 More examples:
-    
+
 [![example_image_2](docs/examples/images/image/image_2_thumb.png)](examples/images/image/image_2.cpp)  [![example_image_3](docs/examples/images/image/image_3_thumb.png)](examples/images/image/image_3.cpp)  [![example_image_4](docs/examples/images/image/image_4_thumb.png)](examples/images/image/image_4.cpp)  [![example_image_5](docs/examples/images/image/image_5_thumb.png)](examples/images/image/image_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5381,7 +5381,7 @@ imagesc(C);
 [![example_imagesc_1](docs/examples/images/imagesc/imagesc_1.png)](examples/images/imagesc/imagesc_1.cpp)
 
 More examples:
-    
+
 [![example_imagesc_2](docs/examples/images/imagesc/imagesc_2_thumb.png)](examples/images/imagesc/imagesc_2.cpp)  [![example_imagesc_3](docs/examples/images/imagesc/imagesc_3_thumb.png)](examples/images/imagesc/imagesc_3.cpp)  [![example_imagesc_4](docs/examples/images/imagesc/imagesc_4_thumb.png)](examples/images/imagesc/imagesc_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5456,7 +5456,7 @@ text(x0, y0, str);
 [![example_text_1](docs/examples/annotations/text/text_1.svg)](examples/annotations/text/text_1.cpp)
 
 More examples:
-    
+
 [![example_text_2](docs/examples/annotations/text/text_2_thumb.png)](examples/annotations/text/text_2.cpp)  [![example_text_3](docs/examples/annotations/text/text_3_thumb.png)](examples/annotations/text/text_3.cpp)  [![example_text_4](docs/examples/annotations/text/text_4_thumb.png)](examples/annotations/text/text_4.cpp)  [![example_text_5](docs/examples/annotations/text/text_5_thumb.png)](examples/annotations/text/text_5.cpp)  [![example_text_6](docs/examples/annotations/text/text_6_thumb.png)](examples/annotations/text/text_6.cpp)  [![example_text_7](docs/examples/annotations/text/text_7_thumb.png)](examples/annotations/text/text_7.cpp)  [![example_text_8](docs/examples/annotations/text/text_8_thumb.png)](examples/annotations/text/text_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5555,7 +5555,7 @@ More examples:
 
 
 
-  
+
 ### Text with Arrow
 
 ```cpp
@@ -5569,7 +5569,7 @@ textarrow(x1, y1, x2, y2, str);
 [![example_textarrow_1](docs/examples/annotations/textarrow/textarrow_1.svg)](examples/annotations/textarrow/textarrow_1.cpp)
 
 More examples:
-    
+
 [![example_textarrow_2](docs/examples/annotations/textarrow/textarrow_2_thumb.png)](examples/annotations/textarrow/textarrow_2.cpp)
 
 </details>
@@ -5599,7 +5599,7 @@ More examples:
     ```
 
 
-  
+
 ### Rectangle
 
 ```cpp
@@ -5613,7 +5613,7 @@ rectangle(x, y, w, h);
 [![example_rectangle_1](docs/examples/annotations/rectangle/rectangle_1.svg)](examples/annotations/rectangle/rectangle_1.cpp)
 
 More examples:
-    
+
 [![example_rectangle_2](docs/examples/annotations/rectangle/rectangle_2_thumb.png)](examples/annotations/rectangle/rectangle_2.cpp)  [![example_rectangle_3](docs/examples/annotations/rectangle/rectangle_3_thumb.png)](examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](docs/examples/annotations/rectangle/rectangle_4_thumb.png)](examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](docs/examples/annotations/rectangle/rectangle_5_thumb.png)](examples/annotations/rectangle/rectangle_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5679,7 +5679,7 @@ More examples:
 
 
 The rectangle object can have a border curvature from <img src="https://render.githubusercontent.com/render/math?math=0"> to <img src="https://render.githubusercontent.com/render/math?math=1">. We can also annotate with text, arrows, polygons, and lines.
-  
+
 ### Filled Polygon
 
 ```cpp
@@ -5765,7 +5765,7 @@ arrow(x1, y1, x2, y2);
 [![example_arrow_1](docs/examples/annotations/arrow/arrow_1.svg)](examples/annotations/arrow/arrow_1.cpp)
 
 More examples:
-    
+
 [![example_arrow_2](docs/examples/annotations/arrow/arrow_2_thumb.png)](examples/annotations/arrow/arrow_2.cpp)
 
 </details>
@@ -5795,7 +5795,7 @@ More examples:
     ```
 
 
-  
+
 ### Line
 
 ```cpp
@@ -5823,12 +5823,12 @@ line(x1, y1, x2, y2);
 ## Appearance
 
 <!-- START mdsplit-ignore -->
-* [Labels](#labels): [Title](#title) | [Subplot Title](#subplot-title) | [X Label](#x-label) | [Y Label](#y-label) | [Z Label](#z-label) | [Legend](#legend) 
-* [Axis](#axis): [X Limits](#x-limits) | [Y Limits](#y-limits) | [Z Limits](#z-limits) | [Adjust Axis](#adjust-axis) | [Box](#box) 
-* [Grid](#grid): [Grid Background](#grid-background) | [X Ticks](#x-ticks) | [Y Ticks](#y-ticks) | [Z Ticks](#z-ticks) | [X Tick Labels](#x-tick-labels) | [Y Tick Labels](#y-tick-labels) | [X Tick Format](#x-tick-format) | [Y Tick Format](#y-tick-format) | [Z Tick Format](#z-tick-format) | [X Tick Angle](#x-tick-angle) | [Y Tick Angle](#y-tick-angle) 
-* [Multiplot](#multiplot): [Hold](#hold) | [YY-axis](#yy-axis) | [Color Order](#color-order) | [Subplots](#subplots) | [Tiled Layout](#tiled-layout) 
-* [Colormaps](#colormaps): [Colormap](#colormap) | [Color Bar](#color-bar) | [RGB Plot](#rgb-plot) 
-* [Camera](#camera): [View](#view) | [Lighting](#lighting) 
+* [Labels](#labels): [Title](#title) | [Subplot Title](#subplot-title) | [X Label](#x-label) | [Y Label](#y-label) | [Z Label](#z-label) | [Legend](#legend)
+* [Axis](#axis): [X Limits](#x-limits) | [Y Limits](#y-limits) | [Z Limits](#z-limits) | [Adjust Axis](#adjust-axis) | [Box](#box)
+* [Grid](#grid): [Grid Background](#grid-background) | [X Ticks](#x-ticks) | [Y Ticks](#y-ticks) | [Z Ticks](#z-ticks) | [X Tick Labels](#x-tick-labels) | [Y Tick Labels](#y-tick-labels) | [X Tick Format](#x-tick-format) | [Y Tick Format](#y-tick-format) | [Z Tick Format](#z-tick-format) | [X Tick Angle](#x-tick-angle) | [Y Tick Angle](#y-tick-angle)
+* [Multiplot](#multiplot): [Hold](#hold) | [YY-axis](#yy-axis) | [Color Order](#color-order) | [Subplots](#subplots) | [Tiled Layout](#tiled-layout)
+* [Colormaps](#colormaps): [Colormap](#colormap) | [Color Bar](#color-bar) | [RGB Plot](#rgb-plot)
+* [Camera](#camera): [View](#view) | [Lighting](#lighting)
 * [Figure Object](#figure-object)
 * [Line Specs](#line-specs)
 * [Axes Object](#axes-object)
@@ -5850,7 +5850,7 @@ title(str);
 [![example_title_1](docs/examples/appearance/labels/title/title_1.svg)](examples/appearance/labels/title/title_1.cpp)
 
 More examples:
-    
+
 [![example_title_2](docs/examples/appearance/labels/title/title_2_thumb.png)](examples/appearance/labels/title/title_2.cpp)  [![example_title_3](docs/examples/appearance/labels/title/title_3_thumb.png)](examples/appearance/labels/title/title_3.cpp)  [![example_title_4](docs/examples/appearance/labels/title/title_4_thumb.png)](examples/appearance/labels/title/title_4.cpp)  [![example_title_5](docs/examples/appearance/labels/title/title_5_thumb.png)](examples/appearance/labels/title/title_5.cpp)  [![example_title_6](docs/examples/appearance/labels/title/title_6_thumb.png)](examples/appearance/labels/title/title_6.cpp)  [![example_title_7](docs/examples/appearance/labels/title/title_7_thumb.png)](examples/appearance/labels/title/title_7.cpp)  [![example_title_8](docs/examples/appearance/labels/title/title_8_thumb.png)](examples/appearance/labels/title/title_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -5949,7 +5949,7 @@ More examples:
 
 
 
-  
+
 #### Subplot Title
 
 ```cpp
@@ -5963,7 +5963,7 @@ sgtitle(str);
 [![example_sgtitle_1](docs/examples/appearance/labels/sgtitle/sgtitle_1.png)](examples/appearance/labels/sgtitle/sgtitle_1.cpp)
 
 More examples:
-    
+
 [![example_sgtitle_2](docs/examples/appearance/labels/sgtitle/sgtitle_2_thumb.png)](examples/appearance/labels/sgtitle/sgtitle_2.cpp)
 
 </details>
@@ -5993,7 +5993,7 @@ More examples:
     ```
 
 
-  
+
 #### X Label
 
 ```cpp
@@ -6007,7 +6007,7 @@ xlabel(str);
 [![example_xlabel_1](docs/examples/appearance/labels/xlabel/xlabel_1.svg)](examples/appearance/labels/xlabel/xlabel_1.cpp)
 
 More examples:
-    
+
 [![example_xlabel_2](docs/examples/appearance/labels/xlabel/xlabel_2_thumb.png)](examples/appearance/labels/xlabel/xlabel_2.cpp)  [![example_xlabel_3](docs/examples/appearance/labels/xlabel/xlabel_3_thumb.png)](examples/appearance/labels/xlabel/xlabel_3.cpp)  [![example_xlabel_4](docs/examples/appearance/labels/xlabel/xlabel_4_thumb.png)](examples/appearance/labels/xlabel/xlabel_4.cpp)  [![example_xlabel_5](docs/examples/appearance/labels/xlabel/xlabel_5_thumb.png)](examples/appearance/labels/xlabel/xlabel_5.cpp)  [![example_xlabel_6](docs/examples/appearance/labels/xlabel/xlabel_6_thumb.png)](examples/appearance/labels/xlabel/xlabel_6.cpp)  [![example_xlabel_7](docs/examples/appearance/labels/xlabel/xlabel_7_thumb.png)](examples/appearance/labels/xlabel/xlabel_7.cpp)  [![example_xlabel_8](docs/examples/appearance/labels/xlabel/xlabel_8_thumb.png)](examples/appearance/labels/xlabel/xlabel_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6119,7 +6119,7 @@ ylabel(str);
 [![example_ylabel_1](docs/examples/appearance/labels/ylabel/ylabel_1.svg)](examples/appearance/labels/ylabel/ylabel_1.cpp)
 
 More examples:
-    
+
 [![example_ylabel_2](docs/examples/appearance/labels/ylabel/ylabel_2_thumb.png)](examples/appearance/labels/ylabel/ylabel_2.cpp)  [![example_ylabel_3](docs/examples/appearance/labels/ylabel/ylabel_3_thumb.png)](examples/appearance/labels/ylabel/ylabel_3.cpp)  [![example_ylabel_4](docs/examples/appearance/labels/ylabel/ylabel_4_thumb.png)](examples/appearance/labels/ylabel/ylabel_4.cpp)  [![example_ylabel_5](docs/examples/appearance/labels/ylabel/ylabel_5_thumb.png)](examples/appearance/labels/ylabel/ylabel_5.cpp)  [![example_ylabel_6](docs/examples/appearance/labels/ylabel/ylabel_6_thumb.png)](examples/appearance/labels/ylabel/ylabel_6.cpp)  [![example_ylabel_7](docs/examples/appearance/labels/ylabel/ylabel_7_thumb.png)](examples/appearance/labels/ylabel/ylabel_7.cpp)  [![example_ylabel_8](docs/examples/appearance/labels/ylabel/ylabel_8_thumb.png)](examples/appearance/labels/ylabel/ylabel_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6218,7 +6218,7 @@ More examples:
 
 
 
-  
+
 #### Z Label
 
 ```cpp
@@ -6232,7 +6232,7 @@ zlabel(str);
 [![example_zlabel_1](docs/examples/appearance/labels/zlabel/zlabel_1.png)](examples/appearance/labels/zlabel/zlabel_1.cpp)
 
 More examples:
-    
+
 [![example_zlabel_2](docs/examples/appearance/labels/zlabel/zlabel_2_thumb.png)](examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](docs/examples/appearance/labels/zlabel/zlabel_3_thumb.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6284,7 +6284,7 @@ legend({str1,str2,str3});
 [![example_legend_1](docs/examples/appearance/labels/legend/legend_1.svg)](examples/appearance/labels/legend/legend_1.cpp)
 
 More examples:
-    
+
 [![example_legend_2](docs/examples/appearance/labels/legend/legend_2_thumb.png)](examples/appearance/labels/legend/legend_2.cpp)  [![example_legend_3](docs/examples/appearance/labels/legend/legend_3_thumb.png)](examples/appearance/labels/legend/legend_3.cpp)  [![example_legend_4](docs/examples/appearance/labels/legend/legend_4_thumb.png)](examples/appearance/labels/legend/legend_4.cpp)  [![example_legend_5](docs/examples/appearance/labels/legend/legend_5_thumb.png)](examples/appearance/labels/legend/legend_5.cpp)  [![example_legend_6](docs/examples/appearance/labels/legend/legend_6_thumb.png)](examples/appearance/labels/legend/legend_6.cpp)  [![example_legend_7](docs/examples/appearance/labels/legend/legend_7_thumb.png)](examples/appearance/labels/legend/legend_7.cpp)  [![example_legend_8](docs/examples/appearance/labels/legend/legend_8_thumb.png)](examples/appearance/labels/legend/legend_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6383,7 +6383,7 @@ More examples:
 
 
 
-  
+
 ### Axis
 
 #### X Limits
@@ -6399,7 +6399,7 @@ xlim({xmin,xmax});
 [![example_xlim_1](docs/examples/appearance/axis/xlim/xlim_1.svg)](examples/appearance/axis/xlim/xlim_1.cpp)
 
 More examples:
-    
+
 [![example_xlim_2](docs/examples/appearance/axis/xlim/xlim_2_thumb.png)](examples/appearance/axis/xlim/xlim_2.cpp)  [![example_xlim_3](docs/examples/appearance/axis/xlim/xlim_3_thumb.png)](examples/appearance/axis/xlim/xlim_3.cpp)  [![example_xlim_4](docs/examples/appearance/axis/xlim/xlim_4_thumb.png)](examples/appearance/axis/xlim/xlim_4.cpp)  [![example_xlim_5](docs/examples/appearance/axis/xlim/xlim_5_thumb.png)](examples/appearance/axis/xlim/xlim_5.cpp)  [![example_xlim_6](docs/examples/appearance/axis/xlim/xlim_6_thumb.png)](examples/appearance/axis/xlim/xlim_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6475,7 +6475,7 @@ More examples:
 
 
 
-  
+
 #### Y Limits
 
 ```cpp
@@ -6489,7 +6489,7 @@ ylim({ymin,ymax});
 [![example_ylim_1](docs/examples/appearance/axis/ylim/ylim_1.svg)](examples/appearance/axis/ylim/ylim_1.cpp)
 
 More examples:
-    
+
 [![example_ylim_2](docs/examples/appearance/axis/ylim/ylim_2_thumb.png)](examples/appearance/axis/ylim/ylim_2.cpp)  [![example_ylim_3](docs/examples/appearance/axis/ylim/ylim_3_thumb.png)](examples/appearance/axis/ylim/ylim_3.cpp)  [![example_ylim_4](docs/examples/appearance/axis/ylim/ylim_4_thumb.png)](examples/appearance/axis/ylim/ylim_4.cpp)  [![example_ylim_5](docs/examples/appearance/axis/ylim/ylim_5_thumb.png)](examples/appearance/axis/ylim/ylim_5.cpp)  [![example_ylim_6](docs/examples/appearance/axis/ylim/ylim_6_thumb.png)](examples/appearance/axis/ylim/ylim_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6565,7 +6565,7 @@ More examples:
 
 
 
-  
+
 #### Z Limits
 
 ```cpp
@@ -6579,7 +6579,7 @@ zlim({zmin,zmax});
 [![example_zlim_1](docs/examples/appearance/axis/zlim/zlim_1.png)](examples/appearance/axis/zlim/zlim_1.cpp)
 
 More examples:
-    
+
 [![example_zlim_2](docs/examples/appearance/axis/zlim/zlim_2_thumb.png)](examples/appearance/axis/zlim/zlim_2.cpp)  [![example_zlim_3](docs/examples/appearance/axis/zlim/zlim_3_thumb.png)](examples/appearance/axis/zlim/zlim_3.cpp)  [![example_zlim_4](docs/examples/appearance/axis/zlim/zlim_4_thumb.png)](examples/appearance/axis/zlim/zlim_4.cpp)  [![example_zlim_5](docs/examples/appearance/axis/zlim/zlim_5_thumb.png)](examples/appearance/axis/zlim/zlim_5.cpp)  [![example_zlim_6](docs/examples/appearance/axis/zlim/zlim_6_thumb.png)](examples/appearance/axis/zlim/zlim_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6655,7 +6655,7 @@ More examples:
 
 
 
-  
+
 #### Adjust Axis
 
 ```cpp
@@ -6669,7 +6669,7 @@ axis({xmin, xmax, ymin, ymax});
 [![example_axis_1](docs/examples/appearance/axis/axis/axis_1.svg)](examples/appearance/axis/axis/axis_1.cpp)
 
 More examples:
-    
+
 [![example_axis_2](docs/examples/appearance/axis/axis/axis_2_thumb.png)](examples/appearance/axis/axis/axis_2.cpp)  [![example_axis_3](docs/examples/appearance/axis/axis/axis_3_thumb.png)](examples/appearance/axis/axis/axis_3.cpp)  [![example_axis_4](docs/examples/appearance/axis/axis/axis_4_thumb.png)](examples/appearance/axis/axis/axis_4.cpp)  [![example_axis_5](docs/examples/appearance/axis/axis/axis_5_thumb.png)](examples/appearance/axis/axis/axis_5.cpp)  [![example_axis_6](docs/examples/appearance/axis/axis/axis_6_thumb.png)](examples/appearance/axis/axis/axis_6.cpp)  [![example_axis_7](docs/examples/appearance/axis/axis/axis_7_thumb.png)](examples/appearance/axis/axis/axis_7.cpp)  [![example_axis_8](docs/examples/appearance/axis/axis/axis_8_thumb.png)](examples/appearance/axis/axis/axis_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6768,7 +6768,7 @@ More examples:
 
 
 
-  
+
 #### Box
 
 ```cpp
@@ -6782,7 +6782,7 @@ box(on);
 [![example_box_1](docs/examples/appearance/axis/box/box_1.png)](examples/appearance/axis/box/box_1.cpp)
 
 More examples:
-    
+
 [![example_box_2](docs/examples/appearance/axis/box/box_2_thumb.png)](examples/appearance/axis/box/box_2.cpp)  [![example_box_3](docs/examples/appearance/axis/box/box_3_thumb.png)](examples/appearance/axis/box/box_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6839,7 +6839,7 @@ grid(on);
 [![example_grid_1](docs/examples/appearance/grid/grid/grid_1.svg)](examples/appearance/grid/grid/grid_1.cpp)
 
 More examples:
-    
+
 [![example_grid_2](docs/examples/appearance/grid/grid/grid_2_thumb.png)](examples/appearance/grid/grid/grid_2.cpp)  [![example_grid_3](docs/examples/appearance/grid/grid/grid_3_thumb.png)](examples/appearance/grid/grid/grid_3.cpp)  [![example_grid_4](docs/examples/appearance/grid/grid/grid_4_thumb.png)](examples/appearance/grid/grid/grid_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -6892,7 +6892,7 @@ More examples:
 
 
 
-  
+
 #### X Ticks
 
 ```cpp
@@ -6906,7 +6906,7 @@ xticks(xs);
 [![example_xticks_1](docs/examples/appearance/grid/xticks/xticks_1.svg)](examples/appearance/grid/xticks/xticks_1.cpp)
 
 More examples:
-    
+
 [![example_xticks_2](docs/examples/appearance/grid/xticks/xticks_2_thumb.png)](examples/appearance/grid/xticks/xticks_2.cpp)  [![example_xticks_3](docs/examples/appearance/grid/xticks/xticks_3_thumb.png)](examples/appearance/grid/xticks/xticks_3.cpp)  [![example_xticks_4](docs/examples/appearance/grid/xticks/xticks_4_thumb.png)](examples/appearance/grid/xticks/xticks_4.cpp)  [![example_xticks_5](docs/examples/appearance/grid/xticks/xticks_5_thumb.png)](examples/appearance/grid/xticks/xticks_5.cpp)  [![example_xticks_6](docs/examples/appearance/grid/xticks/xticks_6_thumb.png)](examples/appearance/grid/xticks/xticks_6.cpp)  [![example_xticks_7](docs/examples/appearance/grid/xticks/xticks_7_thumb.png)](examples/appearance/grid/xticks/xticks_7.cpp)  [![example_xticks_8](docs/examples/appearance/grid/xticks/xticks_8_thumb.png)](examples/appearance/grid/xticks/xticks_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7004,7 +7004,7 @@ More examples:
     ```
 
 
-  
+
 #### Y Ticks
 
 ```cpp
@@ -7018,7 +7018,7 @@ yticks(ys);
 [![example_yticks_1](docs/examples/appearance/grid/yticks/yticks_1.svg)](examples/appearance/grid/yticks/yticks_1.cpp)
 
 More examples:
-    
+
 [![example_yticks_2](docs/examples/appearance/grid/yticks/yticks_2_thumb.png)](examples/appearance/grid/yticks/yticks_2.cpp)  [![example_yticks_3](docs/examples/appearance/grid/yticks/yticks_3_thumb.png)](examples/appearance/grid/yticks/yticks_3.cpp)  [![example_yticks_4](docs/examples/appearance/grid/yticks/yticks_4_thumb.png)](examples/appearance/grid/yticks/yticks_4.cpp)  [![example_yticks_5](docs/examples/appearance/grid/yticks/yticks_5_thumb.png)](examples/appearance/grid/yticks/yticks_5.cpp)  [![example_yticks_6](docs/examples/appearance/grid/yticks/yticks_6_thumb.png)](examples/appearance/grid/yticks/yticks_6.cpp)  [![example_yticks_7](docs/examples/appearance/grid/yticks/yticks_7_thumb.png)](examples/appearance/grid/yticks/yticks_7.cpp)  [![example_yticks_8](docs/examples/appearance/grid/yticks/yticks_8_thumb.png)](examples/appearance/grid/yticks/yticks_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7130,7 +7130,7 @@ zticks(zs);
 [![example_zticks_1](docs/examples/appearance/grid/zticks/zticks_1.png)](examples/appearance/grid/zticks/zticks_1.cpp)
 
 More examples:
-    
+
 [![example_zticks_2](docs/examples/appearance/grid/zticks/zticks_2_thumb.png)](examples/appearance/grid/zticks/zticks_2.cpp)  [![example_zticks_3](docs/examples/appearance/grid/zticks/zticks_3_thumb.png)](examples/appearance/grid/zticks/zticks_3.cpp)  [![example_zticks_4](docs/examples/appearance/grid/zticks/zticks_4_thumb.png)](examples/appearance/grid/zticks/zticks_4.cpp)  [![example_zticks_5](docs/examples/appearance/grid/zticks/zticks_5_thumb.png)](examples/appearance/grid/zticks/zticks_5.cpp)  [![example_zticks_6](docs/examples/appearance/grid/zticks/zticks_6_thumb.png)](examples/appearance/grid/zticks/zticks_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7219,7 +7219,7 @@ xticklabels(xstrs);
 [![example_xticklabels_1](docs/examples/appearance/grid/xticklabels/xticklabels_1.svg)](examples/appearance/grid/xticklabels/xticklabels_1.cpp)
 
 More examples:
-    
+
 [![example_xticklabels_2](docs/examples/appearance/grid/xticklabels/xticklabels_2_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_2.cpp)  [![example_xticklabels_3](docs/examples/appearance/grid/xticklabels/xticklabels_3_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)  [![example_xticklabels_4](docs/examples/appearance/grid/xticklabels/xticklabels_4_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7285,7 +7285,7 @@ yticklabels(ystrs);
 [![example_yticklabels_1](docs/examples/appearance/grid/yticklabels/yticklabels_1.svg)](examples/appearance/grid/yticklabels/yticklabels_1.cpp)
 
 More examples:
-    
+
 [![example_yticklabels_2](docs/examples/appearance/grid/yticklabels/yticklabels_2_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_2.cpp)  [![example_yticklabels_3](docs/examples/appearance/grid/yticklabels/yticklabels_3_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)  [![example_yticklabels_4](docs/examples/appearance/grid/yticklabels/yticklabels_4_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7337,7 +7337,7 @@ More examples:
     ```
 
 
-  
+
 #### X Tick Format
 
 ```cpp
@@ -7351,7 +7351,7 @@ xtickformat(fmtstr);
 [![example_xtickformat_1](docs/examples/appearance/grid/xtickformat/xtickformat_1.svg)](examples/appearance/grid/xtickformat/xtickformat_1.cpp)
 
 More examples:
-    
+
 [![example_xtickformat_2](docs/examples/appearance/grid/xtickformat/xtickformat_2_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_2.cpp)  [![example_xtickformat_3](docs/examples/appearance/grid/xtickformat/xtickformat_3_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)  [![example_xtickformat_4](docs/examples/appearance/grid/xtickformat/xtickformat_4_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)  [![example_xtickformat_5](docs/examples/appearance/grid/xtickformat/xtickformat_5_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7415,7 +7415,7 @@ More examples:
 
 
 
-  
+
 #### Y Tick Format
 
 ```cpp
@@ -7429,7 +7429,7 @@ ytickformat(fmtstr);
 [![example_ytickformat_1](docs/examples/appearance/grid/ytickformat/ytickformat_1.svg)](examples/appearance/grid/ytickformat/ytickformat_1.cpp)
 
 More examples:
-    
+
 [![example_ytickformat_2](docs/examples/appearance/grid/ytickformat/ytickformat_2_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)  [![example_ytickformat_3](docs/examples/appearance/grid/ytickformat/ytickformat_3_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)  [![example_ytickformat_4](docs/examples/appearance/grid/ytickformat/ytickformat_4_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)  [![example_ytickformat_5](docs/examples/appearance/grid/ytickformat/ytickformat_5_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7507,7 +7507,7 @@ ztickformat(fmtstr);
 [![example_ztickformat_1](docs/examples/appearance/grid/ztickformat/ztickformat_1.svg)](examples/appearance/grid/ztickformat/ztickformat_1.cpp)
 
 More examples:
-    
+
 [![example_ztickformat_2](docs/examples/appearance/grid/ztickformat/ztickformat_2_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_2.cpp)  [![example_ztickformat_3](docs/examples/appearance/grid/ztickformat/ztickformat_3_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_3.cpp)  [![example_ztickformat_4](docs/examples/appearance/grid/ztickformat/ztickformat_4_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_4.cpp)  [![example_ztickformat_5](docs/examples/appearance/grid/ztickformat/ztickformat_5_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7571,7 +7571,7 @@ More examples:
 
 
 
-  
+
 #### X Tick Angle
 
 ```cpp
@@ -7585,7 +7585,7 @@ xtickangle(ang);
 [![example_xtickangle_1](docs/examples/appearance/grid/xtickangle/xtickangle_1.svg)](examples/appearance/grid/xtickangle/xtickangle_1.cpp)
 
 More examples:
-    
+
 [![example_xtickangle_2](docs/examples/appearance/grid/xtickangle/xtickangle_2_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](docs/examples/appearance/grid/xtickangle/xtickangle_3_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7626,7 +7626,7 @@ More examples:
 
 
 
-  
+
 #### Y Tick Angle
 
 ```cpp
@@ -7640,7 +7640,7 @@ ytickangle(ang);
 [![example_ytickangle_1](docs/examples/appearance/grid/ytickangle/ytickangle_1.svg)](examples/appearance/grid/ytickangle/ytickangle_1.cpp)
 
 More examples:
-    
+
 [![example_ytickangle_2](docs/examples/appearance/grid/ytickangle/ytickangle_2_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](docs/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7681,7 +7681,7 @@ More examples:
 
 
 
-  
+
 ### Multiplot
 
 #### Hold
@@ -7697,7 +7697,7 @@ hold(on);
 [![example_hold_1](docs/examples/appearance/multiplot/hold/hold_1.svg)](examples/appearance/multiplot/hold/hold_1.cpp)
 
 More examples:
-    
+
 [![example_hold_2](docs/examples/appearance/multiplot/hold/hold_2_thumb.png)](examples/appearance/multiplot/hold/hold_2.cpp)  [![example_hold_3](docs/examples/appearance/multiplot/hold/hold_3_thumb.png)](examples/appearance/multiplot/hold/hold_3.cpp)  [![example_hold_4](docs/examples/appearance/multiplot/hold/hold_4_thumb.png)](examples/appearance/multiplot/hold/hold_4.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7764,7 +7764,7 @@ plot(x, y)->use_y2(true);
 [![example_yyaxis_1](docs/examples/appearance/multiplot/yyaxis/yyaxis_1.svg)](examples/appearance/multiplot/yyaxis/yyaxis_1.cpp)
 
 More examples:
-    
+
 [![example_yyaxis_2](docs/examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)  [![example_yyaxis_3](docs/examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)  [![example_yyaxis_4](docs/examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)  [![example_yyaxis_5](docs/examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)  [![example_yyaxis_6](docs/examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7854,7 +7854,7 @@ colororder(colors);
 [![example_colororder_1](docs/examples/appearance/multiplot/colororder/colororder_1.svg)](examples/appearance/multiplot/colororder/colororder_1.cpp)
 
 More examples:
-    
+
 [![example_colororder_2](docs/examples/appearance/multiplot/colororder/colororder_2_thumb.png)](examples/appearance/multiplot/colororder/colororder_2.cpp)  [![example_colororder_3](docs/examples/appearance/multiplot/colororder/colororder_3_thumb.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)  [![example_colororder_4](docs/examples/appearance/multiplot/colororder/colororder_4_thumb.png)](examples/appearance/multiplot/colororder/colororder_4.cpp)  [![example_colororder_5](docs/examples/appearance/multiplot/colororder/colororder_5_thumb.png)](examples/appearance/multiplot/colororder/colororder_5.cpp)  [![example_colororder_6](docs/examples/appearance/multiplot/colororder/colororder_6_thumb.png)](examples/appearance/multiplot/colororder/colororder_6.cpp)  [![example_colororder_7](docs/examples/appearance/multiplot/colororder/colororder_7_thumb.png)](examples/appearance/multiplot/colororder/colororder_7.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -7957,7 +7957,7 @@ Unlike other libraries, subplots uses 0-based indices.
 [![example_subplot_1](docs/examples/appearance/multiplot/subplot/subplot_1.svg)](examples/appearance/multiplot/subplot/subplot_1.cpp)
 
 More examples:
-    
+
 [![example_subplot_2](docs/examples/appearance/multiplot/subplot/subplot_2_thumb.png)](examples/appearance/multiplot/subplot/subplot_2.cpp)  [![example_subplot_3](docs/examples/appearance/multiplot/subplot/subplot_3_thumb.png)](examples/appearance/multiplot/subplot/subplot_3.cpp)  [![example_subplot_4](docs/examples/appearance/multiplot/subplot/subplot_4_thumb.png)](examples/appearance/multiplot/subplot/subplot_4.cpp)  [![example_subplot_5](docs/examples/appearance/multiplot/subplot/subplot_5_thumb.png)](examples/appearance/multiplot/subplot/subplot_5.cpp)  [![example_subplot_6](docs/examples/appearance/multiplot/subplot/subplot_6_thumb.png)](examples/appearance/multiplot/subplot/subplot_6.cpp)  [![example_subplot_7](docs/examples/appearance/multiplot/subplot/subplot_7_thumb.png)](examples/appearance/multiplot/subplot/subplot_7.cpp)  [![example_subplot_8](docs/examples/appearance/multiplot/subplot/subplot_8_thumb.png)](examples/appearance/multiplot/subplot/subplot_8.cpp)  [![example_subplot_9](docs/examples/appearance/multiplot/subplot/subplot_9_thumb.png)](examples/appearance/multiplot/subplot/subplot_9.cpp)  [![example_subplot_10](docs/examples/appearance/multiplot/subplot/subplot_10_thumb.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)  [![example_subplot_11](docs/examples/appearance/multiplot/subplot/subplot_11_thumb.png)](examples/appearance/multiplot/subplot/subplot_11.cpp)  [![example_subplot_12](docs/examples/appearance/multiplot/subplot/subplot_12_thumb.png)](examples/appearance/multiplot/subplot/subplot_12.cpp)  [![example_subplot_13](docs/examples/appearance/multiplot/subplot/subplot_13_thumb.png)](examples/appearance/multiplot/subplot/subplot_13.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8126,9 +8126,9 @@ nexttile();
     <summary>See result</summary>
 
 [![example_tiledlayout_1](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
-    
+
 More examples:
-    
+
 [![example_tiledlayout_2](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)  [![example_tiledlayout_3](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)  [![example_tiledlayout_4](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)  [![example_tiledlayout_5](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)  [![example_tiledlayout_6](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)  [![example_tiledlayout_7](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)  [![example_tiledlayout_8](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8228,8 +8228,8 @@ More examples:
 
 
 
-Our tiling functions are convenience shortcuts for the subplot functions. If there is no room for the next tile, we automatically rearrange the axes and increase the number of subplot rows or columns to fit the next tile. Use subplots for more control over the subplots. 
-  
+Our tiling functions are convenience shortcuts for the subplot functions. If there is no room for the next tile, we automatically rearrange the axes and increase the number of subplot rows or columns to fit the next tile. Use subplots for more control over the subplots.
+
 ### Colormaps
 
 #### Colormap
@@ -8247,7 +8247,7 @@ colormap(colors);
 [![example_colormap_1](docs/examples/appearance/colormaps/colormap/colormap_1.png)](examples/appearance/colormaps/colormap/colormap_1.cpp)
 
 More examples:
-    
+
 [![example_colormap_2](docs/examples/appearance/colormaps/colormap/colormap_2_thumb.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)  [![example_colormap_3](docs/examples/appearance/colormaps/colormap/colormap_3_thumb.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)  [![example_colormap_4](docs/examples/appearance/colormaps/colormap/colormap_4_thumb.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)  [![example_colormap_5](docs/examples/appearance/colormaps/colormap/colormap_5_thumb.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)  [![example_colormap_6](docs/examples/appearance/colormaps/colormap/colormap_6_thumb.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)  [![example_colormap_7](docs/examples/appearance/colormaps/colormap/colormap_7_thumb.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)  [![example_colormap_8](docs/examples/appearance/colormaps/colormap/colormap_8_thumb.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)  [![example_colormap_9](docs/examples/appearance/colormaps/colormap/colormap_9_thumb.png)](examples/appearance/colormaps/colormap/colormap_9.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8371,7 +8371,7 @@ colorbar();
 [![example_colorbar_1](docs/examples/appearance/colormaps/colorbar/colorbar_1.png)](examples/appearance/colormaps/colorbar/colorbar_1.cpp)
 
 More examples:
-    
+
 [![example_colorbar_2](docs/examples/appearance/colormaps/colorbar/colorbar_2_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_2.cpp)  [![example_colorbar_3](docs/examples/appearance/colormaps/colorbar/colorbar_3_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_3.cpp)  [![example_colorbar_4](docs/examples/appearance/colormaps/colorbar/colorbar_4_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_4.cpp)  [![example_colorbar_5](docs/examples/appearance/colormaps/colorbar/colorbar_5_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_5.cpp)  [![example_colorbar_6](docs/examples/appearance/colormaps/colorbar/colorbar_6_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_6.cpp)  [![example_colorbar_7](docs/examples/appearance/colormaps/colorbar/colorbar_7_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_7.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8458,7 +8458,7 @@ More examples:
 
 
 
-  
+
 #### RGB Plot
 
 ```cpp
@@ -8472,7 +8472,7 @@ rgbplot(colors);
 [![example_rgbplot_1](docs/examples/appearance/colormaps/rgbplot/rgbplot_1.svg)](examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
 
 More examples:
-    
+
 [![example_rgbplot_2](docs/examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
 
 </details>
@@ -8518,7 +8518,7 @@ view(az, el);
 [![example_view_1](docs/examples/appearance/camera/view/view_1.png)](examples/appearance/camera/view/view_1.cpp)
 
 More examples:
-    
+
 [![example_view_2](docs/examples/appearance/camera/view/view_2_thumb.png)](examples/appearance/camera/view/view_2.cpp)  [![example_view_3](docs/examples/appearance/camera/view/view_3_thumb.png)](examples/appearance/camera/view/view_3.cpp)  [![example_view_4](docs/examples/appearance/camera/view/view_4_thumb.png)](examples/appearance/camera/view/view_4.cpp)  [![example_view_5](docs/examples/appearance/camera/view/view_5_thumb.png)](examples/appearance/camera/view/view_5.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8607,7 +8607,7 @@ surf(x, y, z)->lighting(true);
 [![example_lighting_1](docs/examples/appearance/camera/lighting/lighting_1.png)](examples/appearance/camera/lighting/lighting_1.cpp)
 
 More examples:
-    
+
 [![example_lighting_2](docs/examples/appearance/camera/lighting/lighting_2_thumb.png)](examples/appearance/camera/lighting/lighting_2.cpp)  [![example_lighting_3](docs/examples/appearance/camera/lighting/lighting_3_thumb.png)](examples/appearance/camera/lighting/lighting_3.cpp)  [![example_lighting_4](docs/examples/appearance/camera/lighting/lighting_4_thumb.png)](examples/appearance/camera/lighting/lighting_4.cpp)  [![example_lighting_5](docs/examples/appearance/camera/lighting/lighting_5_thumb.png)](examples/appearance/camera/lighting/lighting_5.cpp)  [![example_lighting_6](docs/examples/appearance/camera/lighting/lighting_6_thumb.png)](examples/appearance/camera/lighting/lighting_6.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8683,7 +8683,7 @@ More examples:
 
 
 
-  
+
 ### Figure Object
 
 ```cpp
@@ -8697,7 +8697,7 @@ figure();
 [![example_figure_1](docs/examples/appearance/figure/figure_1.svg)](examples/appearance/figure/figure_1.cpp)
 
 More examples:
-    
+
 [![example_figure_2](docs/examples/appearance/figure/figure_2_thumb.png)](examples/appearance/figure/figure_2.cpp)  [![example_figure_3](docs/examples/appearance/figure/figure_3_thumb.png)](examples/appearance/figure/figure_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8738,7 +8738,7 @@ More examples:
 
 
 
-  
+
 ### Line Specs
 
 ```cpp
@@ -8776,7 +8776,7 @@ auto ax1 = gca();
 [![example_axes_1](docs/examples/appearance/axes/axes_1.svg)](examples/appearance/axes/axes_1.cpp)
 
 More examples:
-    
+
 [![example_axes_2](docs/examples/appearance/axes/axes_2_thumb.png)](examples/appearance/axes/axes_2.cpp)  [![example_axes_3](docs/examples/appearance/axes/axes_3_thumb.png)](examples/appearance/axes/axes_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8831,7 +8831,7 @@ cla();
 [![example_cla_1](docs/examples/appearance/cla/cla_1.svg)](examples/appearance/cla/cla_1.cpp)
 
 More examples:
-    
+
 [![example_cla_2](docs/examples/appearance/cla/cla_2_thumb.png)](examples/appearance/cla/cla_2.cpp)  [![example_cla_3](docs/examples/appearance/cla/cla_3_thumb.png)](examples/appearance/cla/cla_3.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -8902,11 +8902,11 @@ save(filename, fileformat);
 <!-- START mdsplit-ignore -->
 <details>
     <summary>See result</summary>
-    
+
 [![example_save_1](docs/examples/exporting/save/save_1.png)](examples/exporting/save/save_1.cpp)
 
 More examples:
-    
+
 [![example_save_2](docs/examples/exporting/save/save_2_thumb.png)](examples/exporting/save/save_2.cpp)  [![example_save_3](docs/examples/exporting/save/save_3_thumb.png)](examples/exporting/save/save_3.cpp)  [![example_save_4](docs/examples/exporting/save/save_4_thumb.png)](examples/exporting/save/save_4.cpp)  [![example_save_5](docs/examples/exporting/save/save_5_thumb.png)](examples/exporting/save/save_5.cpp)  [![example_save_6](docs/examples/exporting/save/save_6_thumb.png)](examples/exporting/save/save_6.cpp)  [![example_save_7](docs/examples/exporting/save/save_7_thumb.png)](examples/exporting/save/save_7.cpp)  [![example_save_8](docs/examples/exporting/save/save_8_thumb.png)](examples/exporting/save/save_8.cpp)
 </details>
 <!-- END mdsplit-ignore -->
@@ -9008,40 +9008,40 @@ More examples:
 The first option (`save(filename)`) infers the appropriate file format from the filename extension. In both cases (`save(filename)` and `save(filename,fileformat)`), this function temporarily changes the backend to a non-interactive backend appropriate to draw the figure. A different backend is used for each format and, depending on the format, the final image does not necessarily match what is on the interactive plot window. The reason is that some file formats purposefully do not include the same features.
 
  For instance, consider the bar chart generated by
- 
+
  ```cpp
  vector<double> x = {29, 17, 14, 13, 12, 4, 11};
  bar(x);
  ```
- 
+
  If we export the image with
- 
+
  ```cpp
  save("barchart.svg");
  ```
- 
- we get the vector graphics 
+
+ we get the vector graphics
 
 <details>
     <summary>See result</summary>
 
  ![Barchart as SVG file](docs/img/barchart.svg)
 </details>
- 
+
  Exporting the image with
- 
+
  ```cpp
  save("barchart.txt");
  ```
- 
+
  generates a representation of the image appropriate for text or markdown files, such as
- 
+
  <details>
      <summary>See result</summary>
 
- 
+
  ```
- 
+
         30 +-----------------------------------------------------------+
            |    *******   +       +      +       +      +       +      |
            |    *     *                                                |
@@ -9063,24 +9063,24 @@ The first option (`save(filename)`) infers the appropriate file format from the 
            |    *  +  **  +  * *  +  **  +  * *  +  **  +  * *  +  *   |
          0 +-----------------------------------------------------------+
                    1      2       3      4       5      6       7
- 
+
  ```
  </details>
- 
+
  As the last example, saving an image with
- 
+
  ```cpp
  save("barchart.tex");
  ```
- 
+
  would save the image in a format appropriate to embed in latex documents, such as
-  
+
 <details>
   <summary>See result</summary>
 
- ![Barchart - Latex](docs/img/barchart.png) 
+ ![Barchart - Latex](docs/img/barchart.png)
 </details>
-  
+
  This exports the image in a format in which the labels are replaced by latex text so that the plot fits the rest of the document.
 
 ## Coding styles
@@ -9107,16 +9107,16 @@ These two examples would generate the same plot:
     my_function(ax);
     ```
 
- 
-* Freestanding functions: 
+
+* Freestanding functions:
     - We call functions to create plots on the current axes
     - The global current `axes` object is the current `axes` object in the current figure in the global figure registry
-    - For instance, one can use `plot(y);` to create a line plot on the current axes (or create a new `axes` object if needed). 
-    - Also, one can use `plot(ax,y);` to create a line plot on the `axes` object `ax`. 
+    - For instance, one can use `plot(y);` to create a line plot on the current axes (or create a new `axes` object if needed).
+    - Also, one can use `plot(ax,y);` to create a line plot on the `axes` object `ax`.
     - This is less verbose for small projects and quick tests.
     - The library looks for existing axes to create the plot.
 
-* Object-oriented interface: 
+* Object-oriented interface:
     - We explicitly create figures and call methods on them
     - For instance, one can use `ax->plot(y);` to plot on the `axes` object `ax`
     - We can create the same line plot on the current axes by `auto ax = gca(); ax->plot(y);`
@@ -9131,7 +9131,7 @@ To adhere to free-standing functions, we could create two versions of `my_functi
 
 ### Reactive vs. Quiet Figures
 
-There are also two modes for figures: reactive (or interactive) mode and quiet mode. 
+There are also two modes for figures: reactive (or interactive) mode and quiet mode.
 
 === "Reactive mode"
 
@@ -9195,7 +9195,7 @@ To support a more compact syntax, the library allows method chaining on plot obj
       .marker_face_color({.5,.5,.5});
     ```
 
-The first code snippet works because `plot` returns a `line_handle` to the object in the `axes`. We can use this line handle to modify the line plot. Whenever we modify a property, the setter function calls `touch`, which will `draw` the figure again if it is in reactive mode. The second option works because setters return a reference to `*this` rather than void. 
+The first code snippet works because `plot` returns a `line_handle` to the object in the `axes`. We can use this line handle to modify the line plot. Whenever we modify a property, the setter function calls `touch`, which will `draw` the figure again if it is in reactive mode. The second option works because setters return a reference to `*this` rather than void.
 
 ### Ranges
 
@@ -9222,15 +9222,15 @@ Unfortunately, because of how templated functions work, one exception is initial
 
 The headers `common.h` and `colors.h` include a number of utilities we use in our examples. These include naive functions to:
 
-* generate and manipulate vectors and strings; 
-* handle RGBA color arrays; 
+* generate and manipulate vectors and strings;
+* handle RGBA color arrays;
 * convert points to and from polar coordinates;
-* read files to strings; 
-* write strings to files; 
-* calculate gradients; 
-* read, write, and manipulate images; 
-* and generate vectors with random numbers. 
-  
+* read files to strings;
+* write strings to files;
+* calculate gradients;
+* read, write, and manipulate images;
+* and generate vectors with random numbers.
+
 Although some of these functions might be helpful, most functions only operate on `std::vector<double>` and they are not intended to be a library of utilities. The sole purpose of these algorithms is to simplify the examples.
 
 ### Backends
@@ -9252,7 +9252,7 @@ If you're in a hurry, here is a summary of the backends we have and the backends
 * AGG
     * Pros: Great for vector graphics
     * Cons: Unmaintained, 2D only, and non-interactive by itself <sup>see [1](https://github.com/ghaerr/agg-2.6#roadmap), [2](https://github.com/mapnik/mapnik/wiki/MapnikRenderers), [3](http://www.antigrain.com/) </sup>
-  
+
 ### Motivation and Details
 
 If you are interested in understanding how the library works, you can read the details in the complete [article](docs/white-paper.md). It describes the relationship between its main objects, the backend interface, how to create new plot categories, its limitations, and compares this library with similar alternatives.
@@ -9291,20 +9291,20 @@ In doubt, please open a [discussion](https://github.com/alandefreitas/matplotplu
 
 ### Contributing Guidelines
 
-If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DMatplot++_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DMatplot++_BUILD_WITH_PEDANTIC_WARNINGS=ON`), use [cppcheck](http://cppcheck.sourceforge.net/), and [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
+If contributing with code, please leave the OpenGL backend and pedantic mode ON (`-DMATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON -DMATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS=ON`), use [cppcheck](http://cppcheck.sourceforge.net/), and [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 
 <details>
     <summary>Example: CLion</summary>
-    
+
 ![CLion Settings with Pedantic Mode](docs/img/pedantic_clion.png)
-    
+
 </details>
 
 If contributing to the documentation, please edit [`README.md`](README.md) directly, as the files in [`./docs`](./docs) are automatically generated with [mdsplit](https://github.com/alandefreitas/mdsplit).
 
 ### Contributors
 
-<!-- readme: collaborators,contributors,ankane -start --> 
+<!-- readme: collaborators,contributors,ankane -start -->
 <table>
 <tr>
     <td align="center">
@@ -9545,105 +9545,105 @@ These are some references we used for this work:
 * Antcheva I, Ballintijn M, Bellenot B, Biskup M, Brun R, Buncic N, Canal P, Casadei D, CouetO, Fine V, et al.(2011). "ROOT-A C++ framework for petabyte data storage, statistical analysis and visualization."Computer Physics Communications,182(6), 1384-1385.
 
 * Baratov R (2019). Hunter. URL: [https://hunter.readthedocs.io](https://hunter.readthedocs.io).
- 
+
 * Barrett P, Hunter J, Miller JT, Hsu JC, Greenfield P (2005). "matplotlib-A Portable Python Plotting Package." In Astronomical data analysis software and systems XIV, volume 347,p. 91.
 
 * Bezanson J, Edelman A, Karpinski S, Shah VB (2017). "Julia: A fresh approach to numerical computing. "SIAM review,59(1), 65-98.
 
 * CEGUI Team (2020). CEGUI. URL: [http://cegui.org.uk](http://cegui.org.uk).
- 
+
 * Cornut O (2020). Dear ImGui: Bloat-free Immediate Mode Graphical User Interface for C++ with minimal dependencies. URL: [https://github.com/ocornut/imgui](https://github.com/ocornut/imgui).
- 
+
 * de Guzman J (2020). Elements. URL: [http://cycfi.github.io/elements/](http://cycfi.github.io/elements/).
- 
+
 * Eichhammer E (2020). QCustomPlot. URL: [https://www.qcustomplot.com](https://www.qcustomplot.com).
- 
+
 * Evers B (2019). Matplotlib-cpp. URL: [https://github.com/lava/matplotlib-cpp](https://github.com/lava/matplotlib-cpp).
- 
+
 * Freitas A (2020). Pareto Front Library.   URL: [https://github.com/alandefreitas/pareto-front](https://github.com/alandefreitas/pareto-front).
- 
+
 * Frigo M, Johnson SG (1998). "FFTW: An adaptive software architecture for the FFT." In Proceedings of the 1998 IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP'98 (Cat. No. 98CH36181), volume 3, pp. 1381-1384. IEEE.
 
 * Fruchterman TM, Reingold EM (1991). "Graph drawing by force-directed placement. "Software: Practice and experience, 21(11), 1129-1164.
 
 * GNU Project (2020). GNU Octave: Introduction to Plotting. URL: [https://octave.org/doc/v4.2.2/Introduction-to-Plotting.html](https://octave.org/doc/v4.2.2/Introduction-to-Plotting.html).
- 
+
 * Guy Eric Schalnat Andreas Dilger GRP (2020). Libpng. URL: [https://sourceforge.net/p/libpng/](https://sourceforge.net/p/libpng/).
- 
+
 * Hao J (2020). Nana. URL: [http://nanapro.org/](http://nanapro.org/).
- 
+
 * Hunter JD (2007).  "Matplotlib: A 2D graphics environment. "Computing in Science & Engineering, 9(3), 90-95. doi:10.1109/MCSE.2007.55.
 
 * Idea4good (2020). GuiLite. URL: [https://github.com/idea4good/GuiLite](https://github.com/idea4good/GuiLite).
- 
+
 * ImageMagick Studio LLC (2020). Magick++. URL: [https://imagemagick.org/Magick++/](https://imagemagick.org/Magick++/).
- 
+
 * Independent JPEG Group (2020). Libjpeg. URL: [http://libjpeg.sourceforge.net](http://libjpeg.sourceforge.net).
- 
+
 * Intel Corporation, Willow Garage I (2020). Open Source Computer Vision Library (OpenCV). URL: [https://opencv.org/](https://opencv.org/).
- 
+
 * Jakob W (2017). PyBind11. URL: [https://pybind11.readthedocs.io/en/stable/](https://pybind11.readthedocs.io/en/stable/).
- 
+
 * Kagstrom B LP, C VL (2020). Basic Linear Algebra Subprograms (BLAS).  URL: [http://www.netlib.org/blas/](http://www.netlib.org/blas/).
- 
+
 * Kainz F, Bogart R, Hess D (2003). "The OpenEXR image file format."SIGGRAPH TechnicalSketches.
 
 * Kamada T, Kawai S,et al.(1989). "An algorithm for drawing general undirected graphs."Information processing letters,31(1), 7-15.
 
 * Loup Gailly J, Adler M (2020). Zlib. URL: [https://github.com/madler/zlib](https://github.com/madler/zlib).
- 
+
 * Martin K, Hoffman B (2010). Mastering CMake: a cross-platform build system. Kitware.
 
 * McKinney W,et al.(2011). "Pandas: a foundational Python library for data analysis and statistics. "Python for High Performance and Scientific Computing, 14(9).
 
 * Conan.io (2020). Conan. URL: [https://conan.io](https://conan.io).
- 
+
 * Melchior L (2020). CPM.cmake. URL: [https://github.com/TheLartians/CPM.cmake](https://github.com/TheLartians/CPM.cmake).
- 
+
 * Murray Cumming DE (2020). Gtkmm. URL: [https://www.gtkmm.org/](https://www.gtkmm.org/).
- 
+
 * Natural Earth (2018). "Natural earth. Free vector and raster map data." URL: [http://www.naturalearthdata.com/downloads/](http://www.naturalearthdata.com/downloads/).
- 
+
 * NetworkX developers (2020). NetworkX. URL: [https://networkx.github.io](https://networkx.github.io).
- 
+
 * Olivier Birot (2020). nodesoup. URL: [https://github.com/olvb/nodesoup](https://github.com/olvb/nodesoup).
- 
+
 * Pezent E (2020). ImPlot. URL: [https://github.com/epezent/implot](https://github.com/epezent/implot).
- 
+
 * Sam Leffler SG (2020). Libtiff. URL: [https://gitlab.com/libtiff/libtiff](https://gitlab.com/libtiff/libtiff).
- 
+
 * Schaling B (2011). The boost C++ libraries. Boris Schaling.
 
 * Spitzak B, et al.(2004). "Fast Light Toolkit (FLTK)." FTLK: Fast light toolkit. Available: [http://www.fltk.org/](http://www.fltk.org/)
 
 * Stahlke D (2020). Gnuplot-Iostream. URL: [http://stahlke.org/dan/gnuplot-iostream/](http://stahlke.org/dan/gnuplot-iostream/).
- 
+
 * Storer J (2020). JUCE. URL: [https://juce.com](https://juce.com).
- 
+
 * Terra Informatica Software, Inc (2020). Sciter. URL: [https://sciter.com](https://sciter.com).
- 
+
 * The FLTK Team (2020). FLTK. URL: [https://www.fltk.org](https://www.fltk.org).
- 
+
 * The MathWorks, Inc (2020). MatlabGraphics. URL: [https://www.mathworks.com/help/matlab/graphics.html](https://www.mathworks.com/help/matlab/graphics.html).
- 
+
 * The Qt Company (2020). Qt. URL: [https://www.qt.io](https://www.qt.io).
- 
+
 * Tschumperle D (2020). CImg. URL: [http://cimg.eu](http://cimg.eu).
- 
+
 * van der Zijp J (2020). Fox toolkit. URL: [http://fox-toolkit.org](http://fox-toolkit.org).
- 
+
 * Vasilev V, Canal P, Naumann A, Russo P (2012). "Cling-the new interactive interpreter for root 6." In Journal of Physics: Conference Series, volume 396, p. 052071.
 
 * Walt Svd, Colbert SC, Varoquaux G (2011). "The NumPy array: a structure for efficient numerical computation." Computing in science & engineering,13(2), 22-30.
 
 * Wei V (2020). MiniGUI. URL: [http://www.minigui.com](http://www.minigui.com).
- 
+
 * Williams T, Kelley C, Bersch C, Broker HB, Campbell J, Cunningham R, Denholm D, Elber G, Fearick R, Grammes C,et al.(2017). "gnuplot 5.2."
 
 * wxWidgets (2020). WxWidgets. URL: [https://wxwidgets.org](https://wxwidgets.org).
- 
+
 * XOrg Foundation (2020). X11. URL: [https://www.x.org/](https://www.x.org/).
- 
+
 * Zaitsev S (2020). Webview. URL: [https://github.com/zserge/webview](https://github.com/zserge/webview).
- 
+
 * Zakai A (2011). "Emscripten: an LLVM-to-JavaScript compiler." In Proceedings of the ACM international conference companion on Object oriented programming systems languages and applications companion, pp. 301-312.

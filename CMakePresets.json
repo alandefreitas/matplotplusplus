@@ -19,13 +19,13 @@
     {
       "name": "system",
       "displayName": "Build for system installation",
-      "description": "Build for system installation (Matplot++_BUILD_EXAMPLES and Matplot++_BUILD_TESTS are OFF)",
+      "description": "Build for system installation (MATPLOTPP_BUILD_EXAMPLES and MATPLOTPP_BUILD_TESTS are OFF)",
       "binaryDir": "${sourceDir}/build/system",
       "generator": "Unix Makefiles",
       "cacheVariables": {
-        "Matplot++_BUILD_EXAMPLES": "OFF",
-        "Matplot++_BUILD_TESTS": "OFF",
-        "BUILD_SHARED_LIBS": "ON",
+        "MATPLOTPP_BUILD_EXAMPLES": "OFF",
+        "MATPLOTPP_BUILD_TESTS": "OFF",
+        "MATPLOTPP_BUILD_SHARED_LIBS": "ON",
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
       }

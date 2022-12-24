@@ -1,6 +1,6 @@
 name: Matplotplusplus
 
-on: 
+on:
   push:
     paths:
       - '**.c'
@@ -81,7 +81,7 @@ jobs:
       - name: Configure
         working-directory: ./build
         run: |
-          cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }} -DMatplot++_BUILD_WITH_PEDANTIC_WARNINGS=ON
+          cmake .. ${{ matrix.config.cmake_extra_args }} -DCMAKE_BUILD_TYPE=${{ matrix.config.config }} -DMATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS=ON
       - name: Build
         working-directory: ./build
         run: cmake --build . --parallel ${{ matrix.config.cores }} --config ${{ matrix.config.config }}
