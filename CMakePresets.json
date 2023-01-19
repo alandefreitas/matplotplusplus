@@ -19,20 +19,20 @@
     {
       "name": "system",
       "displayName": "Build for system installation",
-      "description": "Bulid for system installation (BUILD_EXAMPLES and BUILD_TESTS are OFF)",
+      "description": "Build for system installation (MATPLOTPP_BUILD_EXAMPLES and MATPLOTPP_BUILD_TESTS are OFF)",
       "binaryDir": "${sourceDir}/build/system",
       "generator": "Unix Makefiles",
       "cacheVariables": {
-        "BUILD_EXAMPLES": "OFF",
-        "BUILD_TESTS": "OFF",
-        "BUILD_SHARED_LIBS": "ON",
+        "MATPLOTPP_BUILD_EXAMPLES": "OFF",
+        "MATPLOTPP_BUILD_TESTS": "OFF",
+        "MATPLOTPP_BUILD_SHARED_LIBS": "ON",
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
       }
     },
     {
       "name": "local",
-      "displayName":"Build for installation in $HOME/.local",
+      "displayName": "Build for installation in $HOME/.local",
       "description": "Build for installaton in $HOME/.local",
       "inherits": "system",
       "binaryDir": "${sourceDir}/build/local",
