@@ -252,7 +252,7 @@ endif()
 #######################################################
 ### Installer                                       ###
 #######################################################
-if (BUILD_INSTALLER)
+if (MATPLOTPP_BUILD_INSTALLER)
     # Install targets
     install(TARGETS matplot
             EXPORT Matplot++Targets
