@@ -144,13 +144,13 @@ if (HAVE_FBUFSIZE)
 endif()
 
 # Build for documentation
-if (BUILD_FOR_DOCUMENTATION_IMAGES)
+if (MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES)
     message("Building matplot for documentation images. wait() commands will be ignored. ~figure will save the files.")
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
 endif ()
 
 # Include high-resolution world map in the binary
-if (BUILD_HIGH_RESOLUTION_WORLD_MAP)
+if (MATPLOTPP_BUILD_HIGH_RESOLUTION_WORLD_MAP)
     target_compile_definitions(matplot PUBLIC MATPLOT_BUILD_HIGH_RESOLUTION_WORLD_MAP)
 else ()
     message("Not including the high resolution maps for geoplots")
@@ -163,7 +163,7 @@ endif ()
 # Maybe add pedantic warning
 
 
-#if (BUILD_WITH_PEDANTIC_WARNINGS)
+#if (MATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS)
 #    if (MSVC)
 #        target_compile_options(matplot PRIVATE /W4 /WX)
 #    else ()
@@ -182,7 +182,7 @@ endif ()
 #######################################################
 ### Experimental OpenGL backend                     ###
 #######################################################
-if (BUILD_EXPERIMENTAL_OPENGL_BACKEND)
+if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # Library for the OpenGL example
     # This is an example of what an OpenGL backend *could* look like.
     #     The opengl backend is currently incomplete.
