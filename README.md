@@ -9429,13 +9429,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/david-x64">
+            <img src="https://avatars.githubusercontent.com/u/11367746?v=4" width="100;" alt="david-x64"/>
+            <br />
+            <sub><b>David</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/dimztimz">
             <img src="https://avatars.githubusercontent.com/u/6236568?v=4" width="100;" alt="dimztimz"/>
             <br />
             <sub><b>Dimitrij Mijoski</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/saxbophone">
             <img src="https://avatars.githubusercontent.com/u/8693463?v=4" width="100;" alt="saxbophone"/>
@@ -9470,15 +9477,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Niclas Wall Wennerdal</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/solosuper">
             <img src="https://avatars.githubusercontent.com/u/11663739?v=4" width="100;" alt="solosuper"/>
             <br />
             <sub><b>Solo Super</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/TheGreatRambler">
             <img src="https://avatars.githubusercontent.com/u/31906920?v=4" width="100;" alt="TheGreatRambler"/>
@@ -9505,13 +9512,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/11303028?v=4" width="100;" alt="kwoodle"/>
             <br />
             <sub><b>Kwoodle</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/myd7349">
-            <img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100;" alt="myd7349"/>
-            <br />
-            <sub><b>Myd7349</b></sub>
         </a>
     </td>
     <td align="center">
