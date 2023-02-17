@@ -5,7 +5,7 @@
 #include <regex>
 
 int main() {
-    // Set CMake option BUILD_FOR_DOCUMENTATION_IMAGES to ON and
+    // Set CMake option MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES to ON and
     //       run this executable from the root directory as working
     //       directory to run all examples.
     // If will set 1) the figure object to save the figure when being destroyed

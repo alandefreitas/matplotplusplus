@@ -2215,7 +2215,7 @@ There are two dependencies in [`source/3rd_party`](source/3rd_party). These depe
 
 You can define `WITH_SYSTEM_NODESOUP=ON` or `WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
-There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
+There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
 * OpenGL
 * GLAD

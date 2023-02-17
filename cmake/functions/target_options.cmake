@@ -11,7 +11,7 @@ endfunction()
 
 # @brief Maybe enable pedantic warnings for a target
 function(maybe_target_pedantic_warnings TARGET_NAME)
-    if (BUILD_WITH_PEDANTIC_WARNINGS)
+    if (MATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS)
         target_pedantic_warnings(${TARGET_NAME})
     endif ()
 endfunction ()
@@ -30,7 +30,7 @@ endmacro()
 
 # @brief Maybe set pedantic compiler options for all targets
 macro(maybe_add_pedantic_warnings)
-    if (BUILD_WITH_PEDANTIC_WARNINGS)
+    if (MATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS)
         add_pedantic_warnings()
     endif ()
 endmacro()
