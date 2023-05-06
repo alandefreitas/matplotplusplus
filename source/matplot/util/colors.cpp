@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
 #include <matplot/util/colors.h>
 #include <vector>
 #include <stdexcept>
