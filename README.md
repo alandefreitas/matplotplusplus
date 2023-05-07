@@ -9501,17 +9501,17 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/tretre91">
+            <img src="https://avatars.githubusercontent.com/u/63788850?v=4" width="100;" alt="tretre91"/>
+            <br />
+            <sub><b>Trévis Morvany</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/diverger">
             <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
             <br />
             <sub><b>Diverger</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/eagle-dai">
-            <img src="https://avatars.githubusercontent.com/u/1788093?v=4" width="100;" alt="eagle-dai"/>
-            <br />
-            <sub><b>Eagle-dai</b></sub>
         </a>
     </td>
     <td align="center">
