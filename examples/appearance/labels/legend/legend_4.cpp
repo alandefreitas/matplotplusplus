@@ -17,7 +17,7 @@ int main() {
     plot(x, y4);
     hold(off);
 
-    auto l = legend("cos(x)", "cos(2x)", "cos(3x)", "cos(4x)");
+    auto l = ::matplot::legend({"cos(x)", "cos(2x)", "cos(3x)", "cos(4x)"});
     l->location(legend::general_alignment::topleft);
     l->num_rows(2);
 

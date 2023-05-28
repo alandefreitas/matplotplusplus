@@ -12,7 +12,7 @@ int main() {
     std::vector<double> y2 = transform(x, [](auto x) { return cos(2 * x); });
     plot(x, y2);
 
-    legend("cos(x)", "cos(2x)");
+    ::matplot::legend({"cos(x)", "cos(2x)"});
 
     std::vector<double> y3 = transform(x, [](auto x) { return cos(3 * x); });
     auto p = plot(x, y3);
@@ -21,7 +21,7 @@ int main() {
 
     show();
 
-    legend(off);
+    ::matplot::legend(off);
     show();
 
     return 0;

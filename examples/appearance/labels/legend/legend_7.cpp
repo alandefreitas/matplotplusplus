@@ -13,7 +13,7 @@ int main() {
     plot(x, y2);
     hold(off);
 
-    auto lgd = legend("cos(x)", "cos(2x)");
+    auto lgd = ::matplot::legend({"cos(x)", "cos(2x)"});
     lgd->location(legend::general_alignment::bottomleft);
     lgd->box(false);
 

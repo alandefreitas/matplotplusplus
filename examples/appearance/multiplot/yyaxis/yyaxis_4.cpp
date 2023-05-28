@@ -18,7 +18,7 @@ int main() {
     ps[1]->use_y2(true).color("m").line_style("--");
     gca()->y2_axis().color("m");
 
-    legend();
+    ::matplot::legend();
 
     show();
     return 0;

@@ -16,7 +16,7 @@ int main() {
     p2->display_name("cos(2x)");
     hold(off);
 
-    legend();
+    ::matplot::legend({});
 
     show();
     return 0;

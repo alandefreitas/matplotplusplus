@@ -15,7 +15,7 @@ int main() {
     auto p3 = plot(x, y3);
     hold(off);
 
-    legend({p1, p3}, {"First", "Third"});
+    ::matplot::legend({p1, p3}, {"First", "Third"});
 
     show();
     return 0;

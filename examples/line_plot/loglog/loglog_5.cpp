@@ -12,7 +12,7 @@ int main() {
 
     loglog(x, y1, x, y2, "--");
 
-    legend("Signal 1", "Signal 2")
+    ::matplot::legend({"Signal 1", "Signal 2"})
         ->location(legend::general_alignment::topleft);
 
     axis({0.1, 100, 2, 8});

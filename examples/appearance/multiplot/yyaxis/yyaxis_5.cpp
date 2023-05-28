@@ -21,7 +21,7 @@ int main() {
     ax->y2_axis().color(ax->colororder()[1]);
     hold(off);
 
-    legend();
+    ::matplot::legend();
 
     show();
     return 0;

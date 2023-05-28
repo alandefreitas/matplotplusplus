@@ -58,7 +58,7 @@ int main() {
     subplot(2, 3, 0);
     title("Average - Normal / Gaussian - mean(x)= {∑ x_i}/{n} - x_i = N(0,1)");
     xlim({-4, 4});
-    legend();
+    ::matplot::legend({});
     std::normal_distribution<double> d(0, 1);
     std::function<double()> normal_data_source = [&]() { return d(generator); };
     hist(bootstrap(mean<double>, normal_data_source, 1), n_bins)
@@ -104,7 +104,7 @@ int main() {
     subplot(2, 3, 1);
     title("Average - Uniform - mean(x)= {∑ x_i}/{n} - x_i = U(-1;+1)");
     xlim({-1, 1});
-    legend();
+    ::matplot::legend({});
     std::uniform_real_distribution<double> u(-1.0, 1.0);
     std::function<double()> uniform_data_source = [&]() {
         return u(generator);
@@ -152,7 +152,7 @@ int main() {
     subplot(2, 3, 2);
     title("Sum of Squares - Chi-Squared - ∑ (x_i - mean(x))^2");
     xlim({0, 5});
-    legend();
+    ::matplot::legend();
     double m = 0;
     auto chi2_data_source = [&]() {
         return pow(normal_data_source() - m, 2.0);
@@ -202,7 +202,7 @@ int main() {
     subplot(2, 3, 3);
     title("Square Root of Sum of Squares - Chi - √{∑ (x_i - mean(x))^2}");
     xlim({0, 4});
-    legend();
+    ::matplot::legend({});
     auto chi_data_source = [&]() { return sqrt(chi2_data_source()); };
     hist(bootstrap(mean<double>, chi_data_source, 1), n_bins)
         ->normalization(norm)
@@ -247,7 +247,7 @@ int main() {
               << std::endl;
     subplot(2, 3, 4);
     title("Variance ratio - F - σ_1 / σ_2");
-    legend();
+    ::matplot::legend({});
     m = 0.0;
     auto ratio_ss = [&]() { return chi2_data_source() / chi2_data_source(); };
     xlim({0, 5});
@@ -297,7 +297,7 @@ int main() {
     subplot(2, 3, 5);
     title("Average - Bernoulli - mean(x)= {∑ x_i}/{n} - x_i = B(1/6)");
     xlim({0, 1});
-    legend();
+    ::matplot::legend();
     std::bernoulli_distribution b(1. / 6.);
     std::function<double()> bernoulli_data_source = [&]() {
         return static_cast<double>(b(generator));

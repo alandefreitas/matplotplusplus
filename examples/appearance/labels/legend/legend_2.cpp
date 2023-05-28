@@ -13,7 +13,7 @@ int main() {
     auto ax2 = nexttile();
     plot(y2);
 
-    legend(ax1, "Line 1", "Line 2", "Line 3");
+    ::matplot::legend(ax1, {"Line 1", "Line 2", "Line 3"});
 
     show();
     return 0;

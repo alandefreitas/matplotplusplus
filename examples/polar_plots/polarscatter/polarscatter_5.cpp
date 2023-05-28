@@ -13,7 +13,7 @@ int main() {
     polarscatter(theta, rho2, "filled");
     hold(off);
 
-    auto l = legend("Series A", "Series B");
+    auto l = ::matplot::legend({"Series A", "Series B"});
     l->location(legend::general_alignment::topright);
 
     show();
