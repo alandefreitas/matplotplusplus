@@ -1982,7 +1982,8 @@ namespace matplot {
         double zmin = z[0][0];
         double zmax = z[0][0];
         for (const auto &z_row : z) {
-            auto [minit, maxit] = std::minmax(z_row.begin(), z_row.end());
+            auto [minit, maxit] =
+                std::minmax_element(z_row.begin(), z_row.end());
             if (*minit < zmin) {
                 zmin = *minit;
             }
