@@ -9487,6 +9487,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/RTrioux">
+            <img src="https://avatars.githubusercontent.com/u/37375368?v=4" width="100;" alt="RTrioux"/>
+            <br />
+            <sub><b>RTrioux</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/solosuper">
             <img src="https://avatars.githubusercontent.com/u/11663739?v=4" width="100;" alt="solosuper"/>
             <br />
@@ -9504,14 +9511,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         <a href="https://github.com/tretre91">
             <img src="https://avatars.githubusercontent.com/u/63788850?v=4" width="100;" alt="tretre91"/>
             <br />
-            <sub><b>Trévis Morvany</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/diverger">
-            <img src="https://avatars.githubusercontent.com/u/335566?v=4" width="100;" alt="diverger"/>
-            <br />
-            <sub><b>Diverger</b></sub>
+            <sub><b>TrC)vis Morvany</b></sub>
         </a>
     </td>
     <td align="center">
