@@ -58,8 +58,8 @@ jobs:
           #   cores: 2,
           # }
           - {
-            name: "Ubuntu/18.04/Static/X64/Release",
-            os: ubuntu-18.04,
+            name: "Ubuntu/22.04/Static/X64/Release",
+            os: ubuntu-22.04,
             config: Release,
             cmake_extra_args: "-DCMAKE_C_COMPILER=/usr/bin/gcc-10 -DCMAKE_CXX_COMPILER=/usr/bin/g++-10  -DCMAKE_CXX_FLAGS=\"-O2\"",
             sudocmd: "sudo",
