@@ -10,7 +10,6 @@ Data visualization can help programmers and scientists identify trends in their 
 
 <br/>
 
-[![Build Status](https://img.shields.io/github/workflow/status/alandefreitas/matplotplusplus/Matplotplusplus?event=push&label=Build&logo=Github-Actions)](https://github.com/alandefreitas/matplotplusplus/actions?query=workflow%3AMatplotplusplus+event%3Apush)
 [![Latest Release](https://img.shields.io/github/release/alandefreitas/matplotplusplus.svg?label=Download)](https://GitHub.com/alandefreitas/matplotplusplus/releases/)
 [![Documentation](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Documentation)](https://alandefreitas.github.io/matplotplusplus/)
 [![Discussions](https://img.shields.io/website-up-down-green-red/http/alandefreitas.github.io/matplotplusplus.svg?label=Discussions)](https://github.com/alandefreitas/matplotplusplus/discussions)
