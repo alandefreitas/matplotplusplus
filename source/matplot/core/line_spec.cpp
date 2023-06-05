@@ -73,11 +73,11 @@ namespace matplot {
                 break;
             case '>':
                 marker_style_ = marker_style::custom;
-                custom_marker_ = u8"▶";
+                custom_marker_ = "▶";
                 break;
             case '<':
                 marker_style_ = marker_style::custom;
-                custom_marker_ = u8"◀";
+                custom_marker_ = "◀";
                 break;
             case 'p':
                 marker_style_ = marker_style::pentagram;
@@ -389,11 +389,11 @@ namespace matplot {
             break;
         case '>':
             marker_style_ = marker_style::custom;
-            custom_marker_ = u8"▶";
+            custom_marker_ = "▶";
             break;
         case '<':
             marker_style_ = marker_style::custom;
-            custom_marker_ = u8"◀";
+            custom_marker_ = "◀";
             break;
         case 'P':
         case 'p':
