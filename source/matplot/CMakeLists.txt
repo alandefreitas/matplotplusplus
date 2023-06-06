@@ -102,7 +102,7 @@ target_include_directories(matplot
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # Dependencies
-if(NOT MINGW)
+if(TARGET std::filesystem AND NOT MINGW)
 target_link_libraries_system(matplot
   PRIVATE cimg nodesoup std::filesystem)
 else()

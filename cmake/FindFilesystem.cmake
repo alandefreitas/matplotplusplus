@@ -248,5 +248,5 @@ cmake_pop_check_state()
 set(Filesystem_FOUND ${_found} CACHE BOOL "TRUE if we can run a program using std::filesystem" FORCE)
 
 if(Filesystem_FIND_REQUIRED AND NOT Filesystem_FOUND)
-    message(FATAL_ERROR "Cannot run a simple program using std::filesystem\nYou need to update your C++ compiler to use this library")
+    message(STATUS "Could not run a simple program using std::filesystem\nYou might need to update your C++ compiler to use this library")
 endif()
