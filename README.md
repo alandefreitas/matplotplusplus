@@ -9357,6 +9357,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/aminya">
+            <img src="https://avatars.githubusercontent.com/u/16418197?v=4" width="100;" alt="aminya"/>
+            <br />
+            <sub><b>Amin Yahyaabadi</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/xnorpx">
             <img src="https://avatars.githubusercontent.com/u/302709?v=4" width="100;" alt="xnorpx"/>
             <br />
@@ -9383,15 +9390,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Gitplcc</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
             <br />
             <sub><b>Randy Jones</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/sammi">
             <img src="https://avatars.githubusercontent.com/u/189128?v=4" width="100;" alt="sammi"/>
@@ -9404,13 +9411,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/17132214?v=4" width="100;" alt="acxz"/>
             <br />
             <sub><b>Akash Patel</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/aminya">
-            <img src="https://avatars.githubusercontent.com/u/16418197?v=4" width="100;" alt="aminya"/>
-            <br />
-            <sub><b>Amin Yahyaabadi</b></sub>
         </a>
     </td>
     <td align="center">
