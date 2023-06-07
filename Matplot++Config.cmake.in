@@ -16,6 +16,11 @@ if(NOT ${MATPLOT_BUILT_SHARED})
     list(APPEND CMAKE_MODULE_PATH ${MATPLOT_CONFIG_INSTALL_DIR})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
     find_dependency(Filesystem COMPONENTS Experimental Final)
+    # OpenGL backend
+    if (@MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND@)
+        find_dependency(glad CONFIG)
+        find_dependency(glfw3 CONFIG)
+    endif()
     list(POP_BACK CMAKE_MODULE_PATH)
 endif()
 
