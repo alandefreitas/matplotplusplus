@@ -226,20 +226,21 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
         # find_package(GLAD REQUIRE) would suffice if it worked well
         FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG v0.1.36)
         FetchContent_MakeAvailable(glad)
-    else ()
-        if(TARGET glad)
-            add_library(glad::glad ALIAS glad)
-        endif()
-        if(NOT TARGET glad::glad)
-            # FindGLAD does not usually create a target, so we create an interface target
-            add_library(glad::glad INTERFACE)
-            target_include_directories(glad::glad INTERFACE ${GLAD_INCLUDE_PATH})
-            target_link_libraries(glad::glad INTERFACE ${GLAD_LIBRARIES})
-        endif()
+    endif()
+    if(TARGET glad AND NOT TARGET glad::glad)
+        # Alias glad to glad::glad
+        add_library(glad::glad ALIAS glad)
+        list(APPEND TARGETS glad)
+    endif()
+    if(NOT TARGET glad::glad)
+        # FindGLAD does not usually create a target, so we create an interface target
+        add_library(glad::glad INTERFACE)
+        target_include_directories(glad::glad INTERFACE ${GLAD_INCLUDE_PATH})
+        target_link_libraries(glad::glad INTERFACE ${GLAD_LIBRARIES})
     endif()
 
     # https://github.com/glfw/glfw
-    find_package(glfw3)
+    find_package(glfw3 QUIET)
     if ((NOT glfw3_FOUND AND NOT GLFW3_FOUND) OR NOT TARGET glfw)
         # Use CPM only if not found, to avoid ODR violations
         # find_package(glfw3 REQUIRE) would suffice if it worked well
