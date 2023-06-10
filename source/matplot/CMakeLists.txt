@@ -220,34 +220,31 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     find_package(glad CONFIG)
     if (NOT glad_FOUND)
         find_package(GLAD QUIET)
-        if (NOT GLAD_FOUND AND NOT TARGET glad)
-            # Use CPM only if not found, to avoid ODR violations
-            # find_package(GLAD REQUIRE) would suffice if it worked well
-            FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG df8e9e16110b305479a875399cee13daa0ccadd9)
-            FetchContent_MakeAvailable(glad)
-        else ()
-            if(TARGET glad)
-                add_library(glad::glad ALIAS glad)
-                endif()
-            if(NOT TARGET glad::glad)
-                # FindGLAD does not usually create a target, so we create an interface target
-                add_library(glad::glad INTERFACE)
-                target_include_directories(glad::glad INTERFACE ${GLAD_INCLUDE_PATH})
-                target_link_libraries(glad::glad INTERFACE ${GLAD_LIBRARIES})
-            endif()
+    endif()
+    if (NOT glad_FOUND AND NOT GLAD_FOUND)
+        # Use CPM only if not found, to avoid ODR violations
+        # find_package(GLAD REQUIRE) would suffice if it worked well
+        FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG v0.1.36)
+        FetchContent_MakeAvailable(glad)
+    else ()
+        if(TARGET glad)
+            add_library(glad::glad ALIAS glad)
+        endif()
+        if(NOT TARGET glad::glad)
+            # FindGLAD does not usually create a target, so we create an interface target
+            add_library(glad::glad INTERFACE)
+            target_include_directories(glad::glad INTERFACE ${GLAD_INCLUDE_PATH})
+            target_link_libraries(glad::glad INTERFACE ${GLAD_LIBRARIES})
         endif()
     endif()
 
     # https://github.com/glfw/glfw
-    find_package(glfw3 CONFIG)
-    if (NOT glfw3_FOUND)
-        find_package(glfw3 QUIET)
-        if (NOT GLFW3_FOUND AND NOT TARGET glfw)
-            # Use CPM only if not found, to avoid ODR violations
-            # find_package(glfw3 REQUIRE) would suffice if it worked well
-            FetchContent_Declare(glfw3 GIT_REPOSITORY https://github.com/glfw/glfw.git GIT_TAG 3.3.2)
-            FetchContent_MakeAvailable(glfw3)
-        endif ()
+    find_package(glfw3)
+    if ((NOT glfw3_FOUND AND NOT GLFW3_FOUND) OR NOT TARGET glfw)
+        # Use CPM only if not found, to avoid ODR violations
+        # find_package(glfw3 REQUIRE) would suffice if it worked well
+        FetchContent_Declare(glfw3 GIT_REPOSITORY https://github.com/glfw/glfw.git GIT_TAG 3.3.8)
+        FetchContent_MakeAvailable(glfw3)
     endif()
 
     add_library(matplot_opengl
