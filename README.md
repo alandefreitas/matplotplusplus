@@ -9342,25 +9342,25 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/aminya">
+            <img src="https://avatars.githubusercontent.com/u/16418197?v=4" width="100;" alt="aminya"/>
+            <br />
+            <sub><b>Amin Yahyaabadi</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/leha-bot">
             <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
             <br />
             <sub><b>Alex</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/rath3t">
             <img src="https://avatars.githubusercontent.com/u/10537464?v=4" width="100;" alt="rath3t"/>
             <br />
             <sub><b>Rath3t</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/aminya">
-            <img src="https://avatars.githubusercontent.com/u/16418197?v=4" width="100;" alt="aminya"/>
-            <br />
-            <sub><b>Amin Yahyaabadi</b></sub>
         </a>
     </td>
     <td align="center">
