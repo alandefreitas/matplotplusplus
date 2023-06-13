@@ -50,7 +50,7 @@ namespace matplot {
         double contour_max_level = *max_it;
 
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         if (filled_) {
             auto [lower_levels, upper_levels] = get_lowers_and_uppers();
@@ -478,7 +478,7 @@ namespace matplot {
         double zmin = *min_level_it;
 
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         for (size_t i = 0; i < lines_.size(); ++i) {
             if (i != 0) {
@@ -771,7 +771,7 @@ namespace matplot {
         auto [lower_levels, upper_levels] = get_lowers_and_uppers();
 
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         if (filled_) {
             // Plot the line segments

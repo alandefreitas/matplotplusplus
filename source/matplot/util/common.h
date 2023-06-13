@@ -46,7 +46,7 @@ namespace matplot {
 
     template <class T> std::string num2str(Arithmetic<T> num) {
         std::ostringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         ss << num;
         return ss.str();

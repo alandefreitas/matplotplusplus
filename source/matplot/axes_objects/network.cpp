@@ -106,7 +106,7 @@ namespace matplot {
 
     std::string network::data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         bool plot_z_data = z_data_.size() == x_data_.size();
         bool line_width_is_variable = !line_widths_.empty() && z_data_.empty();

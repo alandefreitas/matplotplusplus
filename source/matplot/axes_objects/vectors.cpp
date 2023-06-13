@@ -72,7 +72,7 @@ namespace matplot {
     std::string vectors::plot_string() {
         maybe_update_line_spec();
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         ss << " '-' with vectors";
         if (!c_data_.empty()) {
@@ -115,7 +115,7 @@ namespace matplot {
 
     std::string vectors::data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         if (visible_) {
             for (size_t i = 0; i < v_data_.size(); ++i) {

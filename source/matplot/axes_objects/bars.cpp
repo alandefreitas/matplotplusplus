@@ -143,7 +143,7 @@ namespace matplot {
 
     std::string bars::data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         double m = x_minimum_difference();
         double cw = cluster_width();

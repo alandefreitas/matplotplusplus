@@ -127,7 +127,7 @@ namespace matplot {
         }
         std::vector<double> unique_groups = unique(x_data_);
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         // for each group
         for (size_t i = 0; i < unique_groups.size(); ++i) {

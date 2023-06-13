@@ -163,7 +163,7 @@ namespace matplot {
         const bool x_is_manual = !x_data_.empty();
 
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         for (const auto &style : styles_to_plot()) {
             if (visible_) {

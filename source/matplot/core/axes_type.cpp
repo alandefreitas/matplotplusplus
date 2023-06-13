@@ -100,7 +100,7 @@ namespace matplot {
         if (any_obj_needs_colormap && !colormap_.empty() &&
             !children_.empty()) {
             std::stringstream ss;
-            ss.precision(5);
+            ss.precision(10);
             ss << std::fixed;
             // limit the number of colors in the palette
             // this is useful for contour plots
@@ -527,7 +527,7 @@ namespace matplot {
 
             if (cb_axis_.visible()) {
                 std::stringstream ss;
-                ss.precision(5);
+                ss.precision(10);
                 ss << std::fixed;
                 ss << "set colorbox";
                 if (!cb_axis_.reverse()) {
