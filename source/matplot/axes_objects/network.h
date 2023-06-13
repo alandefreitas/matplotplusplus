@@ -83,7 +83,7 @@ namespace matplot {
         network &edge_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
-            ss.precision(5);
+            ss.precision(10);
             ss << std::fixed;
             for (const auto &edge_label : e_labels) {
                 ss << "{/:Italic " << edge_label << " }";
@@ -101,7 +101,7 @@ namespace matplot {
         network &node_labels(const IterableValues<C> &e_labels) {
             std::vector<std::string> str_labels;
             std::stringstream ss;
-            ss.precision(5);
+            ss.precision(10);
             ss << std::fixed;
             for (const auto &edge_label : e_labels) {
                 ss << edge_label;

@@ -58,7 +58,7 @@ namespace matplot {
     std::string surface::set_variables_string() {
         maybe_update_line_spec();
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
 
         if (surface_in_2d_) {
@@ -249,7 +249,7 @@ namespace matplot {
 
     std::string surface::plot_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         // plot surface
         bool is_solid_surface = palette_map_at_bottom_ ||
@@ -350,7 +350,7 @@ namespace matplot {
 
     std::string surface::grid_data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         const bool contour = (contour_base_ || contour_surface_);
         const bool palette_map_3d = palette_map_at_bottom_ ||
@@ -475,7 +475,7 @@ namespace matplot {
 
     std::string surface::ribbon_data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         auto send_point = [](std::stringstream &ss, double x, double y,
                              double z, double c) {

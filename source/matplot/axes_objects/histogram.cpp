@@ -55,7 +55,7 @@ namespace matplot {
     std::string histogram::plot_string() {
         maybe_update_face_color();
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         if (!is_polar()) {
             if (!stairs_only_) {
@@ -89,7 +89,7 @@ namespace matplot {
     std::string histogram::data_string() {
         make_sure_data_is_preprocessed();
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         if (!is_polar()) {
             for (size_t i = 0; i < values_.size(); ++i) {

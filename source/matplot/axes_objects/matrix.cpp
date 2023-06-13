@@ -167,7 +167,7 @@ namespace matplot {
 
         // stream matrix
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         double x_width_ = x_width();
         double y_width_ = y_width();
@@ -275,7 +275,7 @@ namespace matplot {
 
     std::string matrix::image_data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         auto [h, w] = size(matrices_[0]);
         double x_width_ = x_width();

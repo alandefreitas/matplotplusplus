@@ -45,7 +45,7 @@ namespace matplot {
 
     std::string circles::data_string() {
         std::stringstream ss;
-        ss.precision(5);
+        ss.precision(10);
         ss << std::fixed;
         for (size_t i = 0; i < x_.size(); ++i) {
             auto value_or_default = [](const std::vector<double> &v,
