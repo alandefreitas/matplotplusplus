@@ -53,6 +53,15 @@ option(MATPLOTPP_BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution ma
 option(MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES "Bypass show() commands and save figures as .svg at destruction" OFF)
 option(MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
 
+# Optional dependencies
+option(MATPLOTPP_WITH_JPEG "Require building with JPEG support" OFF)
+option(MATPLOTPP_WITH_TIFF "Require building with TIFF support" OFF)
+option(MATPLOTPP_WITH_PNG "Require building with PNG support" OFF)
+option(MATPLOTPP_WITH_LAPACK "Require building with LAPACK support" OFF)
+option(MATPLOTPP_WITH_BLAS "Require building with BLAS support" OFF)
+option(MATPLOTPP_WITH_FFTW "Require building with FFTW support" OFF)
+option(MATPLOTPP_WITH_OpenCV "Require building with OpenCV support" OFF)
+
 # Where to find dependencies
 option(MATPLOTPP_WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
 option(MATPLOTPP_WITH_SYSTEM_NODESOUP "Use system-provided nodesoup instead of bundled" OFF)

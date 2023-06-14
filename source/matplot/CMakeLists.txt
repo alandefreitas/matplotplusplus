@@ -90,7 +90,7 @@ add_library(matplot
         freestanding/plot.h
 )
 
-set(TARGETS matplot)
+set(EXPORTED_TARGETS matplot)
 
 # Target aliases
 add_library(Matplot++::matplot ALIAS matplot)
@@ -214,6 +214,13 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     # The biggest con of the OpenGL backend is that it cannot open a window
     #     in another thread. All it can do is get in the middle of the render
     #     loop and draw the plot.
+    add_library(matplot_opengl
+            backend/opengl_embed.h
+            backend/opengl_embed.cpp
+            backend/opengl.h
+            backend/opengl.cpp
+            )
+
     find_package(OpenGL)
 
     # https://github.com/Dav1dde/glad
@@ -226,13 +233,13 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
         # find_package(GLAD REQUIRE) would suffice if it worked well
         FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG v0.1.36)
         FetchContent_MakeAvailable(glad)
+        list(APPEND EXPORTED_TARGETS glad)
     endif()
-    if(TARGET glad AND NOT TARGET glad::glad)
-        # Alias glad to glad::glad
-        add_library(glad::glad ALIAS glad)
-        list(APPEND TARGETS glad)
-    endif()
-    if(NOT TARGET glad::glad)
+    if(TARGET glad::glad)
+        target_link_libraries(matplot_opengl PUBLIC glad::glad)
+    elseif(TARGET glad)
+        target_link_libraries(matplot_opengl PUBLIC glad)
+    else()
         # FindGLAD does not usually create a target, so we create an interface target
         add_library(glad::glad INTERFACE)
         target_include_directories(glad::glad INTERFACE ${GLAD_INCLUDE_PATH})
@@ -248,15 +255,9 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
         FetchContent_MakeAvailable(glfw3)
     endif()
 
-    add_library(matplot_opengl
-            backend/opengl_embed.h
-            backend/opengl_embed.cpp
-            backend/opengl.h
-            backend/opengl.cpp
-            )
-    target_link_libraries(matplot_opengl PUBLIC matplot glad::glad glfw ${CMAKE_DL_LIBS})
+    target_link_libraries(matplot_opengl PUBLIC matplot glfw ${CMAKE_DL_LIBS})
 
-    list(APPEND TARGETS matplot_opengl)
+    list(APPEND EXPORTED_TARGETS matplot_opengl)
 endif()
 
 #######################################################
@@ -264,7 +265,7 @@ endif()
 #######################################################
 if (MATPLOTPP_BUILD_INSTALLER)
     # Install targets
-    install(TARGETS ${TARGETS}
+    install(TARGETS ${EXPORTED_TARGETS}
             EXPORT Matplot++Targets
 	    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
