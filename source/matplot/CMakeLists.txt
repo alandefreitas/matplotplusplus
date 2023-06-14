@@ -90,7 +90,7 @@ add_library(matplot
         freestanding/plot.h
 )
 
-set(TARGETS matplot)
+set(EXPORTED_TARGETS matplot)
 
 # Target aliases
 add_library(Matplot++::matplot ALIAS matplot)
@@ -230,7 +230,7 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
     if(TARGET glad AND NOT TARGET glad::glad)
         # Alias glad to glad::glad
         add_library(glad::glad ALIAS glad)
-        list(APPEND TARGETS glad)
+        list(APPEND EXPORTED_TARGETS glad)
     endif()
     if(NOT TARGET glad::glad)
         # FindGLAD does not usually create a target, so we create an interface target
@@ -256,7 +256,7 @@ if (MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND)
             )
     target_link_libraries(matplot_opengl PUBLIC matplot glad::glad glfw ${CMAKE_DL_LIBS})
 
-    list(APPEND TARGETS matplot_opengl)
+    list(APPEND EXPORTED_TARGETS matplot_opengl)
 endif()
 
 #######################################################
@@ -264,7 +264,7 @@ endif()
 #######################################################
 if (MATPLOTPP_BUILD_INSTALLER)
     # Install targets
-    install(TARGETS ${TARGETS}
+    install(TARGETS ${EXPORTED_TARGETS}
             EXPORT Matplot++Targets
 	    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

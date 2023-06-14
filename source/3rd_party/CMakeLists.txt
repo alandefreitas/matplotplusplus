@@ -1,3 +1,5 @@
+set(EXPORTED_TARGETS)
+
 #######################################################
 ### NodeSoup                                        ###
 #######################################################
@@ -54,6 +56,7 @@ endif()
 ### CImg                                            ###
 #######################################################
 add_library(cimg INTERFACE)
+list(APPEND EXPORTED_TARGETS cimg)
 if(WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
 else()
@@ -107,12 +110,14 @@ if(ZLIB_FOUND AND PNG_FOUND)
     add_library(ZLIB::ZLIB INTERFACE)
     target_include_directories(ZLIB::ZLIB INTERFACE ${ZLIB_INCLUDE_DIRS})
     target_link_libraries(ZLIB::ZLIB INTERFACE ${ZLIB_LIBRARIES})
+    list(APPEND EXPORTED_TARGETS ZLIB::ZLIB)
   endif()
   target_link_libraries(cimg INTERFACE ZLIB::ZLIB)
   if (NOT TARGET png)
     add_library(png INTERFACE)
     target_include_directories(png INTERFACE ${PNG_INCLUDE_DIRS})
     target_link_libraries(cimg INTERFACE ${PNG_LIBRARIES})
+    list(APPEND EXPORTED_TARGETS png)
   endif()
   target_link_libraries(cimg INTERFACE png)
 endif()
@@ -150,6 +155,7 @@ if(FFTW_FOUND)
     add_library(FFTW::fftw3 INTERFACE)
     target_include_directories(FFTW::fftw3 INTERFACE ${FFTW_INCLUDE_DIRS})
     target_link_libraries(FFTW::fftw3 INTERFACE ${FFTW_LIBRARIES})
+    list(APPEND EXPORTED_TARGETS FFTW::fftw3)
   endif()
   target_link_libraries(cimg INTERFACE FFTW::fftw3)
 endif()
@@ -166,6 +172,7 @@ if (CMAKE_MODULE_PATH)
       add_library(opencv_core INTERFACE)
       target_include_directories(opencv_core INTERFACE ${OpenCV_INCLUDE_DIRS})
       target_link_libraries(opencv_core INTERFACE ${OpenCV_LIBRARIES})
+      list(APPEND EXPORTED_TARGETS opencv_core)
     endif()
     target_link_libraries(cimg INTERFACE opencv_core)
   endif()
@@ -199,6 +206,6 @@ endif()
 
 # Install (only necessary for static lib build)
 if(MASTER_PROJECT AND NOT BUILD_SHARED_LIBS)
-  install(TARGETS cimg
+  install(TARGETS ${EXPORTED_TARGETS}
       EXPORT Matplot++Targets)
 endif()
