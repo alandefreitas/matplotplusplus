@@ -86,9 +86,10 @@ namespace matplot {
 
     std::vector<double> linspace(double d1, double d2, size_t n) {
         std::vector<double> x(n);
+        // avoid division by zero
+        double step = n > 1? (d2 - d1) / static_cast<double>(n - 1) : 0.;
         for (size_t i = 0; i < x.size(); ++i) {
-            x[i] = d1 + static_cast<double>(i) * (d2 - d1) /
-                            static_cast<double>(n - 1);
+            x[i] = d1 + static_cast<double>(i) * step;
         }
         return x;
     }
