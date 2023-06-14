@@ -102,9 +102,10 @@ namespace matplot {
 
         } else {
             // resolutions of the petals
-            constexpr double points_per_circle = 90;
+            constexpr double points_per_circle = 360;
             const double n_histogram_bins = bin_edges_.size() - 1.;
-            const double points_per_bin = points_per_circle / n_histogram_bins;
+            // ensure at least one line segment (2 points) per petal.
+            const size_t points_per_bin = static_cast<size_t>(max(2.0, points_per_circle / n_histogram_bins));
             if (!stairs_only_) {
                 for (size_t i = 0; i < values_.size(); ++i) {
                     // make a petal for each value
@@ -114,8 +115,7 @@ namespace matplot {
                     // theta = edge_end             rho = 0
                     ss << "    " << bin_edges_[i] << "  " << 0 << "\n";
                     auto arc_between_edges =
-                        linspace(bin_edges_[i], bin_edges_[i + 1],
-                                 static_cast<size_t>(ceil(points_per_bin)));
+                        linspace(bin_edges_[i], bin_edges_[i + 1], points_per_bin);
                     for (size_t j = 0; j < arc_between_edges.size(); ++j) {
                         ss << "    " << arc_between_edges[j] << "  "
                            << values_[i] << "\n";
@@ -129,8 +129,7 @@ namespace matplot {
                     // theta = edge_end             rho = bin_value
                     // theta = edge_end             rho = next bin value
                     auto arc_between_edges =
-                        linspace(bin_edges_[i], bin_edges_[i + 1],
-                                 static_cast<size_t>(ceil(points_per_bin)));
+                        linspace(bin_edges_[i], bin_edges_[i + 1], points_per_bin);
                     for (size_t j = 0; j < arc_between_edges.size(); ++j) {
                         ss << "    " << arc_between_edges[j] << "  "
                            << values_[i] << "\n";
