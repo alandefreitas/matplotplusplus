@@ -9385,13 +9385,20 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/j0hnnybash">
+            <img src="https://avatars.githubusercontent.com/u/100471420?v=4" width="100;" alt="j0hnnybash"/>
+            <br />
+            <sub><b>j0hnnybash</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/gitplcc">
             <img src="https://avatars.githubusercontent.com/u/24852963?v=4" width="100;" alt="gitplcc"/>
             <br />
             <sub><b>Gitplcc</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/madronalabs">
             <img src="https://avatars.githubusercontent.com/u/1434276?v=4" width="100;" alt="madronalabs"/>
@@ -9426,15 +9433,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>BjC6rn Sundin</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/csernib">
             <img src="https://avatars.githubusercontent.com/u/26774231?v=4" width="100;" alt="csernib"/>
             <br />
             <sub><b>BC!lint Cserni</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/david-x64">
             <img src="https://avatars.githubusercontent.com/u/11367746?v=4" width="100;" alt="david-x64"/>
@@ -9469,15 +9476,15 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Martin Stump</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Morwenn">
             <img src="https://avatars.githubusercontent.com/u/1164683?v=4" width="100;" alt="Morwenn"/>
             <br />
             <sub><b>Morwenn</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/kaffehalv">
             <img src="https://avatars.githubusercontent.com/u/33203776?v=4" width="100;" alt="kaffehalv"/>
@@ -9504,13 +9511,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/31906920?v=4" width="100;" alt="TheGreatRambler"/>
             <br />
             <sub><b>TheGreatRambler</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/tretre91">
-            <img src="https://avatars.githubusercontent.com/u/63788850?v=4" width="100;" alt="tretre91"/>
-            <br />
-            <sub><b>TrC)vis Morvany</b></sub>
         </a>
     </td>
     <td align="center">
