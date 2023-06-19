@@ -97,6 +97,19 @@ target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+set_target_properties(matplot PROPERTIES VERSION ${PROJECT_VERSION})
+
+# Shared library symbol export
+include(GenerateExportHeader)
+generate_export_header(matplot
+        BASE_NAME matplot
+        EXPORT_MACRO_NAME MATPLOT_EXPORTS
+        EXPORT_FILE_NAME matplot/detail/exports.h
+        STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
+target_include_directories(matplot
+        PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/matplot/detail/exports.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/matplot/detail)
+
 # Dependencies
 target_link_libraries_system(matplot PRIVATE cimg nodesoup)
 

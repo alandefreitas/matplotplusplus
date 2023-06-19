@@ -5,15 +5,15 @@
 #ifndef MATPLOTPLUSPLUS_SURFACE_H
 #define MATPLOTPLUSPLUS_SURFACE_H
 
-#include <array>
+#include <matplot/detail/config.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-#include <optional>
-
 #include <matplot/core/axes_object.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/common.h>
+#include <array>
+#include <optional>
 
 namespace matplot {
     class axes_type;
@@ -21,7 +21,7 @@ namespace matplot {
     /// Surfaces might include data for contours but, if you only want contours,
     /// it's best to use the contour, contourf, fcontour functions to plot it in
     /// 2d
-    class surface : public axes_object {
+    class MATPLOT_EXPORTS surface : public axes_object {
       public:
         explicit surface(class axes_type *parent);
 

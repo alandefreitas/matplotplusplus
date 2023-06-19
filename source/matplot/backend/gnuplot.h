@@ -5,13 +5,14 @@
 #ifndef MATPLOTPLUSPLUS_BACKEND_GNUPLOT_H
 #define MATPLOTPLUSPLUS_BACKEND_GNUPLOT_H
 
+#include <matplot/detail/config.h>
+#include <matplot/backend/backend_interface.h>
 #include <array>
 #include <chrono>
-#include <matplot/backend/backend_interface.h>
 #include <tuple>
 
 namespace matplot::backend {
-    class gnuplot : public backend_interface {
+    class MATPLOT_EXPORTS gnuplot : public backend_interface {
       public:
         gnuplot();
         virtual ~gnuplot();

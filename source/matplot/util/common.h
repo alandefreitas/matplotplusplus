@@ -5,6 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_COMMON_H
 #define MATPLOTPLUSPLUS_COMMON_H
 
+#include <matplot/detail/config.h>
 #include <algorithm>
 #include <cctype>
 #include <complex>
@@ -18,10 +19,15 @@
 #include <vector>
 
 namespace matplot {
+    MATPLOT_EXPORTS
     bool iequals(std::string_view str1, std::string_view str2);
+    MATPLOT_EXPORTS
     bool is_true(std::string_view str);
+    MATPLOT_EXPORTS
     bool is_false(std::string_view str);
+    MATPLOT_EXPORTS
     std::string run_and_get_output(const std::string &command);
+    MATPLOT_EXPORTS
     std::string escape(std::string_view label);
 
     inline void ltrim(std::string &s) {
@@ -74,36 +80,53 @@ namespace matplot {
 
     using vector_2d = std::vector<vector_1d>;
 
+    MATPLOT_EXPORTS
     std::vector<double> linspace(double lower_bound, double upper_bound);
 
+    MATPLOT_EXPORTS
     std::vector<double> linspace(double lower_bound, double upper_bound,
                                  size_t n);
 
+    MATPLOT_EXPORTS
     std::vector<double> logspace(double lower_bound, double upper_bound);
 
+    MATPLOT_EXPORTS
     std::vector<double> logspace(double lower_bound, double upper_bound,
                                  size_t n);
 
+    MATPLOT_EXPORTS
     std::vector<double> iota(double lower_bound, double upper_bound);
 
+    MATPLOT_EXPORTS
     std::vector<double> iota(double lower_bound, double step,
                              double upper_bound);
 
+    MATPLOT_EXPORTS
     vector_1d transform(const vector_1d &x, std::function<double(double)> fn);
+    MATPLOT_EXPORTS
     vector_1d transform(const vector_1d &x, const vector_1d &y,
                         std::function<double(double, double)> fn);
+    MATPLOT_EXPORTS
     vector_2d transform(const vector_2d &x, std::function<double(double)> fn);
+    MATPLOT_EXPORTS
     vector_2d transform(const vector_2d &x, const vector_2d &y,
                         std::function<double(double, double)> fn);
 
+    MATPLOT_EXPORTS
     vector_1d flatten(const vector_2d &x);
 
+    MATPLOT_EXPORTS
     std::vector<double> unique(const std::vector<double> &x);
 
+    MATPLOT_EXPORTS
     double min(const std::vector<double> &x);
+    MATPLOT_EXPORTS
     double min(const std::vector<std::vector<double>> &x);
+    MATPLOT_EXPORTS
     double max(const std::vector<double> &x);
+    MATPLOT_EXPORTS
     double max(const std::vector<std::vector<double>> &x);
+    MATPLOT_EXPORTS
     std::pair<double, double> minmax(const std::vector<double> &x);
 
     template <typename T> T min(T val1, T val2) {
@@ -124,9 +147,12 @@ namespace matplot {
                            : max(val2, std::forward<Ts>(vs)...);
     }
 
+    MATPLOT_EXPORTS
     double mean(const std::vector<double> &x);
+    MATPLOT_EXPORTS
     double stddev(const std::vector<double> &x);
 
+    MATPLOT_EXPORTS
     void wait();
 
     constexpr double pi =
@@ -226,27 +252,40 @@ namespace matplot {
         return sqrt(sum);
     }
 
+    MATPLOT_EXPORTS
     double randn(double mean, double stddev);
+    MATPLOT_EXPORTS
     std::vector<double> randn(size_t n, double mean, double stddev);
 
     /// Exponential distribution
+    MATPLOT_EXPORTS
     double rande(double lambda, double multiplier = 1.0);
+    MATPLOT_EXPORTS
     std::vector<double> rande(size_t n, double lambda, double multiplier = 1.0);
 
     /// Pareto distribution
+    MATPLOT_EXPORTS
     double randp(double scale, double shape = 1.0);
+    MATPLOT_EXPORTS
     std::vector<double> randp(size_t n, double scale, double shape = 1.0);
 
+    MATPLOT_EXPORTS
     int randi(int imin, int imax);
+    MATPLOT_EXPORTS
     std::vector<int> randi(size_t n, int imin, int imax);
 
+    MATPLOT_EXPORTS
     double rand(double lower_bound, double upper_bound);
+    MATPLOT_EXPORTS
     vector_1d rand(size_t n, double lower_bound, double upper_bound);
+    MATPLOT_EXPORTS
     vector_2d rand(size_t rows, size_t cols, double lower_bound,
                    double upper_bound);
 
+    MATPLOT_EXPORTS
     std::vector<double> reshape(const std::vector<std::vector<double>> &X);
 
+    MATPLOT_EXPORTS
     std::vector<double> concat(const std::vector<double> &a,
                                const std::vector<double> &b);
 
@@ -257,6 +296,7 @@ namespace matplot {
         return concat(r, std::forward<Args>(args)...);
     }
 
+    MATPLOT_EXPORTS
     double truncate(double x, double lower_bound, double upper_bound);
 
     template <class Arg1, class TUPLE>
@@ -270,6 +310,7 @@ namespace matplot {
         reorder_parameter_pack_in_tuple(t, std::forward<Args>(args)...);
     }
 
+    MATPLOT_EXPORTS
     std::string fileread(const std::string &filename);
 
     template <class T, class T2 = T, class FN = std::less<T>>
@@ -289,63 +330,88 @@ namespace matplot {
             return comp(*a.first, *b.first);
         });
         for (const auto &[ptr, ranking] : v) {
+            (void)ptr;
             *rank_input = ranking;
             ++rank_input;
         }
     }
 
     /// Cosine of argument in degreescollapse
+    MATPLOT_EXPORTS
     double cosd(double degrees);
 
     /// Sine of argument in degreescollapse
+    MATPLOT_EXPORTS
     double sind(double degrees);
 
     /// Sine of argument in degreescollapse
+    MATPLOT_EXPORTS
     std::vector<double> deg2rad(const std::vector<double> &degrees);
 
+    MATPLOT_EXPORTS
     double deg2rad(double rho);
 
     /// Round up the maximum polar value
+    MATPLOT_EXPORTS
     double round_polar_max(double polar_max);
 
+    MATPLOT_EXPORTS
     double to_positive_radian(double radian);
 
     /// Calculate the radians rho of a vector (u,v)
+    MATPLOT_EXPORTS
     double vector_radians(double u, double v);
 
     /// Calculate the magnitude theta of a vector (u,v)
+    MATPLOT_EXPORTS
     double vector_magnitude(double u, double v);
 
     /// Calculate the radians rho of a complex number u + iv
+    MATPLOT_EXPORTS
     double vector_radians(std::complex<double> v);
 
     /// Calculate the magnitude theta of a complex number u + iv
+    MATPLOT_EXPORTS
     double vector_magnitude(std::complex<double> v);
 
     /// Calculate cartesian coordinates of vector in polar coordinates
+    MATPLOT_EXPORTS
     std::pair<double, double> pol2cart(double theta, double rho);
+    MATPLOT_EXPORTS
     std::pair<vector_1d, vector_1d> pol2cart(vector_1d theta, vector_1d rho);
+    MATPLOT_EXPORTS
     std::pair<vector_1d, vector_1d> pol2cart(vector_1d theta, double rho);
 
+    MATPLOT_EXPORTS
     std::pair<double, double> elliptic2cart(double theta, double rho_w,
                                             double rho_h);
+    MATPLOT_EXPORTS
     std::pair<vector_1d, vector_1d> elliptic2cart(vector_1d theta, double rho_w,
                                                   double rho_h);
+    MATPLOT_EXPORTS
     std::pair<vector_1d, vector_1d>
     elliptic2cart(vector_1d theta, vector_1d rho_w, vector_1d rho_h);
 
+    MATPLOT_EXPORTS
     std::pair<vector_2d, vector_2d> meshgrid(const vector_1d &x,
                                              const vector_1d &y);
+    MATPLOT_EXPORTS
     std::pair<vector_2d, vector_2d> meshgrid(const vector_1d &x_and_y);
 
+    MATPLOT_EXPORTS
     vector_1d gradient(const vector_1d &z, double spacing = 1.0);
+    MATPLOT_EXPORTS
     std::pair<vector_2d, vector_2d> gradient(const vector_2d &z,
                                              double spacing = 1.0);
+    MATPLOT_EXPORTS
     std::pair<vector_2d, vector_2d>
     gradient(const vector_2d &z, double spacing_x, double spacing_y);
 
+    MATPLOT_EXPORTS
     double peaks(double x, double y);
+    MATPLOT_EXPORTS
     vector_2d peaks(const vector_2d &X, const vector_2d &Y);
+    MATPLOT_EXPORTS
     std::tuple<vector_2d, vector_2d, vector_2d> peaks(size_t N = 49);
 
     template <class T1, class T2> struct pair_hash {
@@ -364,7 +430,9 @@ namespace matplot {
         }
     }
 
+    MATPLOT_EXPORTS
     vector_2d zeros(size_t rows, size_t cols);
+    MATPLOT_EXPORTS
     vector_2d ones(size_t rows, size_t cols);
 
     using image_row_t = std::vector<unsigned char>;
@@ -378,6 +446,7 @@ namespace matplot {
     ///        rgb image (vector::size() == 3),
     ///        rgba image (vector::size() == 4),
     ///        empty image (vector::size() == 0)
+    MATPLOT_EXPORTS
     image_channels_t imread(const std::string &filename);
 
     enum class image_interpolation {
@@ -391,30 +460,41 @@ namespace matplot {
         lanczos
     };
 
+    MATPLOT_EXPORTS
     image_channel_t rgb2gray(const image_channels_t &A);
+    MATPLOT_EXPORTS
     image_channels_t gray2rgb(const image_channel_t &A,
                               const std::vector<std::vector<double>> &colormap);
+    MATPLOT_EXPORTS
     image_channels_t gray2rgb(const image_channel_t &A);
+    MATPLOT_EXPORTS
     image_channels_t gray2rgb(const image_channels_t &A,
                               const std::vector<std::vector<double>> &colormap);
+    MATPLOT_EXPORTS
     image_channels_t gray2rgb(const image_channels_t &A);
 
+    MATPLOT_EXPORTS
     image_channels_t
     imresize(const image_channels_t &A, double scale,
              image_interpolation m = image_interpolation::bicubic);
 
+    MATPLOT_EXPORTS
     image_channels_t
     imresize(const image_channels_t &A, size_t height, size_t width,
              image_interpolation m = image_interpolation::bicubic);
 
+    MATPLOT_EXPORTS
     void imwrite(const image_channels_t &A, const std::string &filename);
 
+    MATPLOT_EXPORTS
     void imwrite(const image_channel_t &A,
                  const std::vector<std::vector<double>> &colormap,
                  const std::string &filename);
 
+    MATPLOT_EXPORTS
     void imwrite(const image_channels_t &A, const std::string &filename);
 
+    MATPLOT_EXPORTS
     image_channels_t imvignette(const image_channels_t &A,
                                 double min_radius = 1., double exponent = 0.5);
 
@@ -426,17 +506,21 @@ namespace matplot {
         return r;
     }
 
+    MATPLOT_EXPORTS
     vector_2d transpose(const vector_2d &z);
 
+    MATPLOT_EXPORTS
     std::vector<std::string>
     tokenize(std::string_view text,
              std::string_view delimiters = " ',\n\r\t\".!?:");
 
+    MATPLOT_EXPORTS
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(const std::vector<std::string> &tokens,
               const std::vector<std::string> &black_list,
               size_t max_cloud_size = 100);
 
+    MATPLOT_EXPORTS
     std::pair<std::vector<std::string>, std::vector<size_t>>
     wordcount(std::string_view text, const std::vector<std::string> &black_list,
               std::string_view delimiters = " ',\n\r\t\".!?:;",
@@ -502,16 +586,18 @@ namespace matplot {
     /// True if scale is logarithmic (this will throw an error for now) \return
     /// Nice ticks and their labels in a ticks_results struct \see
     /// https://www.mathworks.com/matlabcentral/fileexchange/30671-calcticks
+    MATPLOT_EXPORTS
     ticks_results calcticks(double limits_min = -5, double limits_max = +5,
                             bool horizontal = false, double text_size = 1.25,
                             bool separateExp = true, bool log = false);
 
+    MATPLOT_EXPORTS
     double distance(double x1, double y1, double x2, double y2);
 
     /// \brief Simple read-only 2d view for vector_2d.
     /// It could iterates over all vector's elements and get value using
     /// only one index (offset).
-    class vector_2d_view {
+    class MATPLOT_EXPORTS vector_2d_view {
         using vector_2d = matplot::vector_2d;
         const vector_2d &_vec;
         const std::size_t _sz;

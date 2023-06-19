@@ -2,11 +2,17 @@
 # - This does not propagate to other targets
 function(target_pedantic_warnings TARGET_NAME)
     # Set warning levels to about the same level for MSVC, GCC, and Clang
-    if (MSVC)
-        target_compile_options(${TARGET_NAME} PRIVATE /W4 /WX)
-    else ()
-        target_compile_options(${TARGET_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
-    endif ()
+    if (BUILD_SHARED_LIBS AND WIN32 AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|MSVC|MinGW")
+        # STL classes don't need to have dll-interface to be used by clients of Matplot++ classes
+        target_compile_options(${TARGET_NAME} PRIVATE /wd4251)
+        target_compile_options(${TARGET_NAME} PRIVATE /wd2220)
+    else()
+        if (MSVC)
+            target_compile_options(${TARGET_NAME} PRIVATE /W4 /WX)
+        else ()
+            target_compile_options(${TARGET_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
+        endif ()
+    endif()
 endfunction()
 
 # @brief Maybe enable pedantic warnings for a target

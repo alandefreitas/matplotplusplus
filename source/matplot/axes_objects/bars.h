@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_BARS_H
 #define MATPLOTPLUSPLUS_BARS_H
 
+#include <matplot/detail/config.h>
+
 #include <array>
 #include <cmath>
 #include <map>
@@ -18,7 +20,7 @@
 
 namespace matplot {
     class axes_type;
-    class bars : public axes_object {
+    class MATPLOT_EXPORTS bars : public axes_object {
       public:
         explicit bars(class axes_type *parent);
         bars(class axes_type *parent, const std::vector<double> &y);

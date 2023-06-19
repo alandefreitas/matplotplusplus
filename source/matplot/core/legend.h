@@ -14,7 +14,7 @@
 namespace matplot {
     class axes_type;
 
-    class legend {
+    class MATPLOT_EXPORTS legend {
       public:
         enum class horizontal_alignment { left, center, right };
 

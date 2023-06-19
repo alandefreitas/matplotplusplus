@@ -5,6 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
 #define MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
 
+#include <matplot/detail/config.h>
 #include <memory>
 #include <string>
 #include <vector>
@@ -37,7 +38,7 @@ namespace matplot {
         /// functions in the interface are likely to change as we
         /// need. A good place to start is probably the line object,
         /// which is fundamental for most plots.
-        class backend_interface {
+        class MATPLOT_EXPORTS backend_interface {
             /// Virtual functions you can override to create any backend
           public:
             /// \brief True if backend is in interactive mode

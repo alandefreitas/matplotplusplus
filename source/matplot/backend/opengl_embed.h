@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_OPENGL_EMBED_H
 #define MATPLOTPLUSPLUS_OPENGL_EMBED_H
 
+#include <matplot/detail/config.h>
+
 #ifdef __APPLE__
 /* Defined before OpenGL and GLUT includes to avoid deprecation messages on
  * Apple */
@@ -31,7 +33,7 @@
 #include <matplot/backend/backend_interface.h>
 
 namespace matplot::backend {
-    class opengl_embed : public backend_interface {
+    class MATPLOT_EXPORTS opengl_embed : public backend_interface {
       public:
         opengl_embed();
         explicit opengl_embed(bool create_shaders);

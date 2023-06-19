@@ -152,13 +152,14 @@
 
 // #include "numpy_cpp.h"
 // https://github.com/matplotlib/matplotlib/blob/master/src/numpy_cpp.h
+#include <matplot/detail/config.h>
+#include <matplot/core/axes_type.h>
+#include <matplot/util/common.h>
+#include <matplot/util/handle_types.h>
 #include <array>
 #include <cmath>
 #include <iostream>
 #include <list>
-#include <matplot/core/axes_type.h>
-#include <matplot/util/common.h>
-#include <matplot/util/handle_types.h>
 #include <numeric>
 #include <stdint.h>
 #include <vector>
@@ -183,7 +184,7 @@ namespace matplot {
 
     // Combination of a quad and an edge of that quad.
     // An invalid quad edge has quad of -1.
-    struct QuadEdge {
+    struct MATPLOT_EXPORTS QuadEdge {
         QuadEdge();
 
         QuadEdge(long quad_, Edge edge_);
@@ -202,7 +203,7 @@ namespace matplot {
     };
 
     // 2D point with x,y coordinates.
-    struct XY {
+    struct MATPLOT_EXPORTS XY {
         XY();
 
         XY(const double &x_, const double &y_);
@@ -233,7 +234,7 @@ namespace matplot {
     // is not a hole; each non-hole contains zero or more child holes.  A
     // non-hole and its child holes must be rendered together to obtain the
     // correct results.
-    class ContourLine : public std::vector<XY> {
+    class MATPLOT_EXPORTS ContourLine : public std::vector<XY> {
       public:
         typedef std::list<ContourLine *> Children;
 
@@ -264,7 +265,7 @@ namespace matplot {
     };
 
     // A Contour is a collection of zero or more ContourLines.
-    class Contour : public std::vector<ContourLine *> {
+    class MATPLOT_EXPORTS Contour : public std::vector<ContourLine *> {
       public:
         Contour();
 
@@ -281,7 +282,7 @@ namespace matplot {
     // if it is a hole its parent ContourLine is read from the ParentCache by
     // looking at the start quad, then each quad to the S in turn until a
     // non-zero ContourLine is found.
-    class ParentCache {
+    class MATPLOT_EXPORTS ParentCache {
       public:
         ParentCache() = default;
 
@@ -303,7 +304,7 @@ namespace matplot {
     };
 
     // See overview of algorithm at top of file.
-    class QuadContourGenerator {
+    class MATPLOT_EXPORTS QuadContourGenerator {
       public:
         // using CoordinateArray = numpy::array_view<const double, 2>;
         using CoordinateArray = vector_2d;
@@ -564,6 +565,7 @@ namespace matplot {
     /// \return     Projection of *p* onto *xys*.
     /// \return     Consecutive indices of vertices of segment in *xys* where
     /// *proj* is.
+    MATPLOT_EXPORTS
     std::tuple<double, std::pair<double, double>, std::pair<size_t, size_t>>
     find_closest_point_on_path(const std::vector<double> &xs,
                                const std::vector<double> &ys, double px,
@@ -590,22 +592,28 @@ namespace matplot {
     /// \see http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=576861
     /// \see https://github.com/matplotlib/matplotlib/blob/master/src/_contour.h
     using contour_line_type = std::pair<vector_1d, vector_1d>;
+
+    MATPLOT_EXPORTS
     contour_line_type contour_line(const vector_2d &x, const vector_2d &y,
                                    const vector_2d &z, double level);
 
+    MATPLOT_EXPORTS
     std::vector<contour_line_type> contourc(const vector_2d &x,
                                             const vector_2d &y,
                                             const vector_2d &z,
                                             const vector_1d &levels);
 
+    MATPLOT_EXPORTS
     std::vector<contour_line_type> contourc(const vector_2d &x,
                                             const vector_2d &y,
                                             const vector_2d &z,
                                             size_t n_levels = 7);
 
+    MATPLOT_EXPORTS
     std::vector<contour_line_type> contourc(const vector_2d &z,
                                             const vector_1d &levels);
 
+    MATPLOT_EXPORTS
     std::vector<contour_line_type> contourc(const vector_2d &z,
                                             size_t n_levels = 7);
 

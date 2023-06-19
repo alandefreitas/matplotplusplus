@@ -8,13 +8,14 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <matplot/detail/config.h>
 
 namespace matplot {
     class axes_type;
     using axes_handle = std::shared_ptr<class axes_type>;
 
     /// Abstract class for the objects we put in the xlim
-    class axes_object {
+    class MATPLOT_EXPORTS axes_object {
       public:
         enum class axes_category {
             two_dimensional,

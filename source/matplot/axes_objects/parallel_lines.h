@@ -5,8 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_PARALLEL_LINES_H
 #define MATPLOTPLUSPLUS_PARALLEL_LINES_H
 
+#include <matplot/detail/config.h>
 #include <matplot/core/figure_type.h>
-
 #include <matplot/core/axes_object.h>
 #include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
@@ -15,7 +15,7 @@
 
 namespace matplot {
     class axes_type;
-    class parallel_lines : public axes_object {
+    class MATPLOT_EXPORTS parallel_lines : public axes_object {
       public:
         explicit parallel_lines(class axes_type *parent);
         parallel_lines(class axes_type *parent,

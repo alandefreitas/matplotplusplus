@@ -5,13 +5,14 @@
 #ifndef MATPLOTPLUSPLUS_STRING_FUNCTION_H
 #define MATPLOTPLUSPLUS_STRING_FUNCTION_H
 
+#include <matplot/detail/config.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/handle_types.h>
 #include <string>
 
 namespace matplot {
-    class string_function : public line {
+    class MATPLOT_EXPORTS string_function : public line {
       public:
         explicit string_function(class axes_type *parent);
         string_function(class axes_type *parent, std::string_view equation,

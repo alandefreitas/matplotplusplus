@@ -5,12 +5,13 @@
 #ifndef MATPLOTPLUSPLUS_STAIR_H
 #define MATPLOTPLUSPLUS_STAIR_H
 
+#include <matplot/detail/config.h>
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
     class axes_type;
 
-    class stair : public line {
+    class MATPLOT_EXPORTS stair : public line {
       public:
         enum class stair_style {
             // trace change in x, then change in y

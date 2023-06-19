@@ -5,16 +5,17 @@
 #ifndef MATPLOTPLUSPLUS_LINE_H
 #define MATPLOTPLUSPLUS_LINE_H
 
-#include <array>
+#include <matplot/detail/config.h>
 #include <matplot/core/axes_object.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
+#include <array>
 
 namespace matplot {
     class axes_type;
-    class line : public axes_object {
+    class MATPLOT_EXPORTS line : public axes_object {
       public:
         explicit line(class axes_type *parent);
         line(class axes_type *parent, const std::vector<double> &y_data,

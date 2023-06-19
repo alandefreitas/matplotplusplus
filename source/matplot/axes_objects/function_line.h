@@ -5,13 +5,14 @@
 #ifndef MATPLOTPLUSPLUS_FUNCTION_LINE_H
 #define MATPLOTPLUSPLUS_FUNCTION_LINE_H
 
+#include <matplot/detail/config.h>
 #include <matplot/axes_objects/line.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/handle_types.h>
 #include <string>
 
 namespace matplot {
-    class function_line : public line {
+    class MATPLOT_EXPORTS function_line : public line {
       public:
         using function_type = std::function<double(double)>;
 

@@ -5,8 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_LABELS_H
 #define MATPLOTPLUSPLUS_LABELS_H
 
+#include <matplot/detail/config.h>
 #include <matplot/core/figure_type.h>
-
 #include <matplot/core/axes_object.h>
 #include <matplot/core/axis_type.h>
 #include <matplot/core/line_spec.h>
@@ -15,7 +15,7 @@
 
 namespace matplot {
     class axes_type;
-    class labels : public axes_object {
+    class MATPLOT_EXPORTS labels : public axes_object {
       public:
         enum alignment { left, right, center, automatic };
 

@@ -5,12 +5,13 @@
 #ifndef MATPLOTPLUSPLUS_ERROR_BAR_H
 #define MATPLOTPLUSPLUS_ERROR_BAR_H
 
+#include <matplot/detail/config.h>
 #include <matplot/axes_objects/line.h>
 
 namespace matplot {
     class axes_type;
 
-    class error_bar : public line {
+    class MATPLOT_EXPORTS error_bar : public line {
       public:
         enum class type { vertical, horizontal, both };
 

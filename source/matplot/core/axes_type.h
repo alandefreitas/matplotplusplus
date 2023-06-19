@@ -5,7 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_AXES_TYPE_H
 #define MATPLOTPLUSPLUS_AXES_TYPE_H
 
-#include <optional>
+#include <matplot/detail/config.h>
 
 #include <matplot/util/colors.h>
 #include <matplot/util/handle_types.h>
@@ -20,8 +20,12 @@
 #include <matplot/axes_objects/histogram.h>
 #include <matplot/axes_objects/line.h>
 
+#include <optional>
+
+
+
 namespace matplot {
-    class axes_type : public std::enable_shared_from_this<class axes_type> {
+    class MATPLOT_EXPORTS axes_type : public std::enable_shared_from_this<class axes_type> {
       public:
         // {left bottom right top}
         static constexpr std::array<float, 4> default_subplot_inset{.2f, .18f,

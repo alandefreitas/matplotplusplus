@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_BOX_CHART_H
 #define MATPLOTPLUSPLUS_BOX_CHART_H
 
+#include <matplot/detail/config.h>
+
 #include <array>
 #include <cmath>
 #include <map>
@@ -18,7 +20,7 @@
 
 namespace matplot {
     class axes_type;
-    class box_chart : public axes_object {
+    class MATPLOT_EXPORTS box_chart : public axes_object {
       public:
         enum class box_style_option {
             outline, // unfilled / dashed whiskers

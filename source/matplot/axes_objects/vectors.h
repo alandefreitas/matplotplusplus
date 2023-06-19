@@ -5,17 +5,17 @@
 #ifndef MATPLOTPLUSPLUS_VECTORS_H
 #define MATPLOTPLUSPLUS_VECTORS_H
 
-#include <array>
+#include <matplot/detail/config.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-
 #include <matplot/core/axes_object.h>
 #include <matplot/core/line_spec.h>
+#include <array>
 
 namespace matplot {
     class axes_type;
-    class vectors : public axes_object {
+    class MATPLOT_EXPORTS vectors : public axes_object {
       public:
         /// \brief Create empty vectors
         explicit vectors(class axes_type *parent);

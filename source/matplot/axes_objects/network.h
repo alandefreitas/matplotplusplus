@@ -5,18 +5,18 @@
 #ifndef MATPLOTPLUSPLUS_NETWORK_H
 #define MATPLOTPLUSPLUS_NETWORK_H
 
-#include <array>
+#include <matplot/detail/config.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
-
 #include <matplot/core/axes_object.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/common.h>
+#include <array>
 
 namespace matplot {
     class axes_type;
-    class network : public axes_object {
+    class MATPLOT_EXPORTS network : public axes_object {
       public:
         enum class layout { automatic, force, circle, kawai, random };
 

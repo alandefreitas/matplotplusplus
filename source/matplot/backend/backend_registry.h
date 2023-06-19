@@ -5,6 +5,7 @@
 #ifndef MATPLOTPLUSPLUS_BACKEND_REGISTRY_H
 #define MATPLOTPLUSPLUS_BACKEND_REGISTRY_H
 
+#include <matplot/detail/config.h>
 #include <matplot/backend/backend_interface.h>
 #include <matplot/backend/gnuplot.h>
 #include <stdexcept>
@@ -25,6 +26,7 @@ namespace matplot {
         }
     }
 
+    MATPLOT_EXPORTS
     std::shared_ptr<backend::backend_interface> create_default_backend();
 } // namespace matplot
 

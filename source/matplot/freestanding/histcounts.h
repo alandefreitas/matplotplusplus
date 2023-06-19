@@ -12,6 +12,7 @@
 namespace matplot {
     /// Histogram count with custom binning and custom normalization
     /// \return Pair with <values per bin, edges>
+    MATPLOT_EXPORTS
     std::pair<std::vector<double>, std::vector<double>>
     histcounts(const std::vector<double> &data,
                enum histogram::binning_algorithm binning_alg =
@@ -21,12 +22,14 @@ namespace matplot {
 
     /// Histogram count with automatic binning and custom normalization
     /// \return pair with <values,edges>
+    MATPLOT_EXPORTS
     std::pair<std::vector<double>, std::vector<double>>
     histcounts(const std::vector<double> &data,
                enum histogram::normalization normalization_alg);
 
     /// Histogram count with fixed number of bins
     /// \return pair with <values,edges>
+    MATPLOT_EXPORTS
     std::pair<std::vector<double>, std::vector<double>>
     histcounts(const std::vector<double> &data, size_t nbins,
                enum histogram::normalization normalization_alg =
@@ -34,6 +37,7 @@ namespace matplot {
 
     /// Histogram count with fixed edges
     /// \return normalized values for each edge
+    MATPLOT_EXPORTS
     std::vector<double>
     histcounts(const std::vector<double> &data,
                const std::vector<double> &edges,
@@ -41,6 +45,7 @@ namespace matplot {
                    histogram::normalization::count);
 
     /// Normalize the number of points in a bin
+    MATPLOT_EXPORTS
     std::vector<std::vector<double>>
     histnormalize2(const std::vector<std::vector<size_t>> &bin_count,
                    const std::vector<double> &xbin_edges,
@@ -48,6 +53,7 @@ namespace matplot {
                    enum histogram::normalization normalization_algorithm);
 
     /// Count number of points in each bin defined by the 2 dimensional edges
+    MATPLOT_EXPORTS
     std::vector<std::vector<double>> histcounts2(
         const std::vector<double> &x_data, const std::vector<double> &y_data,
         const std::vector<double> &x_edges, const std::vector<double> &y_edges,

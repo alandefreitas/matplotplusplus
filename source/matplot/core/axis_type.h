@@ -5,9 +5,10 @@
 #ifndef MATPLOTPLUSPLUS_AXIS_TYPE_H
 #define MATPLOTPLUSPLUS_AXIS_TYPE_H
 
-#include <array>
+#include <matplot/detail/config.h>
 #include <matplot/util/handle_types.h>
 #include <matplot/util/keywords.h>
+#include <array>
 #include <string>
 #include <vector>
 
@@ -15,7 +16,7 @@ namespace matplot {
     class axes_type;
 
     /// A two dimensional axis
-    class axis_type {
+    class MATPLOT_EXPORTS axis_type {
       public:
         enum class axis_scale { linear, log };
 

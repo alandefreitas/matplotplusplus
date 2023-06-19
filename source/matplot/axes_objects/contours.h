@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_CONTOURS_H
 #define MATPLOTPLUSPLUS_CONTOURS_H
 
+#include <matplot/detail/config.h>
+
 #include <array>
 #include <matplot/util/common.h>
 #include <matplot/util/concepts.h>
@@ -32,7 +34,7 @@ namespace matplot {
     /// way to have full control of how the contour lines will look
     /// like is to calculate the contour lines outside gnuplot,
     /// even if our algorithm is not perfect.
-    class contours : public axes_object {
+    class MATPLOT_EXPORTS contours : public axes_object {
       public:
         /// X, Y grids and their Z values
         /// Every X column has the same value for all rows.

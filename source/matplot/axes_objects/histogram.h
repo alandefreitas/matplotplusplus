@@ -5,19 +5,20 @@
 #ifndef MATPLOTPLUSPLUS_HISTOGRAM_H
 #define MATPLOTPLUSPLUS_HISTOGRAM_H
 
-#include <array>
-#include <cmath>
-#include <map>
+#include <matplot/detail/config.h>
 #include <matplot/core/axes_object.h>
 #include <matplot/core/figure_type.h>
 #include <matplot/core/line_spec.h>
 #include <matplot/util/common.h>
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
+#include <array>
+#include <cmath>
+#include <map>
 
 namespace matplot {
     class axes_type;
-    class histogram : public axes_object {
+    class MATPLOT_EXPORTS histogram : public axes_object {
       public:
         // source code in 'edit histcount'
         enum class binning_algorithm {

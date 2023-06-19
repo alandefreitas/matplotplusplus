@@ -11,7 +11,7 @@
 #include <matplot/util/concepts.h>
 
 namespace matplot {
-    class line_spec {
+    class MATPLOT_EXPORTS line_spec {
       public:
         enum class line_style {
             none,          // no line

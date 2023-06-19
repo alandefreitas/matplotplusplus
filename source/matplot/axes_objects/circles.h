@@ -5,6 +5,8 @@
 #ifndef MATPLOTPLUSPLUS_CIRCLES_H
 #define MATPLOTPLUSPLUS_CIRCLES_H
 
+#include <matplot/detail/config.h>
+
 #include <matplot/core/figure_type.h>
 
 #include <matplot/core/axes_object.h>
@@ -15,7 +17,7 @@
 
 namespace matplot {
     class axes_type;
-    class circles : public axes_object {
+    class MATPLOT_EXPORTS circles : public axes_object {
       public:
         explicit circles(class axes_type *parent);
         circles(class axes_type *parent, const std::vector<double> &x,

@@ -9,6 +9,7 @@
 #include <matplot/util/colors.h>
 #include <matplot/util/handle_types.h>
 #include <matplot/util/popen.h>
+#include <matplot/detail/config.h>
 #include <stdio.h>
 #include <string>
 #include <vector>
@@ -30,7 +31,7 @@ namespace matplot {
     /// but we don't really recommend doing that. It's better
     /// to only use the default pipe for everything and use
     /// multiplots if more plots are needed.
-    class figure_type {
+    class MATPLOT_EXPORTS figure_type {
       public:
         friend class axes_type;
         // Remove the copy operators because users are not
@@ -194,7 +195,10 @@ namespace matplot {
                    bool histogram_on_diagonals = false);
 
         /// Create matrix of axes with scatter plots - X / X
-        auto plotmatrix(const std::vector<std::vector<double>> &X,
+        std::tuple<std::vector<std::vector<scatter_handle>>,
+                std::vector<histogram_handle>,
+                std::vector<std::vector<axes_handle>>>
+        plotmatrix(const std::vector<std::vector<double>> &X,
                         std::string_view line_spec = "of",
                         bool histogram_on_diagonals = false) {
             return this->plotmatrix(X, X, line_spec, histogram_on_diagonals);
