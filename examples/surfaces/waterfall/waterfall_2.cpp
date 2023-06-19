@@ -6,6 +6,7 @@ int main() {
     auto [X, Y] = meshgrid(iota(-3, .125, 3));
     auto Z = peaks(X, Y);
     auto [FX, FY] = gradient(Z);
+    (void) FY;
     waterfall(X, Y, Z, FX);
     colorbar();
 

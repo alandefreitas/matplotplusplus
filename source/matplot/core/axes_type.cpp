@@ -981,6 +981,8 @@ namespace matplot {
 
     void axes_type::run_background_draw_commands() {
         auto [w, h, lm, rm, bm, tm] = calculate_margins();
+        (void)w;
+        (void)h;
         double view_width = parent_->backend_->width();
         double x1 = lm * view_width;
         double x2 = rm * view_width;
@@ -996,6 +998,8 @@ namespace matplot {
 
     void axes_type::run_box_draw_commands() {
         auto [w, h, lm, rm, bm, tm] = calculate_margins();
+        (void)w;
+        (void)h;
         double view_width = parent_->backend_->width();
         double x1 = lm * view_width;
         double x2 = rm * view_width;
@@ -1012,6 +1016,8 @@ namespace matplot {
 
     void axes_type::run_axes_draw_commands() {
         auto [w, h, lm, rm, bm, tm] = calculate_margins();
+        (void)w;
+        (void)h;
         double view_width = parent_->backend_->width();
         double view_height = parent_->backend_->height();
         // to draw the x axis we
@@ -2114,6 +2120,8 @@ namespace matplot {
     std::array<double, 2> axes_type::xlim() const {
         if (x_axis_.limits_mode_auto()) {
             auto [xmin, xmax, ymin, ymax] = this->child_limits();
+            (void)ymin;
+            (void)ymax;
             return std::array<double, 2>{xmin, xmax};
         } else {
             return x_axis().limits();
@@ -2137,6 +2145,8 @@ namespace matplot {
     std::array<double, 2> axes_type::ylim() const {
         if (y_axis_.limits_mode_auto()) {
             auto [xmin, xmax, ymin, ymax] = this->child_limits();
+            (void)xmin;
+            (void)xmax;
             return std::array<double, 2>{ymin, ymax};
         } else {
             return y_axis().limits();
@@ -3080,18 +3090,31 @@ namespace matplot {
     axes_type::barstacked(const std::vector<std::vector<double>> &Y) {
         axes_silencer temp_silencer_{this};
         std::vector<bars_handle> hs;
+
         auto stacked_positive_values = Y[0];
         for (size_t i = 0; i < Y.size(); ++i) {
-            if (Y[0][i] < 0) {
-                stacked_positive_values[i] = 0;
+            if (stacked_positive_values.size() < Y[i].size()) {
+                stacked_positive_values.resize(Y[i].size());
+            }
+            for (std::size_t j = 0; j < Y[i].size(); ++j) {
+                if (Y[i][j] < 0) {
+                    stacked_positive_values[j] = 0;
+                }
             }
         }
+
         auto stacked_negative_values = Y[0];
         for (size_t i = 0; i < Y.size(); ++i) {
-            if (Y[0][i] > 0) {
-                stacked_negative_values[i] = 0;
+            if (stacked_negative_values.size() < Y[i].size()) {
+                stacked_negative_values.resize(Y[i].size());
+            }
+            for (std::size_t j = 0; j < Y[i].size(); ++j) {
+                if (Y[i][j] > 0) {
+                    stacked_negative_values[j] = 0;
+                }
             }
         }
+
         for (size_t i = 0; i < Y.size(); ++i) {
             auto current_stack = stacked_positive_values;
             for (size_t j = 0; j < Y[i].size(); ++j) {
@@ -5507,6 +5530,8 @@ namespace matplot {
             y, [&](double y) { return std::clamp(y, ylimits[0], ylimits[1]); });
         // normalize
         auto [w, h, lm, rm, bm, tm] = calculate_margins();
+        (void)w;
+        (void)h;
         double view_width = parent_->backend_->width();
         double view_xmin = lm * view_width;
         double view_xmax = rm * view_width;

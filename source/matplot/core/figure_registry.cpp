@@ -33,6 +33,7 @@ namespace matplot {
         void register_figure_handle(const figure_handle &h) {
             size_t index_candidate = 1;
             for (const auto &[index, figure_handle] : global_figure_handles()) {
+                (void) figure_handle;
                 if (index_candidate != index) {
                     break;
                 }
@@ -44,6 +45,7 @@ namespace matplot {
         figure_handle register_figure_handle(bool quiet_mode) {
             size_t index_candidate = 1;
             for (const auto &[index, figure_handle] : global_figure_handles()) {
+                (void) figure_handle;
                 if (index_candidate != index) {
                     break;
                 }

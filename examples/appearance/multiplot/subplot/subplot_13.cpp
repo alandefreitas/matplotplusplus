@@ -5,6 +5,8 @@ int main() {
 
     auto ax1 = subplot(2, 1, 0);
     auto [x, y, z] = peaks();
+    (void) x;
+    (void) y;
     z = transpose(z);
     plot(ax1, z);
     xlim(ax1, {0, 20});

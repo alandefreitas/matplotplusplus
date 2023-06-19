@@ -6,6 +6,7 @@ int main() {
     auto [X, Y] = meshgrid(iota(-3, .5, 3), iota(-3, .1, 3));
     auto Z = peaks(X, Y);
     auto [FX, FY] = gradient(Z);
+    (void) FY;
     ribbon(X, Y, Z, FX, 1.0);
     colorbar();
 

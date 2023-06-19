@@ -59,6 +59,8 @@ void americas_trip_solver::setup_starting_point(size_t iteration) {
     if (iteration < names_.size()) {
         auto [lon_ignore, lat_ignore, tour] =
             greedy_tsp_with_idx(lon_, lat_, iteration);
+        (void) lon_ignore;
+        (void) lat_ignore;
         curr_tour_ = tour;
         curr_dist_ = tour_distance(curr_tour_);
     } else {

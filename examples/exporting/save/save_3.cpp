@@ -12,6 +12,7 @@ int main() {
 
     const auto &m = backend::gnuplot::extension_terminal();
     for (const auto &[extension, format] : m) {
+        (void) extension;
         save(std::string("formats/barchart ") + std::string(format),
              std::string(format));
     }
