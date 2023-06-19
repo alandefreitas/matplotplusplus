@@ -1,0 +1,274 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - "v*.*.*"
+
+  pull_request:
+    branches:
+      - develop
+
+concurrency:
+  group: ${{format('{0}:{1}', github.repository, github.ref)}}
+  cancel-in-progress: true
+
+jobs:
+  cpp-matrix:
+    runs-on: ubuntu-latest
+    name: Generate Test Matrix
+    outputs:
+      matrix: ${{ steps.cpp-matrix.outputs.matrix }}
+    steps:
+      - name: Generate Test Matrix
+        uses: alandefreitas/cpp-actions/cpp-matrix@v1.5.0
+        id: cpp-matrix
+        with:
+          compilers: |
+            gcc >=7
+            clang 6 || 9 || 12 || >=14
+            msvc >= 14
+            mingw *
+            clang-cl *
+            apple-clang *
+          standards: '>=17'
+          latest-factors: gcc Coverage UBSan
+          max-standards: 1
+
+  build:
+    needs: cpp-matrix
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.cpp-matrix.outputs.matrix) }}
+
+    defaults:
+      run:
+        shell: bash
+
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runs-on }}
+    container: ${{ matrix.container }}
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clone matplot++
+        uses: actions/checkout@v3
+
+      - name: Setup C++
+        uses: alandefreitas/cpp-actions/setup-cpp@v1.5.0
+        id: setup-cpp
+        with:
+          compiler: ${{ matrix.compiler }}
+          version: ${{ matrix.version }}
+
+      - name: Install packages
+        uses: alandefreitas/cpp-actions/package-install@v1.5.0
+        id: package-install
+        with:
+          apt-get: ${{ matrix.install }} ${{ ((matrix.coverage) && 'gnuplot') || '' }}
+
+      - name: CMake Workflow
+        uses: alandefreitas/cpp-actions/cmake-workflow@v1.5.0
+        with:
+          cmake-version: '>=3.15'
+          generator: ${{ matrix.generator }}
+          build-type: ${{ matrix.build-type }}
+          # Only run tests in these two cases because we're just running examples here.
+          # Other tests come later.
+          run-tests: ${{ ((matrix.coverage) && 'true') || '' }}
+          cxxstd: ${{ (!matrix.coverage && matrix.cxxstd) || matrix.latest-cxxstd }}
+          cc: ${{ steps.setup-cpp.outputs.cc || matrix.cc }}
+          ccflags: ${{ matrix.ccflags }}
+          cxx: ${{ steps.setup-cpp.outputs.cxx || matrix.cxx }}
+          cxxflags: ${{ matrix.cxxflags }}
+          # Also make it shared in coverage tests because of disk space
+          shared: ${{ matrix.shared || matrix.coverage }}
+          install-prefix: $GITHUB_WORKSPACE/.local
+          export-compile-commands: ${{ matrix.time-trace }}
+          # There are cases where the environment cannot store all examples, and we need to disable them
+          extra-args: -D MATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS=ON ${{ format('-D MATPLOTPP_BUILD_EXAMPLES={0}', (!matrix.asan && !matrix.ubsan && !matrix.x86 && 'ON') || 'OFF' ) }}
+          package: ${{ matrix.is-main }}
+          package-artifact: false
+          package-dir: packages
+
+      - name: Archive packages
+        if: ${{ matrix.is-main && github.event_name == 'push' && (contains(fromJSON('["master", "develop"]'), github.ref_name) || startsWith(github.ref, 'refs/tags/')) }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-packages-${{ matrix.compiler }}${{ (!contains('*', matrix.version) && format('-{0}', matrix.version)) || '' }}-${{ runner.os }}
+          path: build/packages
+          retention-days: 1
+
+      - name: CMake Integration
+        uses: alandefreitas/cpp-actions/cmake-workflow@v1.5.0
+        if: ${{ !matrix.ubsan && !matrix.asan }}
+        with:
+          source-dir: test/integration
+          ref-source-dir: ./test/integration
+          cmake-version: '>=3.15'
+          generator: ${{ matrix.generator }}
+          build-type: ${{ matrix.build-type }}
+          run-tests: ''
+          cxxstd: ${{ matrix.cxxstd }}
+          cc: ${{ steps.setup-cpp.outputs.cc || matrix.cc }}
+          ccflags: ${{ matrix.ccflags }}
+          cxx: ${{ steps.setup-cpp.outputs.cxx || matrix.cxx }}
+          cxxflags: ${{ matrix.cxxflags }}
+          shared: ${{ matrix.shared || matrix.coverage }}
+          install: false
+          extra-args: ${{ format('-D Matplot++_ROOT="{0}"', '$GITHUB_WORKSPACE/.local') }}
+          export-compile-commands: ${{ matrix.time-trace }}
+
+      - name: FlameGraph
+        uses: alandefreitas/cpp-actions/flamegraph@v1.5.0
+        if: matrix.time-trace
+        with:
+          build-dir: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          trace-commands: true
+
+      - name: Codecov
+        if: ${{ matrix.coverage }}
+        run: |
+          set -x
+          # Find gcov
+          gcov_tool="gcov"
+          if command -v "gcov-${{ steps.setup-cpp.outputs.version-major }}.${{ steps.setup-cpp.outputs.version-minor }}" &> /dev/null; then
+              gcov_tool="gcov"
+          elif command -v "gcov-${{ steps.setup-cpp.outputs.version-major }}" &> /dev/null; then
+              gcov_tool="gcov-${{ steps.setup-cpp.outputs.version-major }}"
+          fi
+          lcov -c -q -o "./build/coverage.info" -d "./build" --include "$(pwd)/*" --gcov-tool "$gcov_tool"
+          
+          # Upload to codecov
+          bash <(curl -s https://codecov.io/bash) -f "./build/coverage.info"
+          
+          # Update summary
+          echo "# Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[![codecov](https://codecov.io/github/$GITHUB_REPOSITORY/commit/$GITHUB_SHA/graphs/sunburst.svg)](https://codecov.io/github/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "$GITHUB_REF_NAME: [![codecov](https://codecov.io/github/$GITHUB_REPOSITORY/branch/$GITHUB_REF_NAME/graph/badge.svg)](https://codecov.io/github/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+  docs:
+    needs: build
+    if: ${{ github.event_name == 'push' && (contains(fromJSON('["master", "develop"]'), github.ref_name) || startsWith(github.ref, 'refs/tags/')) }}
+    defaults:
+      run:
+        shell: bash
+
+    name: Publish docs
+    # timeout-minutes: 120
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clone matplot++
+        uses: actions/checkout@v3
+
+      - name: Generate Table of Contents
+        uses: technote-space/toc-generator@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_HEADER_LEVEL: 3
+          FOLDING: true
+
+      - name: Update Contributors
+        uses: akhilmhdh/contributors-readme-action@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          image_size: 100
+          columns_per_row: 6
+
+      - name: Download mdsplit
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download-mdsplit
+        with:
+          file-url: 'https://github.com/alandefreitas/mdsplit/releases/download/v0.1.1/Executable.Linux.zip'
+          file-name: 'mdsplit.zip'
+          location: '.'
+
+      - name: Unzip mdsplit
+        run: |
+          unzip mdsplit.zip
+          rm -f mdsplit.zip
+          sudo chmod +x mdsplit
+          ls
+
+      - name: Generate Documentation Source
+        run: ./mdsplit -r alandefreitas/matplotplusplus
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install Mkdocs Material
+        run: pip install mkdocs-material
+
+      - name: Install Awesome Pages Plugin # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+        run: pip install mkdocs-awesome-pages-plugin
+
+      - name: Deploy mkdocs to gh-pages branch
+        run: mkdocs gh-deploy --force
+
+  releases:
+    needs: build
+    if: ${{ github.event_name == 'push' && (contains(fromJSON('["master", "develop"]'), github.ref_name) || startsWith(github.ref, 'refs/tags/')) }}
+    defaults:
+      run:
+        shell: bash
+
+    name: Create Release Packages
+    timeout-minutes: 120
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clone matplot++
+        uses: actions/checkout@v3
+
+      - name: Check conventional commit
+        if: ${{ !contains( matrix.config.os, 'macos') }}
+        uses: webiny/action-conventional-commits@v1.1.0
+        continue-on-error: true
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: List artifacts
+        run: ls -R
+        working-directory: artifacts
+
+      - name: Create changelog
+        uses: alandefreitas/cpp-actions/create-changelog@4f2622267261fc75a0d885cf3367f29e62984f68 # v1.5.0
+        with:
+          output-path: CHANGELOG.md
+          thank-non-regular: ${{ startsWith(github.ref, 'refs/tags/') }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          link-commits: ${{ ! (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')) }}
+          limit: 150
+
+      - name: Create GitHub Package Release
+        if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/release-packages-*/*
+          name: ${{ github.ref_name || github.ref }}
+          tag_name: ${{ github.ref_name || github.ref }}${{ ((!startsWith(github.ref, 'refs/tags/')) && '-release') || '' }}
+          body_path: CHANGELOG.md
+          prerelease: false
+          draft: false
+          token: ${{ github.token }}

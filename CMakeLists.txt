@@ -30,12 +30,15 @@ include(cmake/functions.cmake)
 # Set variables with project properties
 set_master_project_booleans() # detect if master project / dev mode
 set_debug_booleans() # detect if debug
-set_optimization_flags() # detect and set default optimization flags
 set_compiler_booleans() # detect compiler
 
 # What to build
 option(MATPLOTPP_BUILD_EXAMPLES "Build examples" ${MASTER_PROJECT})
-option(MATPLOTPP_BUILD_TESTS "Build tests" ${MASTER_PROJECT})
+if (${MASTER_PROJECT} AND BUILD_TESTING)
+    option(MATPLOTPP_BUILD_TESTS "Build tests" ON)
+else()
+    option(MATPLOTPP_BUILD_TESTS "Build tests" OFF)
+endif()
 option(MATPLOTPP_BUILD_INSTALLER "Build installer target" ${MASTER_PROJECT})
 option(MATPLOTPP_BUILD_PACKAGE "Build package" ${MASTER_PROJECT})
 
@@ -131,19 +134,18 @@ if (MATPLOTPP_BUILD_INSTALLER)
             VERSION ${PACKAGE_VERSION}
             COMPATIBILITY SameMajorVersion
     )
-
-    # Install the file Matplot++ConfigVersion.cmake
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++ConfigVersion.cmake
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 
     # Create Matplot++Config.cmake from Matplot++Config.cmake.in
+    set(INCLUDE_INSTALL_DIR include/)
+    set(LIB_INSTALL_DIR lib/)
     configure_package_config_file(
             ${CMAKE_CURRENT_SOURCE_DIR}/Matplot++Config.cmake.in # input file
             ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake    # output file
             INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++
+            PATH_VARS CMAKE_INSTALL_LIBDIR INCLUDE_INSTALL_DIR LIB_INSTALL_DIR
     )
-
-    # Install the file Matplot++Config.cmake
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 endif ()
