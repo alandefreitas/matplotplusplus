@@ -194,6 +194,9 @@ namespace matplot {
                     size_t index =
                         only_at_marker_indices ? marker_indices_[i] : i;
 
+                    if (x_is_manual && index >= x_data_.size()) {
+                        break;
+                    }
                     double x_value = x_is_manual ? x_data_[index] : index + 1;
                     if (!std::isfinite(x_value) || !std::isfinite(y_data_[i])) {
                         ss << "    \n";

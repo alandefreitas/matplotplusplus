@@ -754,7 +754,8 @@ namespace matplot {
     }
 
     class histogram &histogram::edge_color(std::string_view color) {
-        edge_color(to_array(color));
+        auto a = to_array(color);
+        edge_color(a);
         return *this;
     }
 

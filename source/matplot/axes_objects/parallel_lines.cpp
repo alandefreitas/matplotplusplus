@@ -219,7 +219,7 @@ namespace matplot {
 
             const size_t n_ticks = ticks[dimension].ticks.size();
             constexpr double tick_size = 0.03;
-            for (size_t i = 0; i < n_ticks + 1; ++i) {
+            for (size_t i = 0; i < n_ticks; ++i) {
                 double y = normalize(ticks[dimension].ticks[i], dimension);
                 ss << "    " << dimension + 1 << "  " << y << "\n";
                 const bool is_last_dimension = dimension == data_.size() - 1;

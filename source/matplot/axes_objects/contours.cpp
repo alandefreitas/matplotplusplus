@@ -586,6 +586,13 @@ namespace matplot {
         }
 
         // if it increases
+        if (Z_data_.size() < n_row + 1 || Z_data_[n_row].size() < n_col + 1 ||
+            Z_data_.size() < opposite_row + 1 ||
+            Z_data_[opposite_row].size() < opposite_col + 1) {
+            // if we are outside the grid, we don't know
+            // if it's lower or upper level
+            return false;
+        }
         bool higher_values_on_left =
             Z_data_[n_row][n_col] > Z_data_[opposite_row][opposite_col];
         if (higher_values_on_left) {
