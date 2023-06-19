@@ -1973,8 +1973,6 @@ namespace matplot {
 
     void axes_type::r_minor_grid(bool r_minor_grid) {
         r_minor_grid_ = r_minor_grid;
-        r_user_grid_ = true;
-        touch();
     }
 
     const class axis_type &axes_type::t_axis() const { return t_axis_; }
