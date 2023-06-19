@@ -22,6 +22,7 @@ CMakeSettings.json
 gh-md-toc
 /.vs
 /CMakeSettings.json
+.PVS-Studio
 
 # Hidden files
 .DS_Store

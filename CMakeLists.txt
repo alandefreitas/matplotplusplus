@@ -146,12 +146,6 @@ if (MATPLOTPP_BUILD_INSTALLER)
     # Install the file Matplot++Config.cmake
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
-
-    # Install cmake to find filesystem as a dependency
-    if (NOT MATPLOTPP_BUILD_SHARED_LIBS)
-        install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFilesystem.cmake
-                DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
-    endif ()
 endif ()
 
 #######################################################

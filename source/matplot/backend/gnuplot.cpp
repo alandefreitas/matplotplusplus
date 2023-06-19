@@ -3,17 +3,23 @@
 //
 
 #include "gnuplot.h"
-#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
-#include <experimental/filesystem>
-#else
-#include <filesystem>
-#endif
+
 #include <cstdlib>
 #include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
 #include <regex>
 #include <thread>
+
+#ifdef __has_include
+#if __has_include(<filesystem>)
+#include <filesystem>
+#else
+#define CXX_NO_FILESYSTEM
+#endif
+#else
+#define CXX_NO_FILESYSTEM
+#endif
 
 #ifdef MATPLOT_HAS_FBUFSIZE
 
@@ -116,14 +122,13 @@ namespace matplot::backend {
         }
 
         // look at the extension
-#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
-        namespace fs = std::experimental::filesystem;
-#else
+#ifndef CXX_NO_FILESYSTEM
         namespace fs = std::filesystem;
-#endif
-
         fs::path p{filename};
         std::string ext = p.extension().string();
+#else
+        std::string ext = filename.substr(filename.find_last_of('.'));
+#endif
 
         // check terminal for that extension
         SV_CONSTEXPR auto exts = extension_terminal();
@@ -169,11 +174,8 @@ namespace matplot::backend {
         }
 
         // Create file if it does not exist
-#ifdef CXX_FILESYSTEM_IS_EXPERIMENTAL
-        namespace fs = std::experimental::filesystem;
-#else
+#ifndef CXX_NO_FILESYSTEM
         namespace fs = std::filesystem;
-#endif
         fs::path p{filename};
         if (!p.parent_path().empty() && !fs::exists(p.parent_path())) {
             fs::create_directory(p.parent_path());
@@ -183,12 +185,17 @@ namespace matplot::backend {
                 return false;
             }
         }
+#endif
 
         output_ = filename;
         terminal_ = format;
 
         // Append extension if needed
+#ifndef CXX_NO_FILESYSTEM
         std::string ext = p.extension().string();
+#else
+        std::string ext = filename.substr(filename.find_last_of('.'));
+#endif
         if (ext.empty()) {
             output_ += it->first;
         }
