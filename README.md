@@ -9357,6 +9357,13 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/j0hnnybash">
+            <img src="https://avatars.githubusercontent.com/u/100471420?v=4" width="100;" alt="j0hnnybash"/>
+            <br />
+            <sub><b>J0hnnybash</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/rath3t">
             <img src="https://avatars.githubusercontent.com/u/10537464?v=4" width="100;" alt="rath3t"/>
             <br />
@@ -9382,13 +9389,6 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <img src="https://avatars.githubusercontent.com/u/36810712?v=4" width="100;" alt="codeinred"/>
             <br />
             <sub><b>Alecto Irene Perez</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/j0hnnybash">
-            <img src="https://avatars.githubusercontent.com/u/100471420?v=4" width="100;" alt="j0hnnybash"/>
-            <br />
-            <sub><b>j0hnnybash</b></sub>
         </a>
     </td></tr>
 <tr>
