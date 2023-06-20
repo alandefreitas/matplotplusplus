@@ -190,7 +190,7 @@ jobs:
           columns_per_row: 6
 
       - name: Download mdsplit
-        uses: carlosperate/download-file-action@v1.0.3
+        uses: carlosperate/download-file-action@v2.0.0
         id: download-mdsplit
         with:
           file-url: 'https://github.com/alandefreitas/mdsplit/releases/download/v0.1.1/Executable.Linux.zip'
