@@ -9350,17 +9350,17 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/leha-bot">
-            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
-            <br />
-            <sub><b>Alex</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/j0hnnybash">
             <img src="https://avatars.githubusercontent.com/u/100471420?v=4" width="100;" alt="j0hnnybash"/>
             <br />
             <sub><b>J0hnnybash</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/leha-bot">
+            <img src="https://avatars.githubusercontent.com/u/10153298?v=4" width="100;" alt="leha-bot"/>
+            <br />
+            <sub><b>Alex</b></sub>
         </a>
     </td>
     <td align="center">
