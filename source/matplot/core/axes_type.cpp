@@ -429,7 +429,15 @@ namespace matplot {
                                         std::string axis_name,
                                         bool minor_ticks = false) {
             // cb is the only axis we don't unset if tics are empty
-            if (ax.visible() && !ax.tick_values().empty()) {
+            // r-axis labels should still be handled even if axis is invisible since we use the grid
+            if ((ax.visible() || axis_name == "r") && !ax.tick_values().empty()) {
+                if (axis_name == "r" && !ax.visible()) {
+                    // Hide the r-axis but not the grid.
+                    // We can't completely unset the tics or the grid does not
+                    // appear properly
+                    run_command("unset " + axis_name + "axis");
+                    run_command("set " + axis_name + "tics scale 0");
+                }
                 if (ax.geographic()) {
                     run_command("set " + axis_name + "tics geographic");
                 }
@@ -461,13 +469,21 @@ namespace matplot {
                         run_command("set m" + axis_name + "tics 2");
                     }
                 }
-            } else {
+            } else { // (!visible && !r) || empty
                 if (axis_name == "r") {
                     // Hiding the r-axis works differently.
                     // We can't completely unset the tics or the grid does not
                     // appear properly
                     run_command("unset " + axis_name + "axis");
                     run_command("set " + axis_name + "tics scale 0");
+                    if (ax.tick_values().empty()) {
+                        // Note: Disabling tick labels without also
+                        // disabling the grid works via 'set format'
+                        // as per gnuplot manual "xticks" (see tic
+                        // labels). using 'set xticks () ...' would be
+                        // insufficient.
+                        run_command("set format " + axis_name + " \"\"");
+                    }
                 } else if (axis_name == "cb") {
                     // the colorbar / colorbox has a special command to unset it
                     // if only ticks are empty we still want to show the box
