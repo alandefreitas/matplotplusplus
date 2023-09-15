@@ -399,9 +399,9 @@ namespace matplot::backend {
         // This includes only the size option with {width, height} and not
         // the size option for cropping or scaling
         SV_CONSTEXPR std::string_view whitelist[] = {
-            "qt",      "aqua",     "caca",    "canvas", "eepic",
-            "emf",     "gif",      "jpeg",    "pbm",    "png",
-            "sixelgd", "tkcanvas", "windows", "wxt",    "svg"};
+            "qt",       "aqua",    "caca", "canvas", "eepic",    "emf",
+            "gif",      "jpeg",    "pbm",  "png",    "pngcairo", "sixelgd",
+            "tkcanvas", "windows", "wxt",  "svg"};
         return std::find(std::begin(whitelist), std::end(whitelist), t) !=
                std::end(whitelist);
     }
