@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ super() }}
+    <!-- Content footer -->
+    <footer class="tx-content__footer md-typeset" style="margin-top: 70px;">
+        <a href="{{ config.repo_url }}" title="{{ config.site_name }}" class="md-button" target="_blank">
+            ⭐️ Star {{ config.site_name }}
+        </a>
+    </footer>
+{% endblock %}
+
+
+<!-- Navigation -->
+{% block site_nav %}
+    <!-- Main navigation -->
+    {% if nav %}
+        {% if page and page.meta and page.meta.hide %}
+            {% set hidden = "hidden" if "navigation" in page.meta.hide %}
+        {% endif %}
+        <div
+                class="md-sidebar md-sidebar--primary"
+                data-md-component="sidebar" data-md-type="navigation"
+                {{ hidden }}
+        >
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    {% include "partials/nav.html" %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Table of contents: never hidden -->
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+        <div data-ea-publisher="alandefreitas-com" data-ea-type="image"></div>
+        <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+                {% include "partials/toc.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
