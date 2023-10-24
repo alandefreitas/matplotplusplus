@@ -8,6 +8,7 @@
 #include <iostream>
 #include <matplot/util/colors.h>
 #include <matplot/util/common.h>
+#include <matplot/util/popen.h>
 #include <random>
 #include <regex>
 #include <set>
@@ -23,17 +24,6 @@
 #include <CImg.h>
 #ifdef _MSC_VER
 #pragma warning(pop)
-#endif
-
-#ifdef _WIN32
-#include <windows.h>
-#define PCLOSE _pclose
-#define POPEN _popen
-#define FILENO _fileno
-#else
-#define PCLOSE pclose
-#define POPEN popen
-#define FILENO fileno
 #endif
 
 namespace matplot {

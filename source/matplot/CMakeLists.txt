@@ -37,6 +37,7 @@ add_library(matplot
         util/handle_types.h
         util/keywords.h
         util/popen.h
+        util/popen.cpp
         util/type_traits.h
         util/world_cities.cpp
         util/world_map_10m.cpp

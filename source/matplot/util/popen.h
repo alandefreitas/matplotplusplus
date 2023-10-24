@@ -6,9 +6,18 @@
 #define MATPLOTPLUSPLUS_POPEN_H
 
 #ifdef _WIN32
+#include <io.h>
+#include <stdio.h>
 #include <windows.h>
-#define PCLOSE _pclose
-#define POPEN _popen
+
+// in a GUI application, _popen pops up a window. This version does not.
+FILE *hiddenPopen(const char *command, const char *mode);
+
+// close the handle opened by hiddenPopen
+int hiddenPclose(FILE *file);
+
+#define PCLOSE hiddenPclose
+#define POPEN hiddenPopen
 #define FILENO _fileno
 #else
 #define PCLOSE pclose
