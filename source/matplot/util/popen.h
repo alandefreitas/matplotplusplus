@@ -6,18 +6,19 @@
 #define MATPLOTPLUSPLUS_POPEN_H
 
 #ifdef _WIN32
-#include <io.h>
-#include <stdio.h>
+#include <stdio.h> //needed for FILE type
 #include <windows.h>
 
-// in a GUI application, _popen pops up a window. This version does not.
-FILE *hiddenPopen(const char *command, const char *mode);
+namespace matplot::detail {
+    // in a GUI application, _popen pops up a window. This version does not.
+    FILE *hiddenPopen(const char *command, const char *mode);
 
-// close the handle opened by hiddenPopen
-int hiddenPclose(FILE *file);
+    // close the handle opened by hiddenPopen
+    int hiddenPclose(FILE *file);
+} // namespace matplot::detail
 
-#define PCLOSE hiddenPclose
-#define POPEN hiddenPopen
+#define PCLOSE ::matplot::detail::hiddenPclose
+#define POPEN ::matplot::detail::hiddenPopen
 #define FILENO _fileno
 #else
 #define PCLOSE pclose
