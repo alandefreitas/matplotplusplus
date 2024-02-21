@@ -98,7 +98,7 @@ target_include_directories(matplot
     PUBLIC $<BUILD_INTERFACE:${MATPLOT_ROOT_DIR}/source>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-set_target_properties(matplot PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(matplot PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
 
 # Shared library symbol export
 include(GenerateExportHeader)
