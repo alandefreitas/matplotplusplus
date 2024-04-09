@@ -7,7 +7,7 @@ nav_exclude: false
 
 Data visualization can help programmers and scientists identify trends in their data and efficiently communicate these results with their peers.
 
-Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals toward scientific data visualization.
+Modern C++ is being used for a variety of scientific applications, and this environment can benefit considerably from graphics libraries that attend the typical design goals of scientific data visualization.
 
 Besides the option of exporting results to other environments, the customary alternatives in C++ are either non-dedicated libraries that depend on existing user interfaces or bindings to other languages.
 
@@ -61,7 +61,7 @@ Table of Contents
 
 # Introduction 
 
-Data visualization is fundamental to scientific computing and metrics-driven development. Programmers can use interactive plotting to monitor their quality metrics more efficiently. Scientists rely on these tools to export their graphics in high-quality formats for scientific writings. The process of generating these graphics cannot be more expensive in terms of development time than the resources spent on the main problem at hand (Section [Data Visualization](#data-visualization)). While C++ has been valuable for a variety of scientific problems (Section [Scientific Computing in C++](#scientific-computing-in-c)), there is currently no alternative for data visualization that attends the design goals we habitually expect from scientific libraries (Section [Alternatives for Data Visualization in C++](#alternatives-for-data-visualization-in-c)). 
+Data visualization is fundamental to scientific computing and metrics-driven development. Programmers can use interactive plotting to monitor their quality metrics more efficiently. Scientists rely on these tools to export their graphics in high-quality formats for scientific writings. The process of generating these graphics cannot be more expensive, in terms of development time, than the resources spent on the main problem at hand (Section [Data Visualization](#data-visualization)). While C++ has been valuable for a variety of scientific problems (Section [Scientific Computing in C++](#scientific-computing-in-c)), there is currently no alternative for data visualization that attends to the design goals we habitually expect from scientific libraries (Section [Alternatives for Data Visualization in C++](#alternatives-for-data-visualization-in-c)). 
 
 For this reason, this article presents **Matplot++** (Section [The Matplot++ Library](#the-matplot-library)), a graphics library for data visualization in C++. The library maintains a high-level hierarchical structure to manage plots the user can create transparently with single function calls.
 
@@ -69,7 +69,7 @@ The main library objects represent figures and axes that can hierarchically stor
 
 Like present libraries for different programming languages, **Matplot++** allows flexible coding styles (Section [Coding Styles](#coding-styles)). The user can choose between object-oriented programming or free-standing functions (Section [Member vs. Free-Standing Functions](#member-vs-free-standing-functions)), reactive or quiet figures (Section [Reactive Figures](#reactive-figures)), method chaining or smart pointers to adjust plot properties (Section [Method Chaining](#method-chaining)), and use any convertible range data type as input for the algorithms (Section [Ranges](#ranges)). **Matplot++** also includes simple convenience functions to manipulate data (Section [Utilities](#utilities)) and the backend interface makes it viable to use **Matplot++** in countless contexts (Section [Backend Interface](#backend-interface)).
 
-In Section [Examples](#examples), we examine how **Matplot++** relates to other comparable libraries and environments by addressing its interface (Section [Interface](#interface)), provide extra examples of intricate integration into existent applications (Sections [Minimal Application](#a-minimal-application) and [Applications Managing Plot Handles](#applications-managing-plot-handles)), illustrate the results for varying image formats (Sections [Exporting Data](#exporting-data)), and consider more high-level practices, like conceiving novel plot categories (Section [Creating New Plot Categories](#creating-new-plot-types)) and backends for unique environments (Section [Backends](#backends)). 
+In Section [Examples](#examples), we examine how **Matplot++** relates to other comparable libraries and environments by examining its interface (Section [Interface](#interface)), provide extra examples of intricate integration into existing applications (Sections [Minimal Application](#a-minimal-application) and [Applications Managing Plot Handles](#applications-managing-plot-handles)), illustrate the results for varying image formats (Sections [Exporting Data](#exporting-data)), and consider more high-level practices, like conceiving novel plot categories (Section [Creating New Plot Categories](#creating-new-plot-types)) and backends for unique environments (Section [Backends](#backends)). 
 
 # Data Visualization in C++
 
