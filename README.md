@@ -9519,6 +9519,14 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Andrew Kane</b></sub>
         </a>
+    </td> </tr>
+  <tr>
+    <td align="center">
+      <a href=https://github.com/wwinslade">
+        <img src="https://avatars.githubusercontent.com/u/103067129?v=4" width="100;" alt="wwinslade"/>
+        <br />
+        <sub><b>William Winslade</b></sub>
+      </a>
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,ankane -end -->
