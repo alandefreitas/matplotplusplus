@@ -172,7 +172,7 @@ the AUR page of `matplotplusplus` [here](https://aur.archlinux.org/packages/matp
 
 ### CMake
 
-#### Embed as subdirectory
+#### Embed as Subdirectory
 
 You can use Matplot++ directly in CMake projects as a subproject, without installing it. This is convenient if you are experimenting with this library for the first time or don't expect your users to have Matplot++ installed on their systems.
 
@@ -274,7 +274,7 @@ cmake -B build/local                      \
 cmake --build build/local
 ```
 
-#### Embed with automatic download
+#### Embed with Automatic Download
 
 `FetchContent` is a CMake command that can automatically download the Matplot++ repository. Check if you have [Cmake](http://cmake.org) 3.14+ installed:
 
@@ -628,7 +628,7 @@ The build script will also look for these *optional* dependencies for manipulati
 * FFTW
 * OpenCV
 
-**Embedded dependencies**
+**Embedded Dependencies**
 
 There are two dependencies in [`source/3rd_party`](source/3rd_party). These dependencies are bundled, so you don't have to worry about them:
 
@@ -637,7 +637,7 @@ There are two dependencies in [`source/3rd_party`](source/3rd_party). These depe
 
 You can define `MATPLOTPP_WITH_SYSTEM_NODESOUP=ON` or `MATPLOTPP_WITH_SYSTEM_CIMG=ON` in the cmake command line to use a system-provided version of these dependencies.
 
-**OpenGL dependencies**
+**OpenGL Dependencies**
 
 There's an extra target `matplot_opengl` with the experimental [OpenGL backend](#backends). You need to define `MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND=ON` in the CMake command line to build that target. In that case, the build script will also look for these extra dependencies:
 
@@ -665,7 +665,7 @@ If these dependencies are not found, the build script will download them. In any
 
 You can also see all dependencies in [`source/3rd_party/CMakeLists.txt`](source/3rd_party/CMakeLists.txt).
 
-##### Build and install
+##### Build and Install
 
 **Building Examples**
 
@@ -746,7 +746,7 @@ You can 1) use `-DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF` to b
 !!! hint "Parallel Build"
 Replace `--parallel 2` with `--parallel <number of cores in your machine>`
 
-**Create packages**
+**Create Packages**
 
 You can also create the binary packages to install Matplot++ on other systems:
 
@@ -824,7 +824,7 @@ Where `x` and `y` are are any value ranges.
 !!! tip
     These examples use free-standing functions to create plots. You can also use a object-oriented style for plots. We discuss these coding styles in the Section [*Coding Styles*](#coding-styles).
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -977,7 +977,7 @@ plot3(x,y);
 </details>
 <!-- END mdsplit-ignore -->
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -1073,7 +1073,7 @@ The `stair` object renders the line with stairs between data points to denote di
 
 [![example_stairs_1](docs/examples/line_plot/stairs/stairs_1.svg)](examples/line_plot/stairs/stairs_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_stairs_2](docs/examples/line_plot/stairs/stairs_2_thumb.png)](examples/line_plot/stairs/stairs_2.cpp)  [![example_stairs_3](docs/examples/line_plot/stairs/stairs_3_thumb.png)](examples/line_plot/stairs/stairs_3.cpp)  [![example_stairs_4](docs/examples/line_plot/stairs/stairs_4_thumb.png)](examples/line_plot/stairs/stairs_4.cpp)  [![example_stairs_5](docs/examples/line_plot/stairs/stairs_5_thumb.png)](examples/line_plot/stairs/stairs_5.cpp)  [![example_stairs_6](docs/examples/line_plot/stairs/stairs_6_thumb.png)](examples/line_plot/stairs/stairs_6.cpp)  [![example_stairs_7](docs/examples/line_plot/stairs/stairs_7_thumb.png)](examples/line_plot/stairs/stairs_7.cpp)  [![example_stairs_8](docs/examples/line_plot/stairs/stairs_8_thumb.png)](examples/line_plot/stairs/stairs_8.cpp)  [![example_stairs_9](docs/examples/line_plot/stairs/stairs_9_thumb.png)](examples/line_plot/stairs/stairs_9.cpp)  [![example_stairs_10](docs/examples/line_plot/stairs/stairs_10_thumb.png)](examples/line_plot/stairs/stairs_10.cpp)
 </details>
@@ -1089,7 +1089,7 @@ More examples:
     --8<-- "examples/line_plot/stairs/stairs_2.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -1185,7 +1185,7 @@ errorbar(x,y,err);
 
 [![example_errorbar_1](docs/examples/line_plot/errorbar/errorbar_1.svg)](examples/line_plot/errorbar/errorbar_1.cpp)
 
-More examples:
+****More Examples:****
 
 [![example_errorbar_2](docs/examples/line_plot/errorbar/errorbar_2_thumb.png)](examples/line_plot/errorbar/errorbar_2.cpp)  [![example_errorbar_3](docs/examples/line_plot/errorbar/errorbar_3_thumb.png)](examples/line_plot/errorbar/errorbar_3.cpp)  [![example_errorbar_4](docs/examples/line_plot/errorbar/errorbar_4_thumb.png)](examples/line_plot/errorbar/errorbar_4.cpp)  [![example_errorbar_5](docs/examples/line_plot/errorbar/errorbar_5_thumb.png)](examples/line_plot/errorbar/errorbar_5.cpp)  [![example_errorbar_6](docs/examples/line_plot/errorbar/errorbar_6_thumb.png)](examples/line_plot/errorbar/errorbar_6.cpp)  [![example_errorbar_7](docs/examples/line_plot/errorbar/errorbar_7_thumb.png)](examples/line_plot/errorbar/errorbar_7.cpp)  [![example_errorbar_8](docs/examples/line_plot/errorbar/errorbar_8_thumb.png)](examples/line_plot/errorbar/errorbar_8.cpp)  [![example_errorbar_9](docs/examples/line_plot/errorbar/errorbar_9_thumb.png)](examples/line_plot/errorbar/errorbar_9.cpp)  [![example_errorbar_10](docs/examples/line_plot/errorbar/errorbar_10_thumb.png)](examples/line_plot/errorbar/errorbar_10.cpp)
 </details>
@@ -1202,7 +1202,7 @@ More examples:
     --8<-- "examples/line_plot/errorbar/errorbar_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -1310,7 +1310,7 @@ area(Y);
 
 [![example_area_1](docs/examples/line_plot/area/area_1.svg)](examples/line_plot/area/area_1.cpp)
 
-More examples:
+****More Examples:****
 
 [![example_area_2](docs/examples/line_plot/area/area_2_thumb.png)](examples/line_plot/area/area_2.cpp)  [![example_area_3](docs/examples/line_plot/area/area_3_thumb.png)](examples/line_plot/area/area_3.cpp)  [![example_area_4](docs/examples/line_plot/area/area_4_thumb.png)](examples/line_plot/area/area_4.cpp)
 </details>
@@ -1327,7 +1327,7 @@ More examples:
     --8<-- "examples/line_plot/area/area_1.cpp"
     ```
 
-**More examples**
+****More Examples:****
 
 
 ===! "Plot"
@@ -1372,7 +1372,7 @@ loglog(x,y);
 
 [![example_loglog_1](docs/examples/line_plot/loglog/loglog_1.svg)](examples/line_plot/loglog/loglog_1.cpp)
 
-More examples:
+****More Examples:****
 
 [![example_loglog_2](docs/examples/line_plot/loglog/loglog_2_thumb.png)](examples/line_plot/loglog/loglog_2.cpp)  [![example_loglog_3](docs/examples/line_plot/loglog/loglog_3_thumb.png)](examples/line_plot/loglog/loglog_3.cpp)  [![example_loglog_4](docs/examples/line_plot/loglog/loglog_4_thumb.png)](examples/line_plot/loglog/loglog_4.cpp)  [![example_loglog_5](docs/examples/line_plot/loglog/loglog_5_thumb.png)](examples/line_plot/loglog/loglog_5.cpp)  [![example_loglog_6](docs/examples/line_plot/loglog/loglog_6_thumb.png)](examples/line_plot/loglog/loglog_6.cpp)  [![example_loglog_7](docs/examples/line_plot/loglog/loglog_7_thumb.png)](examples/line_plot/loglog/loglog_7.cpp)  [![example_loglog_8](docs/examples/line_plot/loglog/loglog_8_thumb.png)](examples/line_plot/loglog/loglog_8.cpp)  [![example_loglog_9](docs/examples/line_plot/loglog/loglog_9_thumb.png)](examples/line_plot/loglog/loglog_9.cpp)
 </details>
@@ -1389,7 +1389,7 @@ More examples:
     ```
 
 
-**More examples**
+****More Examples:****
 
 ===! "Plot"
 
@@ -1532,7 +1532,7 @@ fplot(fx);
 
 [![example_fplot_1](docs/examples/line_plot/fplot/fplot_1.svg)](examples/line_plot/fplot/fplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fplot_2](docs/examples/line_plot/fplot/fplot_2_thumb.png)](examples/line_plot/fplot/fplot_2.cpp)  [![example_fplot_3](docs/examples/line_plot/fplot/fplot_3_thumb.png)](examples/line_plot/fplot/fplot_3.cpp)  [![example_fplot_4](docs/examples/line_plot/fplot/fplot_4_thumb.png)](examples/line_plot/fplot/fplot_4.cpp)  [![example_fplot_5](docs/examples/line_plot/fplot/fplot_5_thumb.png)](examples/line_plot/fplot/fplot_5.cpp)  [![example_fplot_6](docs/examples/line_plot/fplot/fplot_6_thumb.png)](examples/line_plot/fplot/fplot_6.cpp)
 </details>
@@ -1549,7 +1549,7 @@ More examples:
     --8<-- "examples/line_plot/fplot/fplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -1616,7 +1616,7 @@ fplot(fxy);
 
 [![example_fplot3_1](docs/examples/line_plot/fplot3/fplot3_1.svg)](examples/line_plot/fplot3/fplot3_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fplot3_2](docs/examples/line_plot/fplot3/fplot3_2_thumb.png)](examples/line_plot/fplot3/fplot3_2.cpp)  [![example_fplot3_3](docs/examples/line_plot/fplot3/fplot3_3_thumb.png)](examples/line_plot/fplot3/fplot3_3.cpp)  [![example_fplot3_4](docs/examples/line_plot/fplot3/fplot3_4_thumb.png)](examples/line_plot/fplot3/fplot3_4.cpp)  [![example_fplot3_5](docs/examples/line_plot/fplot3/fplot3_5_thumb.png)](examples/line_plot/fplot3/fplot3_5.cpp)
 </details>
@@ -1633,7 +1633,7 @@ More examples:
     --8<-- "examples/line_plot/fplot3/fplot3_1.cpp"
     `````
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -1687,7 +1687,7 @@ fplot(fxy);
 
 [![example_fimplicit_1](docs/examples/line_plot/fimplicit/fimplicit_1.svg)](examples/line_plot/fimplicit/fimplicit_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fimplicit_2](docs/examples/line_plot/fimplicit/fimplicit_2_thumb.png)](examples/line_plot/fimplicit/fimplicit_2.cpp)  [![example_fimplicit_3](docs/examples/line_plot/fimplicit/fimplicit_3_thumb.png)](examples/line_plot/fimplicit/fimplicit_3.cpp)  [![example_fimplicit_4](docs/examples/line_plot/fimplicit/fimplicit_4_thumb.png)](examples/line_plot/fimplicit/fimplicit_4.cpp)
 </details>
@@ -1704,7 +1704,7 @@ More examples:
     --8<-- "examples/line_plot/fimplicit/fimplicit_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -1757,7 +1757,7 @@ hist(data);
 
 [![example_histogram_1](docs/examples/data_distribution/histogram/histogram_1.png)](examples/data_distribution/histogram/histogram_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_histogram_2](docs/examples/data_distribution/histogram/histogram_2_thumb.png)](examples/data_distribution/histogram/histogram_2.cpp)  [![example_histogram_3](docs/examples/data_distribution/histogram/histogram_3_thumb.png)](examples/data_distribution/histogram/histogram_3.cpp)  [![example_histogram_4](docs/examples/data_distribution/histogram/histogram_4_thumb.png)](examples/data_distribution/histogram/histogram_4.cpp)  [![example_histogram_5](docs/examples/data_distribution/histogram/histogram_5_thumb.png)](examples/data_distribution/histogram/histogram_5.cpp)  [![example_histogram_6](docs/examples/data_distribution/histogram/histogram_6_thumb.png)](examples/data_distribution/histogram/histogram_6.cpp)  [![example_histogram_7](docs/examples/data_distribution/histogram/histogram_7_thumb.png)](examples/data_distribution/histogram/histogram_7.cpp)  [![example_histogram_8](docs/examples/data_distribution/histogram/histogram_8_thumb.png)](examples/data_distribution/histogram/histogram_8.cpp)  [![example_histogram_9](docs/examples/data_distribution/histogram/histogram_9_thumb.png)](examples/data_distribution/histogram/histogram_9.cpp)  [![example_histogram_10](docs/examples/data_distribution/histogram/histogram_10_thumb.png)](examples/data_distribution/histogram/histogram_10.cpp)  [![example_histogram_11](docs/examples/data_distribution/histogram/histogram_11_thumb.png)](examples/data_distribution/histogram/histogram_11.cpp)  [![example_histogram_12](docs/examples/data_distribution/histogram/histogram_12_thumb.png)](examples/data_distribution/histogram/histogram_12.cpp)  [![example_histogram_14](docs/examples/data_distribution/histogram/histogram_14_thumb.png)](examples/data_distribution/histogram/histogram_14.cpp)
 </details>
@@ -1774,7 +1774,7 @@ More examples:
     --8<-- "examples/data_distribution/histogram/histogram_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -1909,7 +1909,7 @@ boxplot(data);
 
 [![example_boxplot_1](docs/examples/data_distribution/boxplot/boxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_boxplot_2](docs/examples/data_distribution/boxplot/boxplot_2_thumb.png)](examples/data_distribution/boxplot/boxplot_2.cpp)  [![example_boxplot_3](docs/examples/data_distribution/boxplot/boxplot_3_thumb.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
 </details>
@@ -1925,7 +1925,7 @@ More examples:
     --8<-- "examples/data_distribution/boxplot/boxplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -1963,7 +1963,7 @@ scatter(x,y);
 
 [![example_scatter_1](docs/examples/data_distribution/scatter/scatter_1.svg)](examples/data_distribution/scatter/scatter_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_scatter_2](docs/examples/data_distribution/scatter/scatter_2_thumb.png)](examples/data_distribution/scatter/scatter_2.cpp)  [![example_scatter_3](docs/examples/data_distribution/scatter/scatter_3_thumb.png)](examples/data_distribution/scatter/scatter_3.cpp)  [![example_scatter_4](docs/examples/data_distribution/scatter/scatter_4_thumb.png)](examples/data_distribution/scatter/scatter_4.cpp)  [![example_scatter_5](docs/examples/data_distribution/scatter/scatter_5_thumb.png)](examples/data_distribution/scatter/scatter_5.cpp)  [![example_scatter_6](docs/examples/data_distribution/scatter/scatter_6_thumb.png)](examples/data_distribution/scatter/scatter_6.cpp)  [![example_scatter_7](docs/examples/data_distribution/scatter/scatter_7_thumb.png)](examples/data_distribution/scatter/scatter_7.cpp)  [![example_scatter_8](docs/examples/data_distribution/scatter/scatter_8_thumb.png)](examples/data_distribution/scatter/scatter_8.cpp)
 </details>
@@ -1979,7 +1979,7 @@ More examples:
     --8<-- "examples/data_distribution/scatter/scatter_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2077,7 +2077,7 @@ scatter(x,y,z);
 
 [![example_scatter3_1](docs/examples/data_distribution/scatter3/scatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_scatter3_2](docs/examples/data_distribution/scatter3/scatter3_2_thumb.png)](examples/data_distribution/scatter3/scatter3_2.cpp)  [![example_scatter3_3](docs/examples/data_distribution/scatter3/scatter3_3_thumb.png)](examples/data_distribution/scatter3/scatter3_3.cpp)  [![example_scatter3_4](docs/examples/data_distribution/scatter3/scatter3_4_thumb.png)](examples/data_distribution/scatter3/scatter3_4.cpp)  [![example_scatter3_5](docs/examples/data_distribution/scatter3/scatter3_5_thumb.png)](examples/data_distribution/scatter3/scatter3_5.cpp)  [![example_scatter3_6](docs/examples/data_distribution/scatter3/scatter3_6_thumb.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
 </details>
@@ -2093,7 +2093,7 @@ More examples:
     --8<-- "examples/data_distribution/scatter3/scatter3_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2167,7 +2167,7 @@ binscatter(x,y);
 
 [![example_binscatter_1](docs/examples/data_distribution/binscatter/binscatter_1.png)](examples/data_distribution/binscatter/binscatter_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_binscatter_2](docs/examples/data_distribution/binscatter/binscatter_2_thumb.png)](examples/data_distribution/binscatter/binscatter_2.cpp)  [![example_binscatter_3](docs/examples/data_distribution/binscatter/binscatter_3_thumb.png)](examples/data_distribution/binscatter/binscatter_3.cpp)  [![example_binscatter_4](docs/examples/data_distribution/binscatter/binscatter_4_thumb.png)](examples/data_distribution/binscatter/binscatter_4.cpp)  [![example_binscatter_5](docs/examples/data_distribution/binscatter/binscatter_5_thumb.png)](examples/data_distribution/binscatter/binscatter_5.cpp)  [![example_binscatter_6](docs/examples/data_distribution/binscatter/binscatter_6_thumb.png)](examples/data_distribution/binscatter/binscatter_6.cpp)  [![example_binscatter_7](docs/examples/data_distribution/binscatter/binscatter_7_thumb.png)](examples/data_distribution/binscatter/binscatter_7.cpp)
 </details>
@@ -2183,7 +2183,7 @@ More examples:
     --8<-- "examples/data_distribution/binscatter/binscatter_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2270,7 +2270,7 @@ plotmatrix(X);
 
 [![example_plotmatrix_1](docs/examples/data_distribution/plotmatrix/plotmatrix_1.svg)](examples/data_distribution/plotmatrix/plotmatrix_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_plotmatrix_2](docs/examples/data_distribution/plotmatrix/plotmatrix_2_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_2.cpp)  [![example_plotmatrix_3](docs/examples/data_distribution/plotmatrix/plotmatrix_3_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_3.cpp)  [![example_plotmatrix_4](docs/examples/data_distribution/plotmatrix/plotmatrix_4_thumb.png)](examples/data_distribution/plotmatrix/plotmatrix_4.cpp)
 </details>
@@ -2286,7 +2286,7 @@ More examples:
     --8<-- "examples/data_distribution/plotmatrix/plotmatrix_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2339,7 +2339,7 @@ parallelplot(X);
 
 [![example_parallelplot_1](docs/examples/data_distribution/parallelplot/parallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_parallelplot_2](docs/examples/data_distribution/parallelplot/parallelplot_2_thumb.png)](examples/data_distribution/parallelplot/parallelplot_2.cpp)  [![example_parallelplot_3](docs/examples/data_distribution/parallelplot/parallelplot_3_thumb.png)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
 </details>
@@ -2355,7 +2355,7 @@ More examples:
     --8<-- "examples/data_distribution/parallelplot/parallelplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2397,7 +2397,7 @@ pie(x);
 
 [![example_pie_1](docs/examples/data_distribution/pie/pie_1.svg)](examples/data_distribution/pie/pie_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_pie_2](docs/examples/data_distribution/pie/pie_2_thumb.png)](examples/data_distribution/pie/pie_2.cpp)  [![example_pie_3](docs/examples/data_distribution/pie/pie_3_thumb.png)](examples/data_distribution/pie/pie_3.cpp)  [![example_pie_4](docs/examples/data_distribution/pie/pie_4_thumb.png)](examples/data_distribution/pie/pie_4.cpp)  [![example_pie_5](docs/examples/data_distribution/pie/pie_5_thumb.png)](examples/data_distribution/pie/pie_5.cpp)  [![example_pie_6](docs/examples/data_distribution/pie/pie_6_thumb.png)](examples/data_distribution/pie/pie_6.cpp)
 </details>
@@ -2413,7 +2413,7 @@ More examples:
     --8<-- "examples/data_distribution/pie/pie_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2487,7 +2487,7 @@ heatmap(data);
 
 [![example_heatmap_1](docs/examples/data_distribution/heatmap/heatmap_1.png)](examples/data_distribution/heatmap/heatmap_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_heatmap_2](docs/examples/data_distribution/heatmap/heatmap_2_thumb.png)](examples/data_distribution/heatmap/heatmap_2.cpp)  [![example_heatmap_3](docs/examples/data_distribution/heatmap/heatmap_3_thumb.png)](examples/data_distribution/heatmap/heatmap_3.cpp)  [![example_heatmap_4](docs/examples/data_distribution/heatmap/heatmap_4_thumb.png)](examples/data_distribution/heatmap/heatmap_4.cpp)  [![example_heatmap_5](docs/examples/data_distribution/heatmap/heatmap_5_thumb.png)](examples/data_distribution/heatmap/heatmap_5.cpp)  [![example_heatmap_6](docs/examples/data_distribution/heatmap/heatmap_6_thumb.png)](examples/data_distribution/heatmap/heatmap_6.cpp)  [![example_heatmap_7](docs/examples/data_distribution/heatmap/heatmap_7_thumb.png)](examples/data_distribution/heatmap/heatmap_7.cpp)
 </details>
@@ -2503,7 +2503,7 @@ More examples:
     --8<-- "examples/data_distribution/heatmap/heatmap_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2587,7 +2587,7 @@ wordcloud(text, black_list);
 
 [![example_wordcloud_1](docs/examples/data_distribution/wordcloud/wordcloud_1.png)](examples/data_distribution/wordcloud/wordcloud_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_wordcloud_3](docs/examples/data_distribution/wordcloud/wordcloud_3_thumb.png)](examples/data_distribution/wordcloud/wordcloud_3.cpp)  [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)  [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4_thumb.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
 </details>
@@ -2603,7 +2603,7 @@ More examples:
     --8<-- "examples/data_distribution/wordcloud/wordcloud_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2665,7 +2665,7 @@ bar(y);
 
 [![example_bar_1](docs/examples/discrete_data/bar/bar_1.png)](examples/discrete_data/bar/bar_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_bar_2](docs/examples/discrete_data/bar/bar_2_thumb.png)](examples/discrete_data/bar/bar_2.cpp)  [![example_bar_3](docs/examples/discrete_data/bar/bar_3_thumb.png)](examples/discrete_data/bar/bar_3.cpp)  [![example_bar_4](docs/examples/discrete_data/bar/bar_4_thumb.png)](examples/discrete_data/bar/bar_4.cpp)  [![example_bar_5](docs/examples/discrete_data/bar/bar_5_thumb.png)](examples/discrete_data/bar/bar_5.cpp)  [![example_bar_6](docs/examples/discrete_data/bar/bar_6_thumb.png)](examples/discrete_data/bar/bar_6.cpp)  [![example_bar_7](docs/examples/discrete_data/bar/bar_7_thumb.png)](examples/discrete_data/bar/bar_7.cpp)  [![example_bar_8](docs/examples/discrete_data/bar/bar_8_thumb.png)](examples/discrete_data/bar/bar_8.cpp)  [![example_bar_9](docs/examples/discrete_data/bar/bar_9_thumb.png)](examples/discrete_data/bar/bar_9.cpp)  [![example_bar_10](docs/examples/discrete_data/bar/bar_10_thumb.png)](examples/discrete_data/bar/bar_10.cpp)  [![example_bar_11](docs/examples/discrete_data/bar/bar_11_thumb.png)](examples/discrete_data/bar/bar_11.cpp)  [![example_bar_12](docs/examples/discrete_data/bar/bar_12_thumb.png)](examples/discrete_data/bar/bar_12.cpp)  [![example_bar_13](docs/examples/discrete_data/bar/bar_13_thumb.png)](examples/discrete_data/bar/bar_13.cpp)
 </details>
@@ -2681,7 +2681,7 @@ More examples:
     --8<-- "examples/discrete_data/bar/bar_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2834,7 +2834,7 @@ pareto(y);
 
 [![example_pareto_1](docs/examples/discrete_data/pareto/pareto_1.svg)](examples/discrete_data/pareto/pareto_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_pareto_2](docs/examples/discrete_data/pareto/pareto_2_thumb.png)](examples/discrete_data/pareto/pareto_2.cpp)  [![example_pareto_3](docs/examples/discrete_data/pareto/pareto_3_thumb.png)](examples/discrete_data/pareto/pareto_3.cpp) [![example_pareto_4](docs/examples/discrete_data/pareto/pareto_4_thumb.png)](examples/discrete_data/pareto/pareto_4.cpp)
 </details>
@@ -2850,7 +2850,7 @@ More examples:
     --8<-- "examples/discrete_data/pareto/pareto_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -2905,7 +2905,7 @@ stem(Y);
 
 [![example_stem_1](docs/examples/discrete_data/stem/stem_1.svg)](examples/discrete_data/stem/stem_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_stem_2](docs/examples/discrete_data/stem/stem_2_thumb.png)](examples/discrete_data/stem/stem_2.cpp)  [![example_stem_3](docs/examples/discrete_data/stem/stem_3_thumb.png)](examples/discrete_data/stem/stem_3.cpp)  [![example_stem_4](docs/examples/discrete_data/stem/stem_4_thumb.png)](examples/discrete_data/stem/stem_4.cpp)  [![example_stem_5](docs/examples/discrete_data/stem/stem_5_thumb.png)](examples/discrete_data/stem/stem_5.cpp)  [![example_stem_6](docs/examples/discrete_data/stem/stem_6_thumb.png)](examples/discrete_data/stem/stem_6.cpp)  [![example_stem_7](docs/examples/discrete_data/stem/stem_7_thumb.png)](examples/discrete_data/stem/stem_7.cpp)  [![example_stem_8](docs/examples/discrete_data/stem/stem_8_thumb.png)](examples/discrete_data/stem/stem_8.cpp)  [![example_stem_9](docs/examples/discrete_data/stem/stem_9_thumb.png)](examples/discrete_data/stem/stem_9.cpp)
 </details>
@@ -2921,7 +2921,7 @@ More examples:
     --8<-- "examples/discrete_data/stem/stem_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -3029,7 +3029,7 @@ stem3(z);
 
 [![example_stem3_1](docs/examples/discrete_data/stem3/stem3_1.svg)](examples/discrete_data/stem3/stem3_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_stem3_2](docs/examples/discrete_data/stem3/stem3_2_thumb.png)](examples/discrete_data/stem3/stem3_2.cpp)  [![example_stem3_3](docs/examples/discrete_data/stem3/stem3_3_thumb.png)](examples/discrete_data/stem3/stem3_3.cpp)  [![example_stem3_4](docs/examples/discrete_data/stem3/stem3_4_thumb.png)](examples/discrete_data/stem3/stem3_4.cpp)  [![example_stem3_5](docs/examples/discrete_data/stem3/stem3_5_thumb.png)](examples/discrete_data/stem3/stem3_5.cpp)  [![example_stem3_6](docs/examples/discrete_data/stem3/stem3_6_thumb.png)](examples/discrete_data/stem3/stem3_6.cpp)  [![example_stem3_7](docs/examples/discrete_data/stem3/stem3_7_thumb.png)](examples/discrete_data/stem3/stem3_7.cpp)  [![example_stem3_8](docs/examples/discrete_data/stem3/stem3_8_thumb.png)](examples/discrete_data/stem3/stem3_8.cpp)  [![example_stem3_9](docs/examples/discrete_data/stem3/stem3_9_thumb.png)](examples/discrete_data/stem3/stem3_9.cpp)  [![example_stem3_10](docs/examples/discrete_data/stem3/stem3_10_thumb.png)](examples/discrete_data/stem3/stem3_10.cpp)  [![example_stem3_11](docs/examples/discrete_data/stem3/stem3_11_thumb.png)](examples/discrete_data/stem3/stem3_11.cpp)
 </details>
@@ -3045,7 +3045,7 @@ More examples:
     --8<-- "examples/discrete_data/stem3/stem3_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -3182,7 +3182,7 @@ geoplot(lat,lon);
 
 [![example_geoplot_1](docs/examples/geography/geoplot/geoplot_1.png)](examples/geography/geoplot/geoplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_geoplot_2](docs/examples/geography/geoplot/geoplot_2_thumb.png)](examples/geography/geoplot/geoplot_2.cpp)  [![example_geoplot_3](docs/examples/geography/geoplot/geoplot_3_thumb.png)](examples/geography/geoplot/geoplot_3.cpp)  [![example_geoplot_4](docs/examples/geography/geoplot/geoplot_4_thumb.png)](examples/geography/geoplot/geoplot_4.cpp)  [![example_geoplot_5](docs/examples/geography/geoplot/geoplot_5_thumb.png)](examples/geography/geoplot/geoplot_5.cpp)  [![example_geoplot_6](docs/examples/geography/geoplot/geoplot_6_thumb.png)](examples/geography/geoplot/geoplot_6.cpp)  [![example_geoplot_7](docs/examples/geography/geoplot/geoplot_7_thumb.png)](examples/geography/geoplot/geoplot_7.cpp)
 </details>
@@ -3198,7 +3198,7 @@ More examples:
     --8<-- "examples/geography/geoplot/geoplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3274,7 +3274,7 @@ More examples:
 
 For the first geography plot, **Matplot++** calls `geoplot()`, which creates a filled polygon with the world map. This first plot receives the tag `"map"` so that subsequent geography plots recognize there is no need to recreate this world map.
 
-The data for the world map comes from Natural Earth. They provide data at 1:10m, 1:50m, and 1:110m scales. The `geoplot` function will initially use the data at the 1:110m scales. The `geolimits` function can be used to update the axis limits for geography plots. The difference between the usual functions for adjusting axis limits (`xlim` and `ylim`) and `geolimits` is that the latter will also update the map resolution according to the new limits for the <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=y"> axis.
+The data for the world map comes from [Natural Earth](https://www.naturalearthdata.com/). They provide data at 1:10m, 1:50m, and 1:110m scales. The `geoplot` function will initially use the data at the 1:110m scales. The `geolimits` function can be used to update the axis limits for geography plots. The difference between the usual functions for adjusting axis limits (`xlim` and `ylim`) and `geolimits` is that the latter will also update the map resolution according to the new limits for the <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=y"> axis.
 
 The `geolimits` function will query the `figure` size and, depending on the new limits for the axes, update the map to the 1:10m, or 1:50m scales if needed. Because it would be very inefficient to render the whole world map at a 1:10m or 1:50m scale only to display a region of this map, the `geolimits` function also crops the data pertinent to the new region being displayed.
 
@@ -3296,7 +3296,7 @@ geoscatter(lat,lon);
 
 [![example_geoscatter_1](docs/examples/geography/geoscatter/geoscatter_1.png)](examples/geography/geoscatter/geoscatter_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_geoscatter_2](docs/examples/geography/geoscatter/geoscatter_2_thumb.png)](examples/geography/geoscatter/geoscatter_2.cpp)
 
@@ -3313,7 +3313,7 @@ More examples:
     --8<-- "examples/geography/geoscatter/geoscatter_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3339,7 +3339,7 @@ geobubble(lat,lon,sizes);
 
 [![example_geobubble_1](docs/examples/geography/geobubble/geobubble_1.png)](examples/geography/geobubble/geobubble_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_geobubble_2](docs/examples/geography/geobubble/geobubble_2_thumb.png)](examples/geography/geobubble/geobubble_2.cpp)
 
@@ -3356,7 +3356,7 @@ More examples:
     --8<-- "examples/geography/geobubble/geobubble_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3413,7 +3413,7 @@ polarplot(theta, rho);
 
 [![example_polarplot_1](docs/examples/polar_plots/polarplot/polarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_polarplot_2](docs/examples/polar_plots/polarplot/polarplot_2_thumb.png)](examples/polar_plots/polarplot/polarplot_2.cpp)  [![example_polarplot_3](docs/examples/polar_plots/polarplot/polarplot_3_thumb.png)](examples/polar_plots/polarplot/polarplot_3.cpp)  [![example_polarplot_4](docs/examples/polar_plots/polarplot/polarplot_4_thumb.png)](examples/polar_plots/polarplot/polarplot_4.cpp)  [![example_polarplot_5](docs/examples/polar_plots/polarplot/polarplot_5_thumb.png)](examples/polar_plots/polarplot/polarplot_5.cpp)  [![example_polarplot_6](docs/examples/polar_plots/polarplot/polarplot_6_thumb.png)](examples/polar_plots/polarplot/polarplot_6.cpp)  [![example_polarplot_7](docs/examples/polar_plots/polarplot/polarplot_7_thumb.png)](examples/polar_plots/polarplot/polarplot_7.cpp)  [![example_polarplot_8](docs/examples/polar_plots/polarplot/polarplot_8_thumb.png)](examples/polar_plots/polarplot/polarplot_8.cpp)
 </details>
@@ -3429,7 +3429,7 @@ More examples:
     --8<-- "examples/polar_plots/polarplot/polarplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3532,7 +3532,7 @@ polarscatter(theta, rho);
 
 [![example_polarscatter_1](docs/examples/polar_plots/polarscatter/polarscatter_1.svg)](examples/polar_plots/polarscatter/polarscatter_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_polarscatter_2](docs/examples/polar_plots/polarscatter/polarscatter_2_thumb.png)](examples/polar_plots/polarscatter/polarscatter_2.cpp)  [![example_polarscatter_3](docs/examples/polar_plots/polarscatter/polarscatter_3_thumb.png)](examples/polar_plots/polarscatter/polarscatter_3.cpp)  [![example_polarscatter_4](docs/examples/polar_plots/polarscatter/polarscatter_4_thumb.png)](examples/polar_plots/polarscatter/polarscatter_4.cpp)  [![example_polarscatter_5](docs/examples/polar_plots/polarscatter/polarscatter_5_thumb.png)](examples/polar_plots/polarscatter/polarscatter_5.cpp)  [![example_polarscatter_6](docs/examples/polar_plots/polarscatter/polarscatter_6_thumb.png)](examples/polar_plots/polarscatter/polarscatter_6.cpp)
 </details>
@@ -3548,7 +3548,7 @@ More examples:
     --8<-- "examples/polar_plots/polarscatter/polarscatter_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -3622,7 +3622,7 @@ polarhistogram(theta, 6);
 
 [![example_polarhistogram_1](docs/examples/polar_plots/polarhistogram/polarhistogram_1.svg)](examples/polar_plots/polarhistogram/polarhistogram_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_polarhistogram_2](docs/examples/polar_plots/polarhistogram/polarhistogram_2_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)  [![example_polarhistogram_3](docs/examples/polar_plots/polarhistogram/polarhistogram_3_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)  [![example_polarhistogram_4](docs/examples/polar_plots/polarhistogram/polarhistogram_4_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)  [![example_polarhistogram_5](docs/examples/polar_plots/polarhistogram/polarhistogram_5_thumb.png)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)
 </details>
@@ -3638,7 +3638,7 @@ More examples:
     --8<-- "examples/polar_plots/polarhistogram/polarhistogram_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3703,7 +3703,7 @@ compass(u, v);
 
 [![example_compass_1](docs/examples/polar_plots/compass/compass_1.png)](examples/polar_plots/compass/compass_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_compass_2](docs/examples/polar_plots/compass/compass_2_thumb.png)](examples/polar_plots/compass/compass_2.cpp)
 </details>
@@ -3720,7 +3720,7 @@ More examples:
     --8<-- "examples/polar_plots/compass/compass_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3748,7 +3748,7 @@ ezpolar(fn);
 
 [![example_ezpolar_1](docs/examples/polar_plots/ezpolar/ezpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ezpolar_2](docs/examples/polar_plots/ezpolar/ezpolar_2_thumb.png)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
 
@@ -3765,7 +3765,7 @@ More examples:
     --8<-- "examples/polar_plots/ezpolar/ezpolar_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3797,7 +3797,7 @@ contour(X, Y, Z);
 
 [![example_contour_1](docs/examples/contour_plots/contour/contour_1.svg)](examples/contour_plots/contour/contour_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_contour_2](docs/examples/contour_plots/contour/contour_2_thumb.png)](examples/contour_plots/contour/contour_2.cpp)  [![example_contour_3](docs/examples/contour_plots/contour/contour_3_thumb.png)](examples/contour_plots/contour/contour_3.cpp)  [![example_contour_4](docs/examples/contour_plots/contour/contour_4_thumb.png)](examples/contour_plots/contour/contour_4.cpp)  [![example_contour_5](docs/examples/contour_plots/contour/contour_5_thumb.png)](examples/contour_plots/contour/contour_5.cpp)  [![example_contour_6](docs/examples/contour_plots/contour/contour_6_thumb.png)](examples/contour_plots/contour/contour_6.cpp)  [![example_contour_7](docs/examples/contour_plots/contour/contour_7_thumb.png)](examples/contour_plots/contour/contour_7.cpp)  [![example_contour_8](docs/examples/contour_plots/contour/contour_8_thumb.png)](examples/contour_plots/contour/contour_8.cpp)
 </details>
@@ -3813,7 +3813,7 @@ More examples:
     --8<-- "examples/contour_plots/contour/contour_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -3921,7 +3921,7 @@ contourf(X, Y, Z);
 
 [![example_contourf_1](docs/examples/contour_plots/contourf/contourf_1.svg)](examples/contour_plots/contourf/contourf_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_contourf_2](docs/examples/contour_plots/contourf/contourf_2_thumb.png)](examples/contour_plots/contourf/contourf_2.cpp)  [![example_contourf_3](docs/examples/contour_plots/contourf/contourf_3_thumb.png)](examples/contour_plots/contourf/contourf_3.cpp)  [![example_contourf_4](docs/examples/contour_plots/contourf/contourf_4_thumb.png)](examples/contour_plots/contourf/contourf_4.cpp)  [![example_contourf_5](docs/examples/contour_plots/contourf/contourf_5_thumb.png)](examples/contour_plots/contourf/contourf_5.cpp)  [![example_contourf_6](docs/examples/contour_plots/contourf/contourf_6_thumb.png)](examples/contour_plots/contourf/contourf_6.cpp)
 </details>
@@ -3937,7 +3937,7 @@ More examples:
     --8<-- "examples/contour_plots/contourf/contourf_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4011,7 +4011,7 @@ fcontour(f);
 
 [![example_fcontour_1](docs/examples/contour_plots/fcontour/fcontour_1.svg)](examples/contour_plots/fcontour/fcontour_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fcontour_2](docs/examples/contour_plots/fcontour/fcontour_2_thumb.png)](examples/contour_plots/fcontour/fcontour_2.cpp)  [![example_fcontour_3](docs/examples/contour_plots/fcontour/fcontour_3_thumb.png)](examples/contour_plots/fcontour/fcontour_3.cpp)  [![example_fcontour_4](docs/examples/contour_plots/fcontour/fcontour_4_thumb.png)](examples/contour_plots/fcontour/fcontour_4.cpp)  [![example_fcontour_5](docs/examples/contour_plots/fcontour/fcontour_5_thumb.png)](examples/contour_plots/fcontour/fcontour_5.cpp)  [![example_fcontour_6](docs/examples/contour_plots/fcontour/fcontour_6_thumb.png)](examples/contour_plots/fcontour/fcontour_6.cpp)  [![example_fcontour_7](docs/examples/contour_plots/fcontour/fcontour_7_thumb.png)](examples/contour_plots/fcontour/fcontour_7.cpp)  [![example_fcontour_8](docs/examples/contour_plots/fcontour/fcontour_8_thumb.png)](examples/contour_plots/fcontour/fcontour_8.cpp)  [![example_fcontour_9](docs/examples/contour_plots/fcontour/fcontour_9_thumb.png)](examples/contour_plots/fcontour/fcontour_9.cpp)  [![example_fcontour_10](docs/examples/contour_plots/fcontour/fcontour_10_thumb.png)](examples/contour_plots/fcontour/fcontour_10.cpp)  [![example_fcontour_11](docs/examples/contour_plots/fcontour/fcontour_11_thumb.png)](examples/contour_plots/fcontour/fcontour_11.cpp)
 </details>
@@ -4027,7 +4027,7 @@ More examples:
     --8<-- "examples/contour_plots/fcontour/fcontour_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -4167,7 +4167,7 @@ quiver(x, y, u, v);
 
 [![example_quiver_1](docs/examples/vector_fields/quiver/quiver_1.svg)](examples/vector_fields/quiver/quiver_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_quiver_2](docs/examples/vector_fields/quiver/quiver_2_thumb.png)](examples/vector_fields/quiver/quiver_2.cpp)  [![example_quiver_3](docs/examples/vector_fields/quiver/quiver_3_thumb.png)](examples/vector_fields/quiver/quiver_3.cpp)  [![example_quiver_4](docs/examples/vector_fields/quiver/quiver_4_thumb.png)](examples/vector_fields/quiver/quiver_4.cpp)
 </details>
@@ -4183,7 +4183,7 @@ More examples:
     --8<-- "examples/vector_fields/quiver/quiver_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -4320,7 +4320,7 @@ surf(X, Y, Z);
 
 [![example_surf_1](docs/examples/surfaces/surf/surf_1.png)](examples/surfaces/surf/surf_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_surf_2](docs/examples/surfaces/surf/surf_2_thumb.png)](examples/surfaces/surf/surf_2.cpp)  [![example_surf_3](docs/examples/surfaces/surf/surf_3_thumb.png)](examples/surfaces/surf/surf_3.cpp)  [![example_surf_4](docs/examples/surfaces/surf/surf_4_thumb.png)](examples/surfaces/surf/surf_4.cpp)  [![example_surf_5](docs/examples/surfaces/surf/surf_5_thumb.png)](examples/surfaces/surf/surf_5.cpp)  [![example_surf_6](docs/examples/surfaces/surf/surf_6_thumb.png)](examples/surfaces/surf/surf_6.cpp)
 </details>
@@ -4336,7 +4336,7 @@ More examples:
     --8<-- "examples/surfaces/surf/surf_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4409,7 +4409,7 @@ surfc(X, Y, Z);
 
 [![example_surfc_1](docs/examples/surfaces/surfc/surfc_1.png)](examples/surfaces/surfc/surfc_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_surfc_2](docs/examples/surfaces/surfc/surfc_2_thumb.png)](examples/surfaces/surfc/surfc_2.cpp)  [![example_surfc_3](docs/examples/surfaces/surfc/surfc_3_thumb.png)](examples/surfaces/surfc/surfc_3.cpp)  [![example_surfc_4](docs/examples/surfaces/surfc/surfc_4_thumb.png)](examples/surfaces/surfc/surfc_4.cpp)
 </details>
@@ -4425,7 +4425,7 @@ More examples:
     --8<-- "examples/surfaces/surfc/surfc_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4475,7 +4475,7 @@ mesh(X, Y, Z);
 
 [![example_mesh_1](docs/examples/surfaces/mesh/mesh_1.png)](examples/surfaces/mesh/mesh_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_mesh_2](docs/examples/surfaces/mesh/mesh_2_thumb.png)](examples/surfaces/mesh/mesh_2.cpp)  [![example_mesh_3](docs/examples/surfaces/mesh/mesh_3_thumb.png)](examples/surfaces/mesh/mesh_3.cpp)  [![example_mesh_4](docs/examples/surfaces/mesh/mesh_4_thumb.png)](examples/surfaces/mesh/mesh_4.cpp)
 </details>
@@ -4491,7 +4491,7 @@ More examples:
     --8<-- "examples/surfaces/mesh/mesh_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4541,7 +4541,7 @@ meshc(X, Y, Z);
 
 [![example_meshc_1](docs/examples/surfaces/meshc/meshc_1.png)](examples/surfaces/meshc/meshc_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_meshc_2](docs/examples/surfaces/meshc/meshc_2_thumb.png)](examples/surfaces/meshc/meshc_2.cpp)  [![example_meshc_3](docs/examples/surfaces/meshc/meshc_3_thumb.png)](examples/surfaces/meshc/meshc_3.cpp)
 </details>
@@ -4557,7 +4557,7 @@ More examples:
     --8<-- "examples/surfaces/meshc/meshc_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4595,7 +4595,7 @@ meshz(X, Y, Z);
 
 [![example_meshz_1](docs/examples/surfaces/meshz/meshz_1.png)](examples/surfaces/meshz/meshz_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_meshz_2](docs/examples/surfaces/meshz/meshz_2_thumb.png)](examples/surfaces/meshz/meshz_2.cpp)  [![example_meshz_3](docs/examples/surfaces/meshz/meshz_3_thumb.png)](examples/surfaces/meshz/meshz_3.cpp)
 </details>
@@ -4611,7 +4611,7 @@ More examples:
     --8<-- "examples/surfaces/meshz/meshz_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4650,7 +4650,7 @@ fsurf(fn);
 
 [![example_fsurf_1](docs/examples/surfaces/fsurf/fsurf_1.png)](examples/surfaces/fsurf/fsurf_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fsurf_2](docs/examples/surfaces/fsurf/fsurf_2_thumb.png)](examples/surfaces/fsurf/fsurf_2.cpp)  [![example_fsurf_3](docs/examples/surfaces/fsurf/fsurf_3_thumb.png)](examples/surfaces/fsurf/fsurf_3.cpp)  [![example_fsurf_4](docs/examples/surfaces/fsurf/fsurf_4_thumb.png)](examples/surfaces/fsurf/fsurf_4.cpp)  [![example_fsurf_5](docs/examples/surfaces/fsurf/fsurf_5_thumb.png)](examples/surfaces/fsurf/fsurf_5.cpp)  [![example_fsurf_6](docs/examples/surfaces/fsurf/fsurf_6_thumb.png)](examples/surfaces/fsurf/fsurf_6.cpp)  [![example_fsurf_7](docs/examples/surfaces/fsurf/fsurf_7_thumb.png)](examples/surfaces/fsurf/fsurf_7.cpp)  [![example_fsurf_8](docs/examples/surfaces/fsurf/fsurf_8_thumb.png)](examples/surfaces/fsurf/fsurf_8.cpp)
 </details>
@@ -4666,7 +4666,7 @@ More examples:
     --8<-- "examples/surfaces/fsurf/fsurf_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4763,7 +4763,7 @@ fmesh(fn);
 
 [![example_fmesh_1](docs/examples/surfaces/fmesh/fmesh_1.png)](examples/surfaces/fmesh/fmesh_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fmesh_2](docs/examples/surfaces/fmesh/fmesh_2_thumb.png)](examples/surfaces/fmesh/fmesh_2.cpp)  [![example_fmesh_3](docs/examples/surfaces/fmesh/fmesh_3_thumb.png)](examples/surfaces/fmesh/fmesh_3.cpp)  [![example_fmesh_4](docs/examples/surfaces/fmesh/fmesh_4_thumb.png)](examples/surfaces/fmesh/fmesh_4.cpp)
 </details>
@@ -4779,7 +4779,7 @@ More examples:
     --8<-- "examples/surfaces/fmesh/fmesh_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4830,7 +4830,7 @@ waterfall(X, Y, Z);
 
 [![example_waterfall_1](docs/examples/surfaces/waterfall/waterfall_1.png)](examples/surfaces/waterfall/waterfall_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_waterfall_2](docs/examples/surfaces/waterfall/waterfall_2_thumb.png)](examples/surfaces/waterfall/waterfall_2.cpp)  [![example_waterfall_3](docs/examples/surfaces/waterfall/waterfall_3_thumb.png)](examples/surfaces/waterfall/waterfall_3.cpp)
 </details>
@@ -4846,7 +4846,7 @@ More examples:
     --8<-- "examples/surfaces/waterfall/waterfall_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4884,7 +4884,7 @@ fence(X, Y, Z);
 
 [![example_fence_1](docs/examples/surfaces/fence/fence_1.png)](examples/surfaces/fence/fence_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_fence_2](docs/examples/surfaces/fence/fence_2_thumb.png)](examples/surfaces/fence/fence_2.cpp)  [![example_fence_3](docs/examples/surfaces/fence/fence_3_thumb.png)](examples/surfaces/fence/fence_3.cpp)
 </details>
@@ -4900,7 +4900,7 @@ More examples:
     --8<-- "examples/surfaces/fence/fence_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -4939,7 +4939,7 @@ ribbon(X, Y, Z);
 
 [![example_ribbon_1](docs/examples/surfaces/ribbon/ribbon_1.png)](examples/surfaces/ribbon/ribbon_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ribbon_2](docs/examples/surfaces/ribbon/ribbon_2_thumb.png)](examples/surfaces/ribbon/ribbon_2.cpp)  [![example_ribbon_3](docs/examples/surfaces/ribbon/ribbon_3_thumb.png)](examples/surfaces/ribbon/ribbon_3.cpp)  [![example_ribbon_4](docs/examples/surfaces/ribbon/ribbon_4_thumb.png)](examples/surfaces/ribbon/ribbon_4.cpp)
 </details>
@@ -4955,7 +4955,7 @@ More examples:
     --8<-- "examples/surfaces/ribbon/ribbon_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5007,7 +5007,7 @@ graph(edges);
 
 [![example_graph_1](docs/examples/graphs/graph/graph_1.svg)](examples/graphs/graph/graph_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_graph_2](docs/examples/graphs/graph/graph_2_thumb.png)](examples/graphs/graph/graph_2.cpp)  [![example_graph_3](docs/examples/graphs/graph/graph_3_thumb.png)](examples/graphs/graph/graph_3.cpp)  [![example_graph_4](docs/examples/graphs/graph/graph_4_thumb.png)](examples/graphs/graph/graph_4.cpp)  [![example_graph_5](docs/examples/graphs/graph/graph_5_thumb.png)](examples/graphs/graph/graph_5.cpp)
 </details>
@@ -5023,7 +5023,7 @@ More examples:
     --8<-- "examples/graphs/graph/graph_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5090,7 +5090,7 @@ digraph(edges);
 
 [![example_digraph_1](docs/examples/graphs/digraph/digraph_1.svg)](examples/graphs/digraph/digraph_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_digraph_2](docs/examples/graphs/digraph/digraph_2_thumb.png)](examples/graphs/digraph/digraph_2.cpp)  [![example_digraph_3](docs/examples/graphs/digraph/digraph_3_thumb.png)](examples/graphs/digraph/digraph_3.cpp)
 </details>
@@ -5106,7 +5106,7 @@ More examples:
     --8<-- "examples/graphs/digraph/digraph_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5150,7 +5150,7 @@ imshow(image);
 
 [![example_imshow_1](docs/examples/images/imshow/imshow_1.png)](examples/images/imshow/imshow_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_imshow_2](docs/examples/images/imshow/imshow_2_thumb.png)](examples/images/imshow/imshow_2.cpp)  [![example_imshow_3](docs/examples/images/imshow/imshow_3_thumb.png)](examples/images/imshow/imshow_3.cpp)  [![example_imshow_4](docs/examples/images/imshow/imshow_4_thumb.png)](examples/images/imshow/imshow_4.cpp)  [![example_imshow_5](docs/examples/images/imshow/imshow_5_thumb.png)](examples/images/imshow/imshow_5.cpp)  [![example_imshow_6](docs/examples/images/imshow/imshow_6_thumb.png)](examples/images/imshow/imshow_6.cpp)  [![example_imshow_7](docs/examples/images/imshow/imshow_7_thumb.png)](examples/images/imshow/imshow_7.cpp)  [![example_imshow_8](docs/examples/images/imshow/imshow_8_thumb.png)](examples/images/imshow/imshow_8.cpp)  [![example_imshow_9](docs/examples/images/imshow/imshow_9_thumb.png)](examples/images/imshow/imshow_9.cpp)  [![example_imshow_10](docs/examples/images/imshow/imshow_10_thumb.png)](examples/images/imshow/imshow_10.cpp)  [![example_imshow_11](docs/examples/images/imshow/imshow_11_thumb.png)](examples/images/imshow/imshow_11.cpp)
 </details>
@@ -5166,7 +5166,7 @@ More examples:
     --8<-- "examples/images/imshow/imshow_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5302,7 +5302,7 @@ image(C);
 
 [![example_image_1](docs/examples/images/image/image_1.png)](examples/images/image/image_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_image_2](docs/examples/images/image/image_2_thumb.png)](examples/images/image/image_2.cpp)  [![example_image_3](docs/examples/images/image/image_3_thumb.png)](examples/images/image/image_3.cpp)  [![example_image_4](docs/examples/images/image/image_4_thumb.png)](examples/images/image/image_4.cpp)  [![example_image_5](docs/examples/images/image/image_5_thumb.png)](examples/images/image/image_5.cpp)
 </details>
@@ -5318,7 +5318,7 @@ More examples:
     --8<-- "examples/images/image/image_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5379,7 +5379,7 @@ imagesc(C);
 
 [![example_imagesc_1](docs/examples/images/imagesc/imagesc_1.png)](examples/images/imagesc/imagesc_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_imagesc_2](docs/examples/images/imagesc/imagesc_2_thumb.png)](examples/images/imagesc/imagesc_2.cpp)  [![example_imagesc_3](docs/examples/images/imagesc/imagesc_3_thumb.png)](examples/images/imagesc/imagesc_3.cpp)  [![example_imagesc_4](docs/examples/images/imagesc/imagesc_4_thumb.png)](examples/images/imagesc/imagesc_4.cpp)
 </details>
@@ -5395,7 +5395,7 @@ More examples:
     --8<-- "examples/images/imagesc/imagesc_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5454,7 +5454,7 @@ text(x0, y0, str);
 
 [![example_text_1](docs/examples/annotations/text/text_1.svg)](examples/annotations/text/text_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_text_2](docs/examples/annotations/text/text_2_thumb.png)](examples/annotations/text/text_2.cpp)  [![example_text_3](docs/examples/annotations/text/text_3_thumb.png)](examples/annotations/text/text_3.cpp)  [![example_text_4](docs/examples/annotations/text/text_4_thumb.png)](examples/annotations/text/text_4.cpp)  [![example_text_5](docs/examples/annotations/text/text_5_thumb.png)](examples/annotations/text/text_5.cpp)  [![example_text_6](docs/examples/annotations/text/text_6_thumb.png)](examples/annotations/text/text_6.cpp)  [![example_text_7](docs/examples/annotations/text/text_7_thumb.png)](examples/annotations/text/text_7.cpp)  [![example_text_8](docs/examples/annotations/text/text_8_thumb.png)](examples/annotations/text/text_8.cpp)
 </details>
@@ -5470,7 +5470,7 @@ More examples:
     --8<-- "examples/annotations/text/text_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5567,7 +5567,7 @@ textarrow(x1, y1, x2, y2, str);
 
 [![example_textarrow_1](docs/examples/annotations/textarrow/textarrow_1.svg)](examples/annotations/textarrow/textarrow_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_textarrow_2](docs/examples/annotations/textarrow/textarrow_2_thumb.png)](examples/annotations/textarrow/textarrow_2.cpp)
 
@@ -5584,7 +5584,7 @@ More examples:
     --8<-- "examples/annotations/textarrow/textarrow_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -5611,7 +5611,7 @@ rectangle(x, y, w, h);
 
 [![example_rectangle_1](docs/examples/annotations/rectangle/rectangle_1.svg)](examples/annotations/rectangle/rectangle_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_rectangle_2](docs/examples/annotations/rectangle/rectangle_2_thumb.png)](examples/annotations/rectangle/rectangle_2.cpp)  [![example_rectangle_3](docs/examples/annotations/rectangle/rectangle_3_thumb.png)](examples/annotations/rectangle/rectangle_3.cpp)  [![example_rectangle_4](docs/examples/annotations/rectangle/rectangle_4_thumb.png)](examples/annotations/rectangle/rectangle_4.cpp)  [![example_rectangle_5](docs/examples/annotations/rectangle/rectangle_5_thumb.png)](examples/annotations/rectangle/rectangle_5.cpp)
 </details>
@@ -5627,7 +5627,7 @@ More examples:
     --8<-- "examples/annotations/rectangle/rectangle_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5763,7 +5763,7 @@ arrow(x1, y1, x2, y2);
 
 [![example_arrow_1](docs/examples/annotations/arrow/arrow_1.svg)](examples/annotations/arrow/arrow_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_arrow_2](docs/examples/annotations/arrow/arrow_2_thumb.png)](examples/annotations/arrow/arrow_2.cpp)
 
@@ -5780,7 +5780,7 @@ More examples:
     --8<-- "examples/annotations/arrow/arrow_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -5848,7 +5848,7 @@ title(str);
 
 [![example_title_1](docs/examples/appearance/labels/title/title_1.svg)](examples/appearance/labels/title/title_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_title_2](docs/examples/appearance/labels/title/title_2_thumb.png)](examples/appearance/labels/title/title_2.cpp)  [![example_title_3](docs/examples/appearance/labels/title/title_3_thumb.png)](examples/appearance/labels/title/title_3.cpp)  [![example_title_4](docs/examples/appearance/labels/title/title_4_thumb.png)](examples/appearance/labels/title/title_4.cpp)  [![example_title_5](docs/examples/appearance/labels/title/title_5_thumb.png)](examples/appearance/labels/title/title_5.cpp)  [![example_title_6](docs/examples/appearance/labels/title/title_6_thumb.png)](examples/appearance/labels/title/title_6.cpp)  [![example_title_7](docs/examples/appearance/labels/title/title_7_thumb.png)](examples/appearance/labels/title/title_7.cpp)  [![example_title_8](docs/examples/appearance/labels/title/title_8_thumb.png)](examples/appearance/labels/title/title_8.cpp)
 </details>
@@ -5864,7 +5864,7 @@ More examples:
     --8<-- "examples/appearance/labels/title/title_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -5961,7 +5961,7 @@ sgtitle(str);
 
 [![example_sgtitle_1](docs/examples/appearance/labels/sgtitle/sgtitle_1.png)](examples/appearance/labels/sgtitle/sgtitle_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_sgtitle_2](docs/examples/appearance/labels/sgtitle/sgtitle_2_thumb.png)](examples/appearance/labels/sgtitle/sgtitle_2.cpp)
 
@@ -5978,7 +5978,7 @@ More examples:
     --8<-- "examples/appearance/labels/sgtitle/sgtitle_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -6005,7 +6005,7 @@ xlabel(str);
 
 [![example_xlabel_1](docs/examples/appearance/labels/xlabel/xlabel_1.svg)](examples/appearance/labels/xlabel/xlabel_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xlabel_2](docs/examples/appearance/labels/xlabel/xlabel_2_thumb.png)](examples/appearance/labels/xlabel/xlabel_2.cpp)  [![example_xlabel_3](docs/examples/appearance/labels/xlabel/xlabel_3_thumb.png)](examples/appearance/labels/xlabel/xlabel_3.cpp)  [![example_xlabel_4](docs/examples/appearance/labels/xlabel/xlabel_4_thumb.png)](examples/appearance/labels/xlabel/xlabel_4.cpp)  [![example_xlabel_5](docs/examples/appearance/labels/xlabel/xlabel_5_thumb.png)](examples/appearance/labels/xlabel/xlabel_5.cpp)  [![example_xlabel_6](docs/examples/appearance/labels/xlabel/xlabel_6_thumb.png)](examples/appearance/labels/xlabel/xlabel_6.cpp)  [![example_xlabel_7](docs/examples/appearance/labels/xlabel/xlabel_7_thumb.png)](examples/appearance/labels/xlabel/xlabel_7.cpp)  [![example_xlabel_8](docs/examples/appearance/labels/xlabel/xlabel_8_thumb.png)](examples/appearance/labels/xlabel/xlabel_8.cpp)
 </details>
@@ -6021,7 +6021,7 @@ More examples:
     --8<-- "examples/appearance/labels/xlabel/xlabel_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6117,7 +6117,7 @@ ylabel(str);
 
 [![example_ylabel_1](docs/examples/appearance/labels/ylabel/ylabel_1.svg)](examples/appearance/labels/ylabel/ylabel_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ylabel_2](docs/examples/appearance/labels/ylabel/ylabel_2_thumb.png)](examples/appearance/labels/ylabel/ylabel_2.cpp)  [![example_ylabel_3](docs/examples/appearance/labels/ylabel/ylabel_3_thumb.png)](examples/appearance/labels/ylabel/ylabel_3.cpp)  [![example_ylabel_4](docs/examples/appearance/labels/ylabel/ylabel_4_thumb.png)](examples/appearance/labels/ylabel/ylabel_4.cpp)  [![example_ylabel_5](docs/examples/appearance/labels/ylabel/ylabel_5_thumb.png)](examples/appearance/labels/ylabel/ylabel_5.cpp)  [![example_ylabel_6](docs/examples/appearance/labels/ylabel/ylabel_6_thumb.png)](examples/appearance/labels/ylabel/ylabel_6.cpp)  [![example_ylabel_7](docs/examples/appearance/labels/ylabel/ylabel_7_thumb.png)](examples/appearance/labels/ylabel/ylabel_7.cpp)  [![example_ylabel_8](docs/examples/appearance/labels/ylabel/ylabel_8_thumb.png)](examples/appearance/labels/ylabel/ylabel_8.cpp)
 </details>
@@ -6133,7 +6133,7 @@ More examples:
     --8<-- "examples/appearance/labels/ylabel/ylabel_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6230,7 +6230,7 @@ zlabel(str);
 
 [![example_zlabel_1](docs/examples/appearance/labels/zlabel/zlabel_1.png)](examples/appearance/labels/zlabel/zlabel_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_zlabel_2](docs/examples/appearance/labels/zlabel/zlabel_2_thumb.png)](examples/appearance/labels/zlabel/zlabel_2.cpp)  [![example_zlabel_3](docs/examples/appearance/labels/zlabel/zlabel_3_thumb.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
 </details>
@@ -6246,7 +6246,7 @@ More examples:
     --8<-- "examples/appearance/labels/zlabel/zlabel_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6282,7 +6282,7 @@ legend({str1,str2,str3});
 
 [![example_legend_1](docs/examples/appearance/labels/legend/legend_1.svg)](examples/appearance/labels/legend/legend_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_legend_2](docs/examples/appearance/labels/legend/legend_2_thumb.png)](examples/appearance/labels/legend/legend_2.cpp)  [![example_legend_3](docs/examples/appearance/labels/legend/legend_3_thumb.png)](examples/appearance/labels/legend/legend_3.cpp)  [![example_legend_4](docs/examples/appearance/labels/legend/legend_4_thumb.png)](examples/appearance/labels/legend/legend_4.cpp)  [![example_legend_5](docs/examples/appearance/labels/legend/legend_5_thumb.png)](examples/appearance/labels/legend/legend_5.cpp)  [![example_legend_6](docs/examples/appearance/labels/legend/legend_6_thumb.png)](examples/appearance/labels/legend/legend_6.cpp)  [![example_legend_7](docs/examples/appearance/labels/legend/legend_7_thumb.png)](examples/appearance/labels/legend/legend_7.cpp)  [![example_legend_8](docs/examples/appearance/labels/legend/legend_8_thumb.png)](examples/appearance/labels/legend/legend_8.cpp)
 </details>
@@ -6298,7 +6298,7 @@ More examples:
     --8<-- "examples/appearance/labels/legend/legend_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6397,7 +6397,7 @@ xlim({xmin,xmax});
 
 [![example_xlim_1](docs/examples/appearance/axis/xlim/xlim_1.svg)](examples/appearance/axis/xlim/xlim_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xlim_2](docs/examples/appearance/axis/xlim/xlim_2_thumb.png)](examples/appearance/axis/xlim/xlim_2.cpp)  [![example_xlim_3](docs/examples/appearance/axis/xlim/xlim_3_thumb.png)](examples/appearance/axis/xlim/xlim_3.cpp)  [![example_xlim_4](docs/examples/appearance/axis/xlim/xlim_4_thumb.png)](examples/appearance/axis/xlim/xlim_4.cpp)  [![example_xlim_5](docs/examples/appearance/axis/xlim/xlim_5_thumb.png)](examples/appearance/axis/xlim/xlim_5.cpp)  [![example_xlim_6](docs/examples/appearance/axis/xlim/xlim_6_thumb.png)](examples/appearance/axis/xlim/xlim_6.cpp)
 </details>
@@ -6413,7 +6413,7 @@ More examples:
     --8<-- "examples/appearance/axis/xlim/xlim_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6487,7 +6487,7 @@ ylim({ymin,ymax});
 
 [![example_ylim_1](docs/examples/appearance/axis/ylim/ylim_1.svg)](examples/appearance/axis/ylim/ylim_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ylim_2](docs/examples/appearance/axis/ylim/ylim_2_thumb.png)](examples/appearance/axis/ylim/ylim_2.cpp)  [![example_ylim_3](docs/examples/appearance/axis/ylim/ylim_3_thumb.png)](examples/appearance/axis/ylim/ylim_3.cpp)  [![example_ylim_4](docs/examples/appearance/axis/ylim/ylim_4_thumb.png)](examples/appearance/axis/ylim/ylim_4.cpp)  [![example_ylim_5](docs/examples/appearance/axis/ylim/ylim_5_thumb.png)](examples/appearance/axis/ylim/ylim_5.cpp)  [![example_ylim_6](docs/examples/appearance/axis/ylim/ylim_6_thumb.png)](examples/appearance/axis/ylim/ylim_6.cpp)
 </details>
@@ -6503,7 +6503,7 @@ More examples:
     --8<-- "examples/appearance/axis/ylim/ylim_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6577,7 +6577,7 @@ zlim({zmin,zmax});
 
 [![example_zlim_1](docs/examples/appearance/axis/zlim/zlim_1.png)](examples/appearance/axis/zlim/zlim_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_zlim_2](docs/examples/appearance/axis/zlim/zlim_2_thumb.png)](examples/appearance/axis/zlim/zlim_2.cpp)  [![example_zlim_3](docs/examples/appearance/axis/zlim/zlim_3_thumb.png)](examples/appearance/axis/zlim/zlim_3.cpp)  [![example_zlim_4](docs/examples/appearance/axis/zlim/zlim_4_thumb.png)](examples/appearance/axis/zlim/zlim_4.cpp)  [![example_zlim_5](docs/examples/appearance/axis/zlim/zlim_5_thumb.png)](examples/appearance/axis/zlim/zlim_5.cpp)  [![example_zlim_6](docs/examples/appearance/axis/zlim/zlim_6_thumb.png)](examples/appearance/axis/zlim/zlim_6.cpp)
 </details>
@@ -6593,7 +6593,7 @@ More examples:
     --8<-- "examples/appearance/axis/zlim/zlim_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6667,7 +6667,7 @@ axis({xmin, xmax, ymin, ymax});
 
 [![example_axis_1](docs/examples/appearance/axis/axis/axis_1.svg)](examples/appearance/axis/axis/axis_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_axis_2](docs/examples/appearance/axis/axis/axis_2_thumb.png)](examples/appearance/axis/axis/axis_2.cpp)  [![example_axis_3](docs/examples/appearance/axis/axis/axis_3_thumb.png)](examples/appearance/axis/axis/axis_3.cpp)  [![example_axis_4](docs/examples/appearance/axis/axis/axis_4_thumb.png)](examples/appearance/axis/axis/axis_4.cpp)  [![example_axis_5](docs/examples/appearance/axis/axis/axis_5_thumb.png)](examples/appearance/axis/axis/axis_5.cpp)  [![example_axis_6](docs/examples/appearance/axis/axis/axis_6_thumb.png)](examples/appearance/axis/axis/axis_6.cpp)  [![example_axis_7](docs/examples/appearance/axis/axis/axis_7_thumb.png)](examples/appearance/axis/axis/axis_7.cpp)  [![example_axis_8](docs/examples/appearance/axis/axis/axis_8_thumb.png)](examples/appearance/axis/axis/axis_8.cpp)
 </details>
@@ -6683,7 +6683,7 @@ More examples:
     --8<-- "examples/appearance/axis/axis/axis_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6780,7 +6780,7 @@ box(on);
 
 [![example_box_1](docs/examples/appearance/axis/box/box_1.png)](examples/appearance/axis/box/box_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_box_2](docs/examples/appearance/axis/box/box_2_thumb.png)](examples/appearance/axis/box/box_2.cpp)  [![example_box_3](docs/examples/appearance/axis/box/box_3_thumb.png)](examples/appearance/axis/box/box_3.cpp)
 </details>
@@ -6796,7 +6796,7 @@ More examples:
     --8<-- "examples/appearance/axis/box/box_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6837,7 +6837,7 @@ grid(on);
 
 [![example_grid_1](docs/examples/appearance/grid/grid/grid_1.svg)](examples/appearance/grid/grid/grid_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_grid_2](docs/examples/appearance/grid/grid/grid_2_thumb.png)](examples/appearance/grid/grid/grid_2.cpp)  [![example_grid_3](docs/examples/appearance/grid/grid/grid_3_thumb.png)](examples/appearance/grid/grid/grid_3.cpp)  [![example_grid_4](docs/examples/appearance/grid/grid/grid_4_thumb.png)](examples/appearance/grid/grid/grid_4.cpp)
 </details>
@@ -6853,7 +6853,7 @@ More examples:
     --8<-- "examples/appearance/grid/grid/grid_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -6904,7 +6904,7 @@ xticks(xs);
 
 [![example_xticks_1](docs/examples/appearance/grid/xticks/xticks_1.svg)](examples/appearance/grid/xticks/xticks_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xticks_2](docs/examples/appearance/grid/xticks/xticks_2_thumb.png)](examples/appearance/grid/xticks/xticks_2.cpp)  [![example_xticks_3](docs/examples/appearance/grid/xticks/xticks_3_thumb.png)](examples/appearance/grid/xticks/xticks_3.cpp)  [![example_xticks_4](docs/examples/appearance/grid/xticks/xticks_4_thumb.png)](examples/appearance/grid/xticks/xticks_4.cpp)  [![example_xticks_5](docs/examples/appearance/grid/xticks/xticks_5_thumb.png)](examples/appearance/grid/xticks/xticks_5.cpp)  [![example_xticks_6](docs/examples/appearance/grid/xticks/xticks_6_thumb.png)](examples/appearance/grid/xticks/xticks_6.cpp)  [![example_xticks_7](docs/examples/appearance/grid/xticks/xticks_7_thumb.png)](examples/appearance/grid/xticks/xticks_7.cpp)  [![example_xticks_8](docs/examples/appearance/grid/xticks/xticks_8_thumb.png)](examples/appearance/grid/xticks/xticks_8.cpp)
 </details>
@@ -6920,7 +6920,7 @@ More examples:
     --8<-- "examples/appearance/grid/xticks/xticks_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7016,7 +7016,7 @@ yticks(ys);
 
 [![example_yticks_1](docs/examples/appearance/grid/yticks/yticks_1.svg)](examples/appearance/grid/yticks/yticks_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_yticks_2](docs/examples/appearance/grid/yticks/yticks_2_thumb.png)](examples/appearance/grid/yticks/yticks_2.cpp)  [![example_yticks_3](docs/examples/appearance/grid/yticks/yticks_3_thumb.png)](examples/appearance/grid/yticks/yticks_3.cpp)  [![example_yticks_4](docs/examples/appearance/grid/yticks/yticks_4_thumb.png)](examples/appearance/grid/yticks/yticks_4.cpp)  [![example_yticks_5](docs/examples/appearance/grid/yticks/yticks_5_thumb.png)](examples/appearance/grid/yticks/yticks_5.cpp)  [![example_yticks_6](docs/examples/appearance/grid/yticks/yticks_6_thumb.png)](examples/appearance/grid/yticks/yticks_6.cpp)  [![example_yticks_7](docs/examples/appearance/grid/yticks/yticks_7_thumb.png)](examples/appearance/grid/yticks/yticks_7.cpp)  [![example_yticks_8](docs/examples/appearance/grid/yticks/yticks_8_thumb.png)](examples/appearance/grid/yticks/yticks_8.cpp)
 </details>
@@ -7032,7 +7032,7 @@ More examples:
     --8<-- "examples/appearance/grid/yticks/yticks_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7128,7 +7128,7 @@ zticks(zs);
 
 [![example_zticks_1](docs/examples/appearance/grid/zticks/zticks_1.png)](examples/appearance/grid/zticks/zticks_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_zticks_2](docs/examples/appearance/grid/zticks/zticks_2_thumb.png)](examples/appearance/grid/zticks/zticks_2.cpp)  [![example_zticks_3](docs/examples/appearance/grid/zticks/zticks_3_thumb.png)](examples/appearance/grid/zticks/zticks_3.cpp)  [![example_zticks_4](docs/examples/appearance/grid/zticks/zticks_4_thumb.png)](examples/appearance/grid/zticks/zticks_4.cpp)  [![example_zticks_5](docs/examples/appearance/grid/zticks/zticks_5_thumb.png)](examples/appearance/grid/zticks/zticks_5.cpp)  [![example_zticks_6](docs/examples/appearance/grid/zticks/zticks_6_thumb.png)](examples/appearance/grid/zticks/zticks_6.cpp)
 </details>
@@ -7144,7 +7144,7 @@ More examples:
     --8<-- "examples/appearance/grid/zticks/zticks_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7217,7 +7217,7 @@ xticklabels(xstrs);
 
 [![example_xticklabels_1](docs/examples/appearance/grid/xticklabels/xticklabels_1.svg)](examples/appearance/grid/xticklabels/xticklabels_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xticklabels_2](docs/examples/appearance/grid/xticklabels/xticklabels_2_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_2.cpp)  [![example_xticklabels_3](docs/examples/appearance/grid/xticklabels/xticklabels_3_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)  [![example_xticklabels_4](docs/examples/appearance/grid/xticklabels/xticklabels_4_thumb.png)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
 </details>
@@ -7233,7 +7233,7 @@ More examples:
     --8<-- "examples/appearance/grid/xticklabels/xticklabels_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7283,7 +7283,7 @@ yticklabels(ystrs);
 
 [![example_yticklabels_1](docs/examples/appearance/grid/yticklabels/yticklabels_1.svg)](examples/appearance/grid/yticklabels/yticklabels_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_yticklabels_2](docs/examples/appearance/grid/yticklabels/yticklabels_2_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_2.cpp)  [![example_yticklabels_3](docs/examples/appearance/grid/yticklabels/yticklabels_3_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)  [![example_yticklabels_4](docs/examples/appearance/grid/yticklabels/yticklabels_4_thumb.png)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
 </details>
@@ -7299,7 +7299,7 @@ More examples:
     --8<-- "examples/appearance/grid/yticklabels/yticklabels_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7349,7 +7349,7 @@ xtickformat(fmtstr);
 
 [![example_xtickformat_1](docs/examples/appearance/grid/xtickformat/xtickformat_1.svg)](examples/appearance/grid/xtickformat/xtickformat_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xtickformat_2](docs/examples/appearance/grid/xtickformat/xtickformat_2_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_2.cpp)  [![example_xtickformat_3](docs/examples/appearance/grid/xtickformat/xtickformat_3_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)  [![example_xtickformat_4](docs/examples/appearance/grid/xtickformat/xtickformat_4_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)  [![example_xtickformat_5](docs/examples/appearance/grid/xtickformat/xtickformat_5_thumb.png)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
 </details>
@@ -7365,7 +7365,7 @@ More examples:
     --8<-- "examples/appearance/grid/xtickformat/xtickformat_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7427,7 +7427,7 @@ ytickformat(fmtstr);
 
 [![example_ytickformat_1](docs/examples/appearance/grid/ytickformat/ytickformat_1.svg)](examples/appearance/grid/ytickformat/ytickformat_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ytickformat_2](docs/examples/appearance/grid/ytickformat/ytickformat_2_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)  [![example_ytickformat_3](docs/examples/appearance/grid/ytickformat/ytickformat_3_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)  [![example_ytickformat_4](docs/examples/appearance/grid/ytickformat/ytickformat_4_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)  [![example_ytickformat_5](docs/examples/appearance/grid/ytickformat/ytickformat_5_thumb.png)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)
 </details>
@@ -7443,7 +7443,7 @@ More examples:
     --8<-- "examples/appearance/grid/ytickformat/ytickformat_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -7505,7 +7505,7 @@ ztickformat(fmtstr);
 
 [![example_ztickformat_1](docs/examples/appearance/grid/ztickformat/ztickformat_1.svg)](examples/appearance/grid/ztickformat/ztickformat_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ztickformat_2](docs/examples/appearance/grid/ztickformat/ztickformat_2_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_2.cpp)  [![example_ztickformat_3](docs/examples/appearance/grid/ztickformat/ztickformat_3_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_3.cpp)  [![example_ztickformat_4](docs/examples/appearance/grid/ztickformat/ztickformat_4_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_4.cpp)  [![example_ztickformat_5](docs/examples/appearance/grid/ztickformat/ztickformat_5_thumb.png)](examples/appearance/grid/ztickformat/ztickformat_5.cpp)
 </details>
@@ -7521,7 +7521,7 @@ More examples:
     --8<-- "examples/appearance/grid/ztickformat/ztickformat_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7583,7 +7583,7 @@ xtickangle(ang);
 
 [![example_xtickangle_1](docs/examples/appearance/grid/xtickangle/xtickangle_1.svg)](examples/appearance/grid/xtickangle/xtickangle_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_xtickangle_2](docs/examples/appearance/grid/xtickangle/xtickangle_2_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)  [![example_xtickangle_3](docs/examples/appearance/grid/xtickangle/xtickangle_3_thumb.png)](examples/appearance/grid/xtickangle/xtickangle_3.cpp)
 </details>
@@ -7599,7 +7599,7 @@ More examples:
     --8<-- "examples/appearance/grid/xtickangle/xtickangle_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7638,7 +7638,7 @@ ytickangle(ang);
 
 [![example_ytickangle_1](docs/examples/appearance/grid/ytickangle/ytickangle_1.svg)](examples/appearance/grid/ytickangle/ytickangle_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_ytickangle_2](docs/examples/appearance/grid/ytickangle/ytickangle_2_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)  [![example_ytickangle_3](docs/examples/appearance/grid/ytickangle/ytickangle_3_thumb.png)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
 </details>
@@ -7654,7 +7654,7 @@ More examples:
     --8<-- "examples/appearance/grid/ytickangle/ytickangle_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7695,7 +7695,7 @@ hold(on);
 
 [![example_hold_1](docs/examples/appearance/multiplot/hold/hold_1.svg)](examples/appearance/multiplot/hold/hold_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_hold_2](docs/examples/appearance/multiplot/hold/hold_2_thumb.png)](examples/appearance/multiplot/hold/hold_2.cpp)  [![example_hold_3](docs/examples/appearance/multiplot/hold/hold_3_thumb.png)](examples/appearance/multiplot/hold/hold_3.cpp)  [![example_hold_4](docs/examples/appearance/multiplot/hold/hold_4_thumb.png)](examples/appearance/multiplot/hold/hold_4.cpp)
 </details>
@@ -7711,7 +7711,7 @@ More examples:
     --8<-- "examples/appearance/multiplot/hold/hold_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7762,7 +7762,7 @@ plot(x, y)->use_y2(true);
 
 [![example_yyaxis_1](docs/examples/appearance/multiplot/yyaxis/yyaxis_1.svg)](examples/appearance/multiplot/yyaxis/yyaxis_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_yyaxis_2](docs/examples/appearance/multiplot/yyaxis/yyaxis_2_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)  [![example_yyaxis_3](docs/examples/appearance/multiplot/yyaxis/yyaxis_3_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)  [![example_yyaxis_4](docs/examples/appearance/multiplot/yyaxis/yyaxis_4_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)  [![example_yyaxis_5](docs/examples/appearance/multiplot/yyaxis/yyaxis_5_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)  [![example_yyaxis_6](docs/examples/appearance/multiplot/yyaxis/yyaxis_6_thumb.png)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)
 </details>
@@ -7778,7 +7778,7 @@ More examples:
     --8<-- "examples/appearance/multiplot/yyaxis/yyaxis_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7852,7 +7852,7 @@ colororder(colors);
 
 [![example_colororder_1](docs/examples/appearance/multiplot/colororder/colororder_1.svg)](examples/appearance/multiplot/colororder/colororder_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_colororder_2](docs/examples/appearance/multiplot/colororder/colororder_2_thumb.png)](examples/appearance/multiplot/colororder/colororder_2.cpp)  [![example_colororder_3](docs/examples/appearance/multiplot/colororder/colororder_3_thumb.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)  [![example_colororder_4](docs/examples/appearance/multiplot/colororder/colororder_4_thumb.png)](examples/appearance/multiplot/colororder/colororder_4.cpp)  [![example_colororder_5](docs/examples/appearance/multiplot/colororder/colororder_5_thumb.png)](examples/appearance/multiplot/colororder/colororder_5.cpp)  [![example_colororder_6](docs/examples/appearance/multiplot/colororder/colororder_6_thumb.png)](examples/appearance/multiplot/colororder/colororder_6.cpp)  [![example_colororder_7](docs/examples/appearance/multiplot/colororder/colororder_7_thumb.png)](examples/appearance/multiplot/colororder/colororder_7.cpp)
 </details>
@@ -7868,7 +7868,7 @@ More examples:
     --8<-- "examples/appearance/multiplot/colororder/colororder_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -7955,7 +7955,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 [![example_subplot_1](docs/examples/appearance/multiplot/subplot/subplot_1.svg)](examples/appearance/multiplot/subplot/subplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_subplot_2](docs/examples/appearance/multiplot/subplot/subplot_2_thumb.png)](examples/appearance/multiplot/subplot/subplot_2.cpp)  [![example_subplot_3](docs/examples/appearance/multiplot/subplot/subplot_3_thumb.png)](examples/appearance/multiplot/subplot/subplot_3.cpp)  [![example_subplot_4](docs/examples/appearance/multiplot/subplot/subplot_4_thumb.png)](examples/appearance/multiplot/subplot/subplot_4.cpp)  [![example_subplot_5](docs/examples/appearance/multiplot/subplot/subplot_5_thumb.png)](examples/appearance/multiplot/subplot/subplot_5.cpp)  [![example_subplot_6](docs/examples/appearance/multiplot/subplot/subplot_6_thumb.png)](examples/appearance/multiplot/subplot/subplot_6.cpp)  [![example_subplot_7](docs/examples/appearance/multiplot/subplot/subplot_7_thumb.png)](examples/appearance/multiplot/subplot/subplot_7.cpp)  [![example_subplot_8](docs/examples/appearance/multiplot/subplot/subplot_8_thumb.png)](examples/appearance/multiplot/subplot/subplot_8.cpp)  [![example_subplot_9](docs/examples/appearance/multiplot/subplot/subplot_9_thumb.png)](examples/appearance/multiplot/subplot/subplot_9.cpp)  [![example_subplot_10](docs/examples/appearance/multiplot/subplot/subplot_10_thumb.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)  [![example_subplot_11](docs/examples/appearance/multiplot/subplot/subplot_11_thumb.png)](examples/appearance/multiplot/subplot/subplot_11.cpp)  [![example_subplot_12](docs/examples/appearance/multiplot/subplot/subplot_12_thumb.png)](examples/appearance/multiplot/subplot/subplot_12.cpp)  [![example_subplot_13](docs/examples/appearance/multiplot/subplot/subplot_13_thumb.png)](examples/appearance/multiplot/subplot/subplot_13.cpp)
 </details>
@@ -7971,7 +7971,7 @@ More examples:
     --8<-- "examples/appearance/multiplot/subplot/subplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8126,7 +8126,7 @@ nexttile();
 
 [![example_tiledlayout_1](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_tiledlayout_2](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_2_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)  [![example_tiledlayout_3](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_3_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)  [![example_tiledlayout_4](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_4_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)  [![example_tiledlayout_5](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_5_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)  [![example_tiledlayout_6](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_6_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)  [![example_tiledlayout_7](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_7_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)  [![example_tiledlayout_8](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_8_thumb.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
 </details>
@@ -8142,7 +8142,7 @@ More examples:
     --8<-- "examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8245,7 +8245,7 @@ colormap(colors);
 
 [![example_colormap_1](docs/examples/appearance/colormaps/colormap/colormap_1.png)](examples/appearance/colormaps/colormap/colormap_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_colormap_2](docs/examples/appearance/colormaps/colormap/colormap_2_thumb.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)  [![example_colormap_3](docs/examples/appearance/colormaps/colormap/colormap_3_thumb.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)  [![example_colormap_4](docs/examples/appearance/colormaps/colormap/colormap_4_thumb.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)  [![example_colormap_5](docs/examples/appearance/colormaps/colormap/colormap_5_thumb.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)  [![example_colormap_6](docs/examples/appearance/colormaps/colormap/colormap_6_thumb.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)  [![example_colormap_7](docs/examples/appearance/colormaps/colormap/colormap_7_thumb.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)  [![example_colormap_8](docs/examples/appearance/colormaps/colormap/colormap_8_thumb.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)  [![example_colormap_9](docs/examples/appearance/colormaps/colormap/colormap_9_thumb.png)](examples/appearance/colormaps/colormap/colormap_9.cpp)
 </details>
@@ -8261,7 +8261,7 @@ More examples:
     --8<-- "examples/appearance/colormaps/colormap/colormap_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8369,7 +8369,7 @@ colorbar();
 
 [![example_colorbar_1](docs/examples/appearance/colormaps/colorbar/colorbar_1.png)](examples/appearance/colormaps/colorbar/colorbar_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_colorbar_2](docs/examples/appearance/colormaps/colorbar/colorbar_2_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_2.cpp)  [![example_colorbar_3](docs/examples/appearance/colormaps/colorbar/colorbar_3_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_3.cpp)  [![example_colorbar_4](docs/examples/appearance/colormaps/colorbar/colorbar_4_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_4.cpp)  [![example_colorbar_5](docs/examples/appearance/colormaps/colorbar/colorbar_5_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_5.cpp)  [![example_colorbar_6](docs/examples/appearance/colormaps/colorbar/colorbar_6_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_6.cpp)  [![example_colorbar_7](docs/examples/appearance/colormaps/colorbar/colorbar_7_thumb.png)](examples/appearance/colormaps/colorbar/colorbar_7.cpp)
 </details>
@@ -8385,7 +8385,7 @@ More examples:
     --8<-- "examples/appearance/colormaps/colorbar/colorbar_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8470,7 +8470,7 @@ rgbplot(colors);
 
 [![example_rgbplot_1](docs/examples/appearance/colormaps/rgbplot/rgbplot_1.svg)](examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_rgbplot_2](docs/examples/appearance/colormaps/rgbplot/rgbplot_2_thumb.png)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
 
@@ -8487,7 +8487,7 @@ More examples:
     --8<-- "examples/appearance/colormaps/rgbplot/rgbplot_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 
 ===! "Plot"
@@ -8516,7 +8516,7 @@ view(az, el);
 
 [![example_view_1](docs/examples/appearance/camera/view/view_1.png)](examples/appearance/camera/view/view_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_view_2](docs/examples/appearance/camera/view/view_2_thumb.png)](examples/appearance/camera/view/view_2.cpp)  [![example_view_3](docs/examples/appearance/camera/view/view_3_thumb.png)](examples/appearance/camera/view/view_3.cpp)  [![example_view_4](docs/examples/appearance/camera/view/view_4_thumb.png)](examples/appearance/camera/view/view_4.cpp)  [![example_view_5](docs/examples/appearance/camera/view/view_5_thumb.png)](examples/appearance/camera/view/view_5.cpp)
 </details>
@@ -8532,7 +8532,7 @@ More examples:
     --8<-- "examples/appearance/camera/view/view_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8605,7 +8605,7 @@ surf(x, y, z)->lighting(true);
 
 [![example_lighting_1](docs/examples/appearance/camera/lighting/lighting_1.png)](examples/appearance/camera/lighting/lighting_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_lighting_2](docs/examples/appearance/camera/lighting/lighting_2_thumb.png)](examples/appearance/camera/lighting/lighting_2.cpp)  [![example_lighting_3](docs/examples/appearance/camera/lighting/lighting_3_thumb.png)](examples/appearance/camera/lighting/lighting_3.cpp)  [![example_lighting_4](docs/examples/appearance/camera/lighting/lighting_4_thumb.png)](examples/appearance/camera/lighting/lighting_4.cpp)  [![example_lighting_5](docs/examples/appearance/camera/lighting/lighting_5_thumb.png)](examples/appearance/camera/lighting/lighting_5.cpp)  [![example_lighting_6](docs/examples/appearance/camera/lighting/lighting_6_thumb.png)](examples/appearance/camera/lighting/lighting_6.cpp)
 </details>
@@ -8621,7 +8621,7 @@ More examples:
     --8<-- "examples/appearance/camera/lighting/lighting_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8695,7 +8695,7 @@ figure();
 
 [![example_figure_1](docs/examples/appearance/figure/figure_1.svg)](examples/appearance/figure/figure_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_figure_2](docs/examples/appearance/figure/figure_2_thumb.png)](examples/appearance/figure/figure_2.cpp)  [![example_figure_3](docs/examples/appearance/figure/figure_3_thumb.png)](examples/appearance/figure/figure_3.cpp)
 </details>
@@ -8711,7 +8711,7 @@ More examples:
     --8<-- "examples/appearance/figure/figure_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8774,7 +8774,7 @@ auto ax1 = gca();
 
 [![example_axes_1](docs/examples/appearance/axes/axes_1.svg)](examples/appearance/axes/axes_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_axes_2](docs/examples/appearance/axes/axes_2_thumb.png)](examples/appearance/axes/axes_2.cpp)  [![example_axes_3](docs/examples/appearance/axes/axes_3_thumb.png)](examples/appearance/axes/axes_3.cpp)
 </details>
@@ -8790,7 +8790,7 @@ More examples:
     --8<-- "examples/appearance/axes/axes_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8829,7 +8829,7 @@ cla();
 
 [![example_cla_1](docs/examples/appearance/cla/cla_1.svg)](examples/appearance/cla/cla_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_cla_2](docs/examples/appearance/cla/cla_2_thumb.png)](examples/appearance/cla/cla_2.cpp)  [![example_cla_3](docs/examples/appearance/cla/cla_3_thumb.png)](examples/appearance/cla/cla_3.cpp)
 </details>
@@ -8845,7 +8845,7 @@ More examples:
     --8<-- "examples/appearance/cla/cla_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -8904,7 +8904,7 @@ save(filename, fileformat);
 
 [![example_save_1](docs/examples/exporting/save/save_1.png)](examples/exporting/save/save_1.cpp)
 
-More examples:
+**More Examples:**
 
 [![example_save_2](docs/examples/exporting/save/save_2_thumb.png)](examples/exporting/save/save_2.cpp)  [![example_save_3](docs/examples/exporting/save/save_3_thumb.png)](examples/exporting/save/save_3.cpp)  [![example_save_4](docs/examples/exporting/save/save_4_thumb.png)](examples/exporting/save/save_4.cpp)  [![example_save_5](docs/examples/exporting/save/save_5_thumb.png)](examples/exporting/save/save_5.cpp)  [![example_save_6](docs/examples/exporting/save/save_6_thumb.png)](examples/exporting/save/save_6.cpp)  [![example_save_7](docs/examples/exporting/save/save_7_thumb.png)](examples/exporting/save/save_7.cpp)  [![example_save_8](docs/examples/exporting/save/save_8_thumb.png)](examples/exporting/save/save_8.cpp)
 </details>
@@ -8920,7 +8920,7 @@ More examples:
     --8<-- "examples/exporting/save/save_1.cpp"
     ```
 
-**More examples**
+**More Examples:**
 
 ===! "Plot"
 
@@ -9519,6 +9519,14 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
             <br />
             <sub><b>Andrew Kane</b></sub>
         </a>
+    </td> </tr>
+  <tr>
+    <td align="center">
+      <a href=https://github.com/wwinslade">
+        <img src="https://avatars.githubusercontent.com/u/103067129?v=4" width="100;" alt="wwinslade"/>
+        <br />
+        <sub><b>William Winslade</b></sub>
+      </a>
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,ankane -end -->
