@@ -370,7 +370,7 @@ namespace matplot {
     std::string fileread(const std::string &filename) {
         std::ifstream t(filename);
         if (!t) {
-            throw std::runtime_error("Cannot open the file " + filename);
+            throw std::system_error(errno, std::system_category(), filename);
         }
         std::string str((std::istreambuf_iterator<char>(t)),
                         std::istreambuf_iterator<char>());
