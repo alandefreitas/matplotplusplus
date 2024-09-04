@@ -50,11 +50,18 @@ namespace matplot {
                iequals(str, "no");
     }
 
+    struct pipe_deleter {
+        int operator()(FILE* pipe) const {
+            if (int status = PCLOSE(pipe); status != -1)
+                return status;
+            throw std::system_error{errno, std::system_category(), "pclose"};
+        }
+    };
+
     std::string run_and_get_output(const std::string &cmd) {
-        std::unique_ptr<FILE, int (*)(FILE *)> pipe(POPEN(cmd.c_str(), "r"),
-                                                      PCLOSE);
+        std::unique_ptr<FILE, pipe_deleter> pipe(POPEN(cmd.c_str(), "r"));
         if (!pipe) {
-            throw std::runtime_error("popen() failed!");
+            throw std::system_error{errno, std::system_category(), cmd};
         }
         std::array<char, 128> buffer{};
         std::string result;
@@ -363,7 +370,7 @@ namespace matplot {
     std::string fileread(const std::string &filename) {
         std::ifstream t(filename);
         if (!t) {
-            throw std::runtime_error("Cannot open the file " + filename);
+            throw std::system_error(errno, std::system_category(), filename);
         }
         std::string str((std::istreambuf_iterator<char>(t)),
                         std::istreambuf_iterator<char>());
