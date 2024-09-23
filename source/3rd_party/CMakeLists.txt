@@ -1,7 +1,7 @@
 #######################################################
 ### NodeSoup                                        ###
 #######################################################
-if(WITH_SYSTEM_NODESOUP)
+if(MATPLOTPP_WITH_SYSTEM_NODESOUP)
   find_path(NODESOUP_INCLUDE_DIR nodesoup.hpp REQUIRED)
   find_library(NODESOUP_LIB nodesoup REQUIRED)
 
@@ -52,7 +52,7 @@ endif()
 ### CImg                                            ###
 #######################################################
 add_library(cimg INTERFACE)
-if(WITH_SYSTEM_CIMG)
+if(MATPLOTPP_WITH_SYSTEM_CIMG)
   find_path(CIMG_INCLUDE_DIR CImg.h REQUIRED)
 else()
   set(CIMG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cimg)
