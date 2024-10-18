@@ -20,18 +20,21 @@ namespace matplot::detail {
 
         // Create a pipe for the child process's input
         if (!CreatePipe(&hChildStdinRd, &hChildStdinWr, &saAttr, 0)) {
+            errno = GetLastError(); // emulate POSIX behavior
             return nullptr;
         }
 
         // Ensure the write handle to the pipe is not inherited by child
         // processes
         if (!SetHandleInformation(hChildStdinWr, HANDLE_FLAG_INHERIT, 0)) {
+            errno = GetLastError(); // emulate POSIX behavior
             CloseHandle(hChildStdinRd);
             return nullptr;
         }
 
         // Create a pipe for the child process's output
         if (!CreatePipe(&hStdin, &hStdout, &saAttr, 0)) {
+            errno = GetLastError(); // emulate POSIX behavior
             CloseHandle(hChildStdinRd);
             CloseHandle(hChildStdinWr);
             return nullptr;
@@ -40,6 +43,7 @@ namespace matplot::detail {
         // Ensure the read handle to the output pipe is not inherited by child
         // processes
         if (!SetHandleInformation(hStdout, HANDLE_FLAG_INHERIT, 0)) {
+            errno = GetLastError(); // emulate POSIX behavior
             CloseHandle(hChildStdinRd);
             CloseHandle(hChildStdinWr);
             CloseHandle(hStdin);
@@ -57,6 +61,7 @@ namespace matplot::detail {
         // Create the child process, while hiding the window
         if (!CreateProcess(NULL, const_cast<char *>(command), NULL, NULL, TRUE,
                            CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
+            errno = GetLastError(); // emulate POSIX behavior
             CloseHandle(hChildStdinRd);
             CloseHandle(hChildStdinWr);
             CloseHandle(hStdin);
@@ -73,6 +78,7 @@ namespace matplot::detail {
         FILE *file = _fdopen(_open_osfhandle((intptr_t)hChildStdinWr, 0), mode);
 
         if (file == nullptr) {
+            errno = GetLastError(); // emulate POSIX behavior
             CloseHandle(hChildStdinWr);
             CloseHandle(hStdin);
             CloseHandle(pi.hProcess);
@@ -87,16 +93,19 @@ namespace matplot::detail {
     int hiddenPclose(FILE *file) {
         HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(file));
         fclose(file);
-        DWORD exitCode;
-
-        // Wait for the process to finish and get its exit code
-        if (WaitForSingleObject(hFile, INFINITE) == WAIT_OBJECT_0 &&
-            GetExitCodeProcess(hFile, &exitCode)) {
-            CloseHandle(hFile);
-            return exitCode;
-        } else {
-            return -1; // Failed to get the exit code
+        // Wait for the process to finish
+        if (auto r = WaitForSingleObject(hFile, INFINITE); r != WAIT_OBJECT_0) {
+            errno = ECHILD; // emulate POSIX behavior
+            return -1;
         }
+        // Retrieve the exit code
+        DWORD exitCode;
+        if (auto r = GetExitCodeProcess(hFile, &exitCode); r == 0) {
+            errno = ECHILD; // emulate POSIX behavior
+            return -1;
+        }
+        CloseHandle(hFile);
+        return exitCode;
     }
 } // namespace matplot::detail
 #endif // _WIN32
