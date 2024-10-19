@@ -7,6 +7,7 @@
 
 #include <matplot/detail/config.h>
 #include <matplot/backend/backend_interface.h>
+#include <matplot/util/popen.h>
 #include <array>
 #include <chrono>
 #include <tuple>
@@ -115,8 +116,8 @@ namespace matplot::backend {
         }
 
       private:
-        // Pipe to gnuplot process
-        FILE *pipe_;
+        // Process pipe to gnuplot
+        ProcPipe pipe_;
 
         // How many bytes we put in the pipe
         size_t bytes_in_pipe_{0};
