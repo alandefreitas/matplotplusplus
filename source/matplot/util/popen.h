@@ -43,49 +43,43 @@ struct ProcPipe
  * @param pipe the piped file and child process handle
  * @returns 0 upon success and system error number upon failure
  */
-int popen2(const char *command, const char *mode, ProcPipe *pipe);
+int pipe_open(ProcPipe *pipe, const char *command, const char *mode);
+
+/// Return true if pipe represents a valid handle
+inline bool pipe_is_valid(ProcPipe *pipe)
+{
+    return pipe != nullptr && pipe->file != nullptr;
+}
 
 /** Closes the pipe opened by popen2 and waits for the process to terminate.
  * @param pipe the handle to close and wait for exit
  * @param exit_code to store the process exit code
  * @returns 0 upon success and system error number (errno) upon failure
  */
-int pclose2(ProcPipe *pipe, int *exit_code = nullptr);
+int pipe_close(ProcPipe *pipe, int *exit_code = nullptr);
 
 #ifdef __cplusplus
 
 #include <string>
 #include <string_view>
-#include <system_error>
 
-/// Writes data into the process pipe without flushing
-inline void proc_write(ProcPipe *p, std::string_view data)
+/// Return true if pipe represents a valid handle
+inline bool pipe_is_valid(ProcPipe &pipe) 
 {
-    constexpr auto CSIZE = sizeof(std::string_view::value_type);
-    if (auto sz = fwrite(data.data(), CSIZE, data.size(), p->file); sz != data.size()) {
-        if (auto e = ferror(p->file); e != 0)
-            throw std::runtime_error{"fwrite failed after "+std::to_string(sz)};
-        if (auto e = feof(p->file); e != 0)
-            throw std::runtime_error{"fwrite reached end-of-file after "+std::to_string(sz)};
-    }
-    if (auto e = fflush(p->file); e != 0)
-        throw std::system_error{errno, std::system_category(), "fflush"};
+    return pipe.file != nullptr;
 }
 
-/// Writes data into process pipe followed by a flush
-inline void proc_flush(ProcPipe *p, std::string_view data = {})
-{
-    if (!data.empty())
-        proc_write(p, data);
-    if (auto e = fflush(p->file); e != 0)
-        throw std::system_error{errno, std::system_category(), "fflush"};
-}
+/// Writes data into the process pipe without flushing, returns errno if failed
+int pipe_write(ProcPipe *pipe, std::string_view data);
 
-/// Launches a shell command, writes data to its input stream and waits for completion.
-void shell_write(const std::string &cmd, std::string_view data = {});
+/// Writes data into the process pipe followed by a flush, returns errno if failed
+int pipe_flush(ProcPipe *pipe, std::string_view data = {});
 
-/// Launches a shell command, reads data from its output stream and waits for completion.
-std::string shell_read(const std::string &cmd);
+/// Launches the shell command, writes data to input stream and waits for completion, returns errno if failed
+int shell_write(const std::string &command, std::string_view data = {});
+
+/// Launches the shell command, reads data from output stream and waits for completion, returns errno if failed
+int shell_read(const std::string &command, std::string& data);
 
 #endif // __cplusplus
 

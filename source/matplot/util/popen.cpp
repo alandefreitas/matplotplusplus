@@ -5,7 +5,7 @@
 
 #include <io.h>
 
-int popen2(const char *cmd, const char* mode, ProcPipe *pipe)
+int pipe_open(ProcPipe *pipe, const char *cmd, const char *mode) 
 {
     if (cmd == nullptr || mode == nullptr || (mode[0] != 'r' && mode[0] != 'w') ||
         pipe == nullptr)
@@ -88,11 +88,11 @@ int popen2(const char *cmd, const char* mode, ProcPipe *pipe)
     return 0;
 }
 
-int pclose2(ProcPipe *pipe, int *exit_code)
+int pipe_close(ProcPipe *pipe, int *exit_code)
 {
     // The following does not work for GetExitCodeProcess:
     // HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(file));
-    if (pipe == nullptr || pipe->file == nullptr)
+    if (!pipe_is_valid(pipe))
         return EINVAL;
     // Close the pipe to process:
     fclose(pipe->file);
@@ -123,7 +123,7 @@ int pclose2(ProcPipe *pipe, int *exit_code)
 #include <cerrno>
 #include <sys/wait.h> // waitpid
 
-int popen2(const char *cmd, const char *mode, ProcPipe *p)
+int pipe_open(ProcPipe *p, const char *cmd, const char *mode) 
 {
     constexpr auto READ = 0u;
     constexpr auto WRITE = 1u;
@@ -161,9 +161,9 @@ int popen2(const char *cmd, const char *mode, ProcPipe *p)
 }
 
 /// Closes the pipe opened by popen2 and waits for termination
-int pclose2(ProcPipe *pipe, int *exit_code)
+int pipe_close(ProcPipe *pipe, int *exit_code)
 {
-    if (pipe == nullptr || pipe->file == nullptr)
+    if (!proc_is_good(pipe))
         return EINVAL;
     fclose(pipe->file);
     while (waitpid(pipe->pid, exit_code, 0) == -1) {
@@ -172,35 +172,67 @@ int pclose2(ProcPipe *pipe, int *exit_code)
             break;
         }
     }
+    pipe->file = nullptr;
     return 0;
 }
 
 #endif // POSIX implementation
 
-void shell_write(const std::string &cmd, std::string_view input)
+int pipe_write(ProcPipe *p, std::string_view data) 
 {
-    auto pipe = ProcPipe{};
-    if (auto e = popen2(cmd.c_str(), "w", &pipe); e != 0)
-        throw std::system_error{e, std::system_category(), "popen2"};
-    if (!input.empty())
-        proc_flush(&pipe, input);
-    if (auto e = pclose2(&pipe); e != 0)
-        throw std::system_error{e, std::system_category(), "pclose2"};
+    constexpr auto CSIZE = sizeof(std::string_view::value_type);
+    if (!pipe_is_valid(p))
+        return EINVAL;
+    if (auto sz = std::fwrite(data.data(), CSIZE, data.length(), p->file);
+        sz != data.size()) {
+        if (auto err = std::ferror(p->file); err != 0)
+            return EIO;
+        if (auto err = std::feof(p->file); err != 0)
+            return EIO;
+    }
+    if (auto res = std::fflush(p->file); res != 0)
+        return errno;
+    return 0;
 }
 
-std::string shell_read(const std::string &cmd)
+int pipe_flush(ProcPipe *p, std::string_view data) 
+{
+    if (!pipe_is_valid(p))
+        return EINVAL;
+    if (!data.empty())
+        if (auto err = pipe_write(p, data); err != 0)
+            return err;
+    if (auto res = std::fflush(p->file); res != 0)
+        return errno;
+    return 0;
+}
+
+int shell_write(const std::string &cmd, std::string_view data)
 {
     auto pipe = ProcPipe{};
-    if (auto e = popen2(cmd.c_str(), "r", &pipe); e != 0)
-        throw std::system_error{e, std::system_category(), "popen2"};
-    auto res = std::string{};
+    if (auto err = pipe_open(&pipe, cmd.c_str(), "w"); err != 0)
+        return err;
+    if (!data.empty())
+        if (auto err = pipe_flush(&pipe, data); err != 0)
+            return err;
+    if (auto err = pipe_close(&pipe); err != 0)
+        return err;
+    return 0;
+}
+
+int shell_read(const std::string &cmd, std::string &data)
+{
+    auto pipe = ProcPipe{};
+    if (auto err = pipe_open(&pipe, cmd.c_str(), "r"); err != 0)
+        return err;
+    data.clear();
     auto buffer = std::array<char, 128>{};
-    while (!feof(pipe.file) && !ferror(pipe.file)) {
-        auto count = fread(buffer.data(), sizeof(char), buffer.size(), pipe.file);
+    while (!std::feof(pipe.file) && !std::ferror(pipe.file)) {
+        auto count = std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.file);
         if (count > 0)
-            res.append(buffer.data(), count);
+            data.append(buffer.data(), count);
     }
-    if (auto e = pclose2(&pipe); e != 0)
-        throw std::system_error{e, std::system_category(), "pclose2"};
-    return res;
+    if (auto err = pipe_close(&pipe); err != 0)
+        return err;
+    return 0;
 }

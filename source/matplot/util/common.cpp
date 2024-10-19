@@ -51,7 +51,9 @@ namespace matplot {
     }
 
     std::string run_and_get_output(const std::string &cmd) {
-        return shell_read(cmd);
+        auto res = std::string{};
+        shell_read(cmd, res);
+        return res;
     }
 
     std::string escape(std::string_view label) {
