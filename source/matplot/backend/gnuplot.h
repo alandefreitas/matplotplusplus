@@ -117,7 +117,7 @@ namespace matplot::backend {
 
       private:
         // Process pipe to gnuplot
-        ProcPipe pipe_;
+        opipe pipe_;
 
         // How many bytes we put in the pipe
         size_t bytes_in_pipe_{0};
