@@ -4,12 +4,13 @@
 
 #include "gnuplot.h"
 
-#include <cstdlib>
-#include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
+#include <iostream>
 #include <regex>
 #include <thread>
+#include <cstring>
+#include <cstdlib>
 
 #ifdef __has_include
 #if __has_include(<filesystem>)

@@ -6,7 +6,7 @@
 
 #include <io.h>
 
-int common_pipe::open(const std::string& cmd, char mode) 
+int common_pipe::open(const std::string& cmd, char mode)
 {
     if (opened())
         close(); // prevent resource leak
@@ -124,41 +124,41 @@ int common_pipe::close(int *exit_code)
 #include <cerrno>
 #include <sys/wait.h> // waitpid
 
-int common_pipe::open(const std::string &cmd, char mode) 
+int common_pipe::open(const std::string &cmd, char mode)
 {
     constexpr auto READ = 0u;
     constexpr auto WRITE = 1u;
     int fd[2];
-    if (pipe(fd) == -1)
+    if (::pipe(fd) == -1)
         return error(errno, "pipe");
-    if ((pid = fork()) == -1)
+    if ((pid = ::fork()) == -1)
         return error(errno, "fork");
 
     if (pid == 0) { // child process
         if (mode == 'r') {
-            close(fd[READ]);    // Close the READ end of the pipe
-            dup2(fd[WRITE], 1); // Redirect stdout to pipe
+			::close(fd[READ]);    // Close the READ end of the pipe
+            ::dup2(fd[WRITE], 1); // Redirect stdout to pipe
         } else {                // (mode == 'w')
-            close(fd[WRITE]);   // Close the WRITE end of the pipe
+			::close(fd[WRITE]);   // Close the WRITE end of the pipe
             dup2(fd[READ], 0);  // Redirect stdin to pipe
         }
-        setpgid(pid, pid); // Needed so negative PIDs can kill children of /bin/sh
-        execl("/bin/sh", "/bin/sh", "-c", cmd.c_str(), nullptr); 
+        ::setpgid(pid, pid); // Needed so negative PIDs can kill children of /bin/sh
+        ::execl("/bin/sh", "/bin/sh", "-c", cmd.c_str(), nullptr);
         // execl returns only upon error
         std::exit(EXIT_FAILURE);
     } else {
         if (mode == 'r') {
-            close(fd[WRITE]); // Close the WRITE end of the pipe since parent's
+			::close(fd[WRITE]); // Close the WRITE end of the pipe since parent's
                               // fd is read-only
         } else {              // (mode == 'w')
-            close(fd[READ]); // Close the READ end of the pipe since parent's fd
+			::close(fd[READ]); // Close the READ end of the pipe since parent's fd
                              // is write-only
         }
     }
     if (mode == 'r')
-        file_ = fdopen(fd[READ], "r");
+        file_ = ::fdopen(fd[READ], "r");
     else
-        file_ = fdopen(fd[WRITE], "w");
+        file_ = ::fdopen(fd[WRITE], "w");
     if (file_ == nullptr)
         return error(errno, "fdopen");
     return 0;
@@ -167,7 +167,7 @@ int common_pipe::open(const std::string &cmd, char mode)
 /// Closes the pipe opened by popen2 and waits for termination
 int common_pipe::close(int *exit_code)
 {
-    if (!valid())
+    if (!opened())
         return 0;
     fclose(file_);
     file_ = nullptr;
@@ -190,7 +190,7 @@ inline int common_pipe::error(int code, const std::string& what) const
     return code;
 }
 
-int opipe::write(std::string_view data) 
+int opipe::write(std::string_view data)
 {
     constexpr auto CSIZE = sizeof(std::string_view::value_type);
     if (!opened())
@@ -205,7 +205,7 @@ int opipe::write(std::string_view data)
     return 0;
 }
 
-int opipe::flush(std::string_view data) 
+int opipe::flush(std::string_view data)
 {
     if (!opened())
         return error(EINVAL, "opipe::flush");
@@ -217,7 +217,7 @@ int opipe::flush(std::string_view data)
     return 0;
 }
 
-int ipipe::read(std::string &data) 
+int ipipe::read(std::string &data)
 {
     if (!opened())
         return error(EINVAL, "ipipe::read");
@@ -234,7 +234,7 @@ int ipipe::read(std::string &data)
     return 0;
 }
 
-int shell_write(const std::string &cmd, std::string &data) 
+int shell_write(const std::string &cmd, std::string &data)
 {
     auto pipe = opipe{};
     if (auto err = pipe.open(cmd); err != 0)
