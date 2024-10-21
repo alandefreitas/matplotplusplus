@@ -16,10 +16,8 @@
 /// State of a child process pipe
 class proc_pipe 
 {
-public:
-    proc_pipe() = default;
-
 protected:
+    proc_pipe() = default;
     HANDLE hProcess = 0; ///< WIN32 process handle
     HANDLE hThread = 0; ///< WIN32 thread handle
     FILE *file_ = nullptr; ///< C file handle for I/O (not both)
@@ -32,10 +30,8 @@ protected:
 /// State of a child process pipe
 class proc_pipe
 {
-public:
-    proc_pipe() = default;
-
 protected:
+    proc_pipe() = default;
     pid_t pid = 0;         ///< POSIX process identifier
     FILE *file_ = nullptr; ///< C file handle for input or output (not both)
 };
@@ -48,11 +44,6 @@ protected:
 class common_pipe : public proc_pipe 
 {
 public:
-    common_pipe() : proc_pipe{} {}
-    virtual ~common_pipe() noexcept {
-        if (opened())
-            close();
-    }
     FILE *file() const { return file_; }
     int close(int *exit_code = nullptr);
     bool opened() const { return file_ != nullptr; }
@@ -60,6 +51,15 @@ public:
     void exceptions(bool exc) { exceptions_ = exc; }
 
 protected:
+    common_pipe() = default;
+    common_pipe(const common_pipe&) = delete;
+    common_pipe& operator=(const common_pipe&) = delete;
+    common_pipe(common_pipe&&) noexcept = default;
+    common_pipe& operator=(common_pipe&&) noexcept = default;
+    ~common_pipe() noexcept {
+        if (opened())
+            close();
+    }
     bool exceptions_ = false;
     int error(int err, const std::string& what) const;
     int open(const std::string &command, char mode);
@@ -69,7 +69,7 @@ protected:
 class ipipe : public common_pipe 
 {
 public:
-    ipipe() : common_pipe{} {}
+    ipipe();
     int open(const std::string &cmd) { return common_pipe::open(cmd, 'r'); }
     int read(std::string &data);
 };
@@ -78,7 +78,7 @@ public:
 class opipe : public common_pipe 
 {
 public:
-    opipe() : common_pipe{} {}
+    opipe();
     int open(const std::string &cmd) { return common_pipe::open(cmd, 'w'); }
     int write(std::string_view data);
     int flush(std::string_view data = {});

@@ -169,9 +169,9 @@ int common_pipe::close(int *exit_code)
 {
     if (!opened())
         return 0;
-    fclose(file_);
+    ::fclose(file_);
     file_ = nullptr;
-    while (waitpid(pid, exit_code, 0) == -1) {
+    while (::waitpid(pid, exit_code, 0) == -1) {
         if (errno != EINTR) {
             if (exit_code != nullptr)
                 *exit_code = -1;
@@ -189,6 +189,10 @@ inline int common_pipe::error(int code, const std::string& what) const
         throw std::system_error{code, std::generic_category(), what};
     return code;
 }
+
+ipipe::ipipe() = default; // starting with C++20 could be in-class
+
+opipe::opipe() = default; // starting with C++20 could be in-class
 
 int opipe::write(std::string_view data)
 {
