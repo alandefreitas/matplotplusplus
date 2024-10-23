@@ -4,12 +4,13 @@
 
 #include "gnuplot.h"
 
-#include <cstdlib>
-#include <iostream>
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
+#include <iostream>
 #include <regex>
 #include <thread>
+#include <cstring>
+#include <cstdlib>
 
 #ifdef __has_include
 #if __has_include(<filesystem>)
@@ -70,17 +71,18 @@ namespace matplot::backend {
         }
 
         // Open the gnuplot pipe_
+        int perr;
         if constexpr (windows_should_persist_by_default) {
-            pipe_ = POPEN("gnuplot --persist", "w");
+            perr = pipe_.open("gnuplot --persist");
         } else {
-            pipe_ = POPEN("gnuplot", "w");
+            perr = pipe_.open("gnuplot");
         }
 
         // Check if everything is OK
-        if (!pipe_) {
-            std::cerr << "Opening the gnuplot pipe_ failed!" << std::endl;
-            std::cerr
-                << "Please install gnuplot 5.2.6+: http://www.gnuplot.info"
+        if (perr != 0 || !pipe_.opened()) {
+            std::cerr << "Opening the gnuplot failed: ";
+            std::cerr << pipe_.error() << std::endl;
+            std::cerr << "Please install gnuplot 5.2.6+: http://www.gnuplot.info"
                 << std::endl;
         }
     }
@@ -97,9 +99,6 @@ namespace matplot::backend {
         flush_commands();
         run_command("exit");
         flush_commands();
-        if (pipe_) {
-            PCLOSE(pipe_);
-        }
     }
 
     bool gnuplot::is_interactive() { return output_.empty(); }
@@ -281,8 +280,7 @@ namespace matplot::backend {
         if constexpr (dont_let_it_close_too_fast) {
             last_flush_ = std::chrono::high_resolution_clock::now();
         }
-        fputs("\n", pipe_);
-        fflush(pipe_);
+        pipe_.flush("\n");
         if constexpr (trace_commands) {
             std::cout << "\n\n\n\n" << std::endl;
         }
@@ -294,19 +292,19 @@ namespace matplot::backend {
     }
 
     void gnuplot::run_command(const std::string &command) {
-        if (!pipe_) {
+        if (!pipe_.opened()) {
             return;
         }
-        size_t pipe_capacity = gnuplot_pipe_capacity(pipe_);
+        size_t pipe_capacity = gnuplot_pipe_capacity(pipe_.file());
         if (command.size() + bytes_in_pipe_ > pipe_capacity) {
             flush_commands();
             bytes_in_pipe_ = 0;
         }
         if (!command.empty()) {
-            fputs(command.c_str(), pipe_);
+            pipe_.write(command);
         }
-        // fputs("; ", pipe_);
-        fputs("\n", pipe_);
+        // proc_write(&pipe_, "; ");
+        pipe_.write("\n");
         bytes_in_pipe_ += command.size();
         if constexpr (trace_commands) {
             std::cout << command << std::endl;
@@ -323,11 +321,9 @@ namespace matplot::backend {
         static std::string terminal_type;
         const bool dont_know_term_type = terminal_type.empty();
         if (dont_know_term_type) {
-            terminal_type =
-                run_and_get_output("gnuplot -e \"show terminal\" 2>&1");
-            terminal_type = std::regex_replace(
-                terminal_type, std::regex("[^]*terminal type is ([^ ]+)[^]*"),
-                "$1");
+            terminal_type = run_and_get_output("gnuplot -e \"show terminal\" 2>&1");
+            terminal_type = std::regex_replace(terminal_type,
+                    std::regex("[^]*terminal type is ([^ ]+)[^]*"), "$1");
             const bool still_dont_know_term_type = terminal_type.empty();
             if (still_dont_know_term_type) {
                 terminal_type = "qt";
@@ -337,9 +333,8 @@ namespace matplot::backend {
     }
 
     bool gnuplot::terminal_is_available(std::string_view term) {
-        std::string msg =
-            run_and_get_output("gnuplot -e \"set terminal " +
-                               std::string(term.data()) + "\" 2>&1");
+        std::string msg = run_and_get_output("gnuplot -e \"set terminal " +
+                                     std::string(term.data()) + "\" 2>&1");
         return msg.empty();
     }
 
