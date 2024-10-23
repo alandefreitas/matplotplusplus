@@ -47,6 +47,7 @@ public:
     FILE *file() const { return file_; }
     int close(int *exit_code = nullptr);
     bool opened() const { return file_ != nullptr; }
+    const std::string& error() const { return error_; }
     bool exceptions() const { return exceptions_; }
     void exceptions(bool exc) { exceptions_ = exc; }
 
@@ -61,7 +62,8 @@ protected:
             close();
     }
     bool exceptions_ = false;
-    int error(int err, const std::string& what) const;
+    std::string error_{};
+    int report(int err, const std::string& what);
     int open(const std::string &command, char mode);
 };
 

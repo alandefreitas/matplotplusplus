@@ -80,8 +80,8 @@ namespace matplot::backend {
 
         // Check if everything is OK
         if (perr != 0 || !pipe_.opened()) {
-            std::cerr << "Opening the gnuplot pipe_ failed: " 
-                << std::strerror(perr) << std::endl;
+            std::cerr << "Opening the gnuplot pipe_ failed:\n";
+            std::cerr << pipe_.error() << std::endl;
             std::cerr << "Please install gnuplot 5.2.6+: http://www.gnuplot.info"
                 << std::endl;
         }

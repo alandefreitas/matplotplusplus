@@ -1,6 +1,8 @@
+#define __STDC_WANT_LIB_EXT1__ 1
 #include <matplot/util/popen.h>
 #include <array>
 #include <system_error>
+#include <cstring> // strerror
 
 #ifdef _WIN32
 
@@ -19,7 +21,7 @@ int common_pipe::open(const std::string& cmd, char mode)
 
     // Create a pipe for the child process's input
     if (!CreatePipe(&hChildStdinRd, &hChildStdinWr, &saAttr, 0))
-        return error(GetLastError(), "CreatePipe");
+        return report(GetLastError(), "CreatePipe");
 
     // Ensure the write handle to the pipe is not inherited by child
     // processes
@@ -94,7 +96,7 @@ int common_pipe::open(const std::string& cmd, char mode)
 int common_pipe::close(int *exit_code)
 {
     if (!opened())
-        return error(EINVAL, "common_pipe::close");
+        return report(EINVAL, "common_pipe::close");
     // Close the pipe to process:
     fclose(file_);
     file_ = nullptr;
@@ -130,9 +132,9 @@ int common_pipe::open(const std::string &cmd, char mode)
     constexpr auto WRITE = 1u;
     int fd[2];
     if (::pipe(fd) == -1)
-        return error(errno, "pipe");
+        return report(errno, "pipe");
     if ((pid = ::fork()) == -1)
-        return error(errno, "fork");
+        return report(errno, "fork");
 
     if (pid == 0) { // child process
         if (mode == 'r') {
@@ -160,7 +162,7 @@ int common_pipe::open(const std::string &cmd, char mode)
     else
         file_ = ::fdopen(fd[WRITE], "w");
     if (file_ == nullptr)
-        return error(errno, "fdopen");
+        return report(errno, "fdopen");
     return 0;
 }
 
@@ -183,8 +185,15 @@ int common_pipe::close(int *exit_code)
 
 #endif // POSIX implementation
 
-inline int common_pipe::error(int code, const std::string& what) const
+inline int common_pipe::report(int code, const std::string& what)
 {
+#if defined(_MSC_VER)
+    const auto len = strerrorlen_s(code);
+    error_.assign(len, ' ');
+    strerror_s(error_.c_str(), len+1, code);
+#else
+    error_ = std::strerror(code);
+#endif
     if (exceptions_)
         throw std::system_error{code, std::generic_category(), what};
     return code;
@@ -198,13 +207,13 @@ int opipe::write(std::string_view data)
 {
     constexpr auto CSIZE = sizeof(std::string_view::value_type);
     if (!opened())
-        return error(EINVAL, "opipe::write");
+        return report(EINVAL, "opipe::write");
     if (auto sz = std::fwrite(data.data(), CSIZE, data.length(), file_);
         sz != data.size()) {
         if (auto err = std::ferror(file_); err != 0)
-            return error(EIO, "fwrite error");
+            return report(EIO, "fwrite error");
         if (auto err = std::feof(file_); err != 0)
-            return error(EIO, "fwrite eof");
+            return report(EIO, "fwrite eof");
     }
     return 0;
 }
@@ -212,19 +221,19 @@ int opipe::write(std::string_view data)
 int opipe::flush(std::string_view data)
 {
     if (!opened())
-        return error(EINVAL, "opipe::flush");
+        return report(EINVAL, "opipe::flush");
     if (!data.empty())
         if (auto err = write(data); err != 0)
-            return error(err, "opipe::write");
+            return report(err, "opipe::write");
     if (auto res = std::fflush(file_); res != 0)
-        return error(errno, "fflush");
+        return report(errno, "fflush");
     return 0;
 }
 
 int ipipe::read(std::string &data)
 {
     if (!opened())
-        return error(EINVAL, "ipipe::read");
+        return report(EINVAL, "ipipe::read");
     data.clear();
     auto buffer = std::array<char, 128>{};
     while (!std::feof(file_) && !std::ferror(file_)) {
@@ -234,7 +243,7 @@ int ipipe::read(std::string &data)
             data.append(buffer.data(), count);
     }
     if (std::ferror(file_))
-        return error(EIO, "fread");
+        return report(EIO, "fread");
     return 0;
 }
 
