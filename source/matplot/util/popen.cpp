@@ -189,13 +189,13 @@ int common_pipe::close(int *exit_code)
 
 inline int common_pipe::report(int code, const std::string& what)
 {
-#ifdef __STDC_LIB_EXT1__
+#if defined(__STDC_LIB_EXT1__) || defined(_MSC_VER)
     char buffer[128]{}; // MSVC has no strerrorlen_s
     strerror_s(buffer, 128, code); // MSVC rejects strerror
     error_ = what + ": " + buffer;
 #else
     error_ = what + ": " + std::strerror(code); // GCC fixed strerror and has no strerror_s
-#endif
+#endif // __STDC_LIB_EXT1__ or MSVC
     if (exceptions_)
         throw std::system_error{code, std::generic_category(), what};
     return code;
