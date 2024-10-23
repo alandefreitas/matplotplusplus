@@ -979,15 +979,15 @@ namespace matplot {
 
         /// Lambda function line plot - list of functions
         std::vector<function_line_handle>
-        fplot(std::vector<function_line::function_type> equations,
-              std::array<double, 2> x_range = {-5, 5},
-              std::vector<std::string> line_specs = {});
+        fplot(const std::vector<function_line::function_type> &equations,
+              const std::array<double, 2> &x_range = {-5, 5},
+              const std::vector<std::string> &line_specs = {});
 
         /// Lambda function line plot - list of functions and line specs
         std::vector<function_line_handle>
-        fplot(std::vector<function_line::function_type> equations,
-              std::vector<double> x_range,
-              std::vector<std::string> line_specs = {});
+        fplot(const std::vector<function_line::function_type> &equations,
+              const std::vector<double> &x_range,
+              const std::vector<std::string> &line_specs = {});
 
         using implicit_function_type = std::function<double(double, double)>;
 

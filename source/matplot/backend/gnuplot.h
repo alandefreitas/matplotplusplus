@@ -47,7 +47,7 @@ namespace matplot::backend {
         /// Identify the default terminal type in the system
         static std::string default_terminal_type();
         static bool terminal_is_available(std::string_view);
-        static std::tuple<int, int, int> gnuplot_version();
+        static Version gnuplot_version();
         static bool terminal_has_title_option(const std::string &t);
         static bool terminal_has_size_option(const std::string &t);
         static bool terminal_has_position_option(const std::string &t);

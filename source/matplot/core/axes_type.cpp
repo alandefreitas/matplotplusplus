@@ -426,7 +426,7 @@ namespace matplot {
             run_command("set polar");
         }
         auto set_or_unset_axis = [this](class axis_type &ax,
-                                        std::string axis_name,
+                                        const std::string &axis_name,
                                         bool minor_ticks = false) {
             // cb is the only axis we don't unset if tics are empty
             // r-axis labels should still be handled even if axis is invisible since we use the grid
@@ -694,8 +694,7 @@ namespace matplot {
         // Gnuplot version needs to be 5.2.6+ for keyentry
         bool ok = true;
         if (parent_->backend_->consumes_gnuplot_commands()) {
-            if (backend::gnuplot::gnuplot_version() <
-                std::tuple<int, int, int>{5, 2, 6}) {
+            if (backend::gnuplot::gnuplot_version() < backend::Version{5, 2, 6}) {
                 ok = false;
             }
         }
@@ -916,9 +915,8 @@ namespace matplot {
             static bool msg_shown_once = false;
             // Gnuplot version needs to be 5.2.6+ for keyentry
             if (parent_->backend_->consumes_gnuplot_commands()) {
-                std::tuple<int, int, int> v =
-                    backend::gnuplot::gnuplot_version();
-                if (v < std::tuple<int, int, int>{5, 2, 6}) {
+                const auto v = backend::gnuplot::gnuplot_version();
+                if (v < backend::Version{5, 2, 6}) {
                     if (!msg_shown_once) {
                         std::cerr
                             << "You need gnuplot 5.2.6+ to include legends"
@@ -2745,9 +2743,9 @@ namespace matplot {
     }
 
     std::vector<function_line_handle>
-    axes_type::fplot(std::vector<function_line::function_type> equations,
-                     std::array<double, 2> x_range,
-                     std::vector<std::string> line_specs) {
+    axes_type::fplot(const std::vector<function_line::function_type> &equations,
+                     const std::array<double, 2> &x_range,
+                     const std::vector<std::string> &line_specs) {
         axes_silencer temp_silencer_{this};
         std::vector<function_line_handle> res;
         auto it_line_specs = line_specs.begin();
@@ -2764,9 +2762,9 @@ namespace matplot {
     }
 
     std::vector<function_line_handle>
-    axes_type::fplot(std::vector<function_line::function_type> equations,
-                     std::vector<double> x_range,
-                     std::vector<std::string> line_specs) {
+    axes_type::fplot(const std::vector<function_line::function_type>& equations,
+                     const std::vector<double>& x_range,
+                     const std::vector<std::string>& line_specs) {
         return this->fplot(equations, to_array<2>(x_range), line_specs);
     }
 

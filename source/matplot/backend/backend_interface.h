@@ -41,6 +41,7 @@ namespace matplot {
         class MATPLOT_EXPORTS backend_interface {
             /// Virtual functions you can override to create any backend
           public:
+            virtual ~backend_interface() noexcept = default;
             /// \brief True if backend is in interactive mode
             /// One backends might support both interactive and
             /// non-interactive mode.
@@ -213,7 +214,30 @@ namespace matplot {
             /// This is useful when tracing the gnuplot commands
             /// and when generating a gnuplot file.
             virtual void include_comment(const std::string &text);
-        };
+        }; // backend_interface
+        /// Captures (backend) version information.
+        struct Version {
+            int major{}, minor{}, patch{};
+            constexpr bool operator==(const Version &o) const {
+                return major == o.major && minor == o.minor && patch == o.patch;
+            }
+            constexpr bool operator!=(const Version &other) const { return !(*this == other); }
+            constexpr bool operator<(const Version &other) const {
+                if (major < other.major)
+                    return true;
+                else if (major == other.major) {
+                    if (minor < other.minor)
+                        return true;
+                    else if (minor == other.minor)
+                        return patch < other.patch;
+                }
+                return false;
+            }
+            constexpr bool operator>(const Version &other) const { return other < *this; }
+            constexpr bool operator<=(const Version &other) const { return !(other < *this); }
+            constexpr bool operator>=(const Version &other) const { return !(other > *this); }
+            constexpr operator bool() const { return *this != Version{0,0,0}; }
+        }; // struct Version
     } // namespace backend
 
 } // namespace matplot
