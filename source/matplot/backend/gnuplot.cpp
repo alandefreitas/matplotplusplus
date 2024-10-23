@@ -361,9 +361,9 @@ namespace matplot::backend {
             const auto minor = word_after(major, ".");
             const auto patch = word_after(version_str, "patchlevel");
             if (!major.empty() && !minor.empty() && !patch.empty()) {
-                std::from_chars(major.begin(), major.end(), version.major);
-                std::from_chars(minor.begin(), minor.end(), version.minor);
-                std::from_chars(patch.begin(), patch.end(), version.patch);
+                std::from_chars(major.data(), major.data()+major.length(), version.major);
+                std::from_chars(minor.data(), minor.data()+minor.length(), version.minor);
+                std::from_chars(patch.data(), patch.data()+patch.length(), version.patch);
             }
         }
         if (!version)
