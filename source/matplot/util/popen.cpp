@@ -96,7 +96,7 @@ int common_pipe::open(const std::string& cmd, char mode)
 int common_pipe::close(int *exit_code)
 {
     if (!opened())
-        return report(EINVAL, "common_pipe::close");
+        return 0; // nothing to do
     // Close the pipe to process:
     fclose(file_);
     file_ = nullptr;
@@ -128,6 +128,8 @@ int common_pipe::close(int *exit_code)
 
 int common_pipe::open(const std::string &cmd, char mode)
 {
+    if (opened())
+        close(); // prevent resource leak
     constexpr auto READ = 0u;
     constexpr auto WRITE = 1u;
     int fd[2];
@@ -170,7 +172,7 @@ int common_pipe::open(const std::string &cmd, char mode)
 int common_pipe::close(int *exit_code)
 {
     if (!opened())
-        return 0;
+        return 0; // nothing to do
     ::fclose(file_);
     file_ = nullptr;
     while (::waitpid(pid, exit_code, 0) == -1) {
