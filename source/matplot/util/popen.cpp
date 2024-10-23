@@ -28,7 +28,7 @@ int common_pipe::open(const std::string& cmd, char mode)
     if (!SetHandleInformation(hChildStdinWr, HANDLE_FLAG_INHERIT, 0)) {
         auto err = GetLastError();
         CloseHandle(hChildStdinRd);
-        return err;
+        return report(err, "SetHandleInformation(hChildStdinWr)");
     }
 
     // Create a pipe for the child process's output
@@ -36,7 +36,7 @@ int common_pipe::open(const std::string& cmd, char mode)
         auto err = GetLastError();
         CloseHandle(hChildStdinRd);
         CloseHandle(hChildStdinWr);
-        return err;
+        return report(err, "CreatePipe");
     }
 
     // Ensure the read handle to the output pipe is not inherited by child
@@ -46,7 +46,7 @@ int common_pipe::open(const std::string& cmd, char mode)
         CloseHandle(hChildStdinRd);
         CloseHandle(hChildStdinWr);
         CloseHandle(hStdin);
-        return err;
+        return report(err, "SetHandleInformation(hStdout)");
     }
 
     // Configure STARTUPINFO structure for the new process
@@ -67,7 +67,7 @@ int common_pipe::open(const std::string& cmd, char mode)
         CloseHandle(hChildStdinWr);
         CloseHandle(hStdin);
         CloseHandle(hStdout);
-        return err;
+        return report(err, "CreateProcess");
     }
     hProcess = pi.hProcess;
     hThread = pi.hThread;
@@ -88,7 +88,7 @@ int common_pipe::open(const std::string& cmd, char mode)
         CloseHandle(hStdin);
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);
-        return err;
+        return report(err, "_fdopen(_open_osfhandle)");
     }
     return 0;
 }
@@ -189,12 +189,12 @@ int common_pipe::close(int *exit_code)
 
 inline int common_pipe::report(int code, const std::string& what)
 {
-#if defined(_MSC_VER)
-    const auto len = strerrorlen_s(code);
-    error_.assign(len, ' ');
-    strerror_s(error_.c_str(), len+1, code);
+#ifdef __STDC_LIB_EXT1__
+    char buffer[128]{}; // MSVC has no strerrorlen_s
+    strerror_s(buffer, 128, code); // MSVC rejects strerror
+    error_ = what + ": " + buffer;
 #else
-    error_ = std::strerror(code);
+    error_ = what + ": " + std::strerror(code); // GCC fixed strerror and has no strerror_s
 #endif
     if (exceptions_)
         throw std::system_error{code, std::generic_category(), what};
