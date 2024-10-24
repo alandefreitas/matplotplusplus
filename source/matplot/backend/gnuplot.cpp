@@ -353,6 +353,11 @@ namespace matplot::backend {
         return msg.empty();
     }
 
+    template <typename T>
+    void convert_to(std::string_view text, T& value) {
+        std::from_chars(text.data(), text.data() + text.length(), value);
+    }
+
     std::tuple<int, int, int> gnuplot::gnuplot_version() {
         constexpr auto version_zero = std::make_tuple(0, 0, 0);
         static auto version = version_zero;
@@ -363,9 +368,9 @@ namespace matplot::backend {
             const auto minor = word_after(major_minor, "."); // "2"
             const auto patch = word_after(version_str, "patchlevel"); // "6"
             if (!major_minor.empty() && !minor.empty() && !patch.empty()) {
-                std::from_chars(major_minor.data(), major_minor.data()+major_minor.length(), std::get<0>(version));
-                std::from_chars(minor.data(), minor.data()+minor.length(), std::get<1>(version));
-                std::from_chars(patch.data(), patch.data()+patch.length(), std::get<2>(version));
+                convert_to(major_minor, std::get<0>(version));
+                convert_to(minor, std::get<1>(version));
+                convert_to(patch, std::get<2>(version));
             }
             if (version == version_zero) // still unknown
                 version = {5, 2, 6}; // assume by convention
