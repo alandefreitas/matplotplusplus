@@ -41,6 +41,7 @@ namespace matplot {
         class MATPLOT_EXPORTS backend_interface {
             /// Virtual functions you can override to create any backend
           public:
+            virtual ~backend_interface() noexcept = default;
             /// \brief True if backend is in interactive mode
             /// One backends might support both interactive and
             /// non-interactive mode.
@@ -213,7 +214,7 @@ namespace matplot {
             /// This is useful when tracing the gnuplot commands
             /// and when generating a gnuplot file.
             virtual void include_comment(const std::string &text);
-        };
+        }; // class backend_interface
     } // namespace backend
 
 } // namespace matplot
