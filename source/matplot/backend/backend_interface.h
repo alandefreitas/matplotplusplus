@@ -215,32 +215,7 @@ namespace matplot {
             /// and when generating a gnuplot file.
             virtual void include_comment(const std::string &text);
         }; // class backend_interface
-
-        /// Captures (backend) version information.
-        struct Version {
-            int major{0}, minor{0}, patch{0};
-            constexpr bool operator==(const Version &o) const {
-                return major == o.major && minor == o.minor && patch == o.patch;
-            }
-            constexpr bool operator!=(const Version &other) const { return !(*this == other); }
-            constexpr bool operator<(const Version &other) const {
-                if (major < other.major)
-                    return true;
-                else if (major == other.major) {
-                    if (minor < other.minor)
-                        return true;
-                    else if (minor == other.minor)
-                        return patch < other.patch;
-                }
-                return false;
-            }
-            constexpr bool operator>(const Version &other) const { return other < *this; }
-            constexpr bool operator<=(const Version &other) const { return !(other < *this); }
-            constexpr bool operator>=(const Version &other) const { return !(other > *this); }
-            constexpr operator bool() const { return *this != Version{0,0,0}; }
-        }; // struct Version
     } // namespace backend
-
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_BACKEND_INTERFACE_H

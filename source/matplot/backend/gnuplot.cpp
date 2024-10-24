@@ -353,22 +353,33 @@ namespace matplot::backend {
         return msg.empty();
     }
 
-    Version gnuplot::gnuplot_version() {
-        static auto version = Version{};
+    gnuplot::version_info gnuplot::gnuplot_version() {
+        static auto version = version_info{};
         if (!version) { // unknown version
             const auto version_str = run_and_get_output("gnuplot --version 2>&1");
-            const auto major = word_after(version_str, "gnuplot");
-            const auto minor = word_after(major, ".");
-            const auto patch = word_after(version_str, "patchlevel");
-            if (!major.empty() && !minor.empty() && !patch.empty()) {
-                std::from_chars(major.data(), major.data()+major.length(), version.major);
+            // gnuplot version_str example: "5.2 patchlevel 6"
+            const auto major_minor = word_after(version_str, "gnuplot"); // "5.2"
+            const auto minor = word_after(major_minor, "."); // "2"
+            const auto patch = word_after(version_str, "patchlevel"); // "6"
+            if (!major_minor.empty() && !minor.empty() && !patch.empty()) {
+                std::from_chars(major_minor.data(), major_minor.data()+major_minor.length(), version.major);
                 std::from_chars(minor.data(), minor.data()+minor.length(), version.minor);
                 std::from_chars(patch.data(), patch.data()+patch.length(), version.patch);
             }
-			if (!version) // still unknown
-				version = {5, 2, 6}; // assume by convention
+            if (!version) // still unknown
+                version = {5, 2, 6}; // assume by convention
         }
         return version;
+    }
+
+    bool gnuplot::gnuplot_includes_legends() {
+        return gnuplot_version() >= version_info{5, 2, 6};
+    }
+    bool gnuplot::gnuplot_has_wall_option() {
+        return gnuplot_version() >= version_info{5, 5, 0};
+    }
+    bool gnuplot::gnuplot_supports_keyentry() {
+        return gnuplot_version() >= version_info{5, 2, 6};
     }
 
     bool gnuplot::terminal_has_title_option(const std::string &t) {

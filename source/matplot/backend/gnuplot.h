@@ -44,10 +44,28 @@ namespace matplot::backend {
         /// We "render the data" by flushing the commands
         bool flush_commands();
 
+        /// Captures version information.
+        struct version_info {
+            int major{0}, minor{0}, patch{0};
+            constexpr bool operator==(const version_info &o) const {
+                return std::tie(major,minor,patch) == std::tie(o.major,o.minor,o.patch);
+            }
+            constexpr bool operator!=(const version_info &other) const { return !(*this == other); }
+            constexpr bool operator<(const version_info &o) const {
+                return std::tie(major,minor,patch) < std::tie(o.major,o.minor,o.patch);
+            }
+            constexpr bool operator>(const version_info &other) const { return other < *this; }
+            constexpr bool operator<=(const version_info &other) const { return !(other < *this); }
+            constexpr bool operator>=(const version_info &other) const { return !(other > *this); }
+            constexpr operator bool() const { return *this != version_info{0,0,0}; }
+        }; // struct version
         /// Identify the default terminal type in the system
         static std::string default_terminal_type();
         static bool terminal_is_available(std::string_view);
-        static Version gnuplot_version();
+        static version_info gnuplot_version();
+        static bool gnuplot_includes_legends();
+        static bool gnuplot_has_wall_option();
+        static bool gnuplot_supports_keyentry();
         static bool terminal_has_title_option(const std::string &t);
         static bool terminal_has_size_option(const std::string &t);
         static bool terminal_has_position_option(const std::string &t);

@@ -694,9 +694,7 @@ namespace matplot {
         // Gnuplot version needs to be 5.2.6+ for keyentry
         bool ok = true;
         if (parent_->backend_->consumes_gnuplot_commands()) {
-            if (backend::gnuplot::gnuplot_version() < backend::Version{5, 2, 6}) {
-                ok = false;
-            }
+            ok = backend::gnuplot::gnuplot_supports_keyentry();
         }
         if (legend_ == nullptr || !legend_->visible() || !ok) {
             run_command("set key off");
@@ -915,8 +913,7 @@ namespace matplot {
             static bool msg_shown_once = false;
             // Gnuplot version needs to be 5.2.6+ for keyentry
             if (parent_->backend_->consumes_gnuplot_commands()) {
-                const auto v = backend::gnuplot::gnuplot_version();
-                if (v < backend::Version{5, 2, 6}) {
+                if (backend::gnuplot::gnuplot_includes_legends()) {
                     if (!msg_shown_once) {
                         std::cerr
                             << "You need gnuplot 5.2.6+ to include legends"
