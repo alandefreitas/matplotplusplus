@@ -318,7 +318,7 @@ namespace matplot::backend {
     }
 
     /// returns the next word in text after prefix terminated with white space.
-    std::string_view word_after(std::string_view text, std::string_view prefix)
+    static std::string_view word_after(std::string_view text, std::string_view prefix)
     {
         auto res = text.substr(0,0);
         if (auto b = text.find(prefix); b != std::string_view::npos) {
@@ -354,8 +354,8 @@ namespace matplot::backend {
     }
 
     Version gnuplot::gnuplot_version() {
-        static auto version = Version{0, 0, 0};
-        if (!version) {
+        static auto version = Version{};
+        if (!version) { // unknown version
             const auto version_str = run_and_get_output("gnuplot --version 2>&1");
             const auto major = word_after(version_str, "gnuplot");
             const auto minor = word_after(major, ".");
@@ -365,9 +365,9 @@ namespace matplot::backend {
                 std::from_chars(minor.data(), minor.data()+minor.length(), version.minor);
                 std::from_chars(patch.data(), patch.data()+patch.length(), version.patch);
             }
+			if (!version) // still unknown
+				version = {5, 2, 6}; // assume by convention
         }
-        if (!version)
-            version = {5, 2, 6}; // assume by convention
         return version;
     }
 

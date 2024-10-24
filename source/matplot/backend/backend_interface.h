@@ -214,10 +214,11 @@ namespace matplot {
             /// This is useful when tracing the gnuplot commands
             /// and when generating a gnuplot file.
             virtual void include_comment(const std::string &text);
-        }; // backend_interface
+        }; // class backend_interface
+
         /// Captures (backend) version information.
         struct Version {
-            int major{}, minor{}, patch{};
+            int major{0}, minor{0}, patch{0};
             constexpr bool operator==(const Version &o) const {
                 return major == o.major && minor == o.minor && patch == o.patch;
             }
