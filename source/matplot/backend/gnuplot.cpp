@@ -353,7 +353,7 @@ namespace matplot::backend {
         return msg.empty();
     }
 
-    std::tuple<int,int,int> gnuplot::gnuplot_version() {
+    std::tuple<int, int, int> gnuplot::gnuplot_version() {
         constexpr auto version_zero = std::make_tuple(0, 0, 0);
         static auto version = version_zero;
         if (version == version_zero) { // unknown version

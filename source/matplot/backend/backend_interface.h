@@ -216,6 +216,7 @@ namespace matplot {
             virtual void include_comment(const std::string &text);
         }; // class backend_interface
     } // namespace backend
+
 } // namespace matplot
 
 #endif // MATPLOTPLUSPLUS_BACKEND_INTERFACE_H
