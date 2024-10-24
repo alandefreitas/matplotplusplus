@@ -353,33 +353,34 @@ namespace matplot::backend {
         return msg.empty();
     }
 
-    gnuplot::version_info gnuplot::gnuplot_version() {
-        static auto version = version_info{};
-        if (!version) { // unknown version
+    std::tuple<int,int,int> gnuplot::gnuplot_version() {
+        constexpr auto version_zero = std::make_tuple(0, 0, 0);
+        static auto version = version_zero;
+        if (version == version_zero) { // unknown version
             const auto version_str = run_and_get_output("gnuplot --version 2>&1");
             // gnuplot version_str example: "5.2 patchlevel 6"
             const auto major_minor = word_after(version_str, "gnuplot"); // "5.2"
             const auto minor = word_after(major_minor, "."); // "2"
             const auto patch = word_after(version_str, "patchlevel"); // "6"
             if (!major_minor.empty() && !minor.empty() && !patch.empty()) {
-                std::from_chars(major_minor.data(), major_minor.data()+major_minor.length(), version.major);
-                std::from_chars(minor.data(), minor.data()+minor.length(), version.minor);
-                std::from_chars(patch.data(), patch.data()+patch.length(), version.patch);
+                std::from_chars(major_minor.data(), major_minor.data()+major_minor.length(), std::get<0>(version));
+                std::from_chars(minor.data(), minor.data()+minor.length(), std::get<1>(version));
+                std::from_chars(patch.data(), patch.data()+patch.length(), std::get<2>(version));
             }
-            if (!version) // still unknown
+            if (version == version_zero) // still unknown
                 version = {5, 2, 6}; // assume by convention
         }
         return version;
     }
 
     bool gnuplot::gnuplot_includes_legends() {
-        return gnuplot_version() >= version_info{5, 2, 6};
+        return gnuplot_version() >= std::make_tuple(5, 2, 6);
     }
     bool gnuplot::gnuplot_has_wall_option() {
-        return gnuplot_version() >= version_info{5, 5, 0};
+        return gnuplot_version() >= std::make_tuple(5, 5, 0);
     }
     bool gnuplot::gnuplot_supports_keyentry() {
-        return gnuplot_version() >= version_info{5, 2, 6};
+        return gnuplot_version() >= std::make_tuple(5, 2, 6);
     }
 
     bool gnuplot::terminal_has_title_option(const std::string &t) {
