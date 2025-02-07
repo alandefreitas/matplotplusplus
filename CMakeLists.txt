@@ -56,6 +56,7 @@ option(MATPLOTPP_BUILD_WITH_EXCEPTIONS "Add compiler flags to use exceptions." O
 option(MATPLOTPP_BUILD_HIGH_RESOLUTION_WORLD_MAP "Compile the high resolution maps for geoplots" ON)
 option(MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES "Bypass show() commands and save figures as .svg at destruction" OFF)
 option(MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND "Compile target with the experimental OpenGL backend" OFF)
+option(MATPLOTPP_WITH_OPENCV "Use OpenCV in CImg" ON)
 
 # Where to find dependencies
 option(MATPLOTPP_WITH_SYSTEM_CIMG "Use system-provided CImg.h instead of bundled" OFF)
