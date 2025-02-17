@@ -428,15 +428,15 @@ Make sure your C++ compiler supports C++17:
 
 === "Ubuntu + GCC"
 
-    ```bash
-    g++ --version
-    ```
+```bash
+g++ --version
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    clang --version
-    ```
+```bash
+clang --version
+```
 
 === "Windows + MSVC"
 
@@ -448,15 +448,15 @@ The output should be something like:
 
 === "Ubuntu + GCC"
 
-    ```console
-    g++-8 (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0
-    ```
+```console
+g++-8 (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0
+```
 
 === "Mac Os + Clang"
 
-    ```console
-    Apple clang version 11.0.0 (clang-1100.0.33.8)
-    ```
+```console
+Apple clang version 11.0.0 (clang-1100.0.33.8)
+```
 
 === "Windows + MSVC"
 
@@ -469,53 +469,53 @@ If you need to update your compiler:
 
 === "Ubuntu + GCC"
 
-    ```bash
-    # install GCC-8
-    sudo apt update
-    sudo apt install gcc-8
-    sudo apt install g++-8
-    ```
+```bash
+# install GCC-8
+sudo apt update
+sudo apt install gcc-8
+sudo apt install g++-8
+```
 
-    To update to any other version, like GCC-9 or GCC-10:
+To update to any other version, like GCC-9 or GCC-10:
 
-    ```bash
-    sudo apt install build-essential
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt install g++-10
-    ```
+```bash
+sudo apt install build-essential
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt install g++-10
+```
 
-    Once you installed a newer version of GCC, you can link it to `update-alternatives`. For instance, if you have GCC-7 and GCC-10, you can link them with:
+Once you installed a newer version of GCC, you can link it to `update-alternatives`. For instance, if you have GCC-7 and GCC-10, you can link them with:
 
-    ```bash
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
-    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
-    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
-    ```
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
+```
 
-    You can now use `update-alternatives` to set your default `gcc` and `g++` to a more recent version:
+You can now use `update-alternatives` to set your default `gcc` and `g++` to a more recent version:
 
-    ```bash
-    update-alternatives --config g++
-    update-alternatives --config gcc
-    ```
+```bash
+update-alternatives --config g++
+update-alternatives --config gcc
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    # download clang
-    curl --output clang.tar.xz -L https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-apple-darwin.tar.xz
-    mkdir clang
-    tar -xvJf clang.tar.xz -C clang
+```bash
+# download clang
+curl --output clang.tar.xz -L https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-apple-darwin.tar.xz
+mkdir clang
+tar -xvJf clang.tar.xz -C clang
 
-    # copy files to /usr/local
-    cd clang/clang+llvm-11.0.0-x86_64-apple-darwin
-    sudo cp -R * /usr/local/
+# copy files to /usr/local
+cd clang/clang+llvm-11.0.0-x86_64-apple-darwin
+sudo cp -R * /usr/local/
 
-    # update default compiler
-    export CXX=/usr/local/bin/clang++
-    ```
+# update default compiler
+export CXX=/usr/local/bin/clang++
+```
 
 === "Windows + MSVC"
 
@@ -529,45 +529,45 @@ Also check your CMake version is at least 3.14+:
 
 === "Ubuntu + GCC"
 
-    ```bash
-    cmake --version
-    ```
+```bash
+cmake --version
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    cmake --version
-    ```
+```bash
+cmake --version
+```
 
 === "Windows + MSVC"
 
-    ```bash
-    cmake --version
-    ```
+```bash
+cmake --version
+```
 
 If CMake is not installed or its version is older than CMake 3.14, update it with
 
 === "Ubuntu + GCC"
 
-    ```bash
-    sudo apt upgrade cmake
-    ```
+```bash
+sudo apt upgrade cmake
+```
 
     !!! warning ""
         Alternatively, download the most recent version from [cmake.org](https://cmake.org/).
 
 === "Mac Os + Clang"
 
-    ```bash
-    brew upgrade cmake
-    ```
+```bash
+brew upgrade cmake
+```
 
     !!! warning "Homebrew"
         If this command fails because you don't have [Homebrew](https://brew.sh) on your computer, you can install it with
 
-        ```bash
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        ```
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 
         or you can follow the instructions in [https://brew.sh](https://brew.sh).
 
@@ -586,10 +586,10 @@ Install Gnuplot 5.2.6+ (Required at runtime)
 
 === "Ubuntu + GCC"
 
-    ```bash
-    sudo apt update
-    sudo apt install gnuplot
-    ```
+```bash
+sudo apt update
+sudo apt install gnuplot
+```
 
     !!! note ""
         Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
@@ -597,9 +597,9 @@ Install Gnuplot 5.2.6+ (Required at runtime)
 
 === "Mac Os + Clang"
 
-    ```bash
-    brew install gnuplot
-    ```
+```bash
+brew install gnuplot
+```
 
     !!! note ""
         Or download the latest version from [www.gnuplot.info](http://www.gnuplot.info). If you're using an installer, make sure you mark the option "Add application directory to your PATH environment variable".
@@ -649,9 +649,9 @@ If these dependencies are not found, the build script will download them. In any
 
 === "Ubuntu + GCC"
 
-    ```bash
-    sudo apt-get install libglfw3-dev
-    ```
+```bash
+sudo apt-get install libglfw3-dev
+```
 
 === "Mac Os + Clang"
 
@@ -673,30 +673,30 @@ This will build the examples in the `build/examples` directory:
 
 === "Ubuntu + GCC"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-    sudo cmake --build . --parallel 2 --config Release
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
+sudo cmake --build . --parallel 2 --config Release
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
-    cmake --build . --parallel 2 --config Release
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2"
+cmake --build . --parallel 2 --config Release
+```
 
 === "Windows + MSVC"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2"
-    cmake --build . --parallel 2 --config Release
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2"
+cmake --build . --parallel 2 --config Release
+```
 
 !!! hint "Parallel Build"
 Replace `--parallel 2` with `--parallel <number of cores in your machine>`
@@ -705,9 +705,9 @@ Replace `--parallel 2` with `--parallel <number of cores in your machine>`
 
     If your C++ compiler that supports C++17 is not your default compiler, make sure you provide CMake with the compiler location with the DCMAKE_C_COMPILER and DCMAKE_CXX_COMPILER options. For instance:
 
-    ```bash
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
-    ```
+```bash
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
+```
 
 **Installing**
 
@@ -715,33 +715,33 @@ You can 1) use `-DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF` to b
 
 === "Ubuntu + GCC"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
-    sudo cmake --build . --parallel 2 --config Release
-    sudo cmake --install .
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
+sudo cmake --build . --parallel 2 --config Release
+sudo cmake --install .
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
-    cmake --build . --parallel 2 --config Release
-    cmake --install .
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
+cmake --build . --parallel 2 --config Release
+cmake --install .
+```
 
 === "Windows + MSVC"
 
-    ```bash
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
-    cmake --build . --parallel 2 --config Release
-    cmake --install .
-    ```
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="/O2" -DMATPLOTPP_BUILD_EXAMPLES=OFF -DMATPLOTPP_BUILD_TESTS=OFF
+cmake --build . --parallel 2 --config Release
+cmake --install .
+```
 
 !!! hint "Parallel Build"
 Replace `--parallel 2` with `--parallel <number of cores in your machine>`
@@ -752,21 +752,21 @@ You can also create the binary packages to install Matplot++ on other systems:
 
 === "Ubuntu + GCC"
 
-    ```bash
-    sudo cpack .
-    ```
+```bash
+sudo cpack .
+```
 
 === "Mac Os + Clang"
 
-    ```bash
-    cpack .
-    ```
+```bash
+cpack .
+```
 
 === "Windows + MSVC"
 
-    ```bash
-    cpack .
-    ```
+```bash
+cpack .
+```
 
 ## Plot Types
 
@@ -798,13 +798,13 @@ Where `x` and `y` are are any value ranges.
 
 === "Plot"
 
-    [![example_plot_1](docs/examples/line_plot/plot/plot_1.svg)](examples/line_plot/plot/plot_1.cpp)
+[![example_plot_1](docs/examples/line_plot/plot/plot_1.svg)](examples/line_plot/plot/plot_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_1.cpp"
+```
 
 <!-- START mdsplit-ignore -->
 <details>
@@ -817,9 +817,9 @@ Where `x` and `y` are are any value ranges.
 !!! tip
     Setters return a reference to `*this` to allow method chaining:
 
-    ```cpp
-    plot(x,y)->line_width(2).color("red");
-    ```
+```cpp
+plot(x,y)->line_width(2).color("red");
+```
 
 !!! tip
     These examples use free-standing functions to create plots. You can also use a object-oriented style for plots. We discuss these coding styles in the Section [*Coding Styles*](#coding-styles).
@@ -828,123 +828,123 @@ Where `x` and `y` are are any value ranges.
 
 ===! "Plot"
 
-    [![example_plot_2](docs/examples/line_plot/plot/plot_2.svg)](examples/line_plot/plot/plot_2.cpp)
+[![example_plot_2](docs/examples/line_plot/plot/plot_2.svg)](examples/line_plot/plot/plot_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_2.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_3](docs/examples/line_plot/plot/plot_3.svg)](examples/line_plot/plot/plot_3.cpp)
+[![example_plot_3](docs/examples/line_plot/plot/plot_3.svg)](examples/line_plot/plot/plot_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_3.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_4](docs/examples/line_plot/plot/plot_4.svg)](examples/line_plot/plot/plot_4.cpp)
+[![example_plot_4](docs/examples/line_plot/plot/plot_4.svg)](examples/line_plot/plot/plot_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_4.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_5](docs/examples/line_plot/plot/plot_5.svg)](examples/line_plot/plot/plot_5.cpp)
+[![example_plot_5](docs/examples/line_plot/plot/plot_5.svg)](examples/line_plot/plot/plot_5.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_5.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_5.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_6](docs/examples/line_plot/plot/plot_6.svg)](examples/line_plot/plot/plot_6.cpp)
+[![example_plot_6](docs/examples/line_plot/plot/plot_6.svg)](examples/line_plot/plot/plot_6.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_6.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_6.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_7](docs/examples/line_plot/plot/plot_7.svg)](examples/line_plot/plot/plot_7.cpp)
+[![example_plot_7](docs/examples/line_plot/plot/plot_7.svg)](examples/line_plot/plot/plot_7.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_7.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_7.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_8](docs/examples/line_plot/plot/plot_8.svg)](examples/line_plot/plot/plot_8.cpp)
+[![example_plot_8](docs/examples/line_plot/plot/plot_8.svg)](examples/line_plot/plot/plot_8.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_8.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_8.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_9](docs/examples/line_plot/plot/plot_9.svg)](examples/line_plot/plot/plot_9.cpp)
+[![example_plot_9](docs/examples/line_plot/plot/plot_9.svg)](examples/line_plot/plot/plot_9.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_9.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_9.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_10](docs/examples/line_plot/plot/plot_10.svg)](examples/line_plot/plot/plot_10.cpp)
+[![example_plot_10](docs/examples/line_plot/plot/plot_10.svg)](examples/line_plot/plot/plot_10.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_10.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_10.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_11](docs/examples/line_plot/plot/plot_11.svg)](examples/line_plot/plot/plot_11.cpp)
+[![example_plot_11](docs/examples/line_plot/plot/plot_11.svg)](examples/line_plot/plot/plot_11.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_11.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_11.cpp"
+```
 
 
 ===! "Plot"
 
-    [![example_plot_12](docs/examples/line_plot/plot/plot_12.svg)](examples/line_plot/plot/plot_12.cpp)
+[![example_plot_12](docs/examples/line_plot/plot/plot_12.svg)](examples/line_plot/plot/plot_12.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot/plot_12.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot/plot_12.cpp"
+```
 
 #### Line Plot 3D
 
@@ -954,20 +954,20 @@ plot3(x,y);
 
 === "Plot"
 
-    [![example_plot3_1](docs/examples/line_plot/plot3/plot3_1.svg)](examples/line_plot/plot3/plot3_1.cpp)
+[![example_plot3_1](docs/examples/line_plot/plot3/plot3_1.svg)](examples/line_plot/plot3/plot3_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_1.cpp"
+```
 
 !!! tip
     With method chaining:
 
-    ```cpp
-    plot3(x,y)->line_width(2).color("red");
-    ```
+```cpp
+plot3(x,y)->line_width(2).color("red");
+```
 
 <!-- START mdsplit-ignore -->
 <details>
@@ -981,83 +981,83 @@ plot3(x,y);
 
 ===! "Plot"
 
-    [![example_plot3_2](docs/examples/line_plot/plot3/plot3_2.svg)](examples/line_plot/plot3/plot3_2.cpp)
+[![example_plot3_2](docs/examples/line_plot/plot3/plot3_2.svg)](examples/line_plot/plot3/plot3_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_2.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_3](docs/examples/line_plot/plot3/plot3_3.svg)](examples/line_plot/plot3/plot3_3.cpp)
+[![example_plot3_3](docs/examples/line_plot/plot3/plot3_3.svg)](examples/line_plot/plot3/plot3_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_3.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_4](docs/examples/line_plot/plot3/plot3_4.png)](examples/line_plot/plot3/plot3_4.cpp)
+[![example_plot3_4](docs/examples/line_plot/plot3/plot3_4.png)](examples/line_plot/plot3/plot3_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_4.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_5](docs/examples/line_plot/plot3/plot3_5.svg)](examples/line_plot/plot3/plot3_5.cpp)
+[![example_plot3_5](docs/examples/line_plot/plot3/plot3_5.svg)](examples/line_plot/plot3/plot3_5.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_5.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_5.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_7](docs/examples/line_plot/plot3/plot3_7.svg)](examples/line_plot/plot3/plot3_7.cpp)
+[![example_plot3_7](docs/examples/line_plot/plot3/plot3_7.svg)](examples/line_plot/plot3/plot3_7.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_7.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_7.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_8](docs/examples/line_plot/plot3/plot3_8.svg)](examples/line_plot/plot3/plot3_8.cpp)
+[![example_plot3_8](docs/examples/line_plot/plot3/plot3_8.svg)](examples/line_plot/plot3/plot3_8.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_8.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_8.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_9](docs/examples/line_plot/plot3/plot3_9.svg)](examples/line_plot/plot3/plot3_9.cpp)
+[![example_plot3_9](docs/examples/line_plot/plot3/plot3_9.svg)](examples/line_plot/plot3/plot3_9.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_9.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_9.cpp"
+```
 
 ===! "Plot"
 
-    [![example_plot3_10](docs/examples/line_plot/plot3/plot3_10.svg)](examples/line_plot/plot3/plot3_10.cpp)
+[![example_plot3_10](docs/examples/line_plot/plot3/plot3_10.svg)](examples/line_plot/plot3/plot3_10.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/plot3/plot3_10.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/plot3/plot3_10.cpp"
+```
 
 #### Stairs
 
@@ -1081,96 +1081,96 @@ The `stair` object renders the line with stairs between data points to denote di
 
 ===! "Plot"
 
-    [![example_stairs_2](docs/examples/line_plot/stairs/stairs_2.svg)](examples/line_plot/stairs/stairs_2.cpp)
+[![example_stairs_2](docs/examples/line_plot/stairs/stairs_2.svg)](examples/line_plot/stairs/stairs_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_2.cpp"
+```
 
 **More Examples:**
 
 
 ===! "Plot"
 
-    [![example_stairs_3](docs/examples/line_plot/stairs/stairs_3.svg)](examples/line_plot/stairs/stairs_3.cpp)
+[![example_stairs_3](docs/examples/line_plot/stairs/stairs_3.svg)](examples/line_plot/stairs/stairs_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_3.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_4](docs/examples/line_plot/stairs/stairs_4.svg)](examples/line_plot/stairs/stairs_4.cpp)
+[![example_stairs_4](docs/examples/line_plot/stairs/stairs_4.svg)](examples/line_plot/stairs/stairs_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_4.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_5](docs/examples/line_plot/stairs/stairs_5.svg)](examples/line_plot/stairs/stairs_5.cpp)
+[![example_stairs_5](docs/examples/line_plot/stairs/stairs_5.svg)](examples/line_plot/stairs/stairs_5.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_5.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_5.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_6](docs/examples/line_plot/stairs/stairs_6.svg)](examples/line_plot/stairs/stairs_6.cpp)
+[![example_stairs_6](docs/examples/line_plot/stairs/stairs_6.svg)](examples/line_plot/stairs/stairs_6.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_6.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_6.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_7](docs/examples/line_plot/stairs/stairs_7.svg)](examples/line_plot/stairs/stairs_7.cpp)
+[![example_stairs_7](docs/examples/line_plot/stairs/stairs_7.svg)](examples/line_plot/stairs/stairs_7.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_7.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_7.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_8](docs/examples/line_plot/stairs/stairs_8.svg)](examples/line_plot/stairs/stairs_8.cpp)
+[![example_stairs_8](docs/examples/line_plot/stairs/stairs_8.svg)](examples/line_plot/stairs/stairs_8.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_8.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_8.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_9](docs/examples/line_plot/stairs/stairs_9.svg)](examples/line_plot/stairs/stairs_9.cpp)
+[![example_stairs_9](docs/examples/line_plot/stairs/stairs_9.svg)](examples/line_plot/stairs/stairs_9.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_9.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_9.cpp"
+```
 
 ===! "Plot"
 
-    [![example_stairs_10](docs/examples/line_plot/stairs/stairs_10.svg)](examples/line_plot/stairs/stairs_10.cpp)
+[![example_stairs_10](docs/examples/line_plot/stairs/stairs_10.svg)](examples/line_plot/stairs/stairs_10.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/stairs/stairs_10.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/stairs/stairs_10.cpp"
+```
 
 
 #### Error Bars
@@ -1194,106 +1194,106 @@ errorbar(x,y,err);
 
 ===! "Plot"
 
-    [![example_errorbar_1](docs/examples/line_plot/errorbar/errorbar_1.svg)](examples/line_plot/errorbar/errorbar_1.cpp)
+[![example_errorbar_1](docs/examples/line_plot/errorbar/errorbar_1.svg)](examples/line_plot/errorbar/errorbar_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_1.cpp"
+```
 
 **More Examples:**
 
 
 ===! "Plot"
 
-    [![example_errorbar_2](docs/examples/line_plot/errorbar/errorbar_2.svg)](examples/line_plot/errorbar/errorbar_2.cpp)
+[![example_errorbar_2](docs/examples/line_plot/errorbar/errorbar_2.svg)](examples/line_plot/errorbar/errorbar_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_2.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_3](docs/examples/line_plot/errorbar/errorbar_3.svg)](examples/line_plot/errorbar/errorbar_3.cpp)
+[![example_errorbar_3](docs/examples/line_plot/errorbar/errorbar_3.svg)](examples/line_plot/errorbar/errorbar_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_3.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_4](docs/examples/line_plot/errorbar/errorbar_4.svg)](examples/line_plot/errorbar/errorbar_4.cpp)
+[![example_errorbar_4](docs/examples/line_plot/errorbar/errorbar_4.svg)](examples/line_plot/errorbar/errorbar_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_4.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_5](docs/examples/line_plot/errorbar/errorbar_5.svg)](examples/line_plot/errorbar/errorbar_5.cpp)
+[![example_errorbar_5](docs/examples/line_plot/errorbar/errorbar_5.svg)](examples/line_plot/errorbar/errorbar_5.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_5.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_5.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_6](docs/examples/line_plot/errorbar/errorbar_6.svg)](examples/line_plot/errorbar/errorbar_6.cpp)
+[![example_errorbar_6](docs/examples/line_plot/errorbar/errorbar_6.svg)](examples/line_plot/errorbar/errorbar_6.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_6.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_6.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_7](docs/examples/line_plot/errorbar/errorbar_7.svg)](examples/line_plot/errorbar/errorbar_7.cpp)
+[![example_errorbar_7](docs/examples/line_plot/errorbar/errorbar_7.svg)](examples/line_plot/errorbar/errorbar_7.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_7.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_7.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_8](docs/examples/line_plot/errorbar/errorbar_8.svg)](examples/line_plot/errorbar/errorbar_8.cpp)
+[![example_errorbar_8](docs/examples/line_plot/errorbar/errorbar_8.svg)](examples/line_plot/errorbar/errorbar_8.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_8.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_8.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_9](docs/examples/line_plot/errorbar/errorbar_9.svg)](examples/line_plot/errorbar/errorbar_9.cpp)
+[![example_errorbar_9](docs/examples/line_plot/errorbar/errorbar_9.svg)](examples/line_plot/errorbar/errorbar_9.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_9.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_9.cpp"
+```
 
 ===! "Plot"
 
-    [![example_errorbar_10](docs/examples/line_plot/errorbar/errorbar_10.svg)](examples/line_plot/errorbar/errorbar_10.cpp)
+[![example_errorbar_10](docs/examples/line_plot/errorbar/errorbar_10.svg)](examples/line_plot/errorbar/errorbar_10.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/errorbar/errorbar_10.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/errorbar/errorbar_10.cpp"
+```
 
 
 The `error bar` object includes extra lines to represent error around data points. Log plots are utility functions that adjust the x or y axes to a logarithmic scale.
@@ -1319,46 +1319,46 @@ area(Y);
 
 ===! "Plot"
 
-    [![example_area_1](docs/examples/line_plot/area/area_1.svg)](examples/line_plot/area/area_1.cpp)
+[![example_area_1](docs/examples/line_plot/area/area_1.svg)](examples/line_plot/area/area_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/area/area_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/area/area_1.cpp"
+```
 
 ****More Examples:****
 
 
 ===! "Plot"
 
-    [![example_area_2](docs/examples/line_plot/area/area_2.svg)](examples/line_plot/area/area_2.cpp)
+[![example_area_2](docs/examples/line_plot/area/area_2.svg)](examples/line_plot/area/area_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/area/area_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/area/area_2.cpp"
+```
 
 ===! "Plot"
 
-    [![example_area_3](docs/examples/line_plot/area/area_3.svg)](examples/line_plot/area/area_3.cpp)
+[![example_area_3](docs/examples/line_plot/area/area_3.svg)](examples/line_plot/area/area_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/area/area_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/area/area_3.cpp"
+```
 
 ===! "Plot"
 
-    [![example_area_4](docs/examples/line_plot/area/area_4.svg)](examples/line_plot/area/area_4.cpp)
+[![example_area_4](docs/examples/line_plot/area/area_4.svg)](examples/line_plot/area/area_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/area/area_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/area/area_4.cpp"
+```
 
 #### Loglog Plot
 
@@ -1380,96 +1380,96 @@ loglog(x,y);
 
 ===! "Plot"
 
-      [![example_loglog_1](docs/examples/line_plot/loglog/loglog_1.svg)](examples/line_plot/loglog/loglog_1.cpp)
+[![example_loglog_1](docs/examples/line_plot/loglog/loglog_1.svg)](examples/line_plot/loglog/loglog_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_1.cpp"
+```
 
 
 ****More Examples:****
 
 ===! "Plot"
 
-      [![example_loglog_2](docs/examples/line_plot/loglog/loglog_2.svg)](examples/line_plot/loglog/loglog_2.cpp)
+[![example_loglog_2](docs/examples/line_plot/loglog/loglog_2.svg)](examples/line_plot/loglog/loglog_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_2.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_3](docs/examples/line_plot/loglog/loglog_3.png)](examples/line_plot/loglog/loglog_3.cpp)
+[![example_loglog_3](docs/examples/line_plot/loglog/loglog_3.png)](examples/line_plot/loglog/loglog_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_3.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_4](docs/examples/line_plot/loglog/loglog_4.svg)](examples/line_plot/loglog/loglog_4.cpp)
+[![example_loglog_4](docs/examples/line_plot/loglog/loglog_4.svg)](examples/line_plot/loglog/loglog_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_4.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_5](docs/examples/line_plot/loglog/loglog_5.png)](examples/line_plot/loglog/loglog_5.cpp)
+[![example_loglog_5](docs/examples/line_plot/loglog/loglog_5.png)](examples/line_plot/loglog/loglog_5.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_5.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_5.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_6](docs/examples/line_plot/loglog/loglog_6.svg)](examples/line_plot/loglog/loglog_6.cpp)
+[![example_loglog_6](docs/examples/line_plot/loglog/loglog_6.svg)](examples/line_plot/loglog/loglog_6.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_6.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_6.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_7](docs/examples/line_plot/loglog/loglog_7.svg)](examples/line_plot/loglog/loglog_7.cpp)
+[![example_loglog_7](docs/examples/line_plot/loglog/loglog_7.svg)](examples/line_plot/loglog/loglog_7.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_7.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_7.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_8](docs/examples/line_plot/loglog/loglog_8.svg)](examples/line_plot/loglog/loglog_8.cpp)
+[![example_loglog_8](docs/examples/line_plot/loglog/loglog_8.svg)](examples/line_plot/loglog/loglog_8.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_8.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_8.cpp"
+```
 
 ===! "Plot"
 
-      [![example_loglog_9](docs/examples/line_plot/loglog/loglog_9.svg)](examples/line_plot/loglog/loglog_9.cpp)
+[![example_loglog_9](docs/examples/line_plot/loglog/loglog_9.svg)](examples/line_plot/loglog/loglog_9.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/loglog/loglog_9.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/loglog/loglog_9.cpp"
+```
 
 
 #### Semilogx Plot
@@ -1488,7 +1488,7 @@ semilogx(x,y);
 
 ===! "Plot"
 
-    [![example_semilogx_1](docs/examples/line_plot/semilogx/semilogx_1.svg)](examples/line_plot/semilogx/semilogx_1.cpp)
+[![example_semilogx_1](docs/examples/line_plot/semilogx/semilogx_1.svg)](examples/line_plot/semilogx/semilogx_1.cpp)
 
 === "C++"
 
@@ -1512,13 +1512,13 @@ semilogy(x,y);
 
 ===! "Plot"
 
-    [![example_semilogy_1](docs/examples/line_plot/semilogy/semilogy_1.svg)](examples/line_plot/semilogy/semilogy_1.cpp)
+[![example_semilogy_1](docs/examples/line_plot/semilogy/semilogy_1.svg)](examples/line_plot/semilogy/semilogy_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/semilogy/semilogy_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/semilogy/semilogy_1.cpp"
+```
 
 #### Function Plot
 
@@ -1541,50 +1541,50 @@ fplot(fx);
 
 ===! "Plot"
 
-    [![example_fplot_1](docs/examples/line_plot/fplot/fplot_1.svg)](examples/line_plot/fplot/fplot_1.cpp)
+[![example_fplot_1](docs/examples/line_plot/fplot/fplot_1.svg)](examples/line_plot/fplot/fplot_1.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/fplot/fplot_1.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/fplot/fplot_1.cpp"
+```
 
 **More Examples:**
 
 
 ===! "Plot"
 
-    [![example_fplot_2](docs/examples/line_plot/fplot/fplot_2.svg)](examples/line_plot/fplot/fplot_2.cpp)
+[![example_fplot_2](docs/examples/line_plot/fplot/fplot_2.svg)](examples/line_plot/fplot/fplot_2.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/fplot/fplot_2.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/fplot/fplot_2.cpp"
+```
 
 ===! "Plot"
 
-    [![example_fplot_3](docs/examples/line_plot/fplot/fplot_3.png)](examples/line_plot/fplot/fplot_3.cpp)
+[![example_fplot_3](docs/examples/line_plot/fplot/fplot_3.png)](examples/line_plot/fplot/fplot_3.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/fplot/fplot_3.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/fplot/fplot_3.cpp"
+```
 
 ===! "Plot"
 
-    [![example_fplot_4](docs/examples/line_plot/fplot/fplot_4.png)](examples/line_plot/fplot/fplot_4.cpp)
+[![example_fplot_4](docs/examples/line_plot/fplot/fplot_4.png)](examples/line_plot/fplot/fplot_4.cpp)
 
 === "C++"
 
-    ```cpp
-    --8<-- "examples/line_plot/fplot/fplot_4.cpp"
-    ```
+```cpp
+--8<-- "examples/line_plot/fplot/fplot_4.cpp"
+```
 
 ===! "Plot"
 
-    [![example_fplot_5](docs/examples/line_plot/fplot/fplot_5.png)](examples/line_plot/fplot/fplot_5.cpp)
+[![example_fplot_5](docs/examples/line_plot/fplot/fplot_5.png)](examples/line_plot/fplot/fplot_5.cpp)
 
 === "C++"
 
@@ -1594,7 +1594,7 @@ fplot(fx);
 
 ===! "Plot"
 
-    [![example_fplot_6](docs/examples/line_plot/fplot/fplot_6.svg)](examples/line_plot/fplot/fplot_6.cpp)
+[![example_fplot_6](docs/examples/line_plot/fplot/fplot_6.svg)](examples/line_plot/fplot/fplot_6.cpp)
 
 === "C++"
 
@@ -1625,7 +1625,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fplot3_1](docs/examples/line_plot/fplot3/fplot3_1.svg)](examples/line_plot/fplot3/fplot3_1.cpp)
+[![example_fplot3_1](docs/examples/line_plot/fplot3/fplot3_1.svg)](examples/line_plot/fplot3/fplot3_1.cpp)
 
 === "C++"
 
@@ -1637,7 +1637,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fplot3_2](docs/examples/line_plot/fplot3/fplot3_2.svg)](examples/line_plot/fplot3/fplot3_2.cpp)
+[![example_fplot3_2](docs/examples/line_plot/fplot3/fplot3_2.svg)](examples/line_plot/fplot3/fplot3_2.cpp)
 
 === "C++"
 
@@ -1647,7 +1647,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fplot3_3](docs/examples/line_plot/fplot3/fplot3_3.png)](examples/line_plot/fplot3/fplot3_3.cpp)
+[![example_fplot3_3](docs/examples/line_plot/fplot3/fplot3_3.png)](examples/line_plot/fplot3/fplot3_3.cpp)
 
 === "C++"
 
@@ -1657,7 +1657,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fplot3_4](docs/examples/line_plot/fplot3/fplot3_4.svg)](examples/line_plot/fplot3/fplot3_4.cpp)
+[![example_fplot3_4](docs/examples/line_plot/fplot3/fplot3_4.svg)](examples/line_plot/fplot3/fplot3_4.cpp)
 
 === "C++"
 
@@ -1667,7 +1667,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fplot3_5](docs/examples/line_plot/fplot3/fplot3_5.svg)](examples/line_plot/fplot3/fplot3_5.cpp)
+[![example_fplot3_5](docs/examples/line_plot/fplot3/fplot3_5.svg)](examples/line_plot/fplot3/fplot3_5.cpp)
 
 === "C++"
 
@@ -1696,7 +1696,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fimplicit_1](docs/examples/line_plot/fimplicit/fimplicit_1.svg)](examples/line_plot/fimplicit/fimplicit_1.cpp)
+[![example_fimplicit_1](docs/examples/line_plot/fimplicit/fimplicit_1.svg)](examples/line_plot/fimplicit/fimplicit_1.cpp)
 
 === "C++"
 
@@ -1709,7 +1709,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fimplicit_2](docs/examples/line_plot/fimplicit/fimplicit_2.svg)](examples/line_plot/fimplicit/fimplicit_2.cpp)
+[![example_fimplicit_2](docs/examples/line_plot/fimplicit/fimplicit_2.svg)](examples/line_plot/fimplicit/fimplicit_2.cpp)
 
 === "C++"
 
@@ -1719,7 +1719,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fimplicit_3](docs/examples/line_plot/fimplicit/fimplicit_3.svg)](examples/line_plot/fimplicit/fimplicit_3.cpp)
+[![example_fimplicit_3](docs/examples/line_plot/fimplicit/fimplicit_3.svg)](examples/line_plot/fimplicit/fimplicit_3.cpp)
 
 === "C++"
 
@@ -1729,7 +1729,7 @@ fplot(fxy);
 
 ===! "Plot"
 
-    [![example_fimplicit_4](docs/examples/line_plot/fimplicit/fimplicit_4.svg)](examples/line_plot/fimplicit/fimplicit_4.cpp)
+[![example_fimplicit_4](docs/examples/line_plot/fimplicit/fimplicit_4.svg)](examples/line_plot/fimplicit/fimplicit_4.cpp)
 
 === "C++"
 
@@ -1766,7 +1766,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_1](docs/examples/data_distribution/histogram/histogram_1.png)](examples/data_distribution/histogram/histogram_1.cpp)
+[![example_histogram_1](docs/examples/data_distribution/histogram/histogram_1.png)](examples/data_distribution/histogram/histogram_1.cpp)
 
 === "C++"
 
@@ -1779,7 +1779,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_2](docs/examples/data_distribution/histogram/histogram_2.png)](examples/data_distribution/histogram/histogram_2.cpp)
+[![example_histogram_2](docs/examples/data_distribution/histogram/histogram_2.png)](examples/data_distribution/histogram/histogram_2.cpp)
 
 === "C++"
 
@@ -1789,7 +1789,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_3](docs/examples/data_distribution/histogram/histogram_3.png)](examples/data_distribution/histogram/histogram_3.cpp)
+[![example_histogram_3](docs/examples/data_distribution/histogram/histogram_3.png)](examples/data_distribution/histogram/histogram_3.cpp)
 
 === "C++"
 
@@ -1799,7 +1799,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_4](docs/examples/data_distribution/histogram/histogram_4.png)](examples/data_distribution/histogram/histogram_4.cpp)
+[![example_histogram_4](docs/examples/data_distribution/histogram/histogram_4.png)](examples/data_distribution/histogram/histogram_4.cpp)
 
 === "C++"
 
@@ -1809,7 +1809,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_5](docs/examples/data_distribution/histogram/histogram_5.png)](examples/data_distribution/histogram/histogram_5.cpp)
+[![example_histogram_5](docs/examples/data_distribution/histogram/histogram_5.png)](examples/data_distribution/histogram/histogram_5.cpp)
 
 === "C++"
 
@@ -1819,7 +1819,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_6](docs/examples/data_distribution/histogram/histogram_6.png)](examples/data_distribution/histogram/histogram_6.cpp)
+[![example_histogram_6](docs/examples/data_distribution/histogram/histogram_6.png)](examples/data_distribution/histogram/histogram_6.cpp)
 
 === "C++"
 
@@ -1829,7 +1829,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_7](docs/examples/data_distribution/histogram/histogram_7.svg)](examples/data_distribution/histogram/histogram_7.cpp)
+[![example_histogram_7](docs/examples/data_distribution/histogram/histogram_7.svg)](examples/data_distribution/histogram/histogram_7.cpp)
 
 === "C++"
 
@@ -1839,7 +1839,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_8](docs/examples/data_distribution/histogram/histogram_8.png)](examples/data_distribution/histogram/histogram_8.cpp)
+[![example_histogram_8](docs/examples/data_distribution/histogram/histogram_8.png)](examples/data_distribution/histogram/histogram_8.cpp)
 
 === "C++"
 
@@ -1849,7 +1849,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_9](docs/examples/data_distribution/histogram/histogram_9.png)](examples/data_distribution/histogram/histogram_9.cpp)
+[![example_histogram_9](docs/examples/data_distribution/histogram/histogram_9.png)](examples/data_distribution/histogram/histogram_9.cpp)
 
 === "C++"
 
@@ -1859,7 +1859,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_10](docs/examples/data_distribution/histogram/histogram_10.svg)](examples/data_distribution/histogram/histogram_10.cpp)
+[![example_histogram_10](docs/examples/data_distribution/histogram/histogram_10.svg)](examples/data_distribution/histogram/histogram_10.cpp)
 
 === "C++"
 
@@ -1869,7 +1869,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_11](docs/examples/data_distribution/histogram/histogram_11.svg)](examples/data_distribution/histogram/histogram_11.cpp)
+[![example_histogram_11](docs/examples/data_distribution/histogram/histogram_11.svg)](examples/data_distribution/histogram/histogram_11.cpp)
 
 === "C++"
 
@@ -1879,7 +1879,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_12](docs/examples/data_distribution/histogram/histogram_12.svg)](examples/data_distribution/histogram/histogram_12.cpp)
+[![example_histogram_12](docs/examples/data_distribution/histogram/histogram_12.svg)](examples/data_distribution/histogram/histogram_12.cpp)
 
 === "C++"
 
@@ -1889,7 +1889,7 @@ hist(data);
 
 ===! "Plot"
 
-    [![example_histogram_14](docs/examples/data_distribution/histogram/histogram_14.png)](examples/data_distribution/histogram/histogram_14.cpp)
+[![example_histogram_14](docs/examples/data_distribution/histogram/histogram_14.png)](examples/data_distribution/histogram/histogram_14.cpp)
 
 === "C++"
 
@@ -1917,7 +1917,7 @@ boxplot(data);
 
 ===! "Plot"
 
-    [![example_boxplot_1](docs/examples/data_distribution/boxplot/boxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
+[![example_boxplot_1](docs/examples/data_distribution/boxplot/boxplot_1.svg)](examples/data_distribution/boxplot/boxplot_1.cpp)
 
 === "C++"
 
@@ -1929,7 +1929,7 @@ boxplot(data);
 
 ===! "Plot"
 
-    [![example_boxplot_2](docs/examples/data_distribution/boxplot/boxplot_2.svg)](examples/data_distribution/boxplot/boxplot_2.cpp)
+[![example_boxplot_2](docs/examples/data_distribution/boxplot/boxplot_2.svg)](examples/data_distribution/boxplot/boxplot_2.cpp)
 
 === "C++"
 
@@ -1941,7 +1941,7 @@ boxplot(data);
 
 ===! "Plot"
 
-    [![example_boxplot_3](docs/examples/data_distribution/boxplot/boxplot_3.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
+[![example_boxplot_3](docs/examples/data_distribution/boxplot/boxplot_3.png)](examples/data_distribution/boxplot/boxplot_3.cpp)
 
 === "C++"
 
@@ -1971,7 +1971,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_1](docs/examples/data_distribution/scatter/scatter_1.svg)](examples/data_distribution/scatter/scatter_1.cpp)
+[![example_scatter_1](docs/examples/data_distribution/scatter/scatter_1.svg)](examples/data_distribution/scatter/scatter_1.cpp)
 
 === "C++"
 
@@ -1983,7 +1983,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_2](docs/examples/data_distribution/scatter/scatter_2.svg)](examples/data_distribution/scatter/scatter_2.cpp)
+[![example_scatter_2](docs/examples/data_distribution/scatter/scatter_2.svg)](examples/data_distribution/scatter/scatter_2.cpp)
 
 === "C++"
 
@@ -1995,7 +1995,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_3](docs/examples/data_distribution/scatter/scatter_3.svg)](examples/data_distribution/scatter/scatter_3.cpp)
+[![example_scatter_3](docs/examples/data_distribution/scatter/scatter_3.svg)](examples/data_distribution/scatter/scatter_3.cpp)
 
 === "C++"
 
@@ -2006,7 +2006,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_4](docs/examples/data_distribution/scatter/scatter_4.svg)](examples/data_distribution/scatter/scatter_4.cpp)
+[![example_scatter_4](docs/examples/data_distribution/scatter/scatter_4.svg)](examples/data_distribution/scatter/scatter_4.cpp)
 
 === "C++"
 
@@ -2018,7 +2018,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_5](docs/examples/data_distribution/scatter/scatter_5.svg)](examples/data_distribution/scatter/scatter_5.cpp)
+[![example_scatter_5](docs/examples/data_distribution/scatter/scatter_5.svg)](examples/data_distribution/scatter/scatter_5.cpp)
 
 === "C++"
 
@@ -2029,7 +2029,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_6](docs/examples/data_distribution/scatter/scatter_6.svg)](examples/data_distribution/scatter/scatter_6.cpp)
+[![example_scatter_6](docs/examples/data_distribution/scatter/scatter_6.svg)](examples/data_distribution/scatter/scatter_6.cpp)
 
 === "C++"
 
@@ -2041,7 +2041,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_7](docs/examples/data_distribution/scatter/scatter_7.svg)](examples/data_distribution/scatter/scatter_7.cpp)
+[![example_scatter_7](docs/examples/data_distribution/scatter/scatter_7.svg)](examples/data_distribution/scatter/scatter_7.cpp)
 
 === "C++"
 
@@ -2053,7 +2053,7 @@ scatter(x,y);
 
 ===! "Plot"
 
-    [![example_scatter_8](docs/examples/data_distribution/scatter/scatter_8.svg)](examples/data_distribution/scatter/scatter_8.cpp)
+[![example_scatter_8](docs/examples/data_distribution/scatter/scatter_8.svg)](examples/data_distribution/scatter/scatter_8.cpp)
 
 === "C++"
 
@@ -2085,7 +2085,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_1](docs/examples/data_distribution/scatter3/scatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
+[![example_scatter3_1](docs/examples/data_distribution/scatter3/scatter3_1.svg)](examples/data_distribution/scatter3/scatter3_1.cpp)
 
 === "C++"
 
@@ -2097,7 +2097,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_2](docs/examples/data_distribution/scatter3/scatter3_2.svg)](examples/data_distribution/scatter3/scatter3_2.cpp)
+[![example_scatter3_2](docs/examples/data_distribution/scatter3/scatter3_2.svg)](examples/data_distribution/scatter3/scatter3_2.cpp)
 
 === "C++"
 
@@ -2109,7 +2109,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_3](docs/examples/data_distribution/scatter3/scatter3_3.svg)](examples/data_distribution/scatter3/scatter3_3.cpp)
+[![example_scatter3_3](docs/examples/data_distribution/scatter3/scatter3_3.svg)](examples/data_distribution/scatter3/scatter3_3.cpp)
 
 === "C++"
 
@@ -2120,7 +2120,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_4](docs/examples/data_distribution/scatter3/scatter3_4.svg)](examples/data_distribution/scatter3/scatter3_4.cpp)
+[![example_scatter3_4](docs/examples/data_distribution/scatter3/scatter3_4.svg)](examples/data_distribution/scatter3/scatter3_4.cpp)
 
 === "C++"
 
@@ -2132,7 +2132,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_5](docs/examples/data_distribution/scatter3/scatter3_5.svg)](examples/data_distribution/scatter3/scatter3_5.cpp)
+[![example_scatter3_5](docs/examples/data_distribution/scatter3/scatter3_5.svg)](examples/data_distribution/scatter3/scatter3_5.cpp)
 
 === "C++"
 
@@ -2144,7 +2144,7 @@ scatter(x,y,z);
 
 ===! "Plot"
 
-    [![example_scatter3_6](docs/examples/data_distribution/scatter3/scatter3_6.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
+[![example_scatter3_6](docs/examples/data_distribution/scatter3/scatter3_6.png)](examples/data_distribution/scatter3/scatter3_6.cpp)
 
 === "C++"
 
@@ -2175,7 +2175,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_1](docs/examples/data_distribution/binscatter/binscatter_1.png)](examples/data_distribution/binscatter/binscatter_1.cpp)
+[![example_binscatter_1](docs/examples/data_distribution/binscatter/binscatter_1.png)](examples/data_distribution/binscatter/binscatter_1.cpp)
 
 === "C++"
 
@@ -2187,7 +2187,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_2](docs/examples/data_distribution/binscatter/binscatter_2.png)](examples/data_distribution/binscatter/binscatter_2.cpp)
+[![example_binscatter_2](docs/examples/data_distribution/binscatter/binscatter_2.png)](examples/data_distribution/binscatter/binscatter_2.cpp)
 
 === "C++"
 
@@ -2199,7 +2199,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_3](docs/examples/data_distribution/binscatter/binscatter_3.png)](examples/data_distribution/binscatter/binscatter_3.cpp)
+[![example_binscatter_3](docs/examples/data_distribution/binscatter/binscatter_3.png)](examples/data_distribution/binscatter/binscatter_3.cpp)
 
 === "C++"
 
@@ -2210,7 +2210,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_4](docs/examples/data_distribution/binscatter/binscatter_4.png)](examples/data_distribution/binscatter/binscatter_4.cpp)
+[![example_binscatter_4](docs/examples/data_distribution/binscatter/binscatter_4.png)](examples/data_distribution/binscatter/binscatter_4.cpp)
 
 === "C++"
 
@@ -2222,7 +2222,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_5](docs/examples/data_distribution/binscatter/binscatter_5.png)](examples/data_distribution/binscatter/binscatter_5.cpp)
+[![example_binscatter_5](docs/examples/data_distribution/binscatter/binscatter_5.png)](examples/data_distribution/binscatter/binscatter_5.cpp)
 
 === "C++"
 
@@ -2233,7 +2233,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_6](docs/examples/data_distribution/binscatter/binscatter_6.png)](examples/data_distribution/binscatter/binscatter_6.cpp)
+[![example_binscatter_6](docs/examples/data_distribution/binscatter/binscatter_6.png)](examples/data_distribution/binscatter/binscatter_6.cpp)
 
 === "C++"
 
@@ -2245,7 +2245,7 @@ binscatter(x,y);
 
 ===! "Plot"
 
-    [![example_binscatter_7](docs/examples/data_distribution/binscatter/binscatter_7.svg)](examples/data_distribution/binscatter/binscatter_7.cpp)
+[![example_binscatter_7](docs/examples/data_distribution/binscatter/binscatter_7.svg)](examples/data_distribution/binscatter/binscatter_7.cpp)
 
 === "C++"
 
@@ -2278,7 +2278,7 @@ plotmatrix(X);
 
 ===! "Plot"
 
-    [![example_plotmatrix_1](docs/examples/data_distribution/plotmatrix/plotmatrix_1.svg)](examples/data_distribution/plotmatrix/plotmatrix_1.cpp)
+[![example_plotmatrix_1](docs/examples/data_distribution/plotmatrix/plotmatrix_1.svg)](examples/data_distribution/plotmatrix/plotmatrix_1.cpp)
 
 === "C++"
 
@@ -2290,7 +2290,7 @@ plotmatrix(X);
 
 ===! "Plot"
 
-    [![example_plotmatrix_2](docs/examples/data_distribution/plotmatrix/plotmatrix_2.png)](examples/data_distribution/plotmatrix/plotmatrix_2.cpp)
+[![example_plotmatrix_2](docs/examples/data_distribution/plotmatrix/plotmatrix_2.png)](examples/data_distribution/plotmatrix/plotmatrix_2.cpp)
 
 === "C++"
 
@@ -2302,7 +2302,7 @@ plotmatrix(X);
 
 ===! "Plot"
 
-    [![example_plotmatrix_3](docs/examples/data_distribution/plotmatrix/plotmatrix_3.png)](examples/data_distribution/plotmatrix/plotmatrix_3.cpp)
+[![example_plotmatrix_3](docs/examples/data_distribution/plotmatrix/plotmatrix_3.png)](examples/data_distribution/plotmatrix/plotmatrix_3.cpp)
 
 === "C++"
 
@@ -2314,7 +2314,7 @@ plotmatrix(X);
 
 ===! "Plot"
 
-    [![example_plotmatrix_4](docs/examples/data_distribution/plotmatrix/plotmatrix_4.svg)](examples/data_distribution/plotmatrix/plotmatrix_4.cpp)
+[![example_plotmatrix_4](docs/examples/data_distribution/plotmatrix/plotmatrix_4.svg)](examples/data_distribution/plotmatrix/plotmatrix_4.cpp)
 
 === "C++"
 
@@ -2347,7 +2347,7 @@ parallelplot(X);
 
 ===! "Plot"
 
-    [![example_parallelplot_1](docs/examples/data_distribution/parallelplot/parallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
+[![example_parallelplot_1](docs/examples/data_distribution/parallelplot/parallelplot_1.svg)](examples/data_distribution/parallelplot/parallelplot_1.cpp)
 
 === "C++"
 
@@ -2359,7 +2359,7 @@ parallelplot(X);
 
 ===! "Plot"
 
-    [![example_parallelplot_2](docs/examples/data_distribution/parallelplot/parallelplot_2.svg)](examples/data_distribution/parallelplot/parallelplot_2.cpp)
+[![example_parallelplot_2](docs/examples/data_distribution/parallelplot/parallelplot_2.svg)](examples/data_distribution/parallelplot/parallelplot_2.cpp)
 
 === "C++"
 
@@ -2371,7 +2371,7 @@ parallelplot(X);
 
 ===! "Plot"
 
-    [![example_parallelplot_3](docs/examples/data_distribution/parallelplot/parallelplot_3.svg)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
+[![example_parallelplot_3](docs/examples/data_distribution/parallelplot/parallelplot_3.svg)](examples/data_distribution/parallelplot/parallelplot_3.cpp)
 
 === "C++"
 
@@ -2405,7 +2405,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_1](docs/examples/data_distribution/pie/pie_1.svg)](examples/data_distribution/pie/pie_1.cpp)
+[![example_pie_1](docs/examples/data_distribution/pie/pie_1.svg)](examples/data_distribution/pie/pie_1.cpp)
 
 === "C++"
 
@@ -2417,7 +2417,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_2](docs/examples/data_distribution/pie/pie_2.svg)](examples/data_distribution/pie/pie_2.cpp)
+[![example_pie_2](docs/examples/data_distribution/pie/pie_2.svg)](examples/data_distribution/pie/pie_2.cpp)
 
 === "C++"
 
@@ -2429,7 +2429,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_3](docs/examples/data_distribution/pie/pie_3.svg)](examples/data_distribution/pie/pie_3.cpp)
+[![example_pie_3](docs/examples/data_distribution/pie/pie_3.svg)](examples/data_distribution/pie/pie_3.cpp)
 
 === "C++"
 
@@ -2440,7 +2440,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_4](docs/examples/data_distribution/pie/pie_4.svg)](examples/data_distribution/pie/pie_4.cpp)
+[![example_pie_4](docs/examples/data_distribution/pie/pie_4.svg)](examples/data_distribution/pie/pie_4.cpp)
 
 === "C++"
 
@@ -2452,7 +2452,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_5](docs/examples/data_distribution/pie/pie_5.svg)](examples/data_distribution/pie/pie_5.cpp)
+[![example_pie_5](docs/examples/data_distribution/pie/pie_5.svg)](examples/data_distribution/pie/pie_5.cpp)
 
 === "C++"
 
@@ -2464,7 +2464,7 @@ pie(x);
 
 ===! "Plot"
 
-    [![example_pie_6](docs/examples/data_distribution/pie/pie_6.svg)](examples/data_distribution/pie/pie_6.cpp)
+[![example_pie_6](docs/examples/data_distribution/pie/pie_6.svg)](examples/data_distribution/pie/pie_6.cpp)
 
 === "C++"
 
@@ -2495,7 +2495,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_1](docs/examples/data_distribution/heatmap/heatmap_1.png)](examples/data_distribution/heatmap/heatmap_1.cpp)
+[![example_heatmap_1](docs/examples/data_distribution/heatmap/heatmap_1.png)](examples/data_distribution/heatmap/heatmap_1.cpp)
 
 === "C++"
 
@@ -2507,7 +2507,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_2](docs/examples/data_distribution/heatmap/heatmap_2.png)](examples/data_distribution/heatmap/heatmap_2.cpp)
+[![example_heatmap_2](docs/examples/data_distribution/heatmap/heatmap_2.png)](examples/data_distribution/heatmap/heatmap_2.cpp)
 
 === "C++"
 
@@ -2519,7 +2519,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_3](docs/examples/data_distribution/heatmap/heatmap_3.png)](examples/data_distribution/heatmap/heatmap_3.cpp)
+[![example_heatmap_3](docs/examples/data_distribution/heatmap/heatmap_3.png)](examples/data_distribution/heatmap/heatmap_3.cpp)
 
 === "C++"
 
@@ -2530,7 +2530,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_4](docs/examples/data_distribution/heatmap/heatmap_4.png)](examples/data_distribution/heatmap/heatmap_4.cpp)
+[![example_heatmap_4](docs/examples/data_distribution/heatmap/heatmap_4.png)](examples/data_distribution/heatmap/heatmap_4.cpp)
 
 === "C++"
 
@@ -2542,7 +2542,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_5](docs/examples/data_distribution/heatmap/heatmap_5.png)](examples/data_distribution/heatmap/heatmap_5.cpp)
+[![example_heatmap_5](docs/examples/data_distribution/heatmap/heatmap_5.png)](examples/data_distribution/heatmap/heatmap_5.cpp)
 
 === "C++"
 
@@ -2553,7 +2553,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_6](docs/examples/data_distribution/heatmap/heatmap_6.png)](examples/data_distribution/heatmap/heatmap_6.cpp)
+[![example_heatmap_6](docs/examples/data_distribution/heatmap/heatmap_6.png)](examples/data_distribution/heatmap/heatmap_6.cpp)
 
 === "C++"
 
@@ -2565,7 +2565,7 @@ heatmap(data);
 
 ===! "Plot"
 
-    [![example_heatmap_7](docs/examples/data_distribution/heatmap/heatmap_7.png)](examples/data_distribution/heatmap/heatmap_7.cpp)
+[![example_heatmap_7](docs/examples/data_distribution/heatmap/heatmap_7.png)](examples/data_distribution/heatmap/heatmap_7.cpp)
 
 === "C++"
 
@@ -2595,7 +2595,7 @@ wordcloud(text, black_list);
 
 ===! "Plot"
 
-    [![example_wordcloud_1](docs/examples/data_distribution/wordcloud/wordcloud_1.png)](examples/data_distribution/wordcloud/wordcloud_1.cpp)
+[![example_wordcloud_1](docs/examples/data_distribution/wordcloud/wordcloud_1.png)](examples/data_distribution/wordcloud/wordcloud_1.cpp)
 
 === "C++"
 
@@ -2607,7 +2607,7 @@ wordcloud(text, black_list);
 
 ===! "Plot"
 
-    [![example_wordcloud_3](docs/examples/data_distribution/wordcloud/wordcloud_3.png)](examples/data_distribution/wordcloud/wordcloud_3.cpp)
+[![example_wordcloud_3](docs/examples/data_distribution/wordcloud/wordcloud_3.png)](examples/data_distribution/wordcloud/wordcloud_3.cpp)
 
 === "C++"
 
@@ -2619,7 +2619,7 @@ wordcloud(text, black_list);
 
 ===! "Plot"
 
-    [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
+[![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
 
 === "C++"
 
@@ -2631,7 +2631,7 @@ wordcloud(text, black_list);
 
 ===! "Plot"
 
-    [![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
+[![example_wordcloud_4](docs/examples/data_distribution/wordcloud/wordcloud_4.png)](examples/data_distribution/wordcloud/wordcloud_4.cpp)
 
 === "C++"
 
@@ -2673,7 +2673,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_1](docs/examples/discrete_data/bar/bar_1.png)](examples/discrete_data/bar/bar_1.cpp)
+[![example_bar_1](docs/examples/discrete_data/bar/bar_1.png)](examples/discrete_data/bar/bar_1.cpp)
 
 === "C++"
 
@@ -2685,7 +2685,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_2](docs/examples/discrete_data/bar/bar_2.png)](examples/discrete_data/bar/bar_2.cpp)
+[![example_bar_2](docs/examples/discrete_data/bar/bar_2.png)](examples/discrete_data/bar/bar_2.cpp)
 
 === "C++"
 
@@ -2697,7 +2697,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_3](docs/examples/discrete_data/bar/bar_3.png)](examples/discrete_data/bar/bar_3.cpp)
+[![example_bar_3](docs/examples/discrete_data/bar/bar_3.png)](examples/discrete_data/bar/bar_3.cpp)
 
 === "C++"
 
@@ -2708,7 +2708,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_4](docs/examples/discrete_data/bar/bar_4.png)](examples/discrete_data/bar/bar_4.cpp)
+[![example_bar_4](docs/examples/discrete_data/bar/bar_4.png)](examples/discrete_data/bar/bar_4.cpp)
 
 === "C++"
 
@@ -2720,7 +2720,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_5](docs/examples/discrete_data/bar/bar_5.png)](examples/discrete_data/bar/bar_5.cpp)
+[![example_bar_5](docs/examples/discrete_data/bar/bar_5.png)](examples/discrete_data/bar/bar_5.cpp)
 
 === "C++"
 
@@ -2731,7 +2731,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_6](docs/examples/discrete_data/bar/bar_6.png)](examples/discrete_data/bar/bar_6.cpp)
+[![example_bar_6](docs/examples/discrete_data/bar/bar_6.png)](examples/discrete_data/bar/bar_6.cpp)
 
 === "C++"
 
@@ -2743,7 +2743,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_7](docs/examples/discrete_data/bar/bar_7.svg)](examples/discrete_data/bar/bar_7.cpp)
+[![example_bar_7](docs/examples/discrete_data/bar/bar_7.svg)](examples/discrete_data/bar/bar_7.cpp)
 
 === "C++"
 
@@ -2754,7 +2754,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_8](docs/examples/discrete_data/bar/bar_8.png)](examples/discrete_data/bar/bar_8.cpp)
+[![example_bar_8](docs/examples/discrete_data/bar/bar_8.png)](examples/discrete_data/bar/bar_8.cpp)
 
 === "C++"
 
@@ -2766,7 +2766,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_9](docs/examples/discrete_data/bar/bar_9.png)](examples/discrete_data/bar/bar_9.cpp)
+[![example_bar_9](docs/examples/discrete_data/bar/bar_9.png)](examples/discrete_data/bar/bar_9.cpp)
 
 === "C++"
 
@@ -2777,7 +2777,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_10](docs/examples/discrete_data/bar/bar_10.png)](examples/discrete_data/bar/bar_10.cpp)
+[![example_bar_10](docs/examples/discrete_data/bar/bar_10.png)](examples/discrete_data/bar/bar_10.cpp)
 
 === "C++"
 
@@ -2789,7 +2789,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_11](docs/examples/discrete_data/bar/bar_11.png)](examples/discrete_data/bar/bar_11.cpp)
+[![example_bar_11](docs/examples/discrete_data/bar/bar_11.png)](examples/discrete_data/bar/bar_11.cpp)
 
 === "C++"
 
@@ -2800,7 +2800,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_12](docs/examples/discrete_data/bar/bar_12.png)](examples/discrete_data/bar/bar_12.cpp)
+[![example_bar_12](docs/examples/discrete_data/bar/bar_12.png)](examples/discrete_data/bar/bar_12.cpp)
 
 === "C++"
 
@@ -2812,7 +2812,7 @@ bar(y);
 
 ===! "Plot"
 
-    [![example_bar_13](docs/examples/discrete_data/bar/bar_13.png)](examples/discrete_data/bar/bar_13.cpp)
+[![example_bar_13](docs/examples/discrete_data/bar/bar_13.png)](examples/discrete_data/bar/bar_13.cpp)
 
 === "C++"
 
@@ -2842,7 +2842,7 @@ pareto(y);
 
 ===! "Plot"
 
-    [![example_pareto_1](docs/examples/discrete_data/pareto/pareto_1.svg)](examples/discrete_data/pareto/pareto_1.cpp)
+[![example_pareto_1](docs/examples/discrete_data/pareto/pareto_1.svg)](examples/discrete_data/pareto/pareto_1.cpp)
 
 === "C++"
 
@@ -2854,7 +2854,7 @@ pareto(y);
 
 ===! "Plot"
 
-    [![example_pareto_2](docs/examples/discrete_data/pareto/pareto_2.svg)](examples/discrete_data/pareto/pareto_2.cpp)
+[![example_pareto_2](docs/examples/discrete_data/pareto/pareto_2.svg)](examples/discrete_data/pareto/pareto_2.cpp)
 
 === "C++"
 
@@ -2866,7 +2866,7 @@ pareto(y);
 
 ===! "Plot"
 
-    [![example_pareto_3](docs/examples/discrete_data/pareto/pareto_3.svg)](examples/discrete_data/pareto/pareto_3.cpp)
+[![example_pareto_3](docs/examples/discrete_data/pareto/pareto_3.svg)](examples/discrete_data/pareto/pareto_3.cpp)
 
 === "C++"
 
@@ -2878,7 +2878,7 @@ pareto(y);
 
 ===! "Plot"
 
-    [![example_pareto_4](docs/examples/discrete_data/pareto/pareto_4.svg)](examples/discrete_data/pareto/pareto_4.cpp)
+[![example_pareto_4](docs/examples/discrete_data/pareto/pareto_4.svg)](examples/discrete_data/pareto/pareto_4.cpp)
 
 === "C++"
 
@@ -2913,7 +2913,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_1](docs/examples/discrete_data/stem/stem_1.svg)](examples/discrete_data/stem/stem_1.cpp)
+[![example_stem_1](docs/examples/discrete_data/stem/stem_1.svg)](examples/discrete_data/stem/stem_1.cpp)
 
 === "C++"
 
@@ -2925,7 +2925,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_2](docs/examples/discrete_data/stem/stem_2.svg)](examples/discrete_data/stem/stem_2.cpp)
+[![example_stem_2](docs/examples/discrete_data/stem/stem_2.svg)](examples/discrete_data/stem/stem_2.cpp)
 
 === "C++"
 
@@ -2937,7 +2937,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_3](docs/examples/discrete_data/stem/stem_3.svg)](examples/discrete_data/stem/stem_3.cpp)
+[![example_stem_3](docs/examples/discrete_data/stem/stem_3.svg)](examples/discrete_data/stem/stem_3.cpp)
 
 === "C++"
 
@@ -2948,7 +2948,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_4](docs/examples/discrete_data/stem/stem_4.svg)](examples/discrete_data/stem/stem_4.cpp)
+[![example_stem_4](docs/examples/discrete_data/stem/stem_4.svg)](examples/discrete_data/stem/stem_4.cpp)
 
 === "C++"
 
@@ -2960,7 +2960,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_5](docs/examples/discrete_data/stem/stem_5.svg)](examples/discrete_data/stem/stem_5.cpp)
+[![example_stem_5](docs/examples/discrete_data/stem/stem_5.svg)](examples/discrete_data/stem/stem_5.cpp)
 
 === "C++"
 
@@ -2971,7 +2971,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_6](docs/examples/discrete_data/stem/stem_6.svg)](examples/discrete_data/stem/stem_6.cpp)
+[![example_stem_6](docs/examples/discrete_data/stem/stem_6.svg)](examples/discrete_data/stem/stem_6.cpp)
 
 === "C++"
 
@@ -2983,7 +2983,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_7](docs/examples/discrete_data/stem/stem_7.svg)](examples/discrete_data/stem/stem_7.cpp)
+[![example_stem_7](docs/examples/discrete_data/stem/stem_7.svg)](examples/discrete_data/stem/stem_7.cpp)
 
 === "C++"
 
@@ -2994,7 +2994,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_8](docs/examples/discrete_data/stem/stem_8.svg)](examples/discrete_data/stem/stem_8.cpp)
+[![example_stem_8](docs/examples/discrete_data/stem/stem_8.svg)](examples/discrete_data/stem/stem_8.cpp)
 
 === "C++"
 
@@ -3006,7 +3006,7 @@ stem(Y);
 
 ===! "Plot"
 
-    [![example_stem_9](docs/examples/discrete_data/stem/stem_9.svg)](examples/discrete_data/stem/stem_9.cpp)
+[![example_stem_9](docs/examples/discrete_data/stem/stem_9.svg)](examples/discrete_data/stem/stem_9.cpp)
 
 === "C++"
 
@@ -3037,7 +3037,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_1](docs/examples/discrete_data/stem3/stem3_1.svg)](examples/discrete_data/stem3/stem3_1.cpp)
+[![example_stem3_1](docs/examples/discrete_data/stem3/stem3_1.svg)](examples/discrete_data/stem3/stem3_1.cpp)
 
 === "C++"
 
@@ -3049,7 +3049,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_2](docs/examples/discrete_data/stem3/stem3_2.svg)](examples/discrete_data/stem3/stem3_2.cpp)
+[![example_stem3_2](docs/examples/discrete_data/stem3/stem3_2.svg)](examples/discrete_data/stem3/stem3_2.cpp)
 
 === "C++"
 
@@ -3061,7 +3061,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_3](docs/examples/discrete_data/stem3/stem3_3.svg)](examples/discrete_data/stem3/stem3_3.cpp)
+[![example_stem3_3](docs/examples/discrete_data/stem3/stem3_3.svg)](examples/discrete_data/stem3/stem3_3.cpp)
 
 === "C++"
 
@@ -3072,7 +3072,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_4](docs/examples/discrete_data/stem3/stem3_4.svg)](examples/discrete_data/stem3/stem3_4.cpp)
+[![example_stem3_4](docs/examples/discrete_data/stem3/stem3_4.svg)](examples/discrete_data/stem3/stem3_4.cpp)
 
 === "C++"
 
@@ -3084,7 +3084,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_5](docs/examples/discrete_data/stem3/stem3_5.svg)](examples/discrete_data/stem3/stem3_5.cpp)
+[![example_stem3_5](docs/examples/discrete_data/stem3/stem3_5.svg)](examples/discrete_data/stem3/stem3_5.cpp)
 
 === "C++"
 
@@ -3095,7 +3095,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_6](docs/examples/discrete_data/stem3/stem3_6.svg)](examples/discrete_data/stem3/stem3_6.cpp)
+[![example_stem3_6](docs/examples/discrete_data/stem3/stem3_6.svg)](examples/discrete_data/stem3/stem3_6.cpp)
 
 === "C++"
 
@@ -3107,7 +3107,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_7](docs/examples/discrete_data/stem3/stem3_7.svg)](examples/discrete_data/stem3/stem3_7.cpp)
+[![example_stem3_7](docs/examples/discrete_data/stem3/stem3_7.svg)](examples/discrete_data/stem3/stem3_7.cpp)
 
 === "C++"
 
@@ -3118,7 +3118,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_8](docs/examples/discrete_data/stem3/stem3_8.svg)](examples/discrete_data/stem3/stem3_8.cpp)
+[![example_stem3_8](docs/examples/discrete_data/stem3/stem3_8.svg)](examples/discrete_data/stem3/stem3_8.cpp)
 
 === "C++"
 
@@ -3130,7 +3130,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_9](docs/examples/discrete_data/stem3/stem3_9.svg)](examples/discrete_data/stem3/stem3_9.cpp)
+[![example_stem3_9](docs/examples/discrete_data/stem3/stem3_9.svg)](examples/discrete_data/stem3/stem3_9.cpp)
 
 === "C++"
 
@@ -3141,7 +3141,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_10](docs/examples/discrete_data/stem3/stem3_10.svg)](examples/discrete_data/stem3/stem3_10.cpp)
+[![example_stem3_10](docs/examples/discrete_data/stem3/stem3_10.svg)](examples/discrete_data/stem3/stem3_10.cpp)
 
 === "C++"
 
@@ -3153,7 +3153,7 @@ stem3(z);
 
 ===! "Plot"
 
-    [![example_stem3_11](docs/examples/discrete_data/stem3/stem3_11.svg)](examples/discrete_data/stem3/stem3_11.cpp)
+[![example_stem3_11](docs/examples/discrete_data/stem3/stem3_11.svg)](examples/discrete_data/stem3/stem3_11.cpp)
 
 === "C++"
 
@@ -3190,7 +3190,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_1](docs/examples/geography/geoplot/geoplot_1.png)](examples/geography/geoplot/geoplot_1.cpp)
+[![example_geoplot_1](docs/examples/geography/geoplot/geoplot_1.png)](examples/geography/geoplot/geoplot_1.cpp)
 
 === "C++"
 
@@ -3203,7 +3203,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_2](docs/examples/geography/geoplot/geoplot_2.png)](examples/geography/geoplot/geoplot_2.cpp)
+[![example_geoplot_2](docs/examples/geography/geoplot/geoplot_2.png)](examples/geography/geoplot/geoplot_2.cpp)
 
 === "C++"
 
@@ -3215,7 +3215,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_3](docs/examples/geography/geoplot/geoplot_3.png)](examples/geography/geoplot/geoplot_3.cpp)
+[![example_geoplot_3](docs/examples/geography/geoplot/geoplot_3.png)](examples/geography/geoplot/geoplot_3.cpp)
 
 === "C++"
 
@@ -3226,7 +3226,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_4](docs/examples/geography/geoplot/geoplot_4.png)](examples/geography/geoplot/geoplot_4.cpp)
+[![example_geoplot_4](docs/examples/geography/geoplot/geoplot_4.png)](examples/geography/geoplot/geoplot_4.cpp)
 
 === "C++"
 
@@ -3238,7 +3238,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_5](docs/examples/geography/geoplot/geoplot_5.png)](examples/geography/geoplot/geoplot_5.cpp)
+[![example_geoplot_5](docs/examples/geography/geoplot/geoplot_5.png)](examples/geography/geoplot/geoplot_5.cpp)
 
 === "C++"
 
@@ -3249,7 +3249,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_6](docs/examples/geography/geoplot/geoplot_6.png)](examples/geography/geoplot/geoplot_6.cpp)
+[![example_geoplot_6](docs/examples/geography/geoplot/geoplot_6.png)](examples/geography/geoplot/geoplot_6.cpp)
 
 === "C++"
 
@@ -3261,7 +3261,7 @@ geoplot(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoplot_7](docs/examples/geography/geoplot/geoplot_7.png)](examples/geography/geoplot/geoplot_7.cpp)
+[![example_geoplot_7](docs/examples/geography/geoplot/geoplot_7.png)](examples/geography/geoplot/geoplot_7.cpp)
 
 === "C++"
 
@@ -3305,7 +3305,7 @@ geoscatter(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoscatter_1](docs/examples/geography/geoscatter/geoscatter_1.png)](examples/geography/geoscatter/geoscatter_1.cpp)
+[![example_geoscatter_1](docs/examples/geography/geoscatter/geoscatter_1.png)](examples/geography/geoscatter/geoscatter_1.cpp)
 
 === "C++"
 
@@ -3318,7 +3318,7 @@ geoscatter(lat,lon);
 
 ===! "Plot"
 
-    [![example_geoscatter_2](docs/examples/geography/geoscatter/geoscatter_2.png)](examples/geography/geoscatter/geoscatter_2.cpp)
+[![example_geoscatter_2](docs/examples/geography/geoscatter/geoscatter_2.png)](examples/geography/geoscatter/geoscatter_2.cpp)
 
 === "C++"
 
@@ -3348,7 +3348,7 @@ geobubble(lat,lon,sizes);
 
 ===! "Plot"
 
-    [![example_geobubble_1](docs/examples/geography/geobubble/geobubble_1.png)](examples/geography/geobubble/geobubble_1.cpp)
+[![example_geobubble_1](docs/examples/geography/geobubble/geobubble_1.png)](examples/geography/geobubble/geobubble_1.cpp)
 
 === "C++"
 
@@ -3361,7 +3361,7 @@ geobubble(lat,lon,sizes);
 
 ===! "Plot"
 
-    [![example_geobubble_2](docs/examples/geography/geobubble/geobubble_2.png)](examples/geography/geobubble/geobubble_2.cpp)
+[![example_geobubble_2](docs/examples/geography/geobubble/geobubble_2.png)](examples/geography/geobubble/geobubble_2.cpp)
 
 === "C++"
 
@@ -3387,7 +3387,7 @@ geodensityplot(lat, lon);
 
 === "Plot"
 
-    [![example_geodensityplot_1](docs/examples/geography/geodensityplot/geodensityplot_1.png)](examples/geography/geodensityplot/geodensityplot_1.cpp)
+[![example_geodensityplot_1](docs/examples/geography/geodensityplot/geodensityplot_1.png)](examples/geography/geodensityplot/geodensityplot_1.cpp)
 
 === "C++"
 
@@ -3421,7 +3421,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_1](docs/examples/polar_plots/polarplot/polarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
+[![example_polarplot_1](docs/examples/polar_plots/polarplot/polarplot_1.svg)](examples/polar_plots/polarplot/polarplot_1.cpp)
 
 === "C++"
 
@@ -3434,7 +3434,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_2](docs/examples/polar_plots/polarplot/polarplot_2.svg)](examples/polar_plots/polarplot/polarplot_2.cpp)
+[![example_polarplot_2](docs/examples/polar_plots/polarplot/polarplot_2.svg)](examples/polar_plots/polarplot/polarplot_2.cpp)
 
 === "C++"
 
@@ -3446,7 +3446,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_3](docs/examples/polar_plots/polarplot/polarplot_3.svg)](examples/polar_plots/polarplot/polarplot_3.cpp)
+[![example_polarplot_3](docs/examples/polar_plots/polarplot/polarplot_3.svg)](examples/polar_plots/polarplot/polarplot_3.cpp)
 
 === "C++"
 
@@ -3457,7 +3457,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_4](docs/examples/polar_plots/polarplot/polarplot_4.svg)](examples/polar_plots/polarplot/polarplot_4.cpp)
+[![example_polarplot_4](docs/examples/polar_plots/polarplot/polarplot_4.svg)](examples/polar_plots/polarplot/polarplot_4.cpp)
 
 === "C++"
 
@@ -3469,7 +3469,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_5](docs/examples/polar_plots/polarplot/polarplot_5.svg)](examples/polar_plots/polarplot/polarplot_5.cpp)
+[![example_polarplot_5](docs/examples/polar_plots/polarplot/polarplot_5.svg)](examples/polar_plots/polarplot/polarplot_5.cpp)
 
 === "C++"
 
@@ -3480,7 +3480,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_6](docs/examples/polar_plots/polarplot/polarplot_6.svg)](examples/polar_plots/polarplot/polarplot_6.cpp)
+[![example_polarplot_6](docs/examples/polar_plots/polarplot/polarplot_6.svg)](examples/polar_plots/polarplot/polarplot_6.cpp)
 
 === "C++"
 
@@ -3492,7 +3492,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_7](docs/examples/polar_plots/polarplot/polarplot_7.svg)](examples/polar_plots/polarplot/polarplot_7.cpp)
+[![example_polarplot_7](docs/examples/polar_plots/polarplot/polarplot_7.svg)](examples/polar_plots/polarplot/polarplot_7.cpp)
 
 === "C++"
 
@@ -3504,7 +3504,7 @@ polarplot(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarplot_8](docs/examples/polar_plots/polarplot/polarplot_8.svg)](examples/polar_plots/polarplot/polarplot_8.cpp)
+[![example_polarplot_8](docs/examples/polar_plots/polarplot/polarplot_8.svg)](examples/polar_plots/polarplot/polarplot_8.cpp)
 
 === "C++"
 
@@ -3540,7 +3540,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_1](docs/examples/polar_plots/polarscatter/polarscatter_1.svg)](examples/polar_plots/polarscatter/polarscatter_1.cpp)
+[![example_polarscatter_1](docs/examples/polar_plots/polarscatter/polarscatter_1.svg)](examples/polar_plots/polarscatter/polarscatter_1.cpp)
 
 === "C++"
 
@@ -3552,7 +3552,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_2](docs/examples/polar_plots/polarscatter/polarscatter_2.svg)](examples/polar_plots/polarscatter/polarscatter_2.cpp)
+[![example_polarscatter_2](docs/examples/polar_plots/polarscatter/polarscatter_2.svg)](examples/polar_plots/polarscatter/polarscatter_2.cpp)
 
 === "C++"
 
@@ -3564,7 +3564,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_3](docs/examples/polar_plots/polarscatter/polarscatter_3.svg)](examples/polar_plots/polarscatter/polarscatter_3.cpp)
+[![example_polarscatter_3](docs/examples/polar_plots/polarscatter/polarscatter_3.svg)](examples/polar_plots/polarscatter/polarscatter_3.cpp)
 
 === "C++"
 
@@ -3575,7 +3575,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_4](docs/examples/polar_plots/polarscatter/polarscatter_4.svg)](examples/polar_plots/polarscatter/polarscatter_4.cpp)
+[![example_polarscatter_4](docs/examples/polar_plots/polarscatter/polarscatter_4.svg)](examples/polar_plots/polarscatter/polarscatter_4.cpp)
 
 === "C++"
 
@@ -3587,7 +3587,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_5](docs/examples/polar_plots/polarscatter/polarscatter_5.svg)](examples/polar_plots/polarscatter/polarscatter_5.cpp)
+[![example_polarscatter_5](docs/examples/polar_plots/polarscatter/polarscatter_5.svg)](examples/polar_plots/polarscatter/polarscatter_5.cpp)
 
 === "C++"
 
@@ -3599,7 +3599,7 @@ polarscatter(theta, rho);
 
 ===! "Plot"
 
-    [![example_polarscatter_6](docs/examples/polar_plots/polarscatter/polarscatter_6.svg)](examples/polar_plots/polarscatter/polarscatter_6.cpp)
+[![example_polarscatter_6](docs/examples/polar_plots/polarscatter/polarscatter_6.svg)](examples/polar_plots/polarscatter/polarscatter_6.cpp)
 
 === "C++"
 
@@ -3630,7 +3630,7 @@ polarhistogram(theta, 6);
 
 ===! "Plot"
 
-    [![example_polarhistogram_1](docs/examples/polar_plots/polarhistogram/polarhistogram_1.svg)](examples/polar_plots/polarhistogram/polarhistogram_1.cpp)
+[![example_polarhistogram_1](docs/examples/polar_plots/polarhistogram/polarhistogram_1.svg)](examples/polar_plots/polarhistogram/polarhistogram_1.cpp)
 
 === "C++"
 
@@ -3643,7 +3643,7 @@ polarhistogram(theta, 6);
 
 ===! "Plot"
 
-    [![example_polarhistogram_2](docs/examples/polar_plots/polarhistogram/polarhistogram_2.svg)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)
+[![example_polarhistogram_2](docs/examples/polar_plots/polarhistogram/polarhistogram_2.svg)](examples/polar_plots/polarhistogram/polarhistogram_2.cpp)
 
 === "C++"
 
@@ -3655,7 +3655,7 @@ polarhistogram(theta, 6);
 
 ===! "Plot"
 
-    [![example_polarhistogram_3](docs/examples/polar_plots/polarhistogram/polarhistogram_3.svg)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)
+[![example_polarhistogram_3](docs/examples/polar_plots/polarhistogram/polarhistogram_3.svg)](examples/polar_plots/polarhistogram/polarhistogram_3.cpp)
 
 === "C++"
 
@@ -3666,7 +3666,7 @@ polarhistogram(theta, 6);
 
 ===! "Plot"
 
-    [![example_polarhistogram_4](docs/examples/polar_plots/polarhistogram/polarhistogram_4.svg)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)
+[![example_polarhistogram_4](docs/examples/polar_plots/polarhistogram/polarhistogram_4.svg)](examples/polar_plots/polarhistogram/polarhistogram_4.cpp)
 
 === "C++"
 
@@ -3678,7 +3678,7 @@ polarhistogram(theta, 6);
 
 ===! "Plot"
 
-    [![example_polarhistogram_5](docs/examples/polar_plots/polarhistogram/polarhistogram_5.svg)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)
+[![example_polarhistogram_5](docs/examples/polar_plots/polarhistogram/polarhistogram_5.svg)](examples/polar_plots/polarhistogram/polarhistogram_5.cpp)
 
 === "C++"
 
@@ -3712,7 +3712,7 @@ compass(u, v);
 
 ===! "Plot"
 
-    [![example_compass_1](docs/examples/polar_plots/compass/compass_1.svg)](examples/polar_plots/compass/compass_1.cpp)
+[![example_compass_1](docs/examples/polar_plots/compass/compass_1.svg)](examples/polar_plots/compass/compass_1.cpp)
 
 === "C++"
 
@@ -3725,7 +3725,7 @@ compass(u, v);
 
 ===! "Plot"
 
-    [![example_compass_2](docs/examples/polar_plots/compass/compass_2.svg)](examples/polar_plots/compass/compass_2.cpp)
+[![example_compass_2](docs/examples/polar_plots/compass/compass_2.svg)](examples/polar_plots/compass/compass_2.cpp)
 
 === "C++"
 
@@ -3757,7 +3757,7 @@ ezpolar(fn);
 
 ===! "Plot"
 
-    [![example_ezpolar_1](docs/examples/polar_plots/ezpolar/ezpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
+[![example_ezpolar_1](docs/examples/polar_plots/ezpolar/ezpolar_1.svg)](examples/polar_plots/ezpolar/ezpolar_1.cpp)
 
 === "C++"
 
@@ -3770,7 +3770,7 @@ ezpolar(fn);
 
 ===! "Plot"
 
-    [![example_ezpolar_2](docs/examples/polar_plots/ezpolar/ezpolar_2.svg)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
+[![example_ezpolar_2](docs/examples/polar_plots/ezpolar/ezpolar_2.svg)](examples/polar_plots/ezpolar/ezpolar_2.cpp)
 
 === "C++"
 
@@ -3805,7 +3805,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_1](docs/examples/contour_plots/contour/contour_1.svg)](examples/contour_plots/contour/contour_1.cpp)
+[![example_contour_1](docs/examples/contour_plots/contour/contour_1.svg)](examples/contour_plots/contour/contour_1.cpp)
 
 === "C++"
 
@@ -3818,7 +3818,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_2](docs/examples/contour_plots/contour/contour_2.svg)](examples/contour_plots/contour/contour_2.cpp)
+[![example_contour_2](docs/examples/contour_plots/contour/contour_2.svg)](examples/contour_plots/contour/contour_2.cpp)
 
 === "C++"
 
@@ -3830,7 +3830,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_3](docs/examples/contour_plots/contour/contour_3.svg)](examples/contour_plots/contour/contour_3.cpp)
+[![example_contour_3](docs/examples/contour_plots/contour/contour_3.svg)](examples/contour_plots/contour/contour_3.cpp)
 
 === "C++"
 
@@ -3841,7 +3841,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_4](docs/examples/contour_plots/contour/contour_4.svg)](examples/contour_plots/contour/contour_4.cpp)
+[![example_contour_4](docs/examples/contour_plots/contour/contour_4.svg)](examples/contour_plots/contour/contour_4.cpp)
 
 === "C++"
 
@@ -3853,7 +3853,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_5](docs/examples/contour_plots/contour/contour_5.svg)](examples/contour_plots/contour/contour_5.cpp)
+[![example_contour_5](docs/examples/contour_plots/contour/contour_5.svg)](examples/contour_plots/contour/contour_5.cpp)
 
 === "C++"
 
@@ -3864,7 +3864,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_6](docs/examples/contour_plots/contour/contour_6.svg)](examples/contour_plots/contour/contour_6.cpp)
+[![example_contour_6](docs/examples/contour_plots/contour/contour_6.svg)](examples/contour_plots/contour/contour_6.cpp)
 
 === "C++"
 
@@ -3876,7 +3876,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_7](docs/examples/contour_plots/contour/contour_7.svg)](examples/contour_plots/contour/contour_7.cpp)
+[![example_contour_7](docs/examples/contour_plots/contour/contour_7.svg)](examples/contour_plots/contour/contour_7.cpp)
 
 === "C++"
 
@@ -3888,7 +3888,7 @@ contour(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contour_8](docs/examples/contour_plots/contour/contour_8.svg)](examples/contour_plots/contour/contour_8.cpp)
+[![example_contour_8](docs/examples/contour_plots/contour/contour_8.svg)](examples/contour_plots/contour/contour_8.cpp)
 
 === "C++"
 
@@ -3929,7 +3929,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_1](docs/examples/contour_plots/contourf/contourf_1.svg)](examples/contour_plots/contourf/contourf_1.cpp)
+[![example_contourf_1](docs/examples/contour_plots/contourf/contourf_1.svg)](examples/contour_plots/contourf/contourf_1.cpp)
 
 === "C++"
 
@@ -3941,7 +3941,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_2](docs/examples/contour_plots/contourf/contourf_2.png)](examples/contour_plots/contourf/contourf_2.cpp)
+[![example_contourf_2](docs/examples/contour_plots/contourf/contourf_2.png)](examples/contour_plots/contourf/contourf_2.cpp)
 
 === "C++"
 
@@ -3953,7 +3953,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_3](docs/examples/contour_plots/contourf/contourf_3.png)](examples/contour_plots/contourf/contourf_3.cpp)
+[![example_contourf_3](docs/examples/contour_plots/contourf/contourf_3.png)](examples/contour_plots/contourf/contourf_3.cpp)
 
 === "C++"
 
@@ -3964,7 +3964,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_4](docs/examples/contour_plots/contourf/contourf_4.png)](examples/contour_plots/contourf/contourf_4.cpp)
+[![example_contourf_4](docs/examples/contour_plots/contourf/contourf_4.png)](examples/contour_plots/contourf/contourf_4.cpp)
 
 === "C++"
 
@@ -3976,7 +3976,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_5](docs/examples/contour_plots/contourf/contourf_5.png)](examples/contour_plots/contourf/contourf_5.cpp)
+[![example_contourf_5](docs/examples/contour_plots/contourf/contourf_5.png)](examples/contour_plots/contourf/contourf_5.cpp)
 
 === "C++"
 
@@ -3988,7 +3988,7 @@ contourf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_contourf_6](docs/examples/contour_plots/contourf/contourf_6.svg)](examples/contour_plots/contourf/contourf_6.cpp)
+[![example_contourf_6](docs/examples/contour_plots/contourf/contourf_6.svg)](examples/contour_plots/contourf/contourf_6.cpp)
 
 === "C++"
 
@@ -4019,7 +4019,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_1](docs/examples/contour_plots/fcontour/fcontour_1.svg)](examples/contour_plots/fcontour/fcontour_1.cpp)
+[![example_fcontour_1](docs/examples/contour_plots/fcontour/fcontour_1.svg)](examples/contour_plots/fcontour/fcontour_1.cpp)
 
 === "C++"
 
@@ -4032,7 +4032,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_2](docs/examples/contour_plots/fcontour/fcontour_2.svg)](examples/contour_plots/fcontour/fcontour_2.cpp)
+[![example_fcontour_2](docs/examples/contour_plots/fcontour/fcontour_2.svg)](examples/contour_plots/fcontour/fcontour_2.cpp)
 
 === "C++"
 
@@ -4044,7 +4044,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_3](docs/examples/contour_plots/fcontour/fcontour_3.svg)](examples/contour_plots/fcontour/fcontour_3.cpp)
+[![example_fcontour_3](docs/examples/contour_plots/fcontour/fcontour_3.svg)](examples/contour_plots/fcontour/fcontour_3.cpp)
 
 === "C++"
 
@@ -4055,7 +4055,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_4](docs/examples/contour_plots/fcontour/fcontour_4.svg)](examples/contour_plots/fcontour/fcontour_4.cpp)
+[![example_fcontour_4](docs/examples/contour_plots/fcontour/fcontour_4.svg)](examples/contour_plots/fcontour/fcontour_4.cpp)
 
 === "C++"
 
@@ -4067,7 +4067,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_5](docs/examples/contour_plots/fcontour/fcontour_5.svg)](examples/contour_plots/fcontour/fcontour_5.cpp)
+[![example_fcontour_5](docs/examples/contour_plots/fcontour/fcontour_5.svg)](examples/contour_plots/fcontour/fcontour_5.cpp)
 
 === "C++"
 
@@ -4078,7 +4078,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_6](docs/examples/contour_plots/fcontour/fcontour_6.png)](examples/contour_plots/fcontour/fcontour_6.cpp)
+[![example_fcontour_6](docs/examples/contour_plots/fcontour/fcontour_6.png)](examples/contour_plots/fcontour/fcontour_6.cpp)
 
 === "C++"
 
@@ -4090,7 +4090,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_7](docs/examples/contour_plots/fcontour/fcontour_7.png)](examples/contour_plots/fcontour/fcontour_7.cpp)
+[![example_fcontour_7](docs/examples/contour_plots/fcontour/fcontour_7.png)](examples/contour_plots/fcontour/fcontour_7.cpp)
 
 === "C++"
 
@@ -4101,7 +4101,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_8](docs/examples/contour_plots/fcontour/fcontour_8.svg)](examples/contour_plots/fcontour/fcontour_8.cpp)
+[![example_fcontour_8](docs/examples/contour_plots/fcontour/fcontour_8.svg)](examples/contour_plots/fcontour/fcontour_8.cpp)
 
 === "C++"
 
@@ -4113,7 +4113,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_9](docs/examples/contour_plots/fcontour/fcontour_9.png)](examples/contour_plots/fcontour/fcontour_9.cpp)
+[![example_fcontour_9](docs/examples/contour_plots/fcontour/fcontour_9.png)](examples/contour_plots/fcontour/fcontour_9.cpp)
 
 === "C++"
 
@@ -4124,7 +4124,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_10](docs/examples/contour_plots/fcontour/fcontour_10.png)](examples/contour_plots/fcontour/fcontour_10.cpp)
+[![example_fcontour_10](docs/examples/contour_plots/fcontour/fcontour_10.png)](examples/contour_plots/fcontour/fcontour_10.cpp)
 
 === "C++"
 
@@ -4136,7 +4136,7 @@ fcontour(f);
 
 ===! "Plot"
 
-    [![example_fcontour_11](docs/examples/contour_plots/fcontour/fcontour_11.png)](examples/contour_plots/fcontour/fcontour_11.cpp)
+[![example_fcontour_11](docs/examples/contour_plots/fcontour/fcontour_11.png)](examples/contour_plots/fcontour/fcontour_11.cpp)
 
 === "C++"
 
@@ -4175,7 +4175,7 @@ quiver(x, y, u, v);
 
 ===! "Plot"
 
-    [![example_quiver_1](docs/examples/vector_fields/quiver/quiver_1.svg)](examples/vector_fields/quiver/quiver_1.cpp)
+[![example_quiver_1](docs/examples/vector_fields/quiver/quiver_1.svg)](examples/vector_fields/quiver/quiver_1.cpp)
 
 === "C++"
 
@@ -4188,7 +4188,7 @@ quiver(x, y, u, v);
 
 ===! "Plot"
 
-    [![example_quiver_2](docs/examples/vector_fields/quiver/quiver_2.svg)](examples/vector_fields/quiver/quiver_2.cpp)
+[![example_quiver_2](docs/examples/vector_fields/quiver/quiver_2.svg)](examples/vector_fields/quiver/quiver_2.cpp)
 
 === "C++"
 
@@ -4200,7 +4200,7 @@ quiver(x, y, u, v);
 
 ===! "Plot"
 
-    [![example_quiver_3](docs/examples/vector_fields/quiver/quiver_3.svg)](examples/vector_fields/quiver/quiver_3.cpp)
+[![example_quiver_3](docs/examples/vector_fields/quiver/quiver_3.svg)](examples/vector_fields/quiver/quiver_3.cpp)
 
 === "C++"
 
@@ -4212,7 +4212,7 @@ quiver(x, y, u, v);
 
 ===! "Plot"
 
-    [![example_quiver_4](docs/examples/vector_fields/quiver/quiver_4.svg)](examples/vector_fields/quiver/quiver_4.cpp)
+[![example_quiver_4](docs/examples/vector_fields/quiver/quiver_4.svg)](examples/vector_fields/quiver/quiver_4.cpp)
 
 === "C++"
 
@@ -4224,7 +4224,7 @@ quiver(x, y, u, v);
 
 ===! "Plot"
 
-    [![example_quiver_6](docs/examples/vector_fields/quiver/quiver_6.svg)](examples/vector_fields/quiver/quiver_6.cpp)
+[![example_quiver_6](docs/examples/vector_fields/quiver/quiver_6.svg)](examples/vector_fields/quiver/quiver_6.cpp)
 
 === "C++"
 
@@ -4256,7 +4256,7 @@ quiver3(Z, U, V, W);
 
 ===! "Plot"
 
-    [![example_quiver3_1](docs/examples/vector_fields/quiver3/quiver3_1.svg)](examples/vector_fields/quiver3/quiver3_1.cpp)
+[![example_quiver3_1](docs/examples/vector_fields/quiver3/quiver3_1.svg)](examples/vector_fields/quiver3/quiver3_1.cpp)
 
 === "C++"
 
@@ -4268,7 +4268,7 @@ quiver3(Z, U, V, W);
 
 ===! "Plot"
 
-    [![example_quiver3_2](docs/examples/vector_fields/quiver3/quiver3_2.svg)](examples/vector_fields/quiver3/quiver3_2.cpp)
+[![example_quiver3_2](docs/examples/vector_fields/quiver3/quiver3_2.svg)](examples/vector_fields/quiver3/quiver3_2.cpp)
 
 === "C++"
 
@@ -4293,7 +4293,7 @@ feather(u, v);
 
 ===! "Plot"
 
-    [![example_feather_1](docs/examples/vector_fields/feather/feather_1.svg)](examples/vector_fields/feather/feather_1.cpp)
+[![example_feather_1](docs/examples/vector_fields/feather/feather_1.svg)](examples/vector_fields/feather/feather_1.cpp)
 
 === "C++"
 
@@ -4328,7 +4328,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_1](docs/examples/surfaces/surf/surf_1.png)](examples/surfaces/surf/surf_1.cpp)
+[![example_surf_1](docs/examples/surfaces/surf/surf_1.png)](examples/surfaces/surf/surf_1.cpp)
 
 === "C++"
 
@@ -4340,7 +4340,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_2](docs/examples/surfaces/surf/surf_2.svg)](examples/surfaces/surf/surf_2.cpp)
+[![example_surf_2](docs/examples/surfaces/surf/surf_2.svg)](examples/surfaces/surf/surf_2.cpp)
 
 === "C++"
 
@@ -4352,7 +4352,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_3](docs/examples/surfaces/surf/surf_3.svg)](examples/surfaces/surf/surf_3.cpp)
+[![example_surf_3](docs/examples/surfaces/surf/surf_3.svg)](examples/surfaces/surf/surf_3.cpp)
 
 === "C++"
 
@@ -4363,7 +4363,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_4](docs/examples/surfaces/surf/surf_4.svg)](examples/surfaces/surf/surf_4.cpp)
+[![example_surf_4](docs/examples/surfaces/surf/surf_4.svg)](examples/surfaces/surf/surf_4.cpp)
 
 === "C++"
 
@@ -4375,7 +4375,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_5](docs/examples/surfaces/surf/surf_5.svg)](examples/surfaces/surf/surf_5.cpp)
+[![example_surf_5](docs/examples/surfaces/surf/surf_5.svg)](examples/surfaces/surf/surf_5.cpp)
 
 === "C++"
 
@@ -4387,7 +4387,7 @@ surf(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surf_6](docs/examples/surfaces/surf/surf_6.svg)](examples/surfaces/surf/surf_6.cpp)
+[![example_surf_6](docs/examples/surfaces/surf/surf_6.svg)](examples/surfaces/surf/surf_6.cpp)
 
 === "C++"
 
@@ -4417,7 +4417,7 @@ surfc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surfc_1](docs/examples/surfaces/surfc/surfc_1.png)](examples/surfaces/surfc/surfc_1.cpp)
+[![example_surfc_1](docs/examples/surfaces/surfc/surfc_1.png)](examples/surfaces/surfc/surfc_1.cpp)
 
 === "C++"
 
@@ -4429,7 +4429,7 @@ surfc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surfc_2](docs/examples/surfaces/surfc/surfc_2.svg)](examples/surfaces/surfc/surfc_2.cpp)
+[![example_surfc_2](docs/examples/surfaces/surfc/surfc_2.svg)](examples/surfaces/surfc/surfc_2.cpp)
 
 === "C++"
 
@@ -4441,7 +4441,7 @@ surfc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surfc_3](docs/examples/surfaces/surfc/surfc_3.png)](examples/surfaces/surfc/surfc_3.cpp)
+[![example_surfc_3](docs/examples/surfaces/surfc/surfc_3.png)](examples/surfaces/surfc/surfc_3.cpp)
 
 === "C++"
 
@@ -4453,7 +4453,7 @@ surfc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_surfc_4](docs/examples/surfaces/surfc/surfc_4.png)](examples/surfaces/surfc/surfc_4.cpp)
+[![example_surfc_4](docs/examples/surfaces/surfc/surfc_4.png)](examples/surfaces/surfc/surfc_4.cpp)
 
 === "C++"
 
@@ -4483,7 +4483,7 @@ mesh(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_mesh_1](docs/examples/surfaces/mesh/mesh_1.png)](examples/surfaces/mesh/mesh_1.cpp)
+[![example_mesh_1](docs/examples/surfaces/mesh/mesh_1.png)](examples/surfaces/mesh/mesh_1.cpp)
 
 === "C++"
 
@@ -4495,7 +4495,7 @@ mesh(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_mesh_2](docs/examples/surfaces/mesh/mesh_2.png)](examples/surfaces/mesh/mesh_2.cpp)
+[![example_mesh_2](docs/examples/surfaces/mesh/mesh_2.png)](examples/surfaces/mesh/mesh_2.cpp)
 
 === "C++"
 
@@ -4507,7 +4507,7 @@ mesh(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_mesh_3](docs/examples/surfaces/mesh/mesh_3.svg)](examples/surfaces/mesh/mesh_3.cpp)
+[![example_mesh_3](docs/examples/surfaces/mesh/mesh_3.svg)](examples/surfaces/mesh/mesh_3.cpp)
 
 === "C++"
 
@@ -4519,7 +4519,7 @@ mesh(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_mesh_4](docs/examples/surfaces/mesh/mesh_4.svg)](examples/surfaces/mesh/mesh_4.cpp)
+[![example_mesh_4](docs/examples/surfaces/mesh/mesh_4.svg)](examples/surfaces/mesh/mesh_4.cpp)
 
 === "C++"
 
@@ -4549,7 +4549,7 @@ meshc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshc_1](docs/examples/surfaces/meshc/meshc_1.png)](examples/surfaces/meshc/meshc_1.cpp)
+[![example_meshc_1](docs/examples/surfaces/meshc/meshc_1.png)](examples/surfaces/meshc/meshc_1.cpp)
 
 === "C++"
 
@@ -4561,7 +4561,7 @@ meshc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshc_2](docs/examples/surfaces/meshc/meshc_2.png)](examples/surfaces/meshc/meshc_2.cpp)
+[![example_meshc_2](docs/examples/surfaces/meshc/meshc_2.png)](examples/surfaces/meshc/meshc_2.cpp)
 
 === "C++"
 
@@ -4573,7 +4573,7 @@ meshc(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshc_3](docs/examples/surfaces/meshc/meshc_3.png)](examples/surfaces/meshc/meshc_3.cpp)
+[![example_meshc_3](docs/examples/surfaces/meshc/meshc_3.png)](examples/surfaces/meshc/meshc_3.cpp)
 
 === "C++"
 
@@ -4603,7 +4603,7 @@ meshz(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshz_1](docs/examples/surfaces/meshz/meshz_1.png)](examples/surfaces/meshz/meshz_1.cpp)
+[![example_meshz_1](docs/examples/surfaces/meshz/meshz_1.png)](examples/surfaces/meshz/meshz_1.cpp)
 
 === "C++"
 
@@ -4615,7 +4615,7 @@ meshz(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshz_2](docs/examples/surfaces/meshz/meshz_2.png)](examples/surfaces/meshz/meshz_2.cpp)
+[![example_meshz_2](docs/examples/surfaces/meshz/meshz_2.png)](examples/surfaces/meshz/meshz_2.cpp)
 
 === "C++"
 
@@ -4627,7 +4627,7 @@ meshz(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_meshz_3](docs/examples/surfaces/meshz/meshz_3.png)](examples/surfaces/meshz/meshz_3.cpp)
+[![example_meshz_3](docs/examples/surfaces/meshz/meshz_3.png)](examples/surfaces/meshz/meshz_3.cpp)
 
 === "C++"
 
@@ -4658,7 +4658,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_1](docs/examples/surfaces/fsurf/fsurf_1.png)](examples/surfaces/fsurf/fsurf_1.cpp)
+[![example_fsurf_1](docs/examples/surfaces/fsurf/fsurf_1.png)](examples/surfaces/fsurf/fsurf_1.cpp)
 
 === "C++"
 
@@ -4670,7 +4670,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_2](docs/examples/surfaces/fsurf/fsurf_2.png)](examples/surfaces/fsurf/fsurf_2.cpp)
+[![example_fsurf_2](docs/examples/surfaces/fsurf/fsurf_2.png)](examples/surfaces/fsurf/fsurf_2.cpp)
 
 === "C++"
 
@@ -4682,7 +4682,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_3](docs/examples/surfaces/fsurf/fsurf_3.png)](examples/surfaces/fsurf/fsurf_3.cpp)
+[![example_fsurf_3](docs/examples/surfaces/fsurf/fsurf_3.png)](examples/surfaces/fsurf/fsurf_3.cpp)
 
 === "C++"
 
@@ -4693,7 +4693,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_4](docs/examples/surfaces/fsurf/fsurf_4.png)](examples/surfaces/fsurf/fsurf_4.cpp)
+[![example_fsurf_4](docs/examples/surfaces/fsurf/fsurf_4.png)](examples/surfaces/fsurf/fsurf_4.cpp)
 
 === "C++"
 
@@ -4705,7 +4705,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_5](docs/examples/surfaces/fsurf/fsurf_5.png)](examples/surfaces/fsurf/fsurf_5.cpp)
+[![example_fsurf_5](docs/examples/surfaces/fsurf/fsurf_5.png)](examples/surfaces/fsurf/fsurf_5.cpp)
 
 === "C++"
 
@@ -4716,7 +4716,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_6](docs/examples/surfaces/fsurf/fsurf_6.png)](examples/surfaces/fsurf/fsurf_6.cpp)
+[![example_fsurf_6](docs/examples/surfaces/fsurf/fsurf_6.png)](examples/surfaces/fsurf/fsurf_6.cpp)
 
 === "C++"
 
@@ -4728,7 +4728,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_7](docs/examples/surfaces/fsurf/fsurf_7.png)](examples/surfaces/fsurf/fsurf_7.cpp)
+[![example_fsurf_7](docs/examples/surfaces/fsurf/fsurf_7.png)](examples/surfaces/fsurf/fsurf_7.cpp)
 
 === "C++"
 
@@ -4740,7 +4740,7 @@ fsurf(fn);
 
 ===! "Plot"
 
-    [![example_fsurf_8](docs/examples/surfaces/fsurf/fsurf_8.png)](examples/surfaces/fsurf/fsurf_8.cpp)
+[![example_fsurf_8](docs/examples/surfaces/fsurf/fsurf_8.png)](examples/surfaces/fsurf/fsurf_8.cpp)
 
 === "C++"
 
@@ -4771,7 +4771,7 @@ fmesh(fn);
 
 ===! "Plot"
 
-    [![example_fmesh_1](docs/examples/surfaces/fmesh/fmesh_1.png)](examples/surfaces/fmesh/fmesh_1.cpp)
+[![example_fmesh_1](docs/examples/surfaces/fmesh/fmesh_1.png)](examples/surfaces/fmesh/fmesh_1.cpp)
 
 === "C++"
 
@@ -4783,7 +4783,7 @@ fmesh(fn);
 
 ===! "Plot"
 
-    [![example_fmesh_2](docs/examples/surfaces/fmesh/fmesh_2.svg)](examples/surfaces/fmesh/fmesh_2.cpp)
+[![example_fmesh_2](docs/examples/surfaces/fmesh/fmesh_2.svg)](examples/surfaces/fmesh/fmesh_2.cpp)
 
 === "C++"
 
@@ -4795,7 +4795,7 @@ fmesh(fn);
 
 ===! "Plot"
 
-    [![example_fmesh_3](docs/examples/surfaces/fmesh/fmesh_3.png)](examples/surfaces/fmesh/fmesh_3.cpp)
+[![example_fmesh_3](docs/examples/surfaces/fmesh/fmesh_3.png)](examples/surfaces/fmesh/fmesh_3.cpp)
 
 === "C++"
 
@@ -4807,7 +4807,7 @@ fmesh(fn);
 
 ===! "Plot"
 
-    [![example_fmesh_4](docs/examples/surfaces/fmesh/fmesh_4.png)](examples/surfaces/fmesh/fmesh_4.cpp)
+[![example_fmesh_4](docs/examples/surfaces/fmesh/fmesh_4.png)](examples/surfaces/fmesh/fmesh_4.cpp)
 
 === "C++"
 
@@ -4838,7 +4838,7 @@ waterfall(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_waterfall_1](docs/examples/surfaces/waterfall/waterfall_1.png)](examples/surfaces/waterfall/waterfall_1.cpp)
+[![example_waterfall_1](docs/examples/surfaces/waterfall/waterfall_1.png)](examples/surfaces/waterfall/waterfall_1.cpp)
 
 === "C++"
 
@@ -4850,7 +4850,7 @@ waterfall(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_waterfall_2](docs/examples/surfaces/waterfall/waterfall_2.png)](examples/surfaces/waterfall/waterfall_2.cpp)
+[![example_waterfall_2](docs/examples/surfaces/waterfall/waterfall_2.png)](examples/surfaces/waterfall/waterfall_2.cpp)
 
 === "C++"
 
@@ -4862,7 +4862,7 @@ waterfall(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_waterfall_3](docs/examples/surfaces/waterfall/waterfall_3.svg)](examples/surfaces/waterfall/waterfall_3.cpp)
+[![example_waterfall_3](docs/examples/surfaces/waterfall/waterfall_3.svg)](examples/surfaces/waterfall/waterfall_3.cpp)
 
 === "C++"
 
@@ -4892,7 +4892,7 @@ fence(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_fence_1](docs/examples/surfaces/fence/fence_1.png)](examples/surfaces/fence/fence_1.cpp)
+[![example_fence_1](docs/examples/surfaces/fence/fence_1.png)](examples/surfaces/fence/fence_1.cpp)
 
 === "C++"
 
@@ -4904,7 +4904,7 @@ fence(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_fence_2](docs/examples/surfaces/fence/fence_2.png)](examples/surfaces/fence/fence_2.cpp)
+[![example_fence_2](docs/examples/surfaces/fence/fence_2.png)](examples/surfaces/fence/fence_2.cpp)
 
 === "C++"
 
@@ -4916,7 +4916,7 @@ fence(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_fence_3](docs/examples/surfaces/fence/fence_3.png)](examples/surfaces/fence/fence_3.cpp)
+[![example_fence_3](docs/examples/surfaces/fence/fence_3.png)](examples/surfaces/fence/fence_3.cpp)
 
 === "C++"
 
@@ -4947,7 +4947,7 @@ ribbon(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_ribbon_1](docs/examples/surfaces/ribbon/ribbon_1.png)](examples/surfaces/ribbon/ribbon_1.cpp)
+[![example_ribbon_1](docs/examples/surfaces/ribbon/ribbon_1.png)](examples/surfaces/ribbon/ribbon_1.cpp)
 
 === "C++"
 
@@ -4959,7 +4959,7 @@ ribbon(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_ribbon_2](docs/examples/surfaces/ribbon/ribbon_2.png)](examples/surfaces/ribbon/ribbon_2.cpp)
+[![example_ribbon_2](docs/examples/surfaces/ribbon/ribbon_2.png)](examples/surfaces/ribbon/ribbon_2.cpp)
 
 === "C++"
 
@@ -4969,7 +4969,7 @@ ribbon(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_ribbon_3](docs/examples/surfaces/ribbon/ribbon_3.svg)](examples/surfaces/ribbon/ribbon_3.cpp)
+[![example_ribbon_3](docs/examples/surfaces/ribbon/ribbon_3.svg)](examples/surfaces/ribbon/ribbon_3.cpp)
 
 === "C++"
 
@@ -4979,7 +4979,7 @@ ribbon(X, Y, Z);
 
 ===! "Plot"
 
-    [![example_ribbon_4](docs/examples/surfaces/ribbon/ribbon_4.png)](examples/surfaces/ribbon/ribbon_4.cpp)
+[![example_ribbon_4](docs/examples/surfaces/ribbon/ribbon_4.png)](examples/surfaces/ribbon/ribbon_4.cpp)
 
 === "C++"
 
@@ -5015,7 +5015,7 @@ graph(edges);
 
 ===! "Plot"
 
-    [![example_graph_1](docs/examples/graphs/graph/graph_1.svg)](examples/graphs/graph/graph_1.cpp)
+[![example_graph_1](docs/examples/graphs/graph/graph_1.svg)](examples/graphs/graph/graph_1.cpp)
 
 === "C++"
 
@@ -5027,7 +5027,7 @@ graph(edges);
 
 ===! "Plot"
 
-    [![example_graph_2](docs/examples/graphs/graph/graph_2.svg)](examples/graphs/graph/graph_2.cpp)
+[![example_graph_2](docs/examples/graphs/graph/graph_2.svg)](examples/graphs/graph/graph_2.cpp)
 
 === "C++"
 
@@ -5039,7 +5039,7 @@ graph(edges);
 
 ===! "Plot"
 
-    [![example_graph_3](docs/examples/graphs/graph/graph_3.svg)](examples/graphs/graph/graph_3.cpp)
+[![example_graph_3](docs/examples/graphs/graph/graph_3.svg)](examples/graphs/graph/graph_3.cpp)
 
 === "C++"
 
@@ -5050,7 +5050,7 @@ graph(edges);
 
 ===! "Plot"
 
-    [![example_graph_4](docs/examples/graphs/graph/graph_4.svg)](examples/graphs/graph/graph_4.cpp)
+[![example_graph_4](docs/examples/graphs/graph/graph_4.svg)](examples/graphs/graph/graph_4.cpp)
 
 === "C++"
 
@@ -5062,7 +5062,7 @@ graph(edges);
 
 ===! "Plot"
 
-    [![example_graph_5](docs/examples/graphs/graph/graph_5.svg)](examples/graphs/graph/graph_5.cpp)
+[![example_graph_5](docs/examples/graphs/graph/graph_5.svg)](examples/graphs/graph/graph_5.cpp)
 
 === "C++"
 
@@ -5098,7 +5098,7 @@ digraph(edges);
 
 ===! "Plot"
 
-    [![example_digraph_1](docs/examples/graphs/digraph/digraph_1.svg)](examples/graphs/digraph/digraph_1.cpp)
+[![example_digraph_1](docs/examples/graphs/digraph/digraph_1.svg)](examples/graphs/digraph/digraph_1.cpp)
 
 === "C++"
 
@@ -5110,7 +5110,7 @@ digraph(edges);
 
 ===! "Plot"
 
-    [![example_digraph_2](docs/examples/graphs/digraph/digraph_2.svg)](examples/graphs/digraph/digraph_2.cpp)
+[![example_digraph_2](docs/examples/graphs/digraph/digraph_2.svg)](examples/graphs/digraph/digraph_2.cpp)
 
 === "C++"
 
@@ -5122,7 +5122,7 @@ digraph(edges);
 
 ===! "Plot"
 
-    [![example_digraph_3](docs/examples/graphs/digraph/digraph_3.svg)](examples/graphs/digraph/digraph_3.cpp)
+[![example_digraph_3](docs/examples/graphs/digraph/digraph_3.svg)](examples/graphs/digraph/digraph_3.cpp)
 
 === "C++"
 
@@ -5158,7 +5158,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_1](docs/examples/images/imshow/imshow_1.png)](examples/images/imshow/imshow_1.cpp)
+[![example_imshow_1](docs/examples/images/imshow/imshow_1.png)](examples/images/imshow/imshow_1.cpp)
 
 === "C++"
 
@@ -5170,7 +5170,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_2](docs/examples/images/imshow/imshow_2.png)](examples/images/imshow/imshow_2.cpp)
+[![example_imshow_2](docs/examples/images/imshow/imshow_2.png)](examples/images/imshow/imshow_2.cpp)
 
 === "C++"
 
@@ -5182,7 +5182,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_3](docs/examples/images/imshow/imshow_3.svg)](examples/images/imshow/imshow_3.cpp)
+[![example_imshow_3](docs/examples/images/imshow/imshow_3.svg)](examples/images/imshow/imshow_3.cpp)
 
 === "C++"
 
@@ -5193,7 +5193,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_4](docs/examples/images/imshow/imshow_4.png)](examples/images/imshow/imshow_4.cpp)
+[![example_imshow_4](docs/examples/images/imshow/imshow_4.png)](examples/images/imshow/imshow_4.cpp)
 
 === "C++"
 
@@ -5205,7 +5205,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_5](docs/examples/images/imshow/imshow_5.png)](examples/images/imshow/imshow_5.cpp)
+[![example_imshow_5](docs/examples/images/imshow/imshow_5.png)](examples/images/imshow/imshow_5.cpp)
 
 === "C++"
 
@@ -5216,7 +5216,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_6](docs/examples/images/imshow/imshow_6.png)](examples/images/imshow/imshow_6.cpp)
+[![example_imshow_6](docs/examples/images/imshow/imshow_6.png)](examples/images/imshow/imshow_6.cpp)
 
 === "C++"
 
@@ -5228,7 +5228,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_7](docs/examples/images/imshow/imshow_7.png)](examples/images/imshow/imshow_7.cpp)
+[![example_imshow_7](docs/examples/images/imshow/imshow_7.png)](examples/images/imshow/imshow_7.cpp)
 
 === "C++"
 
@@ -5239,7 +5239,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_8](docs/examples/images/imshow/imshow_8.png)](examples/images/imshow/imshow_8.cpp)
+[![example_imshow_8](docs/examples/images/imshow/imshow_8.png)](examples/images/imshow/imshow_8.cpp)
 
 === "C++"
 
@@ -5251,7 +5251,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_9](docs/examples/images/imshow/imshow_9.svg)](examples/images/imshow/imshow_9.cpp)
+[![example_imshow_9](docs/examples/images/imshow/imshow_9.svg)](examples/images/imshow/imshow_9.cpp)
 
 === "C++"
 
@@ -5262,7 +5262,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_10](docs/examples/images/imshow/imshow_10.svg)](examples/images/imshow/imshow_10.cpp)
+[![example_imshow_10](docs/examples/images/imshow/imshow_10.svg)](examples/images/imshow/imshow_10.cpp)
 
 === "C++"
 
@@ -5274,7 +5274,7 @@ imshow(image);
 
 ===! "Plot"
 
-    [![example_imshow_11](docs/examples/images/imshow/imshow_11.png)](examples/images/imshow/imshow_11.cpp)
+[![example_imshow_11](docs/examples/images/imshow/imshow_11.png)](examples/images/imshow/imshow_11.cpp)
 
 === "C++"
 
@@ -5310,7 +5310,7 @@ image(C);
 
 ===! "Plot"
 
-    [![example_image_1](docs/examples/images/image/image_1.png)](examples/images/image/image_1.cpp)
+[![example_image_1](docs/examples/images/image/image_1.png)](examples/images/image/image_1.cpp)
 
 === "C++"
 
@@ -5322,7 +5322,7 @@ image(C);
 
 ===! "Plot"
 
-    [![example_image_2](docs/examples/images/image/image_2.png)](examples/images/image/image_2.cpp)
+[![example_image_2](docs/examples/images/image/image_2.png)](examples/images/image/image_2.cpp)
 
 === "C++"
 
@@ -5334,7 +5334,7 @@ image(C);
 
 ===! "Plot"
 
-    [![example_image_3](docs/examples/images/image/image_3.png)](examples/images/image/image_3.cpp)
+[![example_image_3](docs/examples/images/image/image_3.png)](examples/images/image/image_3.cpp)
 
 === "C++"
 
@@ -5345,7 +5345,7 @@ image(C);
 
 ===! "Plot"
 
-    [![example_image_4](docs/examples/images/image/image_4.png)](examples/images/image/image_4.cpp)
+[![example_image_4](docs/examples/images/image/image_4.png)](examples/images/image/image_4.cpp)
 
 === "C++"
 
@@ -5357,7 +5357,7 @@ image(C);
 
 ===! "Plot"
 
-    [![example_image_5](docs/examples/images/image/image_5.png)](examples/images/image/image_5.cpp)
+[![example_image_5](docs/examples/images/image/image_5.png)](examples/images/image/image_5.cpp)
 
 === "C++"
 
@@ -5387,7 +5387,7 @@ imagesc(C);
 
 ===! "Plot"
 
-    [![example_imagesc_1](docs/examples/images/imagesc/imagesc_1.png)](examples/images/imagesc/imagesc_1.cpp)
+[![example_imagesc_1](docs/examples/images/imagesc/imagesc_1.png)](examples/images/imagesc/imagesc_1.cpp)
 
 === "C++"
 
@@ -5399,7 +5399,7 @@ imagesc(C);
 
 ===! "Plot"
 
-    [![example_imagesc_2](docs/examples/images/imagesc/imagesc_2.png)](examples/images/imagesc/imagesc_2.cpp)
+[![example_imagesc_2](docs/examples/images/imagesc/imagesc_2.png)](examples/images/imagesc/imagesc_2.cpp)
 
 === "C++"
 
@@ -5411,7 +5411,7 @@ imagesc(C);
 
 ===! "Plot"
 
-    [![example_imagesc_3](docs/examples/images/imagesc/imagesc_3.png)](examples/images/imagesc/imagesc_3.cpp)
+[![example_imagesc_3](docs/examples/images/imagesc/imagesc_3.png)](examples/images/imagesc/imagesc_3.cpp)
 
 === "C++"
 
@@ -5423,7 +5423,7 @@ imagesc(C);
 
 ===! "Plot"
 
-    [![example_imagesc_4](docs/examples/images/imagesc/imagesc_4.png)](examples/images/imagesc/imagesc_4.cpp)
+[![example_imagesc_4](docs/examples/images/imagesc/imagesc_4.png)](examples/images/imagesc/imagesc_4.cpp)
 
 === "C++"
 
@@ -5462,7 +5462,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_1](docs/examples/annotations/text/text_1.svg)](examples/annotations/text/text_1.cpp)
+[![example_text_1](docs/examples/annotations/text/text_1.svg)](examples/annotations/text/text_1.cpp)
 
 === "C++"
 
@@ -5474,7 +5474,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_2](docs/examples/annotations/text/text_2.svg)](examples/annotations/text/text_2.cpp)
+[![example_text_2](docs/examples/annotations/text/text_2.svg)](examples/annotations/text/text_2.cpp)
 
 === "C++"
 
@@ -5486,7 +5486,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_3](docs/examples/annotations/text/text_3.svg)](examples/annotations/text/text_3.cpp)
+[![example_text_3](docs/examples/annotations/text/text_3.svg)](examples/annotations/text/text_3.cpp)
 
 === "C++"
 
@@ -5497,7 +5497,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_4](docs/examples/annotations/text/text_4.svg)](examples/annotations/text/text_4.cpp)
+[![example_text_4](docs/examples/annotations/text/text_4.svg)](examples/annotations/text/text_4.cpp)
 
 === "C++"
 
@@ -5509,7 +5509,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_5](docs/examples/annotations/text/text_5.svg)](examples/annotations/text/text_5.cpp)
+[![example_text_5](docs/examples/annotations/text/text_5.svg)](examples/annotations/text/text_5.cpp)
 
 === "C++"
 
@@ -5520,7 +5520,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_6](docs/examples/annotations/text/text_6.svg)](examples/annotations/text/text_6.cpp)
+[![example_text_6](docs/examples/annotations/text/text_6.svg)](examples/annotations/text/text_6.cpp)
 
 === "C++"
 
@@ -5532,7 +5532,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_7](docs/examples/annotations/text/text_7.svg)](examples/annotations/text/text_7.cpp)
+[![example_text_7](docs/examples/annotations/text/text_7.svg)](examples/annotations/text/text_7.cpp)
 
 === "C++"
 
@@ -5544,7 +5544,7 @@ text(x0, y0, str);
 
 ===! "Plot"
 
-    [![example_text_8](docs/examples/annotations/text/text_8.svg)](examples/annotations/text/text_8.cpp)
+[![example_text_8](docs/examples/annotations/text/text_8.svg)](examples/annotations/text/text_8.cpp)
 
 === "C++"
 
@@ -5576,7 +5576,7 @@ textarrow(x1, y1, x2, y2, str);
 
 ===! "Plot"
 
-    [![example_textarrow_1](docs/examples/annotations/textarrow/textarrow_1.svg)](examples/annotations/textarrow/textarrow_1.cpp)
+[![example_textarrow_1](docs/examples/annotations/textarrow/textarrow_1.svg)](examples/annotations/textarrow/textarrow_1.cpp)
 
 === "C++"
 
@@ -5589,7 +5589,7 @@ textarrow(x1, y1, x2, y2, str);
 
 ===! "Plot"
 
-    [![example_textarrow_2](docs/examples/annotations/textarrow/textarrow_2.svg)](examples/annotations/textarrow/textarrow_2.cpp)
+[![example_textarrow_2](docs/examples/annotations/textarrow/textarrow_2.svg)](examples/annotations/textarrow/textarrow_2.cpp)
 
 === "C++"
 
@@ -5619,7 +5619,7 @@ rectangle(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_rectangle_1](docs/examples/annotations/rectangle/rectangle_1.svg)](examples/annotations/rectangle/rectangle_1.cpp)
+[![example_rectangle_1](docs/examples/annotations/rectangle/rectangle_1.svg)](examples/annotations/rectangle/rectangle_1.cpp)
 
 === "C++"
 
@@ -5631,7 +5631,7 @@ rectangle(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_rectangle_2](docs/examples/annotations/rectangle/rectangle_2.png)](examples/annotations/rectangle/rectangle_2.cpp)
+[![example_rectangle_2](docs/examples/annotations/rectangle/rectangle_2.png)](examples/annotations/rectangle/rectangle_2.cpp)
 
 === "C++"
 
@@ -5643,7 +5643,7 @@ rectangle(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_rectangle_3](docs/examples/annotations/rectangle/rectangle_3.svg)](examples/annotations/rectangle/rectangle_3.cpp)
+[![example_rectangle_3](docs/examples/annotations/rectangle/rectangle_3.svg)](examples/annotations/rectangle/rectangle_3.cpp)
 
 === "C++"
 
@@ -5654,7 +5654,7 @@ rectangle(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_rectangle_4](docs/examples/annotations/rectangle/rectangle_4.png)](examples/annotations/rectangle/rectangle_4.cpp)
+[![example_rectangle_4](docs/examples/annotations/rectangle/rectangle_4.png)](examples/annotations/rectangle/rectangle_4.cpp)
 
 === "C++"
 
@@ -5666,7 +5666,7 @@ rectangle(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_rectangle_5](docs/examples/annotations/rectangle/rectangle_5.png)](examples/annotations/rectangle/rectangle_5.cpp)
+[![example_rectangle_5](docs/examples/annotations/rectangle/rectangle_5.png)](examples/annotations/rectangle/rectangle_5.cpp)
 
 === "C++"
 
@@ -5695,7 +5695,7 @@ polygon(x0, y0, color);
 
 ===! "Plot"
 
-    [![example_fill_1](docs/examples/annotations/fill/fill_1.svg)](examples/annotations/fill/fill_1.cpp)
+[![example_fill_1](docs/examples/annotations/fill/fill_1.svg)](examples/annotations/fill/fill_1.cpp)
 
 === "C++"
 
@@ -5719,7 +5719,7 @@ ellipse(x, y, w, h);
 
 ===! "Plot"
 
-    [![example_ellipse_1](docs/examples/annotations/ellipse/ellipse_1.svg)](examples/annotations/ellipse/ellipse_1.cpp)
+[![example_ellipse_1](docs/examples/annotations/ellipse/ellipse_1.svg)](examples/annotations/ellipse/ellipse_1.cpp)
 
 === "C++"
 
@@ -5743,7 +5743,7 @@ textbox(x, y, w, h, str);
 
 ===! "Plot"
 
-    [![example_textbox_1](docs/examples/annotations/textbox/textbox_1.svg)](examples/annotations/textbox/textbox_1.cpp)
+[![example_textbox_1](docs/examples/annotations/textbox/textbox_1.svg)](examples/annotations/textbox/textbox_1.cpp)
 
 === "C++"
 
@@ -5772,7 +5772,7 @@ arrow(x1, y1, x2, y2);
 
 ===! "Plot"
 
-    [![example_arrow_1](docs/examples/annotations/arrow/arrow_1.svg)](examples/annotations/arrow/arrow_1.cpp)
+[![example_arrow_1](docs/examples/annotations/arrow/arrow_1.svg)](examples/annotations/arrow/arrow_1.cpp)
 
 === "C++"
 
@@ -5785,7 +5785,7 @@ arrow(x1, y1, x2, y2);
 
 ===! "Plot"
 
-    [![example_arrow_2](docs/examples/annotations/arrow/arrow_2.svg)](examples/annotations/arrow/arrow_2.cpp)
+[![example_arrow_2](docs/examples/annotations/arrow/arrow_2.svg)](examples/annotations/arrow/arrow_2.cpp)
 
 === "C++"
 
@@ -5811,7 +5811,7 @@ line(x1, y1, x2, y2);
 
 ===! "Plot"
 
-    [![example_line_1](docs/examples/annotations/line/line_1.svg)](examples/annotations/line/line_1.cpp)
+[![example_line_1](docs/examples/annotations/line/line_1.svg)](examples/annotations/line/line_1.cpp)
 
 === "C++"
 
@@ -5856,7 +5856,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_1](docs/examples/appearance/labels/title/title_1.svg)](examples/appearance/labels/title/title_1.cpp)
+[![example_title_1](docs/examples/appearance/labels/title/title_1.svg)](examples/appearance/labels/title/title_1.cpp)
 
 === "C++"
 
@@ -5868,7 +5868,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_2](docs/examples/appearance/labels/title/title_2.svg)](examples/appearance/labels/title/title_2.cpp)
+[![example_title_2](docs/examples/appearance/labels/title/title_2.svg)](examples/appearance/labels/title/title_2.cpp)
 
 === "C++"
 
@@ -5880,7 +5880,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_3](docs/examples/appearance/labels/title/title_3.svg)](examples/appearance/labels/title/title_3.cpp)
+[![example_title_3](docs/examples/appearance/labels/title/title_3.svg)](examples/appearance/labels/title/title_3.cpp)
 
 === "C++"
 
@@ -5891,7 +5891,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_4](docs/examples/appearance/labels/title/title_4.svg)](examples/appearance/labels/title/title_4.cpp)
+[![example_title_4](docs/examples/appearance/labels/title/title_4.svg)](examples/appearance/labels/title/title_4.cpp)
 
 === "C++"
 
@@ -5903,7 +5903,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_5](docs/examples/appearance/labels/title/title_5.svg)](examples/appearance/labels/title/title_5.cpp)
+[![example_title_5](docs/examples/appearance/labels/title/title_5.svg)](examples/appearance/labels/title/title_5.cpp)
 
 === "C++"
 
@@ -5914,7 +5914,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_6](docs/examples/appearance/labels/title/title_6.svg)](examples/appearance/labels/title/title_6.cpp)
+[![example_title_6](docs/examples/appearance/labels/title/title_6.svg)](examples/appearance/labels/title/title_6.cpp)
 
 === "C++"
 
@@ -5926,7 +5926,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_7](docs/examples/appearance/labels/title/title_7.svg)](examples/appearance/labels/title/title_7.cpp)
+[![example_title_7](docs/examples/appearance/labels/title/title_7.svg)](examples/appearance/labels/title/title_7.cpp)
 
 === "C++"
 
@@ -5938,7 +5938,7 @@ title(str);
 
 ===! "Plot"
 
-    [![example_title_8](docs/examples/appearance/labels/title/title_8.svg)](examples/appearance/labels/title/title_8.cpp)
+[![example_title_8](docs/examples/appearance/labels/title/title_8.svg)](examples/appearance/labels/title/title_8.cpp)
 
 === "C++"
 
@@ -5970,7 +5970,7 @@ sgtitle(str);
 
 ===! "Plot"
 
-    [![example_sgtitle_1](docs/examples/appearance/labels/sgtitle/sgtitle_1.png)](examples/appearance/labels/sgtitle/sgtitle_1.cpp)
+[![example_sgtitle_1](docs/examples/appearance/labels/sgtitle/sgtitle_1.png)](examples/appearance/labels/sgtitle/sgtitle_1.cpp)
 
 === "C++"
 
@@ -5983,7 +5983,7 @@ sgtitle(str);
 
 ===! "Plot"
 
-    [![example_sgtitle_2](docs/examples/appearance/labels/sgtitle/sgtitle_2.svg)](examples/appearance/labels/sgtitle/sgtitle_2.cpp)
+[![example_sgtitle_2](docs/examples/appearance/labels/sgtitle/sgtitle_2.svg)](examples/appearance/labels/sgtitle/sgtitle_2.cpp)
 
 === "C++"
 
@@ -6013,7 +6013,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_1](docs/examples/appearance/labels/xlabel/xlabel_1.svg)](examples/appearance/labels/xlabel/xlabel_1.cpp)
+[![example_xlabel_1](docs/examples/appearance/labels/xlabel/xlabel_1.svg)](examples/appearance/labels/xlabel/xlabel_1.cpp)
 
 === "C++"
 
@@ -6025,7 +6025,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_2](docs/examples/appearance/labels/xlabel/xlabel_2.svg)](examples/appearance/labels/xlabel/xlabel_2.cpp)
+[![example_xlabel_2](docs/examples/appearance/labels/xlabel/xlabel_2.svg)](examples/appearance/labels/xlabel/xlabel_2.cpp)
 
 === "C++"
 
@@ -6037,7 +6037,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_3](docs/examples/appearance/labels/xlabel/xlabel_3.svg)](examples/appearance/labels/xlabel/xlabel_3.cpp)
+[![example_xlabel_3](docs/examples/appearance/labels/xlabel/xlabel_3.svg)](examples/appearance/labels/xlabel/xlabel_3.cpp)
 
 === "C++"
 
@@ -6048,7 +6048,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_4](docs/examples/appearance/labels/xlabel/xlabel_4.svg)](examples/appearance/labels/xlabel/xlabel_4.cpp)
+[![example_xlabel_4](docs/examples/appearance/labels/xlabel/xlabel_4.svg)](examples/appearance/labels/xlabel/xlabel_4.cpp)
 
 === "C++"
 
@@ -6060,7 +6060,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_5](docs/examples/appearance/labels/xlabel/xlabel_5.svg)](examples/appearance/labels/xlabel/xlabel_5.cpp)
+[![example_xlabel_5](docs/examples/appearance/labels/xlabel/xlabel_5.svg)](examples/appearance/labels/xlabel/xlabel_5.cpp)
 
 === "C++"
 
@@ -6071,7 +6071,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_6](docs/examples/appearance/labels/xlabel/xlabel_6.svg)](examples/appearance/labels/xlabel/xlabel_6.cpp)
+[![example_xlabel_6](docs/examples/appearance/labels/xlabel/xlabel_6.svg)](examples/appearance/labels/xlabel/xlabel_6.cpp)
 
 === "C++"
 
@@ -6083,7 +6083,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_7](docs/examples/appearance/labels/xlabel/xlabel_7.svg)](examples/appearance/labels/xlabel/xlabel_7.cpp)
+[![example_xlabel_7](docs/examples/appearance/labels/xlabel/xlabel_7.svg)](examples/appearance/labels/xlabel/xlabel_7.cpp)
 
 === "C++"
 
@@ -6095,7 +6095,7 @@ xlabel(str);
 
 ===! "Plot"
 
-    [![example_xlabel_8](docs/examples/appearance/labels/xlabel/xlabel_8.svg)](examples/appearance/labels/xlabel/xlabel_8.cpp)
+[![example_xlabel_8](docs/examples/appearance/labels/xlabel/xlabel_8.svg)](examples/appearance/labels/xlabel/xlabel_8.cpp)
 
 === "C++"
 
@@ -6125,7 +6125,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_1](docs/examples/appearance/labels/ylabel/ylabel_1.svg)](examples/appearance/labels/ylabel/ylabel_1.cpp)
+[![example_ylabel_1](docs/examples/appearance/labels/ylabel/ylabel_1.svg)](examples/appearance/labels/ylabel/ylabel_1.cpp)
 
 === "C++"
 
@@ -6137,7 +6137,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_2](docs/examples/appearance/labels/ylabel/ylabel_2.svg)](examples/appearance/labels/ylabel/ylabel_2.cpp)
+[![example_ylabel_2](docs/examples/appearance/labels/ylabel/ylabel_2.svg)](examples/appearance/labels/ylabel/ylabel_2.cpp)
 
 === "C++"
 
@@ -6149,7 +6149,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_3](docs/examples/appearance/labels/ylabel/ylabel_3.svg)](examples/appearance/labels/ylabel/ylabel_3.cpp)
+[![example_ylabel_3](docs/examples/appearance/labels/ylabel/ylabel_3.svg)](examples/appearance/labels/ylabel/ylabel_3.cpp)
 
 === "C++"
 
@@ -6160,7 +6160,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_4](docs/examples/appearance/labels/ylabel/ylabel_4.svg)](examples/appearance/labels/ylabel/ylabel_4.cpp)
+[![example_ylabel_4](docs/examples/appearance/labels/ylabel/ylabel_4.svg)](examples/appearance/labels/ylabel/ylabel_4.cpp)
 
 === "C++"
 
@@ -6172,7 +6172,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_5](docs/examples/appearance/labels/ylabel/ylabel_5.svg)](examples/appearance/labels/ylabel/ylabel_5.cpp)
+[![example_ylabel_5](docs/examples/appearance/labels/ylabel/ylabel_5.svg)](examples/appearance/labels/ylabel/ylabel_5.cpp)
 
 === "C++"
 
@@ -6183,7 +6183,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_6](docs/examples/appearance/labels/ylabel/ylabel_6.svg)](examples/appearance/labels/ylabel/ylabel_6.cpp)
+[![example_ylabel_6](docs/examples/appearance/labels/ylabel/ylabel_6.svg)](examples/appearance/labels/ylabel/ylabel_6.cpp)
 
 === "C++"
 
@@ -6195,7 +6195,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_7](docs/examples/appearance/labels/ylabel/ylabel_7.svg)](examples/appearance/labels/ylabel/ylabel_7.cpp)
+[![example_ylabel_7](docs/examples/appearance/labels/ylabel/ylabel_7.svg)](examples/appearance/labels/ylabel/ylabel_7.cpp)
 
 === "C++"
 
@@ -6207,7 +6207,7 @@ ylabel(str);
 
 ===! "Plot"
 
-    [![example_ylabel_8](docs/examples/appearance/labels/ylabel/ylabel_8.svg)](examples/appearance/labels/ylabel/ylabel_8.cpp)
+[![example_ylabel_8](docs/examples/appearance/labels/ylabel/ylabel_8.svg)](examples/appearance/labels/ylabel/ylabel_8.cpp)
 
 === "C++"
 
@@ -6238,7 +6238,7 @@ zlabel(str);
 
 ===! "Plot"
 
-    [![example_zlabel_1](docs/examples/appearance/labels/zlabel/zlabel_1.png)](examples/appearance/labels/zlabel/zlabel_1.cpp)
+[![example_zlabel_1](docs/examples/appearance/labels/zlabel/zlabel_1.png)](examples/appearance/labels/zlabel/zlabel_1.cpp)
 
 === "C++"
 
@@ -6250,7 +6250,7 @@ zlabel(str);
 
 ===! "Plot"
 
-    [![example_zlabel_2](docs/examples/appearance/labels/zlabel/zlabel_2.png)](examples/appearance/labels/zlabel/zlabel_2.cpp)
+[![example_zlabel_2](docs/examples/appearance/labels/zlabel/zlabel_2.png)](examples/appearance/labels/zlabel/zlabel_2.cpp)
 
 === "C++"
 
@@ -6262,7 +6262,7 @@ zlabel(str);
 
 ===! "Plot"
 
-    [![example_zlabel_3](docs/examples/appearance/labels/zlabel/zlabel_3.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
+[![example_zlabel_3](docs/examples/appearance/labels/zlabel/zlabel_3.png)](examples/appearance/labels/zlabel/zlabel_3.cpp)
 
 === "C++"
 
@@ -6290,7 +6290,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_1](docs/examples/appearance/labels/legend/legend_1.svg)](examples/appearance/labels/legend/legend_1.cpp)
+[![example_legend_1](docs/examples/appearance/labels/legend/legend_1.svg)](examples/appearance/labels/legend/legend_1.cpp)
 
 === "C++"
 
@@ -6302,7 +6302,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_2](docs/examples/appearance/labels/legend/legend_2.svg)](examples/appearance/labels/legend/legend_2.cpp)
+[![example_legend_2](docs/examples/appearance/labels/legend/legend_2.svg)](examples/appearance/labels/legend/legend_2.cpp)
 
 === "C++"
 
@@ -6314,7 +6314,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_3](docs/examples/appearance/labels/legend/legend_3.svg)](examples/appearance/labels/legend/legend_3.cpp)
+[![example_legend_3](docs/examples/appearance/labels/legend/legend_3.svg)](examples/appearance/labels/legend/legend_3.cpp)
 
 === "C++"
 
@@ -6325,7 +6325,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_4](docs/examples/appearance/labels/legend/legend_4.svg)](examples/appearance/labels/legend/legend_4.cpp)
+[![example_legend_4](docs/examples/appearance/labels/legend/legend_4.svg)](examples/appearance/labels/legend/legend_4.cpp)
 
 === "C++"
 
@@ -6337,7 +6337,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_5](docs/examples/appearance/labels/legend/legend_5.svg)](examples/appearance/labels/legend/legend_5.cpp)
+[![example_legend_5](docs/examples/appearance/labels/legend/legend_5.svg)](examples/appearance/labels/legend/legend_5.cpp)
 
 === "C++"
 
@@ -6348,7 +6348,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_6](docs/examples/appearance/labels/legend/legend_6.svg)](examples/appearance/labels/legend/legend_6.cpp)
+[![example_legend_6](docs/examples/appearance/labels/legend/legend_6.svg)](examples/appearance/labels/legend/legend_6.cpp)
 
 === "C++"
 
@@ -6360,7 +6360,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_7](docs/examples/appearance/labels/legend/legend_7.svg)](examples/appearance/labels/legend/legend_7.cpp)
+[![example_legend_7](docs/examples/appearance/labels/legend/legend_7.svg)](examples/appearance/labels/legend/legend_7.cpp)
 
 === "C++"
 
@@ -6372,7 +6372,7 @@ legend({str1,str2,str3});
 
 ===! "Plot"
 
-    [![example_legend_8](docs/examples/appearance/labels/legend/legend_8.svg)](examples/appearance/labels/legend/legend_8.cpp)
+[![example_legend_8](docs/examples/appearance/labels/legend/legend_8.svg)](examples/appearance/labels/legend/legend_8.cpp)
 
 === "C++"
 
@@ -6405,7 +6405,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_1](docs/examples/appearance/axis/xlim/xlim_1.svg)](examples/appearance/axis/xlim/xlim_1.cpp)
+[![example_xlim_1](docs/examples/appearance/axis/xlim/xlim_1.svg)](examples/appearance/axis/xlim/xlim_1.cpp)
 
 === "C++"
 
@@ -6417,7 +6417,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_2](docs/examples/appearance/axis/xlim/xlim_2.png)](examples/appearance/axis/xlim/xlim_2.cpp)
+[![example_xlim_2](docs/examples/appearance/axis/xlim/xlim_2.png)](examples/appearance/axis/xlim/xlim_2.cpp)
 
 === "C++"
 
@@ -6429,7 +6429,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_3](docs/examples/appearance/axis/xlim/xlim_3.svg)](examples/appearance/axis/xlim/xlim_3.cpp)
+[![example_xlim_3](docs/examples/appearance/axis/xlim/xlim_3.svg)](examples/appearance/axis/xlim/xlim_3.cpp)
 
 === "C++"
 
@@ -6440,7 +6440,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_4](docs/examples/appearance/axis/xlim/xlim_4.svg)](examples/appearance/axis/xlim/xlim_4.cpp)
+[![example_xlim_4](docs/examples/appearance/axis/xlim/xlim_4.svg)](examples/appearance/axis/xlim/xlim_4.cpp)
 
 === "C++"
 
@@ -6452,7 +6452,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_5](docs/examples/appearance/axis/xlim/xlim_5.svg)](examples/appearance/axis/xlim/xlim_5.cpp)
+[![example_xlim_5](docs/examples/appearance/axis/xlim/xlim_5.svg)](examples/appearance/axis/xlim/xlim_5.cpp)
 
 === "C++"
 
@@ -6464,7 +6464,7 @@ xlim({xmin,xmax});
 
 ===! "Plot"
 
-    [![example_xlim_6](docs/examples/appearance/axis/xlim/xlim_6.svg)](examples/appearance/axis/xlim/xlim_6.cpp)
+[![example_xlim_6](docs/examples/appearance/axis/xlim/xlim_6.svg)](examples/appearance/axis/xlim/xlim_6.cpp)
 
 === "C++"
 
@@ -6495,7 +6495,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_1](docs/examples/appearance/axis/ylim/ylim_1.svg)](examples/appearance/axis/ylim/ylim_1.cpp)
+[![example_ylim_1](docs/examples/appearance/axis/ylim/ylim_1.svg)](examples/appearance/axis/ylim/ylim_1.cpp)
 
 === "C++"
 
@@ -6507,7 +6507,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_2](docs/examples/appearance/axis/ylim/ylim_2.png)](examples/appearance/axis/ylim/ylim_2.cpp)
+[![example_ylim_2](docs/examples/appearance/axis/ylim/ylim_2.png)](examples/appearance/axis/ylim/ylim_2.cpp)
 
 === "C++"
 
@@ -6519,7 +6519,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_3](docs/examples/appearance/axis/ylim/ylim_3.svg)](examples/appearance/axis/ylim/ylim_3.cpp)
+[![example_ylim_3](docs/examples/appearance/axis/ylim/ylim_3.svg)](examples/appearance/axis/ylim/ylim_3.cpp)
 
 === "C++"
 
@@ -6530,7 +6530,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_4](docs/examples/appearance/axis/ylim/ylim_4.svg)](examples/appearance/axis/ylim/ylim_4.cpp)
+[![example_ylim_4](docs/examples/appearance/axis/ylim/ylim_4.svg)](examples/appearance/axis/ylim/ylim_4.cpp)
 
 === "C++"
 
@@ -6542,7 +6542,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_5](docs/examples/appearance/axis/ylim/ylim_5.svg)](examples/appearance/axis/ylim/ylim_5.cpp)
+[![example_ylim_5](docs/examples/appearance/axis/ylim/ylim_5.svg)](examples/appearance/axis/ylim/ylim_5.cpp)
 
 === "C++"
 
@@ -6554,7 +6554,7 @@ ylim({ymin,ymax});
 
 ===! "Plot"
 
-    [![example_ylim_6](docs/examples/appearance/axis/ylim/ylim_6.svg)](examples/appearance/axis/ylim/ylim_6.cpp)
+[![example_ylim_6](docs/examples/appearance/axis/ylim/ylim_6.svg)](examples/appearance/axis/ylim/ylim_6.cpp)
 
 === "C++"
 
@@ -6585,7 +6585,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_1](docs/examples/appearance/axis/zlim/zlim_1.png)](examples/appearance/axis/zlim/zlim_1.cpp)
+[![example_zlim_1](docs/examples/appearance/axis/zlim/zlim_1.png)](examples/appearance/axis/zlim/zlim_1.cpp)
 
 === "C++"
 
@@ -6597,7 +6597,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_2](docs/examples/appearance/axis/zlim/zlim_2.png)](examples/appearance/axis/zlim/zlim_2.cpp)
+[![example_zlim_2](docs/examples/appearance/axis/zlim/zlim_2.png)](examples/appearance/axis/zlim/zlim_2.cpp)
 
 === "C++"
 
@@ -6609,7 +6609,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_3](docs/examples/appearance/axis/zlim/zlim_3.png)](examples/appearance/axis/zlim/zlim_3.cpp)
+[![example_zlim_3](docs/examples/appearance/axis/zlim/zlim_3.png)](examples/appearance/axis/zlim/zlim_3.cpp)
 
 === "C++"
 
@@ -6620,7 +6620,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_4](docs/examples/appearance/axis/zlim/zlim_4.svg)](examples/appearance/axis/zlim/zlim_4.cpp)
+[![example_zlim_4](docs/examples/appearance/axis/zlim/zlim_4.svg)](examples/appearance/axis/zlim/zlim_4.cpp)
 
 === "C++"
 
@@ -6632,7 +6632,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_5](docs/examples/appearance/axis/zlim/zlim_5.svg)](examples/appearance/axis/zlim/zlim_5.cpp)
+[![example_zlim_5](docs/examples/appearance/axis/zlim/zlim_5.svg)](examples/appearance/axis/zlim/zlim_5.cpp)
 
 === "C++"
 
@@ -6644,7 +6644,7 @@ zlim({zmin,zmax});
 
 ===! "Plot"
 
-    [![example_zlim_6](docs/examples/appearance/axis/zlim/zlim_6.svg)](examples/appearance/axis/zlim/zlim_6.cpp)
+[![example_zlim_6](docs/examples/appearance/axis/zlim/zlim_6.svg)](examples/appearance/axis/zlim/zlim_6.cpp)
 
 === "C++"
 
@@ -6675,7 +6675,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_1](docs/examples/appearance/axis/axis/axis_1.svg)](examples/appearance/axis/axis/axis_1.cpp)
+[![example_axis_1](docs/examples/appearance/axis/axis/axis_1.svg)](examples/appearance/axis/axis/axis_1.cpp)
 
 === "C++"
 
@@ -6687,7 +6687,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_2](docs/examples/appearance/axis/axis/axis_2.svg)](examples/appearance/axis/axis/axis_2.cpp)
+[![example_axis_2](docs/examples/appearance/axis/axis/axis_2.svg)](examples/appearance/axis/axis/axis_2.cpp)
 
 === "C++"
 
@@ -6699,7 +6699,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_3](docs/examples/appearance/axis/axis/axis_3.svg)](examples/appearance/axis/axis/axis_3.cpp)
+[![example_axis_3](docs/examples/appearance/axis/axis/axis_3.svg)](examples/appearance/axis/axis/axis_3.cpp)
 
 === "C++"
 
@@ -6710,7 +6710,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_4](docs/examples/appearance/axis/axis/axis_4.png)](examples/appearance/axis/axis/axis_4.cpp)
+[![example_axis_4](docs/examples/appearance/axis/axis/axis_4.png)](examples/appearance/axis/axis/axis_4.cpp)
 
 === "C++"
 
@@ -6722,7 +6722,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_5](docs/examples/appearance/axis/axis/axis_5.png)](examples/appearance/axis/axis/axis_5.cpp)
+[![example_axis_5](docs/examples/appearance/axis/axis/axis_5.png)](examples/appearance/axis/axis/axis_5.cpp)
 
 === "C++"
 
@@ -6733,7 +6733,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_6](docs/examples/appearance/axis/axis/axis_6.png)](examples/appearance/axis/axis/axis_6.cpp)
+[![example_axis_6](docs/examples/appearance/axis/axis/axis_6.png)](examples/appearance/axis/axis/axis_6.cpp)
 
 === "C++"
 
@@ -6745,7 +6745,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_7](docs/examples/appearance/axis/axis/axis_7.svg)](examples/appearance/axis/axis/axis_7.cpp)
+[![example_axis_7](docs/examples/appearance/axis/axis/axis_7.svg)](examples/appearance/axis/axis/axis_7.cpp)
 
 === "C++"
 
@@ -6757,7 +6757,7 @@ axis({xmin, xmax, ymin, ymax});
 
 ===! "Plot"
 
-    [![example_axis_8](docs/examples/appearance/axis/axis/axis_8.svg)](examples/appearance/axis/axis/axis_8.cpp)
+[![example_axis_8](docs/examples/appearance/axis/axis/axis_8.svg)](examples/appearance/axis/axis/axis_8.cpp)
 
 === "C++"
 
@@ -6788,7 +6788,7 @@ box(on);
 
 ===! "Plot"
 
-    [![example_box_1](docs/examples/appearance/axis/box/box_1.png)](examples/appearance/axis/box/box_1.cpp)
+[![example_box_1](docs/examples/appearance/axis/box/box_1.png)](examples/appearance/axis/box/box_1.cpp)
 
 === "C++"
 
@@ -6800,7 +6800,7 @@ box(on);
 
 ===! "Plot"
 
-    [![example_box_2](docs/examples/appearance/axis/box/box_2.png)](examples/appearance/axis/box/box_2.cpp)
+[![example_box_2](docs/examples/appearance/axis/box/box_2.png)](examples/appearance/axis/box/box_2.cpp)
 
 === "C++"
 
@@ -6812,7 +6812,7 @@ box(on);
 
 ===! "Plot"
 
-    [![example_box_3](docs/examples/appearance/axis/box/box_3.svg)](examples/appearance/axis/box/box_3.cpp)
+[![example_box_3](docs/examples/appearance/axis/box/box_3.svg)](examples/appearance/axis/box/box_3.cpp)
 
 === "C++"
 
@@ -6845,7 +6845,7 @@ grid(on);
 
 ===! "Plot"
 
-    [![example_grid_1](docs/examples/appearance/grid/grid/grid_1.svg)](examples/appearance/grid/grid/grid_1.cpp)
+[![example_grid_1](docs/examples/appearance/grid/grid/grid_1.svg)](examples/appearance/grid/grid/grid_1.cpp)
 
 === "C++"
 
@@ -6857,7 +6857,7 @@ grid(on);
 
 ===! "Plot"
 
-    [![example_grid_2](docs/examples/appearance/grid/grid/grid_2.png)](examples/appearance/grid/grid/grid_2.cpp)
+[![example_grid_2](docs/examples/appearance/grid/grid/grid_2.png)](examples/appearance/grid/grid/grid_2.cpp)
 
 === "C++"
 
@@ -6869,7 +6869,7 @@ grid(on);
 
 ===! "Plot"
 
-    [![example_grid_3](docs/examples/appearance/grid/grid/grid_3.svg)](examples/appearance/grid/grid/grid_3.cpp)
+[![example_grid_3](docs/examples/appearance/grid/grid/grid_3.svg)](examples/appearance/grid/grid/grid_3.cpp)
 
 === "C++"
 
@@ -6881,7 +6881,7 @@ grid(on);
 
 ===! "Plot"
 
-    [![example_grid_4](docs/examples/appearance/grid/grid/grid_4.svg)](examples/appearance/grid/grid/grid_4.cpp)
+[![example_grid_4](docs/examples/appearance/grid/grid/grid_4.svg)](examples/appearance/grid/grid/grid_4.cpp)
 
 === "C++"
 
@@ -6912,7 +6912,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_1](docs/examples/appearance/grid/xticks/xticks_1.svg)](examples/appearance/grid/xticks/xticks_1.cpp)
+[![example_xticks_1](docs/examples/appearance/grid/xticks/xticks_1.svg)](examples/appearance/grid/xticks/xticks_1.cpp)
 
 === "C++"
 
@@ -6924,7 +6924,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_2](docs/examples/appearance/grid/xticks/xticks_2.svg)](examples/appearance/grid/xticks/xticks_2.cpp)
+[![example_xticks_2](docs/examples/appearance/grid/xticks/xticks_2.svg)](examples/appearance/grid/xticks/xticks_2.cpp)
 
 === "C++"
 
@@ -6936,7 +6936,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_3](docs/examples/appearance/grid/xticks/xticks_3.svg)](examples/appearance/grid/xticks/xticks_3.cpp)
+[![example_xticks_3](docs/examples/appearance/grid/xticks/xticks_3.svg)](examples/appearance/grid/xticks/xticks_3.cpp)
 
 === "C++"
 
@@ -6947,7 +6947,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_4](docs/examples/appearance/grid/xticks/xticks_4.svg)](examples/appearance/grid/xticks/xticks_4.cpp)
+[![example_xticks_4](docs/examples/appearance/grid/xticks/xticks_4.svg)](examples/appearance/grid/xticks/xticks_4.cpp)
 
 === "C++"
 
@@ -6959,7 +6959,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_5](docs/examples/appearance/grid/xticks/xticks_5.svg)](examples/appearance/grid/xticks/xticks_5.cpp)
+[![example_xticks_5](docs/examples/appearance/grid/xticks/xticks_5.svg)](examples/appearance/grid/xticks/xticks_5.cpp)
 
 === "C++"
 
@@ -6970,7 +6970,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_6](docs/examples/appearance/grid/xticks/xticks_6.svg)](examples/appearance/grid/xticks/xticks_6.cpp)
+[![example_xticks_6](docs/examples/appearance/grid/xticks/xticks_6.svg)](examples/appearance/grid/xticks/xticks_6.cpp)
 
 === "C++"
 
@@ -6982,7 +6982,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_7](docs/examples/appearance/grid/xticks/xticks_7.svg)](examples/appearance/grid/xticks/xticks_7.cpp)
+[![example_xticks_7](docs/examples/appearance/grid/xticks/xticks_7.svg)](examples/appearance/grid/xticks/xticks_7.cpp)
 
 === "C++"
 
@@ -6994,7 +6994,7 @@ xticks(xs);
 
 ===! "Plot"
 
-    [![example_xticks_8](docs/examples/appearance/grid/xticks/xticks_8.svg)](examples/appearance/grid/xticks/xticks_8.cpp)
+[![example_xticks_8](docs/examples/appearance/grid/xticks/xticks_8.svg)](examples/appearance/grid/xticks/xticks_8.cpp)
 
 === "C++"
 
@@ -7024,7 +7024,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_1](docs/examples/appearance/grid/yticks/yticks_1.svg)](examples/appearance/grid/yticks/yticks_1.cpp)
+[![example_yticks_1](docs/examples/appearance/grid/yticks/yticks_1.svg)](examples/appearance/grid/yticks/yticks_1.cpp)
 
 === "C++"
 
@@ -7036,7 +7036,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_2](docs/examples/appearance/grid/yticks/yticks_2.svg)](examples/appearance/grid/yticks/yticks_2.cpp)
+[![example_yticks_2](docs/examples/appearance/grid/yticks/yticks_2.svg)](examples/appearance/grid/yticks/yticks_2.cpp)
 
 === "C++"
 
@@ -7048,7 +7048,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_3](docs/examples/appearance/grid/yticks/yticks_3.svg)](examples/appearance/grid/yticks/yticks_3.cpp)
+[![example_yticks_3](docs/examples/appearance/grid/yticks/yticks_3.svg)](examples/appearance/grid/yticks/yticks_3.cpp)
 
 === "C++"
 
@@ -7059,7 +7059,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_4](docs/examples/appearance/grid/yticks/yticks_4.svg)](examples/appearance/grid/yticks/yticks_4.cpp)
+[![example_yticks_4](docs/examples/appearance/grid/yticks/yticks_4.svg)](examples/appearance/grid/yticks/yticks_4.cpp)
 
 === "C++"
 
@@ -7071,7 +7071,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_5](docs/examples/appearance/grid/yticks/yticks_5.svg)](examples/appearance/grid/yticks/yticks_5.cpp)
+[![example_yticks_5](docs/examples/appearance/grid/yticks/yticks_5.svg)](examples/appearance/grid/yticks/yticks_5.cpp)
 
 === "C++"
 
@@ -7082,7 +7082,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_6](docs/examples/appearance/grid/yticks/yticks_6.svg)](examples/appearance/grid/yticks/yticks_6.cpp)
+[![example_yticks_6](docs/examples/appearance/grid/yticks/yticks_6.svg)](examples/appearance/grid/yticks/yticks_6.cpp)
 
 === "C++"
 
@@ -7094,7 +7094,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_7](docs/examples/appearance/grid/yticks/yticks_7.svg)](examples/appearance/grid/yticks/yticks_7.cpp)
+[![example_yticks_7](docs/examples/appearance/grid/yticks/yticks_7.svg)](examples/appearance/grid/yticks/yticks_7.cpp)
 
 === "C++"
 
@@ -7106,7 +7106,7 @@ yticks(ys);
 
 ===! "Plot"
 
-    [![example_yticks_8](docs/examples/appearance/grid/yticks/yticks_8.svg)](examples/appearance/grid/yticks/yticks_8.cpp)
+[![example_yticks_8](docs/examples/appearance/grid/yticks/yticks_8.svg)](examples/appearance/grid/yticks/yticks_8.cpp)
 
 === "C++"
 
@@ -7136,7 +7136,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_1](docs/examples/appearance/grid/zticks/zticks_1.png)](examples/appearance/grid/zticks/zticks_1.cpp)
+[![example_zticks_1](docs/examples/appearance/grid/zticks/zticks_1.png)](examples/appearance/grid/zticks/zticks_1.cpp)
 
 === "C++"
 
@@ -7148,7 +7148,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_2](docs/examples/appearance/grid/zticks/zticks_2.png)](examples/appearance/grid/zticks/zticks_2.cpp)
+[![example_zticks_2](docs/examples/appearance/grid/zticks/zticks_2.png)](examples/appearance/grid/zticks/zticks_2.cpp)
 
 === "C++"
 
@@ -7160,7 +7160,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_3](docs/examples/appearance/grid/zticks/zticks_3.png)](examples/appearance/grid/zticks/zticks_3.cpp)
+[![example_zticks_3](docs/examples/appearance/grid/zticks/zticks_3.png)](examples/appearance/grid/zticks/zticks_3.cpp)
 
 === "C++"
 
@@ -7171,7 +7171,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_4](docs/examples/appearance/grid/zticks/zticks_4.svg)](examples/appearance/grid/zticks/zticks_4.cpp)
+[![example_zticks_4](docs/examples/appearance/grid/zticks/zticks_4.svg)](examples/appearance/grid/zticks/zticks_4.cpp)
 
 === "C++"
 
@@ -7183,7 +7183,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_5](docs/examples/appearance/grid/zticks/zticks_5.svg)](examples/appearance/grid/zticks/zticks_5.cpp)
+[![example_zticks_5](docs/examples/appearance/grid/zticks/zticks_5.svg)](examples/appearance/grid/zticks/zticks_5.cpp)
 
 === "C++"
 
@@ -7195,7 +7195,7 @@ zticks(zs);
 
 ===! "Plot"
 
-    [![example_zticks_6](docs/examples/appearance/grid/zticks/zticks_6.png)](examples/appearance/grid/zticks/zticks_6.cpp)
+[![example_zticks_6](docs/examples/appearance/grid/zticks/zticks_6.png)](examples/appearance/grid/zticks/zticks_6.cpp)
 
 === "C++"
 
@@ -7225,7 +7225,7 @@ xticklabels(xstrs);
 
 ===! "Plot"
 
-    [![example_xticklabels_1](docs/examples/appearance/grid/xticklabels/xticklabels_1.svg)](examples/appearance/grid/xticklabels/xticklabels_1.cpp)
+[![example_xticklabels_1](docs/examples/appearance/grid/xticklabels/xticklabels_1.svg)](examples/appearance/grid/xticklabels/xticklabels_1.cpp)
 
 === "C++"
 
@@ -7237,7 +7237,7 @@ xticklabels(xstrs);
 
 ===! "Plot"
 
-    [![example_xticklabels_2](docs/examples/appearance/grid/xticklabels/xticklabels_2.svg)](examples/appearance/grid/xticklabels/xticklabels_2.cpp)
+[![example_xticklabels_2](docs/examples/appearance/grid/xticklabels/xticklabels_2.svg)](examples/appearance/grid/xticklabels/xticklabels_2.cpp)
 
 === "C++"
 
@@ -7249,7 +7249,7 @@ xticklabels(xstrs);
 
 ===! "Plot"
 
-    [![example_xticklabels_3](docs/examples/appearance/grid/xticklabels/xticklabels_3.svg)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)
+[![example_xticklabels_3](docs/examples/appearance/grid/xticklabels/xticklabels_3.svg)](examples/appearance/grid/xticklabels/xticklabels_3.cpp)
 
 === "C++"
 
@@ -7261,7 +7261,7 @@ xticklabels(xstrs);
 
 ===! "Plot"
 
-    [![example_xticklabels_4](docs/examples/appearance/grid/xticklabels/xticklabels_4.svg)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
+[![example_xticklabels_4](docs/examples/appearance/grid/xticklabels/xticklabels_4.svg)](examples/appearance/grid/xticklabels/xticklabels_4.cpp)
 
 === "C++"
 
@@ -7291,7 +7291,7 @@ yticklabels(ystrs);
 
 ===! "Plot"
 
-    [![example_yticklabels_1](docs/examples/appearance/grid/yticklabels/yticklabels_1.svg)](examples/appearance/grid/yticklabels/yticklabels_1.cpp)
+[![example_yticklabels_1](docs/examples/appearance/grid/yticklabels/yticklabels_1.svg)](examples/appearance/grid/yticklabels/yticklabels_1.cpp)
 
 === "C++"
 
@@ -7303,7 +7303,7 @@ yticklabels(ystrs);
 
 ===! "Plot"
 
-    [![example_yticklabels_2](docs/examples/appearance/grid/yticklabels/yticklabels_2.svg)](examples/appearance/grid/yticklabels/yticklabels_2.cpp)
+[![example_yticklabels_2](docs/examples/appearance/grid/yticklabels/yticklabels_2.svg)](examples/appearance/grid/yticklabels/yticklabels_2.cpp)
 
 === "C++"
 
@@ -7315,7 +7315,7 @@ yticklabels(ystrs);
 
 ===! "Plot"
 
-    [![example_yticklabels_3](docs/examples/appearance/grid/yticklabels/yticklabels_3.svg)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)
+[![example_yticklabels_3](docs/examples/appearance/grid/yticklabels/yticklabels_3.svg)](examples/appearance/grid/yticklabels/yticklabels_3.cpp)
 
 === "C++"
 
@@ -7327,7 +7327,7 @@ yticklabels(ystrs);
 
 ===! "Plot"
 
-    [![example_yticklabels_4](docs/examples/appearance/grid/yticklabels/yticklabels_4.svg)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
+[![example_yticklabels_4](docs/examples/appearance/grid/yticklabels/yticklabels_4.svg)](examples/appearance/grid/yticklabels/yticklabels_4.cpp)
 
 === "C++"
 
@@ -7357,7 +7357,7 @@ xtickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_xtickformat_1](docs/examples/appearance/grid/xtickformat/xtickformat_1.svg)](examples/appearance/grid/xtickformat/xtickformat_1.cpp)
+[![example_xtickformat_1](docs/examples/appearance/grid/xtickformat/xtickformat_1.svg)](examples/appearance/grid/xtickformat/xtickformat_1.cpp)
 
 === "C++"
 
@@ -7369,7 +7369,7 @@ xtickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_xtickformat_2](docs/examples/appearance/grid/xtickformat/xtickformat_2.svg)](examples/appearance/grid/xtickformat/xtickformat_2.cpp)
+[![example_xtickformat_2](docs/examples/appearance/grid/xtickformat/xtickformat_2.svg)](examples/appearance/grid/xtickformat/xtickformat_2.cpp)
 
 === "C++"
 
@@ -7381,7 +7381,7 @@ xtickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_xtickformat_3](docs/examples/appearance/grid/xtickformat/xtickformat_3.svg)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)
+[![example_xtickformat_3](docs/examples/appearance/grid/xtickformat/xtickformat_3.svg)](examples/appearance/grid/xtickformat/xtickformat_3.cpp)
 
 === "C++"
 
@@ -7392,7 +7392,7 @@ xtickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_xtickformat_4](docs/examples/appearance/grid/xtickformat/xtickformat_4.svg)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)
+[![example_xtickformat_4](docs/examples/appearance/grid/xtickformat/xtickformat_4.svg)](examples/appearance/grid/xtickformat/xtickformat_4.cpp)
 
 === "C++"
 
@@ -7404,7 +7404,7 @@ xtickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_xtickformat_5](docs/examples/appearance/grid/xtickformat/xtickformat_5.svg)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
+[![example_xtickformat_5](docs/examples/appearance/grid/xtickformat/xtickformat_5.svg)](examples/appearance/grid/xtickformat/xtickformat_5.cpp)
 
 === "C++"
 
@@ -7435,7 +7435,7 @@ ytickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ytickformat_1](docs/examples/appearance/grid/ytickformat/ytickformat_1.svg)](examples/appearance/grid/ytickformat/ytickformat_1.cpp)
+[![example_ytickformat_1](docs/examples/appearance/grid/ytickformat/ytickformat_1.svg)](examples/appearance/grid/ytickformat/ytickformat_1.cpp)
 
 === "C++"
 
@@ -7448,7 +7448,7 @@ ytickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ytickformat_2](docs/examples/appearance/grid/ytickformat/ytickformat_2.svg)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)
+[![example_ytickformat_2](docs/examples/appearance/grid/ytickformat/ytickformat_2.svg)](examples/appearance/grid/ytickformat/ytickformat_2.cpp)
 
 === "C++"
 
@@ -7460,7 +7460,7 @@ ytickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ytickformat_3](docs/examples/appearance/grid/ytickformat/ytickformat_3.svg)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)
+[![example_ytickformat_3](docs/examples/appearance/grid/ytickformat/ytickformat_3.svg)](examples/appearance/grid/ytickformat/ytickformat_3.cpp)
 
 === "C++"
 
@@ -7471,7 +7471,7 @@ ytickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ytickformat_4](docs/examples/appearance/grid/ytickformat/ytickformat_4.svg)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)
+[![example_ytickformat_4](docs/examples/appearance/grid/ytickformat/ytickformat_4.svg)](examples/appearance/grid/ytickformat/ytickformat_4.cpp)
 
 === "C++"
 
@@ -7483,7 +7483,7 @@ ytickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ytickformat_5](docs/examples/appearance/grid/ytickformat/ytickformat_5.svg)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)
+[![example_ytickformat_5](docs/examples/appearance/grid/ytickformat/ytickformat_5.svg)](examples/appearance/grid/ytickformat/ytickformat_5.cpp)
 
 === "C++"
 
@@ -7513,7 +7513,7 @@ ztickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ztickformat_1](docs/examples/appearance/grid/ztickformat/ztickformat_1.svg)](examples/appearance/grid/ztickformat/ztickformat_1.cpp)
+[![example_ztickformat_1](docs/examples/appearance/grid/ztickformat/ztickformat_1.svg)](examples/appearance/grid/ztickformat/ztickformat_1.cpp)
 
 === "C++"
 
@@ -7525,7 +7525,7 @@ ztickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ztickformat_2](docs/examples/appearance/grid/ztickformat/ztickformat_2.svg)](examples/appearance/grid/ztickformat/ztickformat_2.cpp)
+[![example_ztickformat_2](docs/examples/appearance/grid/ztickformat/ztickformat_2.svg)](examples/appearance/grid/ztickformat/ztickformat_2.cpp)
 
 === "C++"
 
@@ -7537,7 +7537,7 @@ ztickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ztickformat_3](docs/examples/appearance/grid/ztickformat/ztickformat_3.svg)](examples/appearance/grid/ztickformat/ztickformat_3.cpp)
+[![example_ztickformat_3](docs/examples/appearance/grid/ztickformat/ztickformat_3.svg)](examples/appearance/grid/ztickformat/ztickformat_3.cpp)
 
 === "C++"
 
@@ -7548,7 +7548,7 @@ ztickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ztickformat_4](docs/examples/appearance/grid/ztickformat/ztickformat_4.svg)](examples/appearance/grid/ztickformat/ztickformat_4.cpp)
+[![example_ztickformat_4](docs/examples/appearance/grid/ztickformat/ztickformat_4.svg)](examples/appearance/grid/ztickformat/ztickformat_4.cpp)
 
 === "C++"
 
@@ -7560,7 +7560,7 @@ ztickformat(fmtstr);
 
 ===! "Plot"
 
-    [![example_ztickformat_5](docs/examples/appearance/grid/ztickformat/ztickformat_5.svg)](examples/appearance/grid/ztickformat/ztickformat_5.cpp)
+[![example_ztickformat_5](docs/examples/appearance/grid/ztickformat/ztickformat_5.svg)](examples/appearance/grid/ztickformat/ztickformat_5.cpp)
 
 === "C++"
 
@@ -7591,7 +7591,7 @@ xtickangle(ang);
 
 ===! "Plot"
 
-    [![example_xtickangle_1](docs/examples/appearance/grid/xtickangle/xtickangle_1.svg)](examples/appearance/grid/xtickangle/xtickangle_1.cpp)
+[![example_xtickangle_1](docs/examples/appearance/grid/xtickangle/xtickangle_1.svg)](examples/appearance/grid/xtickangle/xtickangle_1.cpp)
 
 === "C++"
 
@@ -7603,7 +7603,7 @@ xtickangle(ang);
 
 ===! "Plot"
 
-    [![example_xtickangle_2](docs/examples/appearance/grid/xtickangle/xtickangle_2.svg)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)
+[![example_xtickangle_2](docs/examples/appearance/grid/xtickangle/xtickangle_2.svg)](examples/appearance/grid/xtickangle/xtickangle_2.cpp)
 
 === "C++"
 
@@ -7615,7 +7615,7 @@ xtickangle(ang);
 
 ===! "Plot"
 
-    [![example_xtickangle_3](docs/examples/appearance/grid/xtickangle/xtickangle_3.svg)](examples/appearance/grid/xtickangle/xtickangle_3.cpp)
+[![example_xtickangle_3](docs/examples/appearance/grid/xtickangle/xtickangle_3.svg)](examples/appearance/grid/xtickangle/xtickangle_3.cpp)
 
 === "C++"
 
@@ -7646,7 +7646,7 @@ ytickangle(ang);
 
 ===! "Plot"
 
-    [![example_ytickangle_1](docs/examples/appearance/grid/ytickangle/ytickangle_1.svg)](examples/appearance/grid/ytickangle/ytickangle_1.cpp)
+[![example_ytickangle_1](docs/examples/appearance/grid/ytickangle/ytickangle_1.svg)](examples/appearance/grid/ytickangle/ytickangle_1.cpp)
 
 === "C++"
 
@@ -7658,7 +7658,7 @@ ytickangle(ang);
 
 ===! "Plot"
 
-    [![example_ytickangle_2](docs/examples/appearance/grid/ytickangle/ytickangle_2.svg)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)
+[![example_ytickangle_2](docs/examples/appearance/grid/ytickangle/ytickangle_2.svg)](examples/appearance/grid/ytickangle/ytickangle_2.cpp)
 
 === "C++"
 
@@ -7670,7 +7670,7 @@ ytickangle(ang);
 
 ===! "Plot"
 
-    [![example_ytickangle_3](docs/examples/appearance/grid/ytickangle/ytickangle_3.svg)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
+[![example_ytickangle_3](docs/examples/appearance/grid/ytickangle/ytickangle_3.svg)](examples/appearance/grid/ytickangle/ytickangle_3.cpp)
 
 === "C++"
 
@@ -7703,7 +7703,7 @@ hold(on);
 
 ===! "Plot"
 
-    [![example_hold_1](docs/examples/appearance/multiplot/hold/hold_1.svg)](examples/appearance/multiplot/hold/hold_1.cpp)
+[![example_hold_1](docs/examples/appearance/multiplot/hold/hold_1.svg)](examples/appearance/multiplot/hold/hold_1.cpp)
 
 === "C++"
 
@@ -7715,7 +7715,7 @@ hold(on);
 
 ===! "Plot"
 
-    [![example_hold_2](docs/examples/appearance/multiplot/hold/hold_2.svg)](examples/appearance/multiplot/hold/hold_2.cpp)
+[![example_hold_2](docs/examples/appearance/multiplot/hold/hold_2.svg)](examples/appearance/multiplot/hold/hold_2.cpp)
 
 === "C++"
 
@@ -7727,7 +7727,7 @@ hold(on);
 
 ===! "Plot"
 
-    [![example_hold_3](docs/examples/appearance/multiplot/hold/hold_3.svg)](examples/appearance/multiplot/hold/hold_3.cpp)
+[![example_hold_3](docs/examples/appearance/multiplot/hold/hold_3.svg)](examples/appearance/multiplot/hold/hold_3.cpp)
 
 === "C++"
 
@@ -7739,7 +7739,7 @@ hold(on);
 
 ===! "Plot"
 
-    [![example_hold_4](docs/examples/appearance/multiplot/hold/hold_4.svg)](examples/appearance/multiplot/hold/hold_4.cpp)
+[![example_hold_4](docs/examples/appearance/multiplot/hold/hold_4.svg)](examples/appearance/multiplot/hold/hold_4.cpp)
 
 === "C++"
 
@@ -7770,7 +7770,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_1](docs/examples/appearance/multiplot/yyaxis/yyaxis_1.svg)](examples/appearance/multiplot/yyaxis/yyaxis_1.cpp)
+[![example_yyaxis_1](docs/examples/appearance/multiplot/yyaxis/yyaxis_1.svg)](examples/appearance/multiplot/yyaxis/yyaxis_1.cpp)
 
 === "C++"
 
@@ -7782,7 +7782,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_2](docs/examples/appearance/multiplot/yyaxis/yyaxis_2.svg)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)
+[![example_yyaxis_2](docs/examples/appearance/multiplot/yyaxis/yyaxis_2.svg)](examples/appearance/multiplot/yyaxis/yyaxis_2.cpp)
 
 === "C++"
 
@@ -7794,7 +7794,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_3](docs/examples/appearance/multiplot/yyaxis/yyaxis_3.svg)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)
+[![example_yyaxis_3](docs/examples/appearance/multiplot/yyaxis/yyaxis_3.svg)](examples/appearance/multiplot/yyaxis/yyaxis_3.cpp)
 
 === "C++"
 
@@ -7805,7 +7805,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_4](docs/examples/appearance/multiplot/yyaxis/yyaxis_4.svg)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)
+[![example_yyaxis_4](docs/examples/appearance/multiplot/yyaxis/yyaxis_4.svg)](examples/appearance/multiplot/yyaxis/yyaxis_4.cpp)
 
 === "C++"
 
@@ -7817,7 +7817,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_5](docs/examples/appearance/multiplot/yyaxis/yyaxis_5.svg)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)
+[![example_yyaxis_5](docs/examples/appearance/multiplot/yyaxis/yyaxis_5.svg)](examples/appearance/multiplot/yyaxis/yyaxis_5.cpp)
 
 === "C++"
 
@@ -7829,7 +7829,7 @@ plot(x, y)->use_y2(true);
 
 ===! "Plot"
 
-    [![example_yyaxis_6](docs/examples/appearance/multiplot/yyaxis/yyaxis_6.svg)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)
+[![example_yyaxis_6](docs/examples/appearance/multiplot/yyaxis/yyaxis_6.svg)](examples/appearance/multiplot/yyaxis/yyaxis_6.cpp)
 
 === "C++"
 
@@ -7860,7 +7860,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_1](docs/examples/appearance/multiplot/colororder/colororder_1.svg)](examples/appearance/multiplot/colororder/colororder_1.cpp)
+[![example_colororder_1](docs/examples/appearance/multiplot/colororder/colororder_1.svg)](examples/appearance/multiplot/colororder/colororder_1.cpp)
 
 === "C++"
 
@@ -7872,7 +7872,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_2](docs/examples/appearance/multiplot/colororder/colororder_2.svg)](examples/appearance/multiplot/colororder/colororder_2.cpp)
+[![example_colororder_2](docs/examples/appearance/multiplot/colororder/colororder_2.svg)](examples/appearance/multiplot/colororder/colororder_2.cpp)
 
 === "C++"
 
@@ -7884,7 +7884,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_3](docs/examples/appearance/multiplot/colororder/colororder_3.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)
+[![example_colororder_3](docs/examples/appearance/multiplot/colororder/colororder_3.png)](examples/appearance/multiplot/colororder/colororder_3.cpp)
 
 === "C++"
 
@@ -7895,7 +7895,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_4](docs/examples/appearance/multiplot/colororder/colororder_4.svg)](examples/appearance/multiplot/colororder/colororder_4.cpp)
+[![example_colororder_4](docs/examples/appearance/multiplot/colororder/colororder_4.svg)](examples/appearance/multiplot/colororder/colororder_4.cpp)
 
 === "C++"
 
@@ -7907,7 +7907,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_5](docs/examples/appearance/multiplot/colororder/colororder_5.svg)](examples/appearance/multiplot/colororder/colororder_5.cpp)
+[![example_colororder_5](docs/examples/appearance/multiplot/colororder/colororder_5.svg)](examples/appearance/multiplot/colororder/colororder_5.cpp)
 
 === "C++"
 
@@ -7918,7 +7918,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_6](docs/examples/appearance/multiplot/colororder/colororder_6.svg)](examples/appearance/multiplot/colororder/colororder_6.cpp)
+[![example_colororder_6](docs/examples/appearance/multiplot/colororder/colororder_6.svg)](examples/appearance/multiplot/colororder/colororder_6.cpp)
 
 === "C++"
 
@@ -7930,7 +7930,7 @@ colororder(colors);
 
 ===! "Plot"
 
-    [![example_colororder_7](docs/examples/appearance/multiplot/colororder/colororder_7.svg)](examples/appearance/multiplot/colororder/colororder_7.cpp)
+[![example_colororder_7](docs/examples/appearance/multiplot/colororder/colororder_7.svg)](examples/appearance/multiplot/colororder/colororder_7.cpp)
 
 === "C++"
 
@@ -7963,7 +7963,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_1](docs/examples/appearance/multiplot/subplot/subplot_1.svg)](examples/appearance/multiplot/subplot/subplot_1.cpp)
+[![example_subplot_1](docs/examples/appearance/multiplot/subplot/subplot_1.svg)](examples/appearance/multiplot/subplot/subplot_1.cpp)
 
 === "C++"
 
@@ -7975,7 +7975,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_2](docs/examples/appearance/multiplot/subplot/subplot_2.svg)](examples/appearance/multiplot/subplot/subplot_2.cpp)
+[![example_subplot_2](docs/examples/appearance/multiplot/subplot/subplot_2.svg)](examples/appearance/multiplot/subplot/subplot_2.cpp)
 
 === "C++"
 
@@ -7987,7 +7987,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_3](docs/examples/appearance/multiplot/subplot/subplot_3.svg)](examples/appearance/multiplot/subplot/subplot_3.cpp)
+[![example_subplot_3](docs/examples/appearance/multiplot/subplot/subplot_3.svg)](examples/appearance/multiplot/subplot/subplot_3.cpp)
 
 === "C++"
 
@@ -7998,7 +7998,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_4](docs/examples/appearance/multiplot/subplot/subplot_4.svg)](examples/appearance/multiplot/subplot/subplot_4.cpp)
+[![example_subplot_4](docs/examples/appearance/multiplot/subplot/subplot_4.svg)](examples/appearance/multiplot/subplot/subplot_4.cpp)
 
 === "C++"
 
@@ -8010,7 +8010,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_5](docs/examples/appearance/multiplot/subplot/subplot_5.svg)](examples/appearance/multiplot/subplot/subplot_5.cpp)
+[![example_subplot_5](docs/examples/appearance/multiplot/subplot/subplot_5.svg)](examples/appearance/multiplot/subplot/subplot_5.cpp)
 
 === "C++"
 
@@ -8021,7 +8021,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_6](docs/examples/appearance/multiplot/subplot/subplot_6.svg)](examples/appearance/multiplot/subplot/subplot_6.cpp)
+[![example_subplot_6](docs/examples/appearance/multiplot/subplot/subplot_6.svg)](examples/appearance/multiplot/subplot/subplot_6.cpp)
 
 === "C++"
 
@@ -8033,7 +8033,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_7](docs/examples/appearance/multiplot/subplot/subplot_7.svg)](examples/appearance/multiplot/subplot/subplot_7.cpp)
+[![example_subplot_7](docs/examples/appearance/multiplot/subplot/subplot_7.svg)](examples/appearance/multiplot/subplot/subplot_7.cpp)
 
 === "C++"
 
@@ -8044,7 +8044,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_8](docs/examples/appearance/multiplot/subplot/subplot_8.svg)](examples/appearance/multiplot/subplot/subplot_8.cpp)
+[![example_subplot_8](docs/examples/appearance/multiplot/subplot/subplot_8.svg)](examples/appearance/multiplot/subplot/subplot_8.cpp)
 
 === "C++"
 
@@ -8056,7 +8056,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_9](docs/examples/appearance/multiplot/subplot/subplot_9.svg)](examples/appearance/multiplot/subplot/subplot_9.cpp)
+[![example_subplot_9](docs/examples/appearance/multiplot/subplot/subplot_9.svg)](examples/appearance/multiplot/subplot/subplot_9.cpp)
 
 === "C++"
 
@@ -8067,7 +8067,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_10](docs/examples/appearance/multiplot/subplot/subplot_10.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)
+[![example_subplot_10](docs/examples/appearance/multiplot/subplot/subplot_10.png)](examples/appearance/multiplot/subplot/subplot_10.cpp)
 
 === "C++"
 
@@ -8079,7 +8079,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_11](docs/examples/appearance/multiplot/subplot/subplot_11.svg)](examples/appearance/multiplot/subplot/subplot_11.cpp)
+[![example_subplot_11](docs/examples/appearance/multiplot/subplot/subplot_11.svg)](examples/appearance/multiplot/subplot/subplot_11.cpp)
 
 === "C++"
 
@@ -8090,7 +8090,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_12](docs/examples/appearance/multiplot/subplot/subplot_12.svg)](examples/appearance/multiplot/subplot/subplot_12.cpp)
+[![example_subplot_12](docs/examples/appearance/multiplot/subplot/subplot_12.svg)](examples/appearance/multiplot/subplot/subplot_12.cpp)
 
 === "C++"
 
@@ -8102,7 +8102,7 @@ Unlike other libraries, subplots uses 0-based indices.
 
 ===! "Plot"
 
-    [![example_subplot_13](docs/examples/appearance/multiplot/subplot/subplot_13.svg)](examples/appearance/multiplot/subplot/subplot_13.cpp)
+[![example_subplot_13](docs/examples/appearance/multiplot/subplot/subplot_13.svg)](examples/appearance/multiplot/subplot/subplot_13.cpp)
 
 === "C++"
 
@@ -8134,7 +8134,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_1](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
+[![example_tiledlayout_1](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_1.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_1.cpp)
 
 === "C++"
 
@@ -8146,7 +8146,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_2](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_2.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)
+[![example_tiledlayout_2](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_2.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_2.cpp)
 
 === "C++"
 
@@ -8158,7 +8158,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_3](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_3.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)
+[![example_tiledlayout_3](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_3.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_3.cpp)
 
 === "C++"
 
@@ -8169,7 +8169,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_4](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_4.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)
+[![example_tiledlayout_4](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_4.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_4.cpp)
 
 === "C++"
 
@@ -8181,7 +8181,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_5](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_5.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)
+[![example_tiledlayout_5](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_5.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_5.cpp)
 
 === "C++"
 
@@ -8192,7 +8192,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_6](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_6.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)
+[![example_tiledlayout_6](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_6.svg)](examples/appearance/multiplot/tiledlayout/tiledlayout_6.cpp)
 
 === "C++"
 
@@ -8204,7 +8204,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_7](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_7.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)
+[![example_tiledlayout_7](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_7.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_7.cpp)
 
 === "C++"
 
@@ -8216,7 +8216,7 @@ nexttile();
 
 ===! "Plot"
 
-    [![example_tiledlayout_8](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_8.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
+[![example_tiledlayout_8](docs/examples/appearance/multiplot/tiledlayout/tiledlayout_8.png)](examples/appearance/multiplot/tiledlayout/tiledlayout_8.cpp)
 
 === "C++"
 
@@ -8253,7 +8253,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_1](docs/examples/appearance/colormaps/colormap/colormap_1.png)](examples/appearance/colormaps/colormap/colormap_1.cpp)
+[![example_colormap_1](docs/examples/appearance/colormaps/colormap/colormap_1.png)](examples/appearance/colormaps/colormap/colormap_1.cpp)
 
 === "C++"
 
@@ -8265,7 +8265,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_2](docs/examples/appearance/colormaps/colormap/colormap_2.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)
+[![example_colormap_2](docs/examples/appearance/colormaps/colormap/colormap_2.png)](examples/appearance/colormaps/colormap/colormap_2.cpp)
 
 === "C++"
 
@@ -8277,7 +8277,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_3](docs/examples/appearance/colormaps/colormap/colormap_3.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)
+[![example_colormap_3](docs/examples/appearance/colormaps/colormap/colormap_3.png)](examples/appearance/colormaps/colormap/colormap_3.cpp)
 
 === "C++"
 
@@ -8288,7 +8288,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_4](docs/examples/appearance/colormaps/colormap/colormap_4.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)
+[![example_colormap_4](docs/examples/appearance/colormaps/colormap/colormap_4.png)](examples/appearance/colormaps/colormap/colormap_4.cpp)
 
 === "C++"
 
@@ -8300,7 +8300,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_5](docs/examples/appearance/colormaps/colormap/colormap_5.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)
+[![example_colormap_5](docs/examples/appearance/colormaps/colormap/colormap_5.png)](examples/appearance/colormaps/colormap/colormap_5.cpp)
 
 === "C++"
 
@@ -8311,7 +8311,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_6](docs/examples/appearance/colormaps/colormap/colormap_6.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)
+[![example_colormap_6](docs/examples/appearance/colormaps/colormap/colormap_6.png)](examples/appearance/colormaps/colormap/colormap_6.cpp)
 
 === "C++"
 
@@ -8323,7 +8323,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_7](docs/examples/appearance/colormaps/colormap/colormap_7.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)
+[![example_colormap_7](docs/examples/appearance/colormaps/colormap/colormap_7.png)](examples/appearance/colormaps/colormap/colormap_7.cpp)
 
 === "C++"
 
@@ -8334,7 +8334,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_8](docs/examples/appearance/colormaps/colormap/colormap_8.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)
+[![example_colormap_8](docs/examples/appearance/colormaps/colormap/colormap_8.png)](examples/appearance/colormaps/colormap/colormap_8.cpp)
 
 === "C++"
 
@@ -8346,7 +8346,7 @@ colormap(colors);
 
 ===! "Plot"
 
-    [![example_colormap_9](docs/examples/appearance/colormaps/colormap/colormap_9.svg)](examples/appearance/colormaps/colormap/colormap_9.cpp)
+[![example_colormap_9](docs/examples/appearance/colormaps/colormap/colormap_9.svg)](examples/appearance/colormaps/colormap/colormap_9.cpp)
 
 === "C++"
 
@@ -8377,7 +8377,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_1](docs/examples/appearance/colormaps/colorbar/colorbar_1.png)](examples/appearance/colormaps/colorbar/colorbar_1.cpp)
+[![example_colorbar_1](docs/examples/appearance/colormaps/colorbar/colorbar_1.png)](examples/appearance/colormaps/colorbar/colorbar_1.cpp)
 
 === "C++"
 
@@ -8389,7 +8389,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_2](docs/examples/appearance/colormaps/colorbar/colorbar_2.png)](examples/appearance/colormaps/colorbar/colorbar_2.cpp)
+[![example_colorbar_2](docs/examples/appearance/colormaps/colorbar/colorbar_2.png)](examples/appearance/colormaps/colorbar/colorbar_2.cpp)
 
 === "C++"
 
@@ -8401,7 +8401,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_3](docs/examples/appearance/colormaps/colorbar/colorbar_3.png)](examples/appearance/colormaps/colorbar/colorbar_3.cpp)
+[![example_colorbar_3](docs/examples/appearance/colormaps/colorbar/colorbar_3.png)](examples/appearance/colormaps/colorbar/colorbar_3.cpp)
 
 === "C++"
 
@@ -8412,7 +8412,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_4](docs/examples/appearance/colormaps/colorbar/colorbar_4.png)](examples/appearance/colormaps/colorbar/colorbar_4.cpp)
+[![example_colorbar_4](docs/examples/appearance/colormaps/colorbar/colorbar_4.png)](examples/appearance/colormaps/colorbar/colorbar_4.cpp)
 
 === "C++"
 
@@ -8424,7 +8424,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_5](docs/examples/appearance/colormaps/colorbar/colorbar_5.svg)](examples/appearance/colormaps/colorbar/colorbar_5.cpp)
+[![example_colorbar_5](docs/examples/appearance/colormaps/colorbar/colorbar_5.svg)](examples/appearance/colormaps/colorbar/colorbar_5.cpp)
 
 === "C++"
 
@@ -8435,7 +8435,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_6](docs/examples/appearance/colormaps/colorbar/colorbar_6.png)](examples/appearance/colormaps/colorbar/colorbar_6.cpp)
+[![example_colorbar_6](docs/examples/appearance/colormaps/colorbar/colorbar_6.png)](examples/appearance/colormaps/colorbar/colorbar_6.cpp)
 
 === "C++"
 
@@ -8447,7 +8447,7 @@ colorbar();
 
 ===! "Plot"
 
-    [![example_colorbar_7](docs/examples/appearance/colormaps/colorbar/colorbar_7.png)](examples/appearance/colormaps/colorbar/colorbar_7.cpp)
+[![example_colorbar_7](docs/examples/appearance/colormaps/colorbar/colorbar_7.png)](examples/appearance/colormaps/colorbar/colorbar_7.cpp)
 
 === "C++"
 
@@ -8479,7 +8479,7 @@ rgbplot(colors);
 
 ===! "Plot"
 
-    [![example_rgbplot_1](docs/examples/appearance/colormaps/rgbplot/rgbplot_1.svg)](examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
+[![example_rgbplot_1](docs/examples/appearance/colormaps/rgbplot/rgbplot_1.svg)](examples/appearance/colormaps/rgbplot/rgbplot_1.cpp)
 
 === "C++"
 
@@ -8492,7 +8492,7 @@ rgbplot(colors);
 
 ===! "Plot"
 
-    [![example_rgbplot_2](docs/examples/appearance/colormaps/rgbplot/rgbplot_2.svg)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
+[![example_rgbplot_2](docs/examples/appearance/colormaps/rgbplot/rgbplot_2.svg)](examples/appearance/colormaps/rgbplot/rgbplot_2.cpp)
 
 === "C++"
 
@@ -8524,7 +8524,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_1](docs/examples/appearance/camera/view/view_1.png)](examples/appearance/camera/view/view_1.cpp)
+[![example_view_1](docs/examples/appearance/camera/view/view_1.png)](examples/appearance/camera/view/view_1.cpp)
 
 === "C++"
 
@@ -8536,7 +8536,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_2](docs/examples/appearance/camera/view/view_2.png)](examples/appearance/camera/view/view_2.cpp)
+[![example_view_2](docs/examples/appearance/camera/view/view_2.png)](examples/appearance/camera/view/view_2.cpp)
 
 === "C++"
 
@@ -8548,7 +8548,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_3](docs/examples/appearance/camera/view/view_3.svg)](examples/appearance/camera/view/view_3.cpp)
+[![example_view_3](docs/examples/appearance/camera/view/view_3.svg)](examples/appearance/camera/view/view_3.cpp)
 
 === "C++"
 
@@ -8559,7 +8559,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_4](docs/examples/appearance/camera/view/view_4.svg)](examples/appearance/camera/view/view_4.cpp)
+[![example_view_4](docs/examples/appearance/camera/view/view_4.svg)](examples/appearance/camera/view/view_4.cpp)
 
 === "C++"
 
@@ -8571,7 +8571,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_5](docs/examples/appearance/camera/view/view_5.svg)](examples/appearance/camera/view/view_5.cpp)
+[![example_view_5](docs/examples/appearance/camera/view/view_5.svg)](examples/appearance/camera/view/view_5.cpp)
 
 === "C++"
 
@@ -8582,7 +8582,7 @@ view(az, el);
 
 ===! "Plot"
 
-    [![example_view_6](docs/examples/appearance/camera/view/view_6.png)](examples/appearance/camera/view/view_6.cpp)
+[![example_view_6](docs/examples/appearance/camera/view/view_6.png)](examples/appearance/camera/view/view_6.cpp)
 
 === "C++"
 
@@ -8613,7 +8613,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_1](docs/examples/appearance/camera/lighting/lighting_1.png)](examples/appearance/camera/lighting/lighting_1.cpp)
+[![example_lighting_1](docs/examples/appearance/camera/lighting/lighting_1.png)](examples/appearance/camera/lighting/lighting_1.cpp)
 
 === "C++"
 
@@ -8625,7 +8625,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_2](docs/examples/appearance/camera/lighting/lighting_2.png)](examples/appearance/camera/lighting/lighting_2.cpp)
+[![example_lighting_2](docs/examples/appearance/camera/lighting/lighting_2.png)](examples/appearance/camera/lighting/lighting_2.cpp)
 
 === "C++"
 
@@ -8637,7 +8637,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_3](docs/examples/appearance/camera/lighting/lighting_3.png)](examples/appearance/camera/lighting/lighting_3.cpp)
+[![example_lighting_3](docs/examples/appearance/camera/lighting/lighting_3.png)](examples/appearance/camera/lighting/lighting_3.cpp)
 
 === "C++"
 
@@ -8648,7 +8648,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_4](docs/examples/appearance/camera/lighting/lighting_4.png)](examples/appearance/camera/lighting/lighting_4.cpp)
+[![example_lighting_4](docs/examples/appearance/camera/lighting/lighting_4.png)](examples/appearance/camera/lighting/lighting_4.cpp)
 
 === "C++"
 
@@ -8660,7 +8660,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_5](docs/examples/appearance/camera/lighting/lighting_5.png)](examples/appearance/camera/lighting/lighting_5.cpp)
+[![example_lighting_5](docs/examples/appearance/camera/lighting/lighting_5.png)](examples/appearance/camera/lighting/lighting_5.cpp)
 
 === "C++"
 
@@ -8672,7 +8672,7 @@ surf(x, y, z)->lighting(true);
 
 ===! "Plot"
 
-    [![example_lighting_6](docs/examples/appearance/camera/lighting/lighting_6.png)](examples/appearance/camera/lighting/lighting_6.cpp)
+[![example_lighting_6](docs/examples/appearance/camera/lighting/lighting_6.png)](examples/appearance/camera/lighting/lighting_6.cpp)
 
 === "C++"
 
@@ -8703,7 +8703,7 @@ figure();
 
 ===! "Plot"
 
-    [![example_figure_1](docs/examples/appearance/figure/figure_1.svg)](examples/appearance/figure/figure_1.cpp)
+[![example_figure_1](docs/examples/appearance/figure/figure_1.svg)](examples/appearance/figure/figure_1.cpp)
 
 === "C++"
 
@@ -8715,7 +8715,7 @@ figure();
 
 ===! "Plot"
 
-    [![example_figure_2](docs/examples/appearance/figure/figure_2.svg)](examples/appearance/figure/figure_2.cpp)
+[![example_figure_2](docs/examples/appearance/figure/figure_2.svg)](examples/appearance/figure/figure_2.cpp)
 
 === "C++"
 
@@ -8727,7 +8727,7 @@ figure();
 
 ===! "Plot"
 
-    [![example_figure_3](docs/examples/appearance/figure/figure_3.svg)](examples/appearance/figure/figure_3.cpp)
+[![example_figure_3](docs/examples/appearance/figure/figure_3.svg)](examples/appearance/figure/figure_3.cpp)
 
 === "C++"
 
@@ -8754,7 +8754,7 @@ fplot(fn, spec_str);
 
 ===! "Plot"
 
-    [![example_line_spec_1](docs/examples/appearance/line_spec/line_spec_1.svg)](examples/appearance/line_spec/line_spec_1.cpp)
+[![example_line_spec_1](docs/examples/appearance/line_spec/line_spec_1.svg)](examples/appearance/line_spec/line_spec_1.cpp)
 
 === "C++"
 
@@ -8782,7 +8782,7 @@ auto ax1 = gca();
 
 ===! "Plot"
 
-    [![example_axes_1](docs/examples/appearance/axes/axes_1.svg)](examples/appearance/axes/axes_1.cpp)
+[![example_axes_1](docs/examples/appearance/axes/axes_1.svg)](examples/appearance/axes/axes_1.cpp)
 
 === "C++"
 
@@ -8794,7 +8794,7 @@ auto ax1 = gca();
 
 ===! "Plot"
 
-    [![example_axes_2](docs/examples/appearance/axes/axes_2.png)](examples/appearance/axes/axes_2.cpp)
+[![example_axes_2](docs/examples/appearance/axes/axes_2.png)](examples/appearance/axes/axes_2.cpp)
 
 === "C++"
 
@@ -8806,7 +8806,7 @@ auto ax1 = gca();
 
 ===! "Plot"
 
-    [![example_axes_3](docs/examples/appearance/axes/axes_3.svg)](examples/appearance/axes/axes_3.cpp)
+[![example_axes_3](docs/examples/appearance/axes/axes_3.svg)](examples/appearance/axes/axes_3.cpp)
 
 === "C++"
 
@@ -8837,7 +8837,7 @@ cla();
 
 ===! "Plot"
 
-    [![example_cla_1](docs/examples/appearance/cla/cla_1.svg)](examples/appearance/cla/cla_1.cpp)
+[![example_cla_1](docs/examples/appearance/cla/cla_1.svg)](examples/appearance/cla/cla_1.cpp)
 
 === "C++"
 
@@ -8849,7 +8849,7 @@ cla();
 
 ===! "Plot"
 
-    [![example_cla_2](docs/examples/appearance/cla/cla_2.svg)](examples/appearance/cla/cla_2.cpp)
+[![example_cla_2](docs/examples/appearance/cla/cla_2.svg)](examples/appearance/cla/cla_2.cpp)
 
 === "C++"
 
@@ -8861,7 +8861,7 @@ cla();
 
 ===! "Plot"
 
-    [![example_cla_3](docs/examples/appearance/cla/cla_3.svg)](examples/appearance/cla/cla_3.cpp)
+[![example_cla_3](docs/examples/appearance/cla/cla_3.svg)](examples/appearance/cla/cla_3.cpp)
 
 === "C++"
 
@@ -8912,7 +8912,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_1](docs/examples/exporting/save/save_1.png)](examples/exporting/save/save_1.cpp)
+[![example_save_1](docs/examples/exporting/save/save_1.png)](examples/exporting/save/save_1.cpp)
 
 === "C++"
 
@@ -8924,7 +8924,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_2](docs/examples/exporting/save/save_2.png)](examples/exporting/save/save_2.cpp)
+[![example_save_2](docs/examples/exporting/save/save_2.png)](examples/exporting/save/save_2.cpp)
 
 === "C++"
 
@@ -8936,7 +8936,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_3](docs/examples/exporting/save/save_3.png)](examples/exporting/save/save_3.cpp)
+[![example_save_3](docs/examples/exporting/save/save_3.png)](examples/exporting/save/save_3.cpp)
 
 === "C++"
 
@@ -8947,7 +8947,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_4](docs/examples/exporting/save/save_4.svg)](examples/exporting/save/save_4.cpp)
+[![example_save_4](docs/examples/exporting/save/save_4.svg)](examples/exporting/save/save_4.cpp)
 
 === "C++"
 
@@ -8959,7 +8959,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_5](docs/examples/exporting/save/save_5.svg)](examples/exporting/save/save_5.cpp)
+[![example_save_5](docs/examples/exporting/save/save_5.svg)](examples/exporting/save/save_5.cpp)
 
 === "C++"
 
@@ -8970,7 +8970,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_6](docs/examples/exporting/save/save_6.svg)](examples/exporting/save/save_6.cpp)
+[![example_save_6](docs/examples/exporting/save/save_6.svg)](examples/exporting/save/save_6.cpp)
 
 === "C++"
 
@@ -8982,7 +8982,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_7](docs/examples/exporting/save/save_7.svg)](examples/exporting/save/save_7.cpp)
+[![example_save_7](docs/examples/exporting/save/save_7.svg)](examples/exporting/save/save_7.cpp)
 
 === "C++"
 
@@ -8994,7 +8994,7 @@ save(filename, fileformat);
 
 ===! "Plot"
 
-    [![example_save_8](docs/examples/exporting/save/save_8.png)](examples/exporting/save/save_8.cpp)
+[![example_save_8](docs/examples/exporting/save/save_8.png)](examples/exporting/save/save_8.cpp)
 
 === "C++"
 
@@ -9303,7 +9303,7 @@ If contributing to the documentation, please edit [`README.md`](README.md) direc
 
 ### Contributors
 
-<!-- readme: collaborators,contributors,ankane -start --> 
+<!-- readme: collaborators,contributors,ankane -start -->
 <table>
 <tr>
     <td align="center">
