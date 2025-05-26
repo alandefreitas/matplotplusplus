@@ -690,6 +690,7 @@ namespace matplot {
         //  {{no}box { {linestyle | ls <line_style>}
         //              | {linetype | lt <line_type>}
         //              {linewidth | lw <line_width>}}}
+        //  {{no}opaque {fc <colorspec>}}
         include_comment("Axes legend");
         // Gnuplot version needs to be 5.2.6+ for keyentry
         bool ok = true;
@@ -753,7 +754,7 @@ namespace matplot {
                 cmd += legend_->vertical() ? " vertical" : " horizontal";
                 // text aligned to the left
                 cmd += " Left";
-                cmd += " opaque";
+                cmd += legend_->opaque() ? " opaque" : " noopaque";
                 cmd +=
                     legend_->label_after_sample() ? " reverse" : " noreverse";
                 cmd += legend_->invert() ? " invert" : " noinvert";

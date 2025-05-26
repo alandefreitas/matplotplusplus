@@ -296,4 +296,8 @@ namespace matplot {
         num_columns_ = 0;
         touch();
     }
+
+    bool legend::opaque() const { return opaque_; }
+
+    void legend::opaque(bool opaque) { opaque_ = opaque; };
 } // namespace matplot

@@ -123,6 +123,9 @@ namespace matplot {
         void text_color(const color_array &text_color);
         template <class T> void text_color(T c) { text_color(to_array(c)); }
 
+        bool opaque() const;
+        void opaque(bool opaque);
+
       private:
         // The keys
         std::vector<std::string> strings_{};
@@ -150,6 +153,7 @@ namespace matplot {
         bool label_after_sample_{true};
         bool invert_{false};
         bool visible_{true};
+        bool opaque_{true};
 
         size_t num_columns_{0};
         size_t num_rows_{0};
