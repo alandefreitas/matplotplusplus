@@ -7,7 +7,7 @@
 #include <matplot/util/common.h>
 #include <matplot/util/popen.h>
 #include <iostream>
-#include <regex>
+#include <charconv>
 #include <thread>
 #include <cstring>
 #include <cstdlib>
@@ -317,13 +317,28 @@ namespace matplot::backend {
         }
     }
 
+    /// returns the next word in text after prefix terminated with white space.
+    static std::string_view word_after(std::string_view text, std::string_view prefix)
+    {
+        auto res = text.substr(0,0);
+        if (auto b = text.find(prefix); b != std::string_view::npos) {
+            b += prefix.length();
+            while (b < text.length() && std::isspace(text[b]))
+                ++b; // skip white space before word
+            auto e = b;
+            while (e < text.length() && !std::isspace(text[e]))
+                ++e; // scan until white space or end
+            res = text.substr(b, e-b);
+        }
+        return res;
+    }
+
     std::string gnuplot::default_terminal_type() {
         static std::string terminal_type;
         const bool dont_know_term_type = terminal_type.empty();
         if (dont_know_term_type) {
             terminal_type = run_and_get_output("gnuplot -e \"show terminal\" 2>&1");
-            terminal_type = std::regex_replace(terminal_type,
-                    std::regex("[^]*terminal type is ([^ ]+)[^]*"), "$1");
+            terminal_type = word_after(terminal_type, "terminal type is ");
             const bool still_dont_know_term_type = terminal_type.empty();
             if (still_dont_know_term_type) {
                 terminal_type = "qt";
@@ -334,52 +349,43 @@ namespace matplot::backend {
 
     bool gnuplot::terminal_is_available(std::string_view term) {
         std::string msg = run_and_get_output("gnuplot -e \"set terminal " +
-                                     std::string(term.data()) + "\" 2>&1");
+                std::string{term} + "\" 2>&1");
         return msg.empty();
     }
 
+    template <typename T>
+    void convert_to(std::string_view text, T& value) {
+        std::from_chars(text.data(), text.data() + text.length(), value);
+    }
+
     std::tuple<int, int, int> gnuplot::gnuplot_version() {
-        static std::tuple<int, int, int> version{0, 0, 0};
-        const bool dont_know_gnuplot_version_yet =
-            version == std::tuple<int, int, int>({0, 0, 0});
-        if (dont_know_gnuplot_version_yet) {
-            std::string version_str =
-                run_and_get_output("gnuplot --version 2>&1");
-            std::string version_major = std::regex_replace(
-                version_str,
-                std::regex("[^]*gnuplot (\\d+)\\.\\d+ patchlevel \\d+ *"),
-                "$1");
-            std::string version_minor = std::regex_replace(
-                version_str,
-                std::regex("[^]*gnuplot \\d+\\.(\\d+) patchlevel \\d+ *"),
-                "$1");
-            std::string version_patch = std::regex_replace(
-                version_str,
-                std::regex("[^]*gnuplot \\d+\\.\\d+ patchlevel (\\d+) *"),
-                "$1");
-            try {
-                std::get<0>(version) = std::stoi(version_major);
-            } catch (...) {
-                std::get<0>(version) = 0;
+        constexpr auto version_zero = std::make_tuple(0, 0, 0);
+        static auto version = version_zero;
+        if (version == version_zero) { // unknown version
+            const auto version_str = run_and_get_output("gnuplot --version 2>&1");
+            // gnuplot version_str example: "5.2 patchlevel 6"
+            const auto major_minor = word_after(version_str, "gnuplot"); // "5.2"
+            const auto minor = word_after(major_minor, "."); // "2"
+            const auto patch = word_after(version_str, "patchlevel"); // "6"
+            if (!major_minor.empty() && !minor.empty() && !patch.empty()) {
+                convert_to(major_minor, std::get<0>(version));
+                convert_to(minor, std::get<1>(version));
+                convert_to(patch, std::get<2>(version));
             }
-            try {
-                std::get<1>(version) = std::stoi(version_minor);
-            } catch (...) {
-                std::get<1>(version) = 0;
-            }
-            try {
-                std::get<2>(version) = std::stoi(version_patch);
-            } catch (...) {
-                std::get<2>(version) = 0;
-            }
-            const bool still_dont_know_gnuplot_version =
-                version == std::tuple<int, int, int>({0, 0, 0});
-            if (still_dont_know_gnuplot_version) {
-                // assume it's 5.2.6 by convention
-                version = std::tuple<int, int, int>({5, 2, 6});
-            }
+            if (version == version_zero) // still unknown
+                version = {5, 2, 6}; // assume by convention
         }
         return version;
+    }
+
+    bool gnuplot::gnuplot_includes_legends() {
+        return gnuplot_version() >= std::make_tuple(5, 2, 6);
+    }
+    bool gnuplot::gnuplot_has_wall_option() {
+        return gnuplot_version() >= std::make_tuple(5, 5, 0);
+    }
+    bool gnuplot::gnuplot_supports_keyentry() {
+        return gnuplot_version() >= std::make_tuple(5, 2, 6);
     }
 
     bool gnuplot::terminal_has_title_option(const std::string &t) {
