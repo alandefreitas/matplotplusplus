@@ -73,7 +73,7 @@ namespace matplot::backend {
         // http://www.gnuplot.info/files/gpReadMouseTest.c
         static constexpr bool allow_using_mouse = true;
 
-#if defined(TRACE_GNUPLOT_COMMANDS) &&                                         \
+#if defined(MATPLOT_TRACE_GNUPLOT_COMMANDS) &&                                         \
     !defined(MATPLOT_BUILD_FOR_DOCUMENTATION_IMAGES)
         static constexpr bool trace_commands = true;
 #else

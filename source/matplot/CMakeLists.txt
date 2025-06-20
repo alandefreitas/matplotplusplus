@@ -156,6 +156,14 @@ else ()
     message("Not including the high resolution maps for geoplots")
 endif ()
 
+# Tracing gnuplot commands for debugging
+if (MATPLOT_TRACE_GNUPLOT_COMMANDS)
+    if (MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES)
+        message(FATAL_ERROR "MATPLOT_TRACE_GNUPLOT_COMMANDS is not compatible with MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES")
+    endif()
+    target_compile_definitions(matplot PUBLIC MATPLOT_TRACE_GNUPLOT_COMMANDS)
+endif ()
+
 #######################################################
 ### Library options                                 ###
 #######################################################
