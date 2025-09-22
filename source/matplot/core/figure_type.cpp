@@ -633,9 +633,7 @@ namespace matplot {
     void figure_type::run_window_color_command() {
         // In gnuplot 5.5 we have the wall function to set the axes color
         // with a rectangle workaround, which does not work well for 3d.
-        static const auto v = backend::gnuplot::gnuplot_version();
-        const bool has_wall_option =
-            std::get<0>(v) > 5 || (std::get<0>(v) == 5 && std::get<1>(v) >= 5);
+        const bool has_wall_option = backend::gnuplot::gnuplot_has_wall_option();
         // So we only plot the default background if it's not 3d or version is
         // higher than 5.5. Otherwise, gnuplot won't be able to set the axes
         // colors.
