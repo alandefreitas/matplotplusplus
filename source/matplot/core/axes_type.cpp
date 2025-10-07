@@ -914,7 +914,7 @@ namespace matplot {
             static bool msg_shown_once = false;
             // Gnuplot version needs to be 5.2.6+ for keyentry
             if (parent_->backend_->consumes_gnuplot_commands()) {
-                if (backend::gnuplot::gnuplot_includes_legends()) {
+                if (!backend::gnuplot::gnuplot_includes_legends()) {
                     if (!msg_shown_once) {
                         std::cerr
                             << "You need gnuplot 5.2.6+ to include legends"
