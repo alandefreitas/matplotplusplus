@@ -17,6 +17,7 @@ namespace matplot::backend {
       public:
         gnuplot();
         virtual ~gnuplot();
+        void lazy_init_pipe() override;
         bool is_interactive() override;
         const std::string &output() override;
         const std::string &output_format() override;

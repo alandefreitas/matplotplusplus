@@ -10,6 +10,11 @@ namespace matplot::backend {
     bool backend_interface::consumes_gnuplot_commands() { return false; }
 
     bool backend_interface::is_interactive() { return true; }
+    
+    void backend_interface::lazy_init_pipe() {
+        // Default implementation does nothing
+        return;
+    }
 
     const std::string &backend_interface::output() {
         const static std::string r{};
@@ -157,6 +162,7 @@ namespace matplot::backend {
         // The default implementation waits for the user to interact with the
         // console. In interactive backends we expect this to start a render
         // loop that will stop only when the user closes the window.
+        //TODO: initialize the pipe
         f->draw();
         matplot::wait();
     }

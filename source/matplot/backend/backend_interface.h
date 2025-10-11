@@ -55,6 +55,8 @@ namespace matplot {
             /// libraries such as http://www.geuz.org/gl2ps/
             /// can be used.
             virtual bool is_interactive();
+            
+            virtual void lazy_init_pipe();
 
             /// \brief If non-interactive, get the file where we should output
             /// our data

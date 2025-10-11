@@ -32,6 +32,8 @@ namespace matplot {
     figure_type::~figure_type() = default;
 #endif
 
+
+
     void figure_type::include_comment(const std::string &text) {
         backend_->include_comment(text);
     }
@@ -40,6 +42,8 @@ namespace matplot {
         backend_->run_command(command);
     }
 
+
+    //TODO:save logic
     void figure_type::draw() {
         // if there's no backend, then we use the default
         if (backend_ == nullptr) {
@@ -92,6 +96,7 @@ namespace matplot {
     }
 
     void figure_type::send_gnuplot_draw_commands() {
+        
         include_comment("Setting figure properties");
         run_figure_properties_command();
         if (children_.empty()) {
@@ -131,7 +136,9 @@ namespace matplot {
         }
     }
 
-    void figure_type::show() { backend_->show(this); }
+    void figure_type::show() { 
+        backend_->lazy_init_pipe();
+        backend_->show(this); }
 
     void figure_type::touch() {
         if (!quiet_mode_) {
@@ -144,6 +151,7 @@ namespace matplot {
         backend_->render_data();
     }
 
+    //TODO: Save logical
     bool figure_type::save(const std::string &filename,
                            const std::string &format) {
         try {
@@ -158,7 +166,8 @@ namespace matplot {
             return false;
         }
     }
-
+    
+    //TODO: Save logical
     bool figure_type::save(const std::string &filename) {
         try {
             auto pout = backend_->output();
