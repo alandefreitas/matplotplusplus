@@ -56,6 +56,8 @@ namespace matplot {
             /// can be used.
             virtual bool is_interactive();
             
+
+            /// \brief open the gnuplot pipe not at construction time 
             virtual void lazy_init_pipe();
 
             /// \brief If non-interactive, get the file where we should output

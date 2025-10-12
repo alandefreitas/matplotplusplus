@@ -76,26 +76,6 @@ namespace matplot::backend {
             terminal_ = default_terminal_type();
         }
 
-        // Open the gnuplot pipe_
-        // int perr;
-        // if constexpr (windows_should_persist_by_default) {
-        //     perr = pipe_.open("gnuplot --persist");
-        // } else {
-        //     perr = pipe_.open("gnuplot");
-        // }
-
-        // // if (perr == 0 && pipe_.opened()) {
-        // //     run_command("set terminal dumb");
-        // //     run_command("set output '/dev/null'");
-        // // }
-        // // Check if everything is OK
-        // if (perr != 0 || !pipe_.opened()) {
-        //     std::cerr << "Opening the gnuplot failed: ";
-        //     std::cerr << pipe_.error() << std::endl;
-        //     std::cerr
-        //         << "Please install gnuplot 5.2.6+: http://www.gnuplot.info"
-        //         << std::endl;
-        // }
     }
 
     gnuplot::~gnuplot() {
@@ -309,20 +289,6 @@ namespace matplot::backend {
         if constexpr (dont_let_it_close_too_fast) {
             last_flush_ = std::chrono::high_resolution_clock::now();
         }
-        // if (!pipe_.opened()) {
-        //     int perr;
-        //     if constexpr (windows_should_persist_by_default) {
-        //         perr = pipe_.open("gnuplot --persist");
-        //     } else {
-        //         perr = pipe_.open("gnuplot");
-        //     }
-        // }
-        // pipe_.flush("\n");
-        // if constexpr (trace_commands) {
-        //     std::cout << "\n\n\n\n" << std::endl;
-        // }
-
-        // when the pipe has been opend, flushed the content in pipe
         if (pipe_.opened()) {
             pipe_.flush("\n");
             if constexpr (trace_commands) {
