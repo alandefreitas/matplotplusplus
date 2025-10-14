@@ -94,7 +94,7 @@ namespace matplot {
     }
 
     void figure_type::send_gnuplot_draw_commands() {
-        
+
         include_comment("Setting figure properties");
         run_figure_properties_command();
         if (children_.empty()) {
@@ -134,10 +134,9 @@ namespace matplot {
         }
     }
 
-    void figure_type::show() { 
-        // open the gnu pipe when show method is called
-        backend_->lazy_init_pipe();
-        backend_->show(this); }
+    void figure_type::show() {
+        backend_->show(this);
+    }
 
     void figure_type::touch() {
         if (!quiet_mode_) {
@@ -164,7 +163,7 @@ namespace matplot {
             return false;
         }
     }
-    
+
     bool figure_type::save(const std::string &filename) {
         try {
             auto pout = backend_->output();

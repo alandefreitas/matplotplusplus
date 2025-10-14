@@ -87,6 +87,10 @@ namespace matplot::backend {
     }
 
     void gnuplot::lazy_init_pipe() {
+        if(pipe_.opened()){
+            flush_commands();
+            return;
+        }
         int perr;
         if constexpr (windows_should_persist_by_default) {
             perr = pipe_.open("gnuplot --persist");
