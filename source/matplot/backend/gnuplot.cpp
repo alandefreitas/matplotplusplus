@@ -62,12 +62,6 @@ namespace matplot::backend {
             // 2nd option: wxt on windows, even if not default
             terminal_ = "wxt";
 #endif
-            /***
-             * TODO:when we construct gnuplot object,
-             * we should not set terminal to dumb directly,
-             * we should check the saving command
-             ***/
-
         } else if (terminal_is_available("qt")) {
             // 3rd option: qt
             terminal_ = "qt";

@@ -42,8 +42,6 @@ namespace matplot {
         backend_->run_command(command);
     }
 
-
-    //TODO:save logic
     void figure_type::draw() {
         // if there's no backend, then we use the default
         if (backend_ == nullptr) {
@@ -137,6 +135,7 @@ namespace matplot {
     }
 
     void figure_type::show() { 
+        // open the gnu pipe when show method is called
         backend_->lazy_init_pipe();
         backend_->show(this); }
 
@@ -151,7 +150,6 @@ namespace matplot {
         backend_->render_data();
     }
 
-    //TODO: Save logical
     bool figure_type::save(const std::string &filename,
                            const std::string &format) {
         try {
@@ -167,7 +165,6 @@ namespace matplot {
         }
     }
     
-    //TODO: Save logical
     bool figure_type::save(const std::string &filename) {
         try {
             auto pout = backend_->output();

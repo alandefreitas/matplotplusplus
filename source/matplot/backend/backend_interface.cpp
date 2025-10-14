@@ -162,7 +162,6 @@ namespace matplot::backend {
         // The default implementation waits for the user to interact with the
         // console. In interactive backends we expect this to start a render
         // loop that will stop only when the user closes the window.
-        //TODO: initialize the pipe
         f->draw();
         matplot::wait();
     }
