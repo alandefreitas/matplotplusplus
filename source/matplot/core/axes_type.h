@@ -21,8 +21,7 @@
 #include <matplot/axes_objects/line.h>
 
 #include <optional>
-
-
+#include <shared_mutex>
 
 namespace matplot {
     class MATPLOT_EXPORTS axes_type : public std::enable_shared_from_this<class axes_type> {
@@ -2887,6 +2886,9 @@ namespace matplot {
         // we don't need a shared_ptr here because there is no
         // relationship of ownership
         class figure_type *parent_;
+
+        // Thread safety
+        mutable std::shared_mutex mutex_;
     };
 
 } // namespace matplot

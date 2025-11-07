@@ -152,6 +152,10 @@ namespace matplot {
     }
 
     std::string line::data_string() {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        const auto& active_x_data = use_buffer_.load(std::memory_order_acquire) ? x_data_buffer_ : x_data_;
+        const auto& active_y_data = use_buffer_.load(std::memory_order_acquire) ? y_data_buffer_ : y_data_;
+        const auto& active_z_data = use_buffer_.load(std::memory_order_acquire) ? z_data_buffer_ : z_data_;
         const bool markers_are_automatic = marker_indices_.empty();
         // const bool has_line_and_marker = line_spec_.has_line() &&
         // line_spec_.has_non_custom_marker(); const bool can_plot_together =
@@ -160,7 +164,7 @@ namespace matplot {
         // has_line_and_marker; const bool needs_to_plot_twice =
         // !can_plot_together && has_line_and_marker; size_t repetitions = 1 +
         // needs_to_plot_twice;
-        const bool x_is_manual = !x_data_.empty();
+        const bool x_is_manual = !active_x_data.empty();
 
         std::stringstream ss;
         ss.precision(10);
@@ -174,7 +178,7 @@ namespace matplot {
                     !markers_are_automatic && data_is_for_markers;
                 const size_t n_points = only_at_marker_indices
                                             ? marker_indices_.size()
-                                            : y_data_.size();
+                                            : active_y_data.size();
 
                 const bool marker_size_is_variable = !marker_sizes_.empty();
                 const bool we_are_plotting_markers =
@@ -194,20 +198,20 @@ namespace matplot {
                     size_t index =
                         only_at_marker_indices ? marker_indices_[i] : i;
 
-                    if (x_is_manual && index >= x_data_.size()) {
+                    if (x_is_manual && index >= active_x_data.size()) {
                         break;
                     }
-                    double x_value = x_is_manual ? x_data_[index] : index + 1;
-                    if (!std::isfinite(x_value) || !std::isfinite(y_data_[i])) {
+                    double x_value = x_is_manual ? active_x_data[index] : index + 1;
+                    if (!std::isfinite(x_value) || !std::isfinite(active_y_data[i])) {
                         ss << "    \n";
                         continue;
                     }
                     ss << "    " << x_value;
 
-                    ss << "  " << y_data_[index];
+                    ss << "  " << active_y_data[index];
 
                     if (is_3d()) {
-                        ss << "  " << z_data_[index];
+                        ss << "  " << active_z_data[index];
                     }
 
                     if (include_marker_size) {
@@ -242,24 +246,27 @@ namespace matplot {
     }
 
     double line::xmax() {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        const auto& active_x_data = use_buffer_.load(std::memory_order_acquire) ? x_data_buffer_ : x_data_;
+        const auto& active_y_data = use_buffer_.load(std::memory_order_acquire) ? y_data_buffer_ : y_data_;
         if (!is_polar()) {
-            if (x_data_.empty()) {
-                if (!y_data_.empty()) {
-                    return static_cast<double>(y_data_.size() - 1);
+            if (active_x_data.empty()) {
+                if (!active_y_data.empty()) {
+                    return static_cast<double>(active_y_data.size() - 1);
                 } else {
                     return axes_object::xmax();
                 }
             }
-            return *std::max_element(x_data_.begin(), x_data_.end());
+            return *std::max_element(active_x_data.begin(), active_x_data.end());
         } else {
             // y = rho
             if (parent_->r_axis().limits_mode_manual()) {
-                return +(parent_->r_axis().limits()[1] -
+                return +(parent_->r_axis().limits()[1] - 
                          parent_->r_axis().limits()[0]);
             }
-            auto [min_rho, max_rho] =
-                std::minmax_element(y_data_.begin(), y_data_.end());
-            if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
+            auto [min_rho, max_rho] = 
+                std::minmax_element(active_y_data.begin(), active_y_data.end());
+            if (max_rho != active_y_data.end() && min_rho != active_y_data.end()) {
                 return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
@@ -268,24 +275,27 @@ namespace matplot {
     }
 
     double line::xmin() {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        const auto& active_x_data = use_buffer_.load(std::memory_order_acquire) ? x_data_buffer_ : x_data_;
+        const auto& active_y_data = use_buffer_.load(std::memory_order_acquire) ? y_data_buffer_ : y_data_;
         if (!is_polar()) {
-            if (x_data_.empty()) {
-                if (!y_data_.empty()) {
+            if (active_x_data.empty()) {
+                if (!active_y_data.empty()) {
                     return 0;
                 } else {
                     return axes_object::xmin();
                 }
             }
-            return *std::min_element(x_data_.begin(), x_data_.end());
+            return *std::min_element(active_x_data.begin(), active_x_data.end());
         } else {
             // y = rho
             if (parent_->r_axis().limits_mode_manual()) {
-                return -(parent_->r_axis().limits()[1] -
+                return -(parent_->r_axis().limits()[1] - 
                          parent_->r_axis().limits()[0]);
             }
-            auto [min_rho, max_rho] =
-                std::minmax_element(y_data_.begin(), y_data_.end());
-            if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
+            auto [min_rho, max_rho] = 
+                std::minmax_element(active_y_data.begin(), active_y_data.end());
+            if (max_rho != active_y_data.end() && min_rho != active_y_data.end()) {
                 return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
@@ -294,20 +304,22 @@ namespace matplot {
     }
 
     double line::ymax() {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        const auto& active_y_data = use_buffer_.load(std::memory_order_acquire) ? y_data_buffer_ : y_data_;
         if (!is_polar()) {
-            if (y_data_.empty()) {
+            if (active_y_data.empty()) {
                 return axes_object::ymax();
             }
-            return *std::max_element(y_data_.begin(), y_data_.end());
+            return *std::max_element(active_y_data.begin(), active_y_data.end());
         } else {
             // y = rho
             if (parent_->r_axis().limits_mode_manual()) {
-                return +(parent_->r_axis().limits()[1] -
+                return +(parent_->r_axis().limits()[1] - 
                          parent_->r_axis().limits()[0]);
             }
-            auto [min_rho, max_rho] =
-                std::minmax_element(y_data_.begin(), y_data_.end());
-            if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
+            auto [min_rho, max_rho] = 
+                std::minmax_element(active_y_data.begin(), active_y_data.end());
+            if (max_rho != active_y_data.end() && min_rho != active_y_data.end()) {
                 return +round_polar_max(std::abs(*max_rho));
             } else {
                 return 1;
@@ -316,20 +328,22 @@ namespace matplot {
     }
 
     double line::ymin() {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        const auto& active_y_data = use_buffer_.load(std::memory_order_acquire) ? y_data_buffer_ : y_data_;
         if (!is_polar()) {
-            if (y_data_.empty()) {
+            if (active_y_data.empty()) {
                 return axes_object::ymin();
             }
-            return *std::min_element(y_data_.begin(), y_data_.end());
+            return *std::min_element(active_y_data.begin(), active_y_data.end());
         } else {
             // y = rho
             if (parent_->r_axis().limits_mode_manual()) {
-                return -(parent_->r_axis().limits()[1] -
+                return -(parent_->r_axis().limits()[1] - 
                          parent_->r_axis().limits()[0]);
             }
-            auto [min_rho, max_rho] =
-                std::minmax_element(y_data_.begin(), y_data_.end());
-            if (max_rho != y_data_.end() && min_rho != y_data_.end()) {
+            auto [min_rho, max_rho] = 
+                std::minmax_element(active_y_data.begin(), active_y_data.end());
+            if (max_rho != active_y_data.end() && min_rho != active_y_data.end()) {
                 return -round_polar_max(std::abs(*max_rho));
             } else {
                 return -1;
@@ -367,26 +381,71 @@ namespace matplot {
         return *this;
     }
 
-    const std::vector<double> &line::y_data() const { return y_data_; }
+    const std::vector<double> &line::y_data() const {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            return y_data_buffer_;
+        } else {
+            return y_data_;
+        }
+    }
 
     class line &line::y_data(const std::vector<double> &y_data) {
-        y_data_ = y_data;
+        std::unique_lock<std::shared_mutex> lock(data_mutex_);
+        // Write to the inactive buffer
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            y_data_ = y_data;
+        } else {
+            y_data_buffer_ = y_data;
+        }
+        // Toggle buffer
+        use_buffer_.store(!use_buffer_.load(std::memory_order_acquire), std::memory_order_release);
         touch();
         return *this;
     }
 
-    const std::vector<double> &line::x_data() const { return x_data_; }
+    const std::vector<double> &line::x_data() const {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            return x_data_buffer_;
+        } else {
+            return x_data_;
+        }
+    }
 
     class line &line::x_data(const std::vector<double> &x_data) {
-        x_data_ = x_data;
+        std::unique_lock<std::shared_mutex> lock(data_mutex_);
+        // Write to the inactive buffer
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            x_data_ = x_data;
+        } else {
+            x_data_buffer_ = x_data;
+        }
+        // Toggle buffer
+        use_buffer_.store(!use_buffer_.load(std::memory_order_acquire), std::memory_order_release);
         touch();
         return *this;
     }
 
-    const std::vector<double> &line::z_data() const { return z_data_; }
+    const std::vector<double> &line::z_data() const {
+        std::shared_lock<std::shared_mutex> lock(data_mutex_);
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            return z_data_buffer_;
+        } else {
+            return z_data_;
+        }
+    }
 
     class line &line::z_data(const std::vector<double> &z_data) {
-        z_data_ = z_data;
+        std::unique_lock<std::shared_mutex> lock(data_mutex_);
+        // Write to the inactive buffer
+        if (use_buffer_.load(std::memory_order_acquire)) {
+            z_data_ = z_data;
+        } else {
+            z_data_buffer_ = z_data;
+        }
+        // Toggle buffer
+        use_buffer_.store(!use_buffer_.load(std::memory_order_acquire), std::memory_order_release);
         touch();
         return *this;
     }

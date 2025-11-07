@@ -12,6 +12,8 @@
 #include <matplot/util/concepts.h>
 #include <matplot/util/handle_types.h>
 #include <array>
+#include <atomic>
+#include <shared_mutex>
 
 namespace matplot {
     class axes_type;
@@ -168,10 +170,15 @@ namespace matplot {
         /// Line style
         matplot::line_spec line_spec_;
 
-        /// Data in the xlim
+        /// Double buffering for dynamic data updates
         std::vector<double> y_data_{};
         std::vector<double> x_data_{};
         std::vector<double> z_data_{};
+        std::vector<double> y_data_buffer_{};
+        std::vector<double> x_data_buffer_{};
+        std::vector<double> z_data_buffer_{};
+        std::atomic<bool> use_buffer_{false};
+        mutable std::shared_mutex data_mutex_;
 
         /// Positions at which we want markers to appear
         std::vector<size_t> marker_indices_{};

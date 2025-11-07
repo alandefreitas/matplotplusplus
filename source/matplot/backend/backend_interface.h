@@ -9,6 +9,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <shared_mutex>
 
 namespace matplot {
     class figure_type;

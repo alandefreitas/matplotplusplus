@@ -41,6 +41,8 @@ namespace matplot {
     }
 
     void figure_type::draw() {
+        std::unique_lock<std::shared_mutex> lock(mutex_);
+
         // if there's no backend, then we use the default
         if (backend_ == nullptr) {
             backend_ = create_default_backend();
@@ -547,6 +549,7 @@ namespace matplot {
     }
 
     axes_handle figure_type::current_axes() {
+        std::unique_lock<std::shared_mutex> lock(mutex_);
         axes_handle h = current_axes_;
         if (!h) {
             h = this->add_axes();
@@ -554,9 +557,13 @@ namespace matplot {
         return h;
     }
 
-    axes_handle figure_type::current_axes() const { return current_axes_; }
+    axes_handle figure_type::current_axes() const {
+        std::shared_lock<std::shared_mutex> lock(mutex_);
+        return current_axes_;
+    }
 
     void figure_type::current_axes(const axes_handle &current_axes) {
+        std::unique_lock<std::shared_mutex> lock(mutex_);
         current_axes_ = current_axes;
         // bring axes to front
         auto it = std::find(children_.begin(), children_.end(), current_axes);
@@ -883,11 +890,13 @@ namespace matplot {
 
     const std::shared_ptr<backend::backend_interface> &
     figure_type::backend() const {
+        std::shared_lock<std::shared_mutex> lock(mutex_);
         return backend_;
     }
 
     void figure_type::backend(
         const std::shared_ptr<backend::backend_interface> &new_backend) {
+        std::unique_lock<std::shared_mutex> lock(mutex_);
         backend_ = new_backend;
     }
 

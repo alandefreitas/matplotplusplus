@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <shared_mutex>
 
 namespace matplot {
     class axes_type;
@@ -319,6 +320,9 @@ namespace matplot {
         size_t tiledlayout_rows_ = 1;
         size_t tiledlayout_cols_ = 1;
         bool tiledlayout_flow_ = true;
+
+        // Thread safety
+        mutable std::shared_mutex mutex_;
     };
 
 } // namespace matplot
