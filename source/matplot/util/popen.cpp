@@ -3,6 +3,7 @@
 #include <array>
 #include <system_error>
 #include <cstring> // strerror
+#include <cstdlib> // exit
 
 #ifdef _WIN32
 
